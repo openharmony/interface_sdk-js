@@ -23,7 +23,6 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods to operate or manage Bluetooth.
  *
- * @namespace bluetoothManager
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 9 dynamiconly
  * @deprecated since 10
@@ -31,36 +30,20 @@ import type { AsyncCallback, Callback } from './@ohos.base';
 declare namespace bluetoothManager {
   /**
    * Obtains the Bluetooth status of a device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @returns { BluetoothState } Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
-   * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
-   * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
-   * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
+   *     {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON},
+   *     {@link BluetoothState#STATE_TURNING_OFF}, {@link BluetoothState#STATE_BLE_TURNING_ON},
+   *     {@link BluetoothState#STATE_BLE_ON}, or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.access/access#getState
-   */
-  /**
-   * Obtains the Bluetooth status of a device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { BluetoothState } Returns the Bluetooth status, which can be {@link BluetoothState#STATE_OFF},
-   * {@link BluetoothState#STATE_TURNING_ON}, {@link BluetoothState#STATE_ON}, {@link BluetoothState#STATE_TURNING_OFF},
-   * {@link BluetoothState#STATE_BLE_TURNING_ON}, {@link BluetoothState#STATE_BLE_ON},
-   * or {@link BluetoothState#STATE_BLE_TURNING_OFF}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#getState
    */
@@ -68,36 +51,20 @@ declare namespace bluetoothManager {
 
   /**
    * Get the local device connection state to any profile of any remote device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @returns { ProfileConnectionState } One of {@link ProfileConnectionState#STATE_DISCONNECTED},
-   * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
-   * {@link ProfileConnectionState#STATE_DISCONNECTING}.
+   *     {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
+   *     {@link ProfileConnectionState#STATE_DISCONNECTING}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
-   */
-  /**
-   * Get the local device connection state to any profile of any remote device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { ProfileConnectionState } One of {@link ProfileConnectionState#STATE_DISCONNECTED},
-   * {@link ProfileConnectionState#STATE_CONNECTING}, {@link ProfileConnectionState#STATE_CONNECTED},
-   * {@link ProfileConnectionState#STATE_DISCONNECTING}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
    */
@@ -105,36 +72,21 @@ declare namespace bluetoothManager {
 
   /**
    * Starts pairing with a remote Bluetooth device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } deviceId - The address of the remote device to pair.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#pairDevice
-   */
-  /**
-   * Starts pairing with a remote Bluetooth device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - The address of the remote device to pair.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#pairDevice
    */
@@ -142,40 +94,23 @@ declare namespace bluetoothManager {
 
   /**
    * Remove a paired remote device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } deviceId - The address of the remote device to be removed.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi Hide this for inner system use.
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#cancelPairedDevice
-   */
-  /**
-   * Remove a paired remote device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - The address of the remote device to be removed.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @systemapi Hide this for inner system use.
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#cancelPairedDevice
    */
@@ -183,38 +118,21 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the name of a peer Bluetooth device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } deviceId - The address of the remote device.
    * @returns { string } Returns the device name in character string format.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceName
-   */
-  /**
-   * Obtains the name of a peer Bluetooth device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - The address of the remote device.
-   * @returns { string } Returns the device name in character string format.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceName
    */
@@ -222,38 +140,21 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the class of a peer Bluetooth device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } deviceId - The address of the remote device.
    * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceClass
-   */
-  /**
-   * Obtains the class of a peer Bluetooth device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } deviceId - The address of the remote device.
-   * @returns { DeviceClass } The class of the remote device, {@link DeviceClass}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getRemoteDeviceClass
    */
@@ -261,28 +162,17 @@ declare namespace bluetoothManager {
 
   /**
    * Enables Bluetooth on a device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.access/access#enableBluetooth
-   */
-  /**
-   * Enables Bluetooth on a device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#enableBluetooth
    */
@@ -290,28 +180,17 @@ declare namespace bluetoothManager {
 
   /**
    * Disables Bluetooth on a device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.access/access#disableBluetooth
-   */
-  /**
-   * Disables Bluetooth on a device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access#disableBluetooth
    */
@@ -319,30 +198,17 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the Bluetooth local name of a device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @returns { string } Returns the name the device.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getLocalName
-   */
-  /**
-   * Obtains the Bluetooth local name of a device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { string } Returns the name the device.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getLocalName
    */
@@ -350,8 +216,10 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the list of Bluetooth devices that have been paired with the current device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -359,23 +227,7 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getPairedDevices
-   */
-  /**
-   * Obtains the list of Bluetooth devices that have been paired with the current device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { Array<string> } Returns a list of paired Bluetooth devices's address.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getPairedDevices
    */
@@ -383,40 +235,22 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the connection state of profile.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { ProfileId } profileId - The profile id.
    * @returns { ProfileConnectionState } Returns the connection state.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
-   */
-  /**
-   * Obtains the connection state of profile.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { ProfileId } profileId - The profile id.
-   * @returns { ProfileConnectionState } Returns the connection state.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900004 - Profile not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getProfileConnectionState
    */
@@ -424,38 +258,23 @@ declare namespace bluetoothManager {
 
   /**
    * Sets the confirmation of pairing with a certain device.
+   * On API 10 and above, the permission required by this interface is changed from MANAGE_BLUETOOTH to ACCESS_BLUETOOTH
+   * and MANAGE_BLUETOOTH.
    *
-   * @permission ohos.permission.MANAGE_BLUETOOTH
+   * @permission ohos.permission.MANAGE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 10]
    * @param { string } device - The address of the remote device.
-   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
+   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or
+   *     {@code false} otherwise.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#setDevicePairingConfirmation
-   */
-  /**
-   * Sets the confirmation of pairing with a certain device.
-   * The permission required by this interface is changed from MANAGE_BLUETOOTH to ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
-   * @param { string } device - The address of the remote device.
-   * @param { boolean } accept - Indicates whether to accept the pairing request, {@code true} indicates accept or {@code false} otherwise.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setDevicePairingConfirmation
    */
@@ -463,36 +282,21 @@ declare namespace bluetoothManager {
 
   /**
    * Sets the Bluetooth friendly name of a device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } name - Indicates a valid Bluetooth name.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#setLocalName
-   */
-  /**
-   * Sets the Bluetooth friendly name of a device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } name - Indicates a valid Bluetooth name.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setLocalName
    */
@@ -500,38 +304,21 @@ declare namespace bluetoothManager {
 
   /**
    * Sets the Bluetooth scan mode for a device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { ScanMode } mode - Indicates the Bluetooth scan mode to set, {@link ScanMode}.
    * @param { number } duration - Indicates the duration in seconds, in which the host is discoverable.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#setBluetoothScanMode
-   */
-  /**
-   * Sets the Bluetooth scan mode for a device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { ScanMode } mode - Indicates the Bluetooth scan mode to set, {@link ScanMode}.
-   * @param { number } duration - Indicates the duration in seconds, in which the host is discoverable.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#setBluetoothScanMode
    */
@@ -539,8 +326,10 @@ declare namespace bluetoothManager {
 
   /**
    * Obtains the Bluetooth scanning mode of a device.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -548,23 +337,7 @@ declare namespace bluetoothManager {
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#getBluetoothScanMode
-   */
-  /**
-   * Obtains the Bluetooth scanning mode of a device.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @returns { ScanMode } Returns the Bluetooth scanning mode, {@link ScanMode}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#getBluetoothScanMode
    */
@@ -572,31 +345,19 @@ declare namespace bluetoothManager {
 
   /**
    * Starts scanning Bluetooth devices.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH and LOCATION and
+   * APPROXIMATELY_LOCATION to ACCESS_BLUETOOTH.
    *
    * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.LOCATION
-   *     and ohos.permission.APPROXIMATELY_LOCATION
+   *     and ohos.permission.APPROXIMATELY_LOCATION [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#startBluetoothDiscovery
-   */
-  /**
-   * Starts scanning Bluetooth devices.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH and LOCATION and APPROXIMATELY_LOCATION to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#startBluetoothDiscovery
    */
@@ -604,30 +365,18 @@ declare namespace bluetoothManager {
 
   /**
    * Stops Bluetooth device scanning.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection#stopBluetoothDiscovery
-   */
-  /**
-   * Stops Bluetooth device scanning.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection#stopBluetoothDiscovery
    */
@@ -635,34 +384,19 @@ declare namespace bluetoothManager {
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.on#event:bluetoothDeviceFind
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is discovered.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:bluetoothDeviceFind
    */
@@ -670,30 +404,17 @@ declare namespace bluetoothManager {
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is discovered.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
    * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.off#event:bluetoothDeviceFind
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is discovered.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bluetoothDeviceFind' } type - Type of the discovering event to listen for.
-   * @param { Callback<Array<string>> } callback - Callback used to listen for the discovering event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:bluetoothDeviceFind
    */
@@ -701,34 +422,20 @@ declare namespace bluetoothManager {
 
   /**
    * Subscribe the event reported when a remote Bluetooth device is bonded.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
-   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event, {@link BondStateParam}.
+   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event,
+   *     {@link BondStateParam}.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.on#event:bondStateChange
-   */
-  /**
-   * Subscribe the event reported when a remote Bluetooth device is bonded.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
-   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event, {@link BondStateParam}.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:bondStateChange
    */
@@ -736,34 +443,19 @@ declare namespace bluetoothManager {
 
   /**
    * Unsubscribe the event reported when a remote Bluetooth device is bonded.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
    * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.off#event:bondStateChange
-   */
-  /**
-   * Unsubscribe the event reported when a remote Bluetooth device is bonded.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'bondStateChange' } type - Type of the bond state event to listen for.
-   * @param { Callback<BondStateParam> } callback - Callback used to listen for the bond state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:bondStateChange
    */
@@ -771,34 +463,20 @@ declare namespace bluetoothManager {
 
   /**
    * Subscribe the event of a pairing request from a remote Bluetooth device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.on#event:pinRequired
-   */
-  /**
-   * Subscribe the event of a pairing request from a remote Bluetooth device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
-   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.on#event:pinRequired
    */
@@ -806,34 +484,20 @@ declare namespace bluetoothManager {
 
   /**
    * Unsubscribe the event of a pairing request from a remote Bluetooth device.
+   * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+   * ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.DISCOVER_BLUETOOTH
+   * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
    * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.connection/connection.off#event:pinRequired
-   */
-  /**
-   * Unsubscribe the event of a pairing request from a remote Bluetooth device.
-   * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'pinRequired' } type - Type of the pairing request event to listen for.
-   * @param { Callback<PinRequiredParam> } callback - Callback used to listen for the pairing request event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.connection/connection.off#event:pinRequired
    */
@@ -841,34 +505,19 @@ declare namespace bluetoothManager {
 
   /**
    * Subscribe the event reported when the Bluetooth state changes.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.access/access.on#event:stateChange
-   */
-  /**
-   * Subscribe the event reported when the Bluetooth state changes.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access.on#event:stateChange
    */
@@ -876,34 +525,19 @@ declare namespace bluetoothManager {
 
   /**
    * Unsubscribe the event reported when the Bluetooth state changes.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
    * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.access/access.off#event:stateChange
-   */
-  /**
-   * Unsubscribe the event reported when the Bluetooth state changes.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { 'stateChange' } type - Type of the Bluetooth state changes event to listen for.
-   * @param { Callback<BluetoothState> } callback - Callback used to listen for the Bluetooth state event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.access/access.off#event:stateChange
    */
@@ -911,42 +545,23 @@ declare namespace bluetoothManager {
 
   /**
    * Creates a Bluetooth server listening socket.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } name - Indicates the service name.
    * @param { SppOption } option - Indicates the listen parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a server socket ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.socket/socket#sppListen
-   */
-  /**
-   * Creates a Bluetooth server listening socket.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } name - Indicates the service name.
-   * @param { SppOption } option - Indicates the listen parameters {@link SppOption}.
-   * @param { AsyncCallback<number> } callback - Callback used to return a server socket ID.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900004 - Profile not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.socket/socket#sppListen
    */
@@ -958,7 +573,7 @@ declare namespace bluetoothManager {
    * @param { number } serverSocket - Indicates the server socket ID, returned by {@link sppListen}.
    * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -973,42 +588,23 @@ declare namespace bluetoothManager {
 
   /**
    * Connects to a remote device over the socket.
+   * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
    *
-   * @permission ohos.permission.USE_BLUETOOTH
+   * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+   * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
    * @param { string } device - The address of the remote device to connect.
    * @param { SppOption } option - Indicates the connect parameters {@link SppOption}.
    * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900003 - Bluetooth disabled.
    * @throws { BusinessError } 2900004 - Profile not supported.
    * @throws { BusinessError } 2900099 - Operation failed.
    * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 9
-   * @deprecated since 10
-   * @useinstead ohos.bluetooth.socket/socket#sppConnect
-   */
-  /**
-   * Connects to a remote device over the socket.
-   * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-   *
-   * @permission ohos.permission.ACCESS_BLUETOOTH
-   * @param { string } device - The address of the remote device to connect.
-   * @param { SppOption } option - Indicates the connect parameters {@link SppOption}.
-   * @param { AsyncCallback<number> } callback - Callback used to return a client socket ID.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 2900001 - Service stopped.
-   * @throws { BusinessError } 2900003 - Bluetooth disabled.
-   * @throws { BusinessError } 2900004 - Profile not supported.
-   * @throws { BusinessError } 2900099 - Operation failed.
-   * @syscap SystemCapability.Communication.Bluetooth.Core
-   * @since 10 dynamiconly
+   * @since 9 dynamiconly
    * @deprecated since 10
    * @useinstead ohos.bluetooth.socket/socket#sppConnect
    */
@@ -1019,7 +615,7 @@ declare namespace bluetoothManager {
    *
    * @param { number } socket - Indicates the server socket ID, returned by {@link sppListen}.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1035,7 +631,7 @@ declare namespace bluetoothManager {
    *
    * @param { number } socket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2900001 - Service stopped.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1049,10 +645,11 @@ declare namespace bluetoothManager {
   /**
    * Write data through the socket.
    *
-   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or {@link sppConnect}.
+   * @param { number } clientSocket - Indicates the client socket ID, returned by {@link sppAccept} or
+   *     {@link sppConnect}.
    * @param { ArrayBuffer } data - Indicates the data to write.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1070,7 +667,7 @@ declare namespace bluetoothManager {
    * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
    * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 2901054 - IO error.
    * @throws { BusinessError } 2900099 - Operation failed.
@@ -1088,7 +685,7 @@ declare namespace bluetoothManager {
    * @param { number } clientSocket - Client socket ID, which is obtained by sppAccept or sppConnect.
    * @param { Callback<ArrayBuffer> } callback - Callback used to listen for the spp read event.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
@@ -1101,9 +698,10 @@ declare namespace bluetoothManager {
    * Obtains the instance of profile.
    *
    * @param { ProfileId } profileId - The profile id..
-   * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of profile.
+   * @returns { A2dpSourceProfile | HandsFreeAudioGatewayProfile | HidHostProfile | PanProfile } Returns the instance of
+   *     profile.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
@@ -1116,7 +714,6 @@ declare namespace bluetoothManager {
   /**
    * Base interface of profile.
    *
-   * @typedef BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1125,8 +722,10 @@ declare namespace bluetoothManager {
   interface BaseProfile {
     /**
      * Obtains the connected devices list of profile.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @returns { Array<string> } Returns the address of connected devices list.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1135,24 +734,7 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectedDevices
-     */
-    /**
-     * Obtains the connected devices list of profile.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Array<string> } Returns the address of connected devices list.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectedDevices
      */
@@ -1160,40 +742,22 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the profile state of device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of bluetooth device.
      * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectionState
-     */
-    /**
-     * Obtains the profile state of device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of bluetooth device.
-     * @returns { ProfileConnectionState } Returns {@link ProfileConnectionState} of device.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.baseProfile/baseProfile#getConnectionState
      */
@@ -1203,7 +767,6 @@ declare namespace bluetoothManager {
   /**
    * Manager a2dp source profile.
    *
-   * @typedef A2dpSourceProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1212,38 +775,22 @@ declare namespace bluetoothManager {
   interface A2dpSourceProfile extends BaseProfile {
     /**
      * Connect to device with a2dp.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#connect
-     */
-    /**
-     * Connect to device with a2dp.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device to connect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#connect
      */
@@ -1251,98 +798,56 @@ declare namespace bluetoothManager {
 
     /**
      * Disconnect to device with a2dp.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#disconnect
-     */
-    /**
-     * Disconnect to device with a2dp.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device to disconnect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#disconnect
      */
     disconnect(device: string): void;
 
     /**
-     * Subscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.on#event:connectionStateChange
-     */
-    /**
      * Subscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.on#event:connectionStateChange
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
-     * Unsubscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.off#event:connectionStateChange
-     */
-    /**
      * Unsubscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile.off#event:connectionStateChange
      */
@@ -1350,37 +855,20 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the playing state of device.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device.
      * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#getPlayingState
-     */
-    /**
-     * Obtains the playing state of device.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device.
-     * @returns { PlayingState } Returns {@link PlayingState} of the remote device.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.A2dpSourceProfile#getPlayingState
      */
@@ -1390,7 +878,6 @@ declare namespace bluetoothManager {
   /**
    * Manager handsfree AG profile.
    *
-   * @typedef HandsFreeAudioGatewayProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1399,38 +886,22 @@ declare namespace bluetoothManager {
   interface HandsFreeAudioGatewayProfile extends BaseProfile {
     /**
      * Connect to device with hfp.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#connect
-     */
-    /**
-     * Connect to device with hfp.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device to connect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#connect
      */
@@ -1438,98 +909,56 @@ declare namespace bluetoothManager {
 
     /**
      * Disconnect to device with hfp.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#disconnect
-     */
-    /**
-     * Disconnect to device with hfp.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device to disconnect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile#disconnect
      */
     disconnect(device: string): void;
 
     /**
-     * Subscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
-     */
-    /**
      * Subscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.on#event:connectionStateChange
      */
     on(type: 'connectionStateChange', callback: Callback<StateChangeParam>): void;
 
     /**
-     * Unsubscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
-     */
-    /**
      * Unsubscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hfp/hfp.HandsFreeAudioGatewayProfile.off#event:connectionStateChange
      */
@@ -1539,7 +968,6 @@ declare namespace bluetoothManager {
   /**
    * Manager hid host profile.
    *
-   * @typedef HidHostProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1548,13 +976,16 @@ declare namespace bluetoothManager {
   interface HidHostProfile extends BaseProfile {
     /**
      * Connect to device with hid host.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to connect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -1562,28 +993,7 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#connect
-     */
-    /**
-     * Connect to device with hid host.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
-     * @param { string } device - The address of the remote device to connect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#connect
      */
@@ -1591,13 +1001,16 @@ declare namespace bluetoothManager {
 
     /**
      * Disconnect to device with hid host.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -1605,58 +1018,24 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#disconnect
-     */
-    /**
-     * Disconnect to device with hid host.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
-     * @param { string } device - The address of the remote device to disconnect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile#disconnect
      */
     disconnect(device: string): void;
 
     /**
-     * Subscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.on#event:connectionStateChange
-     */
-    /**
      * Subscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.on#event:connectionStateChange
      */
@@ -1664,29 +1043,16 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe the event reported when the profile connection state changes.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.off#event:connectionStateChange
-     */
-    /**
-     * Unsubscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.hid/hid.HidHostProfile.off#event:connectionStateChange
      */
@@ -1696,7 +1062,6 @@ declare namespace bluetoothManager {
   /**
    * Manager pan profile.
    *
-   * @typedef PanProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1705,13 +1070,15 @@ declare namespace bluetoothManager {
   interface PanProfile extends BaseProfile {
     /**
      * Disconnect to device with pan.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } device - The address of the remote device to disconnect.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -1719,58 +1086,24 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.pan/pan.PanProfile#disconnect
-     */
-    /**
-     * Disconnect to device with pan.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } device - The address of the remote device to disconnect.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#disconnect
      */
     disconnect(device: string): void;
 
     /**
-     * Subscribe the event reported when the profile connection state changes .
-     *
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.pan/pan.PanProfile.on#event:connectionStateChange
-     */
-    /**
      * Subscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for .
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile.on#event:connectionStateChange
      */
@@ -1778,29 +1111,16 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe the event reported when the profile connection state changes.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
      * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.pan/pan.PanProfile.off#event:connectionStateChange
-     */
-    /**
-     * Unsubscribe the event reported when the profile connection state changes.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectionStateChange' } type - Type of the profile connection state changes event to listen for.
-     * @param { Callback<StateChangeParam> } callback - Callback used to listen for event.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile.off#event:connectionStateChange
      */
@@ -1808,14 +1128,17 @@ declare namespace bluetoothManager {
 
     /**
      * Enable bluetooth tethering.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 10]
      * @param { boolean } enable - Specifies whether to enable tethering. The value {@code true} indicates
-     * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
+     *     that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -1823,29 +1146,7 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.pan/pan.PanProfile#setTethering
-     */
-    /**
-     * Enable bluetooth tethering.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH and MANAGE_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
-     * @param { boolean } enable - Specifies whether to enable tethering. The value {@code true} indicates
-     * that tethering is enabled, and the value {@code false} indicates that tethering is disabled.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#setTethering
      */
@@ -1853,27 +1154,15 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the tethering enable or disable.
+     * On API 10 and above, the permission required by this interface is changed to ACCESS_BLUETOOTH.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi Hide this for inner system use.
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.pan/pan.PanProfile#isTetheringOn
-     */
-    /**
-     * Obtains the tethering enable or disable.
-     * The permission required by this interface is changed to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { boolean } Returns the value {@code true} is tethering is on, returns {@code false} otherwise.
-     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @systemapi Hide this for inner system use.
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.pan/pan.PanProfile#isTetheringOn
      */
@@ -1883,7 +1172,6 @@ declare namespace bluetoothManager {
   /**
    * Provides methods to operate or manage Bluetooth.
    *
-   * @namespace BLE
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -1907,7 +1195,7 @@ declare namespace bluetoothManager {
      * @param { string } deviceId - The address of the remote device.
      * @returns { GattClientDevice } Returns a JavaScript Gatt client device instance {@code GattClientDevice}.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @since 9 dynamiconly
@@ -1918,8 +1206,10 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the list of devices in the connected status.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @returns { Array<string> } Returns the list of device address.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1927,23 +1217,7 @@ declare namespace bluetoothManager {
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble#getConnectedBLEDevices
-     */
-    /**
-     * Obtains the list of devices in the connected status.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Array<string> } Returns the list of device address.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#getConnectedBLEDevices
      */
@@ -1951,45 +1225,27 @@ declare namespace bluetoothManager {
 
     /**
      * Starts scanning for specified BLE devices with filters.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH and
+     * MANAGE_BLUETOOTH and LOCATION to ACCESS_BLUETOOTH.
      *
      * @permission ohos.permission.DISCOVER_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH and ohos.permission.LOCATION
-     *     and ohos.permission.APPROXIMATELY_LOCATION
+     *     and ohos.permission.APPROXIMATELY_LOCATION [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
-     * If you do not want to use filter, set this parameter to {@code null}.
-     * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
-     * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
-     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
+     *     If you do not want to use filter, set this parameter to {@code null}.
+     * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value,
+     *     the default value will be used.
+     *     {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
+     *     and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble#startBLEScan
-     */
-    /**
-     * Starts scanning for specified BLE devices with filters.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH and MANAGE_BLUETOOTH and LOCATION to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { Array<ScanFilter> } filters - Indicates the list of filters used to filter out specified devices.
-     * If you do not want to use filter, set this parameter to {@code null}.
-     * @param { ScanOptions } options - Indicates the parameters for scanning and if the user does not assign a value, the default value will be used.
-     * {@link ScanOptions#interval} set to 0, {@link ScanOptions#dutyMode} set to {@link SCAN_MODE_LOW_POWER}
-     * and {@link ScanOptions#matchMode} set to {@link MATCH_MODE_AGGRESSIVE}.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#startBLEScan
      */
@@ -1997,30 +1253,18 @@ declare namespace bluetoothManager {
 
     /**
      * Stops BLE scanning.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble#stopBLEScan
-     */
-    /**
-     * Stops BLE scanning.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#stopBLEScan
      */
@@ -2028,34 +1272,19 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe BLE scan result.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.on#event:BLEDeviceFind
-     */
-    /**
-     * Subscribe BLE scan result.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
-     * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.on#event:BLEDeviceFind
      */
@@ -2063,34 +1292,19 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe BLE scan result.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
      * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.off#event:BLEDeviceFind
-     */
-    /**
-     * Unsubscribe BLE scan result.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLEDeviceFind' } type - Type of the scan result event to listen for.
-     * @param { Callback<Array<ScanResult>> } callback - Callback used to listen for the scan result event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.off#event:BLEDeviceFind
      */
@@ -2098,9 +1312,9 @@ declare namespace bluetoothManager {
   }
 
   /**
-   * Manages GATT server. Before calling an Gatt server method, you must use {@link createGattServer} to create an GattServer instance.
+   * Manages GATT server. Before calling an Gatt server method, you must use {@link createGattServer} to create an
+   * GattServer instance.
    *
-   * @typedef GattServer
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -2109,42 +1323,24 @@ declare namespace bluetoothManager {
   interface GattServer {
     /**
      * Starts BLE advertising.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
-     * If you need to use the default value, set this parameter to {@code null}.
+     *     If you need to use the default value, set this parameter to {@code null}.
      * @param { AdvertiseData } advData - Indicates the advertising data.
      * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble#startAdvertising
-     */
-    /**
-     * Starts BLE advertising.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { AdvertiseSetting } setting - Indicates the settings for BLE advertising.
-     * If you need to use the default value, set this parameter to {@code null}.
-     * @param { AdvertiseData } advData - Indicates the advertising data.
-     * @param { AdvertiseData } advResponse - Indicates the scan response associated with the advertising data.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#startAdvertising
      */
@@ -2152,30 +1348,18 @@ declare namespace bluetoothManager {
 
     /**
      * Stops BLE advertising.
+     * On API 10 and above, the permission required by this interface is changed from DISCOVER_BLUETOOTH to
+     * ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.DISCOVER_BLUETOOTH
+     * @permission ohos.permission.DISCOVER_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble#stopAdvertising
-     */
-    /**
-     * Stops BLE advertising.
-     * The permission required by this interface is changed from DISCOVER_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble#stopAdvertising
      */
@@ -2183,38 +1367,22 @@ declare namespace bluetoothManager {
 
     /**
      * Adds a specified service to be hosted.
-     * <p>The added service and its characteristics are provided by the local device.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * The added service and its characteristics are provided by the local device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
+     *
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { GattService } service - Indicates the service to add.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer#addService
-     */
-    /**
-     * Adds a specified service to be hosted.
-     * <p>The added service and its characteristics are provided by the local device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { GattService } service - Indicates the service to add.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#addService
      */
@@ -2222,38 +1390,21 @@ declare namespace bluetoothManager {
 
     /**
      * Removes a specified service from the list of GATT services provided by this device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } serviceUuid - Indicates the UUID of the service to remove.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer#removeService
-     */
-    /**
-     * Removes a specified service from the list of GATT services provided by this device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } serviceUuid - Indicates the UUID of the service to remove.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900004 - Profile not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#removeService
      */
@@ -2261,30 +1412,17 @@ declare namespace bluetoothManager {
 
     /**
      * Closes this {@code GattServer} object and unregisters its callbacks.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer#close
-     */
-    /**
-     * Closes this {@code GattServer} object and unregisters its callbacks.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#close
      */
@@ -2292,40 +1430,23 @@ declare namespace bluetoothManager {
 
     /**
      * Sends a notification of a change in a specified local characteristic.
-     * <p>This method should be called for every BLE peripheral device that has requested notifications.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * This method should be called for every BLE peripheral device that has requested notifications.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
+     *
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
      * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer#notifyCharacteristicChanged
-     */
-    /**
-     * Sends a notification of a change in a specified local characteristic.
-     * <p>This method should be called for every BLE peripheral device that has requested notifications.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { string } deviceId - Indicates the address of the BLE peripheral device to receive the notification.
-     * @param { NotifyCharacteristic } notifyCharacteristic - Indicates the local characteristic that has changed.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#notifyCharacteristicChanged
      */
@@ -2333,36 +1454,20 @@ declare namespace bluetoothManager {
 
     /**
      * Sends a response to a specified read or write request to a given BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { ServerResponse } serverResponse - Indicates the response parameters {@link ServerResponse}.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer#sendResponse
-     */
-    /**
-     * Sends a response to a specified read or write request to a given BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { ServerResponse } serverResponse - Indicates the response parameters {@link ServerResponse}.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer#sendResponse
      */
@@ -2370,32 +1475,19 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe characteristic read event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
-     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
+     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicRead
-     */
-    /**
-     * Subscribe characteristic read event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
-     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicRead
      */
@@ -2403,32 +1495,19 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe characteristic read event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
-     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
+     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicRead
-     */
-    /**
-     * Unsubscribe characteristic read event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'characteristicRead' } type - Type of the characteristic read event to listen for.
-     * @param { Callback<CharacteristicReadRequest> } callback - Callback used to listen for the characteristic read event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicRead
      */
@@ -2436,32 +1515,19 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe characteristic write event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
-     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
+     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicWrite
-     */
-    /**
-     * Subscribe characteristic write event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
-     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:characteristicWrite
      */
@@ -2469,32 +1535,19 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe characteristic write event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
-     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
+     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicWrite
-     */
-    /**
-     * Unsubscribe characteristic write event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'characteristicWrite' } type - Type of the characteristic write event to listen for.
-     * @param { Callback<CharacteristicWriteRequest> } callback - Callback used to listen for the characteristic write event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:characteristicWrite
      */
@@ -2502,32 +1555,18 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe descriptor read event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorRead
-     */
-    /**
-     * Subscribe descriptor read event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
-     * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorRead
      */
@@ -2535,32 +1574,18 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe descriptor read event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
      * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorRead
-     */
-    /**
-     * Unsubscribe descriptor read event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'descriptorRead' } type - Type of the descriptor read event to listen for.
-     * @param { Callback<DescriptorReadRequest> } callback - Callback used to listen for the descriptor read event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorRead
      */
@@ -2568,32 +1593,18 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe descriptor write event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorWrite
-     */
-    /**
-     * Subscribe descriptor write event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
-     * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:descriptorWrite
      */
@@ -2601,32 +1612,18 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe descriptor write event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
      * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorWrite
-     */
-    /**
-     * Unsubscribe descriptor write event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'descriptorWrite' } type - Type of the descriptor write event to listen for.
-     * @param { Callback<DescriptorWriteRequest> } callback - Callback used to listen for the descriptor write event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:descriptorWrite
      */
@@ -2634,32 +1631,19 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe server connection state changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:connectionStateChange
-     */
-    /**
-     * Subscribe server connection state changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.on#event:connectionStateChange
      */
@@ -2667,32 +1651,19 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe server connection state changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:connectionStateChange
-     */
-    /**
-     * Unsubscribe server connection state changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'connectStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattServer.off#event:connectionStateChange
      */
@@ -2700,9 +1671,9 @@ declare namespace bluetoothManager {
   }
 
   /**
-   * Manages GATT client. Before calling an Gatt client method, you must use {@link createGattClientDevice} to create an GattClientDevice instance.
+   * Manages GATT client. Before calling an Gatt client method, you must use {@link createGattClientDevice} to create an
+   * GattClientDevice instance.
    *
-   * @typedef GattClientDevice
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -2711,32 +1682,19 @@ declare namespace bluetoothManager {
   interface GattClientDevice {
     /**
      * Connects to a BLE peripheral device.
-     * <p>The 'BLEConnectionStateChange' event is subscribed to return the connection state.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * The 'BLEConnectionStateChange' event is subscribed to return the connection state.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
+     *
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#connect
-     */
-    /**
-     * Connects to a BLE peripheral device.
-     * <p>The 'BLEConnectionStateChange' event is subscribed to return the connection state.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#connect
      */
@@ -2744,30 +1702,17 @@ declare namespace bluetoothManager {
 
     /**
      * Disconnects from or stops an ongoing connection to a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#disconnect
-     */
-    /**
-     * Disconnects from or stops an ongoing connection to a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#disconnect
      */
@@ -2775,32 +1720,19 @@ declare namespace bluetoothManager {
 
     /**
      * Disables a BLE peripheral device.
-     * <p> This method unregisters the device and clears the registered callbacks and handles.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * This method unregisters the device and clears the registered callbacks and handles.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
+     *
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#close
-     */
-    /**
-     * Disables a BLE peripheral device.
-     * <p> This method unregisters the device and clears the registered callbacks and handles.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900003 - Bluetooth disabled.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#close
      */
@@ -2808,34 +1740,19 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the name of BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { AsyncCallback<string> } callback - Callback used to obtain the device name.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
-     */
-    /**
-     * Obtains the name of BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { AsyncCallback<string> } callback - Callback used to obtain the device name.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
      */
@@ -2843,36 +1760,20 @@ declare namespace bluetoothManager {
 
     /**
      * Obtains the name of BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @returns { Promise<string> } Returns a string representation of the name if obtained;
-     * returns {@code null} if the name fails to be obtained or the name does not exist.
+     *     returns {@code null} if the name fails to be obtained or the name does not exist.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
-     */
-    /**
-     * Obtains the name of BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Promise<string> } Returns a string representation of the name if obtained;
-     * returns {@code null} if the name fails to be obtained or the name does not exist.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getDeviceName
      */
@@ -2880,34 +1781,19 @@ declare namespace bluetoothManager {
 
     /**
      * Starts discovering services.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { AsyncCallback<Array<GattService>> } callback - Callback used to catch the services.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
-     */
-    /**
-     * Starts discovering services.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { AsyncCallback<Array<GattService>> } callback - Callback used to catch the services.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
      */
@@ -2915,34 +1801,20 @@ declare namespace bluetoothManager {
 
     /**
      * Starts discovering services.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
-     * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
+     * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral
+     *     device.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
-     */
-    /**
-     * Starts discovering services.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Promise<Array<GattService>> } Returns the list of services {@link GattService} of the BLE peripheral device.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getServices
      */
@@ -2950,38 +1822,21 @@ declare namespace bluetoothManager {
 
     /**
      * Reads the characteristic of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @param { AsyncCallback<BLECharacteristic> } callback - Callback invoked to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
-     */
-    /**
-     * Reads the characteristic of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
-     * @param { AsyncCallback<BLECharacteristic> } callback - Callback invoked to return the characteristic value read.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901000 - Read forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
      */
@@ -2989,38 +1844,21 @@ declare namespace bluetoothManager {
 
     /**
      * Reads the characteristic of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
      * @returns { Promise<BLECharacteristic> } - Promise used to return the characteristic value read.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
-     */
-    /**
-     * Reads the characteristic of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLECharacteristic } characteristic - Indicates the characteristic to read.
-     * @returns { Promise<BLECharacteristic> } - Promise used to return the characteristic value read.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901000 - Read forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readCharacteristicValue
      */
@@ -3028,38 +1866,21 @@ declare namespace bluetoothManager {
 
     /**
      * Reads the descriptor of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @param { AsyncCallback<BLEDescriptor> } callback - Callback invoked to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
-     */
-    /**
-     * Reads the descriptor of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
-     * @param { AsyncCallback<BLEDescriptor> } callback - Callback invoked to return the descriptor read.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901000 - Read forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
      */
@@ -3067,38 +1888,21 @@ declare namespace bluetoothManager {
 
     /**
      * Reads the descriptor of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
      * @returns { Promise<BLEDescriptor> } - Promise used to return the descriptor read.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901000 - Read forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
-     */
-    /**
-     * Reads the descriptor of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLEDescriptor } descriptor - Indicates the descriptor to read.
-     * @returns { Promise<BLEDescriptor> } - Promise used to return the descriptor read.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901000 - Read forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#readDescriptorValue
      */
@@ -3106,36 +1910,20 @@ declare namespace bluetoothManager {
 
     /**
      * Writes the characteristic of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeCharacteristicValue
-     */
-    /**
-     * Writes the characteristic of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLECharacteristic } characteristic - Indicates the characteristic to write.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901001 - Write forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeCharacteristicValue
      */
@@ -3143,36 +1931,20 @@ declare namespace bluetoothManager {
 
     /**
      * Writes the descriptor of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLEDescriptor } descriptor - Indicates the descriptor to write.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2901001 - Write forbidden.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeDescriptorValue
-     */
-    /**
-     * Writes the descriptor of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLEDescriptor } descriptor - Indicates the descriptor to write.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2901001 - Write forbidden.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#writeDescriptorValue
      */
@@ -3180,32 +1952,18 @@ declare namespace bluetoothManager {
 
     /**
      * Get the RSSI value of this BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { AsyncCallback<number> } callback - Callback invoked to return the RSSI, in dBm.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
-     */
-    /**
-     * Get the RSSI value of this BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { AsyncCallback<number> } callback - Callback invoked to return the RSSI, in dBm.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
      */
@@ -3213,32 +1971,18 @@ declare namespace bluetoothManager {
 
     /**
      * Get the RSSI value of this BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @returns { Promise<number> } Returns the RSSI value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
-     */
-    /**
-     * Get the RSSI value of this BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @returns { Promise<number> } Returns the RSSI value.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#getRssiValue
      */
@@ -3246,34 +1990,19 @@ declare namespace bluetoothManager {
 
     /**
      * Set the mtu size of a BLE peripheral device.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { number } mtu - The maximum transmission unit.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setBLEMtuSize
-     */
-    /**
-     * Set the mtu size of a BLE peripheral device.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { number } mtu - The maximum transmission unit.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setBLEMtuSize
      */
@@ -3281,38 +2010,22 @@ declare namespace bluetoothManager {
 
     /**
      * Enables or disables notification of a characteristic when value changed.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { BLECharacteristic } characteristic - BLE characteristic to listen for.
-     * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value {@code true} indicates
-     * that notification is enabled, and the value {@code false} indicates that notification is disabled.
+     * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value
+     *     {@code true} indicates that notification is enabled, and the value {@code false} indicates that
+     *     notification is disabled.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900099 - Operation failed.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setCharacteristicChangeNotification
-     */
-    /**
-     * Enables or disables notification of a characteristic when value changed.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { BLECharacteristic } characteristic - BLE characteristic to listen for.
-     * @param { boolean } enable - Specifies whether to enable notification of the characteristic. The value {@code true} indicates
-     * that notification is enabled, and the value {@code false} indicates that notification is disabled.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @throws { BusinessError } 2900001 - Service stopped.
-     * @throws { BusinessError } 2900099 - Operation failed.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice#setCharacteristicChangeNotification
      */
@@ -3320,28 +2033,17 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe characteristic value changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
-     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
+     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLECharacteristicChange
-     */
-    /**
-     * Subscribe characteristic value changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
-     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLECharacteristicChange
      */
@@ -3349,28 +2051,17 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe characteristic value changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
-     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
+     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLECharacteristicChange
-     */
-    /**
-     * Unsubscribe characteristic value changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLECharacteristicChange' } type - Type of the characteristic value changed event to listen for.
-     * @param { Callback<BLECharacteristic> } callback - Callback used to listen for the characteristic value changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLECharacteristicChange
      */
@@ -3378,28 +2069,17 @@ declare namespace bluetoothManager {
 
     /**
      * Subscribe client connection state changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLEConnectionStateChange
-     */
-    /**
-     * Subscribe client connection state changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.on#event:BLEConnectionStateChange
      */
@@ -3407,28 +2087,17 @@ declare namespace bluetoothManager {
 
     /**
      * Unsubscribe client connection state changed event.
+     * On API 10 and above, the permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
      *
-     * @permission ohos.permission.USE_BLUETOOTH
+     * @permission ohos.permission.USE_BLUETOOTH [since 9 - 9]
+     * @permission ohos.permission.ACCESS_BLUETOOTH [since 10]
      * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
+     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed
+     *     event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 9
-     * @deprecated since 10
-     * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLEConnectionStateChange
-     */
-    /**
-     * Unsubscribe client connection state changed event.
-     * The permission required by this interface is changed from USE_BLUETOOTH to ACCESS_BLUETOOTH.
-     *
-     * @permission ohos.permission.ACCESS_BLUETOOTH
-     * @param { 'BLEConnectionStateChange' } type - Type of the connection state changed event to listen for.
-     * @param { Callback<BLEConnectChangedState> } callback - Callback used to listen for the connection state changed event.
-     * @throws { BusinessError } 201 - Permission denied.
-     * @throws { BusinessError } 801 - Capability not supported.
-     * @syscap SystemCapability.Communication.Bluetooth.Core
-     * @since 10 dynamiconly
+     * @since 9 dynamiconly
      * @deprecated since 10
      * @useinstead ohos.bluetooth.ble/ble.GattClientDevice.off#event:BLEConnectionStateChange
      */
@@ -3438,7 +2107,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the Gatt service.
    *
-   * @typedef GattService
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3486,7 +2154,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the Gatt characteristic.
    *
-   * @typedef BLECharacteristic
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3534,7 +2201,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the Gatt descriptor.
    *
-   * @typedef BLEDescriptor
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3582,7 +2248,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the value of the indication or notification sent by the Gatt server.
    *
-   * @typedef NotifyCharacteristic
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3631,7 +2296,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters of the Gatt client's characteristic read request.
    *
-   * @typedef CharacteristicReadRequest
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3688,7 +2352,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters of the of the Gatt client's characteristic write request.
    *
-   * @typedef CharacteristicWriteRequest
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3772,7 +2435,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters of the Gatt client's descriptor read request.
    *
-   * @typedef DescriptorReadRequest
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3838,7 +2500,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters of the Gatt client's characteristic write request.
    *
-   * @typedef DescriptorWriteRequest
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3931,7 +2592,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters of a response send by the server to a specified read or write request.
    *
-   * @typedef ServerResponse
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -3988,7 +2648,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the Gatt profile connection state.
    *
-   * @typedef BLEConnectChangedState
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4018,7 +2677,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the contents of the scan results.
    *
-   * @typedef ScanResult
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4057,7 +2715,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the settings for BLE advertising.
    *
-   * @typedef AdvertiseSetting
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4100,7 +2757,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the advertising data.
    *
-   * @typedef AdvertiseData
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4139,7 +2795,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the manufacturer data.
    *
-   * @typedef ManufactureData
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4169,7 +2824,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the service data.
    *
-   * @typedef ServiceData
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4199,7 +2853,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the criteria for filtering scanning results can be set.
    *
-   * @typedef ScanFilter
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4320,7 +2973,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the parameters for scan.
    *
-   * @typedef ScanOptions
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4359,7 +3011,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the spp parameters.
    *
-   * @typedef SppOption
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4398,7 +3049,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the bond key param.
    *
-   * @typedef PinRequiredParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4428,7 +3078,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the class of a bluetooth device.
    *
-   * @typedef DeviceClass
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4467,7 +3116,6 @@ declare namespace bluetoothManager {
   /**
    * Describes the class of a bluetooth device.
    *
-   * @typedef BondStateParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4497,7 +3145,6 @@ declare namespace bluetoothManager {
   /**
    * Profile state change parameters.
    *
-   * @typedef StateChangeParam
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4528,7 +3175,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of scan duty.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4567,7 +3213,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of BLE match mode.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4597,7 +3242,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of profile connection state.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4645,7 +3289,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of bluetooth state.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4720,7 +3363,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of SPP type.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4735,13 +3377,12 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.socket/socket.SppType#SPP_RFCOMM
      */
-    SPP_RFCOMM
+    SPP_RFCOMM = 0
   }
 
   /**
    * The enum of BR scan mode.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4807,7 +3448,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of bond state.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4846,7 +3486,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of major class of a bluetooth device.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -4957,7 +3596,6 @@ declare namespace bluetoothManager {
   /**
    * The enum of major minor class of a bluetooth device.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10
@@ -5767,7 +4405,7 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.PlayingState#STATE_NOT_PLAYING
      */
-    STATE_NOT_PLAYING,
+    STATE_NOT_PLAYING = 0,
     /**
      * Playing.
      *
@@ -5776,13 +4414,12 @@ declare namespace bluetoothManager {
      * @deprecated since 10
      * @useinstead ohos.bluetooth.a2dp/a2dp.PlayingState#STATE_PLAYING
      */
-    STATE_PLAYING
+    STATE_PLAYING = 1
   }
 
   /**
    * The enum of profile id.
    *
-   * @enum { number }
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 9 dynamiconly
    * @deprecated since 10

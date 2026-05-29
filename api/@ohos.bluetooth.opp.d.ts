@@ -23,9 +23,10 @@ import type { Callback } from './@ohos.base';
 /**
  * Provides methods to accessing bluetooth OPP(OBEX OBJECT PUSH Profile)-related capabilities.
  *
- * @namespace opp
  * @syscap SystemCapability.Communication.Bluetooth.Core
+ * @stagemodelonly
  * @since 16 dynamic
+ * @since 26.0.0 static
  */
 declare namespace opp {
   /**
@@ -36,38 +37,70 @@ declare namespace opp {
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   function createOppServerProfile(): OppServerProfile;
 
   /**
    * Manager OPP server profile.
    *
-   * @typedef OppServerProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   interface OppServerProfile {
     /**
      * Subscribe the event reported when the file transfer status changes.
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real. Otherwise, the type of the peer device address is virtual.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 16 - 24]
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @param { 'transferStateChange' } type - Type of transport state change event to listen for.
      * @param { Callback<OppTransferInformation> } callback - Callback used to listen for event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed. [since 16 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
      */
     on(type: 'transferStateChange', callback: Callback<OppTransferInformation>): void;
+
+    /**
+     * Subscribe the event reported when the file transfer status changes.
+     * If the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC, the type of the peer device address is real.
+     * Otherwise, the type of the peer device address is virtual.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+     * @param { Callback<OppTransferInformation> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    onTransferStateChange(callback: Callback<OppTransferInformation>): void;
 
     /**
      * Unsubscribe the event reported when the file transfer status changes.
@@ -79,37 +112,86 @@ declare namespace opp {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
      */
     off(type: 'transferStateChange', callback?: Callback<OppTransferInformation>): void;
 
     /**
-     * Subscribe to the event of receiving a file transfer request.
+     * Unsubscribe the event reported when the file transfer status changes.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { Callback<OppTransferInformation> } [callback] - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    offTransferStateChange(callback?: Callback<OppTransferInformation>): void;
+
+    /**
+     * Subscribe to the event of receiving a file transfer request.
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real. Otherwise, the type of the peer device address is virtual.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 16 - 24]
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @param { 'receiveIncomingFile' } type - Type of the event for receiving a file request to listen for.
      * @param { Callback<OppTransferInformation> } callback - Callback used to listen for event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed. [since 16 - 24]
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
      */
     on(type: 'receiveIncomingFile', callback: Callback<OppTransferInformation>): void;
+
+    /**
+     * Subscribe to the event of receiving a file transfer request.
+     * If the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC, the type of the peer device address is real.
+     * Otherwise, the type of the peer device address is virtual.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC)
+     * @param { Callback<OppTransferInformation> } callback - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    onReceiveIncomingFile(callback: Callback<OppTransferInformation>): void;
 
     /**
      * Unsubscribe to the event of receiving a file transfer request.
@@ -121,17 +203,37 @@ declare namespace opp {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
      * @throws { BusinessError } 2900004 - Profile not supported.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
      */
     off(type: 'receiveIncomingFile', callback?: Callback<OppTransferInformation>): void;
-  
+
+    /**
+     * Unsubscribe to the event of receiving a file transfer request.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     * @param { Callback<OppTransferInformation> } [callback] - Callback used to listen for event.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    offReceiveIncomingFile(callback?: Callback<OppTransferInformation>): void;
+
     /**
      * Send files to the remote device.
      *
@@ -153,7 +255,9 @@ declare namespace opp {
      * @throws { BusinessError } 2903003 - The file is not accessible.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     sendFile(deviceId: string, fileHolds: Array<FileHolder>): Promise<void>;
 
@@ -161,8 +265,9 @@ declare namespace opp {
      * Set the user confirmation information for incoming files.
      *
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
-     * @param { boolean } accept - Indicates whether to accept the incoming file, {@code true} indicates accept or {@code false} otherwise.
-     * @param { number } fileFd : the receive file fd to receive need contains open when accepting.
+     * @param { boolean } accept - Indicates whether to accept the incoming file, {@code true} indicates accept or
+     *     {@code false} otherwise.
+     * @param { int } fileFd : the receive file fd to receive need contains open when accepting.
      * @returns { Promise<void> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -177,9 +282,11 @@ declare namespace opp {
      * @throws { BusinessError } 2903003 - The file is not accessible.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    setIncomingFileConfirmation(accept: boolean, fileFd: number): Promise<void>;
+    setIncomingFileConfirmation(accept: boolean, fileFd: int): Promise<void>;
 
     /**
      * cancel the current file transfer action.
@@ -197,14 +304,21 @@ declare namespace opp {
      * @throws { BusinessError } 2903002 - Current Transfer Information is busy.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     cancelTransfer(): Promise<void>;
 
     /**
      * Obtains the information about the file that is being transferred.
+     * On API 26.0.0 and above, if the application has ohos.permission.GET_BLUETOOTH_PEERS_MAC,
+     * the type of the peer device address is real. Otherwise, the type of the peer device address is virtual.
      *
+     * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH [since 16 - 24]
      * @permission ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     or (ohos.permission.ACCESS_BLUETOOTH and ohos.permission.MANAGE_BLUETOOTH
+     *     and ohos.permission.GET_BLUETOOTH_PEERS_MAC) [since 26.0.0]
      * @returns { Promise<OppTransferInformation> } Returns the promise object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
@@ -217,7 +331,9 @@ declare namespace opp {
      * @throws { BusinessError } 2903004 - Current Transfer Information is empty.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     getCurrentTransferInformation(): Promise<OppTransferInformation>;
 
@@ -231,7 +347,7 @@ declare namespace opp {
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -239,155 +355,184 @@ declare namespace opp {
      * @throws { BusinessError } 2900099 - Failed to set the URI of the last file.
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     setLastReceivedFileUri(uri: string): Promise<void>;
   }
-
   /**
    * Enum for file transfer direction.
-   * 
-   * @enum { number }
+   *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   enum DirectionType {
     /**
      * The file transfer direction to send.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     OUTBOUND = 0,
 
     /**
      * The file transfer direction to receive.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     INBOUND = 1
   }
 
   /**
    * Enum for the file transfer status.
-   * 
-   * @enum { number }
+   *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   enum TransferStatus {
     /**
      * The file is waiting next operate.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     PENDING = 0,
 
     /**
      * The file is transfering.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     RUNNING = 1,
 
     /**
      * The file is transfer finished.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     FINISH = 2
   }
 
   /**
    * Enum for the file transfer result.
-   * 
-   * @enum { number }
+   *
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   enum TransferResult {
     /**
      * Success
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     SUCCESS = 0,
 
     /**
      * The transfer file type is not supported.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_UNSUPPORTED_TYPE = 1,
 
     /**
      * The peer device cannot process the request.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_BAD_REQUEST = 2,
 
     /**
      * The peer device refuses to receive the file.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_NOT_ACCEPTABLE = 3,
 
-
     /**
      * The peer device cancels the ongoing file transfer process.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_CANCELED = 4,
 
     /**
      * Failed to connect to the peer device.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_CONNECTION_FAILED = 5,
 
     /**
      * Indicates that the file transfer fails.
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_TRANSFER_FAILED = 6,
 
     /**
      * Unknown error
-     * 
+     *
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     ERROR_UNKNOWN = 7
   }
@@ -395,151 +540,166 @@ declare namespace opp {
   /**
    * Describes the transferred file information.
    *
-   * @typedef OppTransferInformation
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   interface OppTransferInformation {
     /**
      * Path of the file to be transferred.
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     filePath: string;
 
     /**
      * Device name of the peer transmission object
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     remoteDeviceName: string;
 
     /**
      * Device Address of the peer transmission object
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     remoteDeviceId: string;
 
     /**
      * File Transfer Direction
      *
-     * @type { DirectionType }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     direction: DirectionType;
 
     /**
      * File transfer status
      *
-     * @type { TransferStatus }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     status: TransferStatus;
 
     /**
      * File transfer result
      *
-     * @type { TransferResult }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     result: TransferResult;
 
     /**
      * Number of bytes of the file that have been transferred currently
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    currentBytes: number;
+    currentBytes: long;
 
     /**
      * Total number of file bytes to transfer
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    totalBytes: number;
+    totalBytes: long;
 
     /**
      * Number of files currently transferred
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    currentCount: number;
+    currentCount: int;
 
     /**
      * Total number of transferred files
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    totalCount: number;
+    totalCount: int;
   }
 
   /**
    * Describes the file info for transfer
    *
-   * @typedef FileHolder
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
+   * @stagemodelonly
    * @since 16 dynamic
+   * @since 26.0.0 static
    */
   interface FileHolder {
     /**
      * The file path
      *
-     * @type { string }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
     filePath: string;
 
     /**
      * The file size
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    fileSize: number;
+    fileSize: long;
 
     /**
      * The file fd
      *
-     * @type { number }
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
+     * @stagemodelonly
      * @since 16 dynamic
+     * @since 26.0.0 static
      */
-    fileFd: number;
+    fileFd: int;
   }
 }
 export default opp;

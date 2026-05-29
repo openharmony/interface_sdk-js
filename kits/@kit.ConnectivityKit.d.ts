@@ -32,6 +32,7 @@ export {
 };
 /*** endif */
 
+import bas from '@ohos.bluetooth.bas';
 import common from '@ohos.bluetooth.common';
 import bluetooth from '@ohos.bluetooth';
 import map from '@ohos.bluetooth.map';
@@ -64,5 +65,5 @@ export {
   SubscribeBLEFoundOptions, bluetooth, bluetoothManager, cardEmulation,
   connectedTag, map, nfcController, omapi, opp, pan, pbap, socket, tag, wearDetection, wifi,
   wifiManager, wifiManagerExt, wifiext, common, PartnerAgentExtensionContext, PartnerAgentExtensionAbility,
-  partnerAgent, ranging
+  partnerAgent, ranging, bas
 };
