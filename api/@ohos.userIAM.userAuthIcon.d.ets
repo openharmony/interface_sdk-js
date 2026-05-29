@@ -75,7 +75,8 @@ export default struct UserAuthIcon {
   iconColor?: ResourceColor;
 
   /**
-   * Callback used to return the user authentication result.<br>The application must request the `ohos.permission.ACCESS_BIOMETRIC` permission.
+   * Callback used to return the user authentication result.<br>The application must request
+   * the `ohos.permission.ACCESS_BIOMETRIC` permission.
    * Otherwise, it will only display the icon and cannot start the identity authentication components.
    *
    * @param { userAuth.UserAuthResult } result - Authentication result information.
