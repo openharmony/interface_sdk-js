@@ -147,9 +147,6 @@ declare class Stack<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

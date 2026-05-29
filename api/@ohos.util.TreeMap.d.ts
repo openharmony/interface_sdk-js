@@ -58,7 +58,7 @@ declare class TreeMap<K, V> {
   constructor(comparator?: TreeMapComparator<K>);
 
   /**
-   * Gets the element number of the TreeMap.
+   * Gets the element number of the treeMap.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -68,7 +68,7 @@ declare class TreeMap<K, V> {
   length: number;
 
   /**
-   * Gets the element number of the TreeMap.
+   * Gets the element number of the treeMap.
    *
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
