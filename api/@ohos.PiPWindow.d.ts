@@ -29,70 +29,85 @@ import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
 /*** endif */
 
 /**
- * The module provides basic APIs for manipulating Picture in Picture (PiP). For example, you can use the APIs to check
- * whether the PiP feature is supported and create a PiP controller to start or stop a PiP window. PiP is mainly used in
- * video playback, video calls, or video meetings.
+ * Picture In Picture Window Manager
  *
- * > **NOTE**
- * >
- * > - Before <!--RP2-->OpenHarmony 6.0<!--RP2End-->, the PiP feature was supported only on phones and tablets. Starting
- * > from <!--RP2-->OpenHarmony 6.0<!--RP2End-->, the PiP feature is supported on phones, PCs/2-in-1 devices, tablets,
- * > but is unavailable on all other devices.
- * >
- * > - For the system capability SystemCapability.Window.SessionManager, use
- * > [canIUse()]{@link canIUse} to check whether the device supports this system
- * > capability and the corresponding APIs.
- *
+ * @namespace PiPWindow
  * @syscap SystemCapability.Window.SessionManager
- * @atomicservice [since 12]
- * @since 11 dynamic
+ * @since 11
+ */
+/**
+ * Picture In Picture Window Manager
+ *
+ * @namespace PiPWindow
+ * @syscap SystemCapability.Window.SessionManager
+ * @atomicservice
+ * @since 12 dynamic
  * @since 24 static
  */
 declare namespace PiPWindow {
   /**
-   * Checks whether the current device supports the PiP feature.
+   * If picture-in-picture enabled in current OS.
    *
-   * @returns { boolean } Check result for whether the PiP feature is supported. **true** if supported, **false**
-   *     otherwise.
+   * @returns { boolean } true if PictureInPicture enabled, otherwise false
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * If picture-in-picture enabled in current OS.
+   *
+   * @returns { boolean } true if PictureInPicture enabled, otherwise false
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   function isPiPEnabled(): boolean;
 
   /**
-   * Creates a PiP controller. This API uses a promise to return the result.
+   * Create picture-in-picture controller
    *
-   * @param { PiPConfiguration } config - Options for creating the PiP controller. This parameter cannot be empty, and
-   *     **context** and **componentController** that are used to construct this parameter cannot be empty. When
-   *     constructing this parameter, **templateType** (if specified) must be a value defined in
-   *     [PiPTemplateType]{@link PiPWindow.PiPTemplateType}, and **controlGroups** (if specified) must match the value
-   *     of **templateType**. For details, see [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
-   * @returns { Promise<PiPController> } Promise used to return the PiP controller.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-   *     capabilities.
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
+   * the context and componentController in config should not be null. If templateType is specified, make sure
+   * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
+   * @returns { Promise<PiPController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Create picture-in-picture controller
+   *
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
+   * the context and componentController in config should not be null. If templateType is specified, make sure
+   * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
+   * @returns { Promise<PiPController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   function create(config: PiPConfiguration): Promise<PiPController>;
 
   /**
-   * Creates a PiP controller. This API uses **typeNode** to add a custom UI node for PiP. This API uses a promise to
-   * return the result.
+   * Create picture-in-picture controller
    *
-   * @param { PiPConfiguration } config - Options for creating the PiP controller. This parameter cannot be empty, and
-   *     **context** that is used to construct this parameter cannot be empty. When constructing this parameter,
-   *     **templateType** (if specified) must be a value defined in [PiPTemplateType]{@link PiPWindow.PiPTemplateType},
-   *     and **controlGroups** (if specified) must match the value of **templateType**. For details, see
-   *     [PiPControlGroup]{@link PiPWindow.PiPControlGroup}.
-   * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
-   *     be empty.
-   * @returns { Promise<PiPController> } Promise used to return the PiP controller.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-   *     capabilities.
+   * @param { PiPConfiguration } config - Params for picture-in-picture controller creation. The config must be valid,
+   * the context and componentController in config should not be null. If templateType is specified, make sure
+   * it's type of PiPTemplateType. If controlGroups is specified, make sure it correspond to the templateType.
+   * @param { typeNode.XComponent } contentNode - Params for picture-in-picture controller creation.
+   * Indicates the node which display the content of pip window.
+   * @returns { Promise<PiPController> } - The promise returned by the function
+   * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *                                                                2. Incorrect parameter types.
+   *                                                                3. Parameter verification failed.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -101,63 +116,80 @@ declare namespace PiPWindow {
   function create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise<PiPController>;
 
   /**
-   * Defines the parameters for creating a PiP controller.
+   * PiPConfiguration
    *
+   * @interface PiPConfiguration
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * PiPConfiguration
+   *
+   * @interface PiPConfiguration
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   interface PiPConfiguration {
     /**
-     * Context environment.
+     * Indicates window context.
      *
+     * @type { BaseContext }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Indicates window context.
+     *
+     * @type { BaseContext }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     context: BaseContext;
 
     /**
-     * Original [XComponent]{@link XComponent} controller.
+     * Indicates the origin XComponentController.
      *
+     * @type { XComponentController }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Indicates the origin XComponentController.
+     *
+     * @type { XComponentController }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     componentController: XComponentController;
 
     /**
-     * ID of the **Navigation** component. If no value is passed, the page does not need to be cached.
+     * Indicates navigation ID.
      *
-     * 1. When the UIAbility uses [Navigation]{@link Navigation} to manage pages,
-     * set the ID of the **Navigation** component for the PiP controller.
-     * This ensures that the original page can be restored from the PiP window.
-     * 2. When the UIAbility uses [Router]{@link @ohos.router:router} to manage pages,
-     * you do not need to set the ID of the **Navigation** component for the PiP controller.
-     * 3. If the UIAbility has only one page, you do not need to set the navigation ID.
-     * The original page can be restored from the PiP window.
-     *
+     * @type { ?string }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Indicates navigation ID.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     navigationId?: string;
 
     /**
-     * ID of the subpage under the **Navigation** component. After the Full-screen Window button is touched,
-     * the specified page is restored. This parameter applies only in scenarios where the UIAbility
-     * uses [Navigation]{@link Navigation} to manage pages. It can be set to any subpage ID
-     * within the Navigation hierarchy. The default value is **-1**, indicating that the topmost page in the Navigation
-     * stack is restored. You are advised to use [getUniqueId()]{@link BaseCustomComponent.getUniqueId} to obtain the
-     * page ID. When you use page routing provided by [Navigation]{@link Navigation}, you are
-     * advised to use the [system routing table](docroot://ui/arkts-navigation-cross-package.md#system-routing-table).
-     * Otherwise, the page ID obtained by calling [getUniqueId()]{@link BaseCustomComponent.getUniqueId}
-     * may be incorrect.
+     * Indicates the page ID.
      *
+     * @type { ?int } The page ID to which the PiP needs to restore.
      * @default -1
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -167,53 +199,67 @@ declare namespace PiPWindow {
     handleId?: int;
 
     /**
-     * Template type, which is used to distinguish video playback, video call, video meeting, and live broadcast
-     * scenarios. If no value is passed, the video playback template is used by default.
+     * Picture-in-picture template type.
      *
+     * @type { ?PiPTemplateType }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Picture-in-picture template type.
+     *
+     * @type { ?PiPTemplateType }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     templateType?: PiPTemplateType;
 
     /**
-     * Width of the original content, in px. It is used to determine the aspect ratio of the PiP window. When the PiP
-     * controller is created in
-     * [typeNode mode]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}, the default
-     * value is 1920. When the PiP controller is created
-     * [not in typeNode mode]{@link PiPWindow.create(config: PiPConfiguration)}, the default value is the width of the
-     * [XComponent]{@link XComponent}.
+     * Describes the width of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Describes the width of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     contentWidth?: int;
 
     /**
-     * Height of the original content, in px. It is used to determine the aspect ratio of the PiP window. When the PiP
-     * controller is created in
-     * [typeNode mode]{@link PiPWindow.create(config: PiPConfiguration, contentNode: typeNode.XComponent)}, the default
-     * value is 1080. When the PiP controller is created
-     * [not in typeNode mode]{@link PiPWindow.create(config: PiPConfiguration)}, the default value is the height of the
-     * [XComponent]{@link XComponent}.
+     * Describes the height of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
      *
+     * @type { ?number }
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Describes the height of content to be displayed in PiP window, measured in px.
+     * For adjusting PiP window aspect ratio.
+     *
+     * @type { ?int }
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     contentHeight?: int;
 
     /**
-     * A list of optional component groups of the PiP controller. An application can configure whether to display these
-     * optional components. If this parameter is not set for the application, the panel displays basic components (such
-     * as the play/pause component of the video playback component group). If this parameter is set for the application,
-     * a maximum of three components can be selected. If more than three controls are selected, error code 401 is
-     * reported by the API.
+     * Describes the custom controls to be displayed in PiP window control panel. If the parameter is empty, only mandatory controls are displayed.
      *
+     * @type { ?Array<PiPControlGroup> }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -222,9 +268,9 @@ declare namespace PiPWindow {
     controlGroups?: Array<PiPControlGroup>;
 
     /**
-     * Custom UI controller, which is used to implement the custom UI features on the PiP page. If this parameter is
-     * left empty, the custom UI features are not used by default.
+     * Describes the customUIController by which we can display a custom layout above pip content.
      *
+     * @type { ?NodeController }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -233,10 +279,9 @@ declare namespace PiPWindow {
     customUIController?: NodeController;
 
     /**
-     * A page-level UI state storage unit. In multi-instance scenarios, it can be used to track the UI state storage
-     * object of the main window instance. If no value is passed, you cannot retrieve the main window's UI storage
-     * object through the PiP window.
+     * Describes the data object shared within the content instance loaded by the window.
      *
+     * @type { ?LocalStorage }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 17 dynamic
@@ -245,17 +290,10 @@ declare namespace PiPWindow {
     localStorage?: LocalStorage;
 
     /**
-     * Size of the PiP window that the current app starts for the first time.
+     * Describes the default picture-in-picture window size as it is started.
+     * 0: not set. 1: small size. 2: large size.
      *
-     * **0**: no size is set. The PiP window is started based on the size before the PiP window of the previous
-     * application is closed.
-     *
-     * **1**: small window.
-     *
-     * **2**: large window.
-     *
-     * If no value is passed, **0** is used.
-     *
+     * @type { ?int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 19 dynamic
@@ -264,18 +302,9 @@ declare namespace PiPWindow {
     defaultWindowSizeType?: int;
 
     /**
-     * Whether the PiP window automatically snaps to screen corners. When this feature is enabled, the screen is divided
-     * into four hot zones (top-left, top-right, bottom-left, and bottom-right). When users lift their finger while
-     * dragging the PiP window within a hot zone, the PiP window is automatically snapped to the nearest corner.
+     * Describes whether the picture-in-picture is four-corner absorpted or free to move.
      *
-     * **true**: enables corner snapping.
-     *
-     * **false**: disables corner snapping.
-     *
-     * The default value is **true**.
-     *
-     * This API can be properly called on phones and tablets. If it is called on other device types, it has no effect.
-     *
+     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -286,8 +315,9 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Describes the size of a PiP window.
+   * The picture-in-picture window size
    *
+   * @interface PiPWindowSize
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
@@ -295,8 +325,9 @@ declare namespace PiPWindow {
    */
   interface PiPWindowSize {
     /**
-     * Window width, in px. The value must be a positive integer and cannot be greater than the screen width.
+     * The width of the picture-in-picture window, measured in px.
      *
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -305,8 +336,9 @@ declare namespace PiPWindow {
     width: int;
 
     /**
-     * Window height, in px. The value must be a positive integer and cannot be greater than the screen height.
+     * The height of the picture-in-picture window, measured in px.
      *
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -315,10 +347,9 @@ declare namespace PiPWindow {
     height: int;
 
     /**
-     * Scale factor of the window, representing the display size relative to the width and height. The value is a
-     * floating-point number in the range (0.0, 1.0]. The value **1** means that the window matches the specified width
-     * and height.
+     * The scale of the picture-in-picture window.
      *
+     * @type { double }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -327,9 +358,10 @@ declare namespace PiPWindow {
     scale: double;
   }
 
-/**
-   * Describes the PiP window information.
+  /**
+   * The info of picture-in-picture window
    *
+   * @interface PiPWindowInfo
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 15 dynamic
@@ -337,8 +369,9 @@ declare namespace PiPWindow {
    */
   interface PiPWindowInfo {
     /**
-     * ID of the PiP window.
+     * Indicates target window id.
      *
+     * @type { int }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -347,8 +380,9 @@ declare namespace PiPWindow {
     windowId: int;
 
     /**
-     * Size of the PiP window.
+     * The picture-in-picture window size.
      *
+     * @type { PiPWindowSize }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -358,149 +392,208 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Enumerates the PiP template types.
+   * Describe the type of picture-in-picture.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
-   * @since 24 static
+   * @since 11
    */
-  enum PiPTemplateType {
-    /**
-     * Video playback template. A PiP window will be started during video playback, and the video playback template will
-     * be loaded. The template contains the play/pause component by default.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    VIDEO_PLAY = 0,
-
-    /**
-     * Video call template. A PiP window will be started during a video call, and the video call template will be
-     * loaded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    VIDEO_CALL = 1,
-
-    /**
-     * Video meeting template. A PiP window will be started during a video meeting, and the video meeting template will
-     * be loaded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    VIDEO_MEETING = 2,
-
-    /**
-     * Live template. A PiP window will be started during a live, and the live template is loaded.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    VIDEO_LIVE = 3,
-  }
-
   /**
-   * Enumerates the PiP states.
+   * Describe the type of picture-in-picture.
    *
-   * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
-   * @since 24 static
-   */
-  enum PiPState {
-    /**
-     * PiP is about to start.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    ABOUT_TO_START = 1,
-
-    /**
-     * PiP is started.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    STARTED = 2,
-
-    /**
-     * PiP is about to stop.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    ABOUT_TO_STOP = 3,
-
-    /**
-     * PiP is stopped.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    STOPPED = 4,
-
-    /**
-     * The original page is about to restore.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    ABOUT_TO_RESTORE = 5,
-
-    /**
-     * An error occurs during the execution of the PiP lifecycle.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
-     * @since 24 static
-     */
-    ERROR = 6
-  }
-
-  /**
-   * Describes the optional component groups of the PiP controller. An application can configure whether to display
-   * these optional components. This API must match [PiPTemplateType]{@link PiPWindow.PiPTemplateType} when being used.
-   * Otherwise, the [create]{@link PiPWindow.create(config: PiPConfiguration)} API returns error code 401.
-   *
-   * @unionmember { VideoPlayControlGroup } Video playback component group.
-   * @unionmember { VideoCallControlGroup } Video call component group.
-   * @unionmember { VideoMeetingControlGroup } Video meeting component group.
-   * @unionmember { VideoLiveControlGroup } Live video component group.
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
    * @since 24 static
    */
-  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup
-    | VideoLiveControlGroup;
+  enum PiPTemplateType {
+    /**
+     * Indicates the content to show in picture-in-picture window is video play
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Indicates the content to show in picture-in-picture window is video play
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    VIDEO_PLAY,
+
+    /**
+     * Indicates the content to show in picture-in-picture window is video call
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Indicates the content to show in picture-in-picture window is video call
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    VIDEO_CALL,
+
+    /**
+     * Indicates the content to show in picture-in-picture window is video meeting
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Indicates the content to show in picture-in-picture window is video meeting
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    VIDEO_MEETING,
+
+    /**
+     * Indicates the content to show in picture-in-picture window is video live
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Indicates the content to show in picture-in-picture window is video live
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    VIDEO_LIVE,
+  }
 
   /**
-   * Enumerates the video playback component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_PLAY**.
+   * Enum for PiP window callback event type.
    *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @since 11
+   */
+  /**
+   * Enum for PiP window callback event type.
+   *
+   * @enum { number }.
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 24 static
+   */
+  enum PiPState {
+    /**
+     * PiP window is about to start.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * PiP window is about to start.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    ABOUT_TO_START = 1,
+
+    /**
+     * PiP window started.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * PiP window started.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    STARTED = 2,
+
+    /**
+     * PiP window is about to stop.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * PiP window is about to stop.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    ABOUT_TO_STOP = 3,
+
+    /**
+     * PiP window stopped.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * PiP window stopped.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    STOPPED = 4,
+
+    /**
+     * Restore the original page from PiP window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Restore the original page from PiP window
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    ABOUT_TO_RESTORE = 5,
+
+    /**
+     * Error occurs during the lifecycle of PiP window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @since 11
+     */
+    /**
+     * Error occurs during the lifecycle of PiP window.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 24 static
+     */
+    ERROR = 6,
+  }
+
+  /**
+   * Describe optional component groups of PiP window.
+   *
+   * @typedef { VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
+   * @since 24 static
+   */
+  type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup;
+
+  /**
+   * Enum for video play component groups of PiP window.
+   *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -508,10 +601,7 @@ declare namespace PiPWindow {
    */
   enum VideoPlayControlGroup {
     /**
-     * Previous/Next component group for video playback.
-     *
-     * This component group is mutually exclusive with the fast-forward/rewind component group. It cannot be added if
-     * the fast-forward/rewind component group is added.
+     * Previous/Next for video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -521,23 +611,20 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS_NEXT = 101,
 
     /**
-     * Fast-forward/Rewind component group for video playback.
-     *
-     * This component group is mutually exclusive with the previous/next component group. It cannot be added if the
-     * previous/next component group is added.
+     * Forward/Backward for video.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    FAST_FORWARD_BACKWARD = 102
+    FAST_FORWARD_BACKWARD = 102,
   }
 
   /**
-   * Enumerates the video call component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_CALL**.
+   * Enum for video call component groups of PiP window.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -545,7 +632,7 @@ declare namespace PiPWindow {
    */
   enum VideoCallControlGroup {
     /**
-     * Microphone on/off component group.
+     * Turn on/off the microphone.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -555,7 +642,7 @@ declare namespace PiPWindow {
     MICROPHONE_SWITCH = 201,
 
     /**
-     * Hang-up component group.
+     * Hang up.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -565,7 +652,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 202,
 
     /**
-     * Camera on/off component group.
+     * Turn on/off the camera
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -575,20 +662,20 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 203,
 
     /**
-     * Mute/Unmute component group.
+     * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 204
+    MUTE_SWITCH = 204,
   }
 
   /**
-   * Enumerates the video meeting component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_MEETING**.
+   * Enum for video meeting component groups of PiP window.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -596,7 +683,7 @@ declare namespace PiPWindow {
    */
   enum VideoMeetingControlGroup {
     /**
-     * Hang-up component group.
+     * Hang up.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -606,7 +693,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 301,
 
     /**
-     * Camera on/off component group.
+     * Turn on/off the camera
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -616,7 +703,7 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 302,
 
     /**
-     * Mute/Unmute component group.
+     * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -626,20 +713,20 @@ declare namespace PiPWindow {
     MUTE_SWITCH = 303,
 
     /**
-     * Microphone on/off component group.
+     * Turn on/off the microphone.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    MICROPHONE_SWITCH = 304
+    MICROPHONE_SWITCH = 304,
   }
 
   /**
-   * Enumerates the live video component groups. They are used only when
-   * [PiPTemplateType]{@link PiPWindow.PiPTemplateType} is set to **VIDEO_LIVE**.
+   * Enum for video Live component groups of PiP window.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -647,7 +734,7 @@ declare namespace PiPWindow {
    */
   enum VideoLiveControlGroup {
     /**
-     * Play/Pause component group for live video.
+     * Video play/pause control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -657,19 +744,20 @@ declare namespace PiPWindow {
     VIDEO_PLAY_PAUSE = 401,
 
     /**
-     * Mute/Unmute component group.
+     * Mute switch.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 402
+    MUTE_SWITCH = 402,
   }
 
   /**
-   * Enumerates the statuses of components displayed on the PiP controller.
+   * Enum for control status.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -677,7 +765,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlStatus {
     /**
-     * Play.
+     * The video is in play mode.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -687,7 +775,7 @@ declare namespace PiPWindow {
     PLAY = 1,
 
     /**
-     * Pause.
+     * The video is in pause mode.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -697,7 +785,7 @@ declare namespace PiPWindow {
     PAUSE = 0,
 
     /**
-     * Open.
+     * A control with both open and closed states is in an open state.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -707,19 +795,20 @@ declare namespace PiPWindow {
     OPEN = 1,
 
     /**
-     * Close.
+     * A control with both open and closed states is in a close state.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    CLOSE = 0
+    CLOSE = 0,
   }
 
   /**
-   * Enumerates the types of components displayed on the PiP controller.
+   * Enum for control type.
    *
+   * @enum { number }.
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -727,7 +816,7 @@ declare namespace PiPWindow {
    */
   enum PiPControlType {
     /**
-     * Play/Pause component group for live video.
+     * Video play/pause control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -737,7 +826,7 @@ declare namespace PiPWindow {
     VIDEO_PLAY_PAUSE = 0,
 
     /**
-     * Previous component in video scenarios.
+     * Previous video control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -747,7 +836,7 @@ declare namespace PiPWindow {
     VIDEO_PREVIOUS = 1,
 
     /**
-     * Next component in video scenarios.
+     * Next video control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -757,7 +846,7 @@ declare namespace PiPWindow {
     VIDEO_NEXT = 2,
 
     /**
-     * Fast-forward component in video scenarios.
+     * Fast-forward control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -767,7 +856,7 @@ declare namespace PiPWindow {
     FAST_FORWARD = 3,
 
     /**
-     * Rewind component in video scenarios.
+     * Fast-backward control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -777,7 +866,7 @@ declare namespace PiPWindow {
     FAST_BACKWARD = 4,
 
     /**
-     * Hang-up component.
+     * Hang-up control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -787,7 +876,7 @@ declare namespace PiPWindow {
     HANG_UP_BUTTON = 5,
 
     /**
-     * Microphone on/off component.
+     * Microphone state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -797,7 +886,7 @@ declare namespace PiPWindow {
     MICROPHONE_SWITCH = 6,
 
     /**
-     * Camera on/off component.
+     * Camera state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -807,96 +896,113 @@ declare namespace PiPWindow {
     CAMERA_SWITCH = 7,
 
     /**
-     * Mute/Unmute component.
+     * Mute state switching control.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
      * @since 24 static
      */
-    MUTE_SWITCH = 8
+    MUTE_SWITCH = 8,
   }
 
+
   /**
-   * Enumerates the types of action events of the PiP controller.
+   * Describe picture-in-picture action event type.
    *
-   * @unionmember { PiPVideoActionEvent } Action event for components displayed on the video playback controller.
-   * @unionmember { PiPCallActionEvent } Action event for components displayed on the video call controller.
-   * @unionmember { PiPMeetingActionEvent } Action event for components displayed on the video meeting controller.
-   * @unionmember { PiPLiveActionEvent } Action event for components displayed on the live video controller.
+   * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describe picture-in-picture action event type.
+   *
+   * @typedef { PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent;
 
   /**
-   * Defines the PiP action event during video playback.
+   * Describe picture-in-picture video template action event type.
    *
-   * @unionmember { 'playbackStateChanged' } The playback status changes.
-   * @unionmember { 'nextVideo' } Plays the next video.
-   * @unionmember { 'previousVideo' } Plays the previous video.
-   * @unionmember { 'fastForward' } Fast forwards the video. This value is supported since API version 12. [since 12]
-   * @unionmember { 'fastBackward' } Rewinds the video. This value is supported since API version 12. [since 12]
+   * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describe picture-in-picture video template action event type.
+   *
+   * @typedef { 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward';
 
   /**
-   * Defines the PiP action event in a video call.
+   * Describe picture-in-picture call template action event type.
    *
-   * @unionmember { 'hangUp' } The video call is hung up.
-   * @unionmember { 'micStateChanged' } The microphone is muted or unmuted.
-   * @unionmember { 'videoStateChanged' } The camera is turned on or off.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted. [since 12]
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describe picture-in-picture call template action event type.
+   *
+   * @typedef { 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged';
 
   /**
-   * Defines the PiP action event in a video meeting.
+   * Describe picture-in-picture meeting template action event type.
    *
-   * @unionmember { 'hangUp' } The video meeting is hung up.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted.
-   * @unionmember { 'videoStateChanged' } The camera is turned on or off.
-   * @unionmember { 'micStateChanged' } The microphone is muted or unmuted. [since 12]
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describe picture-in-picture meeting template action event type.
+   *
+   * @typedef { 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged';
 
   /**
-   * Defines the PiP action event in a live.
+   * Describe picture-in-picture live template action event type.
    *
-   * @unionmember { 'playbackStateChanged' } The live is played or paused.
-   * @unionmember { 'voiceStateChanged' } The speaker is muted or unmuted. [since 12]
+   * @typedef { 'playbackStateChanged' }
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * Describe picture-in-picture live template action event type.
+   *
+   * @typedef { 'playbackStateChanged' | 'voiceStateChanged' }
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged';
 
   /**
-   * Describes the action event callback of the PiP controller.
+   * Describe picture-in-picture control panel action event callback.
    *
-   * @param { PiPActionEventType } event - Type of the action event of the PiP controller.
-   *     <br>The application performs processing based on the action event. For example,
-   *     if the **'playbackStateChanged'** event is triggered, the application starts or stops the video.
-   * @param { int } [status] - Status of a component that can be switched. For example, for a microphone on/off
-   *     component group, a camera on/off component group, and a mute/unmute component group, the value **1** means that
-   *     the component is enabled and **0** means that the component is disabled. For other components, the default
-   *     value **-1** is used.
-   *     The value should be an integer.
+   * @typedef { function } ControlPanelActionEventCallback
+   * @param { PiPActionEventType } event - the event from controlPanel
+   * @param { int } [status] - the status of control button
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -907,16 +1013,19 @@ declare namespace PiPWindow {
   /**
    * Describe picture-in-picture stage change event callback.
    *
+   * @typedef { function } StateChangeCallback
    * @param { PiPState } state - pip window state
    * @param { string } reason - the reason of state change
    * @syscap SystemCapability.Window.SessionManager
    * @since 24 static
    */
+
   type StateChangeCallback = (state: PiPState, reason: string) => void;
 
   /**
-   * Describes the parameters in the callback of the action event of the PiP controller.
+   * Describe picture-in-picture control event callback.
    *
+   * @interface ControlEventParam
    * @syscap SystemCapability.Window.SessionManager
    * @atomicservice
    * @since 12 dynamic
@@ -924,9 +1033,9 @@ declare namespace PiPWindow {
    */
   interface ControlEventParam {
     /**
-     * Type of the action event of the PiP controller. The application performs processing based on the component type.
-     * For example, if the video play/pause component is touched, the application starts or stops the video.
+     * The type of control.
      *
+     * @type { PiPControlType }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -935,11 +1044,9 @@ declare namespace PiPWindow {
     controlType: PiPControlType;
 
     /**
-     * Status of a component that can be switched. For example, for a microphone on/off component group, a camera on/off
-     * component group, and a mute/unmute component group, the value **PiPControlStatus.PLAY** means that the component
-     * is enabled and **PiPControlStatus.PAUSE** means that the component is disabled. For the hang-up component, the
-     * default value is **-1**.
+     * The status of control.
      *
+     * @type { ?PiPControlStatus }
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -949,14 +1056,19 @@ declare namespace PiPWindow {
   }
 
   /**
-   * Implements a PiP controller that starts, stops, or updates a PiP window and registers callbacks.
+   * PiPController
    *
-   * Before calling any of the following APIs, you must use
-   * [PiPWindow.create()]{@link PiPWindow.create(config: PiPConfiguration)} to create a PiPController instance.
-   *
+   * @interface PiPController
    * @syscap SystemCapability.Window.SessionManager
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * PiPController
+   *
+   * @interface PiPController
+   * @syscap SystemCapability.Window.SessionManager
+   * @atomicservice
+   * @since 12 dynamic
    * @since 24 static
    */
   interface PiPController {
@@ -979,59 +1091,73 @@ declare namespace PiPWindow {
     startPiP(): Promise<void>;
 
     /**
-     * Stops a PiP window. This API uses a promise to return the result.
-     *
-     * @returns { Promise<void> } Promise that returns no value.
+     * Stop picture-in-picture.
+     * @returns { Promise<void> } - The promise returned by the function.
      * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
      * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
      * @throws { BusinessError } 1300015 - Repeated PiP operation.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Stop picture-in-picture.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 1300011 - Failed to destroy the PiP window.
+     * @throws { BusinessError } 1300012 - The PiP window state is abnormal.
+     * @throws { BusinessError } 1300015 - Repeated PiP operation.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     stopPiP(): Promise<void>;
 
     /**
-     * Sets whether to automatically start a PiP window when the user returns to the home screen. By default, no PiP
-     * window is started.
-     *
-     * If the XComponent approach is used to implement PiP and the **Navigation** component is used for route management
-     * , the system caches the top stack information with the specified navigation ID upon the first call of
-     * **setAutoStartEnabled(true)**.
-     *
-     * @param { boolean } enable - Whether to automatically start a PiP window when the user returns to the home screen.
-     *     **true** to start, **false** otherwise. If the PiP feature under **Settings** > **System** > **Multi-window**
-     *     is disabled, the PiP window will not be automatically started when the user returns to the home screen even
-     *     if this parameter is set to **true**.
+     * Set if auto start picture-in-picture when back home
+     * @param { boolean } enable - Enable auto start picture-in-picture when back home
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Set if auto start picture-in-picture when back home
+     * @param { boolean } enable - Enable auto start picture-in-picture when back home
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     setAutoStartEnabled(enable: boolean): void;
 
     /**
-     * Updates the media content size when the media content changes.
-     *
-     * @param { int } width - Width of the media content, in px. The value must be an integer greater than 0. It is used
-     *     to update the aspect ratio of the PiP window.
-     * @param { int } height - Height of the media content, in px. The value must be an integer greater than 0. It is
-     *     used to update the aspect ratio of the PiP window.
+     * Update source content size to adjust PiP window aspect ratio.
+     * @param { number } width - Indicate the width of the content, measured in px.
+     * The width can consist of only digits and above 0.
+     * @param { number } height - Indicate the height of the content, measured in px.
+     * The height can consist of only digits and above 0.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Update source content size to adjust PiP window aspect ratio.
+     * @param { int } width - Indicate the width of the content, measured in px.
+     * The width can consist of only digits and above 0.
+     * @param { int } height - Indicate the height of the content, measured in px.
+     * The height can consist of only digits and above 0.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      * @since 24 static
      */
     updateContentSize(width: int, height: int): void;
 
     /**
-     * Updates the PiP controller status.
-     *
-     * @param { PiPControlType } controlType - Type of the component displayed on the PiP controller. Currently, only
-     *     the **VIDEO_PLAY_PAUSE**, **MICROPHONE_SWITCH**, **CAMERA_SWITCH**, and **MUTE_SWITCH** component types are
-     *     supported. If other component types are passed, they do not take effect and no error is reported.
-     * @param { PiPControlStatus } status - Status of the component displayed on the PiP controller.
+     * Set dashboard control status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { PiPControlStatus } status - Describe picture-in-picture control Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1039,14 +1165,14 @@ declare namespace PiPWindow {
      */
     updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void;
 
-/**
-     * Updates the PiP node content. This API uses a promise to return the result.
-     *
-     * @param { typeNode.XComponent } contentNode - Content to be rendered in the PiP window. The parameter value cannot
-     *     be empty.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+    /**
+     * Update the node which display the content of PiP window.
+     * @param { typeNode.XComponent } contentNode - The node which display the content of pip window.
+     * @returns { Promise<void> } - The promise returned by the function.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1056,11 +1182,10 @@ declare namespace PiPWindow {
     updateContentNode(contentNode: typeNode.XComponent): Promise<void>;
 
     /**
-     * Sets the enabled status for a component displayed on the PiP controller.
-     *
-     * @param { PiPControlType } controlType - Type of the component displayed on the PiP controller.
-     * @param { boolean } enabled - Enabled status of the component displayed on the PiP controller. **true** if enabled
-     *     , **false** otherwise.
+     * Set Dashboard control enable status.
+     * @param { PiPControlType } controlType - Describe picture-in-picture control type.
+     * @param { boolean } enabled - Describe picture-in-picture control enable Status.
+     * @throws { BusinessError } 401 - Params error. Possible causes: The PiPController is not created or destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1069,11 +1194,9 @@ declare namespace PiPWindow {
     setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void;
 
     /**
-     * Obtains the PIP window information. This API uses a promise to return the result.
-     *
-     * @returns { Promise<PiPWindowInfo> } Promise used to return the information about the current PIP window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * Get the info of PiP window.
+     * @returns { Promise<PiPWindowInfo> } - The promise used to return the PIP window info.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1083,12 +1206,9 @@ declare namespace PiPWindow {
     getPiPWindowInfo(): Promise<PiPWindowInfo>;
 
     /**
-     * Obtains the status of the auto-start PiP switch in Settings. This API uses a promise to return the result.
-     *
-     * @returns { Promise<boolean> } Promise used to return the auto-start PiP switch status. **true** if enabled,
-     *     **false** otherwise.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * Get the PiP switch status of system setting.
+     * @returns { Promise<boolean> } - The promise used to return the PIP switch status.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1098,12 +1218,13 @@ declare namespace PiPWindow {
     getPiPSettingSwitch(): Promise<boolean>;
 
     /**
-     * Check whether the PiP window is active. This API uses a promise to return the result.
+     * Returns a Boolean value that indicates whether picture-in-picture is active
      *
-     * @returns { Promise<boolean> } Promise used to return the PiP window status. **true** is returned if the PiP
-     *     window is visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar). If this
-     *     API is called when the PiP lifecycle is not [STARTED]{@link PiPWindow.PiPState}, **false** is always
-     *     returned.
+     * Device Behavior Differences:This interface can be normally invoked on phone, tablet, PC and TV devices,
+     * but cannot be invoked on other devices because the controller cannot be created on them.
+     *
+     * @returns { Promise<boolean> } - The promise used to return the PIP window active status.
+     *     True if PIP window is onscreen, otherwise false.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1113,36 +1234,24 @@ declare namespace PiPWindow {
     isPiPActive(): Promise<boolean>;
 
     /**
-     * Subscribes to PiP state events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed.
-     *
-     * @param { 'stateChange' } type - Event type. The value is fixed at **'stateChange'**, indicating that the PiP
-     *     state changes.
-     * @param { function } callback - Callback used to return the result, which includes the following information:<br>-
-     *     **state**: [PiPState]{@link PiPWindow.PiPState}, indicating the new PiP state.
-     *     <br>- **reason**: a string indicating the reason for the state change.
-     *     <br>Before <!--RP1-->OpenHarmony 6.1<!--RP1End-->, the value of **reason** is always **0**,
-     *     which can be ignored.<br>Since <!--RP1-->OpenHarmony 6.1<!--RP1End-->, **reason**
-     *     indicates the reason for switching the current lifecycle. The options are as follows:
-     *     <br>**"requestStart"**: An application calls the **startPip** API.
-     *     <br>**"autoStart"**: The application is automatically started in PiP mode
-     *      when it is switched to the background.
-     *     <br>**"requestDelete"**: The application calls the **stopPip** API.
-     *     <br>**"panelActionDelete"**: The user taps the close button in the PiP window.
-     *     <br>**"dragDelete"**: The user drags the PiP window to delete.
-     *     <br>**"panelActionRestore"**: The user taps the restore button in the PiP
-     *     window (or taps the PiP window if there is no restore button) to restore the PiP window.
-     *     <br>**"other"**: Other reasons, such as the current window or application's main window being closed
-     *     due to the startup of a new PiP window.
+     * Register picture-in-picture control event listener.
+     * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
+     * @param { function } callback - Used to handle {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Register picture-in-picture control event listener.
+     * @param { 'stateChange' } type - Registration type, PiP lifecycle state change, 'stateChange'
+     * @param { function } callback - Used to handle {'stateChange'} command
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      */
     on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void;
 
     /**
      * Register picture-in-picture control state change listener.
-     *
      * @param { StateChangeCallback } callback - Used to handle {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
      * @since 24 static
@@ -1150,37 +1259,42 @@ declare namespace PiPWindow {
     onStateChange(callback: StateChangeCallback): void;
 
     /**
-     * Unsubscribes from PiP state events.
-     *
-     * @param { 'stateChange' } type - Event type. The value is fixed at **'stateChange'**, indicating that the PiP
-     *     state changes.
+     * Unregister picture-in-picture lifecycle event listener.
+     * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Unregister picture-in-picture lifecycle event listener.
+     * @param { 'stateChange' } type - Used to unregister listener for {'stateChange'} command
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      */
     off(type: 'stateChange'): void;
 
     /**
      * Unregister picture-in-picture lifecycle state change listener.
-     *
      * @syscap SystemCapability.Window.SessionManager
      * @since 24 static
      */
     offStateChange(): void;
 
     /**
-     * Subscribes to PiP action events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed. The
-     * [on('controlEvent')]{@link PiPWindow.PiPController.on(type: 'controlEvent', callback: Callback<ControlEventParam>)}
-     * API is preferred.
-     *
-     * @param { 'controlPanelActionEvent' } type - Event type. The value is fixed at **'controlPanelActionEvent'**,
-     *     indicating the action event of the PiP controller.
-     * @param { function } callback - Action event callback of the PiP controller. [since 11 - 11]
-     * @param { ControlPanelActionEventCallback } callback - Action event callback of the PiP controller. [since 12]
+     * Register picture-in-picture control event listener.
+     * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
+     * @param { function } callback - Used to handle {'controlPanelActionEvent'} command
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Register picture-in-picture control event listener.
+     *
+     * @param { 'controlPanelActionEvent' } type - Registration type, user action event, 'controlPanelActionEvent'
+     * @param { ControlPanelActionEventCallback } callback - Used to handle {'controlPanelActionEvent'} command.
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      */
     on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void;
 
@@ -1194,33 +1308,32 @@ declare namespace PiPWindow {
     onControlPanelActionEvent(callback: ControlPanelActionEventCallback): void;
 
     /**
-     * Unsubscribes from PiP action events. The
-     * **[off('controlEvent')]{@link PiPWindow.PiPController.off(type: 'controlEvent', callback?: Callback<ControlEventParam>)}**
-     * API is preferred.
-     *
-     * @param { 'controlPanelActionEvent' } type - Event type. The value is fixed at **'controlPanelActionEvent'**,
-     *     indicating the action event of the PiP controller.
+     * Unregister picture-in-picture lifecycle event listener
+     * @param { 'controlPanelActionEvent' } type - Used to unregister listener for {'controlPanelActionEvent'} command
      * @syscap SystemCapability.Window.SessionManager
-     * @atomicservice [since 12]
-     * @since 11 dynamic
+     * @since 11
+     */
+    /**
+     * Unregister picture-in-picture lifecycle event listener
+     * @param { 'controlPanelActionEvent' } type - Used to unregister listener for {'controlPanelActionEvent'} command
+     * @syscap SystemCapability.Window.SessionManager
+     * @atomicservice
+     * @since 12 dynamic
      */
     off(type: 'controlPanelActionEvent'): void;
 
     /**
      * Unregister picture-in-picture lifecycle event listener
-     *
      * @syscap SystemCapability.Window.SessionManager
      * @since 24 static
      */
     offControlPanelActionEvent(): void;
 
     /**
-     * Subscribes to PiP action events. To avoid potential memory leaks, you are advised to stop listening when it is no
-     * longer needed.
+     * Register picture-in-picture control event listener.
      *
-     * @param { 'controlEvent' } type - Event type. The value is fixed at **'controlEvent'**, indicating the action
-     *     event of the PiP controller.
-     * @param { Callback<ControlEventParam> } callback - Action event callback of the PiP controller.
+     * @param { 'controlEvent' } type - Registration type, user action event, 'controlEvent'
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1237,12 +1350,9 @@ declare namespace PiPWindow {
     onControlEvent(callback: Callback<ControlEventParam>): void;
 
     /**
-     * Unsubscribes from PiP action events.
-     *
-     * @param { 'controlEvent' } type - Event type. The value is fixed at **'controlEvent'**, indicating the action
-     *     event of the PiP controller.
-     * @param { Callback<ControlEventParam> } callback - Describes the action event callback of the PiP controller. If
-     *     no value is passed in, all subscriptions to the specified event are canceled.
+     * Unregister picture-in-picture control event listener
+     * @param { 'controlEvent' } type - Used to unregister listener for {'controlEvent'} command
+     * @param { Callback<ControlEventParam> } callback - Used to handle {'controlEvent'} command.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -1251,7 +1361,6 @@ declare namespace PiPWindow {
 
     /**
      * Unregister picture-in-picture control event listener
-     *
      * @param { Callback<ControlEventParam> } [callback] - Used to handle {'controlEvent'} command.
      *     If not provided, all callbacks for the given event type will be removed.
      * @syscap SystemCapability.Window.SessionManager
@@ -1260,14 +1369,13 @@ declare namespace PiPWindow {
     offControlEvent(callback?: Callback<ControlEventParam>): void;
 
     /**
-     * Subscribes to PiP window size change events. To avoid potential memory leaks, you are advised to stop listening
-     * when it is no longer needed.
+     * Register picture-in-picture window size change event listener
      *
-     * @param { 'pipWindowSizeChange' } type - Event type. The value is fixed at **'pipWindowSizeChange'**, indicating
-     *     that the PiP window size changes.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
+     * window size change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: Callback is already registered.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @throws { BusinessError } 1300014 - PiP internal error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -1288,15 +1396,15 @@ declare namespace PiPWindow {
     onPipWindowSizeChange(callback: Callback<PiPWindowSize>): void;
 
     /**
-     * Unsubscribes from the PiP window size change event.
+     * Unregister picture-in-picture window size change event listener
      *
-     * @param { 'pipWindowSizeChange' } type - Event type. The value is fixed at **'pipWindowSizeChange'**, indicating
-     *     that the PiP window size changes.
-     * @param { Callback<PiPWindowSize> } callback - Callback used to return the size of the current PiP window. If a
-     *     value is passed in, the corresponding subscription is canceled. If no value is passed in, all subscriptions
-     *     to the specified event are canceled.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
+     * @param { 'pipWindowSizeChange' } type - The value is fixed at 'pipWindowSizeChange', indicating the picture-in-picture
+     * window size change event.
+     * @param { Callback<PiPWindowSize> } callback - Callback used to return the picture-in-picture window size.
+     * @throws { BusinessError } 401 - Params error. Possible causes: 1. Mandatory parameters are left unspecified.
+     *                                                                2. Incorrect parameter types.
+     *                                                                3. Parameter verification failed.
+     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 15 dynamic
@@ -1316,13 +1424,11 @@ declare namespace PiPWindow {
     offPipWindowSizeChange(callback?: Callback<PiPWindowSize>): void;
 
     /**
-     * Subscribes to PiP window active status change events. To avoid potential memory leaks, you are advised to stop
-     * listening when it is no longer needed.
+     * Register picture-in-picture active status change listener.
      *
-     * @param { 'activeStatusChange' } type - Event type. The value is fixed at **'activeStatusChange'**, indicating
-     *     that the PiP window active status changes.
-     * @param { Callback<boolean> } callback - PiP window active status. **true** is returned if the PiP window is
-     *     visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar).
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<boolean> } callback - Used to handle {'activeStatusChange'} command.
+     *     True indicates that the pip is onscreen, and vice verse.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -1343,13 +1449,10 @@ declare namespace PiPWindow {
     onActiveStatusChange(callback: Callback<boolean>): void;
 
     /**
-     * Unsubscribes from PiP window active status change events.
-     *
-     * @param { 'activeStatusChange' } type - Event type. The value is fixed at **'activeStatusChange'**, indicating
-     *     that the PiP window active status changes.
-     * @param { Callback<boolean> } [callback] - PiP window active status. **true** is returned if the PiP window is
-     *     visible, and **false** is returned if the PiP window is invisible (hidden in the sidebar). If no value is
-     *     passed in, all subscriptions to the specified event are canceled.
+     * Unregister picture-in-picture active status change listener
+     * @param { 'activeStatusChange' } type - Registration type, active status change, 'activeStatusChange'
+     * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
+     *     all callbacks for the given event type will be removed.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 22 dynamic
@@ -1358,7 +1461,6 @@ declare namespace PiPWindow {
 
     /**
      * Unregister picture-in-picture active status change listener
-     *
      * @param { Callback<boolean> } [callback] - Used to handle {'activeStatusChange'} command. If not provided,
      *     all callbacks for the given event type will be removed.
      * @throws { BusinessError } 801 - Capability not supported.
