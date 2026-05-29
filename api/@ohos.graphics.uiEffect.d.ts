@@ -875,25 +875,26 @@ declare namespace uiEffect {
 
   /**
    * Defines the blending effect.
-   * @typedef { BrightnessBlender }
+   *
+   * @unionmember { BrightnessBlender } Base brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR brightness blender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 13
-   */  
-  /**
-   * Defines the blending effect.
-   * @typedef { BrightnessBlender | HdrBrightnessBlender }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @since 20 dynamic
+   * @stagemodelonly
    * @since 23 static
    */
-    /**
+  type Blender = BrightnessBlender | HdrBrightnessBlender;
+
+  /**
    * Defines the blending effect.
-   * @typedef { BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender }
+   * 
+   * @unionmember { BrightnessBlender } Base brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR brightness blender [since 20]
+   * @unionmember { HdrDarkenBlender } HDR-adaptive darken blender [since 26.0.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 26.0.0 dynamic&static
+   * @stagemodelonly
+   * @since 13 dynamic
    */
   type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
 
@@ -1091,7 +1092,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface HdrDarkenBlender {
     /**
@@ -1101,7 +1102,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     hdrBrightnessRatio: double;
 
@@ -1114,7 +1115,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     grayscaleFactor?: [double, double, double];
   }
@@ -1335,7 +1336,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function createHdrDarkenBlender(hdrBrightnessRatio: double,
     grayscaleFactor?: [double, double, double]): HdrDarkenBlender; 
