@@ -32238,19 +32238,7 @@ declare class CommonMethod<T> {
    */
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
-  /**
-   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
-   *
-   * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
-   * @returns { T } return component instance who call method.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
+
   
   /**
    * Set the component's inspector label which only display on DevEco Studio. 
