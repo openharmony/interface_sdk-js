@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,6 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+import st from './@ohos.lang.interop';
 
 /**
  * Type enumeration for STValue operations.
@@ -235,6 +237,33 @@ export declare class STValue {
     static newArray(len: number, initialElement: STValue): STValue
 
     /**
+     * Creates a new static-typed array.
+     *
+     * @returns {st.Array<T>} The newly created static-typed array.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static newSTArray<T = any>(): st.Array<T>
+ 
+    /**
+     * Creates a new static-typed map.
+     *
+     * @returns {st.Map<K, V>} The newly created static-typed map.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static newSTMap<K = any, V = any>(): st.Map<K, V>
+ 
+    /**
+     * Creates a new static-typed set.
+     *
+     * @returns {st.Set<T>} The newly created static-typed set.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static newSTSet<T = any>(): st.Set<T>
+
+    /**
      * Checks assignment compatibility between types.
      *
      * @param {STValue} from_type - The source type (the type being assigned).
@@ -244,6 +273,36 @@ export declare class STValue {
      * @since 24
      */
     static typeIsAssignableFrom(from_type: STValue, to_type: STValue): boolean
+
+    /**
+     * Checks whether the given object is a static-typed array.
+     *
+     * @param {object} value - The object to check.
+     * @returns {boolean} Returns true if the object is a static-typed array, false otherwise.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static isSTArray(value: object): boolean
+ 
+    /**
+     * Checks whether the given object is a static-typed set.
+     *
+     * @param {object} value - The object to check.
+     * @returns {boolean} Returns true if the object is a static-typed set, false otherwise.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static isSTSet(value: object): boolean
+ 
+    /**
+     * Checks whether the given object is a static-typed map.
+     *
+     * @param {object} value - The object to check.
+     * @returns {boolean} Returns true if the object is a static-typed map, false otherwise.
+     * @syscap SystemCapability.ArkTS.ArkTS
+     * @since 24
+     */
+    static isSTMap(value: object): boolean
 
     /**
      * Instantiates an object through the class's constructor.
