@@ -2657,18 +2657,18 @@ declare namespace util {
    * @since 26.0.0 dynamiconly
    */
   interface MultithreadingDetectionOptions {
-    /*
-    If abort is true, the application will crash, if abort is false, the application will not crash.
-    Defalut true.
-    @syscap SystemCapability.Utils.Lang
-    @stagemodelonly
-    @crossplatform
-    @since 26.0.0 dynamiconly
-    */
+    /**
+     * If abort is **true**, the application will crash, if abort is **false**, the application will not crash.
+ 	   * Default **true**.
+     * @syscap SystemCapability.Utils.Lang
+     * @stagemodelonly
+     * @crossplatform
+     * @since 26.0.0 dynamiconly
+     */
     abort?: boolean;
     /**
      * The sampling frequency of multi-thread detection
-     * The value must be an integer, minimum is 100. (defalut 100)
+     * The value must be an integer, minimum is **100**, maximum is **2147483647**. (defauut **100**)
      * The value should be an integer.
      *
      * @syscap SystemCapability.Utils.Lang
@@ -2681,7 +2681,7 @@ declare namespace util {
     /**
      * The interval of multi-thread detection(min)
      * Errors will be reported again only if the time since the last detection exceeds this interval.
-     * The value must be an integer within [0,1440] (defalut 5min).
+     * The value must be an integer within [0,1440] (default 5min).
      *
      * @syscap SystemCapability.Utils.Lang
      * @stagemodelonly
