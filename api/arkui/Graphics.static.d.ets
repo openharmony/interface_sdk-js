@@ -894,7 +894,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -920,7 +920,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -945,7 +945,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -958,7 +958,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getColorSpace(): ColorSpace;
 
@@ -973,7 +973,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isHDR(): boolean;
 
@@ -990,7 +990,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getRedValue(): double;
 
@@ -1007,7 +1007,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getGreenValue(): double;
 
@@ -1024,7 +1024,7 @@ export declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getBlueValue(): double;
 
