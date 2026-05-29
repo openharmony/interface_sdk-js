@@ -85,7 +85,7 @@ export declare class LazyWaterFlowLayoutAttribute<T> extends CommonMethod<T> {
    * Called when the first or last item displayed in the component changes.
    * It is triggered once when the component is initialized.
    *
-   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
    *     when the index of child components in the visible area changes.
    *     <br>Passing undefined will unregister the callback.
    * @returns { T }
@@ -95,7 +95,7 @@ export declare class LazyWaterFlowLayoutAttribute<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): T;
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T;
 }
 
 /**
