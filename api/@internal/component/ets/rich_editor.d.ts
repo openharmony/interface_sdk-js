@@ -611,17 +611,6 @@ declare interface RichEditorTextStyle {
    * @since 23 dynamic
    */
   strokeColor?: ResourceColor;
-
-  /**
-   * The stroke join style of the text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  strokeJoinStyle?: StrokeJoinStyle;
 }
 
 
@@ -809,17 +798,6 @@ declare interface RichEditorParagraphStyle {
    * @since 23 dynamic
    */
   textDirection?: TextDirection;
-
-  /**
-   * Set shader style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  shaderStyle?: ShaderStyle;
 }
 
 /**
@@ -1475,17 +1453,6 @@ declare interface RichEditorTextStyleResult {
    * @since 23 dynamic
    */
   strokeColor?: ResourceColor;
-
-  /**
-   * Get the stroke join style of the text.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  strokeJoinStyle?: StrokeJoinStyle;
 }
 
 /**
