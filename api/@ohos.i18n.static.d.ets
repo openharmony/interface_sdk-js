@@ -3525,7 +3525,7 @@ latitude and a negative value is used for south latitude.
      * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January
      *     <br>The value range is all integers.
      * @returns { boolean } Check whether the input month is a leap month.
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
