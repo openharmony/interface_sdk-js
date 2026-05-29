@@ -416,6 +416,18 @@ declare namespace PiPWindow {
      * @since 26.0.0 static
      */
     VIDEO_LIVE = 3,
+	 
+    /**
+    * Indicate the content to show in picture-in-picture window is video drive
+    *
+    * Device Behavior Differences:Only supported by car
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @systemapi Hide this for inner system use
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
+    VIDEO_DRIVE = 4,
   }
 
   /**
