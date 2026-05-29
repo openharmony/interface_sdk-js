@@ -114,7 +114,7 @@ declare interface ComponentOptions {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  poolAccepts?: string[];
+  poolAccepts?: Function[];
 }
 
 /**
