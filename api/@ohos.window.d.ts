@@ -5438,47 +5438,6 @@ declare namespace window {
   }
 
   /**
-   * Optional configuration for maximizing.
-   *
-   * @syscap SystemCapability.Window.SessionManager
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface MaximizeOptions {
-    /**
-     * Layout when the window is maximized.
-     *
-     * @default MaximizePresentation.ENTER_IMMERSIVE
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    maximizePresentation?: MaximizePresentation;
-
-    /**
-     * The parameter controls the across-display mode policy of main windows.
-     * This parameter can be called properly only on 2-in-1 devices with folding capabilities.
-     * If it is called on other device types, it has no effect.
-     *
-     * @default AcrossDisplayPresentation.FOLLOW_ACROSS_DISPLAY_SETTING
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    acrossDisplayPresentation?: AcrossDisplayPresentation;
-
-    /**
-     * The configuration of snapshot animation. If not specified, the system default animation will be used.
-     * When both the duration and delay parameters are set to 0, it means the snapshot animation is canceled.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    snapshotAnimationConfig?: WindowSnapshotAnimationConfig;
-  }
-
-  /**
    * the optional move configuration used in moveWindowToAsync/moveWindowToGlobal
    *
    * @interface MoveConfiguration
