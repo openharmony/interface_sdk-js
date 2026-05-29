@@ -50,7 +50,7 @@ export { NodeController } from 'arkui.NodeController';
  * @stagemodelonly
  * @since 23 static
  */
-export { FrameNode, LayoutConstraint, ExpandMode } from 'arkui.FrameNode';
+export { FrameNode, LayoutConstraint, ExpandMode, CrossLanguageOptions } from 'arkui.FrameNode';
 /**
  * Export FrameNode. FrameNode defines a basic type of node which contains a RenderNode.
  *
