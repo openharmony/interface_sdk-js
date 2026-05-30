@@ -163,7 +163,6 @@ import installer from '@ohos.bundle.installer';
 import launcherBundleManager from '@ohos.bundle.launcherBundleManager';
 import overlay from '@ohos.bundle.overlay';
 import shortcutManager from '@ohos.bundle.shortcutManager';
-import skillManager from '@ohos.bundle.skillManager';
 import common from '@ohos.app.ability.common';
 import ConfigurationConstant from '@ohos.app.ability.ConfigurationConstant';
 import { Configuration } from '@ohos.app.ability.Configuration';
@@ -242,7 +241,7 @@ import cliManager from '@ohos.app.cli.cliManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
-  freeInstall, installer, launcherBundleManager, overlay, shortcutManager, skillManager,
+  freeInstall, installer, launcherBundleManager, overlay, shortcutManager,
   common, ConfigurationConstant, Configuration, ErrorCode, Want, StartOptions, contextConstant,
   AbilityConstant, UIExtensionContentSession, wantConstant, AbilityStage, UIExtensionAbility,
   uriPermissionManager, ServiceExtensionAbility, AtomicServiceOptions, InsightIntentContext,
