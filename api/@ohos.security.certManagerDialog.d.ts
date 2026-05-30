@@ -22,8 +22,8 @@ import type common from '@ohos.app.ability.common';
 import type certificateManager from '@ohos.security.certManager';
 
 /**
- * The **certificateManagerDialog** module provides APIs for opening the certificate management pages, on which the
- * certificates are installed, stored, used, and destroyed.
+ * The **certificateManagerDialog** module provides APIs for opening the certificate management pages, on which you can
+ * view and manage certificates (install, uninstall, and authorize certificates).
  *
  * @syscap SystemCapability.Security.CertificateManagerDialog
  * @stagemodelonly
@@ -42,6 +42,7 @@ declare namespace certificateManagerDialog {
   export enum CertificateDialogErrorCode {
     /**
      * Internal error.
+     * For example, IPC communication failure, memory operation failure, and file operation failure.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -51,7 +52,7 @@ declare namespace certificateManagerDialog {
     ERROR_GENERIC = 29700001,
 
     /**
-     * The user canceled the operation when the API is called.
+     * The user canceled the operation in the certificate management dialog box.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -61,7 +62,8 @@ declare namespace certificateManagerDialog {
     ERROR_OPERATION_CANCELED = 29700002,
 
     /**
-     * The certificate installation fails.
+     * The operation fails in the certificate management dialog box.
+     * For example, the certificate fails to be installed.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -82,6 +84,7 @@ declare namespace certificateManagerDialog {
 
     /**
      * The device security policy is not met when the API is called.
+     * For example, the device does not allow users to manage the CA certificate of GLOBAL_USER.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -91,7 +94,7 @@ declare namespace certificateManagerDialog {
     ERROR_NOT_COMPLY_SECURITY_POLICY = 29700005,
 
     /**
-     * The parameter verification fails when the API is called.
+     * The input parameter verification fails.
      *
      * For example, the parameter format is incorrect or the parameter range is invalid.
      *
@@ -164,8 +167,9 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the certificate management dialog box and displays the page of the specified type. This API uses a promise to
-   * return the result.
+   * Opens the certificate management dialog box and displays the page of the specified type. After the interface is
+   * invoked successfully, you can view, install, and uninstall the certificate in the dialog box that is displayed.
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -224,7 +228,7 @@ declare namespace certificateManagerDialog {
     CREDENTIAL_APP = 3,
 
     /**
-     * USB credential.
+     * USB Key credential.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -273,7 +277,7 @@ declare namespace certificateManagerDialog {
     CURRENT_USER = 1,
 
     /**
-     * The installed certificate is accessible to all users.
+     * The installed certificate is accessible to all users of the device.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -284,8 +288,9 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the Certificate Management Install Certificate dialog box, including installing CA certificates, user
-   * credentials, and system credentials. Use Promise asynchronous callback.
+   * Opens the Certificate Management Install Certificate dialog box. After the certificate is successfully installed,
+   * the unique identifier of the certificate is returned. Applications can use the identifier to use the certificate.
+   * Use Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -319,7 +324,9 @@ declare namespace certificateManagerDialog {
   function openInstallCertificateDialog(context: common.Context, certType: CertificateType, certScope: CertificateScope, cert: Uint8Array): Promise<string>;
 
   /**
-   * Opens the authorization page of the certificate management dialog box to grant a certificate to the application.
+   * Opens the authorization page of the certificate management dialog box to grant a credential to the application.
+   * After the API is successfully called, the app can use the URI of the authorization certificate returned by the API
+   * to sign, verify the signature, and query details.
    * This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
@@ -344,8 +351,9 @@ declare namespace certificateManagerDialog {
   function openAuthorizeDialog(context: common.Context): Promise<string>;
 
   /**
-   * Indicates that the certificate details are displayed in the Certificate Management dialog box. Use Promise
-   * asynchronous callbacks.
+   * Opens the Certificate Management dialog box to display the certificate details. After the interface is invoked
+   * successfully, detailed information about the certificate, such as the basic information, validity period, issuer,
+   * and user, is displayed. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -369,14 +377,14 @@ declare namespace certificateManagerDialog {
   function openCertificateDetailDialog(context: common.Context,cert: Uint8Array, property: CertificateDialogProperty): Promise<void>;
 
   /**
-   * Opens the Certificate Management Delete Certificate dialog box. Currently, only CA certificates can be deleted. Use
-   *  Promise asynchronous callback.
+   * Open the Certificate Management Uninstall Certificate dialog. The corresponding page is displayed. Use Promise
+   * asynchronous callbacks.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
-   * @param { CertificateType } certType - Type of the certificate to delete
+   * @param { CertificateType } certType - The type of the certificate to uninstall,  only CA_CERT is supported.
    *     <br>Currently, only the CA_CERT type is supported.
-   * @param { string } certUri - Unique identifier of the certificate to delete. The value contains up to 256 bytes.
+   * @param { string } certUri - Unique identifier of the certificate to uninstall. The value contains up to 256 bytes
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -422,9 +430,11 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the PIN authentication dialog box of the USB credential. On the displayed page, the user authorizes the
-   * certificate for the application. The certificate types that can be authorized include the application private
-   * credential, user public credential, and USB credential. This API uses a promise to return the result.
+   * Opens the Certificate Credential Authorization page of the Certificate Management dialog box. On the page that is
+   * displayed, you can authorize the application to use certificate credentials. After the API is called successfully,
+   * the app can use the URI of the authorization certificate returned by the API to sign, verify the signature, and
+   * query details. The types of certificates that can be authorized include application certificate credentials, user
+   * certificate credentials, and USB Key certificate credentials. Using Promise Asynchronous Callbacks.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
@@ -438,7 +448,9 @@ declare namespace certificateManagerDialog {
    * @throws { BusinessError } 29700002 - The user cancels the authorization.
    * @throws { BusinessError } 29700006 - Indicates that the input parameters validation failed.
    *     for example, the parameter format is incorrect or the value range is invalid.
-   * @throws { BusinessError } 29700007 - No available certificate for authorization.
+   * @throws { BusinessError } 29700007 - No available certificate for authorization. Possible causes:
+   *     1. No certificate matches the filter criteria;
+   *     2. All certificates have been deleted.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 22 dynamic
@@ -447,7 +459,7 @@ declare namespace certificateManagerDialog {
   function openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest): Promise<CertReference>;
 
   /**
-   * Represents the authorization request information of the certificate.
+   * Represents the authorization request information of the credentials.
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -467,9 +479,9 @@ declare namespace certificateManagerDialog {
 
     /**
      * Certificate usage.
-     *
      * If the **certTypes** parameter contains the **CertificateType.CREDENTIAL_UKEY** type, the **certPurpose**
-     * parameter takes effect.
+     * parameter takes effect , indicating that the certificate credentials of the USB key are filtered based on the
+     * specified certificate usage.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -482,8 +494,11 @@ declare namespace certificateManagerDialog {
      * Indicates the algorithm type of the public key of the certificate. It is used to filter the list of
      * certificates that can be selected in the authorization dialog box. Only the certificates that match
      * the public key algorithm are displayed.
-     * The value can only be RSA, EC, or ECDSA. If the keyAlgIDs array contains an unsupported algorithm type,
+     * The value can only be RSA, EC, or ECDSA (case sensitive). If this parameter is not specified, certificates are
+     * not filtered by algorithm type.
+     * If the keyAlgIDs array contains an unsupported algorithm type,
      * the keyAlgIDs filter does not take effect.
+     * The maximum length is 20.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -503,8 +518,8 @@ declare namespace certificateManagerDialog {
     issuers?: Array<Uint8Array>;
 
     /**
-     * This URI is displayed in the authorization dialog box, providing users with more information about the server
-     * context for which the certificate credential is requested for authorization.
+     * This URI is displayed in the authorization dialog box and is used to provide the user with more context about
+     * requesting authorization to use certificate credentials.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
@@ -544,12 +559,15 @@ declare namespace certificateManagerDialog {
   }
 
   /**
-   * Opens the PIN authentication dialog box of the USB credential. On the displayed page, the user can enter the PIN to
-   * authorize the USB credential. This API uses a promise to return the result.
+   * Opens the PIN authentication dialog box of the USB Key credential. On the displayed page, the user can enter the
+   * PIN to
+   * authorize the USB credential. After the call is successful, the USB key credential will be unlocked. The app can
+   * use the credential to perform operations such as signing and encryption. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
-   * @param { UkeyAuthRequest } ukeyAuthRequest - Authorization request information of the USB credential.
+   * @param { UkeyAuthRequest } ukeyAuthRequest - Authentication request information of the USB Key credential
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
@@ -569,7 +587,7 @@ declare namespace certificateManagerDialog {
   function openUkeyAuthDialog(context: common.Context, ukeyAuthRequest: UkeyAuthRequest): Promise<void>;
 
   /**
-   * Represents the authorization request information of the USB credential.
+   * USB key PIN authentication request.
    *
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
@@ -578,7 +596,9 @@ declare namespace certificateManagerDialog {
    */
   export interface UkeyAuthRequest {
     /**
-     * Unique identifier of the USB credential. The value contains up to 256 bytes.
+     * Unique identifier of the USB Key credential. The value contains up to 256 bytes.
+     * The value of this parameter can be obtained from the CertReference returned by invoking the
+     * [openAuthorizeDialog]{@link certificateManagerDialog.openAuthorizeDialog} interface.
      *
      * @syscap SystemCapability.Security.CertificateManagerDialog
      * @stagemodelonly
