@@ -5557,9 +5557,26 @@ export class UIContext {
 
   /**
    * Sets the avoidance mode for the virtual keyboard.
-   * Default mode: **KeyboardAvoidMode.OFFSET**.
    *
-   * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
+   * >  **NOTE**
+   * >
+   * >  With **KeyboardAvoidMode.RESIZE**, the page is resized to prevent the virtual keyboard from obstructing the
+   * >  view. Regarding components on the page, those whose width and height are set in percentage are resized with the
+   * >  page, and those whose width and height are set to specific values are laid out according to their settings.
+   * >  With **KeyboardAvoidMode.RESIZE**, **expandSafeArea([SafeAreaType.KEYBOARD],[SafeAreaEdge.BOTTOM])** does not
+   * >  take effect.
+   * >
+   * >  With **KeyboardAvoidMode.NONE**, keyboard avoidance is disabled, and the page will be covered by the displayed
+   * >  keyboard.
+   * >
+   * >  **setKeyboardAvoidMode** only affects page layouts. It does not apply to popup components, including the
+   * > following: **Dialog**, **Popup**, **Menu**, **BindSheet**, **BindContentCover**, **Toast**, **OverlayManager**.
+   * > For details about the avoidance mode of popup components, see
+   * > [CustomDialogControllerOptions](docroot://reference/arkui-ts/ts-methods-custom-dialog-box.md).
+   *
+   * @param { KeyboardAvoidMode } value - Avoidance mode of the virtual keyboard.<br>Default value:
+   *     **KeyboardAvoidMode.OFFSET**, which means that the page moves up when the keyboard is displayed.<br>When
+   *     **setKeyboardAvoidMode** is set to an invalid value, this attribute does not take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5570,7 +5587,8 @@ export class UIContext {
 
   /**
    * Obtains the avoidance mode of the virtual keyboard.
-   * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
+   *
+   * @returns { KeyboardAvoidMode } Avoidance mode of the virtual keyboard.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5580,9 +5598,11 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
-   * Set the pixel round mode of the system. The default mode is PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH.
+   * Sets the pixel rounding mode for this page.
    *
-   * @param { PixelRoundMode } mode - The mode of pixel round.
+   * @param { PixelRoundMode } mode - Pixel rounding mode.
+   *     Default value:**PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH**.<br>If this parameter is set to an invalid value,
+   *     the default value will be used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5592,9 +5612,9 @@ export class UIContext {
   setPixelRoundMode(mode: PixelRoundMode): void;
 
   /**
-   * Get the pixel round mode of the system.
+   * Obtains the pixel rounding mode for this page.
    *
-   * @returns { PixelRoundMode } the mode of pixel round.
+   * @returns { PixelRoundMode } Pixel rounding mode of the current page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

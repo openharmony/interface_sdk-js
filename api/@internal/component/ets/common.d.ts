@@ -6910,304 +6910,108 @@ declare interface HorizontalAlignParam {
 /**
  * Defines the align rule options of relative container.
  *
- * @interface AlignRuleOption
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defines the align rule options of relative container.
- *
- * @interface AlignRuleOption
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the align rule options of relative container.
- *
- * @interface AlignRuleOption
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare interface AlignRuleOption {
   /**
-   * The param of left align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The param of left align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Left alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align: HorizontalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?HorizontalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of left align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?HorizontalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   left?: HorizontalAlignParam;
 
   /**
-   * The param of right align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The param of right align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Right alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align:HorizontalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?HorizontalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of right align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?HorizontalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   right?: HorizontalAlignParam;
 
   /**
-   * The param of middle align.
+   * Center alignment in the horizontal direction.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align: HorizontalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?HorizontalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
    * @form
-   * @since 9
-   */
-  /**
-   * The param of middle align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Horizontal center alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of middle align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?HorizontalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   middle?: HorizontalAlignParam;
 
   /**
-   * The param of top align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The param of top align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Top alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align: VerticalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?VerticalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of top align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?VerticalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   top?: VerticalAlignParam;
 
   /**
-   * The param of bottom align.
+   * Top alignment.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align: VerticalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?VerticalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 23]
    * @form
-   * @since 9
-   */
-  /**
-   * The param of bottom align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 10
-   */
-  /**
-   * Bottom alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of bottom align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?VerticalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   bottom?: VerticalAlignParam;
 
   /**
-   * The param of center align.
+   * Center alignment in the vertical direction.
+   * In versions earlier than API version 23, the input parameter type is { anchor: string, align: VerticalAlign }.
    *
-   * @type { ?object }
+   * @type { ?object } [since 9 - 22]
+   * @type { ?VerticalAlignParam } [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
    * @form
-   * @since 9
-   */
-  /**
-   * The param of center align.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Vertical center alignment.
-   * <br>anchor: ID of the component that functions as the anchor point.
-   * <br>align: alignment mode relative to the anchor component.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The param of center align.
-   *
-   * Anonymous Object Rectification
-   * @type { ?VerticalAlignParam }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   center?: VerticalAlignParam;
 
   /**
-   * Defines the bias ratio in horizontal and vertical direction.
-   *
-   * @type { ?Bias }
-   * @default {horizontal:0.5,vertical:0.5}
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /**
    * Offset of the component under the anchor constraints.
-   * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
+   * The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
-   * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bias?: Bias;
 }
@@ -11964,22 +11768,13 @@ declare interface MultiShadowOptions {
 }
 
 /**
- * Enumerates the safe area types.
+ * Enumerates the types for expanding layout safe areas.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * The types of expanded safe areas.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum SafeAreaType {
   /**
@@ -11987,34 +11782,20 @@ declare enum SafeAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Default non-safe area of the system, including the status bar and navigation bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SYSTEM = 0,
 
   /**
-   * Notch or punch hole.
+   * Device-specific non-safe area, such as the notch area or camera cutout area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Non-safe area of the device like Notch or punch hole.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   CUTOUT = 1,
 
@@ -12023,37 +11804,21 @@ declare enum SafeAreaType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Soft keyboard area.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   KEYBOARD = 2
 }
 
 /**
- * Enumerates the safe area edges.
+ * Enumerates the edges for expanding the safe area.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Enumerates the safe area edges.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum SafeAreaEdge {
   /**
@@ -12061,16 +11826,9 @@ declare enum SafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Top edge.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   TOP = 0,
 
@@ -12079,16 +11837,9 @@ declare enum SafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Bottom edge.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   BOTTOM = 1,
 
@@ -12097,16 +11848,9 @@ declare enum SafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Start edge.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   START = 2,
 
@@ -12115,24 +11859,16 @@ declare enum SafeAreaEdge {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * End edge.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   END = 3
 }
 
 /**
- * Describe the types for expanding the safe area in layout.
+ * Enumerates the types for expanding layout safe areas.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12142,6 +11878,9 @@ declare enum SafeAreaEdge {
 declare enum LayoutSafeAreaType {
   /**
    * Default non-safe area of the system, including the status bar and navigation bar.
+   * The component's layout range can be expanded to include both component-level safe areas
+   * ([safeAreaPadding]{@link CommonMethod#safeAreaPadding}) and page-level safe areas (status
+   * bar, navigation bar, and cutout area).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12186,7 +11925,7 @@ declare enum LayoutSafeAreaEdge {
   BOTTOM = 1,
 
   /**
-   * Start edge of the safe area.
+   * Start edge. This represents the left edge in LTR mode and the right edge in RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12197,7 +11936,7 @@ declare enum LayoutSafeAreaEdge {
   START = 2,
 
   /**
-   * End edge of the safe area.
+   * End edge. This represents the right edge in LTR mode and the left edge in RTL mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12941,7 +12680,29 @@ declare interface BorderImageOption {
 }
 
 /**
- * Defines the policy of Layout
+ * Enumerates the layout policies for component width and height.
+ *
+ * >  **NOTE**
+ * >
+ * > - **LayoutPolicy** supports three layout policies: **matchParent** (adapts to the parent component's layout),
+ * > **wrapContent** (adapts to content but does not exceed the parent component's size), **fixAtIdealSize**
+ * > (adapts to content and may exceed the parent component's size).
+ * >
+ * > - For **wrapContent** and **fixAtIdealSize**:
+ * > If the component's size cannot be determined by its content, it uses the default size (if available);
+ * > otherwise, it calculates the size as (0, 0).
+ * >
+ * > - When a container is set to **wrapContent** and contains child components set to **matchParent**
+ * > (including cases where only one side is set to **matchParent**): (1) The container is first expanded by
+ * > child components with determinate sizes. (2) Child components set to **matchParent** then adapt to the
+ * > container's size. (3) If no child components have determinate sizes, both the container and its child
+ * > components have a zero size.
+ * >
+ * > - **LayoutPolicy** has lower priority than **constraintSize**.
+ * >
+ * > - Since API version 15, only the width and height attributes of **Row** and **Column** components support
+ * > the **LayoutPolicy** type. Setting **LayoutPolicy** on other components produces the same behavior as having
+ * > no width or height specified. Since API version 20, all basic components support the **LayoutPolicy** type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -12952,11 +12713,9 @@ declare interface BorderImageOption {
  */
 declare class LayoutPolicy {
   /**
-   * The component fills its parent which means its size is as large as its parent.
+   * When the component adapts to the parent component's layout, its size equals the parent component's
+   * content area (excluding the areas defined by **padding**, **border**, and **safeAreaPadding**).
    *
-   * @type { LayoutPolicy }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12966,30 +12725,26 @@ declare class LayoutPolicy {
    */
   static readonly matchParent: LayoutPolicy;
   /**
-   * The component fills its content which means its size is as large as its children but it is constained by its parent.
+   * When the component adapts to its child components (content), its size equals the child components
+   * (content) and is constrained by the parent component's content area size.
    *
-   * @type { LayoutPolicy }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice 
+   * @atomicservice
    * @since 20 dynamic
    */
   static readonly wrapContent: LayoutPolicy;
   /**
-   * The component fills its content which means its size is as large as its children.
+   * When the component adapts to its child components (content), its size equals the child components
+   * (content) and is not constrained by the parent component's content area size.
    *
-   * @type { LayoutPolicy }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice 
+   * @atomicservice
    * @since 20 dynamic
    */
   static readonly fixAtIdealSize: LayoutPolicy;
@@ -24668,54 +24423,33 @@ declare class CommonMethod<T> {
   constructor();
 
   /**
-   * Sets the width of the current component.
+   * Sets the width of the component. By default, the width required to fully hold the component content is
+   * used. If a component is wider than its parent, it will overflow.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Length } value
-   * @returns { T }
+   * @param { Length } value - Width of the component to set.<br>Unit: vp
+   *     >  **NOTE**
+   *     >
+   *     >  - In the [TextInput](@link TextInput) component, setting **width** to **auto** means that
+   *     >    the width adapts to the width of the text content.
+   *     >
+   *     >  - In the [AlphabetIndexer](@link AlphabetIndexer) component, setting **width** to **auto**
+   *     >    means that the width adapts to the maximum width of index entries.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the width of the current component.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the width of the current component.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the width of the component. By default, the width required to fully hold the
-   * component content is used.If the width of the component is greater than that of
-   * the parent container, the component will be drawn beyond the parent container scope.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width(value: Length): T;
   /**
-   * Sets the width of the component or its horizontal layout policy. By default, the
-   * component uses the width required for its content. If the width of the component is
-   * greater than that of the parent container, the component will be drawn beyond the
-   * parent container scope.
+   * Sets the width of the component or its horizontal layout policy. By default, the component uses the width required
+   * for its content. If a component is wider than its parent, it will overflow.
    *
-   * @param { Length | LayoutPolicy } widthValue
-   * @returns { T }
+   * @param { Length | LayoutPolicy } widthValue - Width of the component to set
+   *     <br>Unit: vp.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24726,54 +24460,32 @@ declare class CommonMethod<T> {
   width(widthValue: Length | LayoutPolicy): T;
 
   /**
-   * Sets the height of the current component.
+   * Sets the height of the component. By default, the height required to fully hold the component content
+   * is used. If a component is higher than its parent, it will overflow.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Length } value
-   * @returns { T }
+   * @param { Length } value - Height of the component to set.<br>Unit: vp
+   *     >  **NOTE**
+   *     >
+   *     >  In the [Row](@link Row), [Column](@link Column), and [RelativeContainer](@link RelativeContainer)
+   *     components, setting **width** and **height** to **auto** means that the size adapts to the size of their
+   *     child components.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the height of the current component.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the height of the current component.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the height of the component. By default, the height required to fully hold the
-   * component content is used. If the height of the component is greater than that of
-   * the parent container, the component will be drawn beyond the parent container scope.
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height(value: Length): T;
   /**
    * Sets the height of the component or its vertical layout policy. By default, the
-   * component uses the height required for its content. If the height of the component
-   * is greater than that of the parent container, the component will be drawn beyond
-   * the parent container scope.
+   * component uses the height required for its content. If a component is higher than
+   * its parent, it will overflow.
    *
-   * @param { Length | LayoutPolicy } heightValue
-   * @returns { T }
+   * @param { Length | LayoutPolicy } heightValue - Height of the component to set.
+   *     <br>Unit: vp.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24816,36 +24528,97 @@ declare class CommonMethod<T> {
   /**
    * Expands the safe area.
    *
-   * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
-   * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
-   * @returns { T } The component instance.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the safe area to be expanded to.
-   * default:{types: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD],
-   * edges: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END]}.
+   * > **NOTE**
+   * >
+   * > - When using **expandSafeArea** to expand the drawing of a component, avoid setting fixed width and height values
+   * > (except percentages). If fixed width and height values are set (including **'auto'**), the edges for expanding
+   * the
+   * > safe area can only be **[SafeAreaEdge.TOP, SafeAreaEdge.START]**, and the size of the component remains unchanged
+   * > after safe area expansion.
+   * >
+   * > - The safe area does not restrict the layout or size of components inside, nor does it clip the components.
+   * >
+   * > - If the parent container is a scrollable container, the component does not extend after the **expandSafeArea**
+   * > attribute is set, but it can still trigger updates to the extension range of its child nodes that have
+   * > **expandSafeArea** set.
+   * >
+   * > - When **expandSafeArea()** is set without parameters, default values are applied. When **expandSafeArea([],[])**
+   * > is used with empty arrays, the setting has no effect.
+   * >
+   * > - Prerequisites for the **expandSafeArea** attribute to take effect:
+   * >   1. When **type** is set to **SafeAreaType.KEYBOARD**, the settings take effect by default. This behaves as the
+   * >      component not avoiding the virtual keyboard.
+   * >   2. When **type** is set to any other value, the settings take effect only if its boundaries overlap with the
+   * >      safe area. For example, if the height of the status bar is 100, the absolute position of the component on
+   * the
+   * >      screen must be 0 <= y <= 100 for the settings to take effect.
+   * >
+   * > - When a component extends into a non-safe area, events in the non-safe area (such as click events) may be
+   * > intercepted by the system. Built-in components like the status bar will be given priority to respond to these
+   * > events.
+   * >
+   * > - Avoid setting the **expandSafeArea** attribute for components within scrollable containers. If you do set it,
+   * > you must apply the **expandSafeArea** attribute to all direct nodes from the current node to the scrollable
+   * > ancestor container, following the component nesting relationship. Otherwise, the **expandSafeArea** attribute may
+   * > become ineffective after scrolling.
+   * >
+   * > - The **expandSafeArea** attribute only affects the current component and does not propagate to parent or child
+   * > components. Therefore, all relevant components must be configured individually.
+   * >
+   * > - When both **expandSafeArea** and **position** attributes are set, the **position** attribute takes effect
+   * first,
+   * > followed by the **expandSafeArea** attribute. For components that do not have **position**, **offset**, or other
+   * > rendering attributes set, such as dialog boxes and sheets, the **expandSafeArea** attribute will not take effect
+   * if
+   * > their boundaries do not overlap with the non-safe area.
+   * >
+   * > - In scenarios where the **expandSafeArea** attribute is ineffective, and you need to place a component in the
+   * > safe area, you will need to manually adjust the component's coordinates.
    *
-   * @param { Array<SafeAreaType> } types - Indicates the types of the safe area.
-   * @param { Array<SafeAreaEdge> } edges - Indicates the edges of the safe area.
-   * @returns { T } The component instance.
+   * @param { Array<SafeAreaType> } types - Types of non-safe areas to extend into. For the CUTOUT type to take effect,
+   *     the Metadata item must be added to the configuration file.
+   *     <br>Default value: [SafeAreaType.SYSTEM, SafeAreaType.CUTOUT, SafeAreaType.KEYBOARD].
+   *     <br>Invalid values are treated as the default value.
+   * @param { Array<SafeAreaEdge> } edges - Edges for expanding the safe area.
+   *     <br>Default value: [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM, SafeAreaEdge.START, SafeAreaEdge.END].
+   *     <br>Invalid values are treated as the default value. The default value means to extend to all non-safe areas.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   expandSafeArea(types?: Array<SafeAreaType>, edges?: Array<SafeAreaEdge>): T;
 
   /**
-   * Expands the layout safe area of a component.
+   * Ignores the safe area for component layout.
    *
-   * @param { Array<LayoutSafeAreaType> } [types] - The region type to expand the component's layout safe area into. The default value is LayoutSafeAreaType.SYSTEM.
-   * @param { Array<LayoutSafeAreaEdge> } [edges] - The set of edges for which to ignore layout safe area. The default value is LayoutSafeAreaEdge.ALL.
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > - For a component that ignores layout safe area edges: If its width or height is set to
+   * > [LayoutPolicy.matchParent]{@link LayoutPolicy.matchParent}, both its size and position
+   * > will change; otherwise, only its position will change.
+   * >
+   * > - Based on the **safeAreaPadding** accumulation feature, a component can expand its safe area edges to all
+   * > detectable continuous safe areas.
+   * >
+   * > - When child elements of scrollable components ignore layout safe area edges, the safe areas of the scrollable
+   * > component itself and its parent components are not considered in the scrolling direction. Scrollable components
+   * > include **List**, **ArcListItem**, **Grid**, **WaterFlow**, **Swiper**, and **Tabs**.
+   * >
+   * > - When both the layout safe area ignore attribute (**.ignoreLayoutSafeArea**) and the rendering safe area ignore
+   * > attribute (**.expandSafeArea**) are set: **.ignoreLayoutSafeArea** takes effect first, and **.expandSafeArea**
+   * > takes effect on the basis of the former.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - Types of layout safe areas to expand.<br>Default value:
+   *     [LayoutSafeAreaType.SYSTEM] (expands to all safe areas, including the status bar, navigation bar, and
+   *     component-level safe area (safeAreaPadding)). navigation bar, and component-level safe area<br>Invalid values are
+   *     treated as the default value.
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - Edges of the layout safe area to expand, with mirroring capability
+   *     supported.<br>Default value: [LayoutSafeAreaEdge.ALL] (expands all edges of the component).<br>Invalid values are
+   *     treated as the default value.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24931,90 +24704,61 @@ declare class CommonMethod<T> {
   responseRegionList(regions: Array<ResponseRegion>): T;
   
   /**
-   * The size of the current component.
+   * Sets the width and height of the component.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { SizeOptions } value
-   * @returns { T }
+   * @param { SizeOptions } value - The [SizeOptions]{@link SizeOptions} type is used to set the width and
+   *     height.<br>Exception handling: If the parameter is **undefined**, the attribute setting does not take
+   *     effect. For other invalid values, the **size** attribute reverts to its default behavior when
+   *     unconfigured.<br>Unit: vp
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The size of the current component.
-   *
-   * @param { SizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The size of the current component.
-   *
-   * @param { SizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the size of the component.
-   *
-   * @param { SizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   size(value: SizeOptions): T;
 
   /**
-   * constraint Size:
-   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
-   *
-   * @param { ConstraintSizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * constraint Size:
-   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
-   *
-   * @param { ConstraintSizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * constraint Size:
-   * minWidth: minimum Width, maxWidth: maximum Width, minHeight: minimum Height, maxHeight: maximum Height.
-   *
-   * @param { ConstraintSizeOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the constraint size of the component, which is used to limit the size range during component layout.
-   * Default value: **{minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}**.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { ConstraintSizeOptions } value
-   * @returns { T }
+   * **Impact of constraintSize(minWidth/maxWidth/minHeight/maxHeight) on width/height**
+   * | Default Value                                     | Result                                      |
+   * | ---------------------------------------- | ---------------------------------------- |
+   * | \ | width=MAX(minWidth,MIN(maxWidth,width))<br>height=MAX(minHeight,MIN(maxHeight,height)) |
+   * | maxWidth, maxHeight| width=MAX(minWidth,width)<br>height=MAX(minHeight,height)
+   * | minWidth, minHeight| width=MIN(maxWidth,width)<br>height=MIN(maxHeight,height) |
+   * | width, height| If minWidth < maxWidth, the layout logic of the component takes effect, and the value range of
+   * **width** is [minWidth, maxWidth]. Otherwise, width = MAX(minWidth, maxWidth).<br>If minHeight < maxHeight,
+   * the layout logic of the component takes effect, and the value range of **height** is [minHeight, maxHeight].
+   * Otherwise, height = MAX (minHeight, maxHeight).|
+   * | width and maxWidth; height and maxHeight| width = minWidth<br>height = minHeight |
+   * | width and minWidth; and height and minHeight| The layout logic of the component takes effect, and the value of
+   * **width** cannot be greater than that of **maxWidth**.<br>The layout logic of the component takes effect, and the
+   * value of **height** cannot be greater than that of **maxHeight**.|
+   * | minWidth and maxWidth; minHeight and maxHeight| The width of the component is initially determined by the value
+   * of **width**, and it may be adjusted based on other layout attributes.<br>The height of the component is initially
+   * determined by the value of **height**, and it may be adjusted based on other layout attributes.|
+   * | width, minWidth, and maxWidth| The layout restrictions passed by the parent container are used for layout.|
+   * | height, minHeight, and maxHeight| The layout restrictions passed by the parent container are used for layout.|
+   *
+   * @param { ConstraintSizeOptions } value - Constraint size of the component to set.
+   *     **constraintSize** takes precedence over **width** and **height**.
+   *     <br>
+   *     Default value: {minWidth: 0, maxWidth: Infinity, minHeight: 0, maxHeight: Infinity}
+   *     <br>Exception handling: For strings beginning with numerals, only the numeric part is parsed.
+   *     Strings not beginning with numerals are parsed as 0. For other invalid values, the
+   *     **constraintSize** attribute reverts to its default behavior when unconfigured.
+   *     <br>Unit: vp.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   constraintSize(value: ConstraintSizeOptions): T;
 
@@ -25069,57 +24813,50 @@ declare class CommonMethod<T> {
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
   /**
-   * layout Weight
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * layout Weight
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * layout Weight
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the weight of the component during layout. A component with this attribute is allocated space
-   * along the main axis of its parent container (Row, Column, or Flex) based on its specified weight.
-   * Default value: **0**.
+   * along the main axis of its parent container ([Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} based
+   * on its specified weight.
    *
-   * @param { number | string } value
-   * @returns { T }
+   * @param { number | string } value - Layout weight of the component.
+   *     <br>When the parent container size is determined:
+   *     <br>Elements without **layoutWeight** or with **layoutWeight** set to **0** take precedence in
+   *     occupying space.
+   *     <br>The remaining space on the main axis is then allocated proportionally among elements with a
+   *     **layoutWeight** value greater than 0, ignoring their own size settings.
+   *     <br>Default value: **0**
+   *     <br>**NOTE**
+   *     <br>This parameter is only effective in
+   *     [Row]{@link Row}, [Column]{@link Column}, and [Flex]{@link Flex} container components.
+   *     <br>The value can be a number greater than or equal to 0 or a string that can be converted to a
+   *     number.
+   *     <br>If any child component in a container has the **layoutWeight** attribute set to a value greater
+   *     than 0, then child components will no longer be laid out based on
+   *     [flexShrink]{@link flexShrink} and [flexGrow]{@link flexGrow}.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   layoutWeight(value: number | string): T;
 
   /**
-   * Sets the weight of the component in a chain, which is used to re-lay out components that form the chain.
-   * <br>This API has effect only when the parent container is RelativeContainer.
+   * Sets the weight of the component in a chain, which is used to re-lay out components that form the chain. This
+   * attribute takes effect only when the parent container is
+   * [RelativeContainer]{@link RelativeContainer}.
    *
-   * @param { ChainWeightOptions } chainWeight
-   * @returns { T }
+   * **NOTE**
+   *
+   * Since API version 23, dynamic configuration via [attributeModifier]{@link CommonMethod#attributeModifier} is
+   * supported
+   *
+   * @param { ChainWeightOptions } chainWeight - Layout weight of the component in the horizontal or vertical direction.
+   *     The component with **chainWeight** set will have its size in the horizontal or vertical direction allocated
+   *     according to the set weights. The allocation ignores the component's intrinsic size and enables the component
+   *     to adaptively fill the remaining space.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25129,64 +24866,49 @@ declare class CommonMethod<T> {
   chainWeight(chainWeight: ChainWeightOptions): T;
 
   /**
-   * Inner margin.
-   *
-   * @param { Padding | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Inner margin.
-   *
-   * @param { Padding | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Inner margin.
-   *
-   * @param { Padding | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Inner margin.
-   *
-   * @param { Padding | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Sets the padding of the component.
-   * Default value: **0**.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Padding | Length | LocalizedPadding } value
-   * @returns { T }
+   * @param { Padding | Length } value - [since 7 - 11]
+   * @param { Padding | Length | LocalizedPadding } value - Padding of the component to set
+   *     <br>
+   *     When the parameter is of the **Length** type, the four paddings take effect.
+   *     <br>Default value: **0**
+   *     <br>Unit: vp
+   *     <br>When **padding** is set to a percentage, the width of the parent container is used as the
+   *     basic value. [since 12].
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   padding(value: Padding | Length | LocalizedPadding): T;
 
   /**
-   * Sets the safe area padding. It enables a container to add a component-level
-   * safe area for child components to expand into.
-   * Default value: **LengthMetrics.vp(0)**.
+   * Sets the safe area padding. This allows the container to add a component-level safe area for its child
+   * components to extend into. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Indicates safeArea padding values
-   * @returns { T }
+   * > **NOTE**
+   * > In API version 18, this API can be invoked in attributeModifier.
+   * > When parent and ancestor containers define component-level safe areas, child components can detect and utilize
+   * > these areas, referred to as Accumulated Safe Area Expansion (SAE), which represents the maximum extendable length
+   * > in each direction.
+   * > When ancestor containers have contiguous safeAreaPadding (undivided by margin, border, or padding),
+   * > SAE accumulates recursively outward until no adjacent outer safeAreaPadding exists or the recursion extends
+   * > beyond the page container.
+   * > System-level avoid areas (status bar, navigation bar, notch areas, and more) are treated as the page container's
+   * > inherent safeAreaPadding and participate in SAE calculations.
+   * > For details about the avoid areas, see Safe Area. These component-level safe areas can be leveraged by combining
+   * > with other attributes.
+   * > For example, setting the ignoreLayoutSafeArea attribute on a child component allows it to extend its layout into
+   * > the SAE region.
+   *
+   * @param { Padding | LengthMetrics | LocalizedPadding } paddingValue - Safe area padding.
+   *     <br>Unit: vp. Default value: **0**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25197,54 +24919,28 @@ declare class CommonMethod<T> {
   safeAreaPadding(paddingValue: Padding | LengthMetrics | LocalizedPadding): T;
 
   /**
-   * Outer Margin.
+   * Sets the margin of the component. The margin is considered as a part of the component's size during
+   * position calculation, thereby affecting the component's placement.
+   * <br>Since API version 10, this API supports the calc calculation feature.
    *
-   * @param { Margin | Length } value
-   * @returns { T }
+   * @param { Margin | Length } value - [since 7 - 11]
+   * @param { Margin | Length | LocalizedMargin } value - Margin of the component to set.
+   *     <br>When the parameter is of the **Length** type, the four margins take effect.
+   *     <br>Default value: **0**
+   *     <br>Unit: vp
+   *     <br>When **margin** is set to a percentage, the width of the parent container is used as the
+   *     basic value. When child components are laid out along the cross axis of the
+   *     [Row]{@link Row}, [Column]{@link Column}, or [Flex]{@link Flex} container, the cross axis
+   *     size of the child components and the margins add up to the total size of the container.
+   *     <br>For example, if the width of the **Column** container is 100, the width of the child component
+   *     is 50, the left margin is 10, and the right margin is 20, then the actual horizontal offset of
+   *     the child component is 10. [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Outer Margin.
-   *
-   * @param { Margin | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Outer Margin.
-   *
-   * @param { Margin | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Outer Margin.
-   *
-   * @param { Margin | Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the margin of the component.
-   * Default value: **0**.
-   *
-   * @param { Margin | Length | LocalizedMargin } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   margin(value: Margin | Length | LocalizedMargin): T;
 
@@ -25360,10 +25056,36 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the pixel rounding policy for the current component in the specified direction.
-   * <br>If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
+   * If a direction is not set, the pixels are rounded to the nearest whole number in that direction.
    *
-   * @param { PixelRoundPolicy } value - indicates the rounding policy for the bounds of the component.
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > - In API version 11, this API uses half-pixel alignment (that is, 0-0.25 rounds to 0, 0.25-0.75 rounds to 0.5,
+   * > 0.75-1.0 rounds to 1). Since API version 12, this API rounds pixels to the nearest integers and allows you to
+   * > disable pixel rounding for individual components.
+   * >
+   * > - This API can be called within
+   * > [attributeModifier]{@link CommonMethod#attributeModifier}
+   * > since API version 12.
+   *
+   * In normal calculations, the vertical direction (top and bottom) correspond to the component height, and the
+   * horizontal direction (the starting direction of mirroring is considered "left") correspond to the component width.
+   * For ease of description, these two sets of directions are referred to as top-left and bottom-right.
+   *
+   * - Calculate the top-left coordinates of the current component: offset of the top-left corner relative to the
+   * parent container.
+   * - Calculate the bottom-right coordinates of the current component: offset of the top-left corner relative to the
+   * parent container plus the size of the component itself.
+   * - Recalculate the size of the current component: bottom-right corner rounded value minus the top-left corner
+   * rounded value.
+   *
+   * @param { PixelRoundPolicy } value - Rounding policy for the bounds of the component.
+   *     <br>**NOTE**<br>
+   *     This attribute is applicable in scenarios where artifacts occur due to floating-point drawing. The rounding
+   *     result is related not only to the component's width and height but also to its position. Even if the
+   *     component's width and height are set to be the same, due to different floating-point positions described,
+   *     the final width and height of the component may also be different after rounding.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25872,255 +25594,95 @@ declare class CommonMethod<T> {
   opacity(opacity: Optional<number | Resource>): T;
 
   /**
-   * Border
-   * width:Border width;color:Border color;radius:Border radius;
+   * Sets the border. When neither color nor radius is specified, set borderColor and borderRadius after border to
+   * ensure they take effect.
    *
-   * @param { BorderOptions } value
-   * @returns { T }
+   * @param { BorderOptions } value - - Unified border style.<br>The default value is **0**, indicating that no border is
+   *     displayed.<br>Since API version 9, the parent node's border is displayed above child node content.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Border
-   * width:Border width;color:Border color;radius:Border radius;
-   *
-   * @param { BorderOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border
-   * width:Border width;color:Border color;radius:Border radius;
-   *
-   * @param { BorderOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the border.
-   *
-   * @param { BorderOptions } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   border(value: BorderOptions): T;
 
   /**
    * Border style
    *
-   * @param { BorderStyle } value
-   * @returns { T }
+   * @param { BorderStyle | EdgeStyles } value - Border style.<br>Default value: **BorderStyle.Solid**.[since 9]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Border style
-   *
-   * @param { BorderStyle | EdgeStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border style
-   *
-   * @param { BorderStyle | EdgeStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the border style.
-   * Default value: **BorderStyle.Solid**.
-   *
-   * @param { BorderStyle | EdgeStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   borderStyle(value: BorderStyle | EdgeStyles): T;
 
   /**
-   * Border width
-   *
-   * @param { Length } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Border width
-   *
-   * @param { Length | EdgeWidths } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border width
-   *
-   * @param { Length | EdgeWidths } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Border width
-   *
-   * @param { Length | EdgeWidths } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Sets the border width.
-   * Percentage values are not supported.
    *
-   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value
-   * @returns { T }
+   * @param { Length } value - [since 7 - 8]
+   * @param { Length | EdgeWidths } value - [since 9 - 11]
+   * @param { Length | EdgeWidths | LocalizedEdgeWidths } value - Border width. This parameter cannot be set in
+   *     percentage. [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   borderWidth(value: Length | EdgeWidths | LocalizedEdgeWidths): T;
 
   /**
-   * Border color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Border color
-   *
-   * @param { ResourceColor | EdgeColors } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border color
-   *
-   * @param { ResourceColor | EdgeColors } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Border color
-   *
-   * @param { ResourceColor | EdgeColors } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Sets the border color.
-   * Default value: **Color.Black**.
-   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value
-   * @returns { T }
+   *
+   * @param { ResourceColor } value - [since 7 - 8]
+   * @param { ResourceColor | EdgeColors } value - [since 9 - 11]
+   * @param { ResourceColor | EdgeColors | LocalizedEdgeColors } value - Border color.<br>Default value: **Color.Black**
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   borderColor(value: ResourceColor | EdgeColors | LocalizedEdgeColors): T;
 
   /**
-   * Border radius
+   * Sets the border radius.
    *
-   * @param { Length } value
-   * @returns { T }
+   * @param { Length } value - [since 7 - 8]
+   * @param { Length | BorderRadiuses } value - [since 9 - 11]
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Radius of the border corners. The value can be
+   *     expressed as a percentage of the component's width. When combined with the [clip]{@link CommonMethod#clip}
+   *     attribute, this setting clips child components to prevent them from extending beyond the component's
+   *     boundaries.
+   *     [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Border radius
-   *
-   * @param { Length | BorderRadiuses } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border radius
-   *
-   * @param { Length | BorderRadiuses } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Border radius
-   *
-   * @param { Length | BorderRadiuses } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the radius of the border rounded corners.
-   * <br>The radius is restricted by the component size. The maximum value is half of the component width or height.
-   *
-   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T;
   /**
-   * Sets the radius of the border rounded corners.
-   *     The radius is restricted by the component size. The maximum value is half of the component width or height.
+   * Sets the border corner radius and the rendering strategy for rounded corners.
    * NOTE
    *    1. **RenderStrategy.FAST**: The current component and its child components will be drawn directly
    *        onto the canvas with rounded corners applied.
    *    2. **RenderStrategy.OFFSCREEN**: The current component and its child components will first be rendered onto
    *        an off-screen canvas, then undergo a rounded corner clipping, and finally be drawn onto the main canvas.
-   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value
-   * @param { RenderStrategy } [type] - Application types for drawing rounded corners.
-   *                                         Default value: **RenderStrategy.FAST**.
-   * @returns { T }
+   * @param { Length | BorderRadiuses | LocalizedBorderRadiuses } value - Radius of the border corners. The value can be
+   *     expressed as a percentage of the component's width. When combined with the clip attribute, this setting clips
+   *     child components to prevent them from extending beyond the component's boundaries.
+   * @param { RenderStrategy } [type] - Rendering strategy for drawing rounded corners.
+   *     <br>Default value: RenderStrategy.FAST.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28926,182 +28488,94 @@ declare class CommonMethod<T> {
   visibility(value: Visibility): T;
 
   /**
-   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The percentage of the remaining space of the Flex container allocated to the component on which this property resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the percentage of the parent container's remaining space that is allocated to the component.
-   * Default value: **0**.
    *
-   * @param { number } value
-   * @returns { T }
+   * @param { number } value - Percentage of the parent container's remaining space that is allocated to the
+   *     component.
+   *     <br>The value must be greater than or equal to 0, <br>. Default value: **0**.
+   *     <br>If this parameter is set to an invalid value, the default value will be used.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   flexGrow(value: number): T;
 
   /**
-   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The proportion of the Flex container compression size assigned to the component on which this attribute resides.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the percentage of the parent container's shrink size that is allocated to the component.
-   * Default value: 0 when the parent container is Column or Row, 1 when the parent container is Flex.
+   * When the parent container is [Column]{@link Column} or [Row]{@link Row}, you must set the size along the main axis.
    *
-   * @param { number } value
-   * @returns { T }
+   * When
+   * [getInspectorByKey](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
+   * is used to obtain the **flexShrink** attribute, if the node does not have **flexShrink** set, the default value of
+   * **1** is returned by default.
+   *
+   * @param { number } value - Percentage of the parent container's shrink size that is allocated to the component
+   *     <br>The value range is all integers, If the parent container is [Column]{@link Column} or [Row]{@link Row}, the
+   *     default value is **0**, and the value range is (0, +∞).
+   *     If the parent container is [Flex]{@link Flex}, the default value is **1**.
+   *     <br>[constraintSize]{@link constraintSize}
+   *     limits the component's size range. For Column and Row components without explicit main axis size
+   *     specified (through width, height, or size), the default layout behavior (adapt-to-fit child components)
+   *     applies, even when constraintSize is configured. In this case, **flexShrink** has no effect.
+   *     <br>If this parameter is set to an invalid value, the default value will be used.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   flexShrink(value: number): T;
 
   /**
-   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
+   * Sets the base size of the component.
    *
-   * @param { number | string } value
-   * @returns { T }
+   * @param { number | string } value - Base size of the component in the main axis of the parent container (indicating
+   *     that the base size of the component in the main axis is the
+   *     original size of the component). Default value: **'auto'**.
+   *     <br>For the string type, the value must be a string that can be converted into a number (for example,**'10'**),
+   *     a string that includes a length unit (for example, **'10px'**), or the literal string **'auto'**;
+   *     percentage-based strings are not supported.
+   *     <br>For the number type, the value range is (0, +∞), and the unit is vp.
+   *     <br>Invalid values are treated as the default value **'auto'**
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The base dimension of the assembly on which this attribute is located in the direction of the principal axis in the Flex container.
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the base size of the component in the main axis of the parent container.
-   * Default value: **'auto'**.
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   flexBasis(value: number | string): T;
 
   /**
-   * Overrides the default configuration of alignItems in the Flex Layout container.
-   *
-   * @param { ItemAlign } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Overrides the default configuration of alignItems in the Flex Layout container.
-   *
-   * @param { ItemAlign } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Overrides the default configuration of alignItems in the Flex Layout container.
-   *
-   * @param { ItemAlign } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the alignment mode of the child components along the cross axis of the parent container.
-   * Default value: **ItemAlign.Auto**.
    *
-   * @param { ItemAlign } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
+   * @param { ItemAlign } value - Alignment mode of the child components along the cross axis of the parent container.
+   *     The setting overwrites the **alignItems** setting of the parent container ([Flex]{@link Flex}, [Column]{@link
+  *     Column}, [Row]{@link Row}, or [GridRow]{@link GridRow}). [GridCol]{@link GridCol} can have the **alignSelf**
+  *     attribute bound to change its own layout along the cross axis.<br>Default value: **ItemAlign.Auto**
+  * @returns { T } Current component.
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @crossplatform [since 10]
+  * @form [since 9]
+  * @atomicservice [since 11]
+  * @since 7 dynamic
+  */
   alignSelf(value: ItemAlign): T;
 
   /**
-   * Defines the align rules of child component in Stack container.
+   * Sets the alignment rule for child components in the **Stack** container. This API only takes effect when the parent
+   * container is **Stack**. When used with the [align]{@link align} attribute, **layoutGravity** takes
+   * precedence. This attribute supports dynamic configuration via [attributeModifier]{@link attributeModifier}.
    *
-   * @param { LocalizedAlignment} alignment
-   * @returns { T }
+   * @param { LocalizedAlignment } alignment - Alignment rule of child components in the **Stack** container.
+   *     If an invalid value is passed, the default value is used. Default value: **LocalizedAlignment.CENTER**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29112,47 +28586,29 @@ declare class CommonMethod<T> {
   layoutGravity(alignment: LocalizedAlignment): T;
 
   /**
-   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the current component and displays the priority in the layout container. This parameter is valid only in Row, Column, and Flex single-row layouts.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the display priority for the component in the layout container.
-   * <br>This parameter is only effective in Row, Column, and Flex (single-line) container components.
+   * <br>This parameter is only effective in [Row]{@link Row}, [Column]{@link Column}, and
+   * [Flex (single-line)]{@link Flex} container components.
    *
-   * @param { number } value
-   * @returns { T }
+   * @param { number } value - Display priority of the component in the layout container.
+   *     <br>The value range is all integers. Default value: **1**.
+   *     <br>**NOTE**<br>
+   *     The digits after the decimal point are not counted in determining the display priority. That is, numbers in
+   *     the [x, x + 1) range are considered to represent the same priority. For example, **1.0** and **1.9**
+   *     represent the same priority.
+   *     <br>If the **displayPriority** value of all child components is not greater than 1, there is no difference in
+   *     priority. When the **displayPriority** value of a child component is greater than 1, a larger value indicates
+   *     higher priority. If the parent container does not have enough space, child components with lower priority are
+   *     hidden. If child components of a certain priority are hidden, those with an even lower priority are also
+   *     hidden.
+   *     <br>The value range is all integers.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   displayPriority(value: number): T;
 
@@ -29251,96 +28707,113 @@ declare class CommonMethod<T> {
   sharedTransition(id: string, options?: sharedTransitionOptions): T;
 
   /**
-   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
+   * Sets how elements are laid out along the main axis of the container. This attribute supports dynamic configuration
+   * via [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Direction } value
-   * @returns { T }
+   * @param { Direction } value - How elements are laid out along the main axis of the container.
+   *     If this parameter is set to **auto**, the layout is subject to the system language.
+   *     The setting does not take effect in the **Column** component.
+   *     <br>Default value: **Direction.Auto**.
+   *     If the **direction** attribute receives an **undefined** or **null** input parameter, the system will apply the
+   *     default value
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
-   *
-   * @param { Direction } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the sliding direction. The enumerated value supports logical AND (&) and logical OR (|).
-   *
-   * @param { Direction } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets how elements are laid out along the main axis of the container.
-   * Default value: **Direction.Auto**.
-   *
-   * @param { Direction } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   direction(value: Direction): T;
 
   /**
-   * align
+   * Sets the alignment mode for child elements within the container's drawing area. This attribute can be dynamically
+   * set using [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Alignment } value
-   * @returns { T }
+   * @param { Alignment } value - Alignment mode for child elements in container drawing area.
+   *     This setting takes effect only in [Stack]{@link Stack},
+   *     [FolderStack]{@link FolderStack},
+   *     [Shape]{@link Shape},
+   *     [Button]{@link Button},
+   *     [Marquee]{@link Marquee},
+   *     [StepperItem]{@link StepperItem},
+   *     [Text]{@link Text},
+   *     [TextArea]{@link TextArea},
+   *     [TextInput]{@link TextInput},
+   *     [RichEditor]{@link RichEditor},
+   *     [Hyperlink]{@link Hyperlink},
+   *     [SymbolGlyph]{@link SymbolGlyph},
+   *     [ListItem]{@link ListItem},
+   *     [GridItem]{@link GridItem},
+   *     [Scroll]{@link Scroll},
+   *     [FlowItem]{@link FlowItem},
+   *     [ImageAnimator]{@link ImageAnimator},
+   *     [LoadingProgress]{@link LoadingProgress},
+   *     [PatternLock]{@link PatternLock},
+   *     [Progress]{@link Progress},
+   *     [QRCode]{@link QRCode},
+   *     [TextClock]{@link TextClock},
+   *     [TextTimer]{@link TextTimer},
+   *     [MenuItem]{@link StMenuItemack},
+   *     [Toggle]{@link Toggle},
+   *     [Checkbox]{@link Checkbox}, and
+   *     [NodeContainer]{@link NodeContainer}.
+   *     For the alignment of the **Marquee**, **Text**, **TextArea**, **TextInput**, **RichEditor**, and **Hyperlink**
+   *     components related to text, see
+   *     [textAlign]{@link TextAttribute#textAlign}.
+   *     If a component does not support the **textAlign** attribute, horizontal text alignment cannot be configured.
+   *     <br>Default value: **Alignment.Center**
+   *     <br>**NOTE**<br>
+   *     This attribute supports the mirroring capability only in the [Stack]{@link Stack} component.
+   *     In the **Stack** component, this attribute has the same effect as **alignContent**, which means that it sets
+   *     the
+   *     alignment mode of child components in the container
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * align
-   *
-   * @param { Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * align
-   *
-   * @param { Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the alignment mode of the component content in the drawing area.
-   * Default value: **Alignment.Center**.
-   *
-   * @param { Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   align(value: Alignment): T;
 
   /**
-   * align
+   * Sets the alignment mode for child elements within the container's drawing area. The mirroring capability is
+   * supported. This attribute can be dynamically set using [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Alignment | LocalizedAlignment } alignment
-   * @returns { T }
+   * @param { Alignment | LocalizedAlignment } alignment - Alignment mode for child elements in container drawing area.
+   *     The mirroring capability is supported.
+   *     The [LocalizedAlignment]{@link LocalizedAlignment} type is effective only in the following
+   *     components: [Shape]{@link Shape},
+   *     [Button]{@link Button},
+   *     [GridItem]{@link GridItem},
+   *     [FlowItem]{@link FlowItem},
+   *     [ImageAnimator]{@link ImageAnimator},
+   *     [LoadingProgress]{@link LoadingProgress},
+   *     [PatternLock]{@link PatternLock},
+   *     [Progress]{@link Progress},
+   *     [QRCode]{@link QRCode},
+   *     [TextClock]{@link TextClock},
+   *     [TextTimer]{@link TextTimer},
+   *     [StepperItem]{@link StepperItem},
+   *     [MenuItem]{@link MenuItem},
+   *     [Toggle]{@link MenuItem},
+   *     [Checkbox]{@link Checkbox}, and
+   *     [ListItem]{@link ListItem}.
+   *     For the above components, mirror switching is effective for all except the
+   *     [ListItem]{@link ListItem}, component, which behaves
+   *     identically to [Alignment]{@link Alignment}. Components where **LocalizedAlignment** is not applicable
+   *     will be rendered in accordance with their default behavior.
+   *     <br>Default value: **Alignment.Center**, **LocalizedAlignment.CENTER**.
+   *     If an invalid value is passed, the default value will be used, indicating center alignment.
+   *     <br>**NOTE**<br>
+   *     The [Alignment]{@link Alignment} type does not support the mirroring capability. The
+   *     [LocalizedAlignment]{@link LocalizedAlignment} type supports mirroring based on the layout direction
+   *     (configurable via [direction]{@link direction}) or system language. The **direction** setting takes
+   *     precedence over the system language direction. When **direction** is explicitly set to any value other than
+   *     **auto**, **LocalizedAlignment** mirroring follows the specified direction. If **direction** is set to **auto**
+   *     or not configured, **LocalizedAlignment** mirroring adapts to the system language direction
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29351,163 +28824,89 @@ declare class CommonMethod<T> {
   align(alignment: Alignment | LocalizedAlignment): T;
 
   /**
-   * position
+   * Sets the absolute positioning, which determines the position of a child component relative to the content area of
+   * the parent component. Dynamic configuration via [attributeModifier]{@link attributeModifier} is supported.
    *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * position
+   * **NOTE**
+   * - This API takes effect after the component's size measurement is complete.
+   * - When the parent container is [Row]{@link Row},
+   * [Column]{@link Column}, or
+   * [Flex]{@link Flex}, the child component with **position** set
+   * does not occupy any space.
+   * - The [Position]{@link position} type uses the upper left corner of the parent's content area as the
+   * reference point. The [Edges]{@link Edges} type uses all four sides of the parent's content area as
+   * reference, where **top**, **left**, **right**, and **bottom** define the margins between the component and
+   * corresponding sides of the parent's content area. The [LocalizedEdges]{@link LocalizedEdges} type
+   * provides the same functionality as Edges while supporting layout mirroring.
+   * - This attribute is applicable to scenarios where the component's position in the parent container is fixed, for
+   * example, where it is pinned to top or floating on the UI.
+   * - This attribute is unavailable for a layout container whose width and height are zero.
+   * - In [RelativeContainer](docroot://reference/apis-arkui/arkui-ts/ts-container-relativecontainer.md), if the child
+   * component has [alignRules]{@link alignRules} set, the **position** attribute will not take effect
    *
-   * @param { Position } value
-   * @returns { T }
+   * @param { Position } value - [since 7 - 11]
+   * @param { Position | Edges | LocalizedEdges } value - Absolute positioning that determines the child component's
+   *     position relative to the parent's content area. The content area of the parent component is calculated by
+   *     subtracting the [border]{@link border}, [padding]{@link padding}, and [safeAreaPadding]{@link safeAreaPadding}
+   *     values from the parent component's total size. This resulting content area defines the available layout space
+   *     for child components. This attribute does not take effect when it is set to an abnormal value. [since 12].
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * position
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * position
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the absolute position of the component relative to the position of the parent component.
-   * <br>The attribute is not available for a layout container whose width and height are zero.
-   *
-   * @param { Position | Edges | LocalizedEdges } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   position(value: Position | Edges | LocalizedEdges): T;
 
   /**
-   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
+   * Sets the anchor for element positioning. This attribute supports dynamic configuration via
+   * [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Position } value
-   * @returns { T }
+   * @param { Position } value - [since 7 - 11]
+   * @param { Position | LocalizedPosition } value - Positioning anchor that offsets an element from the position
+   *     specified by [position]{@link position} or [offset]{@link offset}
+   *     **.position({x: value1, y: value2}).markAnchor({x: value3, y: value4})** has the same effect as
+   *     **.position({x: value1 - value3, y: value2 - value4})**. The same applies to **offset**.
+   *     <br>If **.markAnchor({x: value1, y: value2})** is set separately, the effect is the same as that of
+   *     **.offset({x: -value1, y: -value2})**.
+   *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
+   *     <br>API version 10: no default value.
+   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the anchor point of the element when it is positioned. The base point is offset from the top start point of the element.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the anchor for locating the component, which is used to move the component
-   * further away from the position specified by position or offset.
-   *
-   * @param { Position | LocalizedPosition} value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   markAnchor(value: Position | LocalizedPosition): T;
 
   /**
-   * Coordinate offset relative to the layout completion position.
-   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
+   * Sets the offset of the component relative to its original position. When **offset** is used in combination with the
+   * [position]{@link position} attribute, the **position** attribute takes precedence and the configured offset
+   * will not be applied. This attribute supports dynamic configuration via
+   * [attributeModifier]{@link attributeModifier}.
    *
-   * @param { Position } value
-   * @returns { T }
+   * @param { Position } value - [since 7 - 11]
+   * @param { Position | Edges | LocalizedEdges } value - Offset of the component relative to its original layout
+   *     position. The **offset** attribute does not affect the layout of the parent container. It adjusts the component
+   *     position only during drawing.
+   *     If of the [Position]{@link Position} type, this parameter sets the offset relative to the upper
+   *     left corner of the component. If of the [Edges]{@link Edges} type, this parameter sets the offset
+   *     relative to the four edges of the component. **{x: x, y: y}** has the same effect as **{left: x, top: y}** and
+   *     **{right: -x, bottom: -y}**. The [LocalizedEdges]{@link LocalizedEdges} type supports the mirror mode:
+   *     **start** is equivalent to **x** with left-to-right scripts and **-x** with right-to-left scripts.
+   *     <br>API version 9 and earlier: The default value is **{x: 0, y: 0}**.
+   *     <br>Default unit: vp
+   *     <br>API version 10: no default value.
+   *     <br>This attribute does not take effect when it is set to an abnormal value. [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Coordinate offset relative to the layout completion position.
-   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Coordinate offset relative to the layout completion position.
-   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Coordinate offset relative to the layout completion position.
-   * Setting this attribute does not affect the layout of the parent container. The position is adjusted only during drawing.
-   *
-   * @param { Position } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the offset of the component relative to its original position.
-   * <br>The offset attribute does not affect the layout of the parent container.
-   * It adjusts the component position only during drawing.
-   *
-   * @param { Position | Edges | LocalizedEdges } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   offset(value: Position | Edges | LocalizedEdges): T;
 
@@ -29577,47 +28976,30 @@ declare class CommonMethod<T> {
   }): T;
 
   /**
-   * Specifies the alignRules of relative container
+   * Sets the alignment rule for child components within the relative container. This attribute only takes effect when
+   * the parent container is [RelativeContainer]{@link RelativeContainer},
+   * and supports dynamic configuration via [attributeModifier]{@link attributeModifier}.
    *
-   * @param { AlignRuleOption } value
-   * @returns { T }
+   * @param { AlignRuleOption } value - Alignment rules in the relative container.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
    * @form
-   * @since 9
-   */
-  /**
-   * Specifies the alignRules of relative container
-   *
-   * @param { AlignRuleOption } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the alignment rules in the relative container.
-   * This API is valid only when the container is RelativeContainer.
-   *
-   * @param { AlignRuleOption } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   alignRules(value: AlignRuleOption): T;
 
   /**
-   * Sets the alignment rules in the relative container.
-   * <br>This API is valid only when the container is RelativeContainer.
-   * <br>This API takes the right-to-left scripts into account, using start and end instead of
-   * left and right for alignment in the horizontal direction. Prioritize this API in aligning
-   * child components in the relative container.
+   * Sets the alignment rules in the relative container. This API is valid only when the container is
+   * [RelativeContainer]{@link RelativeContainer},.
+   * This attribute replaces the original **left** and **right** directional parameters with **start** and **end** to
+   * support proper mirroring in right-to-left (RTL) layout modes. It is recommended that you use this attribute for
+   * configuring child component alignment rules in relative containers. This attribute supports dynamic configuration
+   * via [attributeModifier]{@link attributeModifier}.
    *
-   * @param { LocalizedAlignRuleOptions } alignRule
-   * @returns { T }
+   * @param { LocalizedAlignRuleOptions } alignRule - Alignment rules in the relative container.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29628,11 +29010,10 @@ declare class CommonMethod<T> {
   alignRules(alignRule: LocalizedAlignRuleOptions): T;
 
   /**
-   * Sets the parameters of the chain in which the component is the head.
-   * <br>This parameter has effect only when the parent container is RelativeContainer.
-   * <br>The chain head is the first component in the chain that satisfies the chain formation rules.
-   * In a horizontal layout, it starts from the left (or from the right in a mirrored language
-   * layout). In a vertical layout, it starts from the top.
+   * Sets the parameters of the chain in which the component is the head. This attribute takes effect only when the
+   * parent container is RelativeContainer. The chain head is the first component in the chain that satisfies the chain
+   * formation rules. In a horizontal layout, it starts from the left (or from the right in a mirrored language layout).
+   * In a vertical layout, it starts from the top.
    *
    * @param { Axis } direction - indicates direction of the chain
    * @param { ChainStyle } style - indicates style of the chain
@@ -29646,46 +29027,33 @@ declare class CommonMethod<T> {
   chainMode(direction: Axis, style: ChainStyle): T;
 
   /**
-   * Specifies the aspect ratio of the current component.
+   * Sets the aspect ratio of the component, which can be obtained using the following formula: width/height.
+   * <br>- If only **width** and **aspectRatio** are set, the height is calculated using the following formula:
+   * width/aspectRatio.
+   * <br>- If only **height** and **aspectRatio** are set, the width is calculated using the following formula:
+   * height x aspectRatio.
+   * <br>- If **width**, **height**, and **aspectRatio** are all set, the explicitly set height is ignored, and the
+   * effective height is calculated using the following formula: width/aspectRatio.
+   * <br>After the **aspectRatio** attribute is set, the component's width and height will be limited by the size of
+   * the parent component's content area. The priority of [constraintSize]{@link constraintSize} is higher than that
+   * of **aspectRatio**.
    *
-   * @param { number } value
-   * @returns { T }
+   * @param { number } value - Aspect ratio of the component.
+   *     The default value varies by API version.
+   *     <br>API version 9 and earlier: **1.0**
+   *     <br>API version 10: none
+   *     <br>**NOTE**<br>
+   *     This parameter takes effect only when a valid value greater than 0 is specified. For example, if a **Row**
+   *     component has only its width set and does not have any child component, then when **aspectRatio** is not set
+   *     or is set to a negative value, the height of the **Row** component is 0
+   *     <br>The value range is all integers.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Specifies the aspect ratio of the current component.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies the aspect ratio of the current component.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies the aspect ratio of the current component.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aspectRatio(value: number): T;
 
@@ -33982,7 +33350,7 @@ declare interface LinearGradient {
 }
 
 /**
- * Defines the direction of pixel rounding at the component level.
+ * Enumerates the directions of pixel rounding at the component level.
  *
  * @interface PixelRoundPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33994,7 +33362,8 @@ declare interface LinearGradient {
  */
 declare interface PixelRoundPolicy {
   /**
-   * Rounding for alignment with the start edge.
+   * Rounding alignment for the component's start edge.
+   * <br>Invalid values are rounded using the round-half-up rule.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -34008,7 +33377,8 @@ declare interface PixelRoundPolicy {
   start?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding for alignment with the top edge.
+   * Rounding alignment for the component's top edge.
+   * <br>Invalid values are rounded using the round-half-up rule.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -34022,7 +33392,8 @@ declare interface PixelRoundPolicy {
   top?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding for alignment with the end edge.
+   * Rounding alignment for the component's end edge.
+   * <br>Invalid values are rounded using the round-half-up rule.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -34036,7 +33407,8 @@ declare interface PixelRoundPolicy {
   end?: PixelRoundCalcPolicy;
 
   /**
-   * Rounding for alignment with the bottom edge.
+   * Rounding alignment for the component's bottom edge.
+   * <br>Invalid values are rounded using the round-half-up rule.
    *
    * @type { ?PixelRoundCalcPolicy }
    * @default PixelRoundCalcPolicy.NO_FORCE_ROUND
@@ -34149,7 +33521,7 @@ declare interface MotionBlurOptions {
 }
 
 /**
- * Sub component border info.
+ * Provides the border information of the child component.
  *
  * @interface LayoutBorderInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34160,7 +33532,7 @@ declare interface MotionBlurOptions {
  */
 declare interface LayoutBorderInfo {
   /**
-   * Sub component borderWidth info.
+   * Edge widths in different directions of the component.
    *
    * @type { EdgeWidths }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34172,7 +33544,7 @@ declare interface LayoutBorderInfo {
   borderWidth: EdgeWidths;
 
   /**
-   * Sub component margin info.
+   * Margin values in different directions of the component.
    *
    * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34184,7 +33556,7 @@ declare interface LayoutBorderInfo {
   margin: Margin,
 
   /**
-   * Sub component padding info.
+   * Padding values in different directions of the component.
    *
    * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34197,7 +33569,7 @@ declare interface LayoutBorderInfo {
 }
 
 /**
- * Sub component layout info.
+ * Provides the child component layout information.
  *
  * @interface LayoutInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34208,7 +33580,7 @@ declare interface LayoutBorderInfo {
  */
 declare interface LayoutInfo {
   /**
-   * Sub component position info.
+   * Position coordinates of the child component.
    *
    * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34220,7 +33592,7 @@ declare interface LayoutInfo {
   position: Position,
 
   /**
-   * Sub component constraint info.
+   * Constraint size of the child component.
    *
    * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34369,136 +33741,79 @@ declare interface LayoutChild {
 }
 
 /**
- * Sub component layout info.
+ * Provides layout geometry information of the parent component (a custom component).
+ * Inherits from [SizeResult]{@link SizeResult}.
  *
- * @extends SizeResult
- * @interface GeometryInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Sub component layout info.
- *
- * @extends SizeResult
- * @interface GeometryInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface GeometryInfo extends SizeResult {
   /**
-   * Sub component borderWidth info.
+   * Width of the parent component's border.
+   * Unit: vp.
    *
-   * @type { EdgeWidth }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sub component borderWidth info.
-   *
-   * @type { EdgeWidth }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderWidth: EdgeWidth;
 
   /**
-   * Sub component margin info.
+   * Margin values of the parent component.
+   * Unit: vp.
    *
-   * @type { Margin }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sub component margin info.
-   *
-   * @type { Margin }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   margin: Margin,
 
   /**
-   * Sub component padding info.
+   * Padding values of the parent component.
+   * Unit: vp.
    *
-   * @type { Padding }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sub component padding info.
-   *
-   * @type { Padding }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   padding: Padding,
 }
 
 /**
- * Sub component info passed from framework when layout happens.
+ * Provides the child component layout information.
  *
- * @interface Layoutable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provides the sub component layout information.
- *
- * @interface Layoutable
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface Layoutable {
   /**
-   * Measurement result of the sub component.
+   * Measurement result of the child component.
+   * Unit: vp.
    *
-   * @type { MeasureResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Measurement result of the sub component.
-   *
-   * @type { MeasureResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   measureResult: MeasureResult,
 
   /**
-   * Unique ID of the sub component.
+   * Unique ID that the system assigns to the child component.
+   * The value must be an integer greater than or equal to 0.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34508,30 +33823,21 @@ declare interface Layoutable {
   uniqueId?: number;
 
   /**
-   * Call this layout method in onLayout callback to assign layout info to sub component.
+   * Applies the specified position constraints to the child component.
    *
-   * @param { Position } position
+   * @param { Position } position - Absolute position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Applies the specified position information to the sub component.
-   *
-   * @param { Position } position
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   layout(position: Position): void,
 
   /**
-   * Obtains the margin of the sub component.
+   * Obtains the margin values of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } the margin of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Margin values of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34541,9 +33847,9 @@ declare interface Layoutable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * Call this method to get the padding of sub component.
+   * Obtains the padding values of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Padding of the sub component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Padding values of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34553,9 +33859,9 @@ declare interface Layoutable {
   getPadding() : DirectionalEdgesT<number>,
 
   /**
-   * Obtains the border width of the sub component.
+   * Obtains the border widths of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } the borderWidth of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Border widths of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34566,29 +33872,19 @@ declare interface Layoutable {
 }
 
 /**
- * Sub component info passed from framework when measure happens.
+ * Provides the child component position information.
  *
- * @interface Measurable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Sub component info passed from framework when measure happens.
- *
- * @interface Measurable
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface Measurable {
   /**
-   * Unique ID that the system assigns to the sub component.
+   * Unique ID that the system assigns to the child component.
+   * The value range is all integers.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34598,32 +33894,22 @@ declare interface Measurable {
   uniqueId?: number;
 
   /**
-   * Call this measure method in onMeasure callback to supply sub component size.
+   * Imposes size constraints on the child component.
    *
-   * @param { ConstraintSizeOptions } constraint
-   * @returns { MeasureResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Applies the size constraint to the sub component.
-   *
-   * @param { ConstraintSizeOptions } constraint
+   * @param { ConstraintSizeOptions } constraint - Size constraint.
    * @returns { MeasureResult } Provides the measurement result of the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   measure(constraint: ConstraintSizeOptions) : MeasureResult,
 
   /**
-   * Obtains the margin of the sub component.
+   * Obtains the margin values of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Margin of the sub component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Margin values of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34633,9 +33919,9 @@ declare interface Measurable {
   getMargin() : DirectionalEdgesT<number>;
 
   /**
-   * Obtains the padding of the sub component.
+   * Obtains the padding values of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } the padding of sub component, unit is vp
+   * @returns { DirectionalEdgesT<number> } Padding values of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34645,9 +33931,9 @@ declare interface Measurable {
   getPadding() : DirectionalEdgesT<number>;
 
   /**
-   * Obtains the border width of the sub component.
+   * Obtains the border widths of the child component.
    *
-   * @returns { DirectionalEdgesT<number> } Border width of the sub component, unit is vp.
+   * @returns { DirectionalEdgesT<number> } Border widths of the child component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -34658,88 +33944,59 @@ declare interface Measurable {
 }
 
 /**
- * Component SizeResult info.
+ * > **NOTE**
+ * >
+ * > - The custom layout does not support the LazyForEach syntax.
+ * > - When a custom layout is created in builder mode, only **this.builder()** is allowed in the **build()** method
+ * >   of a custom component, as shown in the recommended usage in the example below.
+ * > - The size parameters of the parent component (custom component), except **aspectRatio**, are at a lower
+ * >   priority than those specified by [onMeasureSize]{@link CustomComponentV2#onMeasureSize}.
+ * > - The position parameters of the child component, except **offset**, **position**, and **markAnchor**, are at
+ * >   a lower priority than those specified by [onPlaceChildren]{@link CustomComponentV2#onPlaceChildren},
+ * >   and do not take effect.
+ * > - When using the custom layout method, you must call **onMeasureSize** and **onPlaceChildren** at the same
+ * >   time for the layout to display properly.
  *
- * @interface SizeResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provides the component size information.
- *
- * @interface SizeResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface SizeResult {
   /**
    * Width obtained from the measurement result.
+   * Unit: vp, Value range: (-∞,+∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Width obtained from the measurement result. Unit: vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   width: number,
 
   /**
    * Height obtained from the measurement result.
+   * Unit: vp, Value range: (-∞,+∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Height obtained from the measurement result. Unit: vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   height: number,
 }
 
 /**
- * Component MeasureResult info.
+ * Provides the measurement result of the component. This API inherits from [SizeResult]{@link SizeResult}.
  *
- * @extends SizeResult
- * @interface MeasureResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provides the measurement result of the component.
- *
- * @extends SizeResult
- * @interface MeasureResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MeasureResult extends SizeResult {
 
@@ -34978,10 +34235,14 @@ declare class CustomComponent extends BaseCustomComponent {
   aboutToReuse?(params: Record<string, Object | undefined | null>): void;
 
   /**
-   * Custom component override this method to layout each of its sub components.
+   * Invoked when the custom component lays out its child components. Through this callback the component
+   * receives its child component layout information and size constraint from the ArkUI framework.
+   * State variables should not be changed in this callback.
+   * This API is supported since API version 9 and deprecated since API version 10. You are advised to use
+   * onPlaceChildren instead.
    *
-   * @param { Array<LayoutChild> } children
-   * @param { ConstraintSizeOptions } constraint
+   * @param { Array<LayoutChild> } children - Child component layout information.
+   * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -34991,10 +34252,14 @@ declare class CustomComponent extends BaseCustomComponent {
   onLayout?(children: Array<LayoutChild>, constraint: ConstraintSizeOptions): void;
 
   /**
-   * Custom component override this method to measure each of its sub components.
+   * Invoked when the custom component needs to determine its size. Through this callback the component
+   * receives its child component layout information and its own size constraints from the ArkUI framework.
+   * State variables should not be changed in this callback.
+   * This API is supported since API version 9 and deprecated since API version 10. You are advised to use
+   * onMeasureSize instead.
    *
-   * @param { Array<LayoutChild> } children
-   * @param { ConstraintSizeOptions } constraint
+   * @param { Array<LayoutChild> } children - Child component layout information.
+   * @param { ConstraintSizeOptions } constraint - Size constraint of the parent component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -35250,75 +34515,39 @@ declare class BaseCustomComponent extends CommonAttribute {
   onWillApplyTheme?(theme: Theme): void;
 
   /**
-   * Custom component override this method to layout each of its sub components.
+   * Invoked when the custom component needs to determine the positions of its child components. Through this
+   * callback the component receives its child component size constraints from the ArkUI framework.
+   * State variables should not be changed in this callback.
    *
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Layoutable> } children
-   * @param { ConstraintSizeOptions } constraint
+   * @param { GeometryInfo } selfLayoutInfo - Information about the component's computed layout properties
+   *     after measurement.
+   * @param { Array<Layoutable> } children - Array containing layout information for all child components
+   *     after measurement.
+   * @param { ConstraintSizeOptions } constraint - Layout constraints applied to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Custom component override this method to layout each of its sub components.
-   *
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Layoutable> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Custom component override this method to layout each of its sub components, it is migrated from class CustomComponent.
-   *
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Layoutable> } children
-   * @param { ConstraintSizeOptions } constraint
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
+   * @atomicservice [since 11]
    * @since 18 dynamic
    */
   onPlaceChildren?(selfLayoutInfo: GeometryInfo, children: Array<Layoutable>, constraint: ConstraintSizeOptions): void;
 
   /**
-   * Custom component override this method to measure each of its sub components.
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Measurable> } children - indicate the measure child
-   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
-   * @returns { SizeResult }
+   * Invoked when the custom component needs to determine its size. Through this callback the component
+   * receives its layout information and size constraints from the ArkUI framework. State variables should
+   * not be changed in this callback.
+   *
+   * @param { GeometryInfo } selfLayoutInfo - Information about the component's computed layout properties after
+   *     measurement.<br>During the first layout, the component will use its own set attributes as the basis for layout.
+   * @param { Array<Measurable> } children - Array containing layout information for all child components after
+   *     measurement. <br>When a child component does not have its layout information set, it retains the previous layout
+   *     settings or, if no previous layout settings are available, stays at the default size of 0.
+   * @param { ConstraintSizeOptions } constraint - Layout constraints applied to the component.
+   * @returns { SizeResult } Component size information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Custom component override this method to measure each of its sub components.
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Measurable> } children - indicate the measure child
-   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
-   * @returns { SizeResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Custom component override this method to measure each of its sub components, it is migrated from class CustomComponent.
-   * @param { GeometryInfo } selfLayoutInfo
-   * @param { Array<Measurable> } children - indicate the measure child
-   * @param { ConstraintSizeOptions } constraint - indicate child constraint size
-   * @returns { SizeResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
+   * @atomicservice [since 11]
    * @since 18 dynamic
    */
   onMeasureSize?(selfLayoutInfo: GeometryInfo, children: Array<Measurable>, constraint: ConstraintSizeOptions): SizeResult;
