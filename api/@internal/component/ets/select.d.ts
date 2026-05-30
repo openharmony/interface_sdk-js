@@ -1368,7 +1368,9 @@ declare class SelectAttribute extends CommonMethod<SelectAttribute> {
    * @returns { SelectAttribute } - the attribute of the select.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi [since 23-24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 23 dynamic
    */
