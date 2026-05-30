@@ -1053,6 +1053,7 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1062,6 +1063,7 @@ declare class SystemEnvKey<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1071,6 +1073,7 @@ declare class SystemEnvKey<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1081,24 +1084,27 @@ declare class SystemEnvKey<T> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
+declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
  * Define read-only system environment variable keys.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
+declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 /**
  * Defines the custom environment Key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1108,6 +1114,7 @@ declare class CustomEnvKey<S> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1118,6 +1125,7 @@ declare class CustomEnvKey<S> {
    * @returns { CustomEnvKey<T> } CustomEnvKey
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1128,16 +1136,18 @@ declare class CustomEnvKey<S> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   protected constructor();
 }
 /**
- * Defines the system environment key.
+ * Defines the writable system environment key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1147,6 +1157,7 @@ declare class WritableEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1156,6 +1167,7 @@ declare class WritableEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1169,6 +1181,7 @@ declare class WritableEnvKey {
  * @returns { PropertyDecorator } CustomEnv decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1196,6 +1209,7 @@ declare type EnvDecorator = (value: SystemProperties) => PropertyDecorator;
  * @returns { PropertyDecorator } Env decorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @atomicservice
  * @since 22 dynamic
  */
