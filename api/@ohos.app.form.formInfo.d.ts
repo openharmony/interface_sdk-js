@@ -2956,7 +2956,6 @@ declare namespace formInfo {
    */
   type GetWantParamsCallback = (formInfo: Array<formInfo.FormInfo>) => Array<Record<string, Object>>;
 
-  
   /**
    * FormCustomConfig
    *
