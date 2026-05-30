@@ -3611,6 +3611,7 @@ declare namespace contact {
    * -2 indicates that the user has not selected this contact.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
    * @throws { BusinessError } 16700103 - User canceled.
    * @syscap SystemCapability.Applications.Contacts

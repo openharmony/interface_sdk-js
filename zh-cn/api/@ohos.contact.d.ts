@@ -3337,6 +3337,7 @@ declare namespace contact {
    * 返回值为-1[INVALID_CONTACT_ID]{@link Contact.INVALID_CONTACT_ID} 表示创建失败。-2表示用户未选择该联系人。
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
+   * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
    * @throws { BusinessError } 16700103 - User canceled.
    * @syscap SystemCapability.Applications.Contacts
