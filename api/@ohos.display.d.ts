@@ -2183,16 +2183,6 @@ declare namespace display {
      * @since 23 dynamic&static
      */
     getRoundedCorner(): Array<RoundedCorner>;
-
-    /**
-     * Preferred color space of the device.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    readonly preferredColorSpace?: colorSpaceManager.ColorSpace;
   }
 
   /**
