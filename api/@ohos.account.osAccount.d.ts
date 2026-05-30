@@ -45,6 +45,18 @@ declare namespace osAccount {
   function getAccountManager(): AccountManager;
 
   /**
+  * Obtains an OS account sub-profile manager instance.
+  *
+  * @returns { OsAccountSubProfileManager } Instance object of the OS account sub-profile manager.
+  * @throws { BusinessError } 202 - Not system application.
+  * @syscap SystemCapability.Account.OsAccount
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  function getOsAccountSubProfileManager(): OsAccountSubProfileManager;
+
+  /**
    * Obtains this OS account authorization manager.
    *
    * @returns { AuthorizationManager } Instance object of the OS account authorization manager.
@@ -59,7 +71,7 @@ declare namespace osAccount {
   /**
    * Checks whether this domain account is supported. This API uses a promise to return the result.
    *
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means this domain account is 
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means this domain account is
    *     supported; the value **false** means the opposite.
    * @throws { BusinessError } 12300001 - The system service works abnormally.
    * @syscap SystemCapability.Account.OsAccount
@@ -1047,7 +1059,7 @@ declare namespace osAccount {
     getOsAccountLocalId(): Promise<int>;
 
     /**
-     * Obtains the local IDs of all non-system-level OS accounts. Non-system-level OS accounts are visible to 
+     * Obtains the local IDs of all non-system-level OS accounts. Non-system-level OS accounts are visible to
      * users and are usually used for operations such as login. This API uses a promise to return the result.
      *
      * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
@@ -2690,6 +2702,380 @@ declare namespace osAccount {
      * @since 23 static
      */
     bindDomainAccount(localId: int, domainAccountInfo: DomainAccountInfo): Promise<void>;
+  }
+
+  /**
+   * Defines the OS account sub-profile manager class.
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OsAccountSubProfileManager {
+    /**
+     * Creates an OS account sub-profile.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - Local ID of the target OS account.
+     * @returns { Promise<OsAccountSubProfile> } Promise used to return the created sub-profile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - The OS account not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target OS account is being
+     *     operated.
+     * @throws { BusinessError } 12300402 - The number of sub-profiles under the OS account has reached limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createOsAccountSubProfile(osAccountLocalId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * Deletes an OS account sub-profile.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - Local ID of the target OS account.
+     * @param { int } subProfileId - ID of the sub-profile.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The OS account or sub-profile is being
+     *     operated.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @throws { BusinessError } 12300403 - Restricted sub-profile cannot be deleted.
+     * @throws { BusinessError } 12300404 - The foreground sub-profile cannot be deleted.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deleteOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<void>;
+
+    /**
+     * Switches to an OS account sub-profile.
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - Local ID of the OS account.
+     * @param { int } subProfileId - ID of the sub-profile.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The OS account or sub-profile is being
+     *     operated.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @throws { BusinessError } 12300403 - Restricted sub-profile cannot be switched to foreground.
+     * @throws { BusinessError } 12300405 - The foreground sub-profile bound with a logged-in distributed account
+     *     cannot be directly switched to background.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    switchOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<void>;
+
+    /**
+     * Subscribes to OS account sub-profile events.
+     *
+     * @param { OsAccountSubProfileEvent[] } events - Array of events to be subscribed
+     * @param { Callback<OsAccountSubProfileEventData> } callback - Callback invoked when an event occurs.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid event.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onOsAccountSubProfileEvent(
+      events: OsAccountSubProfileEvent[],
+      callback: Callback<OsAccountSubProfileEventData>): void;
+
+    /**
+     * Unsubscribes from OS account sub-profile events.
+     *
+     * @param { Callback<OsAccountSubProfileEventData> } [callback] - Callback to be unsubscribed.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offOsAccountSubProfileEvent(callback?: Callback<OsAccountSubProfileEventData>): void;
+
+    /**
+     * Gets the foreground sub-profile ID of the OS account to which the caller belongs.
+     *
+     * @returns { Promise<int> } Promise used to return the id of the OS account foreground sub-profile.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountForegroundSubProfileId(): Promise<int>;
+
+    /**
+     * Gets the foreground sub-profile ID of a specified OS account.
+     *
+     * @param { int } osAccountLocalId - Local ID of the OS account.
+     * @returns { Promise<int> } Promise used to return the id of the OS account foreground sub-profile.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @throws { BusinessError } 12300401 - The foreground sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountForegroundSubProfileId(osAccountLocalId: int): Promise<int>;
+
+    /**
+     * Gets the ID list of sub-profile of the OS account to which the caller belongs.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @returns { Promise<int[]> } Promise used to return the ID list of sub-profile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfileIds(): Promise<int[]>;
+
+    /**
+     * Gets the ID list of sub-profile of a specified OS account.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @param { int } osAccountLocalId - Local ID of the OS account.
+     * @returns { Promise<int[]> } Promise used to return the ID list of sub-profile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfileIds(osAccountLocalId: int): Promise<int[]>;
+
+    /**
+     * Gets the sub-profile object information of the OS account to which the caller belongs.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNTS
+     * @param { int } subProfileId - ID of the sub-profile.
+     * @returns { Promise<OsAccountSubProfile> } Promise used to return the sub-profile object information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfile(subProfileId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * Gets the sub-profile object information of the specified OS account.
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - Local ID of the OS account.
+     * @param { int } subProfileId - ID of the sub-profile.
+     * @returns { Promise<OsAccountSubProfile> } Promise used to return the sub-profile object information.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * Obtains the local ID of the OS account to which a sub-profile belongs.
+     *
+     * @param { int } subProfileId - ID of the sub-profile.
+     * @returns { Promise<int> } Promise used to return the local ID of the OS account to which a sub-profile belongs.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountLocalIdForSubProfile(subProfileId: int): Promise<int>;
+  }
+
+  /**
+   * Definition of an OS account sub-profile.
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OsAccountSubProfile {
+    /**
+     * Identifier of the OS account sub-profile.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    id: int;
+
+    /**
+     * Local ID of the OS account to which the sub-profile belongs.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    osAccountLocalId: int;
+
+    /**
+     * Position index of the OS account sub-profile, ranging from 0 to the number of sub-profiles minus 1.
+     * This index is unique within each OS account and is automatically assigned by the system
+     * when the sub-profile is created.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    index: int;
+
+    /**
+     * Distributed account information bound to the OS account sub-profile.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    distributedInfo?: distributedAccount.DistributedInfo;
+  }
+
+  /**
+   * Enumerates the events of an OS account sub-profile.
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum OsAccountSubProfileEvent {
+    /**
+     * CREATED event.
+     * Triggered when an OS account sub-profile creation is completed.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CREATED = 0,
+
+    /**
+     * DELETED event.
+     * Triggered when an OS account sub-profile deletion is completed.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DELETED = 1,
+
+    /**
+     * SWITCHING event.
+     * Triggered when an OS account sub-profile switch is about to happen.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCHING = 2,
+
+    /**
+     * SWITCHED event.
+     * Triggered when an OS account sub-profile switch is completed.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCHED = 3
+  }
+
+  /**
+   * Represents the event data of an OS account sub-profile.
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OsAccountSubProfileEventData {
+    /**
+     * Event that occurred.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    event: OsAccountSubProfileEvent;
+
+    /**
+     * OS account local ID.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    osAccountLocalId: int;
+
+    /**
+     * OS account sub-profile identifier.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    subProfileId: int;
+
+    /**
+     * Previous OS account sub-profile identifier.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    previousSubProfileId?: int;
   }
 
   /**
