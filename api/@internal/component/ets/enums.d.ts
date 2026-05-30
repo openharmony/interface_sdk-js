@@ -11919,7 +11919,7 @@ declare enum ColorSpace {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   BT2020 = 2,
 }
