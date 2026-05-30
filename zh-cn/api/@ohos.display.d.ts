@@ -2110,16 +2110,6 @@ declare namespace display {
      * @since 23 dynamic&static
      */
     getRoundedCorner(): Array<RoundedCorner>;
-
-    /**
-     * 显示设备首选的色彩空间
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
-    readonly preferredColorSpace?: colorSpaceManager.ColorSpace;
   }
 
   /**
