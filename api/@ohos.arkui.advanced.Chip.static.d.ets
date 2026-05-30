@@ -34,7 +34,6 @@ import {
 } from './@ohos.arkui.component';
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 import { PropRef, Require } from './arkui/stateManagement/decorator';
-import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Enum for ChipSize
@@ -669,18 +668,6 @@ export interface ChipOptions {
    backgroundColor?: ResourceColor;
 
    /**
-    * Set system-styled materials for the component. Different materials have different effects, which can influence
-    * the backgroundColor, border, shadow, and other visual attributes of the component.
-    *
-    * @type { ?uiMaterial.Material }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    * @noninterop
-    */
-   backgroundSystemMaterial?: uiMaterial.Material;
-
-   /**
     * Chip background color when chip is activated.
     *
     * @type { ?ResourceColor }
@@ -690,18 +677,6 @@ export interface ChipOptions {
     * @noninterop
     */
    activatedBackgroundColor?: ResourceColor;
-
-   /**
-    * Set system-styled materials for the component which is activated. Different materials have different effects, which can influence
-    * the backgroundColor, border, shadow, and other visual attributes of the component.
-    *
-    * @type { ?uiMaterial.Material }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    * @noninterop
-    */
-   activatedBackgroundSystemMaterial?: uiMaterial.Material;
 
    /**
    * Chip radius.
