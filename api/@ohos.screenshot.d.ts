@@ -513,7 +513,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     displayIntent?: DisplayIntentType;
   }
@@ -525,7 +525,7 @@ declare namespace screenshot {
    * @syscap SystemCapability.Window.SessionManager
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   enum DisplayIntentType {  
     /**
@@ -535,7 +535,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     CANONICAL = 0,
 
@@ -546,7 +546,7 @@ declare namespace screenshot {
      * @syscap SystemCapability.Window.SessionManager
      * @systemapi Hide this for inner system use.
      * @stagemodelonly
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     LOCAL = 1
   }
