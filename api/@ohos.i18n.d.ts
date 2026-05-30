@@ -1294,7 +1294,7 @@ declare namespace i18n {
      * > > This API can be used to obtain the home location of a dialed number in real time since API version 23.
      *
      * @param { string } number - input phone number. [since 9 - 11]
-     * @param { string } phoneNumber - Phone number. To obtain the home location of a number in other countries/regions,
+	 * @param { string } phoneNumber - Phone number. To obtain the home location of a number in other countries/regions,
      *     you need to prefix the number with **00** and the country code. [since 12]
      * @param { string } locale - [System locale](docroot://internationalization/i18n-locale-culture.md#how-it-works),
      *     which consists of the language, script, and country/region.
@@ -2168,7 +2168,7 @@ declare namespace i18n {
    */
   export interface EncodingInfo {  
     /**
-     * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "TF-32BE",
+     * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "UTF-32BE",
      * "UTF-32LE", "Shift_JIS", "ISO-2022-JP", "ISO-2022-CN", "ISO-2022-KR", "GB18030", "Big5", "EUC-JP",
      * "EUC-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8",
      * "ISO-8859-9", "windows-1250", "windows-1251", "windows-1252", "windows-1253", "windows-1254",
@@ -2456,7 +2456,7 @@ declare namespace i18n {
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the TimeZone object of defautl time zone used by application.
+     * Obtains the TimeZone object of default time zone used by application.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
      * @syscap SystemCapability.Global.I18n
@@ -4278,7 +4278,7 @@ declare namespace i18n {
      */
     groupingSeparator?: string;
   }
-
+  
   /**
    * Provide a DateTime formatting interface which could format date to ISO 8601 standard string.
    * [ISO8601](https://iso8601.com/).
@@ -4327,7 +4327,7 @@ declare namespace i18n {
   export interface ISO8601DateTimeFormatOptions {  
     /**
      * The ISO 8601 date format to format. The value can be: "calendar", the format is yyyy-MM-dd; "ordinal",
-     * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Defalut value is "calendar".
+     * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Default value is "calendar".
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -4338,7 +4338,7 @@ declare namespace i18n {
 
     /**
      * The ISO 8601 time precision to format. The value can be: "dateOnly", "hours", "minutes", "seconds",
-     * "milliSeconds". Defalut value is "seconds".
+     * "milliSeconds". Default value is "seconds".
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -4400,7 +4400,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export class ChineseCalendar extends Calendar {  
+  export class ChineseCalendar extends Calendar {
     /**
      * Sets the year, month, day, hour, minute, second, isLeapMonth for this ChineseCalendar object.
      *
@@ -4416,15 +4416,16 @@ declare namespace i18n {
      * Checks whether a given month exist leap month in gregorianYear and cyclicalYear.
      *
      * @param { int } gregorianYear - Gregorian year to check, supported range is from 1900 to 2100.
-     *     The value should be an integer.
+     *     <br>The value range is all integers.
      *     <br>Year.
      * @param { int } cyclicalYear - Cyclical year to check, supported range is from 1 to 60.
-     *     The value should be an integer.
+     *     <br>The value range is all integers.
      *     <br>Year.
      * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January.
-     *     The value should be an integer.
+     *     <br>The value range is all integers.
      *     <br>Month.
      * @returns { boolean } Check whether the input month is a leap month.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
@@ -4457,6 +4458,8 @@ declare namespace i18n {
     /**
      * The cyclical year of date.
      * If you need to convert between the chinese calendar and the Gregorian calendar,
+     * the year range must be set from 1 to 60.
+     * The value range is all integers.
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
