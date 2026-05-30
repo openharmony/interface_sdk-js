@@ -6261,10 +6261,15 @@ declare namespace audio {
      setAudioSessionScene(scene: AudioSessionScene): void;
 
     /**
-     * Set mute hint for all capturer streams in the current audio session. It dose not mute the recording
-     * stream, only affects internal processing strategy.
-     * @param { boolean } mute - Use true if application recording stream muted by application if self.
-     * @throws { BusinessError } 6800103 - Operation not permit at current state, there is no audio capturer running.
+     * Sets recording mute state to audio system, this method is used as a hint for power optimization,
+     * it does not mute the recording stream, only affects internal processing strategy.
+     * Audio system may disable some recording effects when application notifies its muted state to system.
+     * Mute hint state can only be set when there is at least one running stream in current process.
+     *
+     * @param { boolean } mute - use true if application recording stream muted by application itself.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 6800103 - Operation not permitted at current state, there is no audio
+     *     capturer running.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @stagemodelonly
      * @since 24 dynamic&static
@@ -13049,9 +13054,12 @@ declare namespace audio {
     setWillMuteWhenInterrupted(muteWhenInterrupted: boolean): Promise<void>;
 
     /**
-     * Set mute hint for this capturer, this method is used as a hint for power optimization
+     * Sets recording mute state to audio system, this method is used as a hint for power optimization,
      * it does not mute the recording stream, only affects internal processing strategy.
-     * @param { boolean } mute - Use true if application recording stream muted by application if self.
+     * Audio system may disable some recording effects when application notifies its muted state to system.
+     * Mute hint state can only be set when current stream is in running state.
+     *
+     * @param { boolean } mute - use true if application recording stream muted by application itself.
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800103 - Operation not permitted at current state, stream is not running.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
