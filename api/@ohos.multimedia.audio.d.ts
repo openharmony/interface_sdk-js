@@ -4001,6 +4001,19 @@ declare namespace audio {
     getDeviceEnhanceManager(): AudioDeviceEnhanceManager;
 
     /**
+     * Obtains an AudioDebuggingManager instance.
+     * <p><strong>NOTE</strong>:
+     * The {@link #AudioDebuggingManager} instance is a singleton.
+     * </p>
+     *
+     * @returns { AudioDebuggingManager } this {@link #AudioDebuggingManager} object.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDebuggingManager(): AudioDebuggingManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -9513,6 +9526,95 @@ declare namespace audio {
      * @since 26.0.0 dynamic&static
      */
     selectInputDeviceForAudioCapturer(capturer: AudioCapturer, inputDevice: AudioDeviceDescriptor): Promise<void>;
+  }
+
+  /**
+   * Provides audio debug management capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AudioDebuggingManager {
+    /**
+     * Prints full audio runtime snapshot for current app process.
+     * The snapshot will contain all audio renderers, capturers, audio session information.
+     * Note that the information details and format may vary from different version, it can only be used for
+     * manual debugging, user should not rely on the information for actual function realization or file
+     * content extraction.
+     *
+     * @param { int } fd - fd is a file descriptor, indicates the location that the snapshot information will be
+     *     written to. If the fd is less than 0 or no writable, the snapshot information will be printed into the
+     *     running log, otherwise the snapshot will be written into the file.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    printAppInfo(fd: int): void;
+    /**
+     * Prints full audio runtime snapshot for target audio renderer instance.
+     * The snapshot will contain the stream, pipe, volume and device information.
+     * Note that the information details and format may vary from different version, it can only be used for
+     * manual debugging, user should not rely on the information for actual function realization or file
+     * content extraction.
+     *
+     * @param { AudioRenderer } renderer - target audio renderer instance to print snapshot.
+     * @param { int } fd - fd is a file descriptor, indicates the location that the snapshot information will be
+     *     written to. If the fd is less than 0 or no writable, the snapshot information will be printed into the
+     *     running log, otherwise the snapshot will be written into the file.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    printRendererInfo(renderer: AudioRenderer, fd: int): void;
+    /**
+     * Prints full audio runtime snapshot for target audio capturer instance.
+     * The snapshot will contain the stream, pipe, volume and device information.
+     * Note that the information details and format may vary from different version, it can only be used for
+     * manual debugging, user should not rely on the information for actual function realization or file
+     * content extraction.
+     *
+     * @param { AudioCapturer } capturer - target audio capturer instance to print snapshot.
+     * @param { int } fd - fd is a file descriptor, indicates the location that the snapshot information will be
+     *     written to. If the fd is less than 0 or no writable, the snapshot information will be printed into the
+     *     running log, otherwise the snapshot will be written into the file.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    printCapturerInfo(capturer: AudioCapturer, fd: int): void;
+    /**
+     * Prints full audio runtime snapshot for target audio loopback instance.
+     * The snapshot will contain the loopback status, device and effect information.
+     * Note that the information details and format may vary from different version, it can only be used for
+     * manual debugging, user should not rely on the information for actual function realization or file
+     * content extraction.
+     *
+     * @param { AudioLoopback } loopback - target audio loopback instance to print snapshot.
+     * @param { int } fd - fd is a file descriptor, indicates the location that the snapshot information will be
+     *     written to. If the fd is less than 0 or no writable, the snapshot information will be printed into the
+     *     running log, otherwise the snapshot will be written into the file.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    printLoopbackInfo(loopback: AudioLoopback, fd: int): void;
+    /**
+     * Prints full audio runtime snapshot for target audio session manager instance.
+     * The snapshot will contain the session status, scene, strategy and device information.
+     * Note that the information details and format may vary from different version, it can only be used for
+     * manual debugging, user should not rely on the information for actual function realization or file
+     * content extraction.
+     *
+     * @param { AudioSessionManager } session - target audio session manager instance to print snapshot.
+     * @param { int } fd - fd is a file descriptor, indicates the location that the snapshot information will be
+     *     written to. If the fd is less than 0 or no writable, the snapshot information will be printed into the
+     *     running log, otherwise the snapshot will be written into the file.
+     * @syscap SystemCapability.Multimedia.Audio.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    printSessionInfo(session: AudioSessionManager, fd: int): void;
   }
 
   /**
