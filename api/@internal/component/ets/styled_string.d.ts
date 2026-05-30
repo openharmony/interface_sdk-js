@@ -630,7 +630,7 @@ declare interface TextStyleInterface {
      * @atomicservice
      * @since 20 dynamic
      */
-    strokeColor?: ResourceColor;
+    strokeColor?: ResourceColor;    
 
     /**
      * The superscript value of the font property object.

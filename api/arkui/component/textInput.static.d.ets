@@ -2018,14 +2018,14 @@ export declare interface TextInputAttribute extends CommonMethod {
 
     /**
      * Enable selected data detector.
-     *
+     * 
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { TextInputAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this;
+    default enableSelectedDataDetector(enable: boolean | undefined): this
 
     /**
      * Sets the attribute modifier.

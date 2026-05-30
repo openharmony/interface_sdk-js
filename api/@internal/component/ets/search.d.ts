@@ -816,7 +816,6 @@ interface CancelButtonSymbolOptions {
    * @since 12 dynamic
    */
   style?: CancelButtonStyle;
-
   /**
    * Set the CancelButton symbol icon.
    * Symbol icon of the Cancel button on the right.
@@ -2359,7 +2358,6 @@ declare class SearchAttribute extends CommonMethod<SearchAttribute> {
    */
   compressLeadingPunctuation(enabled: Optional<boolean>): SearchAttribute;
 
-  
   /**
    * Used to set the selected drag preview style.
    *

@@ -194,19 +194,6 @@ export declare interface TextAttribute extends CommonMethod {
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, options?: FontSettingOptions | undefined): this;
     /**
-     * Set font line spacing.
-     *
-     * <p><strong>NOTE</strong>:
-     * <br>If the value specified is less than or equal to 0, the default value 0 is used.
-     * </p>
-     *
-     * @param { LengthMetrics | undefined } value - Default value is 0.
-     * @returns { TextAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    /**
      * Set font line spacing with options.
      *
      * <p><strong>NOTE</strong>:
@@ -778,7 +765,7 @@ export declare interface TextAttribute extends CommonMethod {
     /**
      * Set the shader style of the text, such as lineargradient or radialgradient.
      *
-     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     * @param { ShaderStyle | undefined } shader - The shader style of the text. 
      *     Passing `undefined` resets it to the default value.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -852,7 +839,7 @@ export declare interface TextAttribute extends CommonMethod {
      * <p><strong>NOTE</strong>:
      * <br>If the value is set to undefined, this property does not limit the text line height.
      * </p>
-     *
+     * 
      * @param { LengthMetrics | undefined } value
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -863,7 +850,7 @@ export declare interface TextAttribute extends CommonMethod {
 
     /**
      * Set the maximum line height
-     *
+     * 
      * <p><strong>NOTE</strong>:
      * <br>If the value is set to undefined, this property does not limit the text line height.
      * </p>
@@ -893,14 +880,14 @@ export declare interface TextAttribute extends CommonMethod {
   
     /**
      * Enable selected data detector.
-     *
+     * 
      * @param { boolean | undefined } enable - Whether to enable the selected data detector.
      * @returns { TextAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this;
+    default enableSelectedDataDetector(enable: boolean | undefined): this
 
     /**
      * Sets the attribute modifier.
