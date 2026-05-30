@@ -35,20 +35,28 @@
 export declare enum AVCastPickerState {
   /**
    * The picker starts showing.
-   *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * The picker starts showing.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12 dynamic
    * @since 23 static
    */
   STATE_APPEARING,
 
   /**
-   * The picker finishes presenting.
-   *
+   * The picker starts disappearing.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * The picker starts disappearing.
+   * @syscap SystemCapability.Multimedia.AVSession.AVCast
+   * @atomicservice
+   * @since 12 dynamic
    * @since 23 static
    */
   STATE_DISAPPEARING,
