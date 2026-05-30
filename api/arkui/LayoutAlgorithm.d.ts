@@ -22,9 +22,14 @@ import { FrameNode, LayoutConstraint } from './FrameNode';
 import { Position, LengthMetrics } from './Graphics';
 
 /**
- * Defines layout algorithm.
+ * Basic layout algorithm of the
+ * [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) container.
  *
- * @interface LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > This type of variable can be assigned a specific layout algorithm class object, such as an object of the
+ * > [CustomLayoutAlgorithm]{@link ./CustomLayoutAlgorithm} or [RowLayoutAlgorithm]{@link ./RowLayoutAlgorithm} class.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -35,9 +40,15 @@ import { Position, LengthMetrics } from './Graphics';
 export interface LayoutAlgorithm {}
 
 /**
- * Defines the custom layout algorithm.
+ * Custom layout algorithm class.
  *
- * @implements LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > The object of the **CustomLayoutAlgorithm** class can be assigned to a variable of the **LayoutAlgorithm** type as
+ * > the input parameter of the
+ * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) component to specify the
+ * > layout algorithm.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -48,11 +59,23 @@ export interface LayoutAlgorithm {}
 @ObservedV2
 export class CustomLayoutAlgorithm implements LayoutAlgorithm {
     /**
-     * Method to measure the DynamicLayout FrameNode and its content to determine the measured size.
+     * Customizes the size of the child component to be measured. When the size of the dynamic layout component is
+     * determined, the ArkUI framework will transfer the FrameNode and layout constraint of the component to you through
+     * **onMeasure**. State variables should not be changed in this callback.
      *
-     * @param { FrameNode } self - The FrameNode of DynamicLayout component.
-     * @param { LayoutConstraint } constraint - The layout constraint of the node,
-     *     which will be used in measure process.
+     * > **NOTE**
+     * >
+     * > In this callback, you can call
+     * > [getChild()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#getchild12) of
+     * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) to obtain the child
+     * > component **FrameNode** and call
+     * > [measure()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#measure12) of
+     * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) to measure the size of the
+     * > child component. For details, see
+     * > [Example 1](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#example-1-implementing-waterfall-layout-using-a-custom-layout-algorithm).
+     *
+     * @param { FrameNode } self - Entity node of the dynamic layout component in the component tree.
+     * @param { LayoutConstraint } constraint - Layout constraint used by the dynamic layout component for measurement.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -62,12 +85,23 @@ export class CustomLayoutAlgorithm implements LayoutAlgorithm {
      */
     onMeasure(self: FrameNode, constraint: LayoutConstraint): void;
     /**
-     * Method to assign a position to the DynamicLayout FrameNode and each of its children.
-     * It can be used to specify how the DynamicLayout FrameNode and its child nodes are positioned and
-     * sized within the layout.
+     * Customizes the position of the child component to be arranged. When the position of the dynamic layout component
+     * is determined, the ArkUI framework will transfer the FrameNode and layout position of the component to you through
+     * **onLayout**. State variables should not be changed in this callback.
      *
-     * @param { FrameNode } self - The FrameNode of DynamicLayout component.
-     * @param { Position } position - The position of the node, will be used when executing layout method.
+     * > **NOTE**
+     * >
+     * > In this callback, you can call
+     * > [getChild()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#getchild12) of
+     * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) to obtain the child
+     * > component **FrameNode** and call
+     * > [layout()](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#layout12) of
+     * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) to set the position of the
+     * > child component. For details, see
+     * > [Example 1](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md#example-1-implementing-waterfall-layout-using-a-custom-layout-algorithm).
+     *
+     * @param { FrameNode } self - Entity node of the dynamic layout component in the component tree.
+     * @param { Position } position - Position information used in layout of the dynamic layout component.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -77,11 +111,11 @@ export class CustomLayoutAlgorithm implements LayoutAlgorithm {
      */
     onLayout(self: FrameNode, position: Position): void;
 }
- 
+
 /**
- * ColumnLayoutAlgorithm constructor options.
+ * Sets the spacing, main axis alignment method, cross axis alignment method, and main axis arrangement direction of the
+ * vertical linear layout algorithm.
  *
- * @interface ColumnLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -91,9 +125,12 @@ export class CustomLayoutAlgorithm implements LayoutAlgorithm {
  */
 interface ColumnLayoutAlgorithmOptions {
     /**
-     * Vertical layout element space.
+     * Vertical spacing between elements in a vertical layout.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -104,9 +141,12 @@ interface ColumnLayoutAlgorithmOptions {
      */
     space?: LengthMetrics;
     /**
-     * Set the alignment format of the subassembly in the horizontal direction.
+     * Horizontal alignment mode of all child components.
      *
-     * @type { ?HorizontalAlign }
+     * Default value: **HorizontalAlign.Center**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default HorizontalAlign.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -117,9 +157,12 @@ interface ColumnLayoutAlgorithmOptions {
      */
     alignItems?: HorizontalAlign;
     /**
-     * Set alignment mode of the child components along the vertical axis.
+     * Vertical alignment mode of all child components.
      *
-     * @type { ?FlexAlign }
+     * Default value: **FlexAlign.Start**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -130,9 +173,14 @@ interface ColumnLayoutAlgorithmOptions {
      */
     justifyContent?: FlexAlign;
     /**
-     * Whether the main axis is reversed.
+     * Whether to reverse the vertical arrangement of child components. **true** indicates to reverse the vertical
+     * arrangement of child components. **false** indicates to arrange child components in the vertical direction in
+     * normal order.
      *
-     * @type { ?boolean }
+     * Default value: **false**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -143,11 +191,17 @@ interface ColumnLayoutAlgorithmOptions {
      */
     isReverse?: boolean;
 }
- 
+
 /**
- * Defines the column layout algorithm.
+ * Vertical linear layout algorithm class.
  *
- * @implements LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > The object of the **ColumnLayoutAlgorithm** class can be assigned to a variable of the **LayoutAlgorithm** type as
+ * > the input parameter of the
+ * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) component to specify the
+ * > layout algorithm.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -158,9 +212,11 @@ interface ColumnLayoutAlgorithmOptions {
 @ObservedV2
 export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
     /**
-     * Constructor.
+     * Constructs the vertical linear layout algorithm class.
      *
-     * @param { ColumnLayoutAlgorithmOptions } [option] - set properties of column layout algorithm.
+     * @param { ColumnLayoutAlgorithmOptions } [option] - Input parameters for constructing the vertical linear layout
+     *     algorithm, which are used to set the spacing, main axis alignment method, cross axis alignment method, and
+     *     main axis arrangement direction of the layout algorithm.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -170,9 +226,12 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      */
     constructor(option?: ColumnLayoutAlgorithmOptions);
     /**
-     * Vertical layout element spacing.
+     * Vertical spacing between elements in a vertical layout.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -182,9 +241,12 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public space?: LengthMetrics;
     /**
-     * Alignment format of the subassembly in the horizontal direction.
+     * Horizontal alignment mode of all child components.
      *
-     * @type { ?HorizontalAlign }
+     * Default value: **HorizontalAlign.Center**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -194,9 +256,12 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public alignItems?: HorizontalAlign;
     /**
-     * Alignment mode of the child components along the vertical axis.
+     * Vertical alignment mode of all child components.
      *
-     * @type { ?FlexAlign }
+     * Default value: **FlexAlign.Start**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -206,9 +271,14 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public justifyContent?: FlexAlign;
     /**
-     * Whether the main axis is reversed.
+     * Whether to reverse the vertical arrangement of child components. **true** indicates to reverse the vertical
+     * arrangement of child components. **false** indicates to arrange child components in the vertical direction in
+     * normal order.
      *
-     * @type { ?boolean }
+     * Default value: **false**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -218,9 +288,10 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public isReverse?: boolean;
 }
- 
+
 /**
- * RowLayoutAlgorithm constructor options.
+ * Sets the spacing, main axis alignment method, cross axis alignment method, and main axis arrangement direction of the
+ * horizontal linear layout algorithm.
  *
  * @interface RowLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -232,9 +303,12 @@ export class ColumnLayoutAlgorithm implements LayoutAlgorithm {
  */
 interface RowLayoutAlgorithmOptions {
     /**
-     * Horizontal layout element spacing.
+     * Horizontal spacing between elements in a horizontal layout.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -245,9 +319,12 @@ interface RowLayoutAlgorithmOptions {
      */
     space?: LengthMetrics;
     /**
-     * Sets the alignment format of the subassembly in the vertical direction.
+     * Vertical alignment mode of all child components.
      *
-     * @type { ?VerticalAlign }
+     * Default value: **VerticalAlign.Center**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default VerticalAlign.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -258,9 +335,12 @@ interface RowLayoutAlgorithmOptions {
      */
     alignItems?: VerticalAlign;
     /**
-     * Set alignment mode of the child components along the horizontal axis.
+     * Horizontal alignment mode of all child components.
      *
-     * @type { ?FlexAlign }
+     * Default value: **FlexAlign.Start**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default FlexAlign.Start
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -271,9 +351,17 @@ interface RowLayoutAlgorithmOptions {
      */
     justifyContent?: FlexAlign;
     /**
-     * Whether the main axis is reversed.
+     * Whether to reverse the horizontal arrangement of child components. **true** indicates to reverse the horizontal
+     * arrangement of child components. The horizontal direction is affected by the common attribute
+     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction). If the
+     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction) attribute takes
+     * effect, the arrangement is reversed again. **false** indicates to arrange child components in the horizontal
+     * direction in normal order.
      *
-     * @type { ?boolean }
+     * Default value: **false**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -284,11 +372,17 @@ interface RowLayoutAlgorithmOptions {
      */
     isReverse?: boolean;
 }
- 
+
 /**
- * Defines the row layout algorithm.
+ * Horizontal linear layout algorithm class.
  *
- * @implements LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > The object of the **RowLayoutAlgorithm** class can be assigned to a variable of the **LayoutAlgorithm** type as the
+ * > input parameter of the
+ * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) component to specify the
+ * > layout algorithm.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -299,9 +393,11 @@ interface RowLayoutAlgorithmOptions {
 @ObservedV2
 export class RowLayoutAlgorithm implements LayoutAlgorithm {
     /**
-     * constructor.
+     * Constructs the horizontal linear layout algorithm class.
      *
-     * @param { RowLayoutAlgorithmOptions } [option] - set properties of row layout algorithm.
+     * @param { RowLayoutAlgorithmOptions } [option] - Input parameters for constructing the horizontal linear layout
+     *     algorithm, which are used to set the spacing, main axis alignment method, cross axis alignment method, and
+     *     main axis arrangement direction of the layout algorithm.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -311,9 +407,12 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      */
     constructor(option?: RowLayoutAlgorithmOptions);
     /**
-     * Horizontal layout element spacing.
+     * Horizontal spacing between elements in a horizontal layout.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -323,9 +422,12 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public space?: LengthMetrics;
     /**
-     * The alignment format of the subassembly in the vertical direction.
+     * Vertical alignment mode of all child components.
      *
-     * @type { ?VerticalAlign }
+     * Default value: **VerticalAlign.Center**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -335,9 +437,12 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public alignItems?: VerticalAlign;
     /**
-     * Alignment mode of the child components along the horizontal axis.
+     * Horizontal alignment mode of all child components.
      *
-     * @type { ?FlexAlign }
+     * Default value: **FlexAlign.Start**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -347,9 +452,17 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public justifyContent?: FlexAlign;
     /**
-     * Whether the main axis is reversed.
+     * Whether to reverse the horizontal arrangement of child components. **true** indicates to reverse the horizontal
+     * arrangement of child components. The horizontal direction is affected by the common attribute
+     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction). If the
+     * [direction](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#direction) attribute takes
+     * effect, the arrangement is reversed again. **false** indicates to arrange child components in the horizontal
+     * direction in normal order.
      *
-     * @type { ?boolean }
+     * Default value: **false**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -359,9 +472,9 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
      */
     @Trace public isReverse?: boolean;
 }
- 
+
 /**
- * StackLayoutAlgorithm constructor options.
+ * Sets the alignment method of the stack layout algorithm.
  *
  * @interface StackLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -373,9 +486,12 @@ export class RowLayoutAlgorithm implements LayoutAlgorithm {
  */
 interface StackLayoutAlgorithmOptions {
     /**
-     * Defines the align rules of child components in stack layout algorithm.
+     * Alignment mode of child components in the stack layout algorithm.
      *
-     * @type { ?LocalizedAlignment }
+     * Default value: **LocalizedAlignment.CENTER**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LocalizedAlignment.Center
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -386,11 +502,17 @@ interface StackLayoutAlgorithmOptions {
      */
     alignContent?: LocalizedAlignment;
 }
- 
+
 /**
- * Defines the stack layout algorithm.
+ * Stack layout algorithm class.
  *
- * @implements LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > The object of the **StackLayoutAlgorithm** class can be assigned to a variable of the **LayoutAlgorithm** type as
+ * > the input parameter of the
+ * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) component to specify the
+ * > layout algorithm.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -401,9 +523,10 @@ interface StackLayoutAlgorithmOptions {
 @ObservedV2
 export class StackLayoutAlgorithm implements LayoutAlgorithm {
     /**
-     * Constructor.
+     * Constructs the stack layout algorithm class.
      *
-     * @param { StackLayoutAlgorithmOptions } [option] - set properties of stack layout algorithm.
+     * @param { StackLayoutAlgorithmOptions } [option] - Input parameters for constructing the stack layout algorithm,
+     *     which are used to set the nine-box grid alignment mode.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -413,9 +536,12 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
      */
     constructor(option?: StackLayoutAlgorithmOptions);
     /**
-     * The align rules of child components in stack layout algorithm.
+     * Alignment mode of child components in the stack layout algorithm.
      *
-     * @type { ?LocalizedAlignment }
+     * Default value: **LocalizedAlignment.CENTER**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -427,7 +553,7 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
 }
 
 /**
- * GridLayoutAlgorithm constructor options.
+ * Sets the number of columns, column spacing, and row spacing of the grid layout algorithm.
  *
  * @interface GridLayoutAlgorithmOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -438,9 +564,12 @@ export class StackLayoutAlgorithm implements LayoutAlgorithm {
  */
 interface GridLayoutAlgorithmOptions {
     /**
-     * This parameter specifies the number of columns in the current grid layout.
+     * Number of columns in the grid layout.
      *
-     * @type { ?string | ItemFillPolicy }
+     * Default value: **'1fr'**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default '1fr'
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -450,9 +579,12 @@ interface GridLayoutAlgorithmOptions {
      */
     columnsTemplate?: string | ItemFillPolicy;
     /**
-     * The spacing between columns.
+     * Spacing between columns.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -462,9 +594,12 @@ interface GridLayoutAlgorithmOptions {
      */
     columnsGap?: LengthMetrics;
     /**
-     * The spacing between rows.
+     * Spacing between rows.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -476,20 +611,28 @@ interface GridLayoutAlgorithmOptions {
 }
 
 /**
- * Defines the grid layout algorithm.
+ * Grid layout algorithm class.
  *
- * @implements LayoutAlgorithm
+ * > **NOTE**
+ * >
+ * > The object of the **GridLayoutAlgorithm** class can be assigned to a variable of the **LayoutAlgorithm** type as the
+ * > input parameter of the
+ * > [DynamicLayout](docroot://reference/apis-arkui/arkui-ts/ts-container-dynamiclayout.md) component to specify the
+ * > layout algorithm.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 24 dynamic
  */
+@ObservedV2
 export class GridLayoutAlgorithm implements LayoutAlgorithm {
     /**
-     * Constructor.
+     * Constructs the grid layout algorithm class.
      *
-     * @param { GridLayoutAlgorithmOptions } [option] - set properties of grid layout algorithm.
+     * @param { GridLayoutAlgorithmOptions } [option] - Input parameters for constructing the grid layout algorithm,
+     *     which are used to set the number of columns, column spacing, and row spacing of the grid layout.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -498,9 +641,12 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      */
     constructor(option?: GridLayoutAlgorithmOptions);
     /**
-     * This parameter specifies the number of columns in the current grid layout.
+     * Number of columns in the grid layout.
      *
-     * @type { ?(string | ItemFillPolicy) }
+     * Default value: **'1fr'**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default '1fr'
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -508,11 +654,14 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public columnsTemplate?: string | ItemFillPolicy;
+    @Trace public columnsTemplate?: string | ItemFillPolicy;
     /**
-     * The spacing between columns.
+     * Spacing between columns.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -520,11 +669,14 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public columnsGap?: LengthMetrics;
+    @Trace public columnsGap?: LengthMetrics;
     /**
-     * The spacing between rows.
+     * Spacing between rows.
      *
-     * @type { ?LengthMetrics }
+     * Default value: **LengthMetrics.vp(0)**
+     *
+     * Invalid values are treated as the default value.
+     *
      * @default LengthMetrics.vp(0)
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -532,5 +684,5 @@ export class GridLayoutAlgorithm implements LayoutAlgorithm {
      * @atomicservice
      * @since 24 dynamic
      */
-    public rowsGap?: LengthMetrics;
+    @Trace public rowsGap?: LengthMetrics;
 }

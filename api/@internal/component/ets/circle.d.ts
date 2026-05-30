@@ -19,143 +19,45 @@
  */
 
 /**
- * Defines circle options for Circle component.
+ * Describes the options of the circle.
  *
- * @interface CircleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines circle options for Circle component.
- *
- * @interface CircleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines circle options for Circle component.
- *
- * @interface CircleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines circle options for Circle component.
- *
- * @interface CircleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface CircleOptions {
   /**
-   * Defines the width property.
+   * Width.
+   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 7 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   width?: Length;
 
   /**
-   * Defines the height property.
+   * Height.
+   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 7 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   height?: Length;
 }
@@ -163,183 +65,71 @@ declare interface CircleOptions {
 /**
  * Defines circle component.
  *
- * @interface CircleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines circle component.
- *
- * @interface CircleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines circle component.
- *
- * @interface CircleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines circle component.
- *
- * @interface CircleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface CircleInterface {
   /**
    * use new function to set the value.
-   * 
+   *
    * @param { CircleOptions } value
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * use new function to set the value.
-   * 
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   new (value?: CircleOptions): CircleAttribute;
 
   /**
-   * Set the value..
+   * set the value.
    *
-   * @param { CircleOptions } value
+   * @param { CircleOptions } value - - Options of the circle.<br>The **undefined** and **null** values are treated as
+   *     invalid and will not take effect.
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set the value..
-   *
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value..
-   *
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value..
-   *
-   * @param { CircleOptions } value
-   * @returns { CircleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value?: CircleOptions): CircleAttribute;
 }
 
 /**
- * Circle drawing component attribute functions.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonShapeMethod<CircleAttribute> 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Circle drawing component attribute functions.
- *
- * @extends CommonShapeMethod<CircleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Circle drawing component attribute functions.
- *
- * @extends CommonShapeMethod<CircleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Circle drawing component attribute functions.
- *
- * @extends CommonShapeMethod<CircleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
   /**
-  * Sets the stroke color.
-  * If this attribute is not set, the component does not have any stroke.
-  * If the value is invalid, no stroke will be drawn.
-  *
-  * @param { ResourceColor | ColorMetrics } value - Stroke color.
-  * @returns { CircleAttribute }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @FaAndStageModel
-  * @form
-  * @atomicservice
-  * @since 26.0.0 dynamic
-  */
+   * Sets the stroke color.
+   * If this attribute is not set, the component does not have any stroke.
+   * If the value is invalid, no stroke will be drawn.
+   *
+   * @param { ResourceColor | ColorMetrics } value - Stroke color.
+   * @returns { CircleAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   stroke(value: ResourceColor | ColorMetrics): CircleAttribute;
   
   /**
@@ -352,6 +142,7 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
    * @returns { CircleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -360,38 +151,18 @@ declare class CircleAttribute extends CommonShapeMethod<CircleAttribute> {
 }
 
 /**
- * Defines Circle Component.
+ * The **Circle** component is used to draw a circle.
+ * > **Child Components**
+ * >
+ * > None.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Circle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Circle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Circle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Circle: CircleInterface;
 
@@ -400,33 +171,10 @@ declare const Circle: CircleInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Circle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Circle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Circle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const CircleInstance: CircleAttribute;
