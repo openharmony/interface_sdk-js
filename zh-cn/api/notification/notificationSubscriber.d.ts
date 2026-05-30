@@ -195,6 +195,16 @@ export interface NotificationSubscriber {
    * @since 23 dynamic&static
    */
   onSystemUpdate?: SystemUpdateCallback;
+
+  /**
+   * 回调返回通知开关状态变化。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  onNotificationSwitchChanged?: NotificationSwitchChangedCallback;
 }
 
 /**
@@ -265,6 +275,17 @@ export interface SubscribeCallbackData {
    * @since 26.0.0 dynamic&static
    */
   voiceContent?: VoiceContent;
+
+  /**
+   * 通知分类信息。
+   * 仅在NotificationSubscribeInfo中enableClassification为true时存在。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly notificationClassification?: NotificationClassification;
 }
 
 /**
@@ -512,6 +533,36 @@ export interface VoiceContent {
 }
 
 /**
+ * 描述通知分类信息。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationClassification {
+  /**
+   * 系统识别的通知分类。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly classification?: string;
+
+  /**
+   * 系统识别的通知子分类。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly subClassification?: string;
+}
+
+/**
  * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
  * 注册应用角标使能状态变化的回调函数类型。
  *
@@ -545,3 +596,55 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
  * @since 24 dynamic&static
  */
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
+
+/**
+ * 定义回调函数监听通知开关状态变化。
+ *
+ * @param { NotificationSwitchChangedCallbackData } callbackData - 回调返回通知开关状态变化信息。
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitchChangedCallbackData) => void;
+ 
+/**
+ * 描述通知开关状态变化的回调数据。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationSwitchChangedCallbackData {
+  /**
+   * 用户ID。
+   * 取值为所有整数。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userId: int;
+
+  /**
+   * 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly switchName: string;
+
+  /**
+   * 通知开关状态。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enableStatus: notificationManager.SwitchState;
+}

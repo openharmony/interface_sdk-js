@@ -28,6 +28,11 @@ import { EnabledSilentReminderCallbackData as _EnabledSilentReminderCallbackData
 import { EnabledSilentReminderChangedCallback as _EnabledSilentReminderChangedCallback } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotificationCallbackData } from './notification/notificationSubscriber';
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
+import { VoiceContent as _VoiceContent } from './notification/notificationSubscriber';
+import { VoiceContentOptions as _VoiceContentOptions } from './notification/notificationSubscribeInfo';
+import { NotificationClassification as _NotificationClassification } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallback as _NotificationSwitchChangedCallback } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallbackData as _NotificationSwitchChangedCallbackData } from './notification/notificationSubscriber';
 /*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
@@ -706,6 +711,56 @@ declare namespace notificationSubscribe {
    * @since 23 static
    */
   export type BadgeNumberCallbackData = _BadgeNumberCallbackData;
+
+  /**
+   * 实况通知语音播报内容配置项。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContentOptions = _VoiceContentOptions;
+
+  /**
+   * 通知消息中语音播报内容定义。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type VoiceContent = _VoiceContent;
+
+  /**
+   * 描述通知分类信息。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationClassification = _NotificationClassification;
+  
+  /**
+   * 定义回调函数监听通知开关状态变化。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallback = _NotificationSwitchChangedCallback;
+
+  /**
+   * 描述通知开关状态变化的回调数据。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallbackData = _NotificationSwitchChangedCallbackData;
 }
 
 export default notificationSubscribe;

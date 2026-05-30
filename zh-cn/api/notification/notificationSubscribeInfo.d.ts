@@ -90,6 +90,16 @@ export interface NotificationSubscribeInfo {
   filterLimit?: long;
 
   /**
+   * 订阅通知的语音播报内容配置项。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContentOptions?: VoiceContentOptions;
+
+  /**
    * 实况通知图片配置项。
    *
    * @syscap SystemCapability.Notification.Notification
@@ -98,6 +108,28 @@ export interface NotificationSubscribeInfo {
    * @since 26.0.0 dynamic&static
    */
   pictureOptions?: PictureOptions;
+
+  /**
+   * 是否启用通知分类。true表示启用通知分类，false表示禁用。
+   * 默认值：false。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enableClassification?: boolean;
+ 
+  /**
+   * 是否启用订阅时的静默重放。true表示启用订阅时的静默重放，false表示禁用。
+   * 默认值：false。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  needSilentReplayOnSubscribe?: boolean;
 }
 
 /**
@@ -122,4 +154,24 @@ export interface PictureOptions {
    * @since 26.0.0 dynamic&static
    */
   preparseLiveViewPicList?: string[];
+}
+
+/**
+ * 描述订阅通知的语音播报内容配置项。
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContentOptions {
+  /**
+   * 是否为订阅的通知启用语音播报内容生成。true表示启用，false表示禁用。
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enabled?: boolean;
 }

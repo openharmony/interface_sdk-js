@@ -114,6 +114,30 @@ export interface NotificationSubscribeInfo {
    * @since 26.0.0 dynamic&static
    */
   pictureOptions?: PictureOptions;
+
+  /**
+   * Whether to enable notification classification. The value **true** means to enable the
+   * notification classification, and **false** means the opposite.
+   * Default value: Default value: false.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enableClassification?: boolean;
+ 
+  /**
+   * Whether to enable silent replay on subscribe. The value **true** means to enable the
+   * silent replay on subscribe, and **false** means the opposite.
+   * Default value: Default value: false.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  needSilentReplayOnSubscribe?: boolean;
 }
 
 /**

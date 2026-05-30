@@ -195,6 +195,16 @@ export interface NotificationSubscriber {
    * @since 23 dynamic&static
    */
   onSystemUpdate?: SystemUpdateCallback;
+
+  /**
+   * Callback used to return the notification switch state changes.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  onNotificationSwitchChanged?: NotificationSwitchChangedCallback;
 }
 
 /**
@@ -268,6 +278,17 @@ export interface SubscribeCallbackData {
    * @since 26.0.0 dynamic&static
    */
   readonly voiceContent?: VoiceContent;
+
+  /**
+   * Notification classification information.
+   * Only present when enableClassification is true in NotificationSubscribeInfo.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly notificationClassification?: NotificationClassification;
 }
 
 /**
@@ -518,6 +539,36 @@ export interface VoiceContent {
 }
 
 /**
+ * Describes the notification classification information.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationClassification {
+  /**
+   * Classification of the notification identified by the system.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly classification?: string;
+
+  /**
+   * Sub-classification of the notification identified by the system.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly subClassification?: string;
+}
+
+/**
  * Defines a callback function to listen for the enabling state changes of the application badge.
  * type BadgeEnabledChangedCallback = (data: EnabledNotificationCallbackData) => void
  *
@@ -553,3 +604,56 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
  * @since 24 dynamic&static
  */
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
+
+/**
+ * Defines a callback function to listen for the notification switch state changes.
+ *
+ * @param { NotificationSwitchChangedCallbackData } callbackData - Callback used to return
+ *     the notification switch state changes.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitchChangedCallbackData) => void;
+ 
+/**
+ * Describes the notification switch state changes callback data.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationSwitchChangedCallbackData {
+  /**
+   * User ID.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userId: int;
+
+  /**
+   * Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly switchName: string;
+
+  /**
+   * Notification switch state.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enableStatus: notificationManager.SwitchState;
+}

@@ -30,6 +30,9 @@ import { EnabledPriorityNotificationCallbackData as _EnabledPriorityNotification
 import { EnabledPriorityNotificationByBundleCallbackData as _EnabledPriorityNotificationByBundleCallbackData } from './notification/notificationSubscriber';
 import { VoiceContent as _VoiceContent } from './notification/notificationSubscriber';
 import { VoiceContentOptions as _VoiceContentOptions } from './notification/notificationSubscribeInfo';
+import { NotificationClassification as _NotificationClassification } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallback as _NotificationSwitchChangedCallback } from './notification/notificationSubscriber';
+import { NotificationSwitchChangedCallbackData as _NotificationSwitchChangedCallbackData } from './notification/notificationSubscriber';
 /*** if arkts dynamic */
 import type { BadgeNumberCallbackData as _BadgeNumberCallbackData } from './notification/notificationSubscriber';
 /*** endif */
@@ -743,6 +746,36 @@ declare namespace notificationSubscribe {
    * @since 26.0.0 dynamic&static
    */
   export type VoiceContent = _VoiceContent;
+
+  /**
+   * Describes the notification classification information.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationClassification = _NotificationClassification;
+  
+  /**
+   * Defines a callback function to listen for the notification switch state changes.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallback = _NotificationSwitchChangedCallback;
+
+  /**
+   * Describes the notification switch state changes callback data.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type NotificationSwitchChangedCallbackData = _NotificationSwitchChangedCallbackData;
 }
 
 export default notificationSubscribe;
