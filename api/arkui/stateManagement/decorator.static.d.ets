@@ -19,6 +19,7 @@
  */
 import { SystemProperties } from '../component/enums';
 import { ReusePoolOwnership } from '../component/customComponent';
+import window from '../../@ohos.window';
 
 /**
  * Define a custom component API that provides variables-related functionality.
@@ -1890,4 +1891,70 @@ export declare class WritableEnvKey {}
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare class ReadonlyEnvKey {}
+export declare class ReadonlyEnvKey {
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_AVOID_AREA: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoVP>;
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_AVOID_AREA_PX: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoPX>;
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SIZE: ReadonlySystemEnvKey<window.SizeInVP>;
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SIZE_PX: ReadonlySystemEnvKey<window.Size>;
+  /**
+   * System environmental displayid key that is used to obtain the display id of the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_DISPLAY_ID: ReadonlySystemEnvKey<long>;
+  /**
+   * System environmental system density key that is used to obtain the system density of the display
+   *     where the window is located.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SYSTEM_DENSITY: ReadonlySystemEnvKey<double>;
+  /**
+   * System environment windowisfocused key that is used to obtain whether the window is focused or not.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_IS_FOCUSED: ReadonlySystemEnvKey<boolean>;
+  /**
+   * System environment windowishighlighted key that is used to obtain whether the window is highlighted or not.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
+}
