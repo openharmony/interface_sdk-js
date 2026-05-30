@@ -2004,7 +2004,7 @@ declare namespace intl {
      * @param { double } value - Value to format.
      * @param { string } unit - Unit of the relative time.
      *   The value can be any of the following: **year**,
-     *     **quarter**, month**, **week**, **day**, **hour**, **minute**, or **second**.
+     *     **quarter**, **month**, **week**, **day**, **hour**, **minute**, or **second**.
      * @returns { string } Relative time after formatting.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
@@ -2021,8 +2021,8 @@ declare namespace intl {
      * @param { double } value - Value to format.
      * @param { string } unit - Unit of the relative time.
      *     The value can be any of the following: **year**,
-     *     **quarter**, month**, **week**, **day**, **hour**, **minute**, or **second**.
-     * @returns { Array<object> } to parts.
+     *     **quarter**, **month**, **week**, **day**, **hour**, **minute**, or **second**.
+     * @returns { Array<object> } Components of the formatted result.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
      * @atomicservice [since 12]
