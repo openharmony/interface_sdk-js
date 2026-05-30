@@ -19,6 +19,18 @@
  */
 
 /**
+ * UIMaterial
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').uiMaterial } uiMaterial
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type UIMaterial = import('../api/@ohos.arkui.uiMaterial').uiMaterial;
+
+/**
  * CommonModifier
  *
  * @typedef { import('../api/arkui/CommonModifier').CommonModifier } CommonModifier
@@ -1206,6 +1218,18 @@ interface FloatingTabBarStyle {
    * @since 26.0.0 dynamic
    */
   adaptToHandedness?: boolean;
+
+  /**
+   * The style of the material.
+   *
+   * @type { ?UIMaterial.ImmersiveMaterial }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: UIMaterial.ImmersiveMaterial;
 }
 
 /**
