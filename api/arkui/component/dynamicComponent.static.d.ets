@@ -21,6 +21,7 @@
 import { Callback, ErrorCallback, BusinessError } from '../../@ohos.base';
 import { CommonMethod, AttributeModifier } from "./common";
 import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * This interface is used to set the options for DynamicComponentAttribute during construction
@@ -93,6 +94,17 @@ export declare interface DynamicOptions {
  */
 export declare interface DynamicComponentAttribute extends CommonMethod {
     /**
+     * Sets dynamic component options.
+     *
+     * @param { DynamicOptions } options - The options
+     * @returns { this } DynamicComponentAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDynamicComponentOptions(options: DynamicOptions): this;
+    /**
      * Called when the dynamic component is error.
      *
      * @param { ErrorCallback<BusinessError> | undefined } callback - called when some error occurred<br/>
@@ -119,4 +131,21 @@ export declare interface DynamicComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function DynamicComponent(
     options: DynamicOptions
+): DynamicComponentAttribute;
+
+/**
+ * Defines DynamicComponent Component.It requires call setDynamicComponentOptions at start
+ * of the component attribute set-up
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<DynamicComponentAttribute> } style - the callback to set up DynamicComponent's attributes.
+ * @returns { DynamicComponentAttribute } The attribute of the DynamicComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function DynamicComponent(
+    style: CustomBuilderT<DynamicComponentAttribute>
 ): DynamicComponentAttribute;
