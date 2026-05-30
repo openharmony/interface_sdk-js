@@ -780,7 +780,7 @@ declare namespace userAuth {
      *
      * @syscap SystemCapability.UserIAM.UserAuth.Core
      * @stagemodelonly
-     * @atomicservice
+     * @atomicservice [since 26.0.0]
      * @since 26.0.0 dynamic&static
      */
     COMPANION_DEVICE = 64
