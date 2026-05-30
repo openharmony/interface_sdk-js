@@ -1119,6 +1119,7 @@ export declare interface TextAreaAttribute extends CommonMethod {
      * @since 23 static
      */
     default fallbackLineSpacing(enabled: boolean | undefined): this;
+
     /**
      * Define min lines of the text area.
      *
@@ -1193,14 +1194,14 @@ export declare interface TextAreaAttribute extends CommonMethod {
 
     /**
      * Enable selected data detector.
-     *
+     * 
      * @param { boolean | undefined } enable - whether to enable the selected data detector.
      * @returns { TextAreaAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
      */
-    default enableSelectedDataDetector(enable: boolean | undefined): this;
+    default enableSelectedDataDetector(enable: boolean | undefined): this
 
     /**
      * Sets the attribute modifier.

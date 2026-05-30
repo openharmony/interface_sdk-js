@@ -728,6 +728,7 @@ declare type RectHeightStyle = text.RectHeightStyle;
  * @since 23 static
  */
 declare type TextBox = text.TextBox;
+
 /**
  * The Paragraph type provides detailed information about a paragraph,
  * including properties such as line count, line height, and other relevant metrics.
@@ -1532,34 +1533,6 @@ export declare enum SuperscriptStyle {
 }
 
 /**
- * Defines maxlines mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare enum MaxLinesMode {
-  /**
-   * Clip mode of max lines
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  CLIP = 0,
-
-  /**
-   * Scroll mode of max lines
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  SCROLL = 1
-}
-
-/**
  * Keyboard fluid light mode.
  *
  * @enum { number }
@@ -1890,26 +1863,6 @@ export declare class RadialGradientStyle extends ShaderStyle {
 }
 
 /**
- * Defines the options of max lines.
- *
- * @interface MaxLinesOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare interface MaxLinesOptions {
-  /**
-   * The mode of max lines.
-   *
-   * @type { ?MaxLinesMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  overflowMode?: MaxLinesMode;
-}
-
-/**
  * Defines the input method client.
  *
  * @interface IMEClient
@@ -1937,26 +1890,6 @@ export declare interface IMEClient {
    * @since 24 static
    */
   setExtraConfig(config: InputMethodExtraConfig): void;
-}
-
-/**
- * Defines the line spacing options.
- *
- * @interface LineSpacingOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 23 static
- */
-export declare interface LineSpacingOptions {
-    /**
-     * Used to set whether it will only take effect between lines.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onlyBetweenLines?: boolean;
 }
 
 /**
@@ -2068,6 +2001,73 @@ export declare class ColorShaderStyle extends ShaderStyle {
      * @since 24 static
      */
     color: ResourceColor;
+}
+/**
+ * Defines maxlines mode.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare enum MaxLinesMode {
+  /**
+   * Clip mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CLIP = 0,
+
+  /**
+   * Scroll mode of max lines
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  SCROLL = 1
+}
+
+/**
+ * Defines the line spacing options.
+ *
+ * @interface LineSpacingOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface LineSpacingOptions {
+    /**
+     * Used to set whether it will only take effect between lines.
+     *
+     * @type { ?boolean }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    onlyBetweenLines?: boolean;
+}
+
+/**
+ * Defines the options of max lines.
+ *
+ * @interface MaxLinesOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 23 static
+ */
+export declare interface MaxLinesOptions {
+  /**
+   * The mode of max lines.
+   *
+   * @type { ?MaxLinesMode }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  overflowMode?: MaxLinesMode;
 }
 
 /**

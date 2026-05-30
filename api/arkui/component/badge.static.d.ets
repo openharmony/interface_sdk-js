@@ -159,7 +159,7 @@ export declare interface BadgeStyle {
     outerBorderWidth?: LengthMetrics;
 
     /**
-     * Enable auto-avoidance for text in badge.
+     * Enable auto avoidance for text in badge.
      *
      * @type { ?boolean }
      * @default false

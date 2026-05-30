@@ -1032,7 +1032,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
    * @since 20 dynamic
    */
   constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
-  
+
   /**
    * The scope type of symbol effect
    *
