@@ -2698,6 +2698,7 @@ export class UIObserver {
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -2713,6 +2714,7 @@ export class UIObserver {
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */

@@ -970,6 +970,7 @@ declare namespace uiObserver {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -983,6 +984,7 @@ declare namespace uiObserver {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 22 dynamic
      */
@@ -997,6 +999,7 @@ declare namespace uiObserver {
      * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 22 dynamic
      */
