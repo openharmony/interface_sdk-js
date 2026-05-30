@@ -44,6 +44,18 @@ declare namespace osAccount {
   function getAccountManager(): AccountManager;
 
   /**
+   * 获取系统账号子身份资料管理器。
+   *
+   * @returns { OsAccountSubProfileManager } 系统账号子身份资料管理器的实例对象。
+   * @throws { BusinessError } 202 - Not system application.
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getOsAccountSubProfileManager(): OsAccountSubProfileManager;
+
+  /**
    * 获取系统账号授权管理器。
    *
    * @returns { AuthorizationManager } 返回系统账号授权管理的实例对象。
@@ -2461,6 +2473,402 @@ declare namespace osAccount {
      * @since 23 static
      */
     bindDomainAccount(localId: int, domainAccountInfo: DomainAccountInfo): Promise<void>;
+  }
+
+  /**
+   * 系统账号子身份资料管理器类。
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OsAccountSubProfileManager {
+    /**
+     * 创建一个系统账号子身份资料。
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - 目标系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     * @returns { Promise<OsAccountSubProfile> } Promise对象，返回创建的子身份资料。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - The OS account not found.
+     * @throws { BusinessError } 12300008 - Restricted OS account.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The target OS account is being
+     *     operated.
+     * @throws { BusinessError } 12300402 - The number of sub-profiles under the OS account has reached limit.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    createOsAccountSubProfile(osAccountLocalId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * 删除一个系统账号子身份资料。
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - 目标系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     *     <br>The value range is all integers.
+     * @param { int } subProfileId - 子身份资料的标识符。
+     *     <br>取值范围为全体整数。
+     *     <br>The value range is all integers.
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The OS account or sub-profile is being
+     *     operated.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @throws { BusinessError } 12300403 - Restricted sub-profile cannot be deleted.
+     * @throws { BusinessError } 12300404 - The foreground sub-profile cannot be deleted.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    deleteOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<void>;
+
+    /**
+     * 切换至一个系统账号子身份资料。
+     *
+     * @permission ohos.permission.MANAGE_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - 系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     *     <br>The value range is all integers.
+     * @param { int } subProfileId - 子身份资料的标识符。
+     *     <br>取值范围为全体整数。
+     *     <br>The value range is all integers.
+     * @returns { Promise<void> } Promise对象，无返回结果。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300010 - Service busy. Possible causes: The OS account or sub-profile is being
+     *     operated.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @throws { BusinessError } 12300403 - Restricted sub-profile cannot be switched to foreground.
+     * @throws { BusinessError } 12300405 - The foreground sub-profile bound with a logged-in distributed account
+     *     cannot be directly switched to background.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    switchOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<void>;
+
+    /**
+     * 订阅系统账号子身份资料的事件。
+     *
+     * @param { OsAccountSubProfileEvent[] } events - 要订阅的事件数组
+     * @param { Callback<OsAccountSubProfileEventData> } callback - 事件发生时调用的回调。
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300002 - Invalid event.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onOsAccountSubProfileEvent(
+      events: OsAccountSubProfileEvent[],
+      callback: Callback<OsAccountSubProfileEventData>): void;
+
+    /**
+     * 取消订阅系统账号子身份资料的事件。
+     *
+     * @param { Callback<OsAccountSubProfileEventData> } [callback] - 需要取消订阅的回调。
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offOsAccountSubProfileEvent(callback?: Callback<OsAccountSubProfileEventData>): void;
+
+    /**
+     * 获取调用方所属系统账号的前台子身份资料的标识符。
+     *
+     * @returns { Promise<int> } Promise对象，返回系统账号的前台子身份资料标识符。
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountForegroundSubProfileId(): Promise<int>;
+
+    /**
+     * 获取指定系统账号的前台子身份资料标识符。
+     *
+     * @param { int } osAccountLocalId - 系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     * @returns { Promise<int> } Promise对象，返回系统账号前台子身份资料的标识符。
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @throws { BusinessError } 12300401 - The foreground sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountForegroundSubProfileId(osAccountLocalId: int): Promise<int>;
+
+    /**
+     * 获取调用者所属系统账号的子身份资料标识符列表。
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @returns { Promise<int[]> } Promise used to return the ID list of sub-profile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfileIds(): Promise<int[]>;
+
+    /**
+     * 获取指定系统账号的子身份资料标识符列表。
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNT_IDENTIFIERS
+     * @param { int } osAccountLocalId - 系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     *     <br>The value should be an integer.
+     * @returns { Promise<int[]> } Promise used to return the ID list of sub-profile.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300003 - OS account not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfileIds(osAccountLocalId: int): Promise<int[]>;
+
+    /**
+     * 获取调用方所属系统账号的子身份资料对象信息。
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNTS
+     * @param { int } subProfileId - 子身份资料的标识符
+     *     <br>取值范围为全体整数。
+     *     <br>The value should be an integer.
+     * @returns { Promise<OsAccountSubProfile> } Promise对象，返回子身份资料对象信息。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfile(subProfileId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * 获取指定系统账号的子身份资料对象信息。
+     *
+     * @permission ohos.permission.GET_LOCAL_ACCOUNTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+     * @param { int } osAccountLocalId - 系统账号的本地标识符。
+     *     <br>取值范围为全体整数。
+     * @param { int } subProfileId - 子身份资料的标识符。
+     *     <br>取值范围为全体整数。
+     * @returns { Promise<OsAccountSubProfile> } Promise对象，返回子身份资料对象信息。
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountSubProfile(osAccountLocalId: int, subProfileId: int): Promise<OsAccountSubProfile>;
+
+    /**
+     * 获取子身份资料所属系统账号的本地标识符。
+     *
+     * @param { int } subProfileId - 子身份资料的标识符
+     *     <br>取值范围为全体整数。
+     * @returns { Promise<int> } Promise对象，返回子身份资料所属系统账号的本地ID。
+     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 12300001 - System service exception.
+     * @throws { BusinessError } 12300401 - Sub-profile not found.
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getOsAccountLocalIdForSubProfile(subProfileId: int): Promise<int>;
+  }
+
+  /**
+   * 系统账号子Profile的定义
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface OsAccountSubProfile {
+    /**
+     * 系统账号子profile的标识符。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    id: int;
+
+    /**
+     * 子profile所属系统账号的本地标识符。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    osAccountLocalId: int;
+
+    /**
+     * 系统账号子profile的位置索引，取值范围：0~子profile个数减1。
+     * 该索引在每个系统账号下唯一，由系统在创建子Profile时自动分配。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    index: int;
+
+    /**
+     * 系统账号子profile绑定的分布式账号信息。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    distributedInfo?: distributedAccount.DistributedInfo;
+  }
+
+  /**
+   * 枚举系统账号子profile的事件。
+   *
+   * @syscap SystemCapability.Account.OsAccount
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum OsAccountSubProfileEvent {
+    /**
+     * CREATED事件。
+     * 系统账号子profile创建完成时触发。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CREATED = 0,
+
+    /**
+     * DELETED事件。
+     * 当系统账号子Profile删除完成时触发。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DELETED = 1,
+
+    /**
+     * SWITCHING事件。
+     * 当系统账号子Profile切换开始时触发。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCHING = 2,
+
+    /**
+     * SWITCHED事件。
+     * 系统账号子profile切换完成时触发。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SWITCHED = 3
+  }
+
+  /**
+  * 表示系统账号子Profile事件数据。
+  *
+  * @syscap SystemCapability.Account.OsAccount
+  * @systemapi
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  interface OsAccountSubProfileEventData {
+    /**
+     * 发生的事件。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    event: OsAccountSubProfileEvent;
+
+    /**
+     * 系统账号本地ID。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    osAccountLocalId: int;
+
+    /**
+     * 系统账号子profile标识。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    subProfileId: int;
+
+    /**
+     * 上一个系统账号子Profile标识符。
+     * 取值范围为全体整数。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    previousSubProfileId?: int;
   }
 
   /**
