@@ -22,30 +22,40 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the browser policies of the enterprise devices.
+ * The **browser** module provides browser management, including setting, canceling, and obtaining browser policies.
  *
- * @namespace browser
+ * Browser policies are a collection of rules and settings that govern how a browser behaves, ensuring security,
+ * compliance, performance optimization, and a consistent user experience.
+ *
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 10
  */
 declare namespace browser {
   /**
-   * Allow the administrator to set the browser policies.
-   * This function can be called by a super administrator.
+   * Sets the browsing policy for a specified browser. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - id of the bundle that need to set policies. It cannot be empty.
-   * @param { string } policies - browser policies that need to set. It must be a correct JSON character string that
-   *                              can be converted into browser policies.
-   * @param { AsyncCallback<void> } callback - the callback of setPolicies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @param { string } policies - Policies to set. If this parameter is set to an empty string, the policies of the
+   *     specified browser are canceled.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -54,22 +64,23 @@ declare namespace browser {
   function setPolicies(admin: Want, appId: string, policies: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Allow the administrator to set the browser policies.
-   * This function can be called by a super administrator.
+   * Sets the browsing policy for a specified browser. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - id of the bundle that need to set policies. It cannot be empty.
-   * @param { string } policies - browser policies that need to set. It must be a correct JSON character string that
-   *                              can be converted into browser policies.
-   * @returns { Promise<void> } the promise returned by the setPolicies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @param { string } policies - Policies to set. If this parameter is set to an empty string, the policies of the
+   *     specified browser are canceled.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the browser policy fails
+   *     to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -78,17 +89,17 @@ declare namespace browser {
   function setPolicies(admin: Want, appId: string, policies: string): Promise<void>;
 
   /**
-   * Allow the administrator to get the browser policies.
-   * This function can be called by a super administrator.
+   * Obtains the policy of the specified browser. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - id of the bundle that need to set policies. It cannot be empty.
-   * @param { AsyncCallback<string> } callback - the callback carries the browser policies returned by the getPolicies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @param { AsyncCallback<string> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -97,17 +108,16 @@ declare namespace browser {
   function getPolicies(admin: Want, appId: string, callback: AsyncCallback<string>): void;
 
   /**
-   * Allow the administrator to get the browser policies.
-   * This function can be called by a super administrator.
+   * Obtains the policy of the specified browser. This API uses a promise to return the result.
    *
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - id of the bundle that need to set policies. It cannot be empty.
-   * @returns { Promise<string> } the promise carries the browser policies returned by the getPolicies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @returns { Promise<string> } Promise used to return the browser policies obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -116,21 +126,22 @@ declare namespace browser {
   function getPolicies(admin: Want, appId: string): Promise<string>;
 
   /**
-   * Sets the browser policy.
-   * This function can be called by a super administrator.
+   * Sets the sub-policy for a specified browser.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - appId indicates the id of the bundle that need to set policy. It cannot be empty.
-   * @param { string } policyName - policyName indicates the browser policy name that need to set.
-   * @param { string } policyValue - policyValue indicates the browser policy value that need to set. It must be a
-   *                                 correct JSON character string that can be converted into browser policies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @param { string } policyName - Name of the browser policy to set. If the value is an empty string, the browser
+   *     policy corresponding to the application ID is set.
+   * @param { string } policyValue - Browser policy to set. If the value is an empty string, the policy corresponding to
+   *     the policy name is removed.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -138,78 +149,80 @@ declare namespace browser {
   function setPolicySync(admin: Want, appId: string, policyName: string, policyValue: string): void;
 
   /**
-   * Gets the browser policies.
-   * This function can be called by a super administrator.
+   * Obtains the browser policy by app ID.
    *
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } appId - id of the bundle that need to get policies. It cannot be empty.
-   * @returns { string } the browser policies returned by the getPolicies.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } appId - Application ID, which is used to specify the browser.
+   * @returns { string } Browser policy obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-    function getPoliciesSync(admin: Want, appId: string): string;
+  function getPoliciesSync(admin: Want, appId: string): string;
 
-    /**
-     * Sets the managed browser policy.
-     *
-     * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
-     * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-     *                         The admin must have the corresponding permission.
-     * @param { string } bundleName - bundleName indicates the bundle name of the browser.
-     * @param { string } policyName - policyName indicates the browser policy name that need to set.
-     * @param { string } policyValue - policyValue indicates the browser policy value that need to set. It must be a
-     *                                  correct JSON character string that can be converted into browser policies.
-     * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-     * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-     * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 15
-     */
-    function setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, policyValue: string): void;
+  /**
+   * Sets the browser policy. After the setting is successful, the system common event
+   * [COMMON_EVENT_MANAGED_BROWSER_POLICY_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_managed_browser_policy_changed)
+   * is released.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_BROWSER_POLICY
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Application bundle name, which is used to specify the browser.
+   * @param { string } policyName - Browser policy name.
+   * @param { string } policyValue - Browser policy value. If the value is an empty string, the policy corresponding to
+   *     the policy name is removed.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function setManagedBrowserPolicy(admin: Want, bundleName: string, policyName: string, policyValue: string): void;
 
-    /**
-     * Gets the managed browser policy.
-     *
-     * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-     *                         The admin must have the corresponding permission.
-     * @param { string } bundleName - bundleName indicates the bundle name of the browser.
-     * @returns { ArrayBuffer } the browser policy returned by the getManagedBrowserPolicy.
-     * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-     *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 15
-     */
-    function getManagedBrowserPolicy(admin: Want, bundleName: string): ArrayBuffer;
+  /**
+   * Obtains the browser policy by application bundle name.
+   *
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Application bundle name, which is used to specify the browser.
+   * @returns { ArrayBuffer } Browser policy obtained.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function getManagedBrowserPolicy(admin: Want, bundleName: string): ArrayBuffer;
 
-    /**
-     * Gets the version of managed browser policy.
-     *
-     * @returns { string } return the version of managed browser policy.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 15
-     */
-    function getSelfManagedBrowserPolicyVersion(): string;
+  /**
+   * Obtains the policy version of a specified browser.
+   *
+   * @returns { string } Browser policy version.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function getSelfManagedBrowserPolicyVersion(): string;
 
-    /**
-     * Gets the managed browser policy.
-     *
-     * @returns { ArrayBuffer } return the managed browser policy.
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 15
-     */
-    function getSelfManagedBrowserPolicy(): ArrayBuffer;
+  /**
+   * Obtains the browser policy of the current device.
+   *
+   * @returns { ArrayBuffer } Browser policy obtained.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 15
+   */
+  function getSelfManagedBrowserPolicy(): ArrayBuffer;
 }
 
 export default browser;

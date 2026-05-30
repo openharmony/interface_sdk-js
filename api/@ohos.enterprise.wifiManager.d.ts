@@ -22,25 +22,34 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module offers set wifi policies on the devices.
+ * The **wifiManager** module provides Wi-Fi management capabilities for enterprise devices, including obtaining the Wi-
+ * Fi status.
  *
- * @namespace wifiManager
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ * >
+ * > The global restriction policies are provided by **restrictions**. To disable Wi-Fi globally, see
+ * > [@ohos.enterprise.restrictions]{@link @ohos.enterprise.restrictions:restrictions}.
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 10
  */
 declare namespace wifiManager {
   /**
-   * Describes the wifi security type.
+   * Enumerates the Wi-Fi security types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   enum WifiSecurityType {
     /**
-     * Invalid security type
+     * Invalid security type. For example, airport public Wi-Fi.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -49,7 +58,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_INVALID = 0,
 
     /**
-     * Open
+     * Open security type.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -58,7 +67,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_OPEN = 1,
 
     /**
-     * Wired Equivalent Privacy (WEP)
+     * Wired Equivalent Privacy (WEP).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -67,7 +76,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_WEP = 2,
 
     /**
-     * Pre-shared key (PSK)
+     * PSK. For example, home and small office Wi-Fi.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -76,7 +85,8 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_PSK = 3,
 
     /**
-     * Simultaneous Authentication of Equals (SAE)
+     * Simultaneous Authentication of Equals (SAE). For example, smart home and small- and medium-sized enterprise
+     * networks.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -85,7 +95,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_SAE = 4,
 
     /**
-     * EAP authentication.
+     * EAP. For example, large enterprise authentication and university campus networks.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -94,7 +104,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_EAP = 5,
 
     /**
-     * SUITE_B_192 192 bit level.
+     * Suite B 192-bit encryption. For example, government and high-security organization networks.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -103,7 +113,8 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_EAP_SUITE_B = 6,
 
     /**
-     * Opportunistic Wireless Encryption.
+     * Opportunistic Wireless Encryption (OWE). For example, public Wi-Fi in a coffee shop, which does not require a
+     * password to provide encryption for connections.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -112,7 +123,8 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_OWE = 7,
 
     /**
-     * WAPI certificate to be specified.
+     * WLAN Authentication and Privacy Infrastructure (WAPI) in certificate-based mode (WAPI-CERT). It is China's own
+     * wireless security standard.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -121,7 +133,7 @@ declare namespace wifiManager {
     WIFI_SEC_TYPE_WAPI_CERT = 8,
 
     /**
-     * WAPI pre-shared key to be specified.
+     * WAPI-PSK.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -131,55 +143,55 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi IP type enumeration.
+   * Enumerates the IP address types.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   enum IpType {
     /**
-     * Use statically configured IP settings
+     * Static IP address, which is used in scenarios where a fixed IP address is required, for example, a fixed IP
+     * address of an office printer.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    STATIC,
+    STATIC = 0,
 
     /**
-     * Use dynamically configured IP settings
+     * Dynamic Host Configuration Protocol (DHCP), which is a service that automatically allocates IP addresses and
+     * other network configuration information to devices on a network.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    DHCP,
+    DHCP = 1,
 
     /**
-     * No IP details are assigned
+     * Not specified.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    UNKNOWN
+    UNKNOWN = 2
   }
 
   /**
-   * Wi-Fi IP profile.
+   * Represents IP configuration information.
    *
-   * @typedef IpProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   interface IpProfile {
     /**
-     * The ip address
+     * IP address, represented in decimal format. For example, the standard dotted decimal notation **192.168.1.1**
+     * corresponds to the decimal value **3232235777**.
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -187,9 +199,8 @@ declare namespace wifiManager {
     ipAddress: number;
 
     /**
-     * The gateway
+     * Default gateway, represented in decimal format, usually the IP address of the router.
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -197,9 +208,8 @@ declare namespace wifiManager {
     gateway: number;
 
     /**
-     * The length of prefix
+     * Subnet mask.
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -207,9 +217,9 @@ declare namespace wifiManager {
     prefixLength: number;
 
     /**
-     * The DNS services
+     * DNS server. The array can contain a maximum of two addresses: the primary DNS server and the secondary DNS
+     * server.
      *
-     * @type { number[] }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -217,9 +227,8 @@ declare namespace wifiManager {
     dnsServers: number[];
 
     /**
-     * The domains
+     * Domain information.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -228,191 +237,199 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi EAP method.
+   * Enumerates the EAP authentication methods.
    *
-   * @enum { number }
+   * > **NOTE**
+   * >
+   * > Currently, only the EAP_PEAP and EAP_TLS authentication methods are supported.
+   *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   enum EapMethod {
     /**
-     * Not specified
+     * Not specified.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_NONE,
+    EAP_NONE = 0,
 
     /**
-     * Protected extensible authentication protocol
+     * Protected Extensible Authentication Protocol (PEAP). It first establishes a secure TLS tunnel, followed by
+     * performing simple authentication within the tunnel.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_PEAP,
+    EAP_PEAP = 1,
 
     /**
-     * Transport layer security
+     * Transport Layer Security (TLS). It implements mutual certificate authentication.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_TLS,
+    EAP_TLS = 2,
 
     /**
-     * Tunneled transport layer security
+     * Tunnel Transport Layer Security (TTLS). It is similar to PEAP, but supports a more diverse set of authentication
+     * methods inside the tunnel.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_TTLS,
+    EAP_TTLS = 3,
 
     /**
-     * Password
+     * Password. When **eapMethod** is **EAP_PEAP** or **EAP_PWD**, this parameter cannot be empty. The value contains a
+     * maximum of 128 bytes.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_PWD,
+    EAP_PWD = 4,
 
     /**
-     * Subscriber identity module
+     * Subscriber Identity Module (SIM). It performs authentication using the keys and algorithms stored in the SIM card
+     * of a smartphone.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_SIM,
+    EAP_SIM = 5,
 
     /**
-     * Authentication and key agreement
+     * Authentication and Key Agreement (AKA). It performs authentication using enhanced keys and algorithms stored in a
+     * USIM card (applicable to 3G/4G/5G SIM cards).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_AKA,
+    EAP_AKA = 6,
 
     /**
-     * AKA prime
+     * AKA Prime. It is an enhanced version of EAP-AKA and binds the network name during key derivation.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_AKA_PRIME,
+    EAP_AKA_PRIME = 7,
 
     /**
-     * Unauth TLS
+     * Unauthenticated TLS (UNAUTH TLS). It implements one-way authentication (client authentication only) while
+     * establishing an encrypted communication channel.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    EAP_UNAUTH_TLS
+    EAP_UNAUTH_TLS = 8
   }
 
   /**
-   * Wi-Fi phase 2 method.
+   * Enumerates the Phase 2 authentication methods.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   enum Phase2Method {
     /**
-     * Not specified
+     * Not specified.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_NONE,
+    PHASE2_NONE = 0,
 
     /**
-     * Password authentication protocol
+     * PAP.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_PAP,
+    PHASE2_PAP = 1,
 
     /**
-     * Microsoft challenge handshake authentication protocol
+     * MS-CHAP.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_MSCHAP,
+    PHASE2_MSCHAP = 2,
 
     /**
-     * Microsoft challenge handshake authentication protocol version 2
+     * MS-CHAPv2.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_MSCHAPV2,
+    PHASE2_MSCHAPV2 = 3,
 
     /**
-     * Generic token card
+     * GTC.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_GTC,
+    PHASE2_GTC = 4,
 
     /**
-     * Subscriber identity module
+     * Subscriber Identity Module (SIM). It performs authentication using the keys and algorithms stored in the SIM card
+     * of a smartphone.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_SIM,
+    PHASE2_SIM = 5,
 
     /**
-     * Authentication and key agreement
+     * Authentication and Key Agreement (AKA). It performs authentication using enhanced keys and algorithms stored in a
+     * USIM card (applicable to 3G/4G/5G SIM cards).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_AKA,
+    PHASE2_AKA = 6,
 
     /**
-     * AKA Prime
+     * AKA Prime.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
      */
-    PHASE2_AKA_PRIME
+    PHASE2_AKA_PRIME = 7
   }
 
   /**
-   * Wi-Fi EAP profile.
+   * Represents EAP profile (configuration) information.
    *
-   * @typedef WifiEapProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   interface WifiEapProfile {
     /**
-     * EAP authentication method
+     * EAP authentication method.
      *
-     * @type { EapMethod }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -420,9 +437,9 @@ declare namespace wifiManager {
     eapMethod: EapMethod;
 
     /**
-     * Phase 2 authentication method
+     * Phase 2 authentication method. This parameter is mandatory only when **eapMethod** is **EAP_PEAP** or
+     * **EAP_TTLS**.
      *
-     * @type { Phase2Method }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -430,9 +447,8 @@ declare namespace wifiManager {
     phase2Method: Phase2Method;
 
     /**
-     * The identity
+     * Identity Information. This parameter cannot be empty when **eapMethod** is **TLS**.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -440,9 +456,8 @@ declare namespace wifiManager {
     identity: string;
 
     /**
-     * Anonymous identity
+     * Anonymous identity.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -450,9 +465,9 @@ declare namespace wifiManager {
     anonymousIdentity: string;
 
     /**
-     * Password
+     * Password. When **eapMethod** is **EAP_PEAP** or **EAP_PWD**, this parameter cannot be empty. The value contains a
+     * maximum of 128 bytes.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -460,9 +475,8 @@ declare namespace wifiManager {
     password: string;
 
     /**
-     * CA certificate alias
+     * CA certificate alias.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -470,9 +484,8 @@ declare namespace wifiManager {
     caCertAliases: string;
 
     /**
-     * CA certificate path
+     * CA certificate path.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -480,9 +493,9 @@ declare namespace wifiManager {
     caPath: string;
 
     /**
-     * Client certificate alias
+     * Client certificate alias. When the client certificate content is empty, the client certificate must be installed
+     * first via the certificate management API before passing in the alias.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -490,9 +503,9 @@ declare namespace wifiManager {
     clientCertAliases: string;
 
     /**
-     * content of user's certificate
+     * Client certificate content. When **eapMethod** is set to **EAP_TLS**, if this field is empty, the client
+     * certificate alias cannot be empty.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -500,9 +513,8 @@ declare namespace wifiManager {
     certEntry: Uint8Array;
 
     /**
-     * Password of user's certificate
+     * CA certificate password.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -510,9 +522,9 @@ declare namespace wifiManager {
     certPassword: string;
 
     /**
-     * Alternate subject match
+     * A string to match the alternate subject. In addition to checking the primary domain name of the certificate, the
+     * system checks whether the alternate subject name of the certificate matches the certificate.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -520,9 +532,8 @@ declare namespace wifiManager {
     altSubjectMatch: string;
 
     /**
-     * Domain suffix match
+     * A string to match the domain suffix.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -530,9 +541,8 @@ declare namespace wifiManager {
     domainSuffixMatch: string;
 
     /**
-     * Realm for Passpoint credential
+     * Realm for the passpoint credential.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -540,9 +550,8 @@ declare namespace wifiManager {
     realm: string;
 
     /**
-     * Public Land Mobile Network of the provider of Passpoint credential
+     * Credential provider.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -550,9 +559,8 @@ declare namespace wifiManager {
     plmn: string;
 
     /**
-     * Sub ID of the SIM card
+     * Sub-ID of the SIM card.
      *
-     * @type { number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -561,18 +569,16 @@ declare namespace wifiManager {
   }
 
   /**
-   * Wi-Fi profile.
+   * Represents the Wi-Fi configuration information.
    *
-   * @typedef WifiProfile
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
   interface WifiProfile {
     /**
-     * Wi-Fi SSID: the maximum length is 32
+     * Name of the Wi-Fi hotspot, in UTF-8 format.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -580,9 +586,10 @@ declare namespace wifiManager {
     ssid: string;
 
     /**
-     * Wi-Fi bssid(MAC): the length is 6
+     * MAC address of the Wi-Fi hotspot. To obtain the MAC address, enable **Enable Wi-Fi verbose logging** under
+     * **Settings** > **System & updates** > **Developer options** first, and then go to the WLAN list to check the MAC
+     * address. If a Wi-Fi network has multiple MAC addresses, all of them must be added here.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -590,9 +597,8 @@ declare namespace wifiManager {
     bssid?: string;
 
     /**
-     * Wi-Fi key: maximum length is 64
+     * Pre-shared key.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -600,9 +606,9 @@ declare namespace wifiManager {
     preSharedKey: string;
 
     /**
-     * Hide SSID or not, false(default): not hide
+     * Whether the network is hidden. The value **true** indicates that the network is hidden; the value **false**
+     * indicates the opposite.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -610,9 +616,8 @@ declare namespace wifiManager {
     isHiddenSsid?: boolean;
 
     /**
-     * Security type: reference definition of WifiSecurityType
+     * Security type.
      *
-     * @type { WifiSecurityType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -620,9 +625,8 @@ declare namespace wifiManager {
     securityType: WifiSecurityType;
 
     /**
-     * The UID of the Wi-Fi profile creator
+     * ID of the creator.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -630,9 +634,8 @@ declare namespace wifiManager {
     creatorUid?: number;
 
     /**
-     * Disable reason
+     * Reason for disabling Wi-Fi.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -640,9 +643,8 @@ declare namespace wifiManager {
     disableReason?: number;
 
     /**
-     * Allocated networkId
+     * Network ID allocated.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -650,9 +652,8 @@ declare namespace wifiManager {
     netId?: number;
 
     /**
-     * Random mac type
+     * Random MAC. The value **0** indicates a random MAC address, and the value **1** indicates device MAC address.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -660,9 +661,8 @@ declare namespace wifiManager {
     randomMacType?: number;
 
     /**
-     * Random mac address, the length is 6
+     * MAC address. This field is mandatory when **randomMacType** is set to device MAC address.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -670,9 +670,8 @@ declare namespace wifiManager {
     randomMacAddr?: string;
 
     /**
-     * IP Type
+     * IP address type.
      *
-     * @type { ?IpType }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -680,9 +679,8 @@ declare namespace wifiManager {
     ipType?: IpType;
 
     /**
-     * IP profile of static
+     * Static IP address information. This field is mandatory when **ipType** is set to **STATIC**.
      *
-     * @type { ?IpProfile }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -690,9 +688,9 @@ declare namespace wifiManager {
     staticIp?: IpProfile;
 
     /**
-     * EAP profile info.
+     * Extensible Authentication Protocol (EAP) configuration. This field is mandatory only when **securityType** is set
+     * to **WIFI_SEC_TYPE_EAP**.
      *
-     * @type { ?WifiEapProfile }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 12
@@ -701,182 +699,18 @@ declare namespace wifiManager {
   }
 
   /**
-   * Gets state of whether the wifi is active.
-   * This function can be called by a super administrator.
+   * Represents Wi-Fi access information containing Service Set Identifier (SSID) and Basic Service Set Identifier (
+   * BSSID).
    *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<boolean> } callback - the callback of isWifiActive.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  function isWifiActive(admin: Want, callback: AsyncCallback<boolean>): void;
-
-  /**
-   * Gets state of whether the wifi is active.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<boolean> } the promise returned by isWifiActive.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  function isWifiActive(admin: Want): Promise<boolean>;
-
-  /**
-   * Gets state of whether the Wi-Fi is active.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { boolean } true if Wi-Fi is active.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 12
-   */
-  function isWifiActiveSync(admin: Want): boolean;
-
-  /**
-   * Sets the wifi profile.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { WifiProfile } profile - profile indicates the profile of wifi.
-   * @param { AsyncCallback<void> } callback - the callback of setWifiProfile.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  function setWifiProfile(admin: Want, profile: WifiProfile, callback: AsyncCallback<void>): void;
-
-  /**
-   * Sets the wifi profile.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { WifiProfile } profile - profile indicates the profile of wifi.
-   * @returns { Promise<void> } the promise returned by setWifiProfile.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 10
-   */
-  function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
-
-  /**
-   * Sets the Wi-Fi profile.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { WifiProfile } profile - profile indicates the profile of Wi-Fi.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 12
-   */
-  function setWifiProfileSync(admin: Want, profile: WifiProfile): void;
-
-  /**
-   * Sets the Wi-Fi disabled.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if set the Wi-Fi disabled, otherwise false.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 11
-   */
-  function setWifiDisabled(admin: Want, disabled: boolean): void;
-
-  /**
-   * Gets state of whether the Wi-Fi is disabled.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.If the admin is not empty, it must
-   *                         have the corresponding permission.
-   * @returns { boolean } true if the Wi-Fi is disabled, otherwise false.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 11
-   */
-  function isWifiDisabled(admin: Want): boolean;
-  
-  /**
-   * Wi-Fi access information.
-   *
-   * @typedef WifiAccessInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
    */
   interface WifiAccessInfo {
-
     /**
-     * ssid info.
+     * Name of the Wi-Fi hotspot. The encoding format is UTF-8 and the maximum length is 32 bytes (three bytes for each
+     * Chinese character and one byte for each English character).
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -884,9 +718,20 @@ declare namespace wifiManager {
     ssid: string;
 
     /**
-     * bssid info.
+     * MAC address of the Wi-Fi hotspot, for example, **00:11:22:33:44:55**. To obtain the MAC address, enable
+     * **Enable Wi-Fi verbose logging** under **Settings** > **System & updates** > **Developer options** first, and
+     * then go to the WLAN list to check the MAC address. If a Wi-Fi network has multiple MAC addresses, all of them
+     * must be added here.
      *
-     * @type { ?string }
+     * This property is optional when the [addDisallowedWifiList]{@link wifiManager.addDisallowedWifiList} and
+     * [removeDisallowedWifiList]{@link wifiManager.removeDisallowedWifiList} APIs are called. The default value is an
+     * empty string.
+     *
+     * This property is optional (available since API version 21) when the
+     * [addAllowedWifiList]{@link wifiManager.addAllowedWifiList} and
+     * [removeAllowedWifiList]{@link wifiManager.removeAllowedWifiList} APIs are called. The default value is an empty
+     * string. However, this property is mandatory in API version 20 and earlier versions.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -895,17 +740,201 @@ declare namespace wifiManager {
   }
 
   /**
-   * Adds disallowed wifi list by {@link WifiAccessInfo} array.
-   * This function can be called by a super administrator.
+   * Queries the Wi-Fi status of the current device. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is a Boolean value (**true** means that Wi-Fi is enabled; and **false** means
+   *     the opposite). If the operation fails, **err** is an error object.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function isWifiActive(admin: Want, callback: AsyncCallback<boolean>): void;
+
+  /**
+   * Queries the Wi-Fi status of the current device. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<boolean> } Promise used to return the Wi-Fi status.
+   *     <br>The value **true** means that Wi-Fi is enabled; the value **false** means the opposite.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function isWifiActive(admin: Want): Promise<boolean>;
+
+  /**
+   * Queries the Wi-Fi status of the current device.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<WifiAccessInfo> } list - an array of added Wi-Fi access information.
-   *                                         The size of the array after setting cannot be greater 200.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { boolean } Returns the Wi-Fi status. The value **true** means Wi-Fi is enabled, and the value **false**
+   *     means the opposite.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function isWifiActiveSync(admin: Want): boolean;
+
+  /**
+   * Configures Wi-Fi for the current device to connect to a specified network. This API uses an asynchronous callback
+   * to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { WifiProfile } profile - Wi-Fi configuration information.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setWifiProfile(admin: Want, profile: WifiProfile, callback: AsyncCallback<void>): void;
+
+  /**
+   * Configures Wi-Fi for the current device to connect to a specified network. This API uses a promise to return the
+   * result.
+   *
+   * @permission ohos.permission.ENTERPRISE_SET_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { WifiProfile } profile - Wi-Fi configuration information.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown if the Wi-Fi fails to be
+   *     configured.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 10
+   */
+  function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
+
+  /**
+   * Configures Wi-Fi for the current device to connect to a specified network.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { WifiProfile } profile - Wi-Fi configuration information.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 12
+   */
+  function setWifiProfileSync(admin: Want, profile: WifiProfile): void;
+
+  /**
+   * Sets the Wi-Fi disabling policy.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - The value **true** indicates that Wi-Fi is disabled, and the value **false**
+   *     indicates the opposite.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function setWifiDisabled(admin: Want, disabled: boolean): void;
+
+  /**
+   * Queries whether Wi-Fi is disabled on the current device.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { boolean } Wi-Fi disabling status. The value **true** indicates that Wi-Fi is disabled, and false
+   *     indicates the opposite.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 11
+   */
+  function isWifiDisabled(admin: Want): boolean;
+
+  /**
+   * Adds disallowed Wi-Fi networks. The current device cannot connect to the disallowed Wi-Fi networks.
+   *
+   * A policy conflict is reported when this API is called in the following scenarios:
+   *
+   * 1. Wi-Fi networks have been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * You can resolve the conflict by enabling the Wi-Fi networks through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 2. Allowed Wi-Fi networks have been added by calling [addAllowedWifiList]{@link wifiManager.addAllowedWifiList}.
+   * You can resolve the conflict by removing the allowed Wi-Fi networks through [removeAllowedWifiList]{@link wifiManager.removeAllowedWifiList}.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<WifiAccessInfo> } list - Array of disallowed Wi-Fi networks. The maximum length of the array is 200.
+   *     For example, if there are already 100 Wi-Fi networks, a maximum of 100 more can be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -913,16 +942,19 @@ declare namespace wifiManager {
   function addDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * Removes disallowed wifi list by {@link WifiAccessInfo} array.
-   * This function can be called by a super administrator.
+   * Removes disallowed Wi-Fi networks. If some Wi-Fi networks are removed from the disallowed list, the current device
+   * cannot connect to the remaining ones; if all Wi-Fi networks are removed from the disallowed list, the current
+   * device can connect to any Wi-Fi network.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<WifiAccessInfo> } list - an array of removed Wi-Fi access information.
-   *                                         The size of the array after setting cannot be greater 200.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<WifiAccessInfo> } list - Array of Wi-Fi networks to be removed. The maximum length of the array is 2
+   *     00.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -930,15 +962,16 @@ declare namespace wifiManager {
   function removeDisallowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * Gets the disallowed wifi list.
-   * This function can be called by a super administrator.
+   * Obtains disallowed Wi-Fi networks.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { Array<WifiAccessInfo> } disallowed Wi-Fi access information.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Array<WifiAccessInfo> } Array of disallowed Wi-Fi networks.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -946,17 +979,25 @@ declare namespace wifiManager {
   function getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>;
 
   /**
-   * Adds allowed wifi list by {@link WifiAccessInfo} array.
-   * This function can be called by a super administrator.
+   * Adds allowed Wi-Fi networks. The current device can only connect to the allowed Wi-Fi networks.
+   *
+   * A policy conflict is reported when this API is called in the following scenarios:
+   *
+   * 1. Wi-Fi networks have been disabled by calling [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * You can resolve the conflict by enabling the Wi-Fi networks through [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}.
+   * 2. Disallowed Wi-Fi networks have been added by calling [addDisallowedWifiList]{@link wifiManager.addDisallowedWifiList}.
+   * You can resolve the conflict by removing the disallowed Wi-Fi networks through [removeDisallowedWifiList]{@link wifiManager.removeDisallowedWifiList}.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<WifiAccessInfo> } list -  an array of added Wi-Fi access information.
-   *                                          The size of the array after setting cannot be greater 200.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<WifiAccessInfo> } list - Array of allowed Wi-Fi networks. The maximum length of the array is 200.
+   *     For example, if there are already 100 Wi-Fi networks, a maximum of 100 more can be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -964,16 +1005,19 @@ declare namespace wifiManager {
   function addAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * Removes allowed wifi list by {@link WifiAccessInfo} array.
-   * This function can be called by a super administrator.
+   * Removes Wi-Fi networks from the allowed list. If some Wi-Fi networks are removed from the allowed list, the current
+   * device can only connect to the remaining ones; if all Wi-Fi networks are removed from the allowed list, the current
+   * device can connect to any Wi-Fi network.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<WifiAccessInfo> } list -  an array of removed Wi-Fi access information.
-   *                                          The size of the array after setting cannot be greater 200.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<WifiAccessInfo> } list - Array of Wi-Fi networks to be removed from the allowed list. The maximum
+   *     length of the array is 200.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -981,15 +1025,16 @@ declare namespace wifiManager {
   function removeAllowedWifiList(admin: Want, list: Array<WifiAccessInfo>): void;
 
   /**
-   * Gets the allowed wifi list.
-   * This function can be called by a super administrator.
+   * Obtains Wi-Fi networks from the allowed list.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { Array<WifiAccessInfo> } allowed Wi-Fi access information.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Array<WifiAccessInfo> } Array of allowed Wi-Fi networks.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -997,16 +1042,27 @@ declare namespace wifiManager {
   function getAllowedWifiList(admin: Want): Array<WifiAccessInfo>;
 
   /**
-   * Turn on wifi.
-   * This function can be called by a super administrator.
+   * Enables Wi-Fi.
+   *
+   * In the following scenario, attempting to enable Wi-Fi using this API will fail, and a message indicating that the
+   * system function is disabled will be returned:
+   *
+   * ?Wi-Fi has been disabled using the
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
+   * API. In this case, you must call
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
+   * to enable Wi-Fi.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @param { boolean } isForce - True means force open wifi, user can not turn off it, false means user can turn off it.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } isForce - Whether to forcibly enable Wi-Fi.<br>The value **true** means to forcibly enable Wi-
+   *     Fi. Once enabled, it cannot be disabled manually. You must call [turnOffWifi]{@link wifiManager.turnOffWifi}
+   *     instead. The value **false** means the opposite and the Wi-Fi can be disabled manually.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -1015,15 +1071,24 @@ declare namespace wifiManager {
   function turnOnWifi(admin: Want, isForce: boolean): void;
 
   /**
-   * Turn off wifi.
-   * This function can be called by a super administrator.
+   * Disables Wi-Fi.
+   *
+   * In the following scenario, attempting to disable Wi-Fi using this API will fail, and a message indicating that the
+   * system function is disabled will be returned:
+   *
+   * ?Wi-Fi has been disabled using the
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
+   * API. In this case, you must call
+   * [setDisallowedPolicy]{@link @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: string, disallow: boolean)}
+   * to enable Wi-Fi.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly

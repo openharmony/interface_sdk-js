@@ -22,15 +22,22 @@ import type { AsyncCallback } from '@ohos.base';
 import type Want from '@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage restriction policy of the enterprise devices.
+ * This **restrictions** module provides APIs for disallowing general features of devices. You can globally disable or
+ * enable the features such as Bluetooth, HDC, USB, and Wi-Fi.
  *
- * @namespace restrictions
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 10
  */
 declare namespace restrictions {
   /**
-   * The feature of device.
+   * Enumerates device features.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -38,7 +45,9 @@ declare namespace restrictions {
    */
   enum FeatureForDevice {
     /**
-     * Wi-Fi P2P
+     * Wi-Fi P2P (peer-to-peer connection), which allows devices to directly connect to each other without an access
+     * point. Once this feature is disallowed, devices cannot be connected through Wi-Fi P2P, affecting application
+     * functions that require direct Wi-Fi connections, such as file transfer, online gaming, and screen sharing.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -74,14 +83,14 @@ declare namespace restrictions {
     TRAFFIC_REDIRECTION = 5,
 
     /**
-     * Core dump
+     * Core dump.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
     CORE_DUMP = 6,
-    
+
     /**
      * Disk erasure
      *
@@ -89,11 +98,11 @@ declare namespace restrictions {
      * @stagemodelonly
      * @since 26.0.0
      */
-    DISK_ERASURE = 8
+    DISK_ERASURE = 8,
   }
 
   /**
-   * The feature of device for account.
+   * Enumerates the features that can be disabled or enabled for a specified user.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
@@ -101,7 +110,9 @@ declare namespace restrictions {
    */
   enum FeatureForAccount {
     /**
-     * Multi-Window.
+     * System multi-window. Currently, this feature is available only on phones and tablets. Once disabled, the system
+     * multi-window feature (split-screen, one-click split-screen, Multi-Window, and floating window) cannot be used. If
+     * the feature is currently active, the current usage remains unaffected. However, it cannot be used once closed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -119,7 +130,9 @@ declare namespace restrictions {
     DISTRIBUTED_TRANSMISSION = 1,
 
     /**
-     * Super hub.
+     * SuperHub. Currently, this feature is available only on phones and tablets. Once disabled, the SuperHub feature
+     * cannot be used. If SuperHub is currently active, the current usage remains unaffected. However, it cannot be used
+     * once closed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -129,20 +142,23 @@ declare namespace restrictions {
   }
 
   /**
-   * Disable or enable the printing function of the device
-   * This function can be called by a super administrator.
+   * Enables or disables the printing capability of the device. This API uses an asynchronous callback to return the
+   * result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if the user disables the printing function.
-   * @param { AsyncCallback<void> } callback - the callback of setPrinterDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - Operation to perform. The value **true** means to disable the printer; the value
+   *     **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. <br>If the operation is successful
+   *     , **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -151,20 +167,22 @@ declare namespace restrictions {
   function setPrinterDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Disable or enable the printing function of the device
-   * This function can be called by a super administrator.
+   * Enables or disables the printing capability of the device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if the user disables the printing function.
-   * @returns { Promise<void> } the promise returned by the setPrinterDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - Operation to perform. The value **true** means to disable the printer; the value
+   *     **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the print capability fails
+   *     to be disabled or enabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -173,19 +191,21 @@ declare namespace restrictions {
   function setPrinterDisabled(admin: Want, disabled: boolean): Promise<void>;
 
   /**
-   * Is the printing function of the device disabled
-   * This function can be called by a super administrator.
+   * Queries whether the printing capability of a device is disabled. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @param { AsyncCallback<boolean> } callback - the callback of isPrinterDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result.<br>The value **true** means
+   *     that the printer is disabled; the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -194,19 +214,20 @@ declare namespace restrictions {
   function isPrinterDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Is the printing function of the device disabled
-   * This function can be called by a super administrator.
+   * Queries whether the printing capability of a device is disabled. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @returns { Promise<boolean> } the promise returned by the isPrinterDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the printer is
+   *     disabled; the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -215,20 +236,23 @@ declare namespace restrictions {
   function isPrinterDisabled(admin: Want): Promise<boolean>;
 
   /**
-   * Disable or enable the HDC function of the device
-   * This function can be called by a super administrator.
+   * Enables or disables [HDC](docroot://../device-dev/subsystems/subsys-toolchain-hdc-guide.md). This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if the user disables the HDC function.
-   * @param { AsyncCallback<void> } callback - the callback of setHdcDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - Operation to perform. The value **true** means to disable HDC; the value **false**
+   *     means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. <br>If the operation is successful
+   *     , **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -237,20 +261,22 @@ declare namespace restrictions {
   function setHdcDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Disable or enable the HDC function of the device
-   * This function can be called by a super administrator.
+   * Enables or disables HDC on a device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if the user disables the HDC function.
-   * @returns { Promise<void> } the promise returned by the setHdcDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - Operation to perform. The value **true** means to disable HDC; the value **false**
+   *     means the opposite.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the HDC fails to be
+   *     disabled or enabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -259,19 +285,20 @@ declare namespace restrictions {
   function setHdcDisabled(admin: Want, disabled: boolean): Promise<void>;
 
   /**
-   * Is the HDC function of the device disabled
-   * This function can be called by a super administrator.
+   * Queries whether HDC is disabled. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @param { AsyncCallback<boolean> } callback - the callback of isHdcDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result. The value **true** means HDC is
+   *     disabled; the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -280,19 +307,20 @@ declare namespace restrictions {
   function isHdcDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Is the HDC function of the device disabled
-   * This function can be called by a super administrator.
+   * Queries whether HDC is disabled. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESTRICT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @returns { Promise<boolean> } the promise returned by the isHdcDisabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means HDC is disabled; the
+   *     value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -301,18 +329,20 @@ declare namespace restrictions {
   function isHdcDisabled(admin: Want): Promise<boolean>;
 
   /**
-   * Disables the microphone of device.
+   * Enables or disables the microphone.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disable - true if disable the microphone of device, otherwise false.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disable - Operation to perform. The value **true** means to disable the microphone; the value
+   *     **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -321,18 +351,19 @@ declare namespace restrictions {
   function disableMicrophone(admin: Want, disable: boolean): void;
 
   /**
-   * Queries whether the microphone of device is disabled.
+   * Queries whether the microphone is disabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @returns { boolean } true if the microphone of device is disabled, otherwise false.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { boolean } Returns **true** if the microphone is disabled; returns **false** otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -341,18 +372,20 @@ declare namespace restrictions {
   function isMicrophoneDisabled(admin: Want): boolean;
 
   /**
-   * Sets the device fingerprint authorization capability disabled.
+   * Enables or disables fingerprint authentication.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disabled - true if set the fingerprint authorization capability disabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disabled - Operation to perform. The value **true** means to disable fingerprint authentication;
+   *     the value **false** the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -361,18 +394,19 @@ declare namespace restrictions {
   function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
 
   /**
-   * Queries device fingerprint authorization capability is disabled or enabled.
+   * Queries whether fingerprint authentication is disabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @returns { boolean } true if the fingerprint authorization capability is disabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { boolean } Returns **true** if fingerprint authentication is disabled; returns **false** otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -800,18 +834,22 @@ declare namespace restrictions {
   function getDisallowedPolicyForAccount(admin: Want | null, feature: string, accountId: number): boolean;
 
   /**
-   * Adds applications or bundles or other contents to the list to restrict them from using a specific feature.
+   * Adds a list of applications that are not allowed to use a feature for a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } feature - feature indicates the specific feature to be disallowed.
-   * @param { Array<string> } list - list of restricted applications or bundles or other contents.
-   * @param { number } accountId - indicates the account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } feature - Feature to set.<br>- **snapshotSkip**: screen snapshot capability.
+   * @param { Array<string> } list - List of content such as the bundle names.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
@@ -819,18 +857,22 @@ declare namespace restrictions {
   function addDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
 
   /**
-   * Removes applications or bundles or other contents from the list to unblock them from using a specific feature.
+   * Removes the list of applications that are not allowed to use a feature for a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } feature - feature indicates the specific feature to be disallowed.
-   * @param { Array<string> } list - list of unblock applications or bundles or other contents.
-   * @param { number } accountId - indicates the account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } feature - Feature to set.<br>- **snapshotSkip**: screen snapshot capability.
+   * @param { Array<string> } list - List of content such as the bundle names.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
@@ -838,18 +880,23 @@ declare namespace restrictions {
   function removeDisallowedListForAccount(admin: Want, feature: string, list: Array<string>, accountId: number): void;
 
   /**
-   * Gets the list of applications or bundles or other contents that are restrict from using a specific feature.
+   * Obtains the list of applications that are not allowed to use a feature for a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } feature - feature indicates the specific feature to be disallowed.
-   * @param { number } accountId - indicates the account ID.
-   * @returns { Array<string> } list - list of applications or bundles or other contents.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } feature - Feature to set.<br>- **snapshotSkip**: screen snapshot capability.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0.<br>You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.
+   * @returns { Array<string> } List of applications that have been added by the user and for which a certain feature is
+   *     disabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 14
@@ -933,19 +980,24 @@ declare namespace restrictions {
    */
   function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
 
+
   /**
-   * Disallows the specific feature of the device.
+   * Enables or disables a specified device feature. Once disabled, the feature cannot be used.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the administrator ability information.
-   *     The admin must have the corresponding permission.
-   * @param { FeatureForDevice } feature - feature indicates the specific feature to be disallowed or allowed.
-   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { FeatureForDevice } feature - Device feature to be enabled or disabled.<br> **Note**: An application that
+   *     has obtained the ohos.permission.PERSONAL_MANAGE_RESTRICTIONS permission and has been
+   *     [activated as the built-in device administrator application]{@link @ohos.enterprise.adminManager:adminManager.startAdminProvision}
+   *     can use this API to set the [FeatureForDevice.WIFI_P2P]{@link restrictions.FeatureForDevice} feature.
+   * @param { boolean } disallow - Whether to disallow the feature. The value **true** means to disallow the feature;
+   *     the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 9200013 - The enterprise management policy has been successfully set,
-   *    but the function has not taken effect in real time.
+   *     but the function has not taken effect in real time.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -957,12 +1009,14 @@ declare namespace restrictions {
   function setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean): void;
 
   /**
-   * Queries whether the specific feature of the device is disallowed.
+   * Queries whether a specified device feature is disabled.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   *     If the admin is not empty, it must have the corresponding permission.
-   * @param { FeatureForDevice } feature - feature indicates the specific feature to be queried.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { FeatureForDevice } feature - Device feature to be queried.
+   * @returns { boolean } The value **true** indicates the device feature is disabled, and the value **false** indicates
+   *     the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -976,15 +1030,27 @@ declare namespace restrictions {
   function getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice): boolean;
 
   /**
-   * Disallows the specific feature of the device for the specified account.
+   * Disallows a feature for a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   * @param { FeatureForAccount } feature - feature indicates the specific feature to be disallowed or allowed.
-   * @param { boolean } disallow - true if disallow the specific feature of device, otherwise false.
-   * @param { number } accountId - accountId indicates the account ID to be queried.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { FeatureForAccount } feature - User feature to be disabled or enabled.
+   *     <br>If SuperHub has been added to the user's list of non-disableable applications through the
+   *     [addUserNonStopApps]{@link @ohos.enterprise.applicationManager:applicationManager.addUserNonStopApps} API,
+   *     setting this parameter to **SUPER_HUB** will cause a policy conflict and error code 9200010 will be reported.
+   *     In this case, call the
+   *     [removeUserNonStopApps]{@link @ohos.enterprise.applicationManager:applicationManager.removeUserNonStopApps} API
+   *     to remove SuperHub from the user's list of non-disableable applications to resolve the conflict.
+   * @param { boolean } disallow - Whether to disallow the feature. The value **true** means to disallow the feature;
+   *     the value **false** means the opposite.
+   * @param { number } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br>You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.<br>When **feature** is set to **SUPER_HUB**, this parameter can only be set to the ID of
+   *     the current user. Otherwise, error code 9200012 will be reported.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -998,17 +1064,19 @@ declare namespace restrictions {
   function setDisallowedPolicyForAccount(admin: Want, feature: FeatureForAccount, disallow: boolean, accountId: number): void;
 
   /**
-   * Queries whether the specific feature of the device is disallowed for the specified account.
+   * Obtains the status of a feature for a specified user.
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_RESTRICTIONS
-   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
-   * @param { FeatureForAccount } feature - feature indicates the specific feature to be queried.
-   * @param { number } accountId - accountId indicates the account ID to be queried.
-   *     <br>Length range:[0, ∞).
-   *
-   * @returns { boolean } true if the specific feature of device is disallowed, otherwise false.
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { FeatureForAccount } feature - User feature to be queried.
+   * @param { number } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br>You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.
+   * @returns { boolean } The value **true** means the feature is disabled; the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200002 - the administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.

@@ -23,26 +23,36 @@ import type Want from './@ohos.app.ability.Want';
 import type osAccount from './@ohos.account.osAccount';
 
 /**
- * This module provides the capability to manage the accounts of the enterprise devices.
+ * The **accountManager** module provides APIs for account management of enterprise devices.
  *
- * @namespace accountManager
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 10
  */
 declare namespace accountManager {
   /**
-   * The policy of domain account
-   * 
-   * @interface DomainAccountPolicy
+   * Domain account policy.
+   *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
    */
   interface DomainAccountPolicy {
     /**
-     * The validity period of authentication.
-     * 
-     * @type { ?number }
+     * Validity period of the domain account authentication token, in seconds. The value range is [-1, 2147483647]. The
+     * validity period starts from the time when the domain account is authenticated for the last time, for example,
+     * login or unlocking after the screen is locked.
+     *
+     * The default value is **-1**, indicating that the token is permanently valid. The value **0** indicates that the
+     * token becomes invalid immediately. After the token expires or becomes invalid, the domain account and password
+     * must be authenticated when a user logs in to the system.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -50,9 +60,11 @@ declare namespace accountManager {
     authenticationValidityPeriod?: number;
 
     /**
-     * The validity period of password.
-     * 
-     * @type { ?number }
+     * Validity period of the domain account password, in seconds. The value range is [-1,2147483647]. The validity
+     * period starts from the time when the password is last changed on the device.
+     *
+     * The default value is **-1**, indicating that the domain account password is permanently valid.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -60,9 +72,16 @@ declare namespace accountManager {
     passwordValidityPeriod?: number;
 
     /**
-     * The password expiration notification.
-     * 
-     * @type { ?number }
+     * Notification period before a domain account password expires, in seconds. The value range is [0, 2147483647].
+     *
+     * The default value is **0**, indicating that the system does not display a message indicating that the domain
+     * account password has expired.
+     *
+     * Note: **passwordExpirationNotification** must be used together with **passwordValidityPeriod**. When the system
+     * time is later than or equal to (the time when the domain account password is last changed on the device + the
+     * value of **passwordValidityPeriod** �C the value of **passwordExpirationNotification**), a message is displayed,
+     * indicating that the password is about to expire.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -71,20 +90,22 @@ declare namespace accountManager {
   }
 
   /**
-   * Disallow the user of device add local account.
-   * This function can be called by a super administrator.
+   * Disallows a device to create local user accounts. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disallow - true if the user is not allowed to add local account.
-   * @param { AsyncCallback<void> } callback - the callback of disallowAddLocalAccount.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
+   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -93,20 +114,21 @@ declare namespace accountManager {
   function disallowAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Disallow the user of device add local account.
-   * This function can be called by a super administrator.
+   * Disallows a device to create local user accounts. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disallow - true if the user is not allowed to add local account.
-   * @returns { Promise<void> } the promise returned by the disallowAddLocalAccount.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
+   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value. An error object will be thrown if the operation fails.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -115,20 +137,21 @@ declare namespace accountManager {
   function disallowAddLocalAccount(admin: Want, disallow: boolean): Promise<void>;
 
   /**
-   * Disallows the user to add an OS account.
-   * This function can be called by a super administrator.
+   * Disallows a user to add accounts.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @param { boolean } disallow - true if the specific user is not allowed to add an OS account.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { boolean } disallow - Whether to disallow the user to add system accounts. The value **true** means to
+   *     disallow the user to add system accounts; the value **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -137,20 +160,21 @@ declare namespace accountManager {
   function disallowAddOsAccountByUser(admin: Want, userId: number, disallow: boolean): void;
 
   /**
-   * Queries whether the user is disallowed to add an OS account.
-   * This function can be called by a super administrator.
+   * Queries whether to disallow a user to add accounts.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @param { number } userId - indicates the user ID. It cannot be the ID of a user that does not exist.
-   * @returns { boolean } true if the specific user is not allowed to add an OS account.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @returns { boolean } Returns **true** if the user is not allowed to add system accounts;
+   *     <br>returns **false** otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -159,22 +183,23 @@ declare namespace accountManager {
   function isAddOsAccountByUserDisallowed(admin: Want, userId: number): boolean;
 
   /**
-   * Adds an OS account using the name and account type.
-   * This function can be called by a super administrator.
+   * Adds an account in the background.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } name - the OS account name. It cannot be empty.
-   * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of specified types.
-   * @returns { osAccount.OsAccountInfo } information about the OS account added.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } name - User ID, which must be greater than or equal to 0.
+   * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
+   *     �� **ADMIN**: administrator account.<br>�� **NORMAL**: normal account.<br>�� **GUEST**: guest account.
+   * @returns { osAccount.OsAccountInfo } Information about the account added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - Failed to add an OS account.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -183,19 +208,24 @@ declare namespace accountManager {
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
 
   /**
-   * Disallows the account or all accounts to add an OS account.
-   * This function can be called by a super administrator.
+   * Users are not allowed to add accounts.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { boolean } disallow - true if the specific account or all accounts are not allowed to add an OS account.
-   * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } disallow - Whether to forbid the creation of local user accounts. The value **true** means the
+   *     creation of local user accounts is forbidden, and the value **false** means the opposite.
+   * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, all users are
+   *     not allowed to add accounts. If this parameter is specified, specified users are not allowed to add accounts.
+   *     The value must be greater than or equal to 0.<br>You can call the
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     API to obtain the user ID.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -203,19 +233,25 @@ declare namespace accountManager {
   function disallowOsAccountAddition(admin: Want, disallow: boolean, accountId?: number): void;
 
   /**
-   * Queries whether the account or all accounts is disallowed to add an OS account.
-   * This function can be called by a super administrator.
+   * Queries whether a user is not allowed to add an account.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         If the admin is not empty, it must have the corresponding permission.
-   * @param { number } [accountId] - indicates the account ID. It cannot be the ID of an account that does not exist.
-   * @returns { boolean } true if the specific account or all accounts are not allowed to add an OS account.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
+   *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
+   *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
+   *     can call the
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     API to obtain the user ID.
+   * @returns { boolean } If **true** is returned, accounts cannot be added.
+   *     <br>If **false** is returned, the account can be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -223,21 +259,28 @@ declare namespace accountManager {
   function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
 
   /**
-   * Adds an OS account using the name and account type.
-   * This function can be called by a super administrator.
+   * Adds an account in the background. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > This API is time-consuming. Subsequent calls to other synchronous APIs in the application main thread must wait
+   * > for the asynchronous return of this API.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } name - the OS account name. It cannot be empty.
-   * @param { osAccount.OsAccountType } type - the OS account type. It can only be one of correct types.
-   * @returns { Promise<osAccount.OsAccountInfo> } information about the OS account added.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } name - Account name, which is the name of the account to be added. An account with the same name
+   *     or an empty name cannot be created.
+   * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
+   *     �� **ADMIN**: administrator account.<br>�� **NORMAL**: normal account.<br>�� **GUEST**: guest account.
+   * @returns { Promise<osAccount.OsAccountInfo> } Promise used to return the added account information.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201003 - Failed to add an OS account.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -245,18 +288,26 @@ declare namespace accountManager {
   function addOsAccountAsync(admin: Want, name: string, type: osAccount.OsAccountType): Promise<osAccount.OsAccountInfo>;
 
   /**
-   * Sets domain account policy.
-   * This function can be called by a super administrator.
+   * Sets the domain account policy.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the information of domain account.
-   * @param { DomainAccountPolicy } policy - policy indicates the domain account policy.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.<br>If the internal attribute
+   *     of **domainAccountInfo** is empty, a global policy is set for all domain accounts.<br>If the internal attribute
+   *     of **domainAccountInfo** is not empty, the policy is set for the specified domain account.<br>The priority of
+   *     the specified domain account policy is higher than that of the global policy. If the specified domain account
+   *     has a domain account policy, the global policy does not take effect for the domain account.<br>Note: To set a
+   *     policy for a specified domain account, the **serverConfigId** field in **DomainAccountInfo** is mandatory.
+   * @param { DomainAccountPolicy } policy - Domain account policy.<br>Note: After setting the domain account policy,
+   *     you must change the domain account password on the device. Otherwise, the **passwordValidityPeriod** and
+   *     **passwordExpirationNotification** configurations in **DomainAccountPolicy** do not take effect.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
@@ -264,18 +315,22 @@ declare namespace accountManager {
   function setDomainAccountPolicy(admin: Want, domainAccountInfo: osAccount.DomainAccountInfo, policy: DomainAccountPolicy): void;
 
   /**
-   * Gets domain account policy.
-   * This function can be called by a super administrator.
+   * Obtains the domain account policy.
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { osAccount.DomainAccountInfo } domainAccountInfo - the information of domain account.
-   * @returns { DomainAccountPolicy } the domain account policy.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { osAccount.DomainAccountInfo } domainAccountInfo - Domain account information.<br>If all the internal
+   *     attributes of **domainAccountInfo** are empty, the global domain account policy is queried.<br>If the internal
+   *     attribute of **domainAccountInfo** is not empty, the specified domain account policy is queried.<br>Note: To
+   *     query a specified domain account policy, the **serverConfigId** field in **DomainAccountInfo** is mandatory.
+   * @returns { DomainAccountPolicy } Domain account policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
+   *     capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 19
