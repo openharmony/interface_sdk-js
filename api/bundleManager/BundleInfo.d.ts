@@ -927,51 +927,6 @@ export interface DynamicIconInfo {
 }
 
 /**
- * Alternate icon information configured by the application.
- *
- * @typedef AlternateIconInfo
- * @syscap SystemCapability.BundleManager.BundleFramework.Core
- * @stagemodelonly
- * @since 26.0.0 dynamic&static
- */
-export interface AlternateIconInfo {
-  /**
-   * Indicates the name of the alternate icon.
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  readonly iconName: string;
-
-  /**
-   * Indicates the id of the alternate icon.
-   *
-   * @type { long }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  readonly iconId: long;
-
-  /**
-   * Whether the alternate icon is currently in use.
-   * true: Indicates the icon is currently in use.
-   * false: Indicates the icon is not currently in use.
-   *
-   * @type { boolean }
-   * @readonly
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  readonly enabled: boolean;
-}
-
-/**
   * The bundle options of bundle manager
   * 
   * @typedef BundleOptions

@@ -44,7 +44,7 @@ import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundle
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
-  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo} from './bundleManager/BundleInfo';
+  BundleOptions as _BundleOptions} from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -4161,24 +4161,6 @@ declare namespace bundleManager {
   function disableDynamicIcon(bundleName: string, option?: BundleOptions): Promise<void>;
 
   /**
-   * Set the alternate icon for the current application.
-   * If you need to restore the app's default icon, please input an empty value for the icon name parameter.
-   *
-   * @param { string } alternateIconName - Indicates the alternate icon name.
-   *     This value matches the name field under alternateIcons in the app.json5 file.
-   *     If an empty string is passed, the app's default icon will be restored.
-   * @returns { Promise<void> } Returns the result of setAlternateIcon.
-   * @throws { BusinessError } 17700308 - The alternateIconName must match the name field under alternateIcons
-   *     in the app.json5 file.
-   * @throws { BusinessError } 17700309 - No alternate icon is enabled.
-   * @throws { BusinessError } 17700310 - Failed to set the alternate icon.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function setAlternateIcon(alternateIconName: string): Promise<void>;
-
-  /**
    * Get dynamic icon.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED or ohos.permission.GET_BUNDLE_INFO
@@ -4754,17 +4736,6 @@ declare namespace bundleManager {
    * @since 26.0.0 dynamic&static
    */
   function getInstalledBundleList(bundleFlags: int): Promise<Array<BundleInfo>>;
-
-  /**
-   * Get all alternate icon info configured by the application itself.
-   * 
-   * @returns { Promise<Array<AlternateIconInfo>> } Returns a list of AlternateIconInfo objects.
-   * @throws { BusinessError } 17700311 - Failed to obtain alternate icon.
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function getAlternateIcons(): Promise<Array<AlternateIconInfo>>;
 
   /**
    * Obtains configuration information about an application.
@@ -5443,26 +5414,6 @@ declare namespace bundleManager {
    * @since 23 static
    */
   export type BundleOptions = _BundleOptions;
-
-  /**
-   * Indicates the alternate icon configured by the aplication.
-   *
-   * @typedef { _BundleInfo.AlternateIconInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  export type AlternateIconInfo = _BundleInfo.AlternateIconInfo;
-
-  /**
-   * Indicates the alternate icon configured by the aplication.
-   *
-   * @typedef { _AlternateIconInfo }
-   * @syscap SystemCapability.BundleManager.BundleFramework.Core
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  export type AlternateIconInfo = _AlternateIconInfo;
 }
 
 export default bundleManager;
