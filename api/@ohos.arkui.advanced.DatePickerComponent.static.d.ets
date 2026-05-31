@@ -20,7 +20,8 @@
  */
 
 import { Callback } from '@ohos.base';
-import { PropRef } from './arkui/stateManagement/decorator';
+import { PropRef } from '@ohos.arkui.stateManagement';
+import { Component, Builder } from '@ohos.arkui.component';
 
 /**
  * Defines mode of date picker.
@@ -104,7 +105,7 @@ export declare enum DisplayMode {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface DatePickerComponentResult {
+export declare class DatePickerComponentResult {
   /**
    * Year of selected date.
    *
@@ -195,7 +196,7 @@ export declare enum TimeFormat {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface CommonOptions {
+export declare class CommonOptions {
   /**
    * Start date or time of picker.
    *
@@ -270,7 +271,7 @@ export declare interface CommonOptions {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface DateOptions extends CommonOptions {
+export declare class DateOptions extends CommonOptions {
   /**
    * Defines mode of date picker.
    *
@@ -299,7 +300,7 @@ export declare interface DateOptions extends CommonOptions {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface TimeOptions extends CommonOptions {
+export declare class TimeOptions extends CommonOptions {
   /**
    * Defines format of time picker.
    *
@@ -328,7 +329,7 @@ export declare interface TimeOptions extends CommonOptions {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface DatePickerComponentOptions {
+export declare class DatePickerComponentOptions {
   /**
    * Display mode of picker.
    *
@@ -376,4 +377,13 @@ export declare struct DatePickerComponent {
    */
   @PropRef
   options: DatePickerComponentOptions;
+
+  /**
+   * The method to build component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  build(): void;
 }

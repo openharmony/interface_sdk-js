@@ -118,7 +118,7 @@ export declare enum DisplayMode {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export declare interface DatePickerComponentResult {
+export declare class DatePickerComponentResult {
   /**
    * Year of selected date.
    *
@@ -229,7 +229,7 @@ export declare enum TimeFormat {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export declare interface CommonOptions {
+export declare class CommonOptions {
   /**
    * Start date or time of picker.
    *
@@ -320,7 +320,7 @@ export declare interface CommonOptions {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export declare interface DateOptions extends CommonOptions {
+export declare class DateOptions extends CommonOptions {
   /**
    * Defines mode of date picker.
    *
@@ -355,7 +355,7 @@ export declare interface DateOptions extends CommonOptions {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export declare interface TimeOptions extends CommonOptions {
+export declare class TimeOptions extends CommonOptions {
   /**
    * Defines format of time picker.
    *
@@ -390,7 +390,7 @@ export declare interface TimeOptions extends CommonOptions {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-export declare interface DatePickerComponentOptions {
+export declare class DatePickerComponentOptions {
   /**
    * Display mode of picker.
    *
