@@ -923,17 +923,6 @@ export declare struct ChipGroupV2 {
    */
   @Param
   chipGroupPadding?: ChipGroupV2Padding;
-  /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   * @noninterop
-   */
-  @Param
-  backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
    * Chip group callback. when chipV2 status is changed, this onChange is called.
