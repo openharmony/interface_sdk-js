@@ -106,7 +106,7 @@ declare interface TimePickerResult {
 
   /**
    * Second portion of the selected time.
-   * 
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -150,7 +150,7 @@ declare enum TimePickerFormat {
    * @atomicservice
    * @since 12 dynamic
    */
-  HOUR_MINUTE,
+  HOUR_MINUTE = 0,
 
   /**
    * Hour and minute and second
@@ -167,7 +167,7 @@ declare enum TimePickerFormat {
    * @atomicservice
    * @since 12 dynamic
    */
-  HOUR_MINUTE_SECOND,
+  HOUR_MINUTE_SECOND = 1
 }
 
 /**
@@ -229,7 +229,7 @@ declare interface TimePickerOptions {
 
   /**
    * Specifies the format of the TimePicker that need to be displayed.
-   * 
+   *
    * @type { ?TimePickerFormat }
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -239,7 +239,7 @@ declare interface TimePickerOptions {
    */
   /**
    * Specifies the format of the TimePicker that need to be displayed.
-   * 
+   *
    * @type { ?TimePickerFormat }
    * @default HOUR_MINUTE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -249,7 +249,7 @@ declare interface TimePickerOptions {
    * @since 12 dynamic
    */
   format?: TimePickerFormat;
-  
+
   /**
    * Defines the start time of the time picker.
    *
@@ -345,11 +345,11 @@ interface TimePickerInterface {
  * @atomicservice
  * @since 12 dynamic
  */
-declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions
+declare type DateTimeOptions = import('../api/@ohos.intl').default.DateTimeOptions;
 
 /**
  * Callback of the timePicker time is selected event.
- * 
+ *
  * @typedef {function} OnTimePickerChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -429,7 +429,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   useMilitaryTime(isMilitaryTime: Optional<boolean>): TimePickerAttribute;
 
   /**
@@ -462,7 +462,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   loop(isLoop: Optional<boolean>): TimePickerAttribute;
 
   /**
@@ -498,7 +498,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   disappearTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
@@ -534,7 +534,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   textStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
@@ -570,7 +570,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedTextStyle(style: Optional<PickerTextStyle>): TimePickerAttribute;
 
   /**
@@ -583,7 +583,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-  */
+   */
   dateTimeOptions(value: DateTimeOptions): TimePickerAttribute;
 
   /**
@@ -596,7 +596,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-  */ 
+   */
   dateTimeOptions(timeFormat: Optional<DateTimeOptions>): TimePickerAttribute;
 
   /**
@@ -641,7 +641,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   onChange(callback: Optional<OnTimePickerChangeCallback>): TimePickerAttribute;
 
   /**
@@ -680,7 +680,7 @@ declare class TimePickerAttribute extends CommonMethod<TimePickerAttribute> {
    * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   enableHapticFeedback(enable: Optional<boolean>): TimePickerAttribute;
 
   /**
@@ -1091,7 +1091,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
 
   /**
    * Defines whether the AM/PM option is cascaded with the time in 12-hour mode.
-   * 
+   *
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1149,7 +1149,7 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 12 dynamic
    */
   onWillDisappear?: () => void;
- 
+
   /**
    * Defines the dialog's shadow.
    *
@@ -1212,6 +1212,38 @@ declare interface TimePickerDialogOptions extends TimePickerOptions {
    * @since 18 dynamic
    */
   enableHapticFeedback?: boolean;
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
