@@ -52,7 +52,7 @@ declare class SelectionExtensionAbility {
    * 当SelectionExtensionAbility实例完成创建时，系统会触发该回调，开发者可在该回调中执行初始化逻辑（如定义变量、加载资源、监听划词事件等）。
    *
    * @param { Want } want - 当前SelectionExtensionAbility的Want类型信息，包括Ability名称、Bundle名称等。
-   * @returns { rpc.RemoteObject } RPC remote connection object.
+   * @returns { rpc.RemoteObject } RemoteObject对象，用于客户端和服务端通信。
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]

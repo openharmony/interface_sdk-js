@@ -21,254 +21,163 @@
 import { ValueType } from './@ohos.data.ValuesBucket';
 
 /**
- * This module provides data share services based on the ExtensionAbility.
+ * **DataSharePredicates** provides a filter object to query data in a database by using **DataShare** APIs. It is often
+ * used to update, delete, and query data.
  *
- * @namespace dataSharePredicates
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelOnly
- * @since 10
- */
-/**
- * This module provides data share services based on the ExtensionAbility.
+ * The APIs provided by **DataSharePredicates** correspond to the filter criteria of the database. Before using the APIs
+ * , you need to have basic database knowledge.
  *
- * @namespace dataSharePredicates
- * @syscap SystemCapability.DistributedDataManager.DataShare.Core
- * @StageModelOnly
- * @crossplatform
- * @since 12
- */
-/**
- * This module provides data share services based on the ExtensionAbility.
+ * **DataSharePredicates** applies to the following scenario:
  *
- * @namespace dataSharePredicates
+ * - It is used as a search criterion in the media file management service. For details, see
+ * [FetchOptions]{@link @ohos.file.photoAccessHelper:photoAccessHelper.FetchOptions} in the fetch options of the album
+ * management. In this scenario, you do not need to pay attention to the database type.
+ *
+ * <!--Del-->
+ *
+ * - It is used as a search criterion when APIs of the
+ * [RDB store](docroot://apis-arkdata/js-apis-data-relationalStore-sys.md) and
+ * [KV store](docroot://apis-arkdata/js-apis-distributedKVStore-sys.md) are called. In this scenario, use the
+ * corresponding predicate based on the database type.
+ *
+ * <!--DelEnd-->
+ *
  * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+ * @systemapi [since 9 - 9]
+ * @publicapi [since 10]
  * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 20]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace dataSharePredicates {
   /**
-   * Provides a filter object to query data in a database by using DataShare APIs.
-   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
-   * at the same time in an application, use a lock for it.</strong>
+   * Provides APIs for setting different **DataSharePredicates** objects. This type is not multi-thread safe. If a
+   * **DataSharePredicates** instance is operated by multiple threads at the same time in an application, use a lock for
+   * it.
    *
    * @syscap SystemCapability.DistributedDataManager.DataShare.Core
+   * @systemapi [since 9 - 9]
+   * @publicapi [since 10]
    * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Provides a filter object to query data in a database by using DataShare APIs.
-   * <strong>This type is not multi-thread safe. If a DataSharePredicates instance is operated by multiple threads
-   * at the same time in an application, use a lock for it.</strong>
-   *
-   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @since 12
-   */
-  /**
-   * Manages relational database configurations.
-   *
-   * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-   * @StageModelOnly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 20]
+   * @since 9 dynamic
    * @since 23 static
    */
   class DataSharePredicates {
     /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to search for the records in the specified column that are equal to the
+     * given value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is equal
-     * to a specified value.
-     * This method is similar to = of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      * @since 23 static
      */
     equalTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
-     * a specified value.
-     * This method is similar to != of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is not equal to the specified value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Configure the DataSharePredicates to match the field whose data type is ValueType and value is unequal to
-     * a specified value.
-     * This method is similar to != of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     notEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Adds a left parenthesis to the DataSharePredicates.
-     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
-     * Currently only used for RDB.
+     * Adds a left parenthesis to this **DataSharePredicates**. This API is similar to "(" in an SQL statement and must
+     * be used with the right parenthesis.
      *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the left parenthesis.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @returns { DataSharePredicates } **DataSharePredicates** object with a left parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Adds a left parenthesis to the DataSharePredicates.
-     * This method is similar to ( of the SQL statement and needs to be used together with endWrap().
-     * Currently only used for RDB.
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the left parenthesis.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     beginWrap(): DataSharePredicates;
 
     /**
-     * Adds a right parenthesis to the DataSharePredicates.
-     * This method is similar to ) of the SQL statement and needs to be used together
-     * with beginWrap().
-     * Currently only used for RDB.
+     * Adds a right parenthesis to this **DataSharePredicates**. This API is similar to ")" in an SQL statement and must
+     * be used with the left parenthesis.
      *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the right parenthesis.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @returns { DataSharePredicates } **DataSharePredicates** object with a right parenthesis.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Adds a right parenthesis to the DataSharePredicates.
-     * This method is similar to ) of the SQL statement and needs to be used together
-     * with beginWrap().
-     * Currently only used for RDB.
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the right parenthesis.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     endWrap(): DataSharePredicates;
 
     /**
-     * Adds an or condition to the DataSharePredicates.
-     * This method is similar to or of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to add the OR condition.
      *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the or condition.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @returns { DataSharePredicates } **DataSharePredicates** object with the OR operator.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Adds an or condition to the DataSharePredicates.
-     * This method is similar to or of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the or condition.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     or(): DataSharePredicates;
 
     /**
-     * Adds an and condition to the DataSharePredicates.
-     * This method is similar to and of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to add the AND condition.
      *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @returns { DataSharePredicates } **DataSharePredicates** object with the AND operator.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Adds an and condition to the DataSharePredicates.
-     * This method is similar to and of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Adds an and condition to the DataSharePredicates.
-     * This method is similar to and of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the and condition.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      * @since 23 static
      */
     and(): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the field whose data type is string and value
-     * contains a specified value.
-     * This method is similar to contains of the SQL statement.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that contains the specified value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Value to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -278,14 +187,13 @@ declare namespace dataSharePredicates {
     contains(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the field whose data type is string and value starts
-     * with a specified string.
-     * This method is similar to value% of the SQL statement.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that begins with the specified value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Start value to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -295,14 +203,13 @@ declare namespace dataSharePredicates {
     beginsWith(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the field whose data type is string and value
-     * ends with a specified string.
-     * This method is similar to %value of the SQL statement.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that ends with the specified value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - End value to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -312,12 +219,12 @@ declare namespace dataSharePredicates {
     endsWith(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the fields whose value is null.
-     * This method is similar to is null of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data whose value is null.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -327,12 +234,12 @@ declare namespace dataSharePredicates {
     isNull(field: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the specified fields whose value is not null.
-     * This method is similar to is not null of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data whose value is not null.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -342,46 +249,36 @@ declare namespace dataSharePredicates {
     isNotNull(field: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
-     * This method is similar to like of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that matches the specified wildcard expression.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the
-     *     value is a wildcard (like * in a regular expression).
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { string } value - Wildcard expression to match.In the expression, '%' represents zero, one, or more
+     *     digits or characters, and '_' represents a single digit or character. It is case insensitive.If this
+     *     parameter is set to **undefined** or **null**, the predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Configure the DataSharePredicates to match the fields whose data type is string and value is
-     * similar to a specified string.
-     * This method is similar to like of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the
-     *     value is a wildcard (like * in a regular expression).
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     like(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure the DataSharePredicates to match the fields whose data type is string and value is
-     * not similar to a specified string.
-     * This method is similar to unlike of the SQL statement.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that does not match the specified wildcard expression.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with the DataSharePredicates. The percent sign (%) in the value
-     * is a wildcard (like * in a regular expression).
-     * @returns { DataSharePredicates } Returns the DataSharePredicates that match the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Wildcard expression to match.In the expression, '%' represents zero, one, or more
+     *     digits or characters, and '_' represents a single digit or character. It is case insensitive.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -391,14 +288,14 @@ declare namespace dataSharePredicates {
     unlike(field: string, value: string): DataSharePredicates;
 
     /**
-     * Configure DataSharePredicates to match the specified field whose data type is string and the value contains
-     * a wildcard.
-     * Different from like, the input parameters of this method are case-sensitive.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that matches the specified wildcard expression.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { string } value - Indicates the value to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the SQL statement with the specified DataSharePredicates.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.
+     * @param { string } value - Wildcard expression to match.In the expression, '*' represents zero, one, or more
+     *     digits or characters, and '?' represents a single digit or character. It is case sensitive.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -408,244 +305,184 @@ declare namespace dataSharePredicates {
     glob(field: string, value: string): DataSharePredicates;
 
     /**
-     * Restricts the value of the field to the range between low value and high value.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that is within the specified range, including the
+     * start and end values.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } low - Minimum value of the range to set.If **low** is set to a number, the matching
+     *     range is specified based on the numeric order.If **low** is set to a string, the matching range is
+     *     specified based on the lexicographical order.If **low** is set to boolean, the matching range is
+     *     specified based on the numeric order.
+     * @param { ValueType } high - Maximum value to match the **DataAbilityPredicates**.If **high** is set to a
+     *     number, the matching range is specified based on the numeric order.If **high** is set to a string, the
+     *     matching range is specified based on the lexicographical order.If **high** is set to boolean, the
+     *     matching range is specified based on the numeric order.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Restricts the value of the field to the range between low value and high value.
-     * Currently only used for RDB.
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } low - Indicates the minimum value.
-     * @param { ValueType } high - Indicates the maximum value.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     between(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
-     * Configure DataSharePredicates to match the specified field whose data type is int and value is
-     * out of a given range.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to match the data that is out of the specified range, excluding the
+     * start and end values.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value to match with DataSharePredicates.
-     * @param { ValueType } high - Indicates the maximum value to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } low - Minimum value of the range to set.If **low** is set to a number, the matching
+     *     range is specified based on the numeric order.If **low** is set to a string, the matching range is
+     *     specified based on the lexicographical order.If **low** is set to boolean, the matching range is
+     *     specified based on the numeric order.
+     * @param { ValueType } high - Maximum value to match the **DataAbilityPredicates**.If **high** is set to a
+     *     number, the matching range is specified based on the numeric order.If **high** is set to a string, the
+     *     matching range is specified based on the lexicographical order.If **high** is set to boolean, the
+     *     matching range is specified based on the numeric order.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Configure DataSharePredicates to match the specified field whose data type is int and value is
-     * out of a given range.
-     * Currently only used for RDB.
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { ValueType } low - Indicates the minimum value to match with DataSharePredicates.
-     * @param { ValueType } high - Indicates the maximum value to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     notBetween(field: string, low: ValueType, high: ValueType): DataSharePredicates;
 
     /**
-     * Restricts the value of the field to be greater than the specified value.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is greater than the specified value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Restricts the value of the field to be greater than the specified value.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     greaterThan(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Restricts the value of the field to be smaller than the specified value.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is less than the specified value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If field is null or undefined, the predicate
+     *     configured by calling this API is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Restricts the value of the field to be smaller than the specified value.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     lessThan(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Restricts the value of the field to be greater than or equal to the specified value.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is greater than or equal to the specified value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Restricts the value of the field to be greater than or equal to the specified value.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     greaterThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is less than or equal to the specified value.
      *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { ValueType } value - Value to match.If this parameter is set to **undefined** or **null**, the
+     *     predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Restricts the value of the field to be smaller than or equal to the specified value.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name.
-     * @param { ValueType } value - Indicates the String field.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic&static
+     * @since 23 static
      */
     lessThanOrEqualTo(field: string, value: ValueType): DataSharePredicates;
 
     /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object that sorts records in ascending order.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Restricts the ascending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      * @since 23 static
      */
     orderByAsc(field: string): DataSharePredicates;
 
     /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object that sorts data in descending order.
      *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Restricts the descending order of the return list. When there are several orders,
-     * the one close to the head has the highest priority.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name for sorting the return list.
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      * @since 23 static
      */
     orderByDesc(field: string): DataSharePredicates;
 
     /**
-     * Restricts each row of the query result to be unique.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to filter out duplicate data records.
      *
-     * @returns { DataSharePredicates } Returns the SQL query statement with the specified DataSharePredicates.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -655,50 +492,39 @@ declare namespace dataSharePredicates {
     distinct(): DataSharePredicates;
 
     /**
-     * Construct a query object to specify the number of results and the starting position.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to specify the number of records in the result and the start position.
      *
-     * @param { number } total - Represents the specified number of results.
-     * @param { number } offset - Indicates the starting position.
-     * @returns { DataSharePredicates } Returns the query object.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Construct a query object to specify the number of results and the starting position.
-     * Currently only used for RDB and KVDB(schema).
+     * Currently, both the RDB store and KV store support this predicate.
      *
-     * @param { number } total - Represents the specified number of results.
-     * @param { number } offset - Indicates the starting position.
-     * @returns { DataSharePredicates } Returns the query object.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Construct a query object to specify the number of results and the starting position.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { int } total - Represents the specified number of results.
-     * @param { int } offset - Indicates the starting position.
-     * @returns { DataSharePredicates } Returns the query object.
+     * @param { int } total - Maximum number of records.If the KV store is used and **total** is **undefined** or
+     *     **null**, the maximum number of records is 0. For details about the value range, see the description of this
+     *     parameter in [limit]{@link @ohos.data.distributedKVStore:distributedKVStore.Query.limit}.If the RDB store
+     *     is used and **total** is **undefined** or **null**, the maximum number of records is not limited. For details
+     *     about the value range, see the description of this parameter in
+     *     [limitAs]{@link @ohos.data.distributedKVStore:distributedKVStore.Query.limit}.
+     * @param { int } offset - Start position of the query result.If this parameter is set to **undefined** or
+     *     **null**, the start position is the beginning of the result set.For details about the value range in a KV
+     *     store, see the description of this parameter in
+     *     [limit]{@link @ohos.data.distributedKVStore:distributedKVStore.Query.limit}.For details about the value
+     *     range in an RDB store, see the description of the **rowOffset** parameter in
+     *     [offsetAs]{@link @ohos.data.relationalStore:relationalStore.RdbPredicates.offsetAs}.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      * @since 23 static
      */
     limit(total: int, offset: int): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} to group query results by specified columns.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object group the records according to the specified fields.
      *
-     * @param { Array<string> } fields - Indicates the specified columns by which query results are grouped.
-     * @returns { DataSharePredicates } Returns the DataSharePredicates with the specified columns by which query results are grouped.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { Array<string> } fields - Names of the columns by which the records are grouped.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -708,12 +534,13 @@ declare namespace dataSharePredicates {
     groupBy(fields: Array<string>): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} to specify the index column.
-     * Before using this method, you need to create an index column.
-     * Currently only used for RDB.
+     * Creates a **DataSharePredicates** object to list data by the specified index. Before using this API, ensure that
+     * the index column exists.
      *
-     * @param { string } field - Indicates the name of the index column.
-     * @returns { DataSharePredicates } Returns DataSharePredicates with the specified index column.
+     * Currently, only RDB store supports this predicate.
+     *
+     * @param { string } field - Name of the index column.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -723,43 +550,19 @@ declare namespace dataSharePredicates {
     indexedBy(field: string): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
-     * are within a given range.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is within the specified range.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.
+     * @param { Array<ValueType> } value - Array of the values to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @StageModelOnly
-     * @since 10
-     */
-    /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
-     * are within a given range.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @since 12
-     */
-    /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is ValueType array and values
-     * are within a given range.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 20]
+     * @since 10 dynamic
      */
     in(field: string, value: Array<ValueType>): DataSharePredicates;
 
@@ -778,29 +581,22 @@ declare namespace dataSharePredicates {
     inValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
-     * are out of a given range.
-     * Currently only used for RDB and KVDB(schema).
+     * Creates a **DataSharePredicates** object to match the data that is not in the specified value.
      *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
+     * Currently, both the RDB store and KV store support this predicate.
+     *
+     * @param { string } field - Column name in the database table.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.If this parameter is set to **'null'** or **'undefined'** in
+     *     string, the matching result may not be as expected or an exception may be thrown when the predicate is used
+     *     by the KV store and RDB store APIs.
+     * @param { Array<ValueType> } value - Array of the values to match.If this parameter is set to **undefined** or
+     *     **null**, the predicate used is invalid.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @systemapi
+     * @systemapi [since 9 - 22]
+     * @publicapi [since 23]
      * @StageModelOnly
      * @since 9 dynamic
-     */
-    /**
-     * Configure {@code DataSharePredicates} to match the specified field whose data type is String array and values
-     * are out of a given range.
-     * Currently only used for RDB and KVDB(schema).
-     *
-     * @param { string } field - Indicates the column name in the database table.
-     * @param { Array<ValueType> } value - Indicates the values to match with DataSharePredicates.
-     * @returns { DataSharePredicates } Returns DataSharePredicates that matches the specified field.
-     * @syscap SystemCapability.DistributedDataManager.DataShare.Core
-     * @StageModelOnly
-     * @since 23 dynamic
      */
     notIn(field: string, value: Array<ValueType>): DataSharePredicates;
 
@@ -819,11 +615,12 @@ declare namespace dataSharePredicates {
     notInValues(field: string, value: Array<ValueType>): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} Creates a query condition using the specified key prefix.
-     * Currently only used for KVDB.
+     * Creates a **DataSharePredicates** object to match the data with the specified key prefix.
      *
-     * @param { string } prefix - Represents the specified key prefix.
-     * @returns { DataSharePredicates } Returns the query object.
+     * Currently, only the KVDB supports this **DataSharePredicates** object.
+     *
+     * @param { string } prefix - Key prefix to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly
@@ -833,11 +630,12 @@ declare namespace dataSharePredicates {
     prefixKey(prefix: string): DataSharePredicates;
 
     /**
-     * Configure {@code DataSharePredicates} to match the specified value whose key is within a given range.
-     * Currently only used for KVDB.
+     * Creates a **DataSharePredicates** object to match the data whose keys are within the given range.
      *
-     * @param { Array<string> } keys - Represents the key names.
-     * @returns { DataSharePredicates } Returns the query object.
+     * Currently, only the KVDB supports this **DataSharePredicates** object.
+     *
+     * @param { Array<string> } keys - Array of the keys to match.
+     * @returns { DataSharePredicates } **DataSharePredicates** object created.
      * @syscap SystemCapability.DistributedDataManager.DataShare.Core
      * @systemapi
      * @StageModelOnly

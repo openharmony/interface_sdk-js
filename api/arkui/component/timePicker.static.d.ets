@@ -22,7 +22,7 @@ import { ResourceColor, Offset, VoidCallback } from "./units";
 import { CommonMethod, PickerTextStyle, PickerDialogButtonStyle, Rectangle, BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, BackgroundBlurStyleOptions, BackgroundEffectOptions, Callback, DateTimeOptions, Bindable } from './common';
 import { DialogAlignment } from "./alertDialog";
 import { CrownSensitivity } from "./enums";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -153,6 +153,16 @@ export type OnTimePickerChangeCallback = (result: TimePickerResult) => void;
  * @noninterop
  */
 export declare interface TimePickerAttribute extends CommonMethod {
+    /**
+     * Sets the time picker options.
+     *
+     * @param { TimePickerOptions } [options] - time picker options.
+     * @returns { TimePickerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTimePickerOptions(options?: TimePickerOptions): this;
     /**
      * Time Selector: indicates whether to display the 24-hour clock.
      *
@@ -548,3 +558,16 @@ export declare interface TimePickerDialogOptions extends TimePickerOptions {
 export declare function TimePicker(
     options?: TimePickerOptions
 ): TimePickerAttribute;
+/**
+ * Defines the TimePicker component. It requires call setTimePickerOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<TimePickerAttribute> } style - the callback to set up component's attribute.
+ * @returns { TimePickerAttribute } The attribute of the TimePicker.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TimePicker(style: CustomBuilderT<TimePickerAttribute>): TimePickerAttribute;

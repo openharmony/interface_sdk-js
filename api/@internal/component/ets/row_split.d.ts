@@ -21,124 +21,80 @@
 /**
  * Provides interfaces for layout in the vertical direction.
  *
- * @interface RowSplitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides interfaces for layout in the vertical direction.
- *
- * @interface RowSplitInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides interfaces for layout in the vertical direction.
- *
- * @interface RowSplitInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface RowSplitInterface {
   /**
-   * Called when the layout along the vertical direction is set.
+   * Creates a horizontal split layout container with dividers between child components.
    *
    * @returns { RowSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the layout along the vertical direction is set.
-   *
-   * @returns { RowSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the layout along the vertical direction is set.
-   *
-   * @returns { RowSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (): RowSplitAttribute;
 }
 
 /**
- * @extends CommonMethod<RowSplitAttribute>
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ *
+ * The [universal events]{@link CommonMethod} are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * @extends CommonMethod<RowSplitAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * @extends CommonMethod<RowSplitAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class RowSplitAttribute extends CommonMethod<RowSplitAttribute> {
   /**
-   * Called when judging whether the split line can be dragged.
+   * Sets whether the divider can be dragged.
    *
-   * @param { boolean } value
+   * > The divider of **RowSplit** can change the width of the left and right child components, but only to the
+   * > extent that the resultant width falls within the maximum and minimum widths of the child components.
+   *
+   * @param { boolean } value - Whether the divider can be dragged. **true**: The divider can be dragged.
+   *     **false**: The divider cannot be dragged.
+   *     <br>Default value: **false**
+   *     <br>Invalid values are treated as the default value.
    * @returns { RowSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when judging whether the split line can be dragged.
-   *
-   * @param { boolean } value
-   * @returns { RowSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when judging whether the split line can be dragged.
-   *
-   * @param { boolean } value
-   * @returns { RowSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   resizeable(value: boolean): RowSplitAttribute;
 }
 
 /**
- * Defines RowSplit Component.
+ * The **RowSplit** component lays out child components horizontally and inserts a vertical divider between every two
+ * child components.
+ * > **Note**
+ * >
+ * > This component limits the width of its child components through dividers. During initialization, the divider
+ * > positions are calculated based on the width of its child components. After initialization, dynamic width
+ * > modifications to child components do not affect divider positions. To adjust child component widths, drag the
+ * > adjacent dividers.
+ * >
+ * > After initialization, dynamic changes to the [margin]{@link CommonMethod#margin},
+ * > [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding} attributes may cause the
+ * > width of the child components to exceed the allowable distance between adjacent dividers. In such cases, dividers
+ * > cannot be dragged to adjust the width of the child components.
+ * >
+ * > **Child Components**
+ * >
+ * > Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines RowSplit Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines RowSplit Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const RowSplit: RowSplitInterface;
 
@@ -146,21 +102,9 @@ declare const RowSplit: RowSplitInterface;
  * Defines RowSplit Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines RowSplit Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines RowSplit Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const RowSplitInstance: RowSplitAttribute;

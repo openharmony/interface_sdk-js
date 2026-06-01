@@ -20,7 +20,7 @@
 import { Scroller } from "./scroll";
 import { BarState } from './enums';
 import { CommonMethod } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { ColorMetrics } from '../Graphics';
 /**
@@ -110,13 +110,24 @@ export declare interface ScrollBarAttribute extends CommonMethod {
      * Color of the scrollbar.
      *
      * @param { ColorMetrics | undefined } color - Color of the scrollbar.
-     *     <br>Default value: <em>'\#182431'</em> (40% opacity), Passing undefined will restore the default value.
+     *      Passing undefined will restore the default value.
+     *      Default value: <em>'\#182431'</em> (40% opacity),
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default scrollBarColor(color: ColorMetrics | undefined): this;
+    /**
+     * Set ScrollBar options.
+     *
+     * @param { ScrollBarOptions } value - ScrollBar constructor options
+     * @returns { ScrollBarAttribute } Returns the instance of the ScrollBarAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setScrollBarOptions(value: ScrollBarOptions): this;
     /**
      * Called attributeModifier.
      *
@@ -141,6 +152,23 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ScrollBar(
-    value: ScrollBarOptions, 
+    value: ScrollBarOptions,
     content_?: CustomBuilder,
-): ScrollBarAttribute
+): ScrollBarAttribute;
+
+/**
+ * Defines ScrollBar Component.
+ *
+ * @param { CustomBuilderT<ScrollBarAttribute> } style_ - The style to create a ScrollBar.
+ * @param { CustomBuilder } [content_]
+ * @returns { ScrollBarAttribute } The attribute of the ScrollBar.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ScrollBar(
+    style_: CustomBuilderT<ScrollBarAttribute>,
+    content_?: CustomBuilder
+): ScrollBarAttribute;

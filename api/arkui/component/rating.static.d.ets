@@ -19,7 +19,7 @@
  */
 import { CommonConfiguration, Callback, CommonMethod, ContentModifier, Bindable } from './common';
 import { ResourceStr } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Define options used to construct a rating.
@@ -227,7 +227,18 @@ export declare interface RatingAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<RatingAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+
+    /**
+     * Set rating options.
+     *
+     * @param { RatingOptions } [options] - rating constructor options
+     * @returns { RatingAttribute } Returns the instance of the RatingAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRatingOptions(options?: RatingOptions): this;
+ }
 
 /**
  * Defines Rating Component.
@@ -242,5 +253,22 @@ export declare interface RatingAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Rating(
     options?: RatingOptions,
+    content_?: CustomBuilder,
+): RatingAttribute
+
+/**
+ * Defines Rating Component.
+ *
+ * @param { CustomBuilderT<RatingAttribute> } style_ - rating attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RatingAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Rating(
+    style_: CustomBuilderT<RatingAttribute>,
     content_?: CustomBuilder,
 ): RatingAttribute

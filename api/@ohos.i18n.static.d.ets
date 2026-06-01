@@ -575,7 +575,6 @@ declare namespace i18n {
      */
     static setSystemNumberPattern(pattern: string): void;
 
-
     /**
      * Gets number pattern used by system locale.
      *
@@ -854,7 +853,6 @@ declare namespace i18n {
      * @since 23 static
      */
     static getThreeLetterRegion(locale: string): string;
-
 
     /**
      * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
@@ -1601,7 +1599,7 @@ declare namespace i18n {
    */
   export interface EncodingInfo {  
     /**
-     * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "TF-32BE",
+     * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "UTF-32BE",
      * "UTF-32LE", "Shift_JIS", "ISO-2022-JP", "ISO-2022-CN", "ISO-2022-KR", "GB18030", "Big5", "EUC-JP",
      * "EUC-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8",
      * "ISO-8859-9", "windows-1250", "windows-1251", "windows-1252", "windows-1253", "windows-1254",
@@ -1800,7 +1798,7 @@ latitude and a negative value is used for south latitude.
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the TimeZone object of defautl time zone used by application.
+     * Obtains the TimeZone object of default time zone used by application.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
      * @syscap SystemCapability.Global.I18n
@@ -2481,7 +2479,6 @@ latitude and a negative value is used for south latitude.
     findEntityInfo(text: string): Array<EntityInfoItem>;
   }
 
-
   /**
    * Obtains a SimpleDateTimeFormat object based on the specified pattern string. For details about the display
    * differences between the objects obtained by this API and getSimpleDateTimeFormatBySkeleton,
@@ -2498,7 +2495,6 @@ latitude and a negative value is used for south latitude.
    * @since 23 static
    */
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
-
 
   /**
    * Obtains a SimpleDateTimeFormat object based on the specified skeleton. For details about the display differences
@@ -2535,7 +2531,6 @@ latitude and a negative value is used for south latitude.
      */
     format(date: Date): string;
   }
-
 
   /**
    * Obtains a SimpleNumberFormat object based on the specified skeleton.
@@ -2592,7 +2587,6 @@ latitude and a negative value is used for south latitude.
      * @since 23 static
      */
     constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
-
 
     /**
      * Formats a number as a rich text object.
@@ -3112,6 +3106,27 @@ latitude and a negative value is used for south latitude.
     public constructor(locale?: Intl.Locale, options?: SymbolDateTimeFormatOptions);
 
     /**
+     * Parse a date time localized string to Unix timestamp.
+     * Unix timestamp, indicating the number of milliseconds elapsed since 00:00:00 on January 1, 1970 GMT.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "2023/02-25" is a invalid separator date string, it will parse failure when lenientMode
+     *     is false, and will parse success with value (2023, 02, 25) when lenientMode is true. it's better set
+     *     to false, ensure the data is not polluted.
+     *     <br>Whether to use loose parsing rules
+     * @returns { long } Unix timestamp, which indicates the number of milliseconds that have elapsed since
+     *     the Unix epoch.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    public parse(text: string, lenientMode: boolean): long;
+
+    /**
      * Obtains the options for creating a SymbolDateTimeFormat object.
      * This will allow us to check the current config symbols.
      *
@@ -3193,6 +3208,25 @@ latitude and a negative value is used for south latitude.
      * @since 26.0.0 static
      */
     public constructor(locale?: Intl.Locale, options?: SymbolNumberFormatOptions);
+
+    /**
+     * Parse a localized string to number object. For example, "123,456" will parse to 123456.
+     *
+     * @param { string } text - Localized string to be parse.
+     *     <br>Text to be parsed
+     * @param { boolean } lenientMode - Indicates whether parsing allows any non-compliant localized strings.
+     *     For example, "1,23,456" is a invalid thousand separator number string, it will parse failure
+     *     when lenientMode is false, and will parse success with value 123456 when lenientMode is true.it's better
+     *     set to false, ensure the data is not polluted.
+     *     <br>Whether to use loose rules
+     * @returns { double } The result parse with localization rules.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 static
+     */
+    public parse(text: string, lenientMode: boolean): double;
 
     /**
      * Represents optional element for the ResolvedSymbolDateTimeFormatOptions object.
@@ -3348,7 +3382,7 @@ latitude and a negative value is used for south latitude.
      */
     groupingSeparator?: string;
   }
-
+  
   /**
    * Provide a DateTime formatting interface which could format date to ISO 8601 standard string.
    * [ISO8601](https://iso8601.com/).
@@ -3396,7 +3430,7 @@ latitude and a negative value is used for south latitude.
   export interface ISO8601DateTimeFormatOptions {
     /**
      * The ISO 8601 date format to format. The value can be: "calendar", the format is yyyy-MM-dd; "ordinal",
-     * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Defalut value is "calendar".
+     * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Default value is "calendar".
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -3407,7 +3441,7 @@ latitude and a negative value is used for south latitude.
 
     /**
      * The ISO 8601 time precision to format. The value can be: "dateOnly", "hours", "minutes", "seconds",
-     *     "milliSeconds". Defalut value is "seconds".
+     *     "milliSeconds". Default value is "seconds".
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -3484,10 +3518,14 @@ latitude and a negative value is used for south latitude.
     /**
      * Checks whether a given month exist leap month in gregorianYear and cyclicalYear.
      *
-     * @param { int } gregorianYear - Gregorian year to check, supported range is from 1900 to 2100.
-     * @param { int } cyclicalYear - Cyclical year to check, supported range is from 1 to 60.
-     * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January.
+     * @param { int } gregorianYear - Gregorian year to check, supported range is from 1900 to 2100
+     *     <br>The value range is all integers.
+     * @param { int } cyclicalYear - Cyclical year to check, supported range is from 1 to 60
+     *     <br>The value range is all integers.
+     * @param { int } month - Month to check. Note: The month starts from 0. For example, 0 indicates January
+     *     <br>The value range is all integers.
      * @returns { boolean } Check whether the input month is a leap month.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
@@ -3520,6 +3558,8 @@ latitude and a negative value is used for south latitude.
     /**
      * The cyclical year of date.
      * If you need to convert between the chinese calendar and the Gregorian calendar,
+     * the year range must be set from 1 to 60.
+     * The value range is all integers.
      *
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly

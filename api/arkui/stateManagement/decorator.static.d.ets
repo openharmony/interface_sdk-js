@@ -18,6 +18,8 @@
  * @kit ArkUI
  */
 import { SystemProperties } from '../component/enums';
+import { ReusePoolOwnership } from '../component/customComponent';
+import window from '../../@ohos.window';
 
 /**
  * Define a custom component API that provides variables-related functionality.
@@ -410,13 +412,18 @@ export declare @interface Monitor {
 export declare @interface Env {
   /**
    * Key value input by the user.
-   *
-   * @type { SystemProperties }
+   * On API 26.0.0 and above, it can also support a string literal in the
+   * format "ReadonlyEnvKey.<keyName>" or "WritableEnvKey.<keyName>".
+   * The key name must be one declared in {@link ReadonlyEnvKey} or
+   * {@link WritableEnvKey}. Arbitrary strings are not supported.
+   * 
+   * @type { SystemProperties } key - key value input by the user. [since 22 - 24]
+   * @type { string } key - key value input by the user, only support . [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
-  value: SystemProperties;
+  value:  string;
 };
 
 /**
@@ -717,7 +724,17 @@ export declare interface IDecoratedUpdatableVariable<T> {
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define PropRef decoration variable interface.
@@ -729,7 +746,17 @@ export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVar
  * @since 23 static
  */
 export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
+    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define LocalStoragePropRef decoration variable interface.
@@ -740,7 +767,16 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset State variable when the @Reusable Component instance is reused.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(): void;
+}
 
 /**
  * Define Link decoration variable interface.
@@ -751,7 +787,17 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Link variable when the @Reusable Component instance is reused.
+   *
+   * @param { LinkSourceType<T> } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: LinkSourceType<T>): void;
+}
 
 /**
  * Define Provide decoration variable interface.
@@ -762,7 +808,17 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Link variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define Consume decoration variable interface.
@@ -773,7 +829,19 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset Consume variable when the @Reusable Component instance is reused.
+   *
+   * @param { string } provideAlias - alias
+   * @param { WatchFuncType } [watchFinc] - watch function type
+   * @param { ConsumeOptions<T> } [consumeOptions] - options with default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): void;
+}
 
 /**
  * Define ObjectLink decoration variable interface.
@@ -785,7 +853,17 @@ export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableV
  * @since 23 static
  */
 export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmutableVariable<T>,
-    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {}
+    IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset ObjectLink variable when the @Reusable Component instance is reused.
+   *
+   * @param { T } newValue - default value
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(newValue: T): void;
+}
 
 /**
  * Define StorageLink decoration variable interface.
@@ -807,7 +885,16 @@ export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMuta
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
+export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
+  /**
+   * Reset source for this @StoragePropRef variable
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  resetOnReuse(): void;
+}
 
 /**
  * Define LocalStorageLink decoration variable interface.
@@ -1375,9 +1462,11 @@ export declare interface IStateMgmtFactory {
 
   /**
    * Create a Env variable instance.
+   * On API 26.0.0 and above, it can also support SystemEnvKey type for envValue.
    *
    * @param { IVariableOwner } owner - custom component owner
-   * @param { string } envValue - type of environment value to obtain
+   * @param { string } envValue - type of environment value to obtain [since 22 - 24]
+   * @param { string | SystemEnvKey<T> } envValue - system environment key [since 26.0.0]
    * @param { string } varName - variable name that is decorated by @Env
    * @param { EnvOptions<T> } [envOptions] - additional options for makeEnv
    * @returns { IEnvDecoratedVariable<T> } Env variable instance
@@ -1385,7 +1474,21 @@ export declare interface IStateMgmtFactory {
    * @stagemodelonly
    * @since 24 static
    */
-  makeEnv<T>(owner: IVariableOwner, envValue: string, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
+  makeEnv<T>(owner: IVariableOwner, envValue: string | SystemEnvKey<T>, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
+
+  /**
+   * Create a CustomEnv variable instance.
+   *
+   * @param { IVariableOwner } owner - custom component owner
+   * @param { CustomEnvKey<T> } envKey - custom env key
+   * @param { string } varName - variable name that is decorated by @CustomEnv
+   * @param { T } localInitValue - custom env variable initValue.
+   * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
 
   /**
    * Create a synchronous monitored variable instance.
@@ -1400,8 +1503,21 @@ export declare interface IStateMgmtFactory {
    */
   makeSyncMonitor(pathInfos: IMonitorPathInfo[], monitorCallback: MonitorCallback,
     options?: MakeMonitorOptions): IMonitorDecoratedVariable;
-}
 
+  /**
+   * Create global reuse pool on a custom component.
+   *
+   * @param { ReusePoolOwnership } reusePool - reuse pool type.
+   * @param { Class[] } poolAccepts - custom comopnents that reuse pool accepts.
+   * @param { IVariableOwner } owningView - custom component that owns the global pool.
+   * @returns { IGlobalReusePoolVariable } global reuse pool handle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  makeGlobalReusePool(reusePool: ReusePoolOwnership,
+      poolAccepts: Class[], owningView: IVariableOwner): IGlobalReusePoolVariable;
+}
 
 /**
  * Define V2 decorated variable interface.
@@ -1445,6 +1561,15 @@ export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutabl
  * @since 24 static
  */
 export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
+
+/**
+ * Define CustomEnv decoration variable interface.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface ICustomEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
  * Define Consumer decoration variable interface.
@@ -1726,3 +1851,180 @@ export declare interface IObservedAnyProp {
    */
   addRefAnyProp(): void;
 }
+
+/**
+ * Global reuse pool handle.
+ *
+ * @interface IGlobalReusePoolVariable
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IGlobalReusePoolVariable { }
+
+/**
+ * Defines the custom environment Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class CustomEnvKey<S> {
+  /**
+   * create CustomEnvKey
+   *
+   * @returns { CustomEnvKey<T> } CustomEnvKey
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static create<T>(): CustomEnvKey<T>;
+ 	 
+   /**
+    * constructor.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+   protected constructor();
+}
+
+/**
+ * Defines the class of System Env Key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class SystemEnvKey<T> {
+  /**
+   * constructor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  protected constructor();
+}
+ 	 
+/**
+ * Defines writable system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
+
+/**
+ * Define read-only system environment variable keys.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
+
+/**
+ * Defines the writable system environment key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class WritableEnvKey {}
+
+/**
+ * Defines the readonly system environment key.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ReadonlyEnvKey {
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_AVOID_AREA: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoVP>;
+  /**
+   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_AVOID_AREA_PX: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoPX>;
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SIZE: ReadonlySystemEnvKey<window.SizeInVP>;
+  /**
+   * System environment windowsize key that is used to obtain the size of the window, measured in px.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SIZE_PX: ReadonlySystemEnvKey<window.Size>;
+  /**
+   * System environmental displayid key that is used to obtain the display id of the window.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_DISPLAY_ID: ReadonlySystemEnvKey<long>;
+  /**
+   * System environmental system density key that is used to obtain the system density of the display
+   *     where the window is located.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_SYSTEM_DENSITY: ReadonlySystemEnvKey<double>;
+  /**
+   * System environment windowisfocused key that is used to obtain whether the window is focused or not.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_IS_FOCUSED: ReadonlySystemEnvKey<boolean>;
+  /**
+   * System environment windowishighlighted key that is used to obtain whether the window is highlighted or not.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
+}
+
+/**
+ * Defining CustomEnv PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+@Retention({policy: "SOURCE"})
+export declare @interface CustomEnv {
+  /**
+   * Key value input by the user.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  value: string;
+};

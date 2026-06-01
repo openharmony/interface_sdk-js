@@ -773,7 +773,17 @@ declare namespace userAuth {
      * @since 14 dynamic
      * @since 23 static
      */
-    PRIVATE_PIN = 16
+    PRIVATE_PIN = 16,
+
+    /**
+     * Companion device authentication.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COMPANION_DEVICE = 64
   }
 
   /**

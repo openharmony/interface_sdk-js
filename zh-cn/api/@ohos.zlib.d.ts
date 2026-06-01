@@ -434,7 +434,7 @@ declare namespace zlib {
    */
   export enum CompressMethod {
     /**
-     * 压缩模式。
+     * 压缩方法。
      *
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
@@ -908,11 +908,8 @@ declare namespace zlib {
   /**
    * 一个用于读取用户提供的输入数据的回调函数。当解压缩过程需要更多输入数据时，zlib 将调用此函数。此函数应从数据源读取数据并将其写入缓冲区中。
    *
-   * @typedef { function }
-   * @param { object } inDesc - A universal user-defined data object.
-   * The specific type and content depend on the actual application scenario, which can include configuration data,
-   * file handles, etc.
-   * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
+   * @param { RecordData } inDesc - 用户定义数据对象。具体的类型和内容会根据实际的应用场景而有所不同，可能包括配置数据、文件句柄等。
+   * @returns { ArrayBuffer } 从输入数据源成功读取的内容缓冲区。
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -922,10 +919,8 @@ declare namespace zlib {
   /**
    * 一个用于读取用户提供的输入数据的回调函数。当解压缩过程需要更多输入数据时，zlib 将调用此函数。此函数应从数据源读取数据并将其写入缓冲区中。
    *
-   * @typedef { function }
-   * @param { RecordData } inDesc - A universal user-defined data object.
-   * The specific type and content depend on the actual application scenario, which can include configuration data, file handles, etc.
-   * @returns { ArrayBuffer } Return the buffer successfully read by the data source through the input descriptor.
+   * @param { RecordData } inDesc - 用户定义数据对象。具体的类型和内容会根据实际的应用场景而有所不同，可能包括配置数据、文件句柄等。
+   * @returns { ArrayBuffer } 从输入数据源成功读取的内容缓冲区。
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 23 static
@@ -935,11 +930,10 @@ declare namespace zlib {
   /**
    * 用户提供的输出数据会被写入回调函数中。每当解压后的数据准备好进行输出时，zlib 就会调用此函数将缓冲区中的数据写入目标位置。
    *
-   * @typedef { function }
-   * @param { object } outDesc - Object passed to output function. Object dependency requirement implementation.
-   * @param { ArrayBuffer } buf - Used to store data to be written.
-   * @param { int } length - Write the length of the output buffer.
-   * @returns { int } Return the number of bytes output.
+   * @param { object } outDesc - 用户定义数据对象。
+   * @param { ArrayBuffer } buf - 用于存储要写入的数据。
+   * @param { int } length - 写入输出缓冲区的长度。
+   * @returns { int } 输出缓冲区的字节数。
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 12 dynamic
@@ -949,11 +943,10 @@ declare namespace zlib {
   /**
    * 用户提供的输出数据会被写入回调函数中。每当解压后的数据准备好进行输出时，zlib 就会调用此函数将缓冲区中的数据写入目标位置。
    *
-   * @typedef { function }
-   * @param { RecordData } outDesc - Object passed to output function. Object dependency requirement implementation.
-   * @param { ArrayBuffer } buf - Used to store data to be written.
-   * @param { int } length - Write the length of the output buffer.
-   * @returns { int } Return the number of bytes output.
+   * @param { RecordData } outDesc - 用户定义数据对象。
+   * @param { ArrayBuffer } buf - 用于存储要写入的数据。
+   * @param { int } length - 写入输出缓冲区的长度。
+   * @returns { int } 输出缓冲区的字节数。
    * @syscap SystemCapability.BundleManager.Zlib
    * @atomicservice
    * @since 23 static
@@ -1358,55 +1351,8 @@ declare namespace zlib {
      */
     getCrc64Table(): Promise<Array<long>>;
   }
+
   /**
-   * # InflateBackInputCallback<sup>12+</sup>
-   * 
-   * type InflateBackInputCallback = (inDesc: object) => ArrayBuffer
-   * 
-   * 用于输入数据的回调函数。
-   * 
-   * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
-   * 
-   * **系统能力：** SystemCapability.BundleManager.Zlib
-   * 
-   * **参数：**
-   * 
-   * | 参数名 | 类型   | 必填 | 说明               |
-   * | ------ | ------ | ---- | ------------------ |
-   * | inDesc | object | 是   | 用户定义数据对象。 |
-   * 
-   * **返回值：**
-   * 
-   * | 类型                                           | 说明                        |
-   * | ---------------------------------------------- | --------------------------- |
-   * | ArrayBuffer | 从输入数据源成功读取的内容缓冲区。 |
-   */
-/**
-   * # InflateBackOutputCallback<sup>12+</sup>
-   * 
-   * type InflateBackOutputCallback = (outDesc: object, buf: ArrayBuffer, length: number) => number
-   * 
-   * 用于输出数据的回调函数。
-   * 
-   * **原子化服务API：** 从API version 12开始，该接口支持在原子化服务中使用。
-   * 
-   * **系统能力：** SystemCapability.BundleManager.Zlib
-   * 
-   * **参数：**
-   * 
-   * | 参数名  | 类型        | 必填 | 说明                   |
-   * | ------- | ----------- | ---- | ---------------------- |
-   * | outDesc | object      | 是   | 用户定义数据对象。     |
-   * | buf     | ArrayBuffer | 是   | 用于存储要写入的数据。 |
-   * | length  | number      | 是   | 写入输出缓冲区的长度。 |
-   * 
-   * **返回值：**
-   * 
-   * | 类型                                           | 说明                        |
-   * | ---------------------------------------------- | --------------------------- |
-   * | number | 输出缓冲区的字节数。 |
-   */
-/**
    * 压缩解压缩对象实例，支持以zlib、deflate、gzip格式对数据进行压缩与解压。
    *
    * @syscap SystemCapability.BundleManager.Zlib
@@ -1426,9 +1372,9 @@ declare namespace zlib {
     getZStream(): Promise<ZStream>;
 
     /**
-     * Get ZStream.
+     * 输出流，使用Promise异步返回。
      *
-     * @returns { Promise<ZStream | undefined> } Return the required ZStream for compression or decompression.
+     * @returns { Promise<ZStream | undefined> } Promise对象。返回ZStream流。
      * @syscap SystemCapability.BundleManager.Zlib
      * @atomicservice
      * @since 23 static
@@ -1895,15 +1841,17 @@ declare namespace zlib {
     inflateBack(strm: ZStream, backIn: InflateBackInputCallback, inDesc: object, backOut: InflateBackOutputCallback, outDesc: object): Promise<ReturnStatus>;
 
     /**
-     * 通过单一调用实现完全初始化，同时使用回调接口进行输入和输出操作。
+     * 实现原始解压缩，采用回调接口来处理输入和输出，使用Promise异步返回。成功时返回结果状态。
      *
-     * @param { ZStream } strm - Object to structure z_stream.
-     * @param { InflateBackInputCallback } backIn - A function that decompresses data from the end to read the raw
-     *     compressed data from the input source.
-     * @param { RecordData } inDesc - Universal object.
-     * @param { InflateBackOutputCallback } backOut - Write the decompressed data to the target output.
-     * @param { RecordData } outDesc - Universal object.
-     * @returns { Promise<ReturnStatus> } Return ReturnStatus the specific meaning is defined as enum.
+     * @param { ZStream } strm - 参考[ZStream定义]{@link zlib.ZStream}。
+     * @param { InflateBackInputCallback } backIn - 一种函数，用于从末尾解压缩数据，以从输入源读取原始压缩数据。
+     * @param { RecordData } inDesc - 通用对象。
+     * @param { InflateBackOutputCallback } backOut - 将解压缩的数据写入目标输出。
+     * @param { RecordData } outDesc - 通用对象。
+     * @returns { Promise<ReturnStatus> } Promise对象。返回结果状态。
+     * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
+     *     unspecified;
+     *     2. Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17800004 - Compression or decompression stream error, which may be caused by
      *     an initialization error in the zlib stream structure or a modified structure.
      * @syscap SystemCapability.BundleManager.Zlib
@@ -2573,8 +2521,9 @@ declare namespace zlib {
      * 在字符串格式的控制下，将参数转换和格式化后，压缩并写入文件，如fprintf中所示。使用Promise异步回调。
      *
      * @param { string } format - 格式化描述符和纯文本。
-     * @param { Array<string | double> } args - Variable argument lists.
-     * @returns { Promise<int> } Return the number of uncompressed bytes actually written.
+     * @param { Array<string | double> } args - 可变参数列表。传入可变参数，例如gzprintf("name is %s, age is %d", "Tom", 23)，写入内容为“name
+     *     is Tom, age is 23”。不传可变参数，例如gzprintf("name is %s, age is %d")，写入内容为“name is %s, age is %d”。
+     * @returns { Promise<int> } Promise对象，返回实际写入的未压缩字节数。
      * @throws { BusinessError } 401 - The parameter check failed. Possible causes: 1. Mandatory parameters are left
      *     unspecified;
      *     2. Incorrect parameter types; 3. Parameter verification failed.

@@ -107,10 +107,6 @@ declare class List<T> {
    *     equal to int32_max, that is, 2147483647.
    * @throws { BusinessError } 10200011 - The insert method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -125,9 +121,6 @@ declare class List<T> {
    *     that is, 2147483647.
    * @returns { T } Element obtained.
    * @throws { BusinessError } 10200011 - The get method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200001 - The value of index is out of range. [since 23] [staticonly]
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -172,9 +165,6 @@ declare class List<T> {
    * @returns { T } Element removed.
    * @throws { BusinessError } 10200011 - The removeByIndex method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -261,9 +251,6 @@ declare class List<T> {
    * @returns { T } New element.
    * @throws { BusinessError } 10200011 - The set method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -307,9 +294,6 @@ declare class List<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -338,9 +322,6 @@ declare class List<T> {
    * @param { ListComparatorFn<T> } comparator - Callback used to return the result.<br> There has been a compatibility
    *     change since API version 23. In API version 22 and earlier versions, the type is `(firstValue: T, secondValue:
    *     T) => number`. [since 23]
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The sort method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -369,9 +350,6 @@ declare class List<T> {
    * @returns { List<T> } New **List** instance obtained.
    * @throws { BusinessError } 10200011 - The getSubList method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of fromIndex or toIndex is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -386,9 +364,6 @@ declare class List<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The replaceAllElements method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

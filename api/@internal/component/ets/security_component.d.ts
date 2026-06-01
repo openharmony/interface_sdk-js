@@ -72,6 +72,35 @@ declare enum SecurityComponentLayoutDirection {
 }
 
 /**
+ * Enumerates security component types.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum SecurityComponentRoleType {
+  /**
+   * None role type: The screen reader will not broadcast the component type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  ROLE_NONE = 0,
+  /**
+   * Button component type.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  BUTTON = 1
+}
+
+/**
  * Defines the method of a security component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -770,4 +799,72 @@ declare class SecurityComponentMethod<T> {
    * @since 22 dynamic
    */
   focusBox(style:FocusBoxStyle):T;
+
+  /**
+   * Whether to include the ascent and descent of fallback fonts to prevent line overlap.
+   *
+   * @param { boolean } enabled - Whether to enable the feature. The default value is false.
+   * @returns { T } Returns the attributes of the security component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fallbackLineSpacing(enabled: boolean): T;
+
+  /**
+   * Sets the ID of the next component to receive accessibility focus.
+   *
+   * @param { string } nextId - ID of the next component to receive accessibility focus.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityNextFocusId(nextId: string): T;
+
+  /**
+   * Sets the default focus flag of the accessibility feature.
+   *
+   * @param { boolean } focus - Set to true if the component is the default accessibility focus.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityDefaultFocus(focus: boolean): T;
+
+  /**
+   * Sets the accessibility role, which represents the custom type of the component.
+   *
+   * @param { SecurityComponentRoleType } role - Component type of the accessibility feature.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityRole(role: SecurityComponentRoleType): T;
+
+  /**
+   * Sets the accessibility description.
+   *
+   * This property provides additional context or explanation for the component,
+   * helping users understand its actions or functions.
+   * <p><strong>Note</strong>:
+   * You can provide further explanation for the current component, such as the potential consequences of an
+   * operation, especially those not implicitly conveyed by the component's text or role type. If a component includes
+   * text information, a role type (other than ROLE_NONE), and an accessibility description, the system reads the text
+   * first, followed by the role type, and finally the accessibility description when the component is selected.
+   *
+   * @param { string | Resource } description - Accessibility description.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityDescription(description: string | Resource): T;
 }

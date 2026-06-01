@@ -34,6 +34,7 @@ import type ApplicationStateChangeCallback from '../@ohos.app.ability.Applicatio
 import ApplicationStateChangeCallback from '../@ohos.app.ability.ApplicationStateChangeCallback';
 /*** endif */
 import systemConfiguration from '../@ohos.app.ability.systemConfiguration';
+import UIAbility from '../@ohos.app.ability.UIAbility';
 
 /**
  * ApplicationContext inherits from [Context]{@link ./../app/context} and provides application-level management
@@ -675,6 +676,64 @@ declare class ApplicationContext extends Context {
    * @since 23 static
    */
   setFont(font: string): void;
+  
+  /**
+  * Enable delayed exit for the current process.
+  * <p>**NOTE**:
+  * <br>It can be called only by the main thread.
+  * <br>Under normal circumstances, the process exits after the last UIAbility within the application process
+  * has exited. After calling this interface, the process will delay its exit for 10 seconds after the last
+  * UIAbility exits. If a new Ability is started within the 10 seconds in the current process, the process
+  * no longer exits.</p>
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+  * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  enableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * Disables delayed process exit for the current process.
+   *
+   * <p><b>NOTE</b>:
+   * <br>This API can be called only by the main thread.
+   * <br>Calling this API cancels the effect of {@link enableDelayedProcessExit}.</p>
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000150 - The current process has no UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  disableDelayedProcessExit(): Promise<void>;
+
+  /**
+   * Starts a UIAbility of the current application during the delayed-exit window.
+   *
+   * @param { Want } want - Indicates the UIAbility to start.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+   * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: Fail to connect system service.
+   * @throws { BusinessError } 16000122 - The target component is blocked by the system module and does not support startup.
+   * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+   * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+   * @throws { BusinessError } 16000125 - Starting a plugin UIAbility is not supported.
+   * @throws { BusinessError } 16000130 - The UIAbility does not belong to the caller.
+   * @throws { BusinessError } 16000161 - Delayed process exit is not pending in the current process, and this API cannot be called.
+   * @throws { BusinessError } 16000162 - The current process still has another UIAbility, and this API cannot be called.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  startSelfUIAbility(want: Want): Promise<void>;
 
   /**
    * Obtains the index of the current application clone.
@@ -787,6 +846,158 @@ declare class ApplicationContext extends Context {
    * @since 24 dynamic&static
    */
   offSystemConfigurationUpdated(callback?: systemConfiguration.UpdatedCallback): void;
+
+  /**
+   * Registers a listener to monitor the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { AbilityLifecycleCallback } abilityLifecycleCallback - Callback used to return the ID of the registered listener.
+   * @returns { number } Returns the number code of the callbackId.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'abilityLifecycle', callback: AbilityLifecycleCallback)
+   */
+  registerAbilityLifecycleCallback(abilityLifecycleCallback: AbilityLifecycleCallback): number;
+
+  /**
+   * Unregisters the listener that monitors the ability lifecycle of the application.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { number } callbackId - Event type.
+   * @param { AsyncCallback<void> } callback - Callback used to return the ID of the registered listener.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number, callback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters a listener for the lifecycle of a UIAbility within the application. This API uses a promise to return
+   * the result. It can be called only on the main thread.
+   *
+   * <p>**NOTE**:
+   * <br>It can be called only by the main thread.
+   * </p>
+   *
+   * @param { number } callbackId - Event type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'abilityLifecycle', callbackId: number): Promise<void>;
+   */
+  unregisterAbilityLifecycleCallback(callbackId: number): Promise<void>;
+
+  /**
+   * Register environment callback.
+   *
+   * @param { EnvironmentCallback } environmentCallback - Callback used to return the ID of the registered listener.
+   * @returns { number } Returns the number code of the callbackId.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)
+   */
+  registerEnvironmentCallback(environmentCallback: EnvironmentCallback): number;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses an asynchronous callback to return the
+   * result. It can be called only on the main thread.
+   *
+   * @param { number } callbackId - Event type.
+   * @param { AsyncCallback<void> } envcallback - Callback used to return the ID of the registered listener.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number, callback: AsyncCallback<void>)
+   */
+  unregisterEnvironmentCallback(callbackId: number, envcallback: AsyncCallback<void>): void;
+
+  /**
+   * Unregisters the listener for system environment changes. This API uses a promise to return the result. It can be
+   * called only on the main thread.
+   *
+   * @param { number } callbackId - Event type.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#off(type: 'environment', callbackId: number): Promise<void>;
+   */
+  unregisterEnvironmentCallback(callbackId: number): Promise<void>;
+
+  /**
+   * Obtains information about the running processes.
+   * This API uses a promise to return the result.
+   *
+   * @returns { Promise<Array<ProcessInformation>> } Promise used to return the API call result and the process running
+   * information. You can perform error handling or custom processing in this callback.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(): Promise<Array<ProcessInformation>>;
+
+  /**
+   * Obtains information about the running processes.
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<Array<ProcessInformation>> } callback - Callback used to return the information about the
+   * running processes.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9
+   * @deprecated since 10
+   * @useinstead ApplicationContext#getRunningProcessInformation
+   */
+  getProcessRunningInformation(callback: AsyncCallback<Array<ProcessInformation>>): void;
+
+   /**
+    * Get the UIAbility instance by the instance Id.
+    *
+    * <p>**NOTE**:
+    * <br>It can be called only by the main thread.
+    * </p>
+    *
+    * @param { string } instanceId - The instanceId of the UIAbility.
+    * @returns { UIAbility } The UIAbility instance.
+    * @throws { BusinessError } 16000003 - The id does not exist.
+    * @throws { BusinessError } 16000011 - The context does not exist.
+    * @throws { BusinessError } 16000050 - Internal error.
+    *     System service failed to communicate with dependency module.
+    * @syscap SystemCapability.Ability.AbilityRuntime.Core
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+   getUIAbilityByInstanceId(instanceId: string): UIAbility;
 }
 
 export default ApplicationContext;

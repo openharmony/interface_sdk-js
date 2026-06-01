@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,112 +14,78 @@
  */
 
 /**
- * @file Defines the ad component
+ * @file Ad Component
  * @kit AdsKit
  */
 
 import advertising from './@ohos.advertising';
 
 /**
- * Defines the ad component.
+ * This module provides the capability of displaying ads.
+ *
  * @syscap SystemCapability.Advertising.Ads
+ * @atomicservice [since 12]
  * @since 11
- */
-/**
- * Defines the ad component.
- * @syscap SystemCapability.Advertising.Ads
- * @atomicservice
- * @since 12
  */
 @Component
 declare struct AdComponent {
-    /**
-     * The ads to display.
-     * @type { Advertisement[] }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The ads to display.
-     * @type { Advertisement[] }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    ads: advertising.Advertisement[];
+  /**
+   * Array of ad objects.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  ads: advertising.Advertisement[];
 
-    /**
-     * The interaction options info for displaying ads.
-     * @type { AdDisplayOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The interaction options info for displaying ads.
-     * @type { AdDisplayOptions }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    displayOptions: advertising.AdDisplayOptions;
+  /**
+   * Ad display parameters.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  displayOptions: advertising.AdDisplayOptions;
 
-    /**
-     * The interaction listener to be registered that use to show ads.
-     * @type { AdInteractionListener }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The interaction listener to be registered that use to show ads.
-     * @type { AdInteractionListener }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    interactionListener: advertising.AdInteractionListener;
+  /**
+   * Ad status change callback.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  interactionListener: advertising.AdInteractionListener;
 
-    /**
-     * The builder param to render customized ad content.
-     * @type { ?() => void }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 12
-     */
-    /**
-     * The builder param to render customized ad content.
-     * @type { ?() => void }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 20
-     */
-    @BuilderParam adRenderer?: () => void;
+  /**
+   * Ad self-rendering.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 20]
+   * @since 12
+   */
+  @BuilderParam
+  adRenderer?: () => void;
 
-    /**
-     * The property to control the playback status of the roll ad.
-     * @type { ?number }
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 15
-     */
-    /**
-     * The property to control the playback status of the roll ad.
-     * @type { ?number }
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 20
-     */
-    @Prop rollPlayState?: number;
+  /**
+   * Roll ad state. The value **1** means that the roll ad is playing,
+   * and the value **2** (default) means that the roll ad is paused.
+   * Other values are invalid and the previous playback state is not changed.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 20]
+   * @since 15
+   */
+  @Prop
+  rollPlayState?: number;
 
-    /**
-     * The method to build ad component.
-     * @syscap SystemCapability.Advertising.Ads
-     * @since 11
-     */
-    /**
-     * The method to build ad component.
-     * @syscap SystemCapability.Advertising.Ads
-     * @atomicservice
-     * @since 12
-     */
-    build(): void;
+  /**
+   * A constructor used to create an **AdComponent** object.
+   *
+   * @syscap SystemCapability.Advertising.Ads
+   * @atomicservice [since 12]
+   * @since 11
+   */
+  build(): void;
 }
 
 export { AdComponent };

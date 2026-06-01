@@ -72,7 +72,7 @@ declare namespace selectionManager {
    * callback to return the result.
    *
    * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback to unregister. If this parameter is not specified, this
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return Selectioninfo. If this parameter is not specified, this
    *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -96,7 +96,7 @@ declare namespace selectionManager {
   /**
    * Obtains this selected text content. This API uses a promise to return the result.
    *
-   * @returns { Promise<string> } Promise used to return the selected content.
+   * @returns { Promise<string> } Promise used to return the content of the selected text.
    * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600004 - The interface is called too frequently.
    * @throws { BusinessError } 33600005 - The interface is called at the wrong time.
@@ -118,7 +118,7 @@ declare namespace selectionManager {
    *
    * @param { Context } ctx - Context that the current word selection panel depends on.
    * @param { PanelInfo } info - Information about the word selection panel.
-   * @returns { Promise<Panel> } Promise used to return the word selection panel.
+   * @returns { Promise<Panel> } Promise used to return the word selection panel created.
    * @throws { BusinessError } 33600001 - Selection service exception.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.

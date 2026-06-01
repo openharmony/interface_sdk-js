@@ -1080,6 +1080,25 @@ declare class LengthMetrics {
    * @since 12 dynamic
    */
   public value: number;
+
+  /**
+   * Sets automatic refresh for the LengthMetrics object.
+   * When enabled, the length value of the object created by LengthMetrics.resource() is automatically updated
+   * when the system configuration changes.
+   *
+   * @param { boolean } value - whether to automatically update the length value when the system configuration changes.
+   *     <br>If set to true, the length value of the object created by LengthMetrics.resource() is automatically updated
+   *     when the system configuration changes. If set to false, the length value of the object created by
+   *     LengthMetrics.resource() is automatically updated when the system configuration changes.
+   *     The default value is false.
+   * @returns { LengthMetrics } Returns the LengthMetrics object for chaining.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoRefresh?(value: boolean): LengthMetrics;
 }
 
 /**
@@ -1184,7 +1203,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1210,7 +1229,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1235,7 +1254,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1248,7 +1267,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getColorSpace(): ColorSpace;
 
@@ -1263,7 +1282,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   isHDR(): boolean;
 
@@ -1280,7 +1299,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getRedValue(): double;
 
@@ -1297,7 +1316,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getGreenValue(): double;
 
@@ -1314,7 +1333,7 @@ declare class ColorMetrics {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getBlueValue(): double;
 	
@@ -1397,6 +1416,25 @@ declare class ColorMetrics {
    * @since 12 dynamic
    */
   get alpha(): number;
+
+  /**
+   * Sets automatic refresh for the ColorMetrics object.
+   * When enabled, the color values of objects created with ColorMetrics.resourceColor() are automatically updated
+   * when the system configuration changes.
+   *
+   * @param { boolean } value - Whether to automatically refresh the color value when system configuration changes.
+   *     <br>If this parameter is set to true, the color values of objects created using ColorMetrics.resourceColor()
+   *     are automatically updated when the system configuration changes. If set to false, the color values of objects
+   *     created by ColorMetrics.resourceColor() are not automatically updated.
+   *     The default value is false.
+   * @returns { ColorMetrics } Returns the ColorMetrics object for chaining.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoRefresh?(value: boolean): ColorMetrics;
 }
 
 /**

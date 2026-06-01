@@ -21,8 +21,8 @@ import { EdgeEffectOptions, EditModeOptions, NestedScrollOptions, ItemDragInfo, 
 import { Length, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from './scroll';
 import { BarState, Color, EdgeEffect, FocusWrapMode } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
-import { AttributeModifier, Bindable, CommonMethod, UIScrollableCommonEvent } from "./common";
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
+import { AttributeModifier, Bindable, Callback, CommonMethod, UIScrollableCommonEvent } from "./common";
 
 /**
  * Define start line info used in GridLayoutOptions.
@@ -291,7 +291,7 @@ export declare interface ComputedBarAttribute {
  * @interface UIGridEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIGridEvent extends UIScrollableCommonEvent {
   /**
@@ -301,7 +301,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *      Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -311,7 +311,7 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -321,19 +321,19 @@ export declare interface UIGridEvent extends UIScrollableCommonEvent {
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollIndex(callback: OnGridScrollIndexCallback | undefined): void;
 }
 /**
  * Defines the callback type used in onScrollIndex.
  *
- * @typedef {function} OnGridScrollIndexCallback
+ * @typedef {function}
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export type OnGridScrollIndexCallback = (first: int, last: int) => void;
 /**
@@ -689,6 +689,17 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      */
     default enableEditMode(enabled: boolean | Bindable<boolean> | undefined): this;
     /**
+     * Triggered when the editing mode status changes.
+     *
+     * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+     *     <br>Passing undefined will unregister the callback.
+     * @returns { this } The attribute of the Grid.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default onEditModeChange(callback: Callback<boolean> | undefined): this;
+    /**
      * Sets the focus wrap mode of the Gird component.
      *
      * @param { FocusWrapMode | undefined } mode - the focus wrap mode of the Grid component.
@@ -696,7 +707,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default focusWrapMode(mode: FocusWrapMode | undefined): this;
     /**
@@ -707,7 +718,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**
@@ -744,6 +755,17 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
+     * Set Grid options.
+     *
+     * @param { Scroller } [scroller] - Controller bound to the grid
+     * @param { GridLayoutOptions } [layoutOptions] - The options to help grid layout
+     * @returns { GridAttribute } Returns the instance of the GridAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setGridOptions(scroller?: Scroller, layoutOptions?: GridLayoutOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<GridAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -768,6 +790,85 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function Grid(
-    scroller?: Scroller, layoutOptions?: GridLayoutOptions, 
+    scroller?: Scroller, layoutOptions?: GridLayoutOptions,
     content_?: CustomBuilder,
 ): GridAttribute
+
+/**
+ * Defines the Extendable Grid.
+ *
+ * @implements GridAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableGrid implements GridAttribute {
+    /**
+     * Constructor of Extendable Grid.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { Scroller } [scroller]
+     * @param { GridLayoutOptions } [layoutOptions]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableGrid>(
+        factory: ConstructorT<T>, 
+        scroller?: Scroller, 
+        layoutOptions?: GridLayoutOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Grid.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableGrid>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the Grid Options.
+     *
+     * @param { Scroller } [scroller]
+     * @param { GridLayoutOptions } [layoutOptions]
+     * @returns { ExtendableGrid }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setGridOptions(
+        scroller?: Scroller, 
+        layoutOptions?: GridLayoutOptions
+    ): this;
+}
+
+/**
+ * Grid is returned when the parameter is transferred.
+ *
+ * @param { CustomBuilderT<GridAttribute> } style_ - The style to create a Grid.
+ * @param { CustomBuilder } [content_]
+ * @returns { GridAttribute } The attribute of the Grid.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Grid(
+    style_: CustomBuilderT<GridAttribute>,
+    content_?: CustomBuilder
+): GridAttribute;

@@ -21,7 +21,7 @@ import { ImageAIOptions, ImageAnalyzerConfig } from "./imageCommon";
 import { ImageFit } from "./enums";
 import { CommonMethod, Callback, PixelMap, AttributeModifier, ContentTransitionEffect } from "./common";
 import { VoidCallback, ColorMetrics } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { ErrorCallback } from '../../@ohos.base';
 
 /**
@@ -598,6 +598,16 @@ export declare interface VideoAttribute extends CommonMethod {
      */
     default surfaceBackgroundColor(color: ColorMetrics | undefined): this;
     /**
+     * Set Video options.
+     *
+     * @param { VideoOptions } value - Video constructor options
+     * @returns { VideoAttribute } Returns the instance of the VideoAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setVideoOptions(value: VideoOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<VideoAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -622,4 +632,19 @@ export declare interface VideoAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function Video(
     value: VideoOptions
+): VideoAttribute;
+
+/**
+ * Defines Video Component.
+ *
+ * @param { CustomBuilderT<VideoAttribute> } style - the callback to set up component's attributes.
+ * @returns { VideoAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Video(
+    style: CustomBuilderT<VideoAttribute>
 ): VideoAttribute;

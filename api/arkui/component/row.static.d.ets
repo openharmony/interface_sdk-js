@@ -18,7 +18,7 @@
  */
 import { VerticalAlign, FlexAlign } from './enums';
 import { SpaceType } from './column';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Define options used to construct a row.
@@ -113,6 +113,16 @@ export declare interface RowAttribute extends CommonMethod {
      */
     default reverse(isReversed: boolean | undefined): this;
     /**
+     * Set Row options.
+     *
+     * @param { RowOptions | RowOptionsV2 } [options] - Row constructor options
+     * @returns { RowAttribute } Returns the instance of the RowAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setRowOptions(options?: RowOptions | RowOptionsV2): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<RowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -141,3 +151,76 @@ export declare function Row(
     options?: RowOptions | RowOptions | RowOptionsV2,
     content_?: CustomBuilder,
 ): RowAttribute
+
+/**
+ * Defines Row Component.
+ *
+ * @param { CustomBuilderT<RowAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { RowAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Row(
+    style: CustomBuilderT<RowAttribute>,
+    content_?: CustomBuilder,
+): RowAttribute;
+
+/**
+ * Defines the Extendable Row.
+ *
+ * @implements RowAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableRow implements RowAttribute {
+    /**
+     * Constructor of Extendable Row.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { RowOptions | RowOptionsV2 } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableRow>(
+        factory: ConstructorT<T>, 
+        options?: RowOptions | RowOptionsV2,
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Row.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableRow>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Row Options.
+     *
+     * @param { RowOptions | RowOptionsV2 } [options]
+     * @returns { ExtendableRow }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setRowOptions(options?: RowOptions | RowOptionsV2): this;
+}

@@ -175,7 +175,7 @@ declare namespace commonEvent {
     COMMON_EVENT_LOCKED_BOOT_COMPLETED = 'usual.event.LOCKED_BOOT_COMPLETED',
 
     /**
-     * 提示设备正在关闭并将继续直至最终关闭。COMMON_EVENT_BATTERY_CHANGEDCOMMON_EVENT_BATTERY_CHANGED
+     * 提示设备正在关闭并将继续直至最终关闭。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 7

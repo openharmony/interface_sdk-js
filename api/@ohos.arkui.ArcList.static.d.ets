@@ -23,7 +23,7 @@ import { Axis, CrownSensitivity, BarState } from '@ohos.arkui.component';
 import { Scroller } from '@ohos.arkui.component';
 import { VoidCallback } from '@ohos.arkui.component';
 import { LengthMetrics, ColorMetrics } from './arkui/Graphics';
-import { ComponentBuilder, CustomBuilder } from '@ohos.arkui.component';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { ComponentContentBase } from './arkui/ComponentContent';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 import { SwipeActionOptions } from '@ohos.arkui.component';
@@ -255,6 +255,16 @@ export declare interface ArcListAttribute extends CommonMethod {
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
+     * Set ArcList options.
+     *
+     * @param { ArkListOptions } [options] - ArcList constructor options
+     * @returns { ArcListAttribute } Returns the instance of the ArcListAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setArcListOptions(options?: ArkListOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ArcListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -293,6 +303,15 @@ export declare interface ArcListItemAttribute extends CommonMethod {
      */
     default swipeAction(options: SwipeActionOptions | undefined): this;
     /**
+     * Set ArcListItem options.
+     *
+     * @returns { ArcListItemAttribute } Returns the instance of the ArcListItemAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Circle
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setArcListItemOptions(): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ArcListItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -315,9 +334,26 @@ export declare interface ArcListItemAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ArcList(
-    options?: ArkListOptions, 
+    options?: ArkListOptions,
     content_?: CustomBuilder,
-): ArcListAttribute
+): ArcListAttribute;
+
+/**
+ * Defines ArcList Component.
+ *
+ * @param { CustomBuilderT<ArcListAttribute> } style_ - The style to create an ArcList.
+ * @param { CustomBuilder } [content_]
+ * @returns { ArcListAttribute } The attribute of the ArcList.
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ArcList(
+    style_: CustomBuilderT<ArcListAttribute>,
+    content_?: CustomBuilder
+): ArcListAttribute;
 
 /**
  * Defines ArcListItem Component.
@@ -331,4 +367,21 @@ export declare function ArcList(
 @ComponentBuilder
 export declare function ArcListItem(
     content_?: CustomBuilder,
-): ArcListItemAttribute
+): ArcListItemAttribute;
+
+/**
+ * Defines ArcListItem Component.
+ *
+ * @param { CustomBuilderT<ArcListItemAttribute> } style_ - The style to create an ArcListItem.
+ * @param { CustomBuilder } [content_]
+ * @returns { ArcListItemAttribute } The attribute of the ArcListItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ArcListItem(
+    style_: CustomBuilderT<ArcListItemAttribute>,
+    content_?: CustomBuilder
+): ArcListItemAttribute;

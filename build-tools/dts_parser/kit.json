@@ -291,7 +291,9 @@
     { "filePath": "@ohos.application.Want.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "@ohos.application.WindowExtensionAbility.d.ts", "kitName": "ArkUI", "subSystem": "窗口管理" },
     { "filePath": "@ohos.arkui.advanced.Chip.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@ohos.arkui.advanced.ChipV2.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.arkui.advanced.ChipGroup.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "@ohos.arkui.advanced.ChipGroupV2.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.arkui.advanced.ComposeListItem.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.arkui.advanced.ComposeTitleBar.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "@ohos.arkui.advanced.Counter.d.ets", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
@@ -343,6 +345,7 @@
     { "filePath": "@ohos.bluetooth.pan.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.pbap.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.socket.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
+    { "filePath": "@ohos.bluetooth.bas.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetooth.wearDetection.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.bluetoothManager.d.ts", "kitName": "ConnectivityKit", "subSystem": "蓝牙" },
     { "filePath": "@ohos.brightness.d.ts", "kitName": "BasicServicesKit", "subSystem": "电源服务" },
@@ -830,6 +833,7 @@
     { "filePath": "arkui/ToggleModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/VideoModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/WaterFlowModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
+    { "filePath": "arkui/SelectionContainerModifier.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "arkui/XComponentNode.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
     { "filePath": "bundle/abilityInfo.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
     { "filePath": "bundle/applicationInfo.d.ts", "kitName": "AbilityKit", "subSystem": "包管理" },
@@ -935,6 +939,7 @@
     { "filePath": "wantAgent/wantAgentInfo.d.ts", "kitName": "AbilityKit", "subSystem": "元能力" },
     { "filePath": "permissions.d.ts", "kitName": "NA", "subSystem": "NA" },
     { "filePath": "@ohos.arkui.uiMaterial.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" },
-    { "filePath": "@ohos.intelligentScene.d.ts", "kitName": "BasicServicesKit", "subSystem": "应用" }
+    { "filePath": "@ohos.intelligentScene.d.ts", "kitName": "BasicServicesKit", "subSystem": "应用" },
+    { "filePath": "@ohos.arkui.components.SelectionContainer.d.ts", "kitName": "ArkUI", "subSystem": "ArkUI开发框架" }
   ]
 }

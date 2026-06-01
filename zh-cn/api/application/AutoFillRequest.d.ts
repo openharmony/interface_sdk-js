@@ -209,7 +209,7 @@ export interface FillRequestCallback {
   /**
    * 通知自动填充已被取消。
    *
-   * @param { string } [fillContent] - 表示通知自动填充取消后，返回给输入法框架的填充内容。
+   * @param { string } [fillContent] - 表示通知自动填充取消后，返回给输入法框架的填充内容。 [since 12]
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:

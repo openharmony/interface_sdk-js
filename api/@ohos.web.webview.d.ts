@@ -251,31 +251,34 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for ArkWeb Engine Version.
+   * For details about the ArkWeb kernel version, see
+   * [Adaptation Guide for the M114 Kernel on OpenHarmony 6.0](https://gitcode.com/openharmony-tpc/chromium_src/blob/132_trunk/web/ReleaseNote/CompatibleWithLegacyWebEngine.md)
+   * .
    *
-   * <strong>ArkWeb Dual Web Engine Versioning Convention</strong>:
-   * <p>See [ArkWeb Dual Web Engine Versioning Convention] for switching between Legacy and Evergreen Web Engine.
-   * @enum {number}
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   enum ArkWebEngineVersion {
     /**
-     * Use the system default ArkWeb engine.
+     * Default system kernel. For OpenHarmony 6.0, the default kernel is M132.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     SYSTEM_DEFAULT = 0,
 
     /**
-     * ArkWeb M114 version.
+     * Legacy kernel of OpenHarmony 6.0. You can select this legacy kernel. If it does not exist, the setting is
+     * invalid.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     M114 = 1,
 
     /**
-     * ArkWeb M132 version.
+     * Evergreen kernel of OpenHarmony 6.0, which is M132 by default. If it does not exist, the setting is invalid.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -290,7 +293,9 @@ declare namespace webview {
     M144 = 3,
 
     /**
-     * ArkWeb auto use the newest ArkWeb Engine version.
+     * Evergreen kernel, which is the latest kernel of the system. You can choose to use the latest kernel for each
+     * system version. This setting takes effect for OpenHarmony 6.1 and later versions.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -345,15 +350,16 @@ declare namespace webview {
   }
 
   /**
-   * The playback status of all audio and video.
-   * @enum {number}
+   * Enumerates the playback states on the current web page.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaPlaybackState {
     /**
-     * No audio or video currently.
+     * No audio or video playback is started on the page.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -362,6 +368,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are being played.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -370,6 +377,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are paused.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -378,6 +386,7 @@ declare namespace webview {
 
     /**
      * The audio and video on the page are stopped.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -386,8 +395,16 @@ declare namespace webview {
   }
 
   /**
-   * The memory pressure level that can be set.
-   * @enum {number}
+   * Enumerates the memory pressure levels. When an application clears the cache occupied by the **Web** component, the
+   * **Web** kernel releases the cache based on the memory pressure level.
+   *
+   * | Name| Value| Description|
+   * | ------------------------------- | - | ---------- |
+   * | MEMORY_PRESSURE_LEVEL_MODERATE | 1 | Moderate memory pressure level. At this level, the **Web** kernel attempts
+   * to release the cache that has low reallocation overhead and does not need to be used immediately.|
+   * | MEMORY_PRESSURE_LEVEL_CRITICAL | 2 | Critical memory pressure level. At this level, the **Web** kernel attempts
+   * to release all possible memory caches.|
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 14 dynamic
@@ -395,6 +412,7 @@ declare namespace webview {
   enum PressureLevel {
     /**
      * Modules are advised to free buffers that are cheap to re-allocate and not immediately needed.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -403,6 +421,7 @@ declare namespace webview {
 
     /**
      * At this level, modules are advised to free all possible memory.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -724,108 +743,40 @@ declare namespace webview {
   }
 
   /**
-   * Provides basic information of web storage.
+   * Provides usage information of the Web SQL Database.
    *
-   * @interface WebStorageOrigin
+   * @interface WebStorageOrigin [since 9 - 11]
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @interface WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Provides basic information of web storage.
-   *
-   * @typedef WebStorageOrigin
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   interface WebStorageOrigin {
     /**
-     * Url source.
+     * Index of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * Url source.
-     *
-     * @type { string }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     origin: string;
     /**
-     * Specify the amount of storage for the source.
+     * Storage usage of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * Specify the amount of storage for the source. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     usage: number;
     /**
-     * the callback of getOriginUsage.
+     * Storage quota of the origin.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-	/**
-     * the callback of getOriginUsage. Unit: byte.
-     *
-     * @type { number }
-     * @syscap SystemCapability.Web.Webview.Core
-	 * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     quota: number;
   }
@@ -927,402 +878,220 @@ declare namespace webview {
   function once(type: string, callback: Callback<void>): void;
 
   /**
-   * Provides methods for managing web storage.3
+   * Implements a **WebStorage** object to manage the Web SQL database and HTML5 Web Storage APIs. All **Web**
+   * components in an application share a **WebStorage** object.
+   *
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - You must load the **Web** component before calling the APIs in **WebStorage**.
+   * >
+   * > - After the ArkWeb kernel is upgraded to M132, the Web SQL database management becomes invalid because the kernel
+   * > discards Web SQL. For details about the ArkWeb kernel version, see
+   * > [Constraints](docroot://web/web-component-overview.md#constraints).
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Provides methods for managing web storage.3
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Implements a WebStorage object to manage the Web SQL database and HTML5 Web Storage APIs.
-   * All Web components in an application share a WebStorage object.
-   *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebStorage.
-   * </p>
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebStorage {
     /**
-     * Delete all the storage data.
+     * Deletes all storage data used by JavaScript storage APIs, including the Web SQL Database and HTML5-supported Web
+     * storage APIs.
      *
+     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode. The value
+     *     **true** means to delete all data in the Web SQL Database in incognito mode, and **false** means the
+     *     opposite.<br>Default value: **false**.<br>If **undefined** or **null** is passed, the value is
+     *     **false**. [since 11]
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete all the storage data.
-     *
-     * @param { boolean } incognito - {@code true} delete all the storage data in incognito mode;
-     *                                {@code false} otherwise.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Deletes all data in the Web SQL Database.
-     *
-     * @param { boolean } incognito - Whether to delete all data in the Web SQL Database in incognito mode.
-     *                                {@code true} means to delete all data in the Web SQL Database in incognito mode;
-     *                                {@code false} means to delete all data in the Web SQL Database in normal non-incognito mode.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteAllData(incognito?: boolean): void;
 
     /**
-     * Delete the storage data with the origin.
-     *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Delete the storage data with the origin.
-     *
-     * @param { string } origin - The origin which to be deleted.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
      * Deletes all data in the specified origin.
      *
-     * @param { string } origin - Index of the origin, which is obtained through {@link getOrigins}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     * @param { string } origin - Index of the origin, which is obtained through
+     *     [getOrigins]{@link webview.WebStorage.static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>)}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Incorrect parameter types.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteOrigin(origin: string): void;
 
     /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @returns { Promise<Array<WebStorageOrigin>> } - returns all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses a promise to return the result.
+     * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web Storage
+     * APIs. This API uses a promise to return the result.
      *
-     * @returns { Promise<Array<WebStorageOrigin>> } - Promise used to return the information about the origins.
-     *                                                 For details, see {@link WebStorageOrigin}.
+     * @returns { Promise<Array<WebStorageOrigin>> } Promise used to return the information about the origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(): Promise<Array<WebStorageOrigin>>;
 
     /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get current all the web storage origins.
-     * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - callback used to return all the WebStorageOrigin.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100012 - Invalid web storage origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Obtains information about all origins that are currently using the Web SQL Database.
-     * This API uses an asynchronous callback to return the result.
+     * Obtains information about origins that are currently using the Web SQL Database and HTML5-supported Web Storage
+     * APIs. This API uses an asynchronous callback to return the result.
      *
      * @param { AsyncCallback<Array<WebStorageOrigin>> } callback - Callback used to return the information about the
-     *                                                              origins. For details, see {@link WebStorageOrigin}.
+     *     origins.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100012 - Invalid web storage origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOrigins(callback: AsyncCallback<Array<WebStorageOrigin>>): void;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * Obtains the storage quota of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses a promise to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @returns { Promise<number> } Promise used to return the storage quota of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string): Promise<number>;
 
     /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
+     * Obtains the storage quota of an origin in Web SQL Database and HTML5-supported Web Storage APIs, in bytes. This
+     * API uses an asynchronous callback to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { AsyncCallback<number> } callback - Storage quota of the origin.<br>**number** is a long integer ranging
+     *     from -2,147,483,648 to 2,147,483,647.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web storage quota with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginQuota. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginQuota(origin: string, callback: AsyncCallback<number>): void;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
+     * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses a promise to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @returns { Promise<number> } Promise used to return the storage usage of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @returns { Promise<number> } - the promise returned by the function. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string): Promise<number>;
 
     /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
+     * Obtains the storage usage of an origin in the Web SQL Database and HTML5-supported Web Storage APIs, in bytes.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * @param { string } origin - Index of the origin.
+     * @param { AsyncCallback<number> } callback - Storage usage of the origin.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 17100011 - Invalid origin.
      * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Get the web amount of storage with the origin.
-     * @param { string } origin -  The origin which to be inquired.
-     * @param { AsyncCallback<number> } callback - the callback of getOriginUsage. Unit: byte.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 17100011 - Invalid origin.
-     * @static
-     * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 18 dynamic
+     * @crossplatform [since 18]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getOriginUsage(origin: string, callback: AsyncCallback<number>): void;
   }
 
   /**
-   * Provides methods for managing web database.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Implements a WebDataBase object.
+   * Implements a **WebDataBase** object.
    *
-   * <p><strong>API Note</strong>:<br>
-   * You must load the Web component before calling the APIs in WebDataBase.
-   * </p>
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   * >
+   * > - You must load the **Web** component before calling the APIs in **WebDataBase**.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   class WebDataBase {
     /**
-    * Get whether instances holds any http authentication credentials.
-    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @since 9
-    */
-   /**
-    * Get whether instances holds any http authentication credentials.
-    * @returns { boolean } true if instances saved any http authentication credentials otherwise false.
-    * @syscap SystemCapability.Web.Webview.Core
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    */
+     * Checks whether any saved HTTP authentication credentials exist. This API returns the result synchronously.
+     *
+     * @returns { boolean } Whether any saved HTTP authentication credentials exist.
+     *     <br>**true** is returned if any saved HTTP authentication credentials exist; otherwise, **false** is returned.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
+     */
     static existHttpAuthCredentials(): boolean;
 
-    /**
-     * Delete all http authentication credentials.
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
     /**
      * Deletes all HTTP authentication credentials saved in the cache. This API returns the result synchronously.
      *
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static deleteHttpAuthCredentials(): void;
 
     /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Get http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @returns { Array<string> } Return an array containing username and password.
+     * Retrieves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
+     *
+     * @param { string } host - Host to which the HTTP authentication credential is applied.
+     * @param { string } realm - Realm to which the HTTP authentication credential is applied.
+     * @returns { Array<string> } Array of the matching user names and passwords is returned if the operation is
+     *     successful; otherwise, an empty array is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static getHttpAuthCredentials(host: string, realm: string): Array<string>;
 
     /**
-     * Save http authentication credentials.
-     * @param { string } host - The host to which the credentials apply.
-     * @param { string } realm - The realm to which the credentials apply.
-     * @param { string } username - The username.
-     * @param { string } password - The password.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
      * Saves HTTP authentication credentials for a given host and realm. This API returns the result synchronously.
-     * @param { string } host - Host to which HTTP authentication credentials apply.
-     * @param { string } realm - Realm to which HTTP authentication credentials apply.
+     *
+     * @param { string } host - Host to which the HTTP authentication credential is applied.
+     * @param { string } realm - Realm to which the HTTP authentication credential is applied.
      * @param { string } username - User name.
      * @param { string } password - Password.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3.Parameter verification failed.
+     *     <br>2. Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     static saveHttpAuthCredentials(host: string, realm: string, username: string, password: string): void;
   }
@@ -3907,36 +3676,38 @@ declare namespace webview {
     static initializeWebEngine(): void;
 
     /**
-     * Set active ArkWeb engine version.
-     * If the system does not support the specified version, it will not take effect.
-     * This is a global static API that must be called before initializeWebEngine, and it will have no effect if any
-     * Web components are loaded.
+     * Sets the ArkWeb kernel version. If the system does not support the specified version, the setting is invalid.
+     * This API is a global static API and must be called before **initializeWebEngine** is called. If any **Web**
+     * component has been loaded, the setting of this API is invalid.
      *
-     * <strong>Legacy Web Engine Compatibility Note</strong>:
-     * <p>When using legacy ArkWeb Engine, some ArkWeb newly created API will not take effect,<br>
-     * see [Compatible with Legacy Web Engine in release note]  for compatibility guidelines.
-     * </p>
+     * > **NOTE**
+     * >
+     * > - **setActiveWebEngineVersion** cannot be called in an asynchronous thread.
+     * >
+     * > - **setActiveWebEngineVersion** takes effect globally and needs to be called only once in an application
+     * > lifecycle.
      *
-     * @param {ArkWebEngineVersion} engineVersion - the ArkWebEngineVersion
-     * @static
+     * @param {ArkWebEngineVersion} engineVersion - ArkWeb kernel version.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static setActiveWebEngineVersion(engineVersion: ArkWebEngineVersion): void;
 
     /**
-     * Get the currently active ArkWeb engine version.
-     * @returns {ArkWebEngineVersion} Active ArkWeb Engine version as defined by ArkWebEngineVersion
-     * @static
+     * Obtains the current ArkWeb kernel version.
+     *
+     * @returns {ArkWebEngineVersion} The ArkWeb kernel version defined by
+     *     [ArkWebEngineVersion]{@link @ohos.web.webview:webview.ArkWebEngineVersion}.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
     static getActiveWebEngineVersion(): ArkWebEngineVersion;
 
     /**
-     * Check if the currently active ArkWeb engine is Evergreen.
-     * @returns {boolean} true means the application is using the Evergreen Web Engine, false means not.
-     * @static
+     * Checks whether the system is using the evergreen kernel, that is, the latest kernel.
+     *
+     * @returns {boolean} Whether the system is using the evergreen kernel. If the system is using the evergreen kernel,
+     *     **true** is returned. Otherwise, **false** is returned.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
@@ -5237,49 +5008,31 @@ declare namespace webview {
     setNetworkAvailable(enable: boolean): void;
 
     /**
-     * Query if current document has image.
+     * Checks whether this page contains images. This API uses a promise to return the result.
      *
-     * @returns { Promise<boolean> } A promise resolved after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Asynchronous search for image existence on the current page through Promise method.
-     *
-     * @returns { Promise<boolean> } A promise resolved after query image has finished.
+     * @returns { Promise<boolean> } Promise used to return the result.
+     *     <br> The value **true** indicates that this page contains images, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     hasImage(): Promise<boolean>;
 
     /**
-     * Query if current document has image.
+     * Checks whether this page contains images. This API uses an asynchronous callback to return the result.
      *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 9
-     */
-    /**
-     * Asynchronous search for the presence of an image on the current page through callback method.
-     *
-     * @param { AsyncCallback<boolean> } callback - Called after query image has finished.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.<br> The value **true** indicates
+     *     that this page contains images, and the value **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     hasImage(callback: AsyncCallback<boolean>): void;
 
@@ -5521,24 +5274,17 @@ declare namespace webview {
     getCertificate(callback: AsyncCallback<Array<cert.X509Cert>>): void;
 
     /**
-     * Set audio muted.
-     * @param { boolean } mute - Set the audio muted or not.
-     * @throws { BusinessError } 401 - Invalid input parameter.
-     * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
-     * @syscap SystemCapability.Web.Webview.Core
-     * @since 10
-     */
-    /**
-     * Set webpage mute.
-     * @param { boolean } mute - Set the audio muted or not.
+     * Mutes this web page.
+     *
+     * @param { boolean } mute - Whether to mute the web page.<br>The value **true** means to mute the web page, and
+     *     **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types.
+     *     <br>2. Incorrect parameter types.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     setAudioMuted(mute: boolean): void;
 
@@ -5918,10 +5664,12 @@ declare namespace webview {
     getLastJavascriptProxyCallingFrameUrl(): string;
 
     /**
-     * Start current camera, and before using the camera function, please add the permission in module.json5: ohos.permission.CAMERA.
+     * Enables the camera capture of the current web page. Before using the camera, add the **ohos.permission.CAMERA**
+     * permission to **module.json5**. For details about how to add the permission, see
+     * [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md).
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5929,10 +5677,10 @@ declare namespace webview {
     startCamera(): void;
 
     /**
-     * Stop current camera.
+     * Stops the camera capture of the current web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5940,10 +5688,10 @@ declare namespace webview {
     stopCamera(): void;
 
     /**
-     * Close current camera.
+     * Disables the camera capture of the current web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -5989,10 +5737,10 @@ declare namespace webview {
     static resumeAllTimers(): void;
 
     /**
-     * Stop all audio and video playback on the web page.
+     * Stops all audio and video on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6003,7 +5751,7 @@ declare namespace webview {
      * Resumes the playback of the audio and video that are paused by the pauseAllMedia interface.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6011,10 +5759,10 @@ declare namespace webview {
     resumeAllMedia(): void;
 
     /**
-     * Pause all audio and video playback on the web page.
+     * Pauses all audio and video on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6025,7 +5773,7 @@ declare namespace webview {
      * Closes all full-screen videos on a web page.
      *
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6033,11 +5781,12 @@ declare namespace webview {
     closeAllMediaPresentations(): void;
 
     /**
-     * View the playback status of all audio and video on the web page.
+     * Queries the audio and video playback status of the current web page.
      *
-     * @returns { MediaPlaybackState } The playback status of all audio and video.
+     * @returns { MediaPlaybackState } Playback control status of the current web page. The options are **NONE**,
+     *     **PLAYING**, **PAUSED**, and **STOPPED**.
      * @throws { BusinessError } 17100001 - Init error.
-     *                           The WebviewController must be associated with a Web component.
+     *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6232,9 +5981,14 @@ declare namespace webview {
     static getDefaultUserAgent(): string;
 
     /**
-     * Register a callback to intercept web pages playing media.
+     * Called when the
+     * [application takes over media playback of the web page](docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12)
+     * and a media file is played on the web page.
      *
-     * @param { CreateNativeMediaPlayerCallback } callback - Called everytime when web pages try to play media.
+     * If the application does not take over media playback on the web page, this callback is not invoked.
+     *
+     * @param { CreateNativeMediaPlayerCallback } callback - Callback when the application takes over media playback on
+     *     the web page.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -6278,6 +6032,10 @@ declare namespace webview {
      * unnecessary post requests. Otherwise, the cache of the earliest prefetched POST request will be automatically
      * cleared. To use the prefetched resource cache, you need to add the key value **ArkWebPostCacheKey** to the header
      * of the POST request. The content of the key value is the cacheKey of the corresponding cache.
+     *
+     * Resources in the memory cache are automatically managed by the ArkWeb engine. When the injected resources are
+     * excessive and cause significant memory pressure, the engine will automatically release unused resources. It is
+     * advisable to avoid injecting a large number of resources into the memory cache.
      *
      * @param { RequestInfo } request - Information about the prefetched request.
      * @param { Array<WebHeader> } [additionalHeaders] - Additional HTTP request header of the prefetched request.<br>If
@@ -6625,19 +6383,21 @@ declare namespace webview {
      * The paths in the list must be any of the following(sub path and module name must be provided):
      *
      * 1. The path of subdirectory of the application file directory, like "/data/storage/el2/base/files/example"
-     *    or "/data/storage/el2/base/haps/entry/files/example".
-     *    The application file directory is obtained using Context.filesDir in the Ability Kit.
+     * or "/data/storage/el2/base/haps/entry/files/example".
+     * The application file directory is obtained using Context.filesDir in the Ability Kit.
      * 2. The path of application resource directory or its subdirectory, like "/data/storage/el1/bundle/entry/resource/resfile"
-     *    or "/data/storage/el1/bundle/entry/resource/resfile/example".
-     *    The application resource directory is obtained from Context.resourceDir in the Ability Kit.
+     * or "/data/storage/el1/bundle/entry/resource/resfile/example".
+     * The application resource directory is obtained from Context.resourceDir in the Ability Kit.
      *
      * If a path in the list is not of the preceding paths, error code 401 is reported and the path list fails
      * to be set. When the path list is set to empty, the accessible files for the file protocol are subject to
      * the behavior of the {@link fileAccess}.
      *
      * @param { Array<string> } pathList - The path list allow universal access.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @throws { BusinessError } 17100001 - Init error.
      *     The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
@@ -6649,8 +6409,10 @@ declare namespace webview {
      * Trim memory by different memory pressure level.
      *
      * @param { PressureLevel } level - The memory pressure level for the ArkWeb.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Parameter string is too long. 3.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes:
+     *     <br>1. Mandatory parameters are left unspecified.
+     *     <br>2. Parameter string is too long.
+     *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 14 dynamic
@@ -6984,7 +6746,7 @@ declare namespace webview {
      *     **false**.
      * @returns { WebBlanklessErrorCode } Whether the API is successfully called. For details, see
      *     [WebBlanklessErrorCode]{@link @ohos.web.webview:webview.WebBlanklessErrorCode}.
-     * @throws { BusinessError } 801 The functionality is not supported.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
      */
@@ -7047,7 +6809,7 @@ declare namespace webview {
      * @returns { number } Effective value that ranges from 0 MB to 100 MB.
      *     <br>When a value less than 0 is set, the value **0** takes effect. When a value greater than 100 is set, the value
      *     **100** takes effect.
-     * @throws { BusinessError } 801 Capability not supported.
+     * @throws { BusinessError } 801 This functionality is not supported.
      * @static
      * @syscap SystemCapability.Web.Webview.Core
      * @since 20 dynamic
@@ -7216,31 +6978,49 @@ declare namespace webview {
     static enableAdvancedSecurityMode(securityParams: SecurityParams): void;
 
     /**
-     * Resume current microphone.
+     * Resumes microphone capture on the current web page. Before using the microphone , add the
+     * **ohos.permission.MICROPHONE** permission to **module.json5**. For details about how to add the permission, see
+     * [Declaring Permissions in the Configuration File](docroot://security/AccessToken/declare-permissions.md).
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     resumeMicrophone(): void;
 
     /**
-     * Pause current microphone.
+     * Pauses microphone capture on the current web page.
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     pauseMicrophone(): void;
 
     /**
-     * Stop current microphone.
+     * Stops microphone capture on the current web page.
      *
-     * @throws { BusinessError } 17100001 - Init error.The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100001 - Init error. The WebviewController must be associated with a Web component.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
     stopMicrophone(): void;
+
+    /**
+     * Asynchronously executes AI page command operations.
+     *
+     * @param { string } command - JSON-formatted command parameter.
+     * @returns { Promise<string> } A promise that resolves after the command is executed.
+     *                              This JSON-formatted value will be the result of command execution.
+     * @throws { BusinessError } 17100001 - Init error.
+     *                           The WebviewController must be associated with a Web component.
+     * @throws { BusinessError } 17100024 - Command format error.
+     *                           The command parameter does not conform to the JSON format requirements.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    executeAIPageCommand(command: string): Promise<string>;
   }
 
   /**
@@ -8968,148 +8748,168 @@ declare namespace webview {
   }
 
   /**
-   * Enum type supplied to {@link handleStatusChanged} for indicating the playback status.
-   * @enum {number}
+   * Enumerates the playback statuses of the player, which is an input parameter of the
+   * [handleStatusChanged]{@link @ohos.web.webview:webview.NativeMediaPlayerHandler.handleStatusChanged} API.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum PlaybackStatus {
     /**
-     * Player status is paused.
+     * Playing.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     PAUSED = 0,
     /**
-     * Player status is playing.
+     * Paused.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    PLAYING,
+    PLAYING = 1
   }
 
   /**
-   * Enum type supplied to {@link handleNetworkStateChanged} for indicating the native player network state.
-   * @enum {number}
+   * Enumerates the network statuses of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum NetworkState {
     /**
-     * Player does not do any download tasks.
+     * The player has not started downloading data.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     EMPTY = 0,
     /**
-     * Player downloads finished, waiting for next task.
+     * The player's network activity is idle. This could mean that the download of a media segment is complete, and the
+     * player is waiting to start downloading the next segment.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    IDLE,
+    IDLE = 1,
     /**
-     * Player is downloading contents.
+     * The player is downloading media data.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    LOADING,
+    LOADING = 2,
     /**
-     * Player downloads failed, due to network error.
+     * A network error occurs.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    NETWORK_ERROR
+    NETWORK_ERROR = 3
   }
 
   /**
-   * Enum type supplied to {@link handleReadyStateChanged} for indicating the native player network state.
-   * @enum {number}
+   * Enumerates the cache states of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum ReadyState {
     /**
-     * Player hasn't downloaded anything.
+     * There is no data cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     HAVE_NOTHING = 0,
     /**
-     * Player has downloaded metadata.
+     * Only media metadata is cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_METADATA,
+    HAVE_METADATA = 1,
     /**
-     * Player has played all downloaded media data.
+     * Data up to the current playback position is cached.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_CURRENT_DATA,
+    HAVE_CURRENT_DATA = 2,
     /**
-     * The buffered media data is not enough, and will cause jank.
+     * Data beyond the current playback position is cached, but there might still be stutters during playback.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_FUTURE_DATA,
+    HAVE_FUTURE_DATA = 3,
     /**
-     * The buffered media data is enough.
+     * Sufficient data has been cached to ensure smooth playback.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    HAVE_ENOUGH_DATA,
+    HAVE_ENOUGH_DATA = 4
   }
 
   /**
-   * Enum type supplied to {@link handleError} for indicating the error type of native media player.
-   * @enum {number}
+   * Enumerates the error types of the player.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaError {
     /**
-     * Network error
+     * Network error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     NETWORK_ERROR = 1,
     /**
-     * Media format error, such as not a valid file.
+     * Media format error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    FORMAT_ERROR,
+    FORMAT_ERROR = 2,
     /**
-     * Decode error, such as decoder doesn't support this format.
+     * Decoding error.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    DECODE_ERROR
+    DECODE_ERROR = 3
   }
 
   /**
-   * The native media player status handler.
-   * Apps should use this class to handle native media player's status.
+   * Implements a **NativeMediaPlayerHandler** object used as a parameter of the
+   * [CreateNativeMediaPlayerCallback]{@link @ohos.web.webview:webview.CreateNativeMediaPlayerCallback} callback. The
+   * application uses this object to report the player status to the ArkWeb engine.
    *
-   * @typedef NativeMediaPlayerHandler
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -9117,9 +8917,9 @@ declare namespace webview {
   interface NativeMediaPlayerHandler {
 
     /**
-     * Handle native media player playback status.
+     * Called to notify the ArkWeb engine of the playback status of the player when the playback status changes.
      *
-     * @param { PlaybackStatus } status - Playback status of native media player.
+     * @param { PlaybackStatus } status - Player status.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9127,11 +8927,9 @@ declare namespace webview {
     handleStatusChanged(status: PlaybackStatus): void;
 
     /**
-     * Handle native media player volume.
-     *  volume: float
-     *   value range: [0 - 1.0]
+     * Called to notify the ArkWeb engine of the volume of the player when the volume changes.
      *
-     * @param { number } volume - Current volume of native media player.
+     * @param { number } volume - Volume of the player. The value range is [0, 1.0].
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9139,9 +8937,10 @@ declare namespace webview {
     handleVolumeChanged(volume: number): void;
 
     /**
-     * Handle native media player muted status.
+     * Called to notify the ArkWeb engine of the muted status of the player when the muted status changes.
      *
-     * @param { boolean } muted - Current mute status of native media player.
+     * @param { boolean } muted - Whether the player is muted.<br>The value **true** indicates that the player is muted,
+     *     and **false** indicates the opposite.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9149,11 +8948,9 @@ declare namespace webview {
     handleMutedChanged(muted: boolean): void;
 
     /**
-     * Handle playback rate of native media player.
-     *  playbackRate: float
-     *   value range: [0 - infinity]
+     * Called to notify the ArkWeb engine of the playback rate of the player when the playback rate changes.
      *
-     * @param { number } playbackRate - Current playback rate of native media player.
+     * @param { number } playbackRate - Playback rate. The value range is [0, +��).
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9161,11 +8958,9 @@ declare namespace webview {
     handlePlaybackRateChanged(playbackRate: number): void;
 
     /**
-     * Handle duration time of media.
-     *  duration: float
-     *   value range: [0 - infinity]
+     * Called to notify the ArkWeb engine of the total duration of the media.
      *
-     * @param { number } duration - Duration time of media, Unit: seconds.
+     * @param { number } duration - Total duration of the media.<br>Unit: second. Value range: [0,+��)
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9173,11 +8968,9 @@ declare namespace webview {
     handleDurationChanged(duration: number): void;
 
     /**
-     * Handle current playing time of media.
-     *  currentPlayTime: float
-     *   value range: [0 - duration]
+     * Called to notify the ArkWeb engine of the playback progress when the playback progress changes.
      *
-     * @param { number } currentPlayTime - Current playing time of media, Unit: seconds.
+     * @param { number } currentPlayTime - Current progress.<br>Unit: second. Value range: [0, duration]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9185,11 +8978,10 @@ declare namespace webview {
     handleTimeUpdate(currentPlayTime: number): void;
 
     /**
-     * Handle buffered end time of media.
-     *  bufferedEndTime: float
-     *   value range: [0 - duration]
+     * Called to notify the ArkWeb engine of the buffer time when the buffer time changes.
      *
-     * @param { number } bufferedEndTime - Buffered end time of media, Unit: seconds.
+     * @param { number } bufferedEndTime - Duration of media data in the buffer.<br>Unit: second. Value range:
+     *     [0, duration]
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9197,7 +8989,7 @@ declare namespace webview {
     handleBufferedEndTimeChanged(bufferedEndTime: number): void;
 
     /**
-     * Handle native player ended event.
+     * Called to notify the ArkWeb engine that the media playback ends.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9206,9 +8998,9 @@ declare namespace webview {
     handleEnded(): void;
 
     /**
-     * Handle network state of native media player.
+     * Called to notify the ArkWeb engine of the network status of the player when the network status changes.
      *
-     * @param { NetworkState } state - Network state of native media player.
+     * @param { NetworkState } state - Network status of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9216,9 +9008,9 @@ declare namespace webview {
     handleNetworkStateChanged(state: NetworkState): void;
 
     /**
-     * Handle ready state of native media player.
+     * Called to notify the ArkWeb engine of the cache status of the player when the cache status changes.
      *
-     * @param { ReadyState } state - Ready state of native media player.
+     * @param { ReadyState } state - Cache status of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9226,9 +9018,10 @@ declare namespace webview {
     handleReadyStateChanged(state: ReadyState): void;
 
     /**
-     * Handle native media player fullscreen state changed event.
+     * Called to notify the ArkWeb engine of the full screen status of the player when the full screen status changes.
      *
-     * @param { boolean } fullscreen - Fullscreen state of native media player.
+     * @param { boolean } fullscreen - Whether the player is in full screen.<br>The value **true** means that the player
+     *     is in full screen, and **false** means the opposite.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9236,7 +9029,7 @@ declare namespace webview {
     handleFullscreenChanged(fullscreen: boolean): void;
 
     /**
-     * Handle native media player seeking state.
+     * Called to notify the ArkWeb engine that the player enters the seek state.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9245,7 +9038,7 @@ declare namespace webview {
     handleSeeking(): void;
 
     /**
-     * Handle native media player seek finished state.
+     * Called to notify the ArkWeb engine that the seek operation is complete.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9254,10 +9047,10 @@ declare namespace webview {
     handleSeekFinished(): void;
 
     /**
-     * Handle native media player error event.
+     * Called to notify the ArkWeb engine that an error occurs with the player.
      *
-     * @param { MediaError } error - Error type of native media player.
-     * @param { string } errorMessage - Description of current error.
+     * @param { MediaError } error - Error object type.
+     * @param { string } errorMessage - Error message.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9265,10 +9058,10 @@ declare namespace webview {
     handleError(error: MediaError, errorMessage: string): void;
 
     /**
-     * Handle size of video.
+     * Called to notify the ArkWeb engine of the video size of the player.
      *
-     * @param { number } width - Width of video, Unit: px.
-     * @param { number } height - Height of video, Unit: px.
+     * @param { number } width - Video width, in pixels. Value range: [0,+��)
+     * @param { number } height - Video height, in pixels. Value range: [0,+��)
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9306,9 +9099,14 @@ declare namespace webview {
   }
 
   /**
-   * The bridge between web core and native media player.
-   * Apps should implements this interface, and pass an instance to web core.
-   * Then web core can control native media player by this bridge.
+   * Instance of the API class between the web media player and the ArkWeb kernel.
+   * 
+   * The ArkWeb kernel uses an object of this interface class to
+   * control the player created by the application to take over web page media.
+   * 
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @typedef NativeMediaPlayerBridge
    * @syscap SystemCapability.Web.Webview.Core
@@ -9317,12 +9115,12 @@ declare namespace webview {
    */
   interface NativeMediaPlayerBridge {
     /**
-     * Notify native media player that the rect of video tag has changed.
+     * Updates the surface position information.
      *
-     * @param { number } x - The x position of video tag in web component, Unit: px.
-     * @param { number } y - The y position of video tag in web component, Unit: px.
-     * @param { number } width - The width of video tag, Unit: px.
-     * @param { number } height - The height of video tag, Unit: px.
+     * @param { number } x - X coordinate of the surface relative to the **Web** component, Unit: px.
+     * @param { number } Y coordinate of the surface relative to the **Web** component, Unit: px.
+     * @param { number } width - Width of the surface, Unit: px.
+     * @param { number } height - Height of the surface, Unit: px.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9330,7 +9128,7 @@ declare namespace webview {
     updateRect(x: number, y: number, width: number, height: number): void
 
     /**
-     * Request to play.
+     * Plays this video.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9339,7 +9137,7 @@ declare namespace webview {
     play(): void
 
     /**
-     * Request to pause.
+     * Pauses playback.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9348,11 +9146,9 @@ declare namespace webview {
     pause(): void
 
     /**
-     * Request to fast forward / back forward to targetTime.
-     *  targetTime: float
-     *   value range: [0 - duration]
+     * Seeks to a specific time point in the media.
      *
-     * @param { number } targetTime - The target time to FF/BF to, Unit: seconds.
+     * @param { number } targetTime - Target time point, Unit: seconds.
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9360,11 +9156,11 @@ declare namespace webview {
     seek(targetTime: number): void
 
     /**
-     * Request to change volume of native media player.
-     *  volume: float
-     *   value range: [0 - 1.0]
+     * Sets the playback volume.
      *
-     * @param { number } volume - The volume of native media player.
+     * @param { number } volume - Playback volume.Value range: [0, 1.0].
+     *  The value **0** indicates mute, and the value **1.0** indicates the maximum volume.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9372,9 +9168,11 @@ declare namespace webview {
     setVolume(volume: number): void
 
     /**
-     * Request to mute native media player.
+     * Sets the muted status.
      *
-     * @param { boolean } muted - Should mute native media player.
+     * @param { boolean } muted - Whether to mute the player.
+     *  The value **true** means to mute the player, and **false** means the opposite.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9382,11 +9180,11 @@ declare namespace webview {
     setMuted(muted: boolean): void
 
     /**
-     * Request to change playback rate of native media player.
-     *  playbackRate: float
-     *   value range: [0 - 10.0]
+     * Sets the playback rate.
      *
-     * @param { number } playbackRate - The playback rate of native media player.
+     * @param { number } playbackRate - Playback rate.
+     *  Value range: [0, 10.0]. The value **1** indicates the original speed of playback.
+     * 
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9394,7 +9192,7 @@ declare namespace webview {
     setPlaybackRate(playbackRate: number): void
 
     /**
-     * Request to release native media player.
+     * Releases this player.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9403,7 +9201,7 @@ declare namespace webview {
     release(): void
 
     /**
-     * Request to enter fullscreen.
+     * Enables the player to enter full screen mode.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9412,7 +9210,7 @@ declare namespace webview {
     enterFullscreen(): void
 
     /**
-     * Request to exit fullscreen.
+     * Enables the player to exit full screen mode.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
@@ -9421,7 +9219,7 @@ declare namespace webview {
     exitFullscreen(): void
 
     /**
-     * Resume the native media player.
+     * Resumes the player and its status information.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
@@ -9429,11 +9227,9 @@ declare namespace webview {
     resumePlayer?(): void
 
     /**
-     * Suspend to release native media player, not the NativeMediaPlayerBridge. The
-     * embedder should save the status of player when release the native media player
-     * through NativeMediaPlayerBridge.
+     * Suspends the player and save its status information.
      *
-     * @param { SuspendType } type - The scenario for suspending the media player.
+     * @param { SuspendType } type - Suspension type of the player.
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9441,55 +9237,63 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for indicating the media type of native media player.
-   * @enum {number}
+   * Enumerates the media types.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum MediaType {
     /**
-     * Media type is video.
+     * Video.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     VIDEO = 0,
     /**
-     * Media type is audio.
+     * Audio.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    AUDIO
+    AUDIO = 1
   }
 
   /**
-   * Enum type for indicating the media source type of native media player.
-   * @enum {number}
+   * Enumerates the media source types.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum SourceType {
     /**
-     * The type of media source is URL.
+     * URL.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     URL = 0,
     /**
-     * The type of media source is blob.
+     * Blob.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    MSE
+    MSE = 1
   }
 
   /**
-   * Media source information. Uri and format.
+   * Implements a **MediaSourceInfo** object to provide the information about the media source.
+   *
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9497,16 +9301,16 @@ declare namespace webview {
    */
   class MediaSourceInfo {
     /**
-     * Source type, most time is URL.
-     * @type { SourceType }
+     * Type of the media source.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     type: SourceType;
 
     /**
-     * Media source, most time is Uri.
-     * @type { string }
+     * Address of the media source.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9514,8 +9318,8 @@ declare namespace webview {
     source: string;
 
     /**
-     * Media format, such as mp4, webm, m3u8 etc.
-     * @type { string }
+     * Format of the media source, which may be empty. You need to determine the format by yourself.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9524,41 +9328,40 @@ declare namespace webview {
   }
 
   /**
-   * Rectangle definition.
+   * Defines a rectangle.
    *
-   * @typedef RectEvent
    * @syscap SystemCapability.Web.Webview.Core
    * @since 12 dynamic
    */
   interface RectEvent {
     /**
-     * X coordinator of top left point, Unit: px.
+     * X-axis coordinate of the upper left corner of the rectangle.
      *
-     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     x: number;
     /**
-     * Y coordinator of top left point, Unit: px.
+     * Y-axis coordinate of the upper left corner of the rectangle.
      *
-     * @type { number }
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     y: number;
     /**
-     * Width of this rectangle, Unit: px.
+     * Width of the rectangle.
      *
-     * @type { number }
+     * Unit: px.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     width: number;
     /**
-     * Height of this rectangle, Unit: px.
+     * Height of the rectangle.
      *
-     * @type { number }
+     * Unit: px.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9566,7 +9369,13 @@ declare namespace webview {
   }
 
   /**
-   * Surface information.
+   * Implements a **NativeMediaPlayerSurfaceInfo** object to provide the surface information used for same-layer
+   * rendering [when the application takes over the media playback of the web page]
+   * (docroot://reference/apis-arkweb/arkts-basic-components-web-attributes.md#enablenativemediaplayer12).
+   * 
+   * > **NOTE**
+   * >
+   * > - The sample effect is subject to the actual device.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9574,8 +9383,9 @@ declare namespace webview {
    */
   class NativeMediaPlayerSurfaceInfo {
     /**
-     * Id of surface.
-     * @type { string }
+     * Surface ID, which is the **psurfaceid** of the native image used for rendering at the same layer.
+     * For details, see [NativeEmbedDataInfo](./arkts-basic-components-web-i.md#nativeembeddatainfo11).
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
@@ -9583,8 +9393,8 @@ declare namespace webview {
     id: string;
 
     /**
-     * Surface rect info.
-     * @type { RectEvent }
+     *  Position of the surface.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
@@ -9592,127 +9402,136 @@ declare namespace webview {
   }
 
   /**
-   * Enum type for indicating the preload type.
-   * @enum {number}
+   * Enumerates how the player preloads media data.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   enum Preload {
     /**
-     * Doesn't do preload.
+     * No media data is preloaded.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     NONE = 0,
     /**
-     * Only preload metadata.
+     * Only the metadata of the media is preloaded.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    METADATA,
+    METADATA = 1,
     /**
-     * Preload enough data to ensure playing is smooth.
+     * A sufficient amount of media data is preloaded to ensure smooth playback
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
-    AUTO
+    AUTO = 2
   }
 
   /**
-   * Media information.
+   * Represents a **MediaInfo** object used as a parameter of the
+   * [CreateNativeMediaPlayerCallback]{@link @ohos.web.webview:webview.CreateNativeMediaPlayerCallback} callback. The
+   * object contains information about media on the web page. The application may create, based on the information, a
+   * player that takes over media playback of the web page.
    *
-   * @typedef MediaInfo
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
    */
   interface MediaInfo {
     /**
-     * Id of media element.
-     * @type { string }
+     * ID of **<video>** or **<audio>** on the web page.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     embedID: string,
     /**
-     * Media type : Video or Audio.
-     * @type { MediaType }
+     * Type of the media.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     mediaType: MediaType,
     /**
-     * Media source list, player should choose an appropriate one to play.
-     * @type { MediaSourceInfo[] }
+     * Source of the media. There may be multiple sources. The application needs to select a supported source to play.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     mediaSrcList: MediaSourceInfo[],
     /**
-     * Surface to render media content on.
-     * @type { NativeMediaPlayerSurfaceInfo }
+     * Surface information used for same-layer rendering.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     surfaceInfo: NativeMediaPlayerSurfaceInfo,
     /**
-     * Should show media controls.
-     * @type { boolean }
+     * Whether the **controls** attribute exists in **<video>** or **<audio>**.
+     *
+     * The value **true** means that the **controls** attribute exists in **<video>** or **<audio>**, and **false**
+     * means the opposite.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     controlsShown: boolean,
     /**
-     * Limit media controls items.
-     *  Such as 'nodownload', 'nofullscreen', 'noremoteplayback'
-     * @type { string[] }
+     * Value of the **controlslist** attribute in **<video>** or **<audio>**.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     controlList: string[],
     /**
-     * Player should be muted;
-     * @type { boolean }
+     * Whether to mute the player.
+     *
+     * The value **true** means to mute the player, and **false** means the opposite.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     muted: boolean,
     /**
-     * Player should show poster before media first frame shown.
-     * @type { string }
+     * URL of a poster.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     posterUrl: string,
     /**
-     * Preload type.
-     * @type { Preload }
+     * Whether preloading is required.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @atomicservice
      * @since 12 dynamic
      */
     preload: Preload,
     /**
-     * Header information of a media network request.
-     * @type { Record<string, string> }
+     * HTTP headers that need to be included in the player's request for media resources.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */
     headers: Record<string, string>,
     /**
-     * The information list of attributes of media tag.
-     * @type { Record<string, string> }
+     * Attributes in **<video>** or **<audio>**.
+     *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 12 dynamic
      */

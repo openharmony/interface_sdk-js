@@ -41,6 +41,10 @@ import * as _UIServiceExtensionContext from './application/UIServiceExtensionCon
 import * as _UIServiceProxy from './application/UIServiceProxy';
 import * as _UIServiceHostProxy from './application/UIServiceHostProxy';
 import * as _UIServiceExtensionConnectCallback from './application/UIServiceExtensionConnectCallback';
+import { ToolInfo as _ToolInfo } from './application/ToolInfo';
+import { ToolSummary as _ToolSummary } from './application/ToolInfo';
+import { CliToolEvent as _CliToolEvent } from './application/CliToolEvent';
+import { ToolEventCallback as _ToolEventCallback } from './application/ToolEventCallback';
 /*** endif */
 /*** if arkts static */
 import _UIAbilityContext from './application/UIAbilityContext';
@@ -75,10 +79,6 @@ import { AgentHostProxy as _AgentHostProxy } from './application/AgentHostProxy'
 import { AgentProxy as _AgentProxy } from './application/AgentProxy';
 import { AgentExtensionConnectCallback as _AgentExtensionConnectCallback } from './application/AgentExtensionConnectCallback';
 import _AgentExtensionContext from './application/AgentExtensionContext';
-import { ToolInfo as _ToolInfo } from './application/ToolInfo';
-import { ToolSummary as _ToolSummary } from './application/ToolInfo';
-import { CliToolEvent as _CliToolEvent } from './application/CliToolEvent';
-import { ToolEventCallback as _ToolEventCallback } from './application/ToolEventCallback';
 
 /**
  * You can use this module to reference the ability public module class.
@@ -706,7 +706,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   export type ToolInfo = _ToolInfo;
 
@@ -717,7 +717,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   export type ToolSummary = _ToolSummary;
 
@@ -728,7 +728,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   export type CliToolEvent = _CliToolEvent;
 
@@ -739,7 +739,7 @@ declare namespace common {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   export type ToolEventCallback = _ToolEventCallback;
 }

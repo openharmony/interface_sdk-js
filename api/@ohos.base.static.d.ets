@@ -12,106 +12,101 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 /**
  * @file
  * @kit BasicServicesKit
  */
- 
+
 /**
- * Defines the basic callback.
+ * Defines a common callback. You can set **data** to customize the data type of the information returned by the
+ * callback.
  *
- * @typedef { Callback<T> }
  * @syscap SystemCapability.Base
  * @since 23 static
  */
- export type Callback<T> = (data: T) => void;
+export type Callback<T> = (data: T) => void;
 
- /**
-  * Defines the basic error callback.
-  *
-  * @typedef { ErrorCallback<T extends Error = BusinessError> }
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export type ErrorCallback<T extends Error = BusinessError> = (err: T)=> void;
- 
- /**
-  * Defines the basic async callback.
-  *
-  * @typedef { AsyncCallback<T, E = void> }
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined)=> void;
- 
- /**
-  * Defines the error interface.
-  * @syscap SystemCapability.Base
-  * @since 23 static
-  */
- export declare class BusinessError<T = void> extends Error {
-   /**
+/**
+ * Defines a common callback that carries an error parameter. The information returned by the callback is of
+ * the [BusinessError]{@link BusinessError} type.
+ *
+ * @syscap SystemCapability.Base
+ * @since 23 static
+ */
+export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
+
+/**
+ * Defines a common callback that carries an error parameter and asynchronous return value.
+ *
+ * @syscap SystemCapability.Base
+ * @since 23 static
+ */
+export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
+
+/**
+ * Defines the error parameter.
+ *
+ * @syscap SystemCapability.Base
+ * @since 23 static
+ */
+export declare class BusinessError<T = void> extends Error {
+  /**
    * A constructor used to create a BusinessError object
+   *
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor();
-   /**
+  constructor();
+  /**
    * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { Error } error
+   *
+   * @param { int } code - Error code information returned when the interface call fails.
+   * @param { Error } error - Incorrect parameters.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, error: Error);
-   /**
+  constructor(code: int, error: Error);
+  /**
    * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { T } data
-   * @param { Error } error
+   *
+   * @param { int } code - The value range is all integers.
+   * @param { T } data - Common callback information during interface invocation.
+   * @param { Error } error - Incorrect parameters.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, data: T, error: Error);
-   /**
+  constructor(code: int, data: T, error: Error);
+  /**
    * A constructor used to create a BusinessError object
-   * @param { int } code
-   * @param { string } message
-   * @param { T } [data]
+   *
+   * @param { int } code - Error code information returned when the interface call fails.
+   * @param { string } message - The error message description returned when the interface call fails.
+   * @param { T } [data] - Common callback information during interface invocation.
    * @syscap SystemCapability.Base
    * @since 23 static
    */
-   constructor(code: int, message: string, data?: T);
- 
-    /**
-    * Defines the additional information for business
-    * @type { ?T } data
-    * @syscap SystemCapability.Base
-    * @since 23 static
-    */
-   public data?: T;
+  constructor(code: int, message: string, data?: T);
+
+  /**
+   * Defines the additional information for business
+   *
+   * @syscap SystemCapability.Base
+   * @since 23 static
+   */
+  public data?: T;
  }
- 
- /**
-  * In ArkTS static typing, for literals where the hierarchy and the number
-  * of attributes per level are uncertain, you can use RecordData for initialization.
-  * @typedef RecordData
-  * @syscap SystemCapability.Base
-  * @since 23 staticonly
-  * @example
-  * import { RecordData } from '@kit.BasicServiceKit';
-  * const param: RecordData = {
-  *   "key": {
-  *   "a": 1
-  *   }
-  * }
-  * let want: Want = {
-  *   bundleName: 'com.example.myapplication',
-  *   abilityName: 'EntryAbility',
-  *   parameters: param
-  * };
-  * this.context.startAbility(want);
-  */
- export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
- 
+
+/**
+ * In ArkTS static typing, for literals where the hierarchy and the number
+ * of attributes per level are uncertain, you can use RecordData for initialization.
+ *
+ * @unionmember { undefined } Undefined type.
+ * @unionmember { null } Null type.
+ * @unionmember { Object } Object type.
+ * @unionmember { Record<string, RecordData> } Record type with string keys and RecordData values.
+ * @unionmember { Array<RecordData> } Array type containing RecordData elements.
+ * @syscap SystemCapability.Base
+ * @since 23 staticonly
+ */
+export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

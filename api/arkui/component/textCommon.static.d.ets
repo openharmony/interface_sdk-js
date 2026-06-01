@@ -1438,6 +1438,45 @@ export declare enum TextContentAlign {
 }
 
 /**
+ * An enumeration that defines the line corner style, i.e.,
+ * the style of the brush when drawing a polyline at the corners of the line segments.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum StrokeJoinStyle {
+ 
+  /**
+   * The corner type is an acute angle.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  MITER_JOIN = 0,
+ 
+  /**
+   * The corner type is round.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ROUND_JOIN = 1,
+ 
+  /**
+   * The corner type is flat.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BEVEL_JOIN = 2
+}
+
+/**
  * Keyboard Gradient mode.
  *
  * @enum { number }
@@ -2144,4 +2183,31 @@ export declare interface FontWeightConfigs {
      * @since 24 static
      */
     enableDeviceFontWeightCategory?: boolean;
+}
+
+/**
+ * Defines incremental update policies for text rendering.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum IncrementalUpdatePolicy {
+    /**
+     * Disable incremental updates. Full layout rendering is used.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    NONE = 0,
+    /**
+     * Enable incremental updates with paragraph-level cache.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    PARAGRAPH_CACHE = 1
 }

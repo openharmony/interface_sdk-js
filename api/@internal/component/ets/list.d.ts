@@ -2415,6 +2415,35 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   editModeOptions(options?: EditModeOptions): ListAttribute;
 
   /**
+   * Set whether to enable edit mode.
+   *
+   * @param { boolean | undefined } enabled - enable edit mode.
+   *     <br>Default value: false.
+   *     <br>This parameter supports !! for two-way binding of variables.
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableEditMode(enabled: boolean | undefined): ListAttribute;
+
+  /**
+   * Triggered when the editing mode status changes.
+   *
+   * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+   *     <br>Passing undefined will unregister the callback.
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onEditModeChange(callback: Callback<boolean> | undefined): ListAttribute;
+
+  /**
    * Sets whether empty branches are supported in lazy loading.
    *
    * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.

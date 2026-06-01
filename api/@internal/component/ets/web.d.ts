@@ -341,20 +341,22 @@ declare enum WebKeyboardAppearanceMode {
 }
 
 /**
- * The configuration of native media player.
+ * Represents the configuration for
+ * [enabling the application to take over web page media playback]{@link web:WebAttribute.enableNativeMediaPlayer}.
  *
- * @typedef NativeMediaPlayerConfig
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface NativeMediaPlayerConfig {
   /**
-   * Whether to enable the application to take over the webpage media playback function.
+   * Whether to enable the application to take over web page media playback.
    *
-   * @type { boolean }
-   *    {@code true} means to enable the application to take over the web media playback function, {@code false} otherwise.
-   *    Default value: false.
+   * The value **true** means to enable the application to take over web page media playback, and **false** means the
+   * opposite.
+   *
+   * Default value: **false**.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -362,11 +364,16 @@ declare interface NativeMediaPlayerConfig {
   enable: boolean;
 
   /**
-   * Whether the video player's display overlays the web page content when the application takes over the web page's video player.
+   * Whether the video player's display overlays the web page content when the application takes over the web page's
+   * video player.
    *
-   * @type { boolean }
-   *    {@code true} means changing the height of the video layer to cover the content of the webpage, {@code false} otherwise.
-   *    Default value: false.
+   * The value **true** indicates that the video player's display overlays the web page content. This means that the
+   * height of the video layer is adjusted to cover the web page content. The value **false** indicates that the video
+   * player's display does not overlay the web page content. This means that the video player maintains its original
+   * height and is embedded within the web page.
+   *
+   * Default value: **false**.
+   *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -415,20 +422,18 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 
 /**
- * The callback when camera capturing state of current page has been changed.
+ * Defines a callback triggered when the camera state of the page changes.
  *
- * @typedef { function } OnCameraCaptureStateChangeCallback
- * @param { CameraCaptureStateChangeInfo } event - the camera capturing state event.
+ * @param { CameraCaptureStateChangeInfo } event - Original and new camera state.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
 type OnCameraCaptureStateChangeCallback = (event: CameraCaptureStateChangeInfo) => void;
 
 /**
- * The callback when microphone capturing state of current page has been changed.
+ * Defines a callback triggered when the microphone state of the page changes.
  *
- * @typedef { function } OnMicrophoneCaptureStateChangeCallback
- * @param { MicrophoneCaptureStateChangeInfo } event - the microphone capturing state event.
+ * @param { MicrophoneCaptureStateChangeInfo } event - Original and new microphone state.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
@@ -1265,31 +1270,19 @@ declare enum WebDarkMode {
 }
 
 /**
- * Enum type supplied to {@link captureMode} for setting the web capture mode.
+ * Enumerates the web screen capture modes.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Enum type supplied to {@link captureMode} for setting the web capture mode.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum WebCaptureMode {
   /**
-   * The home screen.
+   * Home screen capture mode.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Capture of the home screen.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   HOME_SCREEN = 0
 }
@@ -1358,67 +1351,51 @@ declare enum ThreatType {
 }
 
 /**
- * Defines the Media Options.
- *
- * @interface WebMediaOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Defines the Media Options.
- *
- * @interface WebMediaOptions
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the Media Options.
+ * Describes the web media options.
  *
  * @typedef WebMediaOptions
  * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface WebMediaOptions {
   /**
-   * The time interval for audio playback to resume, Unit: seconds.
+   * Validity period for automatically resuming a web audio paused by another application, in seconds. The value range
+   * is [-2147483648, 2147483647]. If **resumeInterval** is set to **0**, the playback is not automatically resumed. If
+   * **resumeInterval** is set to a value greater than 0, the playback is resumed in the specified period. If
+   * **resumeInterval** is set to a value less than 0, the playback is resumed in an unlimited period. Due to the
+   * approximate value, the validity period may have a deviation of less than 1 second.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * The time interval for audio playback to resume, Unit: seconds
+   * **NOTE**
    *
-   * @type { ?number }
+   * After an HLS video is interrupted, the video playback is automatically resumed when the video is returned to the
+   * foreground.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   resumeInterval?: number;
 
   /**
-   * Whether the audio of each web is exclusive.
+   * Whether the audio of multiple **Web** instances in an application is exclusive.
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Whether the audio of multiple Web instances in an application is exclusive.
+   * The value **true** indicates that the audio of multiple **Web** instances in an application is exclusive, and
+   * **false** indicates the opposite.
    *
-   * @type { ?boolean }
+   * The default value is **true**.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   audioExclusive?: boolean;
 
   /**
-   * The type for audio sessions.
+   * Web audio type in the application. The default value is
+   * [STREAM_USAGE_MUSIC]{@link ./../../../@ohos.multimedia.audio:audio.StreamUsage}. This parameter changes the mapping
+   * between the component audio type and the system audio type, which affects the ArkWeb audio focus policy.
    *
-   * @type { ?AudioSessionType }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -1426,169 +1403,88 @@ declare interface WebMediaOptions {
 }
 
 /**
- * Defines the screen capture configuration.
- *
- * @interface ScreenCaptureConfig
- * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Defines the screen capture configuration.
- *
- * @interface ScreenCaptureConfig
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the screen capture configuration.
+ * Provides the web screen capture configuration.
  *
  * @typedef ScreenCaptureConfig
  * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ScreenCaptureConfig {
   /**
-   * The mode for selecting the recording area.
+   * Web screen capture mode.
    *
-   * @type { WebCaptureMode }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * The mode for selecting the recording area.
-   *
-   * @type { WebCaptureMode }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   captureMode: WebCaptureMode;
 }
 
 /**
- * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
+ * Implements the **FullScreenExitHandler** object to notify you that the **Web** component exits full screen mode.
+ * For details about the sample code,
+ * see [onFullScreenEnter](./arkts-basic-components-web-events.md#onfullscreenenter9).
+ *
+ * > **NOTE**
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Define the handler to exit the full screen mode, related to the {@link onFullScreenEnter} event.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class FullScreenExitHandler {
   /**
-   * Constructor.
+   * Constructs a **FullScreenExitHandler** API.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Exit the full screen mode.
+   * Exits full screen mode.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Exit the full screen mode.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the Web component exits full screen mode.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   exitFullScreen(): void;
 }
 
 /**
- * Defines the event details when the web component enter full screen mode.
+ * Provides details about the event that the **Web** component to enter the full-screen mode.
  *
- * @typedef FullScreenEnterEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the event details when the web component enter full screen mode.
- *
- * @typedef FullScreenEnterEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface FullScreenEnterEvent {
   /**
-   * A function handle to exit full-screen mode.
+   * Function handle for exiting full screen mode.
    *
-   * @type { FullScreenExitHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * A function handle to exit full-screen mode.
-   *
-   * @type { FullScreenExitHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   handler: FullScreenExitHandler;
 
   /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
+   * Video width, in px. If the element that enters fulls screen mode is a **<video>** element, the value represents its
+   * width; if the element that enters fulls screen mode contains a **<video>** element, the value represents the width
+   * of the first sub-video element; in other cases, the value is **0**.
    *
-   * @type { ?number }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The intrinsic width of the video if the fullscreen element contains video element, expressed in CSS pixels, Unit: px.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   videoWidth?: number;
 
@@ -1613,23 +1509,13 @@ declare interface FullScreenEnterEvent {
 }
 
 /**
- * The callback when the web component enter full screen mode.
+ * Defines a callback invoked when the **Web** component enters full screen mode.
  *
- * @typedef { function } OnFullScreenEnterCallback
- * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
+ * @param { FullScreenEnterEvent } event - Callback event for the **Web** component to enter full screen mode.
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback when the web component enter full screen mode.
- *
- * @typedef { function } OnFullScreenEnterCallback
- * @param { FullScreenEnterEvent } event - callback information of onFullScreenEnter.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 type OnFullScreenEnterCallback = (event: FullScreenEnterEvent) => void;
 
@@ -2451,69 +2337,45 @@ declare class VerifyPinHandler {
 /**
  * Defines the accessible resource type, related to {@link onPermissionRequest} method.
  *
- * @enum { string }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the accessible resource type, related to {@link onPermissionRequest} method.
- *
- * @enum { string }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ProtectedResourceType {
   /**
-   * The MidiSysex resource.
+   * MIDI SYSEX resource.
+   *
+   * Currently, only permission events can be reported. MIDI devices are not yet supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * The MidiSysex resource. Currently, only permission events can be reported. MIDI devices are not yet supported.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  MidiSysex = 'TYPE_MIDI_SYSEX',
+  MidiSysex = "TYPE_MIDI_SYSEX",
 
   /**
-   * The video capture resource, such as camera.
+   * Video capture resource, such as a camera.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  /**
-   * The video capture resource, such as camera.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  VIDEO_CAPTURE = 'TYPE_VIDEO_CAPTURE',
+  VIDEO_CAPTURE = "TYPE_VIDEO_CAPTURE",
 
   /**
-   * The audio capture resource, such as microphone.
+   * Audio capture resource, such as a microphone.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  /**
-   * The audio capture resource, such as microphone.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  AUDIO_CAPTURE = 'TYPE_AUDIO_CAPTURE',
+  AUDIO_CAPTURE = "TYPE_AUDIO_CAPTURE",
 
   /**
-   * The sensor resource, such as accelerometer.
+   * Sensor resource, such as an acceleration sensor.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -2523,7 +2385,17 @@ declare enum ProtectedResourceType {
 }
 
 /**
- * Defines the onPermissionRequest callback, related to {@link onPermissionRequest} method.
+ * Implements the **PermissionRequest** object.For details about the sample code,
+ * see [onPermissionRequest](./arkts-basic-components-web-events.md#onpermissionrequest9).
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this component are supported since API version 8.
+ * > Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > - The initial APIs of this class are supported since API version 9.
+ * >
+ * > - The sample effect is subject to the actual device.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 11]
@@ -2588,72 +2460,59 @@ declare class PermissionRequest {
 }
 
 /**
- * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
+ * Implements the **ScreenCaptureHandler** object for accepting or rejecting a screen capture request.
+ * For details about the sample code,
+ * see [onScreenCaptureRequest](./arkts-basic-components-web-events.md#onscreencapturerequest10).
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this component are supported since API version 8.
+ * >  Updates will be marked with a superscript to indicate their earliest API version.
+ * >
+ * > - The initial APIs of this class are supported since API version 10.
+ * >
+ * > - The sample effect is subject to the actual device.
+ *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 10
- */
-/**
- * Defines the onScreenCapture callback, related to {@link onScreenCapture} method.
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare class ScreenCaptureHandler {
   /**
-   * Constructor.
+   * Constructs a **ScreenCaptureHandler** object.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Constructor.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   constructor();
 
   /**
-   * Gets the source of the webpage that attempted to access the restricted resource.
-   *
-   * @returns { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
    * Obtains the origin of this web page.
    *
-   * @returns { string }
+   * @returns { string } Origin of the web page that requests the permission.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getOrigin(): string;
 
   /**
-   * Grant origin access to a given resource.
-   * @param { ScreenCaptureConfig } config The screen capture configuration.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
    * Grants the screen capture permission.
-   * @param { ScreenCaptureConfig } config The screen capture configuration.
+   *
+   * @param { ScreenCaptureConfig } config Screen capture configuration.
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   grant(config: ScreenCaptureConfig): void;
 
   /**
-   * Reject the request.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
    * Rejects this screen capture request.
+   *
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   deny(): void;
 }
@@ -6297,10 +6156,8 @@ declare interface OnInterceptRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     attempting to access the resources.
+ * Represents the callback invoked when a permission request is received.
  *
- * @typedef OnPermissionRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6308,9 +6165,8 @@ declare interface OnInterceptRequestEvent {
  */
 declare interface OnPermissionRequestEvent {
   /**
-   * Defines the onPermissionRequest callback.
+   * User operation.
    *
-   * @type { PermissionRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6320,19 +6176,16 @@ declare interface OnPermissionRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the host application that web content from the specified origin is
- *     requesting to capture screen.
+ * Represents the callback invoked when a screen capture request is received.
  *
- * @typedef OnScreenCaptureRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnScreenCaptureRequestEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * User operation.
    *
-   * @type { ScreenCaptureHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6880,18 +6733,17 @@ declare interface OnDataResubmittedEvent {
 }
 
 /**
- * Defines the playing state of audio on web page.
+ * Represents the callback invoked when the audio playback status on the web page changes.
  *
- * @typedef OnAudioStateChangedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnAudioStateChangedEvent {
   /**
-   * The audio playback status of the current page, true if playing true otherwise false.
+   * Audio playback status on the current page. The value **true** means that audio is being played, and **false** means
+   * the opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6982,18 +6834,16 @@ declare interface OnOverScrollEvent {
 }
 
 /**
- * Defines the function Triggered when the PDF page scrolling.
+ * Defines the function triggered when the PDF page is scrolled to the bottom.
  *
- * @typedef OnPdfScrollEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnPdfScrollEvent {
 
   /**
-   * PDF page url.
+   * URL of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -7001,26 +6851,23 @@ declare interface OnPdfScrollEvent {
 }
 
 /**
- * Defines the function Triggered when the PDF load.
+ * Defines the function triggered when the PDF loading is successful or fails.
  *
- * @typedef OnPdfLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnPdfLoadEvent {
   /**
-   * The PDF page load result.
+   * The PDF page loading result.
    *
-   * @type { PdfLoadResult }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
   result: PdfLoadResult;
 
   /**
-   * The PDF page url.
+   * URL of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -7260,34 +7107,32 @@ declare enum WebResponseType {
 }
 
 /**
- * Arkweb audio session Type
+ * Enumerates the web audio types in the application.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare enum AudioSessionType {
   /**
-   * Ambient audio, which is mixable with other types of audio.
-   * This is useful in some special cases such as when the user wants to mix audios from multiple pages.
+   * Web game sounds and system music can be played at the same time. This value is applicable to web
+   * game scenarios. Its corresponding system audio stream type is **STREAM_USAGE_GAME**.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
-  AMBIENT=3
+  AMBIENT = 3,
 }
 
 /**
- * PDF page load result
+ * Enumerates the PDF page loading results.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare enum PdfLoadResult {
 
   /**
-   * The PDF page load success.
+   * The PDF file is successfully loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7295,7 +7140,7 @@ declare enum PdfLoadResult {
   LOAD_SUCCESS = 0,
 
   /**
-   * The error code for web load PDF file failed.
+   * The PDF file fails to be loaded.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7303,7 +7148,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_FILE = 1,
 
   /**
-   * The error code for the PDF format is not support.
+   * The PDF file format is not supported.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7311,7 +7156,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_FORMAT = 2,
 
   /**
-   * The error code for the PDF password is wrong.
+   * The PDF file password is incorrect.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7319,7 +7164,7 @@ declare enum PdfLoadResult {
   PARSE_ERROR_PASSWORD = 3,
 
   /**
-   * The error code for the  PDF handler process failed.
+   * The PDF file fails to be processed.
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -7709,156 +7554,69 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether enable local file system access in web.
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether enable local file system access in web.
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable Access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
-   * directory can still be accessed through the file protocol.
-   * </p>
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets whether to enable access to the file system in the application.
-   * This setting dose not affect the access to the files specified though $rawfile(filepath/filename).
-   * <p><strong>API Note</strong>:<br>
-   * fileAccess is disabled by default since API version 12.
-   * When fileAccess is set to false, files in the read-only /data/storage/el1/bundle/entry/resources/resfile<br>
-   * directory can still be accessed through the file protocol.
-   * </p>
-   *
-   * @param { boolean } fileAccess - {@code true} means enable local file system access in Web; {@code false} otherwise.
-   *     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+ 	 * Sets whether to enable access to the file system in the application. This setting does not affect the access to the
+ 	 * files specified through
+ 	 * [$rawfile(filepath/filename)](docroot://quick-start/resource-categories-and-access.md#accessing-resources). For API
+ 	 * version 11 and earlier versions, access to the file system in the application is enabled by default if this
+ 	 * attribute is not explicitly called. Since API version 12, access to the file system in the application is disabled
+ 	 * by default if this attribute is not explicitly called.
+ 	 *
+ 	 * @param { boolean } fileAccess - Whether to enable access to the file system in the application.<br>The value
+ 	 *     **true** means to enable access to the file system in the application, and **false** means the opposite.<br>
+ 	 *     When **fileAccess** is set to **false**, only the resources in the read-only resource directory
+ 	 *     **\/data/storage/el1/bundle/entry/resources/resfile** can be accessed using the file protocol, regardless of the
+ 	 *     value of **fileAccess**.<br>For API version 11 and earlier versions, if **undefined** or **null** is passed in,
+ 	 *     the value is **true**. Since API version 12, if **undefined** or **null** is passed in, the value is **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @crossplatform [since 23]
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   fileAccess(fileAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to allow image resources to be loaded from the network.
+   * Sets whether to enable access to online images through HTTP and HTTPS. When this attribute is not explicitly called
+   * , online image resources can be loaded by default.
    *
-   * @param { boolean } onlineImageAccess - {@code true} means the Web can allow image resources to be loaded from the network;
-   *    The default value is true.
-   * {@code false} otherwise.
+   * @param { boolean } onlineImageAccess - Whether to enable access to online images through HTTP and HTTPS.<br>The
+   *     value **true** means to enable access to online images through HTTP and HTTPS, and **false** means the
+   *     opposite.<br>If **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to enable access to online images through HTTP and HTTPS.
-   *
-   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
-   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
-   *    Default value: true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable access to online images through HTTP and HTTPS.
-   *
-   * @param { boolean } onlineImageAccess - Sets whether to enable access to online images.
-   *    {@code true} means means setting to allow loading image resources from the network, {@code false} otherwise.
-   *    Default value: true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onlineImageAccess(onlineImageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable the DOM Storage API permission.
-   *
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to enable the DOM Storage API permission.
-   *
-   * @param { boolean } domStorageAccess - {@code true} means enable the DOM Storage API permission in Web; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable the DOM Storage API. By default, this feature is disabled.
-   * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API. {@code true} means to enable
-   *                                       the DOM Storage API; {@code false} means to disable the DOM Storage API.
-   *                                       The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+ 	 * Sets whether to enable the DOM Storage API permission. If this attribute is not explicitly called, the DOM Storage
+ 	 * API permission is disabled by default.
+ 	 *
+ 	 * @param { boolean } domStorageAccess - Whether to enable the DOM Storage API.<br>The value **true** means to the DOM
+ 	 *     Storage API, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the value is
+ 	 *     **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @crossplatform [since 18]
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   domStorageAccess(domStorageAccess: boolean): WebAttribute;
 
   /**
-   * Sets whether the Web can automatically load image resources.
+   * Sets whether to enable automatic image loading. When this attribute is not explicitly called, automatic loading of
+   * image resources is allowed.
    *
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } imageAccess - Whether to enable automatic image loading.<br>The value **true** means to enable
+   *     automatic image loading, and **false** means the opposite.<br>If **undefined** or **null** is passed in, the
+   *     value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether the Web can automatically load image resources.
-   *
-   * @param { boolean } imageAccess - {@code true} means the Web can automatically load image resources; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets whether to enable automatic image loading.
-   *
-   * @param { boolean } imageAccess - Sets whether to enable automatic image loading.
-   *    {@code true} means the Web can automatically load image resources, {@code false} otherwise.
-   *    Default value: true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   imageAccess(imageAccess: boolean): WebAttribute;
 
@@ -8060,31 +7818,30 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   forceDarkAccess(access: boolean): WebAttribute;
 
   /**
-   * Sets the media options.
+   * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web
+   * audio, and whether the audio of multiple **Web** instances in an application is exclusive. When this attribute is
+   * not explicitly set, the web audio cannot be automatically resumed after regaining the focus by default, and the
+   * audio of multiple **Web** instances in an application is exclusive.
    *
-   * @param { WebMediaOptions } options The media options, which can be {@link WebMediaOptions}.
+   * > **NOTE**
+   * >
+   * > - Audios in the same **Web** instance are considered as the same audio.
+   * >
+   * > - The media playback policy controls videos with an audio track.
+   * >
+   * > - You are advised to set [audioExclusive]{@link web:WebMediaOptions} to the same value for all **Web**
+   * > components.
+   * >
+   * > - Audio and video interruption takes effect within an application and between applications, and playback
+   * > resumption takes effect only between applications.
+   *
+   * @param { WebMediaOptions } options - Web-based media playback policy.<br>After the parameter settings are updated,
+   *     the playback must be started again for the settings to take effect.<br>When **undefined** or **null** is passed
+   *     in, **{resumeInterval: 0, audioExclusive: true}** is used.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Sets the web-based media playback policy, including the validity period for automatically resuming a paused web audio,
-   * and whether the audio of multiple Web instances in an application is exclusive.
-   * <p><strong>API Note</strong>:<br>
-   * Audios in the same Web instance are considered as the same audio.
-   * The media playback policy controls videos with an audio track.
-   * After the parameter settings are updated, the playback must be started again for the settings to take effect.
-   * It is recommended that you set the same audioExclusive value for all Web components.
-   * Audio and video interruption takes effect within an app and between apps, and playback resumption takes effect only between apps.
-   * </p>
-   *
-   * @param { WebMediaOptions } options Set the media policy for the web.
-   * After updating the attribute parameters, the audio needs to be replayed for it to take effect.
-   *    Default value: {resumeInterval: 0, audioExclusive: true}
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mediaOptions(options: WebMediaOptions): WebAttribute;
 
@@ -8179,25 +7936,22 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textZoomRatio(textZoomRatio: number): WebAttribute;
 
   /**
-   * Sets whether the Web access the database.
-   *
-   * @param { boolean } databaseAccess {@code true} means the Web access the database; {@code false} otherwise.
-   *    The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether to enable database access. By default, this feature is disabled.
-   *
-   *
-   * @param { boolean } databaseAccess - Whether to enable database access. {@code true} means to enable
-   *                                     database access; {@code false} means to disable database access.
-   *                                     The default value is false.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+ 	 * Sets whether to enable the Web SQL Database storage API permission. If this permission is not explicitly called, it
+ 	 * is disabled by default.
+ 	 *
+ 	 * > **NOTE**
+ 	 * >
+ 	 * > - After the ArkWeb kernel is upgraded to M132, the API's control over the Web SQL Database becomes invalid
+ 	 * > because the kernel discards Web SQL. For details about the ArkWeb kernel version, see
+ 	 * > [Constraints](docroot://web/web-component-overview.md#constraints).
+ 	 *
+ 	 * @param { boolean } databaseAccess - Whether to enable Web SQL Database storage API permission.<br>**true** means
+ 	 *     enabling the detection, and **false** means disabling it.<br>If **undefined** or **null** is passed in, the
+ 	 *     value is **false**.
+ 	 * @returns { WebAttribute }
+ 	 * @syscap SystemCapability.Web.Webview.Core
+ 	 * @atomicservice [since 11]
+ 	 * @since 8 dynamic
    */
   databaseAccess(databaseAccess: boolean): WebAttribute;
 
@@ -8852,69 +8606,27 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onResourceLoad(callback: Callback<OnResourceLoadEvent>): WebAttribute;
 
   /**
-   * Triggered when the web component exit the full screen mode.
+   * Triggered when the **Web** component exits full screen mode.
    *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
+   * @param { function } callback - Callback invoked when the component exits full screen mode.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the web component exit the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web component exit the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component exit the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFullScreenExit(callback: () => void): WebAttribute;
 
   /**
-   * Triggered when the web component enter the full screen mode.
+   * Triggered when the **Web** component enters full screen mode.
    *
-   * @param { function } callback The triggered function when the web component enter the full screen mode.
+   * @param { OnFullScreenEnterCallback } callback - Callback invoked when the **Web** component enters full screen
+   *     mode. Before API 12�� use { function } as param.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { function } callback The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the web component enter the full screen mode.
-   *
-   * @param { OnFullScreenEnterCallback } callback - The triggered function when the web component enter the full screen mode.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFullScreenEnter(callback: OnFullScreenEnterCallback): WebAttribute;
 
@@ -9000,10 +8712,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
   /**
-   * Triggered when a permission request is received. To call this API, you need to declare the **ohos.permission.CAMERA**
-   * and **ohos.permission.MICROPHONE** permissions.
+   * Triggered when a permission request is received. To call this API, you need to declare the
+   * **ohos.permission.CAMERA** and **ohos.permission.MICROPHONE** permissions.
    *
-   * @param { Callback<OnPermissionRequestEvent> } callback Callback invoked when a permission request is received.
+   * @param { Callback<OnPermissionRequestEvent> } callback - Callback invoked when a permission request is received.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 11]
@@ -9013,30 +8725,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPermissionRequest(callback: Callback<OnPermissionRequestEvent>): WebAttribute;
 
   /**
-   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
-   *     requesting to capture screen.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the host application that web content from the specified origin is requesting to capture screen.
-   * @param { function } callback The triggered callback when the host application that web content from the specified origin is
-   *     requesting to capture screen.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when a screen capture request is received.
+   * Triggered when a screen capture request is received.
    *
-   * @param { Callback<OnScreenCaptureRequestEvent> } callback Called when a screen capture request is received.
+   * @param { Callback<OnScreenCaptureRequestEvent> } callback - Callback invoked when a screen capture request is
+   *     received. Before API 12�� use { function } as param.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onScreenCaptureRequest(callback: Callback<OnScreenCaptureRequestEvent>): WebAttribute;
 
@@ -9069,25 +8765,17 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onContextMenuHide(callback: OnContextMenuHideCallback): WebAttribute;
 
   /**
-   * Set whether media playback needs to be triggered by user gestures.
+   * Sets whether video playback must be started by user gestures. This API is not applicable to muted videos. When this
+   * attribute is not explicitly set, users need to click the video to play it by default.
    *
-   * @param { boolean } access True if it needs to be triggered manually by the user else false.
-   *    The default value is true.
+   * @param { boolean } access - Whether video playback must be started by user gestures.<br>The value **true**
+   *     indicates that video playback must be started by user gestures, and **false** indicates the opposite.<br>If
+   *     **undefined** or **null** is passed in, the value is **false**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Set whether to manually play audio-only videos. The playback of muted videos is not controlled by this interface.
-   *
-   * @param { boolean } access Set whether to manually play audio-only videos.
-   *  {@code true}True means setting up automatic playback of audio videos requires users to manually click, {@code false} otherwise.
-   *    Default value: true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   mediaPlayGestureAccess(access: boolean): WebAttribute;
 
@@ -9745,30 +9433,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   allowWindowOpenMethod(flag: boolean): WebAttribute;
 
   /**
-   * Triggered when the playing state of audio on web page changed.
+   * Triggered when the audio playback status on the web page changes.
    *
-   * @param { function } callback The playing state of audio on web page.
+   * @param { Callback<OnAudioStateChangedEvent> } callback - Callback invoked when the audio playback status on the web
+   *     page changes. Before API 12�� use { function } as param.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the playing state of audio on web page changed.
-   *
-   * @param { function } callback The playing state of audio on web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the callback function when the audio playback status on the webpage changes.
-   *
-   * @param { Callback<OnAudioStateChangedEvent> } callback Callback invoked when the audio playback status on the webpage changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onAudioStateChanged(callback: Callback<OnAudioStateChangedEvent>): WebAttribute;
 
@@ -9865,8 +9537,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onOverScroll(callback: Callback<OnOverScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the PDF in web page scrolling at bottom with pdf scroll event.
-   * @param { Callback<OnPdfScrollEvent> } callback Function Triggered when the scrolling to bottom.
+   * Called to notify the user that the PDF page has been scrolled to the bottom.
+   *
+   * @param { Callback<OnPdfScrollEvent> } callback - Callback triggered to notify the user that the PDF page has been
+   *     scrolled to the bottom.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -9874,8 +9548,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPdfScrollAtBottom(callback: Callback<OnPdfScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the PDF page load finish.
-   * @param { Callback<OnPdfLoadEvent> } callback
+   * Called to notify the user of whether the PDF page is successfully loaded.
+   *
+   * @param { Callback<OnPdfLoadEvent> } callback - Callback triggered to notify users of whether the PDF page is
+   *     successfully loaded.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
@@ -10192,12 +9868,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   textAutosizing(textAutosizing: boolean): WebAttribute;
 
   /**
-   * Enable the application takeover of web media playback feature.
+   * Sets whether to enable the
+   * [application to take over web page media playback](docroot://web/app-takeovers-web-media.md). When this attribute
+   * is not explicitly called, the web page media playback takeover feature is disabled by default.
    *
-   * @param { NativeMediaPlayerConfig } config - The configuration of native media player.
-   *    enable: whether to enable the feature, shouldOverlay: whether the image of the video player
-   *    taken over by the application will overlay the web page content, if this feature is enabled.
-   *    Default value: {enable: false, shouldOverlay: false}.
+   * @param { NativeMediaPlayerConfig } config - **enable**: whether to enable the feature.<br> **shouldOverlay**:
+   *     whether the image of the video player taken over by the application will overlay the web page content, if this
+   *     feature is enabled.<br>When **undefined** or **null** is passed in, the value is
+   *     **{enable: false, shouldOverlay: false}**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -10345,6 +10023,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } enabled - Default value is true, set false to disable haptic feedback.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.0.0]
    * @since 13 dynamic
    */
   enableHapticFeedback(enabled: boolean): WebAttribute;
@@ -10374,9 +10053,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableFollowSystemFontWeight(follow: boolean): WebAttribute;
 
   /**
-   * Sets whether to enable AVSession for web pages.
+   * Sets whether to support an application to connect to media controller. If this attribute is not explicitly set,
+   * the application can connect to media controller by default.
    *
-   * @param { boolean } enabled Whether to enable AVSession. The value true means to enable AVSession, and false means the opposite.
+   * @param { boolean } enabled - Whether to support an application to connect to media controller.<br>The
+   *     value **true** means to support an application to connect to media controller, and **false** means the
+   *     opposite.<br>When **undefined** or **null** is passed in, the value is **true**.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 18 dynamic
@@ -10694,10 +10376,23 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   enableImageAnalyzer(enable: boolean): WebAttribute;
 
   /**
-   *  Triggered after camera capture state changed.
+   * Triggered to notify the user of the camera state on the current web page, which can be **None**, **Active**, or
+   * **Paused**. This API uses an asynchronous callback to return the result.
    *
-   * @param { OnCameraCaptureStateChangeCallback } callback -  Callback triggered to
-   *    report current page camera capture state changing event.
+   * You can use the **startCamera**, **stopCamera**, and **closeCamera** APIs to enable, pause, and stop the camera
+   * respectively. For details about how to use them, see
+   * [startCamera]{@link ./../../../@ohos.web.webview:webview.WebviewController.startCamera}.
+   *
+   * > **NOTE**
+   * >
+   * > **Active** is returned when the camera is being used on the current web page.
+   * >
+   * > **Paused** is returned when the camera is paused on the current web page.
+   * >
+   * > **None** is returned when the camera is not being used on the current web page.
+   *
+   * @param { OnCameraCaptureStateChangeCallback } callback - Callback triggered when the camera capture state changes.
+   *     It returns the original and new states.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -10705,10 +10400,36 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onCameraCaptureStateChange(callback: OnCameraCaptureStateChangeCallback): WebAttribute;
 
   /**
-   *  Triggered after microphone capture state changed.
+   * Triggered to notify the user of the microphone state on the current web page, which can be **None**, **Active**,
+   * or **Paused**. This API uses an asynchronous callback to return the result.
    *
-   * @param { OnMicrophoneCaptureStateChangeCallback } callback -  callback triggered to
-   *    report current page microphone capture state changing event.
+   * You can use the **resumeMicrophone**, **pauseMicrophone**, and **stopMicrophone** APIs to resume, pause, and stop
+   * the microphone. For details about how to use them, see
+   * [resumeMicrophone](docroot://reference/apis-arkweb/arkts-apis-webview-WebviewController.md#resumemicrophone23).
+   *
+   * > **NOTE**
+   * >
+   * > **Active** is returned when the current web page is using the microphone; **Paused** is returned when the
+   * > current web page pauses using the microphone; **None** is returned when the current web page does not use the
+   * > microphone.
+   * >
+   * > When the microphone is being used and the **pauseMicrophone** API is called, the microphone pauses capturing
+   * > audio and **Paused** is returned. You can call the **resumeMicrophone** API using ArkWeb to resume the capture.
+   * >
+   * > When the microphone is being used and the **stopMicrophone** API is called, the microphone stops capturing audio
+   * > and **None** is returned. Capture cannot be resumed unless the frontend capture is restarted.
+   * >
+   * > When the microphone is paused and the **resumeMicrophone** API is called, the microphone continues capturing
+   * > audio and **Active** is returned.
+   * >
+   * > When the microphone is paused and the **stopMicrophone** API is called, the microphone stops capturing audio and
+   * > **None** is returned. Capture cannot be resumed unless the frontend capture is restarted.
+   * >
+   * > When the microphone is in the **None** state and the **resumeMicrophone** or **pauseMicrophone** API is called,
+   * > the microphone state remains unchanged.
+   *
+   * @param { OnMicrophoneCaptureStateChangeCallback } callback - Callback triggered when the microphone capture state
+   *     changes. It returns the original and new states.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
@@ -11264,6 +10985,7 @@ declare enum CredentialType {
    */
   CREDENTIAL_UKEY = 4,
 }
+
 /**
  * Defines the state information of the camera before and after the callback is triggered.
  *

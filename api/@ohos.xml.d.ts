@@ -225,10 +225,6 @@ declare namespace xml {
      * @param { ArrayBuffer | DataView } buffer - ArrayBuffer or DataView for storing the XML information to set.
      * @param { string } [encoding] - Encoding format. The default value is 'utf-8' (the only format currently supported
      *     ).
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -242,9 +238,6 @@ declare namespace xml {
      *
      * @param { string } name - Key of the attribute.
      * @param { string } value - Value of the attribute.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types; 3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -257,10 +250,6 @@ declare namespace xml {
      * Adds an empty element.
      *
      * @param { string } name - Name of the empty element to add.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -284,10 +273,6 @@ declare namespace xml {
      * Writes the start tag based on the given element name.
      *
      * @param { string } name - Name of the element.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -312,10 +297,6 @@ declare namespace xml {
      *
      * @param { string } prefix - Prefix of the element and its child elements.
      * @param { string } namespace - Namespace to set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -328,10 +309,6 @@ declare namespace xml {
      * Sets a comment.
      *
      * @param { string } text - Comment to set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -344,10 +321,6 @@ declare namespace xml {
      * Adds data to the CDATA tag. The structure of the generated CDATA tag is "<! <![CDATA["+ Data added + "]]>".
      *
      * @param { string } text - CDATA data to set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -360,10 +333,6 @@ declare namespace xml {
      * Sets a tag value.
      *
      * @param { string } text - Tag value to set, which is the content of the text attribute.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -376,10 +345,6 @@ declare namespace xml {
      * Sets a document type.
      *
      * @param { string } text - Content of DocType to set.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -741,10 +706,6 @@ declare namespace xml {
      *
      * @param { ArrayBuffer | DataView } buffer - A instance, the new XmlPullParser with.
      * @param { string } [encoding] - [encoding='utf8']  this is its encoding.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types;
-     *     3.Parameter verification failed.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -758,9 +719,6 @@ declare namespace xml {
      *
      * @param { ParseOptions } option - Parse options for XmlPullParser, the interface including
      *     two Boolean variables and three callback functions.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -774,9 +732,6 @@ declare namespace xml {
      * Parses XML information.
      *
      * @param { ParseOptions } option - XML parsing options.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *     1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice

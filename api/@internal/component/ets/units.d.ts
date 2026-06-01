@@ -3913,6 +3913,31 @@ declare interface AccessibilityActionOptions {
 }
 
 /**
+ * Defines struct of the parameters used to configure the next accessibility focus transition.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface AccessibilityNextFocusParams {
+  /**
+   * isConsiderDescendants - Determines whether the focus search should consider focusable nodes within the
+   *     descendants of the target element during the next accessibility focus operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isConsiderDescendants?: boolean;
+}
+
+/**
  * Defines struct of AccessibilityCustomAction that can be processed in custom action processing under accessibility.
  *
  * @interface AccessibilityCustomAction

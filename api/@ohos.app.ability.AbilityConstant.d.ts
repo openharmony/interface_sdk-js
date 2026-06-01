@@ -773,7 +773,7 @@ declare namespace AbilityConstant {
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    WINDOW_MODE_SPLIT = 103,
+    WINDOW_MODE_SPLIT = 105,
   }
 
   /**

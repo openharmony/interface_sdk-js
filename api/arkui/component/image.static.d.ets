@@ -29,7 +29,7 @@ import { ResourceStr, ResourceColor, ColorFilter, EdgeWidths, ColorMetrics, Void
 import { ImageFit, ImageRepeat, CopyOptions } from "./enums";
 import { Resource } from '../../global/resource';
 import { CommonMethod, PointLightStyle, PixelMap, ContentTransitionEffect } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -455,6 +455,50 @@ export declare class ColorContent {
  * @noninterop
  */
 export declare interface ImageAttribute extends CommonMethod {
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions
+    ): this;
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
+     * @param { string } [reloadKey] - Options for image reload.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions,
+        reloadKey?: string
+    ): this;
+    /**
+     * Sets the placeholder image displayed during loading.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
+     * @param { string } [reloadKey] - Options for image reload.
+     * @returns { ImageAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        reloadKey?: string
+    ): this;
     /**
      * Sets the placeholder image displayed during loading.
      *
@@ -1030,7 +1074,7 @@ export declare function Image(
  * Defines the Image component.
  *
  * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src - image resource type.
- * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.\
+ * @param { ImageAIOptions } [imageAIOptions] - Options for AI analyzer.
  * @param { string } [reloadKey] - Options for image reload.
  * @returns { ImageAttribute } The attribute of the Image.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1061,3 +1105,145 @@ export declare function Image(
     src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
     reloadKey?: string
 ): ImageAttribute;
+
+/**
+ * Defines the Image component. It requires call setImageOptions at start of the component attribute set-up.
+ * ant it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<ImageAttribute> } style - the callback to set up component's attribute.
+ * @returns { ImageAttribute } The attribute of the Image.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Image(style: CustomBuilderT<ImageAttribute>): ImageAttribute;
+
+/**
+ * Defines the Extendable Image.
+ *
+ * @implements ImageAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableImage implements ImageAttribute {
+    /**
+     * Constructor of Extendable Image.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { ImageAIOptions } [imageAIOptions]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableImage>(
+        factory: ConstructorT<T>, 
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+        imageAIOptions?: ImageAIOptions
+    ): T;
+
+    /**
+     * Constructor of Extendable Image.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { ImageAIOptions } [imageAIOptions]
+     * @param { string } [reloadKey]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableImage>(
+        factory: ConstructorT<T>, 
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+        imageAIOptions?: ImageAIOptions,
+        reloadKey?: string
+    ): T;
+
+    /**
+     * Constructor of Extendable Image.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { string } [reloadKey]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableImage>(
+        factory: ConstructorT<T>, 
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined,
+        reloadKey?: string
+    ): T;
+
+    /**
+     * Entry of Extendable Image.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableImage>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>
+    ): void;
+    
+    /**
+     * Set the Image Options.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { ImageAIOptions } [imageAIOptions]
+     * @returns { ExtendableImage }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions
+    ): this;
+
+    /**
+     * Set the Image Options.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { ImageAIOptions } [imageAIOptions]
+     * @param { string } [reloadKey]
+     * @returns { ExtendableImage }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        imageAIOptions?: ImageAIOptions,
+        reloadKey?: string
+    ): this;
+
+    /**
+     * Set the Image Options.
+     *
+     * @param { PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined } src
+     * @param { string } [reloadKey]
+     * @returns { ExtendableImage }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setImageOptions(
+        src: PixelMap | ResourceStr | DrawableDescriptor | ImageContent | undefined, 
+        reloadKey?: string
+    ): this;
+}

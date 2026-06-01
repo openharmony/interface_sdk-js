@@ -676,7 +676,7 @@ declare class UIAbility extends Ability {
    * > For versions prior to API version 18, only synchronous calls are supported. Starting from API version 18, 
    * > asynchronous calls are also supported.
    *
-   * @param { object } wantParam - Data to be migrated. [since 9 - 11]
+   * @param { object } wantParam - Data to be migrated. [since 9 - 10]
    * @param { Record<string, Object> } wantParam - Data to be migrated. [since 11]
    * @returns { AbilityConstant.OnContinueResult } Return the result of onContinue. [since 9 - 11]
    * @returns { AbilityConstant.OnContinueResult | Promise<AbilityConstant.OnContinueResult> } Whether the migration is
@@ -826,11 +826,11 @@ declare class UIAbility extends Ability {
    * service to be shared in this callback.
    *
    * @param { object } wantParam - Data to share. [since 10 - 10]
-   * @param { Record<string, Object> } wantParam - Data to share.
+   * @param { Record<string, Object> } wantParam - Data to share. [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onShare(wantParam: Record<string, Object>): void;
 
@@ -1000,6 +1000,17 @@ declare class UIAbility extends Ability {
    * @since 23 static
    */
   onCollaborate(wantParam: Record<string, RecordData>): AbilityConstant.CollaborateResult;
+
+  /**
+   * Indicates whether the UIAbility has been destroyed. The default value is **false**.
+   *
+   * After the [onDestroy]{@link UIAbility.onDestroy} callback is executed, this property is set to **true**.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  isDestroyed: boolean;
 }
 
 export default UIAbility;

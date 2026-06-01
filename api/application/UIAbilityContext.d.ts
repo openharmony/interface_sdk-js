@@ -178,14 +178,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 17]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 -9]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   *     forbidden. [since 9 - 17]
+   *     forbidden. [since 9 - 9]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -264,7 +264,7 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000080 - Creating a new instance is not supported. [since 14]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @crossplatform [since 9 - 13]
+   * @crossplatform [since 9]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -506,7 +506,7 @@ declare class UIAbilityContext extends Context {
    * > permission is verified by the DSoftBus subsystem only when the link between applications is established. No 
    * > verification is conducted during the application launch phase.
    *
-   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION [since 9 - 13]
+   * @permission ohos.permission.ABILITY_BACKGROUND_COMMUNICATION [since 9 - 10]
    * @permission ohos.permission.DISTRIBUTED_DATASYNC [since 11]
    * @param { Want } want - Information about the UIAbility to start, including the ability name, module name, bundle name, 
    *     device ID, and parameters (optional). If **'ohos.aafwk.param.callAbilityToForeground'** in **parameters** is set to 
@@ -518,14 +518,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
    * @throws { BusinessError } 16000002 - Incorrect ability type.
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 13]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1.Connect to system service failed.
    *     2.Sending restart message to system service failed. 3.System service failed to communicate with dependency module.
    *     4.Non-system applications are only allowed to call this interface across devices, not on the current device.
-   * @throws { BusinessError } 16200001 - The caller has been released. [since 9 - 13]
+   * @throws { BusinessError } 16200001 - The caller has been released. [since 9 - 9]
    * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
    * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000018 - Redirection to a third-party application is not allowed in API version greater
@@ -676,14 +676,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 13]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 9]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   *     forbidden. [since 9 - 13]
+   *     forbidden. [since 9 - 9]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -853,14 +853,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 17]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 9]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   *     forbidden. [since 9 - 17]
+   *     forbidden. [since 9 - 9]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1028,14 +1028,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 13]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 9]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   *     forbidden. [since 9 - 13]
+   *     forbidden. [since 9 - 9]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -1392,9 +1392,9 @@ declare class UIAbilityContext extends Context {
    *     **err** is **0**. Otherwise, **err** contains the corresponding error code and error information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1416,9 +1416,9 @@ declare class UIAbilityContext extends Context {
    * > [removeMissionAfterTerminate](docroot://quick-start/module-configuration-file.md#abilities) to **true**.
    *
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1449,9 +1449,9 @@ declare class UIAbilityContext extends Context {
    *     **err** is **0**. Otherwise, **err** contains the corresponding error code and error information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1479,9 +1479,9 @@ declare class UIAbilityContext extends Context {
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
    *     2.Incorrect parameter types.
-   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 10]
-   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 10]
-   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 10]
+   * @throws { BusinessError } 16000001 - The specified ability does not exist. [since 9 - 9]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 9 - 9]
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission. [since 9 - 9]
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
@@ -1550,6 +1550,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
    * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
    * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1591,6 +1593,8 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
    * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000012 - The application is controlled. [since 10]
+   * @throws { BusinessError } 16000013 - The application is controlled by EDM. [since 10]
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
    * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -1869,14 +1873,14 @@ declare class UIAbilityContext extends Context {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 16000001 - The specified ability does not exist.
-   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 13]
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 9 - 9]
    * @throws { BusinessError } 16000004 - Cannot start an invisible component.
    * @throws { BusinessError } 16000005 - The specified process does not have the permission.
    * @throws { BusinessError } 16000006 - Cross-user operations are not allowed.
    * @throws { BusinessError } 16000008 - The crowdtesting application expires.
    * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
    * @throws { BusinessError } 16000010 - The call with the continuation and prepare continuation flag is
-   *     forbidden. [since 9 - 13]
+   *     forbidden. [since 9 - 9]
    * @throws { BusinessError } 16000011 - The context does not exist.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
@@ -2831,6 +2835,137 @@ declare class UIAbilityContext extends Context {
    * @since 23 static
    */
   setMissionWindowIcon(windowIcon: image.PixelMap): Promise<void>;
+
+  /**
+   * Connects this UIAbility to a ServiceExtensionAbility, with the account ID specified. This API can be called only on
+   *  the main thread.
+   * This API can be properly called on phones and tablets. If it is called on other devices, error code 16000006 is 
+   * returned.
+   * 
+   * > **NOTE**
+   * >
+   * > For details about the startup rules for the components in the stage model, see 
+   * > [Component Startup Rules (Stage Model)](docroot://application-models/component-startup-rules.md). 
+   * > > Permission verification is not required when **accountId** specifies the current user.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { Want } want - Want information about the target UIAbility.
+   * @param { int } accountId - ID of a system account. For details, see 
+   *     [getCreatedOsAccountsCount]{@link ./../@ohos.account.osAccount:osAccount.AccountManager.getOsAccountCount(callback: AsyncCallback<int>)}
+   *     .
+   * @param { ConnectOptions } options - Instance of the callback function after the connection to the 
+   *     ServiceExtensionAbility is set up.
+   * @returns { long } Result code of the connection.
+   * @throws { BusinessError } 201 - The application does not have permission to call the interface.
+   * @throws { BusinessError } 202 - The application is not system-app, can not use system-api.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000001 - The specified ability does not exist.
+   * @throws { BusinessError } 16000005 - The specified process does not have the permission.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error.
+   * @throws { BusinessError } 16000002 - Incorrect ability type. [since 10]
+   * @throws { BusinessError } 16000004 - Cannot start an invisible component. [since 10]
+   * @throws { BusinessError } 16000006 - Cross-user operations are not allowed. [since 10]
+   * @throws { BusinessError } 16000008 - The crowdtesting application expires. [since 10]
+   * @throws { BusinessError } 16000053 - The ability is not on the top of the UI. [since 10]
+   * @throws { BusinessError } 16000055 - Installation-free timed out. [since 10]
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#connectServiceExtensionAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions)
+   */
+  connectAbilityWithAccount(want: Want, accountId: int, options: ConnectOptions): long;
+
+  /**
+   * Disconnects from a [ServiceExtensionAbility](docroot://application-models/extensionability-overview.md). Once the 
+   * connection is terminated, set the remote object, which is returned when the connection is established, to null. 
+   * This API uses an asynchronous callback to return the result. It can be called only on the main thread.
+   *
+   * @param { long } connection - ID of the connected ServiceExtensionAbility, that is, **connectionId** returned by 
+   *     [connectServiceExtensionAbility]{@link UIAbilityContext.connectServiceExtensionAbility}.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the API call is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed.
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>)
+   */
+  disconnectAbility(connection: long, callback: AsyncCallback<void>): void;
+  
+  /**
+   * Disconnects from a [ServiceExtensionAbility](docroot://application-models/extensionability-overview.md). Once the 
+   * connection is terminated, set the remote object, which is returned when the connection is established, to null. 
+   * This API uses a promise to return the result. It can be called only on the main thread.
+   *
+   * @param { long } connection - ID of the connected ServiceExtensionAbility, that is, **connectionId** returned by 
+   *     [connectServiceExtensionAbility]{@link UIAbilityContext.connectServiceExtensionAbility}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed.
+   *     2.System service failed to communicate with dependency module.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 9 dynamiconly
+   * @deprecated since 10
+   * @useinstead UIAbilityContext#disconnectServiceExtensionAbility(connection: long)
+   */
+  disconnectAbility(connection: long): Promise<void>;
+
+  /**
+   * Bring the current UIAbility instance to the foreground.
+   *
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - Capability not supported, because starting self to foreground
+   *     from background is not supported in current devive or current UIAbility is a non-native UIAbility.
+   * @throws { BusinessError } 16000011 - The context does not exist.
+   * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
+   * @throws { BusinessError } 16000082 - The UIAbility is being started.
+   *     The UIAbility has not completed onCreate or onWindowStageCreate.
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  startSelf(): Promise<void>;
+
+  /**
+  * Launch the application's own UIAbility in the child process.
+  * If the launchMode of UIAbility is specified, you can set specified flag.
+  *
+  * @param { Want } want - Indicates the ability to start.
+  * @param { string } specifiedFlag - If the launchType of target UIAbility is specified,
+  *     you can set specifiedFlag by this param, and system will not call onAcceptWant.
+  * @returns { Promise<void> } The promise returned by the function.
+  * @throws { BusinessError } 801 - Capability not supported.
+  * @throws { BusinessError } 16000001 - The specified ability does not exist.
+  * @throws { BusinessError } 16000008 - The crowdtesting application expires.
+  * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
+  * @throws { BusinessError } 16000011 - The context does not exist.
+  * @throws { BusinessError } 16000050 - Internal error. Connect to system service failed.
+  * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
+  * @throws { BusinessError } 16000122 - The target component is blocked by the system module and
+  *     does not support startup.
+  * @throws { BusinessError } 16000123 - Implicit startup is not supported.
+  * @throws { BusinessError } 16000124 - Starting a remote UIAbility is not supported.
+  * @throws { BusinessError } 16000130 - The UIAbility not belong to caller.
+  * @throws { BusinessError } 16000131 - The UIAbility is already exist, can not start again.
+  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+  * @stagemodelonly
+  * @since 26.0.0 dynamic&static
+  */
+  startSelfUIAbilityInChildProcess(want: Want, specifiedFlag: string): Promise<void>;
 }
 
 export default UIAbilityContext;

@@ -56,7 +56,7 @@ declare class SelectionExtensionAbility {
    *
    * @param { Want } want - Want information of the SelectionExtensionAbility, including the ability name and bundle
    *     name.
-   * @returns { rpc.RemoteObject } RPC remote connection object.
+   * @returns { rpc.RemoteObject } Remote object, which is used for communication between the client and server.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
    * @publicapi [since 24]

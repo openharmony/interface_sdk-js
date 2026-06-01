@@ -130,6 +130,7 @@
         "ArcScrollBar",
         "ArcAlphabetIndexer",
         "UnionEffectContainer",
-        "DistortionComponent"
+        "DistortionComponent",
+        "SelectionContainer"
     ]
 }

@@ -313,6 +313,46 @@ declare namespace appManager {
    * @useinstead ohos.app.ability.appManager/appManager#getAppMemorySize
    */
   function getAppMemorySize(callback: AsyncCallback<number>): void;
+
+  /**
+   * Obtains information about the running processes. This API uses a promise to return the result.
+   *
+   * > This API is deprecated since API version 9. You are advised to use
+   * > [appManager.getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()}
+   * >  instead.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO [since 8 - 10]
+   * @returns { Promise<Array<ProcessRunningInfo>> } Promise used to return the information about the running processes.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager/appManager#getRunningProcessInformation
+   */
+  function getProcessRunningInformation(): Promise<Array<ProcessRunningInfo>>;
+
+  /**
+   * Obtains information about the running processes. This API uses an asynchronous callback to return the result.
+   *
+   * > This API is deprecated since API version 9. You are advised to use
+   * > [appManager.getRunningProcessInformation]{@link @ohos.app.ability.appManager:appManager.getRunningProcessInformation()}
+   * >  instead.
+   *
+   * @permission ohos.permission.GET_RUNNING_INFO [since 8 - 10]
+   * @param { AsyncCallback<Array<ProcessRunningInfo>> } callback - Callback used to return the result. If the API call
+   *     is successful, **err** is **undefined** and **data** is the information about the running processes. Otherwise,
+   *     **err** is an error object. You can perform error handling or other custom processing.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
+   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @systemapi
+   * @since 8
+   * @deprecated since 9
+   * @useinstead ohos.app.ability.appManager/appManager#getRunningProcessInformation
+   */
+  function getProcessRunningInformation(callback: AsyncCallback<Array<ProcessRunningInfo>>): void;
 }
 
 export default appManager;

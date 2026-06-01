@@ -95,6 +95,8 @@ export default class Want {
    * 
    * 例如取值为0x00000001（即wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION）表示临时授予接收方读取该URI指向的数据的权限。
    *
+   * @type { ?number } [since 9 - 10]
+   * @type { ?int } [since 11]
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -153,6 +155,8 @@ export default class Want {
    * 
    * parameters的Value值仅支持基本数据类型：String、Number、Boolean、Object、undefined和null，不支持传递Object内部的function。
    *
+   * @type { ?object } [since 9 - 10]
+   * @type { ?Record<string, Object> } [since 11]
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform [since 10]
    * @atomicservice [since 11]

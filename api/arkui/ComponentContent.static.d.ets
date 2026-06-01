@@ -132,7 +132,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
    * @returns { boolean } - Returns true if the ComponentContent is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isDisposed(): boolean;
 
@@ -153,7 +153,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   * otherwise returns false.
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
-  * @since 24 static
+  * @since 26.0.0 static
   */
   isTransferred(): boolean;
 }
@@ -164,7 +164,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
  * @extends ComponentContentBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class ReactiveComponentContent extends ComponentContentBase {
   /**
@@ -175,7 +175,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * @param { BuildOptions } [options] - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
     constructor(uiContext: UIContext, builder: CustomBuilder, options?: BuildOptions);
   /**
@@ -190,7 +190,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *     directly use the data source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   reuse(param?: RecordData): void;
 
@@ -199,7 +199,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   recycle(): void;
 
@@ -208,7 +208,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   dispose(): void;
 
@@ -217,7 +217,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    * @returns { boolean } - Returns true if the ReactiveComponentContent is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isDisposed(): boolean;
 
@@ -226,7 +226,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   updateConfiguration(): void;
 
@@ -236,7 +236,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   flushState(): void;
 
@@ -248,7 +248,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
    *     states, otherwise, returns false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isTransferred(): boolean;
 }

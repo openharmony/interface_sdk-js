@@ -39,20 +39,22 @@ import { AutoFillTriggerType } from './AutoFillTriggerType';
  * Defines the information about an auto-fill request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface FillRequest {
   /**
    * Type of the element to be automatically filled in.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   type: AutoFillType;
 
@@ -60,10 +62,11 @@ export interface FillRequest {
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 
@@ -97,9 +100,11 @@ export interface FillRequest {
    * Trigger type for the autofill service.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 23 dynamic&static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   triggerType?: AutoFillTriggerType;
 }
@@ -108,20 +113,22 @@ export interface FillRequest {
  * Defines the information about an auto-saving request.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
+ * @systemapi [since 11 - 24]
+s * @publicapi [since 26.0.0]
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export interface SaveRequest {
   /**
    * Page data.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   viewData: ViewData;
 }
@@ -213,7 +220,7 @@ export interface FillRequestCallback {
    * Called when an auto-fill request is canceled.
    *
    * @param { string } [fillContent] - Content returned to the input method framework when the auto-fill request is
-   *     canceled.
+   *     canceled. [since 12]
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 16000050 - Internal error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -278,4 +285,25 @@ export interface SaveRequestCallback {
    * @since 23 static
    */
   onFailure(): void;
+}
+
+/**
+ * Fill fail result.
+ *
+ * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
+ */
+export interface FillFailureResult {
+  /**
+   * errcode.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  errCode: int;
 }

@@ -18,7 +18,7 @@
  */
 import { ItemAlign } from './enums';
 import { Length } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option in length unit of grid-row component.
@@ -335,6 +335,16 @@ export declare interface GridRowAttribute extends CommonMethod {
      */
     default alignItems(value: ItemAlign | undefined): this;
     /**
+ 	 * Set GridRow options.
+ 	 *
+ 	 * @param { GridRowOptions } [options] - GridRow constructor options
+ 	 * @returns { GridRowAttribute } Returns the instance of the GridRowAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setGridRowOptions(options?: GridRowOptions): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<GridRowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -363,3 +373,20 @@ export declare function GridRow(
     option?: GridRowOptions, 
     content_?: CustomBuilder,
 ): GridRowAttribute
+
+/**
+ * Defines GridRow Component.
+ *
+ * @param { CustomBuilderT<GridRowAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { GridRowAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function GridRow(
+    style: CustomBuilderT<GridRowAttribute>,
+    content_?: CustomBuilder,
+): GridRowAttribute;

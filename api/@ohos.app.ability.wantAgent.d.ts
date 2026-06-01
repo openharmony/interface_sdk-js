@@ -635,6 +635,8 @@ declare namespace wantAgent {
     /**
      * Extra information.
      *
+     * @type { ?object } [since 9 - 10]
+     * @type { ?Record<string, Object> } [since 11]
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @atomicservice [since 12]
      * @since 9 dynamic

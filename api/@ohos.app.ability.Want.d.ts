@@ -104,6 +104,8 @@ export default class Want {
    * For example, if the value is 0x00000001 (**wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION**), the receiver is 
    * temporarily granted the permission to read the data pointed to by the URI.
    *
+   * @type { ?number } [since 9 - 10]
+   * @type { ?int } [since 11]
    * @syscap SystemCapability.Ability.AbilityBase
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -170,6 +172,8 @@ export default class Want {
    * The values of **parameters** must be of the following basic data types: String, Number, Boolean, Object, undefined,
    *  and null. Functions in an object cannot be transferred.
    *
+   * @type { ?object } [since 9 - 10]
+   * @type { ?Record<string, Object> } [since 11]
    * @syscap SystemCapability.Ability.AbilityBase
    * @crossplatform [since 10]
    * @atomicservice [since 11]

@@ -77,7 +77,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
-   *  提供系统在线更新功能的工具类。
+   * 提供系统在线更新功能的工具类。
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -146,12 +146,12 @@ declare namespace update {
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
     /**
-     * 获取新版本描述文件。使用callback异步回调。
+     * 获取新版本描述信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
      * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回新版本描述文件。
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回新版本描述信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -168,12 +168,12 @@ declare namespace update {
     ): void;
 
     /**
-     * 获取新版本描述文件。使用Promise异步回调。
+     * 获取新版本描述信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
      * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
-     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回新版本描述文件。
+     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回新版本描述信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -219,11 +219,11 @@ declare namespace update {
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
     /**
-     * 获取当前版本描述文件。使用callback异步回调。
+     * 获取当前版本描述信息。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回当前版本描述文件。
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - 回调函数，返回当前版本描述信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -239,11 +239,11 @@ declare namespace update {
     ): void;
 
     /**
-     * 获取当前版本描述文件。使用Promise异步回调。
+     * 获取当前版本描述信息。使用Promise异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - 描述文件选项。
-     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回当前版本描述文件。
+     * @returns { Promise<Array<ComponentDescription>> } Promise对象，返回当前版本描述信息。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -464,7 +464,7 @@ declare namespace update {
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - 版本摘要信息。
-     * @param { ClearOptions } clearOptions - 更新选项。
+     * @param { ClearOptions } clearOptions - 清除选项。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -512,7 +512,7 @@ declare namespace update {
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradePolicy } policy - 升级策略。
-     * @param { AsyncCallback<void> } callback - 回调函数，返回设置结果对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当设置升级策略成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -543,7 +543,7 @@ declare namespace update {
      * 终止升级。使用callback异步回调。
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<void> } callback - 回调函数。当清除升级缓存成功时，err为undefined，否则为错误对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当终止升级执行成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -609,7 +609,7 @@ declare namespace update {
      * 清除用户数据分区。使用callback异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - 回调函数。当恢复出厂执行失败时，err为错误对象，有回调；执行成功时，err为undefined，无回调。
+     * @param { AsyncCallback<void> } callback - 回调函数。当恢复出厂执行成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -624,7 +624,7 @@ declare namespace update {
      * 清除用户数据分区。使用Promise异步回调。
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。当恢复出厂执行失败时，有回调；执行成功无回调。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -639,7 +639,7 @@ declare namespace update {
      * 清除用户数据分区，同步清除文件秘钥。使用Promise异步回调。
      *
      * @permission ohos.permission.FORCE_FACTORY_RESET
-     * @returns { Promise<void> } Promise对象。无返回结果。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -654,7 +654,7 @@ declare namespace update {
      *
      * @permission ohos.permission.FACTORY_RESET
      * @param { FactoryResetStrategy } factoryResetStrategy - 恢复出厂设置策略。
-     * @returns { Promise<void> } Promise 对象。无返回结果。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -697,7 +697,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - 升级文件。
      * @param { string } certsFile - 证书文件路径。
-     * @param { AsyncCallback<void> } callback - 回调函数，返回升级包校验结果对象。
+     * @param { AsyncCallback<void> } callback - 回调函数。当校验成功时，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -715,7 +715,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - 升级文件。
      * @param { string } certsFile - 证书文件路径。
-     * @returns { Promise<void> } Promise对象，返回升级包校验结果对象。
+     * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -1588,7 +1588,11 @@ declare namespace update {
    */
   export interface FactoryResetStrategy {
     /**
-     * 重置范围。
+     * 重置范围。取值如下：
+     * 
+     * - DATA：表示"快速擦除"，仅清除用户数据分区（应用数据、用户设置、账号信息等），恢复出厂设置耗时较短。
+     *
+     * - DATA_AND_OS：表示"深度擦除"，同时清除用户数据分区与系统分区，恢复出厂设置耗时较长。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1598,7 +1602,8 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * 重置策略。
+     * 重置范围描述，此字段是对scope范围的补充描述。
+     * 要求填写有效内容，匹配上述擦除场景。若为空，当发生异常时，日志将缺乏有效信息，增加排查难度。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1636,7 +1641,7 @@ declare namespace update {
      * @since 26.0.0 dynamic&static
      */
     DATA_AND_OS = 2
-  } 
+  }
 
   /**
    * 恢复出厂设置信息。
@@ -1648,7 +1653,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * 恢复出厂设置所需持续时间。
+     * 恢复出厂设置所需持续时间，单位：秒 。
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.

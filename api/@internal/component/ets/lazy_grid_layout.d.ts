@@ -82,9 +82,50 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
   columnsGap(value: LengthMetrics): T;
 
   /**
+   * Sets the header of the lazy grid layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The header builder function.
+   *     <br>Passing undefined will remove the header.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  header(builder: CustomBuilder | undefined): T;
+
+  /**
+   * Sets the footer of the lazy grid layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The footer builder function.
+   *     <br>Passing undefined will remove the footer.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  footer(builder: CustomBuilder | undefined): T;
+
+  /**
+   * Sets the sticky style for header and footer.
+   *
+   * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  sticky(sticky: StickyStyle | undefined): T;
+
+  /**
    * Triggered when the index of child components in the visible area changes.
    *
-   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
    *     when the index of child components in the visible area changes.
    *     Passing undefined will unregister the callback.
    * @returns { T }
@@ -94,7 +135,7 @@ declare class LazyGridLayoutAttribute<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): T;
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T;
 }
 
 /**

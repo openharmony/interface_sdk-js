@@ -974,6 +974,57 @@ declare namespace systemSoundManager {
     getRingtonePlayer(context: BaseContext, type: RingtoneType): Promise<RingtonePlayer | null>;
 
     /**
+     * Obtains a mock haptic ringtone player for playing vibration files and their corresponding mock haptic
+     * sound files. This API uses a promise to return the result.
+     * Before calling this interface, ensure that the incoming hapticUri actually exists in the system.
+     * Otherwise, exceptions and errors will occur, such as failure to play the matched haptic sound file.
+     * After obtaining the instance through this interface, actively call {@link RingtonePlayer#release} method
+     * of the ringtone player to release player resources when the service is terminated.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { string } hapticUri - Haptic uri to get.
+     * @returns { Promise<RingtonePlayer | null> } Promise used to return a ringtone player instance,
+     *     or null when an error happens.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 20700002 - Parameter verification failed. The hapticUri does not exist or is
+     *     incorrectly formatted. Ensure it is a JSON file and that it exists in the system's file system.
+     * @throws { BusinessError } 5400103 - I/O error. The ringtone database access timed out or encountered an error.
+     *     It is recommended to restart your phone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getMockHapticRingtonePlayer(context: BaseContext, hapticUri: string): Promise<RingtonePlayer | null>;
+
+    /**
+     * Obtains a mock haptic ringtone player for playing vibration files and their corresponding mock haptic
+     * sound files. This API uses a promise to return the result.
+     * Before calling this interface, ensure that the incoming ringtoneUri actually exists in the system.
+     * Otherwise, exceptions and errors will occur, such as failure to play the matched haptic sound file.
+     * After obtaining the instance through this interface, actively call {@link RingtonePlayer#release} method
+     * of the ringtone player to release player resources when the service is terminated.
+     *
+     * @param { BaseContext } context - Current application context.
+     * @param { RingtoneType } type - Ringtone type to get.
+     * @param { string } ringtoneUri - Ringtone uri to get.
+     * @returns { Promise<RingtonePlayer | null> } Promise used to return a ringtone player instance,
+     *     or null when an error happens.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 20700002 - Parameter verification failed. Possible causes:
+     *     1.The type exceeds the valid range, please use the RingtoneType enum for input.
+     *     2.The ringtoneUri does not exist or is incorrectly formatted, please use the ringtoneUri returned by
+     *     the {@link SystemSoundManager#addCustomizedTone}.
+     * @throws { BusinessError } 5400103 - I/O error. The ringtone database access timed out or encountered an error.
+     *     It is recommended to restart your phone.
+     * @syscap SystemCapability.Multimedia.SystemSound.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getMockHapticRingtonePlayer(context: BaseContext, type: RingtoneType, ringtoneUri: string): Promise<RingtonePlayer | null>;
+
+    /**
      * Sets the system tone uri to system.
      * @param { BaseContext } context - Current application context.
      * @param { string } uri - Ringtone uri to set.

@@ -17,7 +17,7 @@
  * @kit ArkUI
  */
 import { CommonShapeMethod, AttributeModifier, CommonMethod } from "./common";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { Length } from './units';
 
 /**
@@ -59,6 +59,16 @@ export interface EllipseOptions {
  */
 export declare interface EllipseAttribute extends CommonShapeMethod {
     /**
+ 	 * Set Ellipse options.
+ 	 *
+ 	 * @param { EllipseOptions } [options] - Ellipse constructor options
+ 	 * @returns { EllipseAttribute } Returns the instance of the EllipseAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setEllipseOptions(options?: EllipseOptions): this;
+    /**
      * Call attributeModifier.
      *
      * @param { AttributeModifier<EllipseAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -84,3 +94,18 @@ export declare interface EllipseAttribute extends CommonShapeMethod {
 export declare function Ellipse(
     options?: EllipseOptions
 ): EllipseAttribute
+
+/**
+ * Defines Ellipse Component.
+ *
+ * @param { CustomBuilderT<EllipseAttribute> } style - the callback to set up component's attributes.
+ * @returns { EllipseAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Ellipse(
+    style: CustomBuilderT<EllipseAttribute>
+): EllipseAttribute;

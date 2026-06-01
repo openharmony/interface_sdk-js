@@ -193,7 +193,7 @@ declare enum DatePickerMode {
    * @atomicservice
    * @since 18 dynamic
    */
-  MONTH_AND_DAY = 2,
+  MONTH_AND_DAY = 2
 }
 
 /**
@@ -506,7 +506,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   disappearTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
@@ -547,7 +547,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   textStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
@@ -586,7 +586,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   selectedTextStyle(style: Optional<PickerTextStyle>): DatePickerAttribute;
 
   /**
@@ -601,7 +601,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @useinstead datePicker/DatePickerAttribute#onDateChange
    */
   onChange(callback: (value: DatePickerResult) => void): DatePickerAttribute;
-  
+
   /**
    * This event is triggered when a DatePicker date or time is selected.
    *
@@ -647,7 +647,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
-   */  
+   */
   onDateChange(callback: Optional<Callback<Date>>): DatePickerAttribute;
 
   /**
@@ -663,7 +663,7 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @since 18 dynamic
    */
   digitalCrownSensitivity(sensitivity: Optional<CrownSensitivity>): DatePickerAttribute;
-  
+
   /**
    * Sets whether to enable haptic feedback.
    *
@@ -674,12 +674,13 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @returns { DatePickerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
   enableHapticFeedback(enable: Optional<boolean>): DatePickerAttribute;
 
-/**
+  /**
    * Can scroll loop if true is set, on the contrary it can not.
    *
    * @param { Optional<boolean> } isLoop
@@ -689,13 +690,13 @@ declare class DatePickerAttribute extends CommonMethod<DatePickerAttribute> {
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   */  
-    canLoop(isLoop: Optional<boolean>): DatePickerAttribute;  
+   */
+  canLoop(isLoop: Optional<boolean>): DatePickerAttribute;
 }
 
 /**
  * Defines the style of the lunar calendar switch in the DatePickerDialog component.
- * 
+ *
  * @interface LunarSwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -808,7 +809,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Whether to show the switch to display the lunar.
-   * 
+   *
    * @type { ?boolean } value - indicates whether to show the switch to display the lunar.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -818,7 +819,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
   /**
    * Whether to display the lunar calendar switch.
    * The value true means to display the lunar calendar switch, and false means the opposite.
-   * 
+   *
    * @type { ?boolean } value - indicates whether to show the switch to display the lunar.
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -831,7 +832,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
 
   /**
    * Style of the lunar calendar switch.
-   * 
+   *
    * @type { ?LunarSwitchStyle }
    * @default { selectedColor: $r('sys.color.ohos_id_color_text_primary_actived'),
    *    unselectedColor: $r('sys.color.ohos_id_color_switch_outline_off'), strokeColor: Color.White }.
@@ -882,7 +883,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    */
   /**
    * Whether to display time in 24-hour format.
-   * The value true means to display time in 24-hour format, and false means the opposite. 
+   * The value true means to display time in 24-hour format, and false means the opposite.
    *
    * <p><strong>NOTE</strong>:
    * <br>When the display time is in 12-hour format, the AM/PM zone does not change depending on the hour portion.
@@ -1130,7 +1131,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @useinstead datePicker/DatePickerDialogOptions#onDateChange
    */
   onChange?: (value: DatePickerResult) => void;
-  
+
   /**
    * Called when the OK button in the dialog is clicked.
    *
@@ -1323,7 +1324,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * Event callback when the dialog box disappears.
    *
    * <p><strong>NOTE</strong>:
-   * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > 
+   * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear >
    * <br>(onDateAccept/onCancel/onDateChange) > onWillDisappear > onDidDisappear.
    * </p>
    *
@@ -1350,7 +1351,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * Event callback when the dialog box is about to appear.
    *
    * <p><strong>NOTE</strong>:
-   * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear > 
+   * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear >
    * (onDateAccept/onCancel/onDateChange) > onWillDisappear > onDidDisappear.
    * <br>2. You can set the callback event for changing the dialog box display effect in onWillAppear.
    * The settings take effect next time the dialog box appears.
@@ -1381,7 +1382,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * <p><strong>NOTE</strong>:
    * <br>1. The normal timing sequence is as follows: onWillAppear > onDidAppear >
    * (onDateAccept/onCancel/onDateChange) > onWillDisappear > onDidDisappear.
-   * <br>2. If the user closes the dialog box immediately after it appears, 
+   * <br>2. If the user closes the dialog box immediately after it appears,
    * onWillDisappear is invoked before onDidAppear.
    * </p>
    *
@@ -1415,7 +1416,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * <br>Currently only the configuration of the hour and minute parameters is supported.
    * </p>
    *
-   * @type { ?DateTimeOptions } 
+   * @type { ?DateTimeOptions }
    * @default hour: In the 24-hour format, it defaults to 2-digit, which means a leading zero is used;
    * <br>In the 12-hour format, it defaults to numeric, which means no leading zero is used.
    * <br>minute: defaults to 2-digit, which means a leading zero is used.
@@ -1461,6 +1462,7 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
@@ -1478,6 +1480,38 @@ declare interface DatePickerDialogOptions extends DatePickerOptions {
    * @since 20 dynamic
    */
   canLoop?: boolean;
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**

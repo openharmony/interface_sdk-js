@@ -19,6 +19,7 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
+import Context from './application/Context';
 
 /**
  * Provides methods related to cellular data services.
@@ -555,6 +556,19 @@ declare namespace data {
    * @since 23 static
    */
   function setPreferredApn(apnId: int): Promise<boolean>;
+
+  /**
+   * Open the system APN selection menu, which is presented in a semi-modal form and can
+   * be used to select a specific APN. This API uses a promise to return the result.
+   * If there is no SIM card or the device does not support the APN menu, the menu cannot be displayed.
+   *
+   * @param { Context } context - Indicates Context instance.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.Telephony.CellularData
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function showSystemApnSettings(context: Context): Promise<void>;
 
   /**
    * Defines the APN info.

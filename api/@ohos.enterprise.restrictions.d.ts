@@ -54,7 +54,25 @@ declare namespace restrictions {
      * @since 26.0.0
      */
     LOCAL_INPUT = 2,
-    
+
+    /**
+     * Sudo.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    SUDO = 4,
+
+    /**
+     * Traffic redirection.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    TRAFFIC_REDIRECTION = 5,
+
     /**
      * Core dump
      *
@@ -65,13 +83,13 @@ declare namespace restrictions {
     CORE_DUMP = 6,
     
     /**
-     * Secure erase
+     * Disk erasure
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 26.0.0
      */
-    SECURE_ERASE = 8
+    DISK_ERASURE = 8
   }
 
   /**

@@ -92,6 +92,19 @@ export interface RenderOptions {
    * @since 23 static
    */
   surfaceId?: string;
+
+  /**
+   * Indicates whether minimized mode is enabled.
+   * If this option is enabled, the FrameNode obtained through BuilderNode.getFrameNode()
+   * is a minimized FrameNode, which provide the smallest set of capabilities.
+   * Default value: false.
+   *
+   * @type { ?boolean } The default value is false. Indicates whether minimized mode is enabled.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  enableMinimized?: boolean;
 }
 
 
@@ -120,7 +133,7 @@ export interface BuildOptions {
    * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   localStorage?: LocalStorage;
 }
@@ -280,7 +293,7 @@ export declare class BuilderNode<T = undefined> {
    * @returns { boolean } - Returns true if the event has been successfully posted, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEvent(event: InputEventType): boolean;
 
@@ -325,7 +338,7 @@ export declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class ReactiveBuilderNode {
   /**
@@ -335,7 +348,7 @@ export declare class ReactiveBuilderNode {
    * @param { RenderOptions } [options] - Render options of the ReactiveBuilderNode
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
   /**
@@ -345,7 +358,7 @@ export declare class ReactiveBuilderNode {
    * @param { BuildOptions } [options] - Defines the options that will be used when building.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   build(builder: CustomBuilder, options?: BuildOptions): void;
   /**
@@ -354,7 +367,7 @@ export declare class ReactiveBuilderNode {
    * @returns { FrameNode | null } - Returns a FrameNode inside the ReactiveBuilderNode, or null if not contained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getFrameNode(): FrameNode | null;
 
@@ -380,7 +393,7 @@ export declare class ReactiveBuilderNode {
    *     3. The event has been bound to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postTouchEvent(event: TouchEvent): boolean;
 
@@ -389,7 +402,7 @@ export declare class ReactiveBuilderNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   dispose(): void;
 
@@ -405,7 +418,7 @@ export declare class ReactiveBuilderNode {
    *     source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   reuse(param?: RecordData): void;
 
@@ -414,7 +427,7 @@ export declare class ReactiveBuilderNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   recycle(): void;
 
@@ -423,7 +436,7 @@ export declare class ReactiveBuilderNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   updateConfiguration(): void;
 
@@ -433,7 +446,7 @@ export declare class ReactiveBuilderNode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   flushState(): void;
 
@@ -443,7 +456,7 @@ export declare class ReactiveBuilderNode {
    * @returns { boolean } - Returns true if the ReactiveBuilderNode is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isDisposed(): boolean;
 
@@ -472,7 +485,7 @@ export declare class ReactiveBuilderNode {
    * @returns { boolean } - Returns true if the TouchEvent has been successfully posted, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEvent(event: InputEventType): boolean;
 
@@ -485,7 +498,7 @@ export declare class ReactiveBuilderNode {
    *    false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 }

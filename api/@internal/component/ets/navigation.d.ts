@@ -19,10 +19,22 @@
  */
 
 /**
+ * Import the Material type for Navigation.
+ *
+ * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } Material
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material;
+
+/**
  * Import the SystemBarStyle type for Navigation.
  *
  * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
@@ -632,6 +644,7 @@ declare interface NavigationMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -640,6 +653,7 @@ declare interface NavigationMenuItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -652,6 +666,7 @@ declare interface NavigationMenuItem {
    * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -690,6 +705,7 @@ declare interface NavigationMenuItem {
  *
  * @interface PopInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -698,6 +714,7 @@ declare interface NavigationMenuItem {
  *
  * @interface PopInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -708,6 +725,7 @@ declare interface PopInfo {
    *
    * @type { NavPathInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -716,6 +734,7 @@ declare interface PopInfo {
    *
    * @type { NavPathInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -727,6 +746,7 @@ declare interface PopInfo {
    *
    * @type { Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -735,6 +755,7 @@ declare interface PopInfo {
    *
    * @type { Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -746,6 +767,7 @@ declare interface PopInfo {
  * Indicates the information of NavDestination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -753,6 +775,7 @@ declare interface PopInfo {
  * Indicates the information of NavDestination.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -764,6 +787,7 @@ declare class NavPathInfo {
    * @param { string } name - The name of NavDestination.
    * @param { unknown } param - The detailed parameter of the NavDestination.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -774,6 +798,7 @@ declare class NavPathInfo {
    * @param { unknown } param - The detailed parameter of the NavDestination.
    * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -789,6 +814,7 @@ declare class NavPathInfo {
    *                               **true**: The navigation destination page is the entry page.
    *                               **false**: The navigation destination page is not the entry page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -800,6 +826,7 @@ declare class NavPathInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -808,6 +835,7 @@ declare class NavPathInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -819,6 +847,7 @@ declare class NavPathInfo {
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -827,6 +856,7 @@ declare class NavPathInfo {
    *
    * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -839,6 +869,7 @@ declare class NavPathInfo {
    *
    * @type { ?import('../api/@ohos.base').Callback<PopInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -848,6 +879,7 @@ declare class NavPathInfo {
    *
    * @type { ?import('../api/@ohos.base').Callback<PopInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -859,6 +891,7 @@ declare class NavPathInfo {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -870,6 +903,7 @@ declare class NavPathInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -882,6 +916,7 @@ declare class NavPathInfo {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -893,6 +928,7 @@ declare enum LaunchMode {
    * the stack; replace operations replace the current top **NavDestination** page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -904,6 +940,7 @@ declare enum LaunchMode {
    * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -915,6 +952,7 @@ declare enum LaunchMode {
    * otherwise, the behavior will be consistent with the STANDARD mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -926,6 +964,7 @@ declare enum LaunchMode {
    * **STANDARD**, this mode does not reuse the instance with the same name in the stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -938,6 +977,7 @@ declare enum LaunchMode {
  *
  * @interface NavigationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -949,6 +989,7 @@ declare interface NavigationOptions {
    *
    * @type { ?LaunchMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -963,6 +1004,7 @@ declare interface NavigationOptions {
    *
    * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -974,6 +1016,7 @@ declare interface NavigationOptions {
  * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 10
  */
@@ -981,6 +1024,7 @@ declare interface NavigationOptions {
  * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -990,6 +1034,7 @@ declare class NavPathStack {
    * Creates an instance of NavPathStack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -997,6 +1042,7 @@ declare class NavPathStack {
    * Creates an instance of NavPathStack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1008,6 +1054,7 @@ declare class NavPathStack {
    *
    * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1019,6 +1066,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1032,6 +1080,7 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1056,6 +1105,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1077,6 +1127,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1099,6 +1150,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1111,6 +1163,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be pushed.
    * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1123,6 +1176,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1139,6 +1193,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1152,6 +1207,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1175,6 +1231,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1195,6 +1252,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1219,6 +1277,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1240,6 +1299,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1255,6 +1315,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.
    * <br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1267,6 +1328,7 @@ declare class NavPathStack {
    *                                 **true**: The transition animation is supported.
    *                                 **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1279,6 +1341,7 @@ declare class NavPathStack {
    * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
    * @param { NavigationOptions } [options] - Indicates options of stack operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1299,6 +1362,7 @@ declare class NavPathStack {
    * @throws { BusinessError } 100005 - Builder function not registered.
    * @throws { BusinessError } 100006 - NavDestination not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1314,6 +1378,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1326,6 +1391,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1338,6 +1404,7 @@ declare class NavPathStack {
    * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1347,6 +1414,7 @@ declare class NavPathStack {
    * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
    * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1359,6 +1427,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be removed.
    * @returns { number } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1368,6 +1437,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be removed.
    * @returns { number } Returns the number of removed NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1382,6 +1452,7 @@ declare class NavPathStack {
    * @param { string } navDestinationId - Unique ID of the navigation destination page to remove.
    * @returns { boolean } Returns true if remove successfully, otherwise returns false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1393,6 +1464,7 @@ declare class NavPathStack {
    *
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1404,6 +1476,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1419,6 +1492,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1431,6 +1505,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported. 
    * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1443,6 +1518,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be popped.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1455,6 +1531,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1473,6 +1550,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1488,6 +1566,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1499,6 +1578,7 @@ declare class NavPathStack {
    *
    * @param { number } index - Indicates the index of the NavDestination to be popped.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1510,6 +1590,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1525,6 +1606,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1538,6 +1620,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1551,6 +1634,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1562,6 +1646,7 @@ declare class NavPathStack {
    *
    * @param { number } index - Index of the navigation destination page. The index is zero-based.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1574,6 +1659,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.
    * <br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1584,6 +1670,7 @@ declare class NavPathStack {
    * Clears the navigation stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1595,6 +1682,7 @@ declare class NavPathStack {
    * <br>**true**: The transition animation is supported.
    * <br>**false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1606,6 +1694,7 @@ declare class NavPathStack {
    *
    * @returns { Array<string> } Returns all the NavDestination name in the stack;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1614,6 +1703,7 @@ declare class NavPathStack {
    *
    * @returns { Array<string> } Returns all the NavDestination name in the stack;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1627,6 +1717,7 @@ declare class NavPathStack {
    * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination.
    * <br>If it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1637,6 +1728,7 @@ declare class NavPathStack {
    * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination.
    * <br>If it exists in the stack, otherwise returns undefined;
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1649,6 +1741,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1658,6 +1751,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1670,6 +1764,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<number> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1679,6 +1774,7 @@ declare class NavPathStack {
    * @param { string } name - Indicates the name of the NavDestination.
    * @returns { Array<number> } Returns the index of all the NavDestinations.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1692,6 +1788,7 @@ declare class NavPathStack {
    *
    * @returns { NavPathStack | null } Returns the parent of the current stack. If no parent, it returns null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1704,6 +1801,7 @@ declare class NavPathStack {
    * @returns { number } Stack size.
    * <br>Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1713,6 +1811,7 @@ declare class NavPathStack {
    * @returns { number } Stack size.
    * <br>Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1727,6 +1826,7 @@ declare class NavPathStack {
    * <br>**true**:The transition animation is disabled.
    * <br>**false**: The transition animation is not disabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1738,6 +1838,7 @@ declare class NavPathStack {
    * <br>**true**:The transition animation is disabled.
    * <br>**false**: The transition animation is not disabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1749,6 +1850,7 @@ declare class NavPathStack {
    *
    * @param { NavigationInterception } interception - Object to be intercepted during navigation redirection.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1760,6 +1862,7 @@ declare class NavPathStack {
    *
    * @returns { Array<NavPathInfo> } The NavPathInfo array.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1774,6 +1877,7 @@ declare class NavPathStack {
    * <br>Default value: **true**.
    * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1786,6 +1890,7 @@ declare class NavPathStack {
  *
  * @typedef { 'navBar' } NavBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1801,6 +1906,7 @@ declare type NavBar = 'navBar'
  * @param { NavigationOperation } operation - Indicates the type of stack operation.
  * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1817,6 +1923,7 @@ declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to:
  * @param { NavigationOperation } operation - Indicates the type of navigation operation.
  * @param { boolean } isAnimated - Indicates whether the transition is animated.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 22 dynamic
@@ -1829,6 +1936,7 @@ declare type InterceptionCallback = (from: NavPathInfo|NavBar, to: NavPathInfo|N
  * @typedef { function } InterceptionModeCallback
  * @param { NavigationMode } mode - Indicates the mode of Navigation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1840,6 +1948,7 @@ declare type InterceptionModeCallback = (mode: NavigationMode) => void;
  *
  * @interface NavigationInterception
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -1851,6 +1960,7 @@ declare interface NavigationInterception {
    *
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1862,6 +1972,7 @@ declare interface NavigationInterception {
    *
    * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1873,6 +1984,7 @@ declare interface NavigationInterception {
    *
    * @type { ?InterceptionModeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1884,6 +1996,7 @@ declare interface NavigationInterception {
    *
    * @type { ?InterceptionCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -1896,6 +2009,7 @@ declare interface NavigationInterception {
  *
  * @interface HomePathInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -1906,6 +2020,7 @@ declare interface HomePathInfo {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1917,6 +2032,7 @@ declare interface HomePathInfo {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -1981,6 +2097,7 @@ interface NavigationInterface {
    * @param { NavPathStack } pathInfos - The stack of the route table.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -1990,6 +2107,7 @@ interface NavigationInterface {
    * @param { NavPathStack } pathInfos - The stack of the route table.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2003,6 +2121,7 @@ interface NavigationInterface {
    * @param { HomePathInfo } homeDestination - The custom home destination info.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2015,6 +2134,7 @@ interface NavigationInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -2022,6 +2142,7 @@ interface NavigationInterface {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2033,6 +2154,7 @@ declare enum ToolbarItemStatus {
    * and focus events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2041,6 +2163,7 @@ declare enum ToolbarItemStatus {
    * and focus events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2051,12 +2174,14 @@ declare enum ToolbarItemStatus {
    * Disable state of toolbar item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
    * Disable state of toolbar item.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2068,6 +2193,7 @@ declare enum ToolbarItemStatus {
    * to the one specified by **activeIcon** by responding to a click event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 10
    */
   /**
@@ -2075,6 +2201,7 @@ declare enum ToolbarItemStatus {
    * to the one specified by **activeIcon** by responding to a click event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2087,6 +2214,7 @@ declare enum ToolbarItemStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -2095,6 +2223,7 @@ declare enum ToolbarItemStatus {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2104,6 +2233,7 @@ declare enum NavigationOperation {
    * Push operation of navigation transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2111,6 +2241,7 @@ declare enum NavigationOperation {
    * Push operation of navigation transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2121,6 +2252,7 @@ declare enum NavigationOperation {
    * Pop operation of navigation transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2128,6 +2260,7 @@ declare enum NavigationOperation {
    * Pop operation of navigation transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2138,6 +2271,7 @@ declare enum NavigationOperation {
    * The transition is page replacement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -2145,6 +2279,7 @@ declare enum NavigationOperation {
    * The transition is page replacement.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2157,6 +2292,7 @@ declare enum NavigationOperation {
  *
  * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 10
  */
 /**
@@ -2164,6 +2300,7 @@ declare enum NavigationOperation {
  *
  * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @atomicservice
  * @since 11
  */
@@ -2172,6 +2309,7 @@ declare enum NavigationOperation {
  *
  * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
@@ -2182,6 +2320,7 @@ declare interface ToolbarItem {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2190,6 +2329,7 @@ declare interface ToolbarItem {
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2201,6 +2341,7 @@ declare interface ToolbarItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2209,6 +2350,7 @@ declare interface ToolbarItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2220,6 +2362,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -2228,6 +2371,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2239,6 +2383,7 @@ declare interface ToolbarItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2247,6 +2392,7 @@ declare interface ToolbarItem {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2259,6 +2405,7 @@ declare interface ToolbarItem {
    * @type { ?ToolbarItemStatus }
    * @default ToolbarItemStatus.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2268,6 +2415,7 @@ declare interface ToolbarItem {
    * @type { ?ToolbarItemStatus }
    * @default ToolbarItemStatus.NORMAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2279,6 +2427,7 @@ declare interface ToolbarItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2287,6 +2436,7 @@ declare interface ToolbarItem {
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2298,6 +2448,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12
    */
@@ -2306,6 +2457,7 @@ declare interface ToolbarItem {
    *
    * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -2314,10 +2466,99 @@ declare interface ToolbarItem {
 }
 
 /**
+ * Enumerates the scroll effect types.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare enum ScrollEffectType {
+  /**
+   * Common blur style. It applies uniform blur to the background.
+   * The blurred background appear/disappear with transparent gradient.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  COMMON_BLUR = 0,
+
+  /**
+   * Gradual blur style. It applies uniform blur to the title background with clear boundaries.
+   * The title bar content changes color/state before and after scrolling.
+   * During scrolling, it changes linearly following the gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  GRADUAL_BLUR = 1,
+}
+
+/**
+ * Defines the scroll effect options for the title bar.
+ *
+ * @interface ScrollEffectOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface ScrollEffectOptions {
+  /**
+   * Title bar scroll blur style.
+   * Default value: ScrollEffectType.COMMON_BLUR
+   *
+   * @type { ?ScrollEffectType }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectType?: ScrollEffectType;
+
+  /**
+   * The minimum sliding distance of the content area to enable the title bar sliding blur effect.
+   * Default value: 0vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveStartOffset?: LengthMetrics;
+
+  /**
+   * The maximum sliding distance of the content area to enable the final blur style of the title bar.
+   * Default value: 8vp.
+   *
+   * @type { ?LengthMetrics }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  blurEffectiveEndOffset?: LengthMetrics;
+}
+
+/**
  * Indicates the options of Navigation's Titlebar.
  *
  * @interface NavigationTitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2328,6 +2569,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2340,6 +2582,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2351,6 +2594,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2362,6 +2606,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2375,6 +2620,7 @@ declare interface NavigationTitleOptions {
    * @type { ?BarStyle }
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2387,6 +2633,7 @@ declare interface NavigationTitleOptions {
    * @type { ?LengthMetrics }
    * @default LengthMetrics.resource($r('sys.float.margin_left'))
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2399,6 +2646,7 @@ declare interface NavigationTitleOptions {
    * @type { ?LengthMetrics }
    * @default LengthMetrics.resource($r('sys.float.margin_right'))
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2410,6 +2658,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -2421,6 +2670,7 @@ declare interface NavigationTitleOptions {
    *
    * @type { ?TextModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -2435,11 +2685,38 @@ declare interface NavigationTitleOptions {
    * <br>**true**: Enable hover effects.
    * <br>**false**: Disable hover effects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
    */
   enableHoverMode?: boolean;
+
+  /**
+   * Title scroll blur style.
+   *
+   * @type { ?ScrollEffectOptions }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollEffectOptions?: ScrollEffectOptions;
+
+  /**
+   * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
+   *
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: Material;
 }
 
 /**
@@ -2447,6 +2724,7 @@ declare interface NavigationTitleOptions {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -2456,6 +2734,7 @@ declare enum BarStyle {
    * In this mode, the title bar or toolbar is laid out above the content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2466,6 +2745,7 @@ declare enum BarStyle {
    * In this mode, the title bar or toolbar is overlaid on top of the content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -2476,6 +2756,7 @@ declare enum BarStyle {
    * SafeAreaPadding style means the bar height will be taken as content's safeAreaPadding.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -2488,6 +2769,7 @@ declare enum BarStyle {
  *
  * @interface NavigationToolbarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -2498,6 +2780,7 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2510,6 +2793,7 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2521,6 +2805,7 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2532,6 +2817,7 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2543,6 +2829,7 @@ declare interface NavigationToolbarOptions {
    *
    * @type { ?MoreButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2555,6 +2842,7 @@ declare interface NavigationToolbarOptions {
    * @type { ?BarStyle }
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -2569,6 +2857,7 @@ declare interface NavigationToolbarOptions {
    * <br>**true**: Hide the toolbar text.
    * <br>**false**: Show the toolbar text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2581,6 +2870,7 @@ declare interface NavigationToolbarOptions {
  *
  * @interface NavigationMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -2591,6 +2881,7 @@ declare interface NavigationMenuOptions {
  *
  * @type { ?MoreButtonOptions }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -2603,6 +2894,7 @@ declare interface NavigationMenuOptions {
  *
  * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -2613,6 +2905,7 @@ declare interface MoreButtonOptions {
    *
    * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2624,6 +2917,7 @@ declare interface MoreButtonOptions {
    *
    * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -2635,11 +2929,44 @@ declare interface MoreButtonOptions {
    *
    * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
   backgroundEffect?: BackgroundEffectOptions;
+}
+
+/**
+ * Navigation configuration options.
+ *
+ * @interface NavigationConfiguration
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface NavigationConfiguration {
+  /**
+   * Navigation page stack size limit.
+   * 
+   * Description:
+   * - Limits to maximum number of active page nodes in Navigation page stack.
+   * - When limit is exceeded, oldest page nodes are automatically destroyed
+   *   in FIFO (First-In-First-Out) order.
+   * - NavPathInfo of pages is completely retained, supporting page recreation.
+   * - value <=0 No limit on page stack size (default value).
+   * - value >0 Limit stack size to specified value.
+   *
+   * @default 0 (nolimit)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  stackSizeLimit?: number;
 }
 
 /**
@@ -2749,6 +3076,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>Unit: vp.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2761,6 +3089,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>Unit: vp.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2778,6 +3107,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * minNavBarWidth (240 vp) + minContentWidth (360 vp).
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -2792,6 +3122,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * minNavBarWidth (240 vp) + minContentWidth (360 vp).
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -2880,6 +3211,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                            Default value: **back** when the system language is English.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -3023,6 +3355,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>**true**: Animate the visibility change. **false**: Do not animate the visibility change.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -3144,6 +3477,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -3172,6 +3506,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @param { Array<ToolbarItem> | CustomBuilder } value - Toolbar configuration parameters.
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @since 10
     */
@@ -3182,6 +3517,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
     * @param { NavigationToolbarOptions } [options] - Indicates the options of toolbar.
     * @returns { NavigationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 11 dynamic
@@ -3230,6 +3566,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>**true**: Animate the visibility change. **false**: Do not animate the visibility change.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -3245,6 +3582,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                       **false**: Disable toolbar adaptation.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -3336,6 +3674,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>**param**: detailed parameters of the navigation destination page.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -3347,6 +3686,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br>**param**: detailed parameters of the navigation destination page.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -3359,6 +3699,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { function } delegate - Custom transition delegate.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3368,6 +3709,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { function } delegate - Custom transition delegate.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3383,6 +3725,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * <br> Default value:<br>[LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM].
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3395,6 +3738,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { Optional<SystemBarStyle> } style - Style of the system status bar.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -3410,6 +3754,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                  **false**: The **Navigation** component is not recoverable.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 14 dynamic
    */
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
@@ -3423,6 +3768,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                          **false**: Disable the drag bar.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.            
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -3452,6 +3798,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                          **false**: Disable the animation for switching between stack and split mode.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -3464,6 +3811,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @param { ComponentContent } placeholder - Set placeholder in split mode.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
@@ -3480,11 +3828,25 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
    */
   enableVisibilityLifecycleWithContentCover(isEnabled: Optional<boolean>): NavigationAttribute;
+
+  /**
+   * Sets Navigation configuration.
+   *
+   * @param { NavigationConfiguration } config - Navigation configuration options.
+   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  configuration(config: NavigationConfiguration): NavigationAttribute;
 }
 
 /**
@@ -3492,6 +3854,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 *
 * @interface NavigationAnimatedTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @crossplatform
 * @since 11
 */
@@ -3500,6 +3863,7 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 *
 * @interface NavigationAnimatedTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @crossplatform
 * @atomicservice
 * @since 12 dynamic
@@ -3510,6 +3874,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3518,6 +3883,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3529,6 +3895,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3537,6 +3904,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3549,6 +3917,7 @@ declare interface NavigationAnimatedTransition {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3560,6 +3929,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3568,6 +3938,7 @@ declare interface NavigationAnimatedTransition {
    *
    * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3580,6 +3951,7 @@ declare interface NavigationAnimatedTransition {
  *
  * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -3588,6 +3960,7 @@ declare interface NavigationAnimatedTransition {
  *
  * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3598,6 +3971,7 @@ declare interface NavigationTransitionProxy {
    *
    * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3606,6 +3980,7 @@ declare interface NavigationTransitionProxy {
    *
    * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3617,6 +3992,7 @@ declare interface NavigationTransitionProxy {
    *
    * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3625,6 +4001,7 @@ declare interface NavigationTransitionProxy {
    *
    * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3637,6 +4014,7 @@ declare interface NavigationTransitionProxy {
    * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3647,6 +4025,7 @@ declare interface NavigationTransitionProxy {
    * Notification system transition animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3654,6 +4033,7 @@ declare interface NavigationTransitionProxy {
    * Notification system transition animation completed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3666,6 +4046,7 @@ declare interface NavigationTransitionProxy {
    * animations cannot be canceled.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3678,6 +4059,7 @@ declare interface NavigationTransitionProxy {
    *
    * @param { number } progress - The progress of transition animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3690,6 +4072,7 @@ declare interface NavigationTransitionProxy {
  *
  * @interface NavContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -3698,6 +4081,7 @@ declare interface NavigationTransitionProxy {
  *
  * @interface NavContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -3708,6 +4092,7 @@ declare interface NavContentInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3716,6 +4101,7 @@ declare interface NavContentInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3727,6 +4113,7 @@ declare interface NavContentInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3735,6 +4122,7 @@ declare interface NavContentInfo {
    *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3746,6 +4134,7 @@ declare interface NavContentInfo {
    *
    * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -3754,6 +4143,7 @@ declare interface NavContentInfo {
    *
    * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3765,6 +4155,7 @@ declare interface NavContentInfo {
    *
    * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3776,6 +4167,7 @@ declare interface NavContentInfo {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -3788,6 +4180,7 @@ declare interface NavContentInfo {
 *
 * @interface NavigationDividerStyle
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @crossplatform
 * @atomicservice
 * @since 23 dynamic
@@ -3798,6 +4191,7 @@ declare interface NavigationDividerStyle {
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3809,6 +4203,7 @@ declare interface NavigationDividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic
@@ -3820,6 +4215,7 @@ declare interface NavigationDividerStyle {
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 23 dynamic

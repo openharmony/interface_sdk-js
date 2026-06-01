@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file Download and Cache
  * @kit BasicServicesKit
  */
 
@@ -22,33 +22,38 @@ import { BusinessError } from './@ohos.base';
 import { Callback } from './@ohos.base';
 
 /**
- * Cache download capability provider.
+ * The **request** module provides applications with the basic capabilities of file upload and download and background 
+ * transfer proxy.
+ * 
+ * - The child component **cacheDownload** provides the basic capability of caching application resources in advance.
+ * - **cacheDownload** uses the HTTP to download data and caches data resources to the application memory or specified 
+ * files in the application sandbox directory.
+ * - The cached data can be used by specific ArkUI components (such as **Image**) to improve resource loading 
+ * efficiency. Check whether the ArkUI components support this function by referring to the ArkUI component topics.
  *
- * @namespace cacheDownload
  * @syscap SystemCapability.Request.FileTransferAgent
  * @since 18 dynamic
  * @since 23 static
  */
 declare namespace cacheDownload {
     /**
-     * The secure communication protocol.
+     * Enumerates secure communication protocols.
      *
-     * @enum { string }
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 21 dynamic
      * @since 23 static
      */
     enum SslType {
         /**
-         * Transport Layer Security.
-         * 
+         * TLS.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
          * @since 23 static
          */
         TLS = 'TLS',
         /**
-         * Transport layer cryptography protocol.
+         * TLCP.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
@@ -58,22 +63,21 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Cache strategy for resources.
+     * Enumerates cache update strategies.
      *
-     * @enum { int } CacheStrategy
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     enum CacheStrategy {
         /**
-         * Force update of cache regardless of whether it already exists.
+         * Forcibly updates the cache, regardless of whether the cache already exists.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         FORCE = 0,
         /**
-         * Updates the cache only if the cached resource does not exist.
+         * Updates the cache only when the cache does not exist.
          *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
@@ -82,16 +86,15 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Error codes categorizing different types of cache download failures.
+     * Enumerates the specific types of returned error code.
      *
-     * @enum { int } ErrorCode
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     enum ErrorCode {  
         /**
-         * Other unspecified errors.
-         * 
+         * Other types of errors that are not classified.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
@@ -99,31 +102,31 @@ declare namespace cacheDownload {
 
         /**
          * DNS-related errors.
-         * 
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         DNS = 0x00,
 
         /**
-         * TCP connection errors.
-         * 
+         * TCP-related errors.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         TCP = 0x10,
 
         /**
-         * SSL security errors.
-         * 
+         * SSL-related errors.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         SSL = 0x20,
         
         /**
-         * HTTP protocol errors.
-         * 
+         * HTTP-related errors.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
@@ -133,7 +136,6 @@ declare namespace cacheDownload {
     /**
      * Task timeout configuration.
      *
-     * @typedef TimeoutOptions
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -144,9 +146,9 @@ declare namespace cacheDownload {
        * The default value is 20.
        * The minimum value is 0.
        * The maximum value is 20.
-       * When set to 0, no check will be performed. 
-       * 
-       * @type { ?int }
+       * When set to 0, no check will be performed.
+       * The value should be an integer.
+       *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
        * @since 26.0.0 dynamic&static
@@ -156,8 +158,8 @@ declare namespace cacheDownload {
        * Complete HTTP request-response cycle timeout, in seconds.
        * The default value is 60.
        * The minimum value is 1.
+       * The value should be an integer.
        *
-       * @type { ?int }
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
        * @since 26.0.0 dynamic&static
@@ -168,7 +170,6 @@ declare namespace cacheDownload {
     /**
      * Task retry configuration.
      *
-     * @typedef RetryOptions
      * @syscap SystemCapability.Request.FileTransferAgent
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -176,12 +177,11 @@ declare namespace cacheDownload {
     interface RetryOptions {
       /**
        * Maximum number of retry attempts.
-       * The default value is 3.
+       * The default value is 1.
        * The minimum value is 0.
        * The maximum value is 10.
        * When set to 0, no retries will be performed.
-       * 
-       * @type { ?int }
+       *
        * @syscap SystemCapability.Request.FileTransferAgent
        * @stagemodelonly
        * @since 26.0.0 dynamic&static
@@ -190,56 +190,50 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Options of the cache download task.
+     * Provides configuration options for download and cache, including HTTP options, transmission options, and task 
+     * options.
      *
-     * @typedef CacheDownloadOptions
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
      * @since 23 static
      */
     interface CacheDownloadOptions {
         /**
-         * HTTP headers added to the cache download request.
+         * Request header used by a download task during HTTP transfer. The default value is empty.
          *
-         * @type { ?Record<string, string> }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 18 dynamic
          * @since 23 static
          */
         headers?: Record<string, string>;
         /**
-         * Which secure communication protocol is used.
-         * If this value is not specified, use { @link SslType#TLS } by default.
+         * Secure communication protocol, such as TSL or TLCP. TLS is used by default. Currently, TLS and TLCP do not
+         * support two-way authentication.
          *
-         * @type { ?SslType }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
          * @since 23 static
          */
         sslType?: SslType;
         /**
-         * The path to the CA certificate within the application.
-         * The default value is an empty string.
-         * 
-         * @type { ?string }
+         * CA certificate path. Currently, only the .pem certificate is supported. The CA certificate preset by the
+         * system is used by default.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 21 dynamic
          * @since 23 static
          */
         caPath?: string;
         /**
-         * Cache update strategy for resources.
-         * The default value is `CacheStrategy.FORCE`.
+         * Cache update strategies, including **FORCE** or **LAZY**. The **FORCE** policy is used by default.
          *
-         * @type { ?CacheStrategy }
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         cacheStrategy?: CacheStrategy;
         /**
          * Task retry configuration.
-         * 
-         * @type { ?RetryOptions }
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
          * @since 26.0.0 dynamic&static
@@ -247,8 +241,7 @@ declare namespace cacheDownload {
         retry?: RetryOptions;
         /**
          * Task timeout configuration.
-         * 
-         * @type { ?TimeoutOptions }
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @stagemodelonly
          * @since 26.0.0 dynamic&static
@@ -257,20 +250,17 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Resource information of historical cache downloads.
+     * Describes the pre-downloaded resource information.
      *
-     * @typedef ResourceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
      */
     interface ResourceInfo {
         /**
-         * The decompressed size of the downloaded resource, in bytes.
-         * If the value is -1, it means the resource is not downloaded successfully.
-         * 
-         * @type { long }
-         * @readonly
+         * Size of a pre-downloaded resource after decompression, in bytes. If the value is a positive integer, the 
+         * resource is successfully downloaded; if the value is **-1**, the resource fails to be downloaded.
+         *
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
@@ -279,30 +269,25 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Network information of historical cache downloads.
+     * Describes the pre-downloaded network information.
      *
-     * @typedef NetworkInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
      */
     interface NetworkInfo {
         /**
-         * The DNS server list is used when downloading resources.
+         * DNS servers used for downloading resources.
          *
-         * @type { string[] }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly dnsServers: string[];
         /**
-         * The IP address of a specific URL is used when downloading resources.
-         * If the value is undefined, it means that the DNS resolution fails and the IP address cannot be obtained.
+         * IP address of the URL used for downloading resources. When the DNS resolution fails, the IP address is
+         * undefined.
          *
-         * @type { ?string }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
@@ -310,49 +295,40 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Performance information of historical cache downloads.
+     * Describes the pre-downloaded performance information.
      *
-     * @typedef PerformanceInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
      */
     interface PerformanceInfo {
         /**
-         * Time taken from startup to DNS resolution completion, in milliseconds.
+         * Time taken from DNS startup to resolution completion, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly dnsTime: double;
         /**
-         * Time taken from startup to TCP connection completion, in milliseconds.
+         * Time taken from TCP startup to connection completion, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly connectTime: double;
         /**
-         * Time taken from startup to TLS connection completion, in milliseconds.
+         * Time taken from TLS startup to connection completion, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly tlsTime: double;
         /**
-         * Time taken from startup to start sending the first byte, in milliseconds.
+         * Time taken from startup to sending the first byte, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
@@ -361,28 +337,22 @@ declare namespace cacheDownload {
         /**
          * Time taken from startup to receiving the first byte, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly firstReceiveTime: double;
         /**
-         * Time taken from startup to the completion of the request, in milliseconds.
+         * Time taken from startup to request completion, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly totalTime: double;
         /**
-         * Time taken from startup to completion of all redirection steps, in milliseconds.
+         * Time taken from startup to redirection completion, in milliseconds.
          *
-         * @type { double }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
@@ -391,39 +361,32 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Download information of historical cache downloads.
+     * Describes the pre-downloaded download information.
      *
-     * @typedef DownloadInfo
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
      */
     interface DownloadInfo {
         /**
-         * Resource information of historical cache downloads.
+         * Pre-downloaded resource information.
          *
-         * @type { ResourceInfo }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly resource: ResourceInfo;
         /**
-         * Network information of historical cache downloads.
+         * Pre-downloaded network information.
          *
-         * @type { NetworkInfo }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
          */
         readonly network: NetworkInfo;
         /**
-         * Performance information of historical cache downloads.
+         * Pre-downloaded performance information.
          *
-         * @type { PerformanceInfo }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 20 dynamic
          * @since 23 static
@@ -432,27 +395,23 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Interface for download error information.
+     * Describes the error message returned when a pre-download error occurs.
      *
-     * @typedef DownloadError
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     interface DownloadError {
         /**
-         * Unique error code identifying the specific type of cache download failure.
+         * Specific error type returned by the pre-download error callback.
          *
-         * @type { ErrorCode }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
         readonly errorCode: ErrorCode;
         /**
-         * Descriptive error message explaining the failure reason.
+         * Error message. A [universal error code](docroot://reference/errorcode-universal.md) or
+         * [HTTP error code](docroot://reference/apis-network-kit/errorcode-net-http.md) is returned.
          *
-         * @type { string }
-         * @readonly
          * @syscap SystemCapability.Request.FileTransferAgent
          * @since 23 dynamic&static
          */
@@ -460,17 +419,27 @@ declare namespace cacheDownload {
     }
 
     /**
-     * Downloads resources at the specified URL. Resources will be stored in memory cache or files cache.
-     * The maximum size of the specified URL is 8192 bytes.
-     * The maximum size of a single resource after decompression is 20,971,520 bytes(20 MB).
-     * If the decompressed size of the downloaded resource exceeds the limit, it will not be recorded in the cache.
+     * Downloads a task from a specified URL. If the transfer is successful, the data is downloaded to the memory cache 
+     * and file cache.
+     * 
+     * - After automatically decompressing during HTTP transmission, the size of the target resource cannot exceed 20971
+     * 520 bytes (20 MB). Otherwise, the resource fails to store in the memory cache or file cache.
+     * - When caching the downloaded data, if the data already exists in the destination URL, the new data will 
+     * overwrite the old one.
+     * - In addition, the system determines whether to store the target resource in a specified location based on each 
+     * cache type's size limit in **cacheDownload**. By default, the LRU mode is used to replace the existing cached 
+     * data.
+     * - This API returns the result synchronously, without blocking the calling thread.
      *
      * @permission ohos.permission.INTERNET
-     * @param { string } url - URL of the cache download target.
-     * @param { CacheDownloadOptions } options - Options of the cache download task.
+     * @param { string } url - URL of the target resource. HTTP and HTTPS are supported. The URL length cannot exceed 81
+     *     92 bytes.
+     * @param { CacheDownloadOptions } options - Cache download options for the target resource.
      * @throws { BusinessError } 201 - permission denied.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
      * @since 23 static
@@ -478,12 +447,17 @@ declare namespace cacheDownload {
     function download(url: string, options: CacheDownloadOptions): void;
 
     /**
-     * Cancels an ongoing cache download task based on the target URL.
-     * The maximum size of the specified URL is 8192 bytes.
+     * Cancels an ongoing download task based on the URL. The saved memory cache and file cache are not affected.
+     * 
+     * - If there is no download task with the specified URL, this API does not take effect.
+     * - When this API is used for synchronous execution, the calling thread is not blocked.
      *
-     * @param { string } url - URL of the cache download target.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
-     * <br>2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { string } url - URL of the target resource. HTTP and HTTPS are supported. The URL length cannot exceed 81
+     *     92 bytes.
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
      * @since 23 static
@@ -491,13 +465,18 @@ declare namespace cacheDownload {
     function cancel(url: string): void;
 
     /**
-     * Sets the size of the memory cache used to store downloaded content.
-     * The default size is 0 bytes.
-     * The maximum size is 1,073,741,824 bytes(1 GB).
+     * Sets the upper limit of the memory cache size for the **cacheDownload** component.
+     * 
+     * - When this API is used to adjust the cache size, the LRU mode is used by default to clear redundant cached data 
+     * in the memory.
+     * - This API returns the result synchronously, without blocking the calling thread.
      *
-     * @param { long } bytes - The maximum amount of data cached in memory, in bytes.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
-     *     2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { long } bytes - Upper limit of the cache, in bytes. The default value is **0**, and the maximum value
+     *     cannot exceed **1073741824** (1 GB).
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
      * @since 23 static
@@ -505,13 +484,19 @@ declare namespace cacheDownload {
     function setMemoryCacheSize(bytes: long): void;
 
     /**
-     * Sets the size of the file cache used to store downloaded content.
-     * The default size is 104,857,600 bytes(100 MB).
-     * The maximum size is 4,294,967,296 bytes(4 GB).
+     * Sets the upper limit of the file cache size for the **cacheDownload** component.
+     * 
+     * - When this API is used to adjust the cache size, the LRU mode is used by default to clear redundant cached data 
+     * in the file.
+     * - If **bytes** is set to **0**, all cached files will be deleted.
+     * - This API returns the result synchronously, without blocking the calling thread.
      *
-     * @param { long } bytes - The maximum amount of data cached in files, in bytes.
-     * @throws { BusinessError } 401 - parameter error. Possible causes: 1. Missing mandatory parameters.
-     *     2. Incorrect parameter type. 3. Parameter verification failed.
+     * @param { long } bytes - Upper limit of the cache, in bytes. The default value is **104857600** (100 MB), and the
+     *     maximum value is **4294967296** (4 GB).
+     * @throws { BusinessError } 401 - parameter error. Possible causes:
+     *     <br> 1. Missing mandatory parameters.
+     *     <br> 2. Incorrect parameter type.
+     *     <br> 3. Parameter verification failed.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 18 dynamic
      * @since 23 static
@@ -519,16 +504,20 @@ declare namespace cacheDownload {
     function setFileCacheSize(bytes: long): void;
 
     /**
-     * Gets download information of cache downloads based on URL.
-     * These information are stored in memory and cleared when the application exits.
-     * The maximum size of the specified URL is 8192 bytes.
-     * If the specified URL can be found in the download information list,
-     * return { @link DownloadInfo } of the most recent download.
-     * If the specified URL can not be found in the download information list, return `undefined`.
+     * Obtains the download information based on the URL. The download information is stored in the download information
+     * list in memory and is cleared when the application exits.
+     * 
+     * - If the specified URL is found in the download information list, the latest 
+     * [DownloadInfo]{@link cacheDownload.DownloadInfo} corresponding to the URL is returned.
+     * - If the specified URL cannot be found in the download information list, **undefined** is returned.
+     * - If the download information has already cached in the URL, the new cached information will overwrite the old 
+     * one.
+     * - When the target information is stored in the memory, the existing cache data is replaced in the LRU mode.
      *
      * @permission ohos.permission.GET_NETWORK_INFO
-     * @param { string } url - URL to be queried.
-     * @returns { DownloadInfo | undefined } the information of the specified cache download or none.
+     * @param { string } url - URL to be queried, with a maximum length of 8192 bytes.
+     * @returns { DownloadInfo | undefined } Returns the download information of the corresponding URL if the operation
+     *     is successful; returns **undefined** if the specified URL does not exist.
      * @throws { BusinessError } 201 - permission denied.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
@@ -537,15 +526,16 @@ declare namespace cacheDownload {
     function getDownloadInfo(url: string): DownloadInfo | undefined;
 
     /**
-     * Sets the maximum size of the download information list.
-     * The download information list is used to store download information  .
-     * URLs and download information correspond one to one.
-     * Each download will generate a download information.
-     * Under the same URL, only the latest download information will be saved.
-     * The default value of the specified size is 0. It means no download information can be stored.
-     * The maximum value of the specified size is 8192.
+     * Sets the size of the download information list.
+     * 
+     * - The download information list is used to store pre-downloaded information.
+     * - Each pre-download generates a piece of download information with a unique URL. Only the latest download 
+     * information is saved for the same URL.
+     * - If the list size is increased using this API, the original information in the list remains unchanged; if the 
+     * list size is decreased, the LRU mode is used by default to clear excess cached data in the list.
      *
-     * @param { long } size - the size of the download information list.
+     * @param { long } size - Size of the download information list. The value ranges from 0 to 8192. The default value
+     *     is **0**, indicating that no download information is stored.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 20 dynamic
      * @since 23 static
@@ -553,7 +543,7 @@ declare namespace cacheDownload {
     function setDownloadInfoListSize(size: long): void;
 
     /**
-     * Clears the memory cache used to store downloaded content.
+     * Clears this memory cache.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
@@ -561,51 +551,51 @@ declare namespace cacheDownload {
     function clearMemoryCache(): void;
    
     /**
-     * Clears the file cache used to store downloaded content.
+     * Clears this file cache.
      *
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function clearFileCache(): void;
     /**
-     * Registers a callback function for successful download events.
-     * The maximum size of the specified URL is 8192 bytes.
+     * Subscribes to the pre-download completion events. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } url - URL of the cache download target.
-     * @param { Callback<void> } callback - Callback function to be executed when download succeeds.
+     * @param { string } url - Callback URL to be registered, with a maximum of 8,192 bytes.
+     * @param { Callback<void> } callback - Callback used to return the result.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function onDownloadSuccess(url: string, callback: Callback<void>): void;
 
     /**
-     * Registers a callback function for download error events.
-     * The maximum size of the specified URL is 8192 bytes.
+     * Subscribes to the pre-download error events. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } url - URL of the cache download target.
-     * @param { Callback<DownloadError> } callback - Callback function to be executed when download fails.
+     * @param { string } url - URL to be registered, with a maximum of 8192 bytes.
+     * @param { Callback<DownloadError> } callback - Callback used to return the error information about the pre-
+     *     download.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function onDownloadError(url: string, callback: Callback<DownloadError>): void;
 
     /**
-     * Unregisters callback function for successful download events.
-     * The maximum size of the specified URL is 8192 bytes.
-     * 
-     * @param { string } url - URL of the cache download target.
-     * @param { Callback<void> } [callback] - Callback function to be executed when download succeeds.
+     * Unsubscribes from the pre-download completion events. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * @param { string } url - Callback URL to be registered, with a maximum of 8,192 bytes.
+     * @param { Callback<void> } [callback] - Callback to unregister. If this parameter is left blank, all completion
+     *     callback functions of the URL are unregistered.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */
     function offDownloadSuccess(url: string, callback?: Callback<void>): void;
 
     /**
-     * Unregisters callback function for download error events.
-     * The maximum size of the specified URL is 8192 bytes.
+     * Unsubscribes from the pre-download error events. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } url - URL of the cache download target.
-     * @param { Callback<DownloadError> } [callback] - Callback function to be executed when download fails.
+     * @param { string } url - URL to be unregistered, with a maximum of 8192 bytes.
+     * @param { Callback<DownloadError> } [callback] - Callback used to return the error information about the pre-
+     *     download. If this parameter is left blank, all error callback functions of the URL are unregistered.
      * @syscap SystemCapability.Request.FileTransferAgent
      * @since 23 dynamic&static
      */

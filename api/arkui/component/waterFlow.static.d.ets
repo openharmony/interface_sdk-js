@@ -17,15 +17,13 @@
  * @file
  * @kit ArkUI
  */
-import { ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
-import { CustomBuilder } from './builder';
+import { AttributeModifier, UIScrollableCommonEvent, ScrollableCommonMethod, NestedScrollOptions, CommonMethod, OnWillScrollCallback, OnScrollCallback } from './common';
+import { Builder, CustomBuilder, ComponentBuilder, CustomBuilderT } from './builder';
 import { Length, Dimension, Margin, ConstraintSizeOptions, Resource, ItemFillPolicy } from './units';
 import { Scroller, OnScrollFrameBeginCallback } from "./scroll";
 import { ScrollState } from "./list";
 import { FlexDirection } from './enums';
 import { ComponentContentBase } from '../../arkui/ComponentContent';
-import { ComponentBuilder } from './builder';
-import { AttributeModifier, CommonMethod, UIScrollableCommonEvent } from "./common";
 /**
  * function that returns item main size by index.
  *
@@ -313,7 +311,7 @@ export declare interface WaterFlowOptions {
  * @interface UIWaterFlowEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
   /**
@@ -323,7 +321,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
   /**
@@ -333,7 +331,7 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
   /**
@@ -343,19 +341,19 @@ export declare interface UIWaterFlowEvent extends UIScrollableCommonEvent {
    *     end positions of the display change. Passing undefined will unregister the callback.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   setOnScrollIndex(callback: OnWaterFlowScrollIndexCallback | undefined): void;
 }
 /**
  * Defines the callback type used in onScrollIndex.
  *
- * @typedef {function} OnWaterFlowScrollIndexCallback
+ * @typedef {function}
  * @param { int } first - the first index in visible content.
  * @param { int } last - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type OnWaterFlowScrollIndexCallback = (first: int, last: int) => void;
 
@@ -467,7 +465,7 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      * @returns { this } The attribute of the WaterFlow.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default syncLoad(enable: boolean | undefined): this;
     /**
@@ -531,6 +529,16 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
      */
     default onDidScroll(handler: OnScrollCallback | undefined): this;
     /**
+     * Set WaterFlow options.
+     *
+     * @param { WaterFlowOptions } [options] - WaterFlow constructor options
+     * @returns { WaterFlowAttribute } Returns the instance of the WaterFlowAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setWaterFlowOptions(options?: WaterFlowOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<WaterFlowAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -554,6 +562,23 @@ export declare interface WaterFlowAttribute extends ScrollableCommonMethod {
  */
 @ComponentBuilder
 export declare function WaterFlow(
-    options?: WaterFlowOptions, 
+    options?: WaterFlowOptions,
     content_?: CustomBuilder,
-): WaterFlowAttribute
+): WaterFlowAttribute;
+
+/**
+ * Defines WaterFlow Component.
+ *
+ * @param { CustomBuilderT<WaterFlowAttribute> } style_ - The style to create a WaterFlow.
+ * @param { CustomBuilder } [content_]
+ * @returns { WaterFlowAttribute } The attribute of the WaterFlow.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function WaterFlow(
+    style_: CustomBuilderT<WaterFlowAttribute>,
+    content_?: CustomBuilder
+): WaterFlowAttribute;

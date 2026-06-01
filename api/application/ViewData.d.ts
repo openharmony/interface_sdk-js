@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -31,20 +31,22 @@ import AutoFillRect from './AutoFillRect';
  * The module defines the view data used for auto-fill.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
- * @systemapi
+ * @systemapi [since 11 - 24]
+ * @publicapi [since 26.0.0]
  * @stagemodelonly
- * @since 11 dynamic
- * @since 23 static
+ * @atomicservice
+ * @since 26.0.0 dynamic&static
  */
 export default interface ViewData {
   /**
    * Bundle name.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   bundleName: string;
 
@@ -74,10 +76,11 @@ export default interface ViewData {
    * URL of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   pageUrl: string;
 
@@ -85,10 +88,11 @@ export default interface ViewData {
    * Page node information.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 11 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 11 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   pageNodeInfos: Array<PageNodeInfo>;
 
@@ -96,10 +100,11 @@ export default interface ViewData {
    * Coordinates, width, and height of the page.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @systemapi
+   * @systemapi [since 12 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
-   * @since 12 dynamic
-   * @since 23 static
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
    */
   pageRect: AutoFillRect;
 

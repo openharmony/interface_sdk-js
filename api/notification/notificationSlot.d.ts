@@ -14,7 +14,7 @@
  */
 
 /**
- * @file The NotificationSlot module provides APIs for defining the notification slot.
+ * @file Description of the notification channel
  * @kit NotificationKit
  */
 
@@ -188,8 +188,6 @@ export interface NotificationSlot {
   /**
    * Reminder mode of the notification.
    * 
-   * This is a system API.
-   * 
    * - Bit 0: sound alert. The value **0** means to enable the feature, and **1** means the opposite.
    * - Bit 1: locking the screen. The value **0** means to enable the feature, and **1** means the opposite.
    * - Bit 2: banner. The value **0** means to enable the feature, and **1** means the opposite.
@@ -207,8 +205,6 @@ export interface NotificationSlot {
 
   /**
    * Authorization status.
-   * 
-   * This is a system API.
    * 
    * - **0**: means the feature is authorized.
    * - **1**: means the feature is to be authorized.

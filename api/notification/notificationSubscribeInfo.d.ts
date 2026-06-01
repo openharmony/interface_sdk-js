@@ -104,6 +104,40 @@ export interface NotificationSubscribeInfo {
    * @since 26.0.0 dynamic&static
    */
   voiceContentOptions?: VoiceContentOptions;
+
+  /**
+   * Live notification image configuration item.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pictureOptions?: PictureOptions;
+
+  /**
+   * Whether to enable notification classification. The value **true** means to enable the
+   * notification classification, and **false** means the opposite.
+   * Default value: Default value: false.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enableClassification?: boolean;
+ 
+  /**
+   * Whether to enable silent replay on subscribe. The value **true** means to enable the
+   * silent replay on subscribe, and **false** means the opposite.
+   * Default value: Default value: false.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  needSilentReplayOnSubscribe?: boolean;
 }
 
 /**
@@ -124,4 +158,30 @@ export interface VoiceContentOptions {
    * @since 26.0.0 dynamic&static
    */
   enabled?: boolean;
+}
+
+/**
+ * Describes Live notification image configuration item.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface PictureOptions {
+  /**
+   * Subscribes to parse the image information in the extraInfo of
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} for live view
+   * notifications. The input parameter is the key of the image filename in extraInfo that needs to be parsed into
+   * PixelMap format. When an application publishes a live view notification, the parsed image information is called
+   * back to the subscriber via
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}, and the parsed image
+   * information is stored in the pictureInfo of NotificationLiveViewContent.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  preparseLiveViewPicList?: string[];
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,18 +26,18 @@ import type { RecordData } from './@ohos.base';
 /*** endif */
 
 /**
- * This module provides the capability to manage application accounts.
+ * The **appAccount** module provides APIs for adding, deleting, modifying, and querying application account information
+ * , and supports inter-application authentication and distributed data synchronization.
  *
- * @namespace appAccount
  * @syscap SystemCapability.Account.AppAccount
  * @since 7 dynamic
  * @since 23 static
  */
 declare namespace appAccount {
   /**
-   * Obtains the AppAccountManager instance.
+   * Creates an **AppAccountManager** object.
    *
-   * @returns { AppAccountManager } Returns the instance of the AppAccountManager.
+   * @returns { AppAccountManager } **AppAccountManager** object created.
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
    * @since 23 static
@@ -45,69 +45,83 @@ declare namespace appAccount {
   function createAppAccountManager(): AppAccountManager;
 
   /**
-   * Provides methods for managing application accounts.
+   * Defines the application account manager, which is used to manage account information of applications.
    *
-   * @interface AppAccountManager
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
    * @since 23 static
    */
   interface AppAccountManager {
     /**
-     * Adds the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Adds an application account with the given name. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [createAccount]{@link appAccount.AppAccountManager.createAccount(name: string, callback: AsyncCallback<void>)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#createAccount
+     * @useinstead appAccount.AppAccountManager.createAccount(name: string, callback: AsyncCallback<void>)
      */
     addAccount(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Adds the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Adds an application account name and additional information. This API uses an asynchronous callback to return the
+     *  result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { string } extraInfo - Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [createAccount]{@link appAccount.AppAccountManager.createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } extraInfo - Additional information (information that can be converted to the string type).
+     *     It cannot contain sensitive information, such as the application account password and token.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#createAccount
+     * @useinstead appAccount.AppAccountManager.createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>)
      */
     addAccount(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Adds the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Adds an application account name and additional information. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { string } [extraInfo] - Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * > > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [createAccount]{@link appAccount.AppAccountManager.createAccount(name: string, options?: CreateAccountOptions)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } [extraInfo] - Additional information (information that can be converted to the string type).
+     *     <br>The additional information cannot be sensitive information (such as the password and token)
+     *     of the application account. <br>By default, no value is passed, which means no additional information
+     *     needs to be added for the account.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#createAccount
+     * @useinstead appAccount.AppAccountManager.createAccount(name: string, options?: CreateAccountOptions)
      */
     addAccount(name: string, extraInfo?: string): Promise<void>;
 
     /**
-     * Creates the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Creates an application account with the given name. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300004 - Account already exists.
@@ -119,16 +133,15 @@ declare namespace appAccount {
     createAccount(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Creates the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Creates an application account with custom data. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { CreateAccountOptions } options - Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { CreateAccountOptions } options - Options for creating the application account. You can customize
+     *     data based on service requirements, but do not add sensitive data (such as passwords and tokens).
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or options.
      * @throws { BusinessError } 12300004 - Account already exists.
@@ -140,16 +153,16 @@ declare namespace appAccount {
     createAccount(name: string, options: CreateAccountOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Creates the account name and extra information of this application to the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Creates an application account with custom data. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to add.
-     * @param { CreateAccountOptions } [options] - Indicates the extra information of the application account to add.
-     *        The extra information cannot be sensitive information of the application account.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { CreateAccountOptions } [options] - Options for creating the application account.
+     *     You can customize data based on service requirements, but do not add sensitive data
+     *     (such as passwords and tokens).<br>By default, no value is passed in, which means no additional
+     *     information needs to be added for the account.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or options.
      * @throws { BusinessError } 12300004 - Account already exists.
@@ -161,16 +174,24 @@ declare namespace appAccount {
     createAccount(name: string, options?: CreateAccountOptions): Promise<void>;
 
     /**
-     * Adds an application account of a specified owner implicitly.
+     * Adds an application account implicitly based on the specified owner. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthenticatorCallback } callback - Indicates the authenticator callback.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [createAccountImplicitly]{@link appAccount.AppAccountManager.createAccountImplicitly(owner: string, callback: AuthCallback)}
+     * >  instead.
+     *
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { object } options - Options for the authentication, which can be set as required.
+     * @param { AuthenticatorCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#createAccountImplicitly
+     * @useinstead appAccount.AppAccountManager.createAccountImplicitly(owner: string, callback: AuthCallback)
      */
     addAccountImplicitly(
       owner: string,
@@ -180,12 +201,14 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Creates an application account of a specified owner implicitly.
+     * Creates an application account implicitly based on the specified account owner. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
@@ -199,13 +222,15 @@ declare namespace appAccount {
     createAccountImplicitly(owner: string, callback: AuthCallback): void;
 
     /**
-     * Creates an application account of a specified owner implicitly.
+     * Creates an application account implicitly based on the specified account owner and options. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { CreateAccountImplicitlyOptions } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { CreateAccountImplicitlyOptions } options - Options for implicitly creating the account.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner or options.
      * @throws { BusinessError } 12300007 - The number of accounts reaches the upper limit.
@@ -219,42 +244,50 @@ declare namespace appAccount {
     createAccountImplicitly(owner: string, options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
     /**
-     * Deletes an application account from the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Deletes an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to delete.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [removeAccount]{@link appAccount.AppAccountManager.removeAccount(name: string, callback: AsyncCallback<void>)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#removeAccount
+     * @useinstead appAccount.AppAccountManager.removeAccount(name: string, callback: AsyncCallback<void>)
      */
     deleteAccount(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes an application account from the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Deletes an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to delete.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [removeAccount]{@link appAccount.AppAccountManager.removeAccount(name: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#removeAccount
+     * @useinstead appAccount.AppAccountManager.removeAccount(name: string)
      */
     deleteAccount(name: string): Promise<void>;
 
     /**
-     * Removes an application account from the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Removes an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to delete.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -265,14 +298,12 @@ declare namespace appAccount {
     removeAccount(name: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Removes an application account from the account management service.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Removes an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to delete.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -283,146 +314,135 @@ declare namespace appAccount {
     removeAccount(name: string): Promise<void>;
 
     /**
-     * Disables a third-party application with the specified bundle name from
-     * accessing the given application account.
+     * Disables an application account from accessing an application. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { string } name - Indicates the name of the application account to disable access from
-     *        the third-party application.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setAppAccess]{@link appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAppAccess
+     * @useinstead appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>)
      */
     disableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Disables a third-party application with the specified bundle name from
-     * accessing the given application account.
+     * Disables an application account from accessing an application. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account to disable access from
-     *        the third-party application.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setAppAccess]{@link appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the target application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAppAccess
+     * @useinstead appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean)
      */
     disableAppAccess(name: string, bundleName: string): Promise<void>;
 
     /**
-     * Enables a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
+     * Enables an application account to access an application. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setAppAccess]{@link appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAppAccess
+     * @useinstead appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>)
      */
     enableAppAccess(name: string, bundleName: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Enables a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
+     * Enables an application account to access an application. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setAppAccess]{@link appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAppAccess
+     * @useinstead appAccount.AppAccountManager.setAppAccess(name: string, bundleName: string, isAccessible: boolean)
      */
     enableAppAccess(name: string, bundleName: string): Promise<void>;
 
     /**
-     * Sets a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
+     * Sets the access to the data of an account for an application. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isAccessible - Whether the access is allowed. The value **true** means to allow the access;
+     *     the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit. [since 14]
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Sets a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
-     *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid name or bundleName.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
+     * Sets the access to the data of an account for an application. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isAccessible - Whether the access is allowed. The value **true** means to allow the access;
+     *     the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
+     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit. [since 14]
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Sets a third-party application with the specified bundle name to access the given application
-     * account for data query and listening.
-     *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isAccessible - Indicates the accessibility flag, true for accessible, false for inaccessible.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid name or bundleName.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setAppAccess(name: string, bundleName: string, isAccessible: boolean): Promise<void>;
 
     /**
-     * Checks whether a third-party application with the specified bundle name is allowed to access
-     * the given application account for data query and listening.
+     * Checks whether an application can access the data of an account. This API uses an asynchronous callback to return
+     *  the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the
+     *     application can access the account data; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -433,14 +453,14 @@ declare namespace appAccount {
     checkAppAccess(name: string, bundleName: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether a third-party application with the specified bundle name is allowed to access
-     * the given application account for data query and listening.
+     * Checks whether an application can access the data of an account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the application can
+     *     access the account data; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -451,55 +471,57 @@ declare namespace appAccount {
     checkAppAccess(name: string, bundleName: string): Promise<boolean>;
 
     /**
-     * Checks whether a specified application account allows application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to check
-     * whether application data can be synchronized.
-     * <p>
+     * Checks whether data synchronization is enabled for an application account. This API uses an asynchronous callback
+     *  to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [checkDataSyncEnabled]{@link appAccount.AppAccountManager.checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>)}
+     * >  instead.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means data
+     *     synchronization is enabled for the application account; the value **false** means the opposite.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#checkDataSyncEnabled
+     * @useinstead appAccount.AppAccountManager.checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>)
      */
     checkAppAccountSyncEnable(name: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether a specified application account allows application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to check
-     * whether application data can be synchronized.
-     * <p>
+     * Checks whether data synchronization is enabled for an application account. This API uses a promise to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [checkDataSyncEnabled]{@link appAccount.AppAccountManager.checkDataSyncEnabled(name: string)} instead.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @returns { Promise<boolean> } Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
+     *     data synchronization is enabled for the application account; the value **false** means the opposite.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#checkDataSyncEnabled
+     * @useinstead appAccount.AppAccountManager.checkDataSyncEnabled(name: string)
      */
     checkAppAccountSyncEnable(name: string): Promise<boolean>;
 
     /**
-     * Checks whether application data synchronization is enabled for the specified account.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to check
-     * whether application data can be synchronized.
-     * <p>
+     * Checks whether data synchronization is enabled for an application account. This API uses an asynchronous callback
+     *  to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means data
+     *     synchronization is enabled for the application account; the value **false** means the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -510,19 +532,16 @@ declare namespace appAccount {
     checkDataSyncEnabled(name: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether application data synchronization is enabled for the specified account.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to check
-     * whether application data can be synchronized.
-     * <p>
+     * Checks whether data synchronization is enabled for an application account. This API uses a promise to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @returns { Promise<boolean> } Returns {@code true} if application data synchronization is allowed; returns {@code false} otherwise.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
+     *     data synchronization is enabled for the application account; the value **false** means the opposite.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -533,42 +552,56 @@ declare namespace appAccount {
     checkDataSyncEnabled(name: string): Promise<boolean>;
 
     /**
-     * Sets the credential for this application account.
+     * Sets a credential for an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to set.
-     * @param { string } credential - Indicates the credential to set.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCredential]{@link appAccount.AppAccountManager.setCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { string } credential - Credential value. The custom value, the value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCredential
+     * @useinstead appAccount.AppAccountManager.setCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>)
      */
     setAccountCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the credential for this application account.
+     * Sets a credential for an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to set.
-     * @param { string } credential - Indicates the credential to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCredential]{@link appAccount.AppAccountManager.setCredential(name: string, credentialType: string, credential: string)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { string } credential - Credential value. The custom value, the value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCredential
+     * @useinstead appAccount.AppAccountManager.setCredential(name: string, credentialType: string, credential: string)
      */
     setAccountCredential(name: string, credentialType: string, credential: string): Promise<void>;
 
     /**
-     * Sets the credential for this application account.
+     * Sets a credential for an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to set.
-     * @param { string } credential - Indicates the credential to set.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { string } credential - Credential value. The custom value, the value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the credential is set
+     *     successfully, **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, credentialType or credential.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -576,17 +609,18 @@ declare namespace appAccount {
      * @since 9 dynamic
      * @since 23 static
      */
-    setCredential(name: string, credentialType: string, credential: string, callback: AsyncCallback<void>): void;
+    setCredential(name: string, credentialType: string, credential: string,
+                             callback: AsyncCallback<void>): void;
 
     /**
-     * Sets the credential for this application account.
+     * Sets a credential for an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to set.
-     * @param { string } credential - Indicates the credential to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { string } credential - Credential value. The custom value, the value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, credentialType or credential.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -597,114 +631,104 @@ declare namespace appAccount {
     setCredential(name: string, credentialType: string, credential: string): Promise<void>;
 
     /**
-     * Sets extra information for this application account.
-     * <p>
-     * You can call this method when you forget the extra information of your application account or
-     * need to modify the extra information.
+     * Sets additional information for an application account. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } extraInfo - Indicates the extra information to set.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } extraInfo - Additional information (information that can be converted to the string type).
+     *     It cannot contain sensitive information, such as the application account password and token.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCustomData
+     * @useinstead appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>)
      */
     setAccountExtraInfo(name: string, extraInfo: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets extra information for this application account.
-     * <p>
-     * You can call this method when you forget the extra information of your application account or
-     * need to modify the extra information.
+     * Sets additional information for an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } extraInfo - Indicates the extra information to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } extraInfo - Additional information (information that can be converted to the string type).
+     *     It cannot contain sensitive information, such as the application account password and token.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCustomData
+     * @useinstead appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)
      */
     setAccountExtraInfo(name: string, extraInfo: string): Promise<void>;
 
     /**
-     * Sets whether a specified application account allows application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to set whether to
-     * allow cross-device data synchronization. If synchronization is allowed, application data can be synchronized
-     * among these devices in the event of any changes related to the application account.
-     * If synchronization is not allowed, the application data is stored only on the local device.
-     * <p>
-     * <b>Application account-related changes</b>: adding or deleting an application account, setting extra
-     * information (such as updating a token), and setting data associated with this application account
-     * <p>
-     * <b>Application data that can be synchronized</b>: application account name, token,
-     * and data associated with this application account
-     * <p>
+     * Sets data synchronization for an application account. This API uses an asynchronous callback to return the
+     * result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setDataSyncEnabled]{@link appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>)}
+     * >  instead.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { boolean } isEnable - Specifies whether to allow application data synchronization.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { boolean } isEnable - Whether to enable data synchronization. The value **true** means that
+     *     data synchronization is enabled, and **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setDataSyncEnabled
+     * @useinstead appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>)
      */
     setAppAccountSyncEnable(name: string, isEnable: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets whether a specified application account allows application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to set whether to
-     * allow cross-device data synchronization. If synchronization is allowed, application data can be synchronized
-     * among these devices in the event of any changes related to the application account.
-     * If synchronization is not allowed, the application data is stored only on the local device.
-     * <p>
-     * <b>Application account-related changes</b>: adding or deleting an application account, setting extra
-     * information (such as updating a token), and setting data associated with this application account
-     * <p>
-     * <b>Application data that can be synchronized</b>: application account name, token,
-     * and data associated with this application account
-     * <p>
+     * Sets data synchronization for an application account. This API uses a promise to return the result.
+     *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setDataSyncEnabled]{@link appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean)}
+     * > instead.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { boolean } isEnable - Specifies whether to allow application data synchronization.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { boolean } isEnable - Whether to enable data synchronization. The value **true** means that
+     *     data synchronization is enabled, and **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setDataSyncEnabled
+     * @useinstead appAccount.AppAccountManager.setDataSyncEnabled(name: string, isEnabled: boolean)
      */
     setAppAccountSyncEnable(name: string, isEnable: boolean): Promise<void>;
 
     /**
-     * Sets whether a specified application account enables application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to set whether to
-     * enable cross-device data synchronization. If synchronization is enabled, application data can be synchronized
-     * among these devices in the event of any changes related to the application account.
-     * If synchronization is not enabled, the application data is stored only on the local device.
-     * <p>
-     * <b>Application account-related changes</b>: adding or deleting an application account, setting extra
-     * information (such as updating a token), and setting data associated with this application account
-     * <p>
-     * <b>Application data that can be synchronized</b>: application account name, token,
-     * and data associated with this application account
-     * <p>
+     * Sets data synchronization for an application account. This API uses an asynchronous callback to return the
+     * result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { boolean } isEnabled - Specifies whether to enable application data synchronization.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { boolean } isEnabled - Whether to enable data synchronization. The value **true** means that data
+     *     synchronization is enabled, and **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -715,28 +739,16 @@ declare namespace appAccount {
     setDataSyncEnabled(name: string, isEnabled: boolean, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets whether a specified application account enables application data synchronization.
-     * <p>
-     * If the same OHOS account has logged in to multiple devices, these devices constitute a super device
-     * through the distributed networking. On the connected devices, you can call this method to set whether to
-     * enable cross-device data synchronization. If synchronization is enabled, application data can be synchronized
-     * among these devices in the event of any changes related to the application account.
-     * If synchronization is not enabled, the application data is stored only on the local device.
-     * <p>
-     * <b>Application account-related changes</b>: adding or deleting an application account, setting extra
-     * information (such as updating a token), and setting data associated with this application account
-     * <p>
-     * <b>Application data that can be synchronized</b>: application account name, token,
-     * and data associated with this application account
-     * <p>
+     * Sets data synchronization for an application account. This API uses a promise to return the result.
      *
      * @permission ohos.permission.DISTRIBUTED_DATASYNC
-     * @param { string } name - Indicates the name of the application account.
-     * @param { boolean } isEnabled - Specifies whether to enable application data synchronization.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { boolean } isEnabled - Whether to enable data synchronization. The value **true** means that data
+     *     synchronization is enabled, and **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -747,42 +759,57 @@ declare namespace appAccount {
     setDataSyncEnabled(name: string, isEnabled: boolean): Promise<void>;
 
     /**
-     * Sets data associated with this application account.
+     * Sets data to be associated with an application account. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to set. The key can be customized.
-     * @param { string } value - Indicates the value of the data to set.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the associated data.
+     * @param { string } value - Value of the data to set.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCustomData
+     * @useinstead appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>)
      */
     setAssociatedData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets data associated with this application account.
+     * Sets data to be associated with an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to set. The key can be customized.
-     * @param { string } value - Indicates the value of the data to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [setCustomData]{@link appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the associated data.
+     * @param { string } value - Value of the data to set.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setCustomData
+     * @useinstead appAccount.AppAccountManager.setCustomData(name: string, key: string, value: string)
      */
     setAssociatedData(name: string, key: string, value: string): Promise<void>;
 
     /**
-     * Sets data associated with this application account.
+     * Sets custom data for an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to set. The key can be customized.
-     * @param { string } value - Indicates the value of the data to set.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the custom data. The value cannot exceed 512 characters.
+     * @param { string } value - Value of the custom data. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, key or value.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -794,14 +821,14 @@ declare namespace appAccount {
     setCustomData(name: string, key: string, value: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets data associated with this application account.
+     * Sets custom data for an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to set. The key can be customized.
-     * @param { string } value - Indicates the value of the data to set.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the custom data. The value cannot exceed 512 characters.
+     * @param { string } value - Value of the custom data. The value cannot exceed 512 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, key or value.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -813,48 +840,65 @@ declare namespace appAccount {
     setCustomData(name: string, key: string, value: string): Promise<void>;
 
     /**
-     * Obtains information about all accessible accounts.
+     * Obtains information about all accessible application accounts. This API uses an asynchronous callback to return
+     * the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications.
      *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getAllAccounts]{@link appAccount.AppAccountManager.getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>)}
+     * >  instead.
+     *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of accessible application
+     *     accounts. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAllAccounts
+     * @useinstead appAccount.AppAccountManager.getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>)
      */
     getAllAccessibleAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
-     * Obtains information about all accessible accounts.
+     * Obtains information about all accessible application accounts. This API uses a promise to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications.
      *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getAllAccounts]{@link appAccount.AppAccountManager.getAllAccounts()} instead.
+     *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
+     * @returns { Promise<Array<AppAccountInfo>> } Promise used to return information about all accessible accounts.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAllAccounts
+     * @useinstead appAccount.AppAccountManager.getAllAccounts()
      */
     getAllAccessibleAccounts(): Promise<Array<AppAccountInfo>>;
 
     /**
-     * Obtains information about all accessible accounts.
+     * Obtains information about all accessible application accounts. This API uses an asynchronous callback to return
+     * the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications or
      * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of accessible application
+     *     accounts. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
@@ -863,14 +907,14 @@ declare namespace appAccount {
     getAllAccounts(callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
-     * Obtains information about all accessible accounts.
+     * Obtains information about all accessible application accounts. This API uses a promise to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications or
      * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
+     * @returns { Promise<Array<AppAccountInfo>> } Promise used to return information about all accessible accounts.
      * @throws { BusinessError } 12300001 - System service exception.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
@@ -879,149 +923,148 @@ declare namespace appAccount {
     getAllAccounts(): Promise<Array<AppAccountInfo>>;
 
     /**
-     * Obtains information about all accounts of a specified account owner.
+     * Obtains the application accounts that can be accessed by the invoker based on the application account owner. This
+     *  API uses an asynchronous callback to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications.
      *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getAccountsByOwner]{@link appAccount.AppAccountManager.getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>)}
+     * >  instead.
+     *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Callback used to return information about
+     *     all accessible application accounts.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAccountsByOwner
+     * @useinstead appAccount.AppAccountManager.getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>)
      */
     getAllAccounts(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
-     * Obtains information about all accounts of a specified account owner.
+     * Obtains the application accounts that can be accessed by the invoker based on the application account owner. This
+     *  API uses a promise to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications.
      *
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getAccountsByOwner]{@link appAccount.AppAccountManager.getAccountsByOwner(owner: string)} instead.
+     *
      * @permission ohos.permission.GET_ALL_APP_ACCOUNTS
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<AppAccountInfo>> } Promise used to return the application accounts that can be
+     *     accessed by the invoker.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAccountsByOwner
+     * @useinstead appAccount.AppAccountManager.getAccountsByOwner(owner: string)
      */
     getAllAccounts(owner: string): Promise<Array<AppAccountInfo>>;
 
     /**
-     * Gets information about all accounts of a specified account owner.
+     * Obtains the application accounts that can be accessed by the invoker based on the application account owner. This
+     *  API uses an asynchronous callback to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications or
      * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is null and **data** is the application account information
+     *     obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Gets information about all accounts of a specified account owner.
-     * This method applies to the following accounts:
-     * <br> Accounts of this application.
-     * <br> Accounts of third-party applications. To obtain such information,
-     * <br> your application must have gained authorization from the third-party applications or
-     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
-     *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface. Returns a list of application accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid owner.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     getAccountsByOwner(owner: string, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
-     * Gets information about all accounts of a specified account owner.
+     * Obtains the application accounts that can be accessed by the invoker based on the application account owner. This
+     *  API uses a promise to return the result.
      * This method applies to the following accounts:
      * <br> Accounts of this application.
      * <br> Accounts of third-party applications. To obtain such information,
      * <br> your application must have gained authorization from the third-party applications or
      * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<AppAccountInfo>> } Promise used to return the application account information obtained.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Gets information about all accounts of a specified account owner.
-     * This method applies to the following accounts:
-     * <br> Accounts of this application.
-     * <br> Accounts of third-party applications. To obtain such information,
-     * <br> your application must have gained authorization from the third-party applications or
-     * <br> have gained the ohos.permission.GET_ALL_APP_ACCOUNTS permission.
-     *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of application accounts.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid owner.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     getAccountsByOwner(owner: string): Promise<Array<AppAccountInfo>>;
 
     /**
-     * Obtains the credential of this application account.
+     * Obtains the credential of an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to obtain.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the credential of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCredential]{@link appAccount.AppAccountManager.getCredential(name: string, credentialType: string, callback: AsyncCallback<string>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null** and **data** is the credential obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCredential
+     * @useinstead appAccount.AppAccountManager.getCredential(name: string, credentialType: string, callback: AsyncCallback<string>)
      */
     getAccountCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the credential of this application account.
+     * Obtains the credential of an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to obtain.
-     * @returns { Promise<string> } Returns the credential of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCredential]{@link appAccount.AppAccountManager.getCredential(name: string, credentialType: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @returns { Promise<string> } Promise used to return the credential obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCredential
+     * @useinstead appAccount.AppAccountManager.getCredential(name: string, credentialType: string)
      */
     getAccountCredential(name: string, credentialType: string): Promise<string>;
 
     /**
-     * Obtains the credential of this application account.
+     * Obtains the credential of an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to obtain.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the credential of the application account.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null** and **data** is the credential obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or credentialType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1033,13 +1076,13 @@ declare namespace appAccount {
     getCredential(name: string, credentialType: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains the credential of this application account.
+     * Obtains the credential of an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } credentialType - Indicates the type of the credential to obtain.
-     * @returns { Promise<string> } Returns the credential of the application account.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @returns { Promise<string> } Promise used to return the credential obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or credentialType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1051,66 +1094,97 @@ declare namespace appAccount {
     getCredential(name: string, credentialType: string): Promise<string>;
 
     /**
-     * Obtains extra information of this application account.
+     * Obtains additional information of an application account. Additional information refers to other information that
+     *  can be converted to the string type. It cannot contain sensitive information, such as the application account
+     * password and token. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface.
-     *   Returns the extra information of the account; returns {@code null} in other scenarios,
-     *   for example, if the account does not exist.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string, callback: AsyncCallback<string>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the additional information
+     *     obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCustomData
+     * @useinstead appAccount.AppAccountManager.getCustomData(name: string, key: string, callback: AsyncCallback<string>)
      */
     getAccountExtraInfo(name: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains extra information of this application account.
+     * Obtains additional information of an application account. Additional information refers to other information that
+     *  can be converted to the string type. It cannot contain sensitive information, such as the application account
+     * password and token. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @returns { Promise<string> } Returns the extra information of the account; returns {@code null} in other scenarios,
-     *         for example, if the account does not exist.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string)} instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @returns { Promise<string> } Promise used to return the additional information obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCustomData
+     * @useinstead appAccount.AppAccountManager.getCustomData(name: string, key: string)
      */
     getAccountExtraInfo(name: string): Promise<string>;
 
     /**
-     * Obtains data associated with this application account.
+     * Obtains the associated data of an application account based on the specified key. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to obtain.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the associated data of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string, callback: AsyncCallback<string>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the associated data.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the data obtained.
+     *     Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCustomData
+     * @useinstead appAccount.AppAccountManager.getCustomData(name: string, key: string, callback: AsyncCallback<string>)
      */
     getAssociatedData(name: string, key: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains data associated with this application account.
+     * Obtains data associated with an application account. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to obtain.
-     * @returns { Promise<string> } Returns the associated data of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [getCustomData]{@link appAccount.AppAccountManager.getCustomData(name: string, key: string)} instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the associated data.
+     * @returns { Promise<string> } Promise used to return the data obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getCustomData
+     * @useinstead appAccount.AppAccountManager.getCustomData(name: string, key: string)
      */
     getAssociatedData(name: string, key: string): Promise<string>;
 
     /**
-     * Obtains data associated with this application account.
+     * Obtains the custom data of an application account based on the specified key. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to obtain.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns the associated data of the application account.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the custom data. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the custom data value
+     *     obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or key.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1122,13 +1196,14 @@ declare namespace appAccount {
     getCustomData(name: string, key: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Obtains data associated with this application account.
+     * Obtains the custom data of an application account based on the specified key. This API uses a promise to return
+     * the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to obtain.
-     * @returns { Promise<string> } Returns the associated data of the application account.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the custom data. The value cannot exceed 512 characters.
+     * @returns { Promise<string> } Promise used to return the custom data value obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or key.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1140,13 +1215,14 @@ declare namespace appAccount {
     getCustomData(name: string, key: string): Promise<string>;
 
     /**
-     * Obtains data associated with the specified account synchronously.
+     * Obtains the custom data of an application account based on the specified key. The API returns the result
+     * synchronously.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { string } key - Indicates the key of the data to obtain.
-     * @returns { string } Returns the associated data of the application account.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } key - Key of the custom data. The value cannot exceed 512 characters.
+     * @returns { string } Value of the custom data, by default, no value is passed in.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or key.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1158,64 +1234,44 @@ declare namespace appAccount {
     getCustomDataSync(name: string, key: string): string;
 
     /**
-     * Subscribes to the change events of accounts of the specified owners.
-     * <p>
-     * When the account owner updates the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to account information changes of apps.
      *
-     * @param { 'change' } type - Event type.
-     * @param { Array<string> } owners - Indicates the account owners, which are specified
-     *        by {@link AppAccount#AppAccount(String name, String owner)}.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [on('accountChange')]{@link appAccount.AppAccountManager.on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>)}
+     * >  instead.
+     *
+     * @param { 'change' } type - Event type to subscribe to. The value is **'change'**.
+     *     An event will be reported when the account information changes.
+     * @param { Array<string> } owners - Application bundle names of the account.
+     * @param { Callback<Array<AppAccountInfo>> } callback - Callback registered to return the list of
+     *     changed application accounts.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#on
+     * @useinstead appAccount.AppAccountManager.on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>)
      */
     on(type: 'change', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
     /**
-     * Subscribes to the change events of accounts of the specified owners.
-     * <p>
-     * When the account owner updates the account, the subscriber will receive a notification
-     * about the account change event.
+     * Subscribes to account information changes of apps.
      *
-     * @param { 'accountChange' } type - Event type.
-     * @param { Array<string> } owners - Indicates the account owners, which are specified
-     *        by {@link AppAccount#AppAccount(String name, String owner)}.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { 'accountChange' } type - Event type to subscribe to. The value is **'accountChange'**.
+     *     An event will be reported when the account information of the target application changes.
+     * @param { Array<string> } owners - Application bundle names of the account.
+     * @param { Callback<Array<AppAccountInfo>> } callback - Callback registered to return the list
+     *     of changed application accounts.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type or owners.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Subscribes to the change events of accounts of the specified owners.
-     * <p>
-     * When the account owner updates the account, the subscriber will receive a notification
-     * about the account change event.
-     *
-     * @param { 'accountChange' } type - Event type.
-     * @param { Array<string> } owners - Indicates the account owners, which are specified
-     *        by {@link AppAccount#AppAccount(String name, String owner)}.
-     * @param { Callback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid type or owners.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      */
     on(type: 'accountChange', owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
     /**
      * Subscribes to the change events of accounts of the specified owners.
-     * <p>
-     * When the account owner updates the account, the subscriber will receive a notification
-     * about the account change event.
      *
      * @param { Array<string> } owners - Indicates the account owners, which are specified
      *     by {@link AppAccount#AppAccount(String name, String owner)}.
@@ -1228,24 +1284,34 @@ declare namespace appAccount {
     onAccountChange(owners: Array<string>, callback: Callback<Array<AppAccountInfo>>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes from account information changes.
      *
-     * @param { 'change' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 7 and deprecated since API version 9. You are advised to use
+     * > [off('accountChange')]{@link appAccount.AppAccountManager.off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>)}
+     * >  instead.
+     *
+     * @param { 'change' } type - Event type to subscribe to. The value is **'change'**.
+     *     An event will be reported when the account information changes.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Callback to unregister.
+     *     By default, no value is passed, which means to unregister all callbacks for
+     *     the specified event.
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#off
+     * @useinstead appAccount.AppAccountManager.off(type: 'accountChange', callback?: Callback<Array<AppAccountInfo>>)
      */
     off(type: 'change', callback?: Callback<Array<AppAccountInfo>>): void;
 
     /**
-     * Unsubscribes from account events.
+     * Unsubscribes from account information changes.
      *
-     * @param { 'accountChange' } type - Event type.
-     * @param { Callback<Array<AppAccountInfo>> } [callback] - Asynchronous callback interface.
+     * @param { 'accountChange' } type - Event type to unsubscribe from. The value is **'accountChange'**.
+     * @param { Callback<Array<AppAccountInfo>> } [callback] - Callback to unregister. By default, no value is passed,
+     *     which means to unregister all callbacks for the specified event.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid type.
      * @syscap SystemCapability.Account.AppAccount
@@ -1264,17 +1330,24 @@ declare namespace appAccount {
     offAccountChange(callback?: Callback<Array<AppAccountInfo>>): void;
 
     /**
-     * Authenticates an application account to get an oauth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthenticatorCallback } callback - Indicates the authenticator callback.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [auth]{@link appAccount.AppAccountManager.auth(name: string, owner: string, authType: string, callback: AuthCallback)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { object } options - Options for the authentication.
+     * @param { AuthenticatorCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#auth
+     * @useinstead appAccount.AppAccountManager.auth(name: string, owner: string, authType: string, callback: AuthCallback)
      */
     authenticate(
       name: string,
@@ -1285,14 +1358,15 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Authenticates an application account to get an auth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or authType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1306,15 +1380,16 @@ declare namespace appAccount {
     auth(name: string, owner: string, authType: string, callback: AuthCallback): void;
 
     /**
-     * Authenticates an application account to get an auth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { Record<string, Object> } options - Options for the authentication.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner, authType or options.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1333,13 +1408,14 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Authenticates an application account to get an auth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { Record<string, RecordData> } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { Record<string, RecordData> } options - Options for the authentication.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner, authType or options.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1358,42 +1434,64 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Gets an oauth token with the specified authentication type from a particular application account.
+     * Obtains the authorization token of the specified authentication type for an application account. This API uses an
+     *  asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns an oauth token.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthToken]{@link appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null** and **data** is the authorization token value obtained.
+     *     Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthToken
+     * @useinstead appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>)
      */
     getOAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Gets an oauth token with the specified authentication type from a particular application account.
+     * Obtains the authorization token of the specified authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @returns { Promise<string> } Returns an oauth token.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthToken]{@link appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @returns { Promise<string> } Promise used to return the authorization token obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthToken
+     * @useinstead appAccount.AppAccountManager.getAuthToken(name: string, owner: string, authType: string)
      */
     getOAuthToken(name: string, owner: string, authType: string): Promise<string>;
 
     /**
-     * Gets an auth token with the specified authentication type from a particular application account.
+     * Obtains the authorization token of the specified authentication type for an application account. This API uses an
+     *  asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<string> } callback - Asynchronous callback interface. Returns an auth token.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<string> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the
+     *     authorization token value obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or authType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1405,14 +1503,16 @@ declare namespace appAccount {
     getAuthToken(name: string, owner: string, authType: string, callback: AsyncCallback<string>): void;
 
     /**
-     * Gets an auth token with the specified authentication type from a particular application account.
+     * Obtains the authorization token of the specified authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @returns { Promise<string> } Returns an auth token.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @returns { Promise<string> } Promise used to return the authorization token obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or authType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1424,48 +1524,59 @@ declare namespace appAccount {
     getAuthToken(name: string, owner: string, authType: string): Promise<string>;
 
     /**
-     * Sets an oauth token with the specified authentication type for a particular account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets an authorization token of the specific authentication type for an application account. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the oauth token.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [setAuthToken]{@link appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAuthToken
+     * @useinstead appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>)
      */
     setOAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets an oauth token with the specified authentication type for a particular account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets an authorization token of the specific authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the oauth token.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [setAuthToken]{@link appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string)}
+     * > instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAuthToken
+     * @useinstead appAccount.AppAccountManager.setAuthToken(name: string, authType: string, token: string)
      */
     setOAuthToken(name: string, authType: string, token: string): Promise<void>;
 
     /**
-     * Sets an auth token with the specified authentication type for a particular account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets an authorization token of the specific authentication type for an application account. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the auth token.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1477,16 +1588,15 @@ declare namespace appAccount {
     setAuthToken(name: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Sets an auth token with the specified authentication type for a particular account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets an authorization token of the specific authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the auth token.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1498,51 +1608,66 @@ declare namespace appAccount {
     setAuthToken(name: string, authType: string, token: string): Promise<void>;
 
     /**
-     * Deletes an oauth token for the specified application account.
-     * <p>
-     * Only tokens visible to the caller application can be deleted.
+     * Deletes the authorization token of the specified authentication type for an application account. This API uses an
+     *  asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the oauth token.
-     * @param { AsyncCallback<void> } callback Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [deleteAuthToken]{@link appAccount.AppAccountManager.deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#deleteAuthToken
+     * @useinstead appAccount.AppAccountManager.deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>)
      */
     deleteOAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes an oauth token for the specified application account.
-     * <p>
-     * Only tokens visible to the caller application can be deleted.
+     * Deletes the authorization token of the specified authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the oauth token.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [deleteAuthToken]{@link appAccount.AppAccountManager.deleteAuthToken(name: string, owner: string, authType: string, token: string)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#deleteAuthToken
+     * @useinstead appAccount.AppAccountManager.deleteAuthToken(name: string, owner: string, authType: string, token: string)
      */
     deleteOAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
 
     /**
-     * Deletes an auth token for the specified application account.
-     * <p>
-     * Only tokens visible to the caller application can be deleted.
+     * Deletes the authorization token of the specified authentication type for an application account. This API uses an
+     *  asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the auth token.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters. If the token
+     *     does not exist, no operation is performed.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1554,17 +1679,18 @@ declare namespace appAccount {
     deleteAuthToken(name: string, owner: string, authType: string, token: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes an auth token for the specified application account.
-     * <p>
-     * Only tokens visible to the caller application can be deleted.
+     * Deletes the authorization token of the specified authentication type for an application account. This API uses a
+     * promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } token - Indicates the auth token.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } token - Authorization token. The value cannot exceed 1024 characters. If the token
+     *     does not exist, no operation is performed.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner, authType or token.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1576,19 +1702,27 @@ declare namespace appAccount {
     deleteAuthToken(name: string, owner: string, authType: string, token: string): Promise<void>;
 
     /**
-     * Sets the oauth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets the visibility of an authorization token to an application. This API uses an asynchronous callback to return
+     *  the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [setAuthTokenVisibility]{@link appAccount.AppAccountManager.setAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isVisible - Whether the authorization token is visible to the application.
+     *     The value **true** means the authorization token is visible to the application;
+     *     the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAuthTokenVisibility
+     * @useinstead appAccount.AppAccountManager.setAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )
      */
     setOAuthTokenVisibility(
       name: string,
@@ -1599,62 +1733,47 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Sets the oauth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets the visibility of an authorization token to an application. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @returns { Promise<void> } The promise returned by the function.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [setAuthTokenVisibility]{@link appAccount.AppAccountManager.setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isVisible - Whether the authorization token is visible to the application. The value **true** means
+     *     the authorization token is visible to the application; the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#setAuthTokenVisibility
+     * @useinstead appAccount.AppAccountManager.setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean)
      */
     setOAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
     /**
-     * Sets the auth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets the visibility of an authorization token to an application. This API uses an asynchronous callback to return
+     *  the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isVisible - Whether the authorization token is visible to the application.
+     *     The value **true** means the authorization token is visible to the application;
+     *     the value **false** means the opposite.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Sets the auth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
-     *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300107 - AuthType not found.
-     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setAuthTokenVisibility(
@@ -1666,62 +1785,48 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Sets the auth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Sets the visibility of an authorization token to an application. This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { boolean } isVisible - Whether the authorization token is visible to the application.
+     *     The value **true** means the authorization token is visible to the application;
+     *     the value **false** means the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
      * @throws { BusinessError } 12300107 - AuthType not found.
-     * @throws { BusinessError } 12400001 - Application not found.
+     * @throws { BusinessError } 12400001 - Application not found. [since 9 - 13]
      * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
      * @syscap SystemCapability.Account.AppAccount
-     * @since 9
-     */
-    /**
-     * Sets the auth token visibility of the specified authentication type to a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
-     *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { boolean } isVisible - Indicates the bool value of visibility.
-     * @returns { Promise<void> } The promise returned by the function.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
-     * @throws { BusinessError } 12300001 - System service exception.
-     * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
-     * @throws { BusinessError } 12300003 - Account not found.
-     * @throws { BusinessError } 12300107 - AuthType not found.
-     * @throws { BusinessError } 12400005 - The size of authorization list reaches the upper limit.
-     * @syscap SystemCapability.Account.AppAccount
-     * @since 14 dynamic
+     * @since 9 dynamic
      * @since 23 static
      */
     setAuthTokenVisibility(name: string, authType: string, bundleName: string, isVisible: boolean): Promise<void>;
 
     /**
-     * Checks the oauth token visibility of the specified authentication type for a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Checks the visibility of an authorization token of the specified authentication type to an application. This API
+     * uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface. Returns the bool value of visibility.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [checkAuthTokenVisibility]{@link appAccount.AppAccountManager.checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null** and **data** can be **true** (the authorization token is visible to the application)
+     *     or **false** (the authorization token is not visible to the application).
+     *     If the operation fails, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#checkAuthTokenVisibility
+     * @useinstead appAccount.AppAccountManager.checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>)
      */
     checkOAuthTokenVisibility(
       name: string,
@@ -1731,32 +1836,40 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Checks the oauth token visibility of the specified authentication type for a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Checks the visibility of an authorization token of the specified authentication type to an application. This API
+     * uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @returns { Promise<boolean> } Returns the bool value of visibility.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [checkAuthTokenVisibility]{@link appAccount.AppAccountManager.checkAuthTokenVisibility(name: string, authType: string, bundleName: string)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means
+     *     the authorization token is visible to the application; the value **false** means the opposite.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#checkAuthTokenVisibility
+     * @useinstead appAccount.AppAccountManager.checkAuthTokenVisibility(name: string, authType: string, bundleName: string)
      */
     checkOAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
 
     /**
-     * Checks the auth token visibility of the specified authentication type for a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Checks the visibility of an authorization token of the specified authentication type to an application. This API
+     * uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null** and **data** can be **true** (the authorization token is visible to the application)
+     *     or **false** (the authorization token is not visible to the application). If the operation fails,
+     *     **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1765,24 +1878,19 @@ declare namespace appAccount {
      * @since 9 dynamic
      * @since 23 static
      */
-    checkAuthTokenVisibility(	
-      name: string,
-      authType: string,
-      bundleName: string,
-      callback: AsyncCallback<boolean>
-    ): void;
+    checkAuthTokenVisibility(name: string, authType: string, bundleName: string, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks the auth token visibility of the specified authentication type for a third-party application.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Checks the visibility of an authorization token of the specified authentication type to an application. This API
+     * uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } bundleName - Indicates the bundle name of the third-party application.
-     * @returns { Promise<boolean> } Returns the bool value of visibility.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } bundleName - Bundle name of the application. The value cannot exceed 512 characters.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the
+     *     authorization token is visible to the application; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, authType or bundleName.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1794,40 +1902,60 @@ declare namespace appAccount {
     checkAuthTokenVisibility(name: string, authType: string, bundleName: string): Promise<boolean>;
 
     /**
-     * Gets all oauth tokens visible to the caller application.
+     * Obtains all tokens visible to the invoker for an application account. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<OAuthTokenInfo>> } callback - Asynchronous callback interface.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAllAuthTokens]{@link appAccount.AppAccountManager.getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<OAuthTokenInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of all tokens visible to
+     *     the invoker. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAllAuthTokens
+     * @useinstead appAccount.AppAccountManager.getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>)
      */
     getAllOAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<OAuthTokenInfo>>): void;
 
     /**
-     * Gets all oauth tokens visible to the caller application.
+     * Obtains all tokens visible to the invoker for an application account. This API uses a promise to return the
+     * result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<Array<OAuthTokenInfo>> } Returns a list of oauth tokens visible to the caller application.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAllAuthTokens]{@link appAccount.AppAccountManager.getAllAuthTokens(name: string, owner: string)} instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<OAuthTokenInfo>> } Promise used to return the tokens obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAllAuthTokens
+     * @useinstead appAccount.AppAccountManager.getAllAuthTokens(name: string, owner: string)
      */
     getAllOAuthTokens(name: string, owner: string): Promise<Array<OAuthTokenInfo>>;
 
     /**
-     * Gets all auth tokens visible to the caller application.
+     * Obtains all tokens visible to the invoker for an application account. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Asynchronous callback interface.
-     *   Returns a list of auth tokens visible to the caller application.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<AuthTokenInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of all tokens visible
+     *     to the invoker. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or owner.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1838,13 +1966,15 @@ declare namespace appAccount {
     getAllAuthTokens(name: string, owner: string, callback: AsyncCallback<Array<AuthTokenInfo>>): void;
 
     /**
-     * Gets all auth tokens visible to the caller application.
+     * Obtains all tokens visible to the invoker for an application account. This API uses a promise to return the
+     * result.
      *
-     * @param { string } name - Indicates the account name of your application or third-party applications.
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<Array<AuthTokenInfo>> } Returns a list of auth tokens visible to the caller application.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<AuthTokenInfo>> } Promise used to return the tokens obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or owner.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1855,47 +1985,63 @@ declare namespace appAccount {
     getAllAuthTokens(name: string, owner: string): Promise<Array<AuthTokenInfo>>;
 
     /**
-     * Gets the open authorization list with a specified authentication type for a particular application account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Obtains the authorization list of the specified authentication type for an application account. The authorization
+     *  list contains all authorized bundles. The token authorization list is set by
+     * [setOAuthTokenVisibility]{@link appAccount.AppAccountManager.setOAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )}
+     * . This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
-     *   Returns the open authorization list of the specified authentication type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthList]{@link appAccount.AppAccountManager.getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>)}
+     * >  instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of authorized
+     *     bundles obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthList
+     * @useinstead appAccount.AppAccountManager.getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>)
      */
     getOAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Gets the open authorization list with a specified authentication type for a particular application account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Obtains the authorization list of the specified authentication type for an application account. The authorization
+     *  list contains all authorized bundles. The token authorization list is set by
+     * [setOAuthTokenVisibility]{@link appAccount.AppAccountManager.setOAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )}
+     * . This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @returns { Promise<Array<string>> } Returns the open authorization list of the specified authentication type.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthList]{@link appAccount.AppAccountManager.getAuthList(name: string, authType: string)} instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<string>> } Promise used to return a list of authorized bundles.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthList
+     * @useinstead appAccount.AppAccountManager.getAuthList(name: string, authType: string)
      */
     getOAuthList(name: string, authType: string): Promise<Array<string>>;
 
     /**
-     * Gets the open authorization list with a specified authentication type for a particular application account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Obtains the authorization list of the specified authentication type for an application account. The authorization
+     *  list contains all authorized bundles. The token authorization list is set by
+     * [setAuthTokenVisibility]{@link appAccount.AppAccountManager.setAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )}
+     * . This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { AsyncCallback<Array<string>> } callback - Asynchronous callback interface.
-     *   Returns the open authorization list of the specified authentication type.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of authorized
+     *     bundles obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or authType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1907,15 +2053,16 @@ declare namespace appAccount {
     getAuthList(name: string, authType: string, callback: AsyncCallback<Array<string>>): void;
 
     /**
-     * Gets the open authorization list with a specified authentication type for a particular application account.
-     * <p>
-     * Only the owner of the application account has the permission to call this method.
+     * Obtains the authorization list of the specified authentication type for an application account. The authorization
+     *  list contains all authorized bundles. The token authorization list is set by
+     * [setAuthTokenVisibility]{@link appAccount.AppAccountManager.setAuthTokenVisibility( name: string, authType: string, bundleName: string, isVisible: boolean, callback: AsyncCallback<void> )}
+     * . This API uses a promise to return the result.
      *
-     * @param { string } name - Indicates the account name of your application.
-     * @param { string } authType - Indicates the authentication type.
-     * @returns { Promise<Array<string>> } Returns the open authorization list of the specified authentication type.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @returns { Promise<Array<string>> } Promise used to return a list of authorized bundles.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or authType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -1927,44 +2074,53 @@ declare namespace appAccount {
     getAuthList(name: string, authType: string): Promise<Array<string>>;
 
     /**
-     * Gets the authenticator callback with the specified session id.
-     * <p>
-     * Only the owner of the authenticator has the permission to call this method.
+     * Obtains the authenticator callback for an authentication session. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthenticatorCallback> } callback - Asynchronous callback interface.
-     *   Returns the authenticator callback related to the session id.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthCallback]{@link appAccount.AppAccountManager.getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>)}
+     * >  instead.
+     *
+     * @param { string } sessionId - ID of the authentication session.
+     * @param { AsyncCallback<AuthenticatorCallback> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the authenticator callback
+     *     obtained. Otherwise, **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthCallback
+     * @useinstead appAccount.AppAccountManager.getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>)
      */
     getAuthenticatorCallback(sessionId: string, callback: AsyncCallback<AuthenticatorCallback>): void;
 
     /**
-     * Gets the authenticator callback with the specified session id.
-     * <p>
-     * Only the owner of the authenticator has the permission to call this method.
+     * Obtains the authenticator callback for an authentication session. This API uses a promise to return the result.
      *
-     * @param { string } sessionId - Indicates the id of a authentication session.
-     * @returns { Promise<AuthenticatorCallback> } Returns the authenticator callback related to the session id.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [getAuthCallback]{@link appAccount.AppAccountManager.getAuthCallback(sessionId: string)} instead.
+     *
+     * @param { string } sessionId - ID of the authentication session.
+     * @returns { Promise<AuthenticatorCallback> } Promise used to return the authenticator callback obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#getAuthCallback
+     * @useinstead appAccount.AppAccountManager.getAuthCallback(sessionId: string)
      */
     getAuthenticatorCallback(sessionId: string): Promise<AuthenticatorCallback>;
 
     /**
-     * Obtains the authenticator callback with the specified session id.
-     * <p>
-     * Only the owner of the authenticator has the permission to call this method.
+     * Obtains the authenticator callback for an authentication session. This API uses an asynchronous callback to
+     * return the result.
      *
-     * @param { string } sessionId - Indicates the id of a authentication session.
-     * @param { AsyncCallback<AuthCallback> } callback - Asynchronous callback interface.
-     *   Returns the authenticator callback related to the session id.
+     * @param { string } sessionId - ID of the authentication session.
+     * @param { AsyncCallback<AuthCallback> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is the authenticator
+     *     callback object obtained. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid sessionId.
      * @throws { BusinessError } 12300108 - Session not found.
@@ -1975,14 +2131,12 @@ declare namespace appAccount {
     getAuthCallback(sessionId: string, callback: AsyncCallback<AuthCallback>): void;
 
     /**
-     * Obtains the authenticator callback with the specified session id.
-     * <p>
-     * Only the owner of the authenticator has the permission to call this method.
+     * Obtains the authenticator callback for an authentication session. This API uses a promise to return the result.
      *
-     * @param { string } sessionId - Indicates the id of a authentication session.
-     * @returns { Promise<AuthCallback> } Returns the authenticator callback related to the session id.
+     * @param { string } sessionId - ID of the authentication session.
+     * @returns { Promise<AuthCallback> } Promise used to return the authenticator callback obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid sessionId.
      * @throws { BusinessError } 12300108 - Session not found.
@@ -1993,38 +2147,56 @@ declare namespace appAccount {
     getAuthCallback(sessionId: string): Promise<AuthCallback>;
 
     /**
-     * Gets the authenticator information of an application account.
+     * Obtains the authenticator information of an application. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
-     *   Returns the authenticator information of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [queryAuthenticatorInfo]{@link appAccount.AppAccountManager.queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>)}
+     * >  instead.
+     *
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **null** and **data** is the authenticator information obtained. Otherwise,
+     *     **err** is an error object.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#queryAuthenticatorInfo
+     * @useinstead appAccount.AppAccountManager.queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>)
      */
     getAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
 
     /**
-     * Gets the authenticator information of an application account.
+     * Obtains the authenticator information of an application. This API uses a promise to return the result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<AuthenticatorInfo> } Returns the authenticator information of the application account.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [queryAuthenticatorInfo]{@link appAccount.AppAccountManager.queryAuthenticatorInfo(owner: string)} instead.
+     *
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<AuthenticatorInfo> } Promise used to return the authenticator information obtained.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.AppAccountManager#queryAuthenticatorInfo
+     * @useinstead appAccount.AppAccountManager.queryAuthenticatorInfo(owner: string)
      */
     getAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
     /**
-     * Queries the authenticator information of an application account.
+     * Obtains the authenticator information of an application. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @param { AsyncCallback<AuthenticatorInfo> } callback - Asynchronous callback interface.
-     *   Returns the authenticator information of the application account.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AsyncCallback<AuthenticatorInfo> } callback - Callback used to return the result. If the operation is
+     *     successful, **err** is **null** and **data** is the authenticator information obtained.
+     *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300113 - Authenticator service not found.
@@ -2035,12 +2207,13 @@ declare namespace appAccount {
     queryAuthenticatorInfo(owner: string, callback: AsyncCallback<AuthenticatorInfo>): void;
 
     /**
-     * Queries the authenticator information of an application account.
+     * Obtains the authenticator information of an application. This API uses a promise to return the result.
      *
-     * @param { string } owner - Indicates the account owner of your application or third-party applications.
-     * @returns { Promise<AuthenticatorInfo> } Returns the authenticator information of the application account.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @returns { Promise<AuthenticatorInfo> } Promise used to return the authenticator information obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300113 - Authenticator service not found.
@@ -2051,14 +2224,19 @@ declare namespace appAccount {
     queryAuthenticatorInfo(owner: string): Promise<AuthenticatorInfo>;
 
     /**
-     * Checks whether a particular account has all specified labels.
+     * Checks whether an application account has specific labels. This API uses an asynchronous callback to return the
+     * result. The labels are checked by the authenticator of the target application.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } owner - Indicates the account owner.
-     * @param { Array<string> } labels - Indicates an array of labels to check.
-     * @param { AsyncCallback<boolean> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { Array<string> } labels - Labels to check.
+     * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** can be **true** or **false**.
+     *     The value **true** means the application account has the labels; the value **false** means the opposite.
+     *     If the operation fails, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or labels.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2072,14 +2250,17 @@ declare namespace appAccount {
     checkAccountLabels(name: string, owner: string, labels: Array<string>, callback: AsyncCallback<boolean>): void;
 
     /**
-     * Checks whether a particular account has all specified labels.
+     * Checks whether an application account has specific labels. This API uses a promise to return the result. The
+     * labels are checked by the authenticator of the target application.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } owner - Indicates the account owner.
-     * @param { Array<string> } labels - Indicates an array of labels to check.
-     * @returns { Promise<boolean> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { Array<string> } labels - Labels to check.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the application
+     *     account has the labels; the value **false** means the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or labels.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2093,13 +2274,15 @@ declare namespace appAccount {
     checkAccountLabels(name: string, owner: string, labels: Array<string>): Promise<boolean>;
 
     /**
-     * Deletes the credential of the specified application account.
+     * Deletes the credential of the specified type from an application account. This API uses an asynchronous callback
+     * to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } credentialType - Indicates the type of the credential to delete.
-     * @param { AsyncCallback<void> } callback - Asynchronous callback interface.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **null**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or credentialType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2111,13 +2294,14 @@ declare namespace appAccount {
     deleteCredential(name: string, credentialType: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Deletes the credential of the specified application account.
+     * Deletes the credential of the specified type from an application account. This API uses a promise to return the
+     * result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } credentialType - Indicates the type of the credential to delete.
-     * @returns { Promise<void> } The promise returned by the function.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } credentialType - Credential type. The custom type, the value cannot exceed 1024 characters.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or credentialType.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2129,12 +2313,16 @@ declare namespace appAccount {
     deleteCredential(name: string, credentialType: string): Promise<void>;
 
     /**
-     * Selects a list of accounts that satisfied with the specified options.
+     * Selects the accounts that can be accessed by the invoker based on the options. This API uses an asynchronous
+     * callback to return the result. If the options contain label constraints, the authenticator of the target
+     * application provides the capability of checking the labels.
      *
-     * @param { SelectAccountsOptions } options - Indicates the options for selecting account.
-     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Asynchronous callback interface.
+     * @param { SelectAccountsOptions } options - Options for selecting accounts.
+     * @param { AsyncCallback<Array<AppAccountInfo>> } callback - Callback used to return the result.
+     *     If the operation is successful, **err** is **null** and **data** is a list of accounts selected.
+     *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid options.
      * @throws { BusinessError } 12300010 - Account service busy.
@@ -2146,12 +2334,14 @@ declare namespace appAccount {
     selectAccountsByOptions(options: SelectAccountsOptions, callback: AsyncCallback<Array<AppAccountInfo>>): void;
 
     /**
-     * Selects a list of accounts that satisfied with the specified options.
+     * Selects the accounts that can be accessed by the invoker based on the options. This API uses a promise to return
+     * the result. If the options contain label constraints, the authenticator of the target application provides the
+     * capability of checking the labels.
      *
-     * @param { SelectAccountsOptions } options - Indicates the options for selecting account.
-     * @returns { Promise<Array<AppAccountInfo>> } Returns a list of accounts.
+     * @param { SelectAccountsOptions } options - Options for selecting accounts.
+     * @returns { Promise<Array<AppAccountInfo>> } Promise used to return the accounts selected.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid options.
      * @throws { BusinessError } 12300010 - Account service busy.
@@ -2163,13 +2353,14 @@ declare namespace appAccount {
     selectAccountsByOptions(options: SelectAccountsOptions): Promise<Array<AppAccountInfo>>;
 
     /**
-     * Verifies the credential to ensure the user is the owner of the specified account.
+     * Verifies the credential of an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } owner - Indicates the account owner.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AuthCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name or owner.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2182,14 +2373,15 @@ declare namespace appAccount {
      */
     verifyCredential(name: string, owner: string, callback: AuthCallback): void;
     /**
-     * Verifies the credential to ensure the user is the owner of the specified account.
+     * Verifies the user credential. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } owner - Indicates the account owner.
-     * @param { VerifyCredentialOptions } options - Indicates the options for verifying credential.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } owner - Owner of the application account. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { VerifyCredentialOptions } options - Options for credential verification.
+     * @param { AuthCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid name, owner or options.
      * @throws { BusinessError } 12300003 - Account not found.
@@ -2203,15 +2395,13 @@ declare namespace appAccount {
     verifyCredential(name: string, owner: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
     /**
-     * Sets properties for the specified account authenticator.
-     * <p>
-     * If the authenticator supports setting its properties,
-     * the caller will normally be redirected to an Ability specified by Want for property setting.
+     * Sets the authenticator attributes of an application. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } owner - Indicates the owner of authenticator.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } owner - Owner of the authenticator. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { AuthCallback } callback - Callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner.
      * @throws { BusinessError } 12300010 - Account service busy.
@@ -2223,16 +2413,14 @@ declare namespace appAccount {
      */
     setAuthenticatorProperties(owner: string, callback: AuthCallback): void;
     /**
-     * Sets properties for the specified account authenticator.
-     * <p>
-     * If the authenticator supports setting its properties,
-     * the caller will normally be redirected to an Ability specified by Want for property setting.
+     * Sets the authenticator properties. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } owner - Indicates the owner of authenticator.
-     * @param { SetPropertiesOptions } options - Indicates the options for setting properties.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } owner - Owner of the authenticator. The value is the Bundle name of the application.
+     *     The value cannot exceed 1024 characters.
+     * @param { SetPropertiesOptions } options - Authenticator properties to set.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameter types.
+     *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - System service exception.
      * @throws { BusinessError } 12300002 - Invalid owner or options.
      * @throws { BusinessError } 12300010 - Account service busy.
@@ -2246,18 +2434,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides basic information of an application account, including the account owner and name.
+   * Defines application account information.
    *
-   * @interface AppAccountInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 7 dynamic
    * @since 23 static
    */
   interface AppAccountInfo {
     /**
-     * The owner an application account.
+     * Owner of the application account. The value is the bundle name of the application.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamic
      * @since 23 static
@@ -2265,9 +2451,8 @@ declare namespace appAccount {
     owner: string;
 
     /**
-     * The name an application account.
+     * Name of the application account.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 7 dynamic
      * @since 23 static
@@ -2276,9 +2461,13 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides basic information of an oauth token, including the authentication type and token value.
+   * Defines authorization token information.
    *
-   * @interface OAuthTokenInfo
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+   * > [AuthTokenInfo]{@link appAccount.AuthTokenInfo} instead.
+   *
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -2286,9 +2475,8 @@ declare namespace appAccount {
    */
   interface OAuthTokenInfo {
     /**
-     * The authentication type.
+     * Authentication type.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2297,9 +2485,8 @@ declare namespace appAccount {
     authType: string;
 
     /**
-     * The token value.
+     * Value of the authorization token.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -2309,18 +2496,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides basic information of an auth token, including the authentication type and token value.
+   * Defines authorization token information.
    *
-   * @interface AuthTokenInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface AuthTokenInfo {
     /**
-     * The authentication type.
+     * Authentication type.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2328,9 +2513,8 @@ declare namespace appAccount {
     authType: string;
 
     /**
-     * The token value.
+     * Value of the authorization token.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2338,9 +2522,8 @@ declare namespace appAccount {
     token: string;
 
     /**
-     * The account to which the token belongs.
+     * Information about the account to which the token belongs. By default, no value is passed in.
      *
-     * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2349,18 +2532,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides basic information of an authenticator, including the authenticator owner, icon id and label id.
+   * Defines OAuth authenticator information.
    *
-   * @interface AuthenticatorInfo
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamic
    * @since 23 static
    */
   interface AuthenticatorInfo {
     /**
-     * The owner of an authenticator.
+     * Owner of the authenticator. The value is the Bundle name of the application.
      *
-     * @type { string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
@@ -2368,9 +2549,8 @@ declare namespace appAccount {
     owner: string;
 
     /**
-     * The icon id of an authenticator.
+     * ID of the authenticator icon.
      *
-     * @type { long }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
@@ -2378,9 +2558,8 @@ declare namespace appAccount {
     iconId: long;
 
     /**
-     * The label id of an authenticator.
+     * ID of the authenticator label.
      *
-     * @type { long }
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
@@ -2389,18 +2568,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the definition of the authentication result.
+   * Defines the authentication result.
    *
-   * @interface AuthResult
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface AuthResult {
     /**
-     * The account information.
+     * Information about the account to which the token belongs. By default, no value is passed in.
      *
-     * @type { ?AppAccountInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2408,9 +2585,8 @@ declare namespace appAccount {
     account?: AppAccountInfo;
 
     /**
-     * The token information.
+     * Token information. By default, no value is passed in.
      *
-     * @type { ?AuthTokenInfo }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2419,19 +2595,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the available options for creating an account.
+   * Defines the options for creating an application account.
    *
-   * @interface CreateAccountOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface CreateAccountOptions {
     /**
-     * The custom data for creating an account,
-     * which can be further modified by function setCustomData.
+     * Custom data. By default, no value is passed in.
      *
-     * @type { ?Record<string, string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2440,18 +2613,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the available options for creating an account implicitly.
+   * Defines the options for implicitly creating an application account.
    *
-   * @interface CreateAccountImplicitlyOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface CreateAccountImplicitlyOptions {
     /**
-     * The required labels for creating an account.
+     * Required labels. By default, no value is passed in.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2459,9 +2630,8 @@ declare namespace appAccount {
     requiredLabels?: Array<string>;
 
     /**
-     * The authentication type.
+     * Authentication type.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2469,24 +2639,16 @@ declare namespace appAccount {
     authType?: string;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
     parameters?: Record<string, Object>;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 23 static
      */
@@ -2494,18 +2656,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the available options for selecting accounts.
+   * Defines the options for selecting accounts.
    *
-   * @interface SelectAccountsOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface SelectAccountsOptions {
     /**
-     * The list of accounts allowed to be selected.
+     * Array of allowed accounts. By default, no value is passed in.
      *
-     * @type { ?Array<AppAccountInfo> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2513,9 +2673,8 @@ declare namespace appAccount {
     allowedAccounts?: Array<AppAccountInfo>;
 
     /**
-     * The list of account owners, whose accounts allowed to be selected.
+     * Array of the owners of the allowed accounts. By default, no value is passed in.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2523,9 +2682,8 @@ declare namespace appAccount {
     allowedOwners?: Array<string>;
 
     /**
-     * The labels required for the selected accounts.
+     * Labels of the authenticator. By default, no value is passed in.
      *
-     * @type { ?Array<string> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2534,18 +2692,16 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the available options for verifying credential.
+   * Represents the options for verifying the user credential.
    *
-   * @interface VerifyCredentialOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface VerifyCredentialOptions {
     /**
-     * The credential type to be verified.
+     * Credential type. The custom type, the value cannot exceed 1024 characters. By default, no value is passed in.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2553,9 +2709,8 @@ declare namespace appAccount {
     credentialType?: string;
 
     /**
-     * The credential to be verified.
+     * Credential value. The custom value, the value cannot exceed 1024 characters. By default, no value is passed in.
      *
-     * @type { ?string }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -2563,24 +2718,16 @@ declare namespace appAccount {
     credential?: string;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
     parameters?: Record<string, Object>;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 23 static
      */
@@ -2588,51 +2735,40 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides the available options for setting properties.
+   * Represents the options for setting authenticator properties.
    *
-   * @interface SetPropertiesOptions
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface SetPropertiesOptions {
     /**
-     * The properties to be set.
+     * Property object. By default, no value is passed in.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
     properties?: Record<string, Object>;
 
     /**
-     * The properties to be set.
+     * Property object. By default, no value is passed in.
      *
-     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 23 static
      */
     properties?: Record<string, RecordData>;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, Object> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
     parameters?: Record<string, Object>;
 
     /**
-     * The authenticator-specific parameters.
-     * The list of reserved parameter name:
-     * 1. Constants.KEY_CALLER_BUNDLE_NAME;
-     * The above parameters are set by the appAccount management service and can be used for identify the caller.
+     * Custom parameter object. By default, no value is passed in.
      *
-     * @type { ?Record<string, RecordData> }
      * @syscap SystemCapability.Account.AppAccount
      * @since 23 static
      */
@@ -2640,365 +2776,379 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides constants definition.
+   * Enumerates the constants.
    *
-   * @enum { string } Constants
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamic
    * @since 23 static
    */
   enum Constants {
     /**
-     * Indicates the action for adding account implicitly.
+     * Operation of adding an account implicitly.
+     *
+     * Note: This API is supported since API version 8 and deprecated since API version 9. Use
+     * **ACTION_CREATE_ACCOUNT_IMPLICITLY** instead.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.Constants#ACTION_CREATE_ACCOUNT_IMPLICITLY
+     * @useinstead appAccount.Constants.ACTION_CREATE_ACCOUNT_IMPLICITLY
      */
     ACTION_ADD_ACCOUNT_IMPLICITLY = 'addAccountImplicitly',
 
     /**
-     * Indicates the action for authenticating.
+     * Authentication operation.
+     *
+     * Note: This API is supported since API version 8 and deprecated since API version 9. Use **ACTION_AUTH** instead.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.Constants#ACTION_AUTH
+     * @useinstead appAccount.Constants.ACTION_AUTH
      */
     ACTION_AUTHENTICATE = 'authenticate',
 
     /**
-     * Indicates the action for creating account implicitly.
+     * Operation of creating an account implicitly.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    ACTION_CREATE_ACCOUNT_IMPLICITLY = 'createAccountImplicitly',
+    ACTION_CREATE_ACCOUNT_IMPLICITLY = "createAccountImplicitly",
 
     /**
-     * Indicates the action for authenticating.
+     * Authentication operation.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    ACTION_AUTH = 'auth',
+    ACTION_AUTH = "auth",
 
     /**
-     * Indicates the action for verifying credential.
+     * Operation of verifying credentials.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    ACTION_VERIFY_CREDENTIAL = 'verifyCredential',
+    ACTION_VERIFY_CREDENTIAL = "verifyCredential",
 
     /**
-     * Indicates the action for set authenticator properties.
+     * Operation of setting authenticator properties.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    ACTION_SET_AUTHENTICATOR_PROPERTIES = 'setAuthenticatorProperties',
+    ACTION_SET_AUTHENTICATOR_PROPERTIES = "setAuthenticatorProperties",
 
     /**
-     * Indicates the key of name.
+     * Name of the application account.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_NAME = 'name',
+    KEY_NAME = "name",
 
     /**
-     * Indicates the key of owner.
+     * Bundle name of the application account owner.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_OWNER = 'owner',
+    KEY_OWNER = "owner",
 
     /**
-     * Indicates the key of token.
+     * Token.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_TOKEN = 'token',
+    KEY_TOKEN = "token",
 
     /**
-     * Indicates the key of action.
+     * Operation.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_ACTION = 'action',
+    KEY_ACTION = "action",
 
     /**
-     * Indicates the key of authentication type.
+     * Authentication type.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_AUTH_TYPE = 'authType',
+    KEY_AUTH_TYPE = "authType",
 
     /**
-     * Indicates the key of session id.
+     * Session ID.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_SESSION_ID = 'sessionId',
+    KEY_SESSION_ID = "sessionId",
 
     /**
-     * Indicates the key of caller pid.
+     * PID of the caller.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_CALLER_PID = 'callerPid',
+    KEY_CALLER_PID = "callerPid",
 
     /**
-     * Indicates the key of caller uid.
+     * UID of the caller.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_CALLER_UID = 'callerUid',
+    KEY_CALLER_UID = "callerUid",
 
     /**
-     * Indicates the key of caller bundle name.
+     * Bundle name of the caller.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamic
      * @since 23 static
      */
-    KEY_CALLER_BUNDLE_NAME = 'callerBundleName',
+    KEY_CALLER_BUNDLE_NAME = "callerBundleName",
 
     /**
-     * Indicates the key of required labels.
+     * Required labels.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_REQUIRED_LABELS = 'requiredLabels',
+    KEY_REQUIRED_LABELS = "requiredLabels",
 
     /**
-     * Indicates the key of boolean result.
+     * Return value of the Boolean type.
      *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
      */
-    KEY_BOOLEAN_RESULT = 'booleanResult'
+    KEY_BOOLEAN_RESULT = "booleanResult"
   }
 
   /**
-   * Provides result code definition.
+   * Enumerates the result codes.
    *
-   * @enum { number } ResultCode
+   * > **NOTE**<br>
+   * > > This API is supported since API version 8 and deprecated since API version 9. For details, see
+   * > [Account Management Error Codes](docroot://reference/apis-basic-services-kit/errorcode-account.md).
+   *
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamiconly
    * @deprecated since 9
    */
   enum ResultCode {
     /**
-    * Indicates the success result.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The operation is successful.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     SUCCESS = 0,
 
     /**
-    * Indicates the account does not exist.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The application account does not exist.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_ACCOUNT_NOT_EXIST = 10001,
 
     /**
-    * Indicates the account service exception.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The **AppAccountManager** service is abnormal.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_APP_ACCOUNT_SERVICE_EXCEPTION = 10002,
 
     /**
-    * Indicates the password is invalid.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The password is invalid.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_INVALID_PASSWORD = 10003,
 
     /**
-    * Indicates the request is invalid.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The request is invalid.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_INVALID_REQUEST = 10004,
 
     /**
-    * Indicates the response is invalid.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The response is invalid.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_INVALID_RESPONSE = 10005,
 
     /**
-    * Indicates the network exception.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The network is abnormal.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_NETWORK_EXCEPTION = 10006,
 
     /**
-    * Indicates the authenticator does not exist.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authenticator does not exist.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_AUTHENTICATOR_NOT_EXIST = 10007,
 
     /**
-    * Indicates the authentication has been canceled.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authentication is canceled.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_CANCELED = 10008,
 
     /**
-    * Indicates the authorization list is too large.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The size of the OAuth list exceeds the limit.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_LIST_TOO_LARGE = 10009,
 
     /**
-    * Indicates the authentication service is busy.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The OAuth service is busy.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_SERVICE_BUSY = 10010,
 
     /**
-    * Indicates the authentication service exception.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The OAuth service is abnormal.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_SERVICE_EXCEPTION = 10011,
 
     /**
-    * Indicates the authentication session does not exist.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The session to be authenticated does not exist.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_SESSION_NOT_EXIST = 10012,
 
     /**
-    * Indicates the authentication timeout.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authentication timed out.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_TIMEOUT = 10013,
 
     /**
-    * Indicates the token does not exist.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authorization token does not exist.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_TOKEN_NOT_EXIST = 10014,
 
     /**
-    * Indicates the number of token is too many.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The number of OAuth tokens reaches the limit.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_TOKEN_TOO_MANY = 10015,
 
     /**
-    * Indicates the action is not supported.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authentication operation is not supported.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_UNSUPPORT_ACTION = 10016,
 
     /**
-    * Indicates the authentication type is not supported.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The authentication type is not supported.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_OAUTH_UNSUPPORT_AUTH_TYPE = 10017,
 
     /**
-    * Indicates the permission is denied.
-    *
-    * @syscap SystemCapability.Account.AppAccount
-    * @since 8 dynamiconly
-    * @deprecated since 9
-    */
+     * The required permission is missing.
+     *
+     * @syscap SystemCapability.Account.AppAccount
+     * @since 8 dynamiconly
+     * @deprecated since 9
+     */
     ERROR_PERMISSION_DENIED = 10018
   }
 
   /**
-   * Provides methods for authenticator callback.
+   * Provides OAuth authenticator callbacks.
    *
-   * @interface AuthenticatorCallback
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+   * > [AuthCallback]{@link appAccount.AuthCallback} instead.
+   *
    * @syscap SystemCapability.Account.AppAccount
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead AppAccount.AuthCallback
+   * @useinstead appAccount.AuthCallback
    */
   interface AuthenticatorCallback {
     /**
-     * Notifies the client of the authentication result.
+     * Called to return the result of an authentication request.
      *
-     * @type { function }
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. Use [onResult](#onresult9) instead.
+     *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3007,9 +3157,12 @@ declare namespace appAccount {
     onResult: (code: number, result: { [key: string]: any }) => void;
 
     /**
-     * Notifies the client that the authentication request need to be redirected.
+     * Called to redirect a request.
      *
-     * @type { function }
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. Use [onRequestRedirected](#onrequestredirected9) instead.
+     *
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
@@ -3019,18 +3172,17 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides methods for authentication callback.
+   * Implements authenticator callbacks.
    *
-   * @interface AuthCallback
    * @syscap SystemCapability.Account.AppAccount
    * @since 9 dynamic
    * @since 23 static
    */
   interface AuthCallback {
     /**
-     * Notifies the client of the authentication result.
      *
-     * @type { function }
+     * Called to return the result of an authentication request.
+     *
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3038,9 +3190,8 @@ declare namespace appAccount {
     onResult: (code: int, result?: AuthResult) => void;
 
     /**
-     * Notifies the client that the authentication request need to be redirected.
+     * Called to redirect a request.
      *
-     * @type { function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3048,9 +3199,8 @@ declare namespace appAccount {
     onRequestRedirected: (request: Want) => void;
 
     /**
-     * Notifies the client that the request is continued.
+     * Called to continue to process the request.
      *
-     * @type { ?function }
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3059,25 +3209,32 @@ declare namespace appAccount {
   }
 
   /**
-   * Provides methods for authenticator.
+   * Provides APIs to operate the authenticator.
    *
    * @syscap SystemCapability.Account.AppAccount
+   * @name Authenticator
    * @since 8 dynamic
    * @since 23 static
-   * @name Authenticator
    */
   class Authenticator {
     /**
-     * Adds an application account of a specified owner implicitly.
+     * Adds an application account implicitly based on the specified authentication type and options. This API uses an
+     * asynchronous callback to return the result.
      *
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } callerBundleName - Indicates the caller bundle name.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthenticatorCallback } callback - Indicates the authenticator callback.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [createAccountImplicitly](docroot://reference/apis-basic-services-kit/js-apis-appAccount.md#createaccountimplicitly9-2)
+     * >  instead.
+     *
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } callerBundleName - Bundle name of the authentication requester.
+     * @param { object } options - Options for the authentication.
+     * @param { AuthenticatorCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.Authenticator#createAccountImplicitly
+     * @useinstead appAccount.Authenticator.createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback)
      */
     addAccountImplicitly(
       authType: string,
@@ -3087,10 +3244,11 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Creates an application account of a specified owner implicitly.
+     * Creates an application account implicitly based on the specified account owner. This API uses an asynchronous
+     * callback to return the result.
      *
-     * @param { CreateAccountImplicitlyOptions } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { CreateAccountImplicitlyOptions } options - Options for implicitly creating the account.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3098,17 +3256,23 @@ declare namespace appAccount {
     createAccountImplicitly(options: CreateAccountImplicitlyOptions, callback: AuthCallback): void;
 
     /**
-     * Authenticates an application account to get an oauth token.
+     * Authenticates an application account to obtain the OAuth token. This API uses an asynchronous callback to return
+     * the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { string } callerBundleName - Indicates the caller bundle name.
-     * @param { object } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthenticatorCallback } callback - Indicates the authenticator callback.
+     * > **NOTE**
+     * >
+     * > This API is supported since API version 8 and deprecated since API version 9. You are advised to use
+     * > [auth](docroot://reference/apis-basic-services-kit/js-apis-appAccount.md#auth9-2) instead.
+     *
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { string } callerBundleName - Bundle name of the authentication requester.
+     * @param { object } options - Options for the authentication.
+     * @param { AuthenticatorCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead appAccount.Authenticator#auth
+     * @useinstead appAccount.Authenticator.auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback)
      */
     authenticate(
       name: string,
@@ -3119,38 +3283,35 @@ declare namespace appAccount {
     ): void;
 
     /**
-     * Authenticates an application account to get an oauth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { Record<string, Object> } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { Record<string, Object> } options - Options for the authentication.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      */
     auth(name: string, authType: string, options: Record<string, Object>, callback: AuthCallback): void;
 
     /**
-     * Authenticates an application account to get an oauth token.
+     * Authenticates an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { string } authType - Indicates the authentication type.
-     * @param { Record<string, RecordData> } options - Indicates the authenticator-specific options for the request.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { string } authType - Authentication type. The custom type, The value cannot exceed 1024 characters.
+     * @param { Record<string, RecordData> } options - Options for the authentication.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 23 static
      */
     auth(name: string, authType: string, options: Record<string, RecordData>, callback: AuthCallback): void;
 
     /**
-     * Verifies the credential to ensure the user is the owner of the specified application account.
-     * <p>
-     * The credential can be provided in the options, otherwise an Ability will normally be returned,
-     * which can be started by the caller to further verify credential.
+     * Verifies the credential of an application account. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the name of the application account.
-     * @param { VerifyCredentialOptions } options - Indicates the options for verifying credential.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { VerifyCredentialOptions } options - Options for credential verification.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3158,10 +3319,10 @@ declare namespace appAccount {
     verifyCredential(name: string, options: VerifyCredentialOptions, callback: AuthCallback): void;
 
     /**
-     * Sets properties for the authenticator.
+     * Sets the authenticator properties. This API uses an asynchronous callback to return the result.
      *
-     * @param { SetPropertiesOptions } options - Indicates the options for setting properties.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { SetPropertiesOptions } options - Authenticator properties to set.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3169,11 +3330,11 @@ declare namespace appAccount {
     setProperties(options: SetPropertiesOptions, callback: AuthCallback): void;
 
     /**
-     * Checks whether a particular account has all specified labels.
+     * Checks the account labels. This API uses an asynchronous callback to return the result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { Array<string> } labels - Indicates an array of labels to check.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { Array<string> } labels - Labels to check.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3181,10 +3342,11 @@ declare namespace appAccount {
     checkAccountLabels(name: string, labels: Array<string>, callback: AuthCallback): void;
 
     /**
-     * Checks whether the specified account can be removed.
+     * Checks whether an application account can be deleted. This API uses an asynchronous callback to return the
+     * result.
      *
-     * @param { string } name - Indicates the account name.
-     * @param { AuthCallback } callback - Indicates the authenticator callback.
+     * @param { string } name - Name of the application account. The value cannot exceed 512 characters.
+     * @param { AuthCallback } callback - Authenticator callback used to return the result.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static
@@ -3192,9 +3354,9 @@ declare namespace appAccount {
     checkAccountRemovable(name: string, callback: AuthCallback): void;
 
     /**
-     * Gets the remote object of the authenticator for remote procedure call.
+     * Obtains the remote object of an authenticator. This API cannot be overloaded.
      *
-     * @returns { rpc.RemoteObject } Returns a remote object.
+     * @returns { rpc.RemoteObject } Remote object of the authenticator, which is used for inter-process communication.
      * @syscap SystemCapability.Account.AppAccount
      * @since 9 dynamic
      * @since 23 static

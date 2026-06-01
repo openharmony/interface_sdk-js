@@ -14,35 +14,34 @@
  */
 
 /**
- * @file
+ * @file External Key Management
  * @kit UniversalKeystoreKit
  */
 
 /**
- * This module provides the interface of external crypto provider.
+ * Provides the functionalities such as registration and deregistration of external key management extension, PIN
+ * authentication, and acquisition of authentication state.
  *
- * @namespace huksExternalCrypto
  * @syscap SystemCapability.Security.Huks.CryptoExtension
  * @since 22
  */
 declare namespace huksExternalCrypto {
   /**
-   * Enumerates the huks external crypto tag data types.
+   * Enumerates the external encrypted data types.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export enum HuksExternalCryptoTagType {
     /**
-     * Number of the int type.
+     * The tag value is an integer.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_TYPE_INT = 1 << 28,
     /**
-     * Uint8Array type.
+     * The tag value is a byte array.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -53,41 +52,41 @@ declare namespace huksExternalCrypto {
   /**
    * Enumerates the tags used to invoke parameters.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export enum HuksExternalCryptoTag {
     /**
-     * PIN code
+     * Tag of the PIN.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_UKEY_PIN = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200001,
     /**
-     * Ability Name
+     * Name of [CryptoExtensionAbility]{@link @ohos.security.CryptoExtensionAbility}.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_ABILITY_NAME = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200002,
     /**
-     * Extra data. The format and content are defined by the provider.
+     * External data, which indicates the return data in the common query scenario.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_EXTRA_DATA = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200003,
     /**
-     * Calling uid.
+     * UID of the caller.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_UID = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200004,
     /**
-     * Purpose of the certificate chain.
+     * Usage type of the key corresponding to the certificate chain. For details, see
+     * [CertificatePurpose]{@link @ohos.security.certManager:certificateManager.CertificatePurpose}.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -120,29 +119,28 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Enumerates the PIN auth states.
+   * Enumerates the Ukey PIN authentication states.
    *
-   * @enum { int }
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export enum HuksExternalPinAuthState {
     /**
-     * UKey PIN is not authenticated.
+     * The Ukey PIN is not authenticated.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_NO_AUTH = 0,
     /**
-     * UKey PIN is authenticated.
+     * The Ukey PIN is authenticated successfully.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED = 1,
     /**
-     * UKey PIN is locked.
+     * The Ukey PIN is locked.
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -151,25 +149,22 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Defines the param field used in the APIs.
+   * Defines the type of the param array used for calling the API.
    *
-   * @typedef HuksExternalCryptoParam
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export interface HuksExternalCryptoParam {
     /**
-     * External crypto tag
+     * Parameter tag, which is used to distinguish parameters.
      *
-     * @type { HuksExternalCryptoTag }
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     tag: HuksExternalCryptoTag;
     /**
-     * Param value
+     * Value of the tag.
      *
-     * @type { boolean | int | bigint | Uint8Array }
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
@@ -177,13 +172,42 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * Register the specific external key provider by providerName.
+   * Defines detailed error information.
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  export interface HuksExternalErrorInfo {
+    /**
+     * The detailed error code.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    errno: number;
+
+    /**
+     * The detailed error description.
+     *
+     * @syscap SystemCapability.Security.Huks.CryptoExtension
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    errorDesc: string;
+  }
+  /**
+   * Registers a specified external Provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.CRYPTO_EXTENSION_REGISTER
-   * @param { string } providerName - providerName indicates the name of the external crypto provider
-   *     and must be globally unique. One effective way is to include manufacturer information.
-   * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } providerName - Provider name, which contains a maximum of 128 characters. It is recommended that
+   *     the value contain the vendor information, be globally unique, and not contain sensitive data such as personal
+   *     contact information.<br>A maximum of 10 providers can be registered.
+   * @param { Array<HuksExternalCryptoParam> } params - Parameters to be passed during the operation. The mandatory tag
+   *     is [HUKS_EXT_CRYPTO_TAG_ABILITY_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType}, indicating the
+   *     ability name. Set this parameter based on the actual service requirements.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - check permission failed.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000002 - the ability name param is missing.
@@ -199,13 +223,21 @@ declare namespace huksExternalCrypto {
   function registerProvider(providerName: string, params: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Unregister the external key provider named by providerName.
+   * Unregisters a specified external Provider. This API uses a promise to return the result.
    *
    * @permission  ohos.permission.CRYPTO_EXTENSION_REGISTER
-   * @param { string } providerName - providerName indicates the name of the external crypto provider
-   *     and must be globally unique. One effective way is to include manufacturer information.
-   * @param { Array<HuksExternalCryptoParam> } [params] - params indicates the properties of the operation.
-   * @returns { Promise<void> } the promise returned by the function.
+   * @param { string } providerName - Provider name, which contains a maximum of 128 characters. It is recommended that
+   *     the value contain the vendor information, be globally unique, and not contain sensitive data such as personal
+   *     contact information. If a provider has registered multiple extension capabilities, all the extension
+   *     capabilities of the provider will be unregistered.
+   * @param { Array<HuksExternalCryptoParam> } [params] - Parameters to be passed during the operation.<br>You can
+   *     specify [HUKS_EXT_CRYPTO_TAG_ABILITY_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType} in the
+   *     **params** parameter to unregister the corresponding **cryptoExtensionAbility** based on the bundle name,
+   *     **providerName**, and **abilityName**.<br>If
+   *     [HUKS_EXT_CRYPTO_TAG_ABILITY_NAME]{@link huksExternalCrypto.HuksExternalCryptoTagType} is not specified in the
+   *     **params** parameter or the **params** parameter is not passed, all providers under the corresponding
+   *     **providerName** are unregistered.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - check permission failed.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
@@ -220,12 +252,17 @@ declare namespace huksExternalCrypto {
   function unregisterProvider(providerName: string, params?: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * PIN auth for the specified UKey resource ID.
+   * Authenticates a Ukey PIN. This API uses a promise to return the result.
    *
-   * @param { string } resourceId - resourceId indicates the resource id of the provider.
-   * @param { Array<HuksExternalCryptoParam> } params - params indicates the properties of the operation.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 202 -  The caller is not a system application
+   * @param { string } resourceId - Resource ID of a container in the Ukey, which can be obtained using
+   *     [certificateManagerDialog.openAuthorizeDialog22+]{@link @ohos.security.certManagerDialog:certificateManagerDialog.openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)}
+   *     . The result contains **resourceId**.
+   * @param { Array<HuksExternalCryptoParam> } params - Parameters to be passed during the operation. The mandatory tag
+   *     is
+   *     [HUKS_EXT_CRYPTO_TAG_UKEY_PIN]{@link @ohos.security.huksExternalCrypto:huksExternalCrypto.HuksExternalCryptoTagType}
+   *     .
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 202 - The caller is not a system application
    *     and is not allowed to use system applications.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
@@ -246,11 +283,16 @@ declare namespace huksExternalCrypto {
   function authUkeyPin(resourceId: string, params: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Get the PIN auth state of the specified UKey resource id.
+   * Obtains the PIN authentication state. This API uses a promise to return the result.
    *
-   * @param { string } resourceId - resourceId indicates the resource id of the provider.
-   * @param { Array<HuksExternalCryptoParam> } [params] - params indicates the properties of the operation.
-   * @returns { Promise<HuksExternalPinAuthState> } the promise returned by the function.
+   * @param { string } resourceId - Resource ID, which can be obtained using
+   *     [certificateManagerDialog.openAuthorizeDialog22+]{@link @ohos.security.certManagerDialog:certificateManagerDialog.openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)}
+   *     . The result contains **resourceId**.
+   * @param { Array<HuksExternalCryptoParam> } [params] - Operation parameters. If a non-system application passes
+   *     [HUKS_EXT_CRYPTO_TAG_UID]{@link huksExternalCrypto.HuksExternalCryptoTagType}, the parameter is invalid.
+   * @returns { Promise<HuksExternalPinAuthState> } Promise used to return the authentication result.
+   *     <br>**HUKS_EXT_CRYPTO_PIN_NO_AUTH**: The PIN authentication fails. **HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED**: The PIN
+   *     authentication is successful. **HUKS_EXT_CRYPTO_PIN_LOCKED**: The PIN is locked.
    * @throws { BusinessError } 801 - api is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - the UKey driver operation failed.
@@ -268,7 +310,7 @@ declare namespace huksExternalCrypto {
   function getUkeyPinAuthState(resourceId: string, params?: Array<HuksExternalCryptoParam>): Promise<HuksExternalPinAuthState>;
 
   /**
-   *  Clear the PIN auth state of the specified resource ID.
+   * Clear the PIN auth state of the specified resource ID.
    *
    * @param { string } resourceId - Indicates the resource ID of the provider.
    * @returns { Promise<void> } The promise returned by the function.
@@ -292,13 +334,27 @@ declare namespace huksExternalCrypto {
   function clearUkeyPinAuthState(resourceId: string): Promise<void>;
 
   /**
-   * The general get operation of the external provider.
+   * Obtains a property value. This API uses a promise to return the result.
    *
-   * @param { string } resourceId - Indicates the resource id of the provider.
-   * @param { string } propertyId - Indicates the id of the property needed to get.
-   *     Currently supports the property method names defined in GMT 0016-2023.
-   * @param { Array<HuksExternalCryptoParam> } [params] - Indicates the input operation parameters.
-   * @returns { Promise<Array<HuksExternalCryptoParam>> } The promise returned by the function.
+   * The **propertyId** indicates the ID of the property to be queried. Currently, only the SKF API names defined in GMT
+   * 0016-2023 can be used as property IDs. The supported IDs are as follows:
+   *
+   * - SKF_EnumDev
+   * - SKF_GetDevInfo
+   * - SKF_EnumApplication
+   * - SKF_EnumContainer
+   *
+   * @param { string } resourceId - Resource ID, which can be obtained using
+   *     [certificateManagerDialog.openAuthorizeDialog22+]{@link @ohos.security.certManagerDialog:certificateManagerDialog.openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)}
+   *     . The result contains **resourceId**.
+   * @param { string } propertyId - Property name for the search operation, which is the SKF API name defined in GMT 001
+   *     6-2023. You need to make adaptation based on the API name.
+   * @param { Array<HuksExternalCryptoParam> } [params] - Parameters to be passed to
+   *     [Extension Ability]{@link @ohos.security.CryptoExtensionAbility}. If a non-system application passes
+   *     [HUKS_EXT_CRYPTO_TAG_UID]{@link huksExternalCrypto.HuksExternalCryptoTagType}, the parameter is invalid.
+   * @returns { Promise<Array<HuksExternalCryptoParam>> } Promise that returns the operation result. If the call is
+   *     successful, an array of the **HuksExternalCryptoParam** type is returned, containing the properties to be
+   *     queried.
    * @throws { BusinessError } 801 - API is not supported.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000006 - If the UKey driver operation failed. Possible causes:
@@ -320,6 +376,39 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   function getProperty(resourceId: string, propertyId: string, params?: Array<HuksExternalCryptoParam>): Promise<Array<HuksExternalCryptoParam>>;
+
+  /**
+   * The set-type operations of the external crypto extension support calling custom interfaces.
+   * However, the custom interface must be registered with the provider.
+   *
+   * @param { string } resourceId - Indicates the resource ID of the provider.
+   * @param { string } propertyId - Indicates the ID of the property needed to set.
+   *     Currently supports part of the method names defined in GMT 0016-2023 and self-defined methods registered.
+   * @param { HuksExternalCryptoParam[] } [params] - Indicates the operation parameters.
+   *     This parameter is optional and contains parameters related to the property ID needed to set.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
+   * @throws { BusinessError } 12000006 - Failed to call the UKey driver interface.
+   *     Please check the UKey connection and driver status.
+   * @throws { BusinessError } 12000011 - The cached resource ID not found.
+   * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
+   *     This may occur if the process function is null, or due to other issues.
+   * @throws { BusinessError } 12000014 - The memory is insufficient.
+   * @throws { BusinessError } 12000018 - The input parameters are invalid. Possible causes:
+   *     1. The resourceId or propertyId length is invalid.
+   *     2. The parameters contain invalid tags or invalid value types.
+   * @throws { BusinessError } 12000020 - The provider operation failed.
+   *     This means an error occurred in the crypto extension before calling the UKey driver interface.
+   * @throws { BusinessError } 12000021 - The UKey PIN is locked.
+   * @throws { BusinessError } 12000023 - The UKey PIN is not authenticated.
+   * @throws { BusinessError } 12000024 - The provider or UKey is busy.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function setProperty(resourceId: string, propertyId: string, params?: HuksExternalCryptoParam[]): Promise<void>;
+
   /**
    * Obtain the resource ID of the provider.
    *
@@ -346,6 +435,7 @@ declare namespace huksExternalCrypto {
    * @since 26.0.0
    */
   function getResourceId(providerName: string, params: HuksExternalCryptoParam[]): Promise<string>;
+
   /**
    * Open resource by specific resource ID.
    * NOTE: The opened resource must be closed using closeResource.
@@ -400,6 +490,17 @@ declare namespace huksExternalCrypto {
    * @since 26.0.0
    */
   function closeResource(resourceId: string, params?: HuksExternalCryptoParam[]): Promise<void>;
+
+  /**
+   * Get the detailed error information.
+   *
+   * @returns { HuksExternalErrorInfo } The returned error information.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getErrorInfo(): HuksExternalErrorInfo;
 }
 
 export default huksExternalCrypto;

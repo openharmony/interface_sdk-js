@@ -399,9 +399,12 @@ declare namespace abilityManager {
    *  asynchronous callback to return the result.
    *
    * @param { int } missionId - Mission ID on the target application. The maximum value is 2<sup>31</sup>-1.
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - Callback used to return the result. If the API call is
+   *     successful, **err** is **undefined** and **data** is the shared data obtained. Otherwise, **err** is an error
+   *     object. You can perform error handling or other custom processing. [since 10 - 10]
    * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the result. If the API call is
    *     successful, **err** is **undefined** and **data** is the shared data obtained. Otherwise, **err** is an error
-   *     object. You can perform error handling or other custom processing.
+   *     object. You can perform error handling or other custom processing. [since 11]
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -435,7 +438,7 @@ declare namespace abilityManager {
    * @param { int } missionId - Mission ID on the target application. The maximum value is 2<sup>31</sup>-1.
    * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
    * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared data. You can
-   *     perform error handling or other custom processing.
+   *     perform error handling or other custom processing. [since 11]
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.

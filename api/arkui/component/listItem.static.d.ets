@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 import { CommonMethod, Bindable } from './common';
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { Length } from './units';
 import { ComponentContent, ComponentContentBase } from '../ComponentContent';
 import { ComponentBuilder } from './builder';
@@ -91,7 +91,7 @@ export declare enum SwipeActionState {
  * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum ListItemSwipeActionDirection {
     /**
@@ -100,7 +100,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     START = 0,
     /**
@@ -109,7 +109,7 @@ export declare enum ListItemSwipeActionDirection {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     END = 1
 }
@@ -119,7 +119,7 @@ export declare enum ListItemSwipeActionDirection {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class ListItemSwipeActionManager {
     /**
@@ -132,7 +132,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
@@ -145,7 +145,7 @@ export declare class ListItemSwipeActionManager {
      * @static
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     static collapse(node: FrameNode): void;
 }
@@ -372,6 +372,16 @@ export declare interface ListItemAttribute extends CommonMethod {
      */
     default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
     /**
+     * Set ListItem options.
+     *
+     * @param { ListItemOptions } [value] - ListItem constructor options
+     * @returns { ListItemAttribute } Returns the instance of the ListItemAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setListItemOptions(value?: ListItemOptions): this;
+    /**
      * Called attributeModifier.
      *
      * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -398,3 +408,76 @@ export declare function ListItem(
     value?: ListItemOptions, 
     content_?: CustomBuilder,
 ): ListItemAttribute
+
+/**
+ * Defines ListItem Component.
+ *
+ * @param { CustomBuilderT<ListItemAttribute> } style_ - The style to create a ListItem.
+ * @param { CustomBuilder } [content_]
+ * @returns { ListItemAttribute } The attribute of the ListItem.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function ListItem(
+    style_: CustomBuilderT<ListItemAttribute>,
+    content_?: CustomBuilder
+): ListItemAttribute;
+
+/**
+ * Defines the Extendable ListItem.
+ *
+ * @implements ListItemAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableListItem implements ListItemAttribute {
+    /**
+     * Constructor of Extendable ListItem.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ListItemOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableListItem>(
+        factory: ConstructorT<T>, 
+        value?: ListItemOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable ListItem.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableListItem>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the ListItem Options.
+     *
+     * @param { ListItemOptions } [value]
+     * @returns { ExtendableListItem }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setListItemOptions(value?: ListItemOptions): this;
+}

@@ -492,11 +492,6 @@ declare namespace selectionManager {
 
   /**
    * 定义触发划词的类型枚举。
-   * | 名称         | 值 | 说明               |
-   * | ------------ | -- | ------------------ |
-   * | MOUSE_MOVE | 1 | 滑动选词类型。 |
-   * | DOUBLE_CLICK   | 2 | 双击选词类型。 |
-   * | TRIPLE_CLICK   | 3 | 三击选词类型。 |
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]

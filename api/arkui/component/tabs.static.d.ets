@@ -22,7 +22,7 @@
 import { BackgroundBlurStyleOptions, BackgroundEffectOptions, BlurStyle, Callback, CommonMethod, TranslateOptions, DividerStyle, Bindable } from './common';
 import { EdgeEffect, PageFlipMode, Curve } from "./enums";
 import { Dimension, Length, ResourceColor } from "./units";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod, ICurve } from "./common";
 import { CommonModifier } from '@ohos.arkui.modifier';
 /**
@@ -501,15 +501,16 @@ export type OnTabsGestureSwipeCallback = (index: int, extraInfo: TabsAnimationEv
 /**
  * Defines a tabs callback when customContentTransition.
  *
- * @typedef { function } TabsCustomContentTransitionCallback
  * @param { int } from - The index value of the current tab when the animation begins.
+ *    <br>There is no transition animation when the set value exceeds the index value or less than 0.
  * @param { int } to - The index value of the target tab when the animation begins.
+ *    <br>There is no transition animation when the set value exceeds the index value or less than 0.
  * @returns { TabContentAnimatedTransition | undefined } Returns animated transition options of tab or undefined.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
-export type TabsCustomContentTransitionCallback = (from: int, to: int) => TabContentAnimatedTransition | undefined;
+export type TabsCustomContentTransitionCallback = (from: int, to: int) => (TabContentAnimatedTransition | undefined);
 /**
  * Defines a tabs callback when onContentWillChange.
  *
@@ -1005,6 +1006,17 @@ export declare interface TabsAttribute extends CommonMethod {
      * @since 23 static
      */
     default onContentDidScroll(handler: OnTabsContentDidScrollCallback | undefined): this;
+
+    /**
+     * Set tabs options.
+     *
+     * @param { TabsOptions } [options] - tabs options
+     * @returns { TabsAttribute } Returns the instance of the TabsAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTabsOptions(options?: TabsOptions): this;
 }
 /**
  * Defines the Tab Content animated transition options.
@@ -1089,3 +1101,20 @@ export declare function Tabs(
     options?: TabsOptions, 
     content_?: CustomBuilder,
 ): TabsAttribute
+
+
+/**
+ * Defines Tabs Component
+ *
+ * @param { CustomBuilderT<TabsAttribute> } style_ - tabs attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { TabsAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function Tabs(
+    style_: CustomBuilderT<TabsAttribute>,
+    content_?: CustomBuilder,
+): TabsAttribute;

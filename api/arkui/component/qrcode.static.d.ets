@@ -21,7 +21,7 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
@@ -74,6 +74,17 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set QRCode options.
+     *
+     * @param { ResourceStr } value - qrcode string.
+     * @returns { QRCodeAttribute } Returns the instance of the QRCodeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setQRCodeOptions(value: ResourceStr): this;
 }
 /**
  * Defines the QRCode component.
@@ -88,4 +99,19 @@ export declare interface QRCodeAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function QRCode(
     value: ResourceStr
+): QRCodeAttribute;
+
+/**
+ * Defines QRCode Component.
+ *
+ * @param { CustomBuilderT<QRCodeAttribute> } style - QRCode attribute instance
+ * @returns { QRCodeAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function QRCode(
+    style: CustomBuilderT<QRCodeAttribute>,
 ): QRCodeAttribute;

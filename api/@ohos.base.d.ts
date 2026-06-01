@@ -19,275 +19,113 @@
  */
 
 /**
- * Defines the basic callback.
- * @typedef Callback
+ * Defines a common callback. You can set **data** to customize the data type of the information returned by the
+ * callback.
+ *
+ * @typedef { Callback } [since 6 - 11]
+ * @typedef { Callback<T> } [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic callback.
- * @typedef Callback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic callback.
- * @typedef Callback<T>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface Callback<T> {
   /**
-   * Defines the callback info.
+   * Common callback information.
+   *
    * @param { T } data
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the callback info.
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (data: T): void;
 }
 
 /**
- * Defines the basic error callback.
- * @typedef ErrorCallback
+ * Defines a common callback that carries an error parameter. The information returned by the callback is of
+ * the [BusinessError]{@link BusinessError} type.
+ *
+ * @typedef ErrorCallback [since 6 - 10]
+ * @typedef ErrorCallback<T extends Error = BusinessError> [since 11]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic error callback.
- * @typedef ErrorCallback<T extends Error = BusinessError>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
-   * Defines the basic error callback.
+   * Common error information about the API invoking failure.
+   *
    * @param { T } err
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the basic error callback.
-   * @param { T } err
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the basic error callback.
-   * @param { T } err
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (err: T): void;
 }
 
 /**
- * Defines the basic async callback.
- * @typedef AsyncCallback
+ * Defines a common callback that carries an error parameter and asynchronous return value.
+ *
+ * @typedef AsyncCallback [since 6 - 11]
+ * @typedef AsyncCallback<T, E = void> [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the basic async callback.
- * @typedef AsyncCallback<T, E = void>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface AsyncCallback<T, E = void> {
   /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
+   * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
+   * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
+   * developer.
+   *
+   * @param { BusinessError<E> } err Common error information about the API invoking failure.
+   * @param { T } data Common callback information.
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the callback data.
-   * @param { BusinessError<E> } err
-   * @param { T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   (err: BusinessError<E>, data: T): void;
 }
 
 /**
- * Defines the error interface.
- * @typedef BusinessError
+ * Defines the error parameter.
+ *
+ * @typedef BusinessError [since 6 - 11]
+ * @typedef BusinessError<T = void> [since 12]
  * @syscap SystemCapability.Base
- * @since 6
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the error interface.
- * @typedef BusinessError
- * @syscap SystemCapability.Base
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the error interface.
- * @extends Error
- * @typedef BusinessError<T = void>
- * @syscap SystemCapability.Base
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @form [since 12]
+ * @atomicservice [since 11]
+ * @since 6 dynamic
  */
 export interface BusinessError<T = void> extends Error {
   /**
-   * Defines the basic error code.
-   * @type { number } code
+   * Common error information about the API invoking failure.
+   *
    * @syscap SystemCapability.Base
-   * @since 6
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the basic error code.
-   * @type { number } code
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 6 dynamic
    */
   code: number;
   /**
-   * Defines the additional information for business
-   * @type { ?T } data
+   * Common callback information. If this parameter is left empty, no related information is returned.
+   *
    * @syscap SystemCapability.Base
-   * @since 9
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Defines the additional information for business
-   * @type { ?T } data
-   * @syscap SystemCapability.Base
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   data?: T;
 }

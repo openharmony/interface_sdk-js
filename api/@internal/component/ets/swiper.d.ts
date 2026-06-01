@@ -739,6 +739,20 @@ declare class DotIndicator extends Indicator<DotIndicator> {
    * @since 19 dynamic
    */
   space(space: LengthMetrics): DotIndicator;
+
+  /**
+   * Set indicator icon.
+   *
+   * @param { Array<IndicatorIconInfo> } iconList - indicator items need to be set icon.
+   * @returns { DotIndicator } return the DotIndicator.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  indicatorIcon(iconList: Array<IndicatorIconInfo>) : DotIndicator;
 }
 
 /**
@@ -1471,6 +1485,44 @@ declare interface AutoPlayOptions {
    * @since 18 dynamic
    */
   stopWhenTouched: boolean;
+}
+
+/**
+ * Set indicator item's icon for specified index.
+ *
+ * @interface IndicatorIconInfo
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface IndicatorIconInfo {
+  /**
+   * specified index.
+   *
+   * @type { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  index: int;
+  /**
+   * Icon that needs to be set.
+   *
+   * @type { ResourceStr | SymbolGlyphModifier }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  icon: ResourceStr | SymbolGlyphModifier;
 }
 
 /**
@@ -2642,6 +2694,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2737,6 +2790,7 @@ declare class SwiperAttribute extends CommonMethod<SwiperAttribute> {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 26.0.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -2750,6 +2804,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2762,6 +2817,7 @@ declare interface SwiperContentAnimatedTransition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2775,6 +2831,7 @@ declare interface SwiperContentAnimatedTransition {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 26.0.0]
  * @atomicservice
  * @since 12 dynamic
  */
@@ -2786,6 +2843,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2798,6 +2856,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2810,6 +2869,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2822,6 +2882,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */
@@ -2833,6 +2894,7 @@ declare interface SwiperContentTransitionProxy {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    */

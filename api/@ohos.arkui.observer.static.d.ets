@@ -431,7 +431,7 @@ declare namespace uiObserver {
          * @type { ?Axis }
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
-         * @since 24 static
+         * @since 26.0.0 static
          */
         axis?: Axis;
     }
@@ -727,6 +727,7 @@ declare namespace uiObserver {
      * @interface WindowSizeLayoutBreakpointInfo
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @since 24 static
      */
     export interface WindowSizeLayoutBreakpointInfo { 
@@ -739,6 +740,7 @@ declare namespace uiObserver {
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
+         * @crossplatform [since 26.0.0]
          * @since 24 static
          */
         readonly widthBreakpoint: WidthBreakpoint;
@@ -751,6 +753,7 @@ declare namespace uiObserver {
          * @readonly
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
+         * @crossplatform [since 26.0.0]
          * @since 24 static
          */
         readonly heightBreakpoint: HeightBreakpoint;

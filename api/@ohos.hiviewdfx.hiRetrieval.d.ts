@@ -37,7 +37,8 @@ declare namespace hiRetrieval {
    */
   interface HiRetrievalConfig {
     /**
-     * Custom user type set by developers.
+     * Custom user type set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -47,7 +48,8 @@ declare namespace hiRetrieval {
     userType: string;
 
     /**
-     * Custom device type set by developers.
+     * Custom device type set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -57,7 +59,8 @@ declare namespace hiRetrieval {
     deviceType: string;
 
     /**
-     * Custom device model set by developers.
+     * Custom device model set by developers. No restrictions on format or character types,
+     * maximum length is 128 characters and excess characters will be truncated.
      *
      * @syscap SystemCapability.HiviewDFX.HiRetrieval
      * @FaAndStageModel
@@ -92,6 +95,7 @@ declare namespace hiRetrieval {
 
   /**
    * Quit the HiRetrieval project. This operation clears the current HiRetrieval config.
+   * Invoking init function again is required after invoking quit function.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -126,7 +130,7 @@ declare namespace hiRetrieval {
   function getLastParticipationTimestamp(): long;
 
   /**
-   * Trigger the HiRetrieval functionality, make is start working.
+   * Trigger the HiRetrieval functionality, make it start working.
    *
    * @throws { BusinessError } 36000001 - Initialization error.
    *                                      Possibly caused by invoking this function before invoking init function.
@@ -140,7 +144,8 @@ declare namespace hiRetrieval {
   /**
    * Query the current HiRetrieval config.
    *
-   * @returns { HiRetrievalConfig } Returns the current HiRetrieval config.
+   * @returns { HiRetrievalConfig } Returns the current HiRetrieval config, an empty HiRetrievalConfig will be returned
+   *     if the result of invoking isParticipant function is false.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice

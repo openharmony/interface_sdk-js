@@ -22,7 +22,7 @@
 import { Resource } from '../../global/resource';
 import { Length, ResourceColor, Dimension } from './units';
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Sets the sidebar style of showing
@@ -341,6 +341,20 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   default minContentWidth(value: Dimension | undefined): this;
 
   /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   * 
+   * @param { boolean | undefined } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *    <br>Default value: **false**.
+   *    **true**: Sidebar can be presented or dismissed by gesture.
+   *    **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default showSideBarWithGesture(value: boolean | undefined): this;
+
+  /**
    * Set the attribute modifier of sidebar.
    *
    * @param { AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -351,6 +365,18 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Set sidebar container options.
+   *
+   * @param { SideBarContainerType } [type] - Sidebar container type options
+   *    <br>Default value:SideBarContainerType.Embed
+   * @returns { SideBarContainerAttribute } Returns the instance of the SideBarContainerAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setSideBarContainerOptions(type?: SideBarContainerType): this;
 }
 
 /**
@@ -368,3 +394,19 @@ export declare function SideBarContainer(
   type?: SideBarContainerType,
   content_?: CustomBuilder
 ): SideBarContainerAttribute
+
+/**
+ * Defines sidebar Component
+ *
+ * @param { CustomBuilderT<SideBarContainerAttribute> } style_ - sidebar attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { SideBarContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function SideBarContainer(
+  style_: CustomBuilderT<SideBarContainerAttribute>,
+  content_?: CustomBuilder,
+): SideBarContainerAttribute;

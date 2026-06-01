@@ -23,6 +23,7 @@
  *
  * @typedef { import('../api/@ohos.window').default.Orientation } Orientation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 19 dynamic
@@ -208,6 +209,7 @@ declare interface NavDestinationCustomTitle {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -217,6 +219,7 @@ declare enum NavigationSystemTransitionType {
    * Default system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -226,6 +229,7 @@ declare enum NavigationSystemTransitionType {
    * No system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -235,6 +239,7 @@ declare enum NavigationSystemTransitionType {
    * System transition animation of the title bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -244,6 +249,7 @@ declare enum NavigationSystemTransitionType {
    * System transition animation of the content area.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -253,6 +259,7 @@ declare enum NavigationSystemTransitionType {
    * Fade-type system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -262,6 +269,7 @@ declare enum NavigationSystemTransitionType {
    * Center-scale type system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -271,6 +279,7 @@ declare enum NavigationSystemTransitionType {
    * Right-slide type system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -280,6 +289,7 @@ declare enum NavigationSystemTransitionType {
    * Bottom-slide type system transition animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -292,6 +302,7 @@ declare enum NavigationSystemTransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @since 11
  */
@@ -300,6 +311,7 @@ declare enum NavigationSystemTransitionType {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -309,6 +321,7 @@ declare enum NavDestinationMode {
    * Standard mode is default mode of NavDestination.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -316,6 +329,7 @@ declare enum NavDestinationMode {
    * Standard mode is default mode of NavDestination.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -327,6 +341,7 @@ declare enum NavDestinationMode {
    * destination from the navigation stack does not affect the lifecycle of the lower-layer navigation destinations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -335,6 +350,7 @@ declare enum NavDestinationMode {
    * destination from the navigation stack does not affect the lifecycle of the lower-layer navigation destinations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -347,6 +363,7 @@ declare enum NavDestinationMode {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 17 dynamic
@@ -356,6 +373,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes through page navigation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -366,6 +384,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes due to the opening or closing of a modal page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -376,6 +395,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes due to the opening or closing of a sheet.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -386,6 +406,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes due to the opening or closing of a custom dialog.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -396,6 +417,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes due to the opening or closing of an overlay using **OverlayManager**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -406,6 +428,7 @@ declare enum NavDestinationActiveReason {
    * The activation state changes due to switching between foreground and background states of the application.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -418,6 +441,7 @@ declare enum NavDestinationActiveReason {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 21 dynamic
@@ -427,6 +451,7 @@ declare enum VisibilityChangeReason {
    * The visibility lifecycle changes through page navigation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -437,6 +462,7 @@ declare enum VisibilityChangeReason {
    * The visibility lifecycle changes through bindContentCover.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -447,6 +473,7 @@ declare enum VisibilityChangeReason {
    * The visibility lifecycle changes through the states of application (foreground or background).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -511,6 +538,7 @@ declare interface NavDestinationInterface {
  *
  * @interface RouteMapConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
@@ -521,6 +549,7 @@ declare interface RouteMapConfig {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -532,6 +561,7 @@ declare interface RouteMapConfig {
    *
    * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -543,6 +573,7 @@ declare interface RouteMapConfig {
    *
    * @type { Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -555,6 +586,7 @@ declare interface RouteMapConfig {
  *
  * @interface NavDestinationContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
@@ -565,6 +597,7 @@ declare interface NavDestinationContext {
    *
    * @type { NavPathInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -576,6 +609,7 @@ declare interface NavDestinationContext {
    *
    * @type { NavPathStack }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -588,6 +622,7 @@ declare interface NavDestinationContext {
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -599,6 +634,7 @@ declare interface NavDestinationContext {
    *
    * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
@@ -612,6 +648,7 @@ declare interface NavDestinationContext {
    * **undefined**, returned when the page is not configured through the route table.
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -624,6 +661,7 @@ declare interface NavDestinationContext {
  *
  * @interface NestedScrollInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 14 dynamic
@@ -634,6 +672,7 @@ declare interface NestedScrollInfo {
    *
    * @type { Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -646,6 +685,7 @@ declare interface NestedScrollInfo {
    *
    * @type { Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -658,6 +698,7 @@ declare interface NestedScrollInfo {
 *
 * @interface NavDestinationTransition
 * @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
 * @crossplatform
 * @atomicservice
 * @since 15 dynamic
@@ -668,6 +709,7 @@ declare interface NavDestinationTransition {
    *
    * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -680,6 +722,7 @@ declare interface NavDestinationTransition {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -692,6 +735,7 @@ declare interface NavDestinationTransition {
    *
    * @type { ?Curve }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -704,6 +748,7 @@ declare interface NavDestinationTransition {
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -717,6 +762,7 @@ declare interface NavDestinationTransition {
    *
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -850,6 +896,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * <br>**false**: Do not animate the visibility change.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -862,6 +909,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Optional<boolean> } hide
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -874,6 +922,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the navDestination page is displayed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -883,6 +932,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the navDestination page is displayed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -893,6 +943,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<VisibilityChangeReason> } callback - Indicates callback when the navDestination page is displayed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -905,6 +956,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the navDestination is hidden.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -914,6 +966,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the navDestination is hidden.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11
@@ -924,6 +977,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<VisibilityChangeReason> } callback - Indicates callback when the navDestination is hidden.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
@@ -937,6 +991,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the backButton is pressed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10
    */
@@ -947,6 +1002,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { function } callback - Indicates callback when the backButton is pressed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -959,6 +1015,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param {Optional<Callback<ESObject>>} callback - Indicates callback when pop to the navDestination with result.
    * @returns {NavDestinationAttribute}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -972,6 +1029,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * <br>Default value: **NavDestinationMode.STANDARD**.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -981,6 +1039,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { NavDestinationMode } value - NavDestinationMode
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -993,6 +1052,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { ResourceStr | PixelMap } value - Icon of the back button in the title bar.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 11
    */
@@ -1008,6 +1068,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { ResourceStr | PixelMap | SymbolGlyphModifier } value - Icon of the back button in the title bar.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1028,6 +1089,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * <br>Default value: **back** when the system language is English.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1049,6 +1111,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Array<NavigationMenuItem> | CustomBuilder } value - Menu items in the upper right corner of the NavDestination.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1062,6 +1125,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1089,6 +1153,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
     * @param { NavigationToolbarOptions } [options] - Indicates the options of toolbar.
     * @returns { NavDestinationAttribute }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
     * @crossplatform
     * @atomicservice
     * @since 13 dynamic
@@ -1108,6 +1173,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * **false**: Do not animate the visibility change.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 13 dynamic
@@ -1121,6 +1187,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * - Indicates callback that invoked before sub-components of NavDestination are created.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1134,6 +1201,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<void> } callback - Indicates callback before the navDestination is appeared.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1147,6 +1215,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<void> } callback - Indicates callback before the navDestination is disappeared.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1159,6 +1228,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<void> } callback - Indicates callback before the navDestination is displayed.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1171,6 +1241,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Callback<void> } callback - Indicates callback before the navDestination is hidden.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1186,6 +1257,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Default value:<br>[LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM].
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1204,6 +1276,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Optional<SystemBarStyle> } style - Style of the system status bar.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
@@ -1227,6 +1300,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * **false**: The **NavDestination** component is not recoverable.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 14 dynamic
    */
   recoverable(recoverable: Optional<boolean>): NavDestinationAttribute;
@@ -1239,6 +1313,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * Default value: **NavigationSystemTransitionType.DEFAULT**.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1266,6 +1341,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Array<Scroller> } scrollers - Controller of the target scrollable container.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1294,6 +1370,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
 
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 14 dynamic
@@ -1308,6 +1385,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * switches from inactive to active.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -1322,6 +1400,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * switches from active to inactive.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 17 dynamic
@@ -1338,6 +1417,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * the **NavDestination** component.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
@@ -1355,6 +1435,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * being the data passed to the target page during navigation.
    * @returns { NavDestinationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1378,6 +1459,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @param { Optional<Orientation> } orientation - Display orientation to set.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1405,6 +1487,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * <br>**false**: Hide/show the system status bar without animation.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1428,6 +1511,7 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * when entering the current **NavDestination** component.
    * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
@@ -1454,6 +1538,39 @@ declare class NavDestinationAttribute extends CommonMethod<NavDestinationAttribu
    * @since 26.0.0 dynamic
    */
   fullScreenOverlay(fullScreenOverlay: Optional<boolean>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state save callback.
+   * 
+   * Triggered when page becomes hidden. Save custom page state for potential restoration.
+   * The initial param used to create the page is preserved by Navigation separately.
+   * State object must be serializable.
+   *
+   * @param { Optional<SaveStateCallback> } callback - Custom state save callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onSaveState(callback: Optional<SaveStateCallback>): NavDestinationAttribute;
+
+  /**
+   * Sets custom page state restore callback.
+   * 
+   * Triggered when page is reconstructed. The custom state saved by onSaveState is passed to this callback.
+   * Null is passed if no custom state was saved.
+   *
+   * @param { Optional<RestoreStateCallback> } callback - Custom state restore callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onRestoreState(callback: Optional<RestoreStateCallback>): NavDestinationAttribute;
 }
 
 /**
@@ -1513,9 +1630,34 @@ declare const NavDestinationInstance: NavDestinationAttribute;
  * @returns { Array<NavDestinationTransition> | undefined } Array of custom animations for the **NavDestination** page.
  * <br>If **undefined** is returned, the default system animation is used.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 15 dynamic
  */
 declare type NavDestinationTransitionDelegate =
   (operation: NavigationOperation, isEnter: boolean) => Array<NavDestinationTransition> | undefined;
+
+/**
+ * Custom page state save callback.
+ * 
+ * @returns { Record<string, Object> | null } Custom page state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type SaveStateCallback = () => Record<string, Object> | null;
+
+/**
+ * Custom page state restore callback.
+ * 
+ * @param { Record<string, Object> | null } savedState - Custom page state saved by onSaveState.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare type RestoreStateCallback = (savedState: Record<string, Object> | null) => void;

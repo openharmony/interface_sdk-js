@@ -136,6 +136,24 @@ declare namespace applicationManager {
   }
 
   /**
+   * The type of distribute ability
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum ServiceType {
+    /**
+     * Collaboration service.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    COLLABORATION_SERVICE = 0
+  }
+
+  /**
    * The application information in the Dock.
    *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1618,7 +1636,6 @@ declare namespace applicationManager {
    * @returns { Array<string> } the bundle name list of the applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -1628,6 +1645,69 @@ declare namespace applicationManager {
    * @since 26.0.0
    */
   function getHideLauncherIcon(admin: Want | null): Array<string>;
+
+  /**
+   * Adds the applications that are allowed to distribute ability connection.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the list of application appIdentifiers.
+   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *     <br>The value must be an integer greater than or equal to 0.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9201043 - Prerequisites for the API call have not been satisfied. For example,
+   *     distributed outgoing transmission is not disallowed before adding the distributed bidirectional collaboration
+   *     trustlist.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function addAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
+
+  /**
+   * Removes the applications that are allowed to distribute ability connection.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { Array<string> } appIdentifiers - appIdentifiers indicates the list of application appIdentifiers.
+   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *     <br>The value must be an integer greater than or equal to 0.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function removeAllowedDistributeAbilityConnBundles(admin: Want, appIdentifiers: Array<string>, serviceType: ServiceType, accountId: number): void;
+
+  /**
+   * Gets the applications that are allowed to distribute ability connection.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_APPLICATION
+   * @param { Want | null } admin - admin indicates the enterprise admin extension ability information.
+   * @param { ServiceType } serviceType - serviceType indicates the type of distribute ability.
+   * @param { number } accountId - accountId indicates the ID of OS account.
+   *     <br>Value range:[0, +∞)
+   * @returns { Array<string> } returns the list of application appIdentifiers.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getAllowedDistributeAbilityConnBundles(admin: Want | null, serviceType: ServiceType, accountId: number): Array<string>;
 
   /**
    * Gets the window states of the application.

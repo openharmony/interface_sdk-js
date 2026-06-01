@@ -98,11 +98,22 @@ export { RenderConfiguration } from './graphics3d/Scene';
 /**
  * Export BoidsSim
  * @syscap SystemCapability.ArkUi.Graphics3D
- * @since 26
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
  */
 export {
     BoidsSimPlugin, BoidsSimWorld, BoidsSimParameters, BoidsSimGravityParameters,
     BoidsSimRepulsionParameters } from './graphics3d/SceneBoidsSim';
+
+/**
+ * Export SceneLoadParams
+ * @syscap SystemCapability.ArkUi.Graphics3D
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export { SceneLoadParams } from './graphics3d/Scene';
 
 /**
  * Export scene types

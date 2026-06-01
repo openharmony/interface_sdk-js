@@ -40,93 +40,93 @@ declare namespace fileIo {
    */
   namespace OpenMode {
     /**
-     * Read only Permission.
+     * Read only Permission. The value is 0o0.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const READ_ONLY = 0o0;
+    const READ_ONLY: int;
     /**
-     * Write only Permission.
+     * Write only Permission. The value is 0o1.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const WRITE_ONLY = 0o1;
+    const WRITE_ONLY: int;
     /**
-     * Write and Read Permission.
+     * Write and Read Permission. The value is 0o2.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const READ_WRITE = 0o2;
+    const READ_WRITE: int;
     /**
-     * If not exist, create file.
+     * If not exist, create file. The value is 0o100.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const CREATE = 0o100;
+    const CREATE: int;
     /**
-     * File truncate len 0.
+     * File truncate len 0. The value is 0o1000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const TRUNC = 0o1000;
+    const TRUNC: int;
     /**
-     * File append write.
+     * File append write. The value is 0o2000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const APPEND = 0o2000;
+    const APPEND: int;
     /**
-     * File open in nonblocking mode.
+     * File open in nonblocking mode. The value is 0o4000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const NONBLOCK = 0o4000;
+    const NONBLOCK: int;
     /**
-     * File is Dir.
+     * File is Dir. The value is 0o200000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const DIR = 0o200000;
+    const DIR: int;
     /**
-     * File is not symbolic link.
+     * File is not symbolic link. The value is 0o400000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const NOFOLLOW = 0o400000;
+    const NOFOLLOW: int;
     /**
-     * SYNC IO.
+     * SYNC IO. The value is 0o4010000.
      *
-     * @constant
      * @syscap SystemCapability.FileManagement.File.FileIO
+     * @stagemodelonly
      * @since 23 static
      */
-    const SYNC = 0o4010000;
+    const SYNC: int;
     /**
-     * UNCACHE IO.
+     * UNCACHE IO. The value is 0o10000000000.
      *
      * @syscap SystemCapability.FileManagement.File.FileIO
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    const UNCACHE = 0o10000000000;
+    const UNCACHE: int;
   }
 
 /**
@@ -2357,7 +2357,7 @@ function moveFileSync(src: string, dest: string, mode?: int): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @returns { Promise<File> } Promise used to return the File object.
  * @throws { BusinessError } 13900001 - Operation not permitted
@@ -2449,7 +2449,7 @@ function open(path: string, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @param { AsyncCallback<File> } callback - The callback is used to return the File object to record
  *     <br>the file descriptor.
@@ -2503,7 +2503,7 @@ function open(path: string, mode: int, callback: AsyncCallback<File>): void;
  *     <br>The write permission is not allowed.
  *     <br>OpenMode.NOFOLLOW(0o400000): If path points to a symbolic link, throw an exception.
  *     <br>OpenMode.SYNC(0o4010000): Open the file in synchronous I/O mode.
- *     <br>OpenMode.UNCACHE(0o10000000000):Open the file in uncache I/O mode,
+ *     <br>OpenMode.UNCACHE(0o10000000000): Open the file in uncache I/O mode,
  *     <br>This option is supported starting from API version 26.0.0.
  * @returns { File } Returns the File object to record the file descriptor.
  * @throws { BusinessError } 13900001 - Operation not permitted

@@ -2698,6 +2698,7 @@ export class UIObserver {
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -2713,6 +2714,7 @@ export class UIObserver {
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 22 dynamic
    */
@@ -5555,9 +5557,26 @@ export class UIContext {
 
   /**
    * Sets the avoidance mode for the virtual keyboard.
-   * Default mode: **KeyboardAvoidMode.OFFSET**.
    *
-   * @param { KeyboardAvoidMode } value - The mode of keyboard avoid.
+   * >  **NOTE**
+   * >
+   * >  With **KeyboardAvoidMode.RESIZE**, the page is resized to prevent the virtual keyboard from obstructing the
+   * >  view. Regarding components on the page, those whose width and height are set in percentage are resized with the
+   * >  page, and those whose width and height are set to specific values are laid out according to their settings.
+   * >  With **KeyboardAvoidMode.RESIZE**, **expandSafeArea([SafeAreaType.KEYBOARD],[SafeAreaEdge.BOTTOM])** does not
+   * >  take effect.
+   * >
+   * >  With **KeyboardAvoidMode.NONE**, keyboard avoidance is disabled, and the page will be covered by the displayed
+   * >  keyboard.
+   * >
+   * >  **setKeyboardAvoidMode** only affects page layouts. It does not apply to popup components, including the
+   * > following: **Dialog**, **Popup**, **Menu**, **BindSheet**, **BindContentCover**, **Toast**, **OverlayManager**.
+   * > For details about the avoidance mode of popup components, see
+   * > [CustomDialogControllerOptions](docroot://reference/arkui-ts/ts-methods-custom-dialog-box.md).
+   *
+   * @param { KeyboardAvoidMode } value - Avoidance mode of the virtual keyboard.<br>Default value:
+   *     **KeyboardAvoidMode.OFFSET**, which means that the page moves up when the keyboard is displayed.<br>When
+   *     **setKeyboardAvoidMode** is set to an invalid value, this attribute does not take effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5568,7 +5587,8 @@ export class UIContext {
 
   /**
    * Obtains the avoidance mode of the virtual keyboard.
-   * @returns { KeyboardAvoidMode } The mode of keyboard avoid.
+   *
+   * @returns { KeyboardAvoidMode } Avoidance mode of the virtual keyboard.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5578,9 +5598,11 @@ export class UIContext {
   getKeyboardAvoidMode(): KeyboardAvoidMode;
 
   /**
-   * Set the pixel round mode of the system. The default mode is PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH.
+   * Sets the pixel rounding mode for this page.
    *
-   * @param { PixelRoundMode } mode - The mode of pixel round.
+   * @param { PixelRoundMode } mode - Pixel rounding mode.
+   *     Default value:**PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH**.<br>If this parameter is set to an invalid value,
+   *     the default value will be used.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5590,9 +5612,9 @@ export class UIContext {
   setPixelRoundMode(mode: PixelRoundMode): void;
 
   /**
-   * Get the pixel round mode of the system.
+   * Obtains the pixel rounding mode for this page.
    *
-   * @returns { PixelRoundMode } the mode of pixel round.
+   * @returns { PixelRoundMode } Pixel rounding mode of the current page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5833,53 +5855,49 @@ export class UIContext {
 
   /**
    * Registers a local input event monitor.
-   *
    * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   * > **NOTE**
+   * > Performance Warning: Do not perform time-consuming operations in the callback!
+   * > Monitor Object Notes:
+   * > - The returned Monitor object is a unique identifier created by the system.
+   * > - Developers cannot actively construct or forge this object.
+   * > - Must save the returned monitor object reference for subsequent cancellation.
+   * > - It is recommended to use a variable to save it to avoid losing the reference.
+   * > Usage Examples:
+   * > ```typescript
+   * > // Monitor a single event type
+   * > const monitor1 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent();
+   * > console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   * > return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   * > }
+   * > return { action: InputEventInterceptAction.BLOCK };  // Block event
+   * > }
+   * > );
+   * > // Monitor multiple event types (using bitwise operations)
+   * > const monitor2 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent()!;
+   * > console.log(`Mouse button: ${mouseEvent.button}`);
+   * > return { action: InputEventInterceptAction.BLOCK };
+   * > }
+   * > return { action: InputEventInterceptAction.CONTINUE };
+   * > }
+   * > );
+   * > // When unregistering the monitor, use the returned Monitor object
+   * > uiContext.removeLocalInputEventMonitor(monitor1);
+   * > uiContext.removeLocalInputEventMonitor(monitor2);
+   * > ```.
    *
-   * Performance Warning: Do not perform time-consuming operations in the callback!
-   *
-   * Monitor Object Notes:
-   * - The returned Monitor object is a unique identifier created by the system.
-   * - Developers cannot actively construct or forge this object.
-   * - Must save the returned monitor object reference for subsequent cancellation.
-   * - It is recommended to use a variable to save it to avoid losing the reference.
-   *
-   * Usage Examples:
-   * ```typescript
-   * // Monitor a single event type
-   * const monitor1 = uiContext.addLocalInputEventMonitor(
-   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN,
-   *   (wrapper: RawInputEventWrapper) => {
-   *     if (wrapper.isMouseEvent()) {
-   *       const mouseEvent = wrapper.asMouseEvent();
-   *       console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
-   *       return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
-   *     }
-   *     return { action: InputEventInterceptAction.BLOCK };  // Block event
-   *   }
-   * );
-   *
-   * // Monitor multiple event types (using bitwise operations)
-   * const monitor2 = uiContext.addLocalInputEventMonitor(
-   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
-   *   (wrapper: RawInputEventWrapper) => {
-   *     if (wrapper.isMouseEvent()) {
-   *       const mouseEvent = wrapper.asMouseEvent()!;
-   *       console.log(`Mouse button: ${mouseEvent.button}`);
-   *       return { action: InputEventInterceptAction.BLOCK };
-   *     }
-   *     return { action: InputEventInterceptAction.CONTINUE };
-   *   }
-   * );
-   *
-   * // When unregistering the monitor, use the returned Monitor object
-   * uiContext.removeLocalInputEventMonitor(monitor1);
-   * uiContext.removeLocalInputEventMonitor(monitor2);
-   * ```
-   *
-   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
    *     bitwise operations.
+   *     The value should be an integer.
    * @param { InputEventListener } listener - Event listener callback function.
    * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
    *     cancellation of registration.
@@ -5889,7 +5907,7 @@ export class UIContext {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
 
   /**
    * Removes a local input event monitor.
