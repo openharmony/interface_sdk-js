@@ -303,4 +303,14 @@ export interface SubCommandInfo {
    * @since 26.0.0 dynamiconly
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
+
+  /**
+   * Schemas about event for subcommand.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly eventSchemas?: Record<string, Record<string, RecordData>>;
 }

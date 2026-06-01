@@ -20,6 +20,9 @@
 import { ToolInfo, ToolSummary } from './application/ToolInfo';
 import { ToolEventCallback } from './application/ToolEventCallback';
 
+/*** if arkts static */
+import { RecordData } from './@ohos.base';
+/*** endif */
 
 /**
  * The module provides the capability to interact with cli tools in the system.
