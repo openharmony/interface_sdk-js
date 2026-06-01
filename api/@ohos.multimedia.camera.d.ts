@@ -12413,6 +12413,34 @@ declare namespace camera {
      * @since 23 dynamic&static
      */
     enableBandwidthCompression(enabled: boolean): void;
+
+    /**
+     * Checks whether log video view assistance is supported.
+     *
+     * @returns { boolean } Check result for the support of log video view assistance. **true** if supported,
+     *     **false** otherwise.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isLogViewAssistSupported(): boolean;
+
+    /**
+     * Log video view assistance toggle. Before enabling this feature, you can call
+     * [isLogViewAssistSupported]{@link camera.PreviewOutput.isLogViewAssistSupported} to check whether
+     * the device supports log video view assistance.
+     *
+     * @param { boolean } enable - Whether to enable log video view assistance, **true** to enable, **false** otherwise.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 7400103 - Session not config.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    setLogViewAssistEnable(enable: boolean): void;
   }
 
   /**
