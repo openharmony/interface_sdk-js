@@ -51,7 +51,6 @@ import update from '@ohos.update';
 import usb from '@ohos.usb';
 import usbManager from '@ohos.usbManager';
 import serialManager from '@ohos.usbManager.serial';
-import serial from '@ohos.busManager.serial';
 import wallpaper from '@ohos.wallpaper';
 import WallpaperExtensionAbility from '@ohos.WallpaperExtensionAbility';
 import zlib from '@ohos.zlib';
@@ -90,7 +89,6 @@ export {
   systemTimer, thermal, update, usb, usbManager, serialManager, wallpaper, zlib, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, systemLoad, intelligentVoice, selectionManager, SelectionExtensionAbility,
   PanelInfo, PanelType, SelectionExtensionContext, Available, SuppressWarnings, SuppressWarningsType, intelligentScene,
-  serial
 };
 
 /*** if arkts static */
