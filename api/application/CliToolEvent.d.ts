@@ -24,7 +24,7 @@
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamiconly
+ * @since 26.0.0 dynamic&static
  */
 export interface CliToolEvent {
   /**
@@ -33,7 +33,7 @@ export interface CliToolEvent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   toolEventType: ToolEventType;
 
@@ -43,7 +43,7 @@ export interface CliToolEvent {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   data: string;
 }
@@ -54,7 +54,7 @@ export interface CliToolEvent {
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @stagemodelonly
  * @atomicservice
- * @since 26.0.0 dynamiconly
+ * @since 26.0.0 dynamic&static
  */
 export enum ToolEventType {
   /**
@@ -63,7 +63,7 @@ export enum ToolEventType {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   STDOUT = 'stdout',
 
@@ -73,7 +73,7 @@ export enum ToolEventType {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   STDERR = 'stderr',
 
@@ -83,7 +83,7 @@ export enum ToolEventType {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   EXIT = 'exit',
 
@@ -93,7 +93,7 @@ export enum ToolEventType {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   ERROR = 'error'
 }

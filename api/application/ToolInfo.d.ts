@@ -30,7 +30,7 @@ import { RecordData } from '../@ohos.base';
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamiconly
+ * @since 26.0.0 dynamic&static
  */
 export interface ToolInfo {
   /**
@@ -39,7 +39,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly name: string;
 
@@ -49,7 +49,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly version: string;
 
@@ -59,7 +59,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly description: string;
 
@@ -69,7 +69,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly executablePath: string;
 
@@ -79,7 +79,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly requirePermissions?: Array<string>;
 
@@ -89,7 +89,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly inputSchema: Record<string, Object>;
 
@@ -109,7 +109,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly outputSchema: Record<string, Object>;
 
@@ -129,7 +129,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly eventTypes?: Array<string>;
 
@@ -139,7 +139,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
 
@@ -159,7 +159,7 @@ export interface ToolInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly hasSubCommand?: boolean;
 
@@ -170,7 +170,7 @@ export interface ToolInfo {
    * @systemapi
    * @stagemodelonly
 
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly subcommands?: Record<string, SubCommandInfo>;
 }
@@ -181,7 +181,7 @@ export interface ToolInfo {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamiconly
+ * @since 26.0.0 dynamic&static
  */
 export interface ToolSummary {
   /**
@@ -190,7 +190,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly name: string;
 
@@ -200,7 +200,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly version: string;
 
@@ -210,7 +210,7 @@ export interface ToolSummary {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly description: string;
 }
@@ -221,7 +221,7 @@ export interface ToolSummary {
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamiconly
+ * @since 26.0.0 dynamic&static
  */
 export interface SubCommandInfo {
   /**
@@ -230,7 +230,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly description: string;
 
@@ -240,7 +240,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly requirePermissions?: Array<string>;
 
@@ -250,7 +250,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly inputSchema: Record<string, Object>;
 
@@ -262,7 +262,7 @@ export interface SubCommandInfo {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  readonly inputSchema: Record<string, RecordData>;  
+  readonly inputSchema: Record<string, RecordData>;
 
   /**
    * The output schema of the subcommand.
@@ -270,7 +270,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly outputSchema: Record<string, Object>;
 
@@ -290,7 +290,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic&static
    */
   readonly eventTypes?: Array<string>;
 
@@ -300,7 +300,7 @@ export interface SubCommandInfo {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamiconly
+   * @since 26.0.0 dynamic
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
 
