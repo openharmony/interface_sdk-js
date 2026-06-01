@@ -72,7 +72,90 @@ declare namespace cliManager {
   }
 
   /**
-   * Exexute result of a tool execution.
+   * Options for executing a command.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  interface ExecCmdOptions {
+    /**
+     * Indicates the working directory for the command.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    workDir?: string;
+
+    /**
+     * Indicates the environment variables for the command.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    env?: Record<string, string>;
+
+    /**
+     * Indicates whether the command is executed in the background.
+     * Default value is false.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    background?: boolean;
+
+    /**
+     * Indicates the foreground waiting timeout in milliseconds.
+     * Default value is 0.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    yieldMs?: long;
+
+    /**
+     * Indicates the maximum execution time of the command, in seconds.
+     * Default value is 1800.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    timeout?: long;
+
+    /**
+     * Indicates the security policy.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    policy?: string;
+
+    /**
+     * Indicates the event callback for receiving tool events. If provided, auto-subscribe is performed.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamiconly
+     */
+    callback?: ToolEventCallback;
+  }
+
+  /**
+   * Execute result of a tool execution.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
@@ -286,7 +369,7 @@ declare namespace cliManager {
    *
    * @permission ohos.permission.EXEC_CLI_TOOL
    * @param { string } toolName - The name of target tool.
-   * @param { string } subCommand- The subCommand of this execute action.
+   * @param { string } subCommand - The subCommand of this execute action.
    * @param { Record<string, Object> } args - The input args of tool.
    * @param { string } challenge - The unique identifier get from access token manager.
    * @param { ExecOptions } [execOptions] - The options of this action.
@@ -304,6 +387,25 @@ declare namespace cliManager {
    */
   function execTool(toolName: string, subCommand: string, args: Record<string, Object>, challenge: string,
     execOptions?: ExecOptions): Promise<CliSessionInfo>;
+
+  /**
+   * Execute a command. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.EXEC_CLI_TOOL
+   * @param { string } cmd - The command to execute.
+   * @param { ExecCmdOptions } [execCmdOptions] - The options of this action.
+   * @returns { Promise<CliSessionInfo> } Promise used to return CliSessionInfo.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 35600031 - Maximum number of processes has been reached.
+   * @throws { BusinessError } 35600050 - System Error. 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with the dependent module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamiconly
+   */
+  function execCmd(cmd: string, execCmdOptions?: ExecCmdOptions): Promise<CliSessionInfo>;
 
   /**
    * Subscribe session event.
