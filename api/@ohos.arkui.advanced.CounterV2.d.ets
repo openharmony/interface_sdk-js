@@ -23,6 +23,7 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -32,6 +33,7 @@ declare enum CounterV2Type {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -42,6 +44,7 @@ declare enum CounterV2Type {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -52,6 +55,7 @@ declare enum CounterV2Type {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -62,6 +66,7 @@ declare enum CounterV2Type {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -74,6 +79,7 @@ declare enum CounterV2Type {
  * @param { boolean } isHover - isHover
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -84,6 +90,7 @@ export type OnCounterV2HoverCallback = (isHover: boolean) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -94,6 +101,7 @@ declare class CounterV2CommonOptions {
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -105,6 +113,7 @@ declare class CounterV2CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -115,6 +124,7 @@ declare class CounterV2CommonOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -125,6 +135,7 @@ declare class CounterV2CommonOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -137,6 +148,7 @@ declare class CounterV2CommonOptions {
  * @param { int } value - value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -147,6 +159,7 @@ export type OnInlineCounterV2Change = (value: int) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -157,6 +170,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -168,6 +182,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -179,6 +194,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -191,6 +207,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
      * @default undefined
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -201,6 +218,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -212,6 +230,7 @@ declare class CounterV2InlineStyleOptions extends CounterV2CommonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -221,6 +240,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -231,6 +251,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -241,6 +262,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -251,6 +273,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -261,6 +284,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -272,6 +296,7 @@ declare class CounterV2NumberStyleOptions extends CounterV2InlineStyleOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -281,6 +306,7 @@ declare class CounterV2DateData {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -291,6 +317,7 @@ declare class CounterV2DateData {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -301,6 +328,7 @@ declare class CounterV2DateData {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -314,6 +342,7 @@ declare class CounterV2DateData {
      * @param { int } day - set the day of the DateData.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -325,6 +354,7 @@ declare class CounterV2DateData {
      * @returns { string } date data in string form.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -337,6 +367,7 @@ declare class CounterV2DateData {
  * @param { CounterV2DateData } date - date
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -347,6 +378,7 @@ export type OnDateCounterV2ChangeCallback = (date: CounterV2DateData) => void;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -357,6 +389,7 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -368,6 +401,7 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -379,6 +413,7 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -389,6 +424,7 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -400,6 +436,7 @@ declare class CounterV2DateStyleOptions extends CounterV2CommonOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -409,6 +446,7 @@ declare class CounterV2Options {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -419,6 +457,7 @@ declare class CounterV2Options {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -429,6 +468,7 @@ declare class CounterV2Options {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -439,6 +479,7 @@ declare class CounterV2Options {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -449,6 +490,7 @@ declare class CounterV2Options {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -460,6 +502,7 @@ declare class CounterV2Options {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -470,6 +513,7 @@ declare struct CounterV2Component {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
