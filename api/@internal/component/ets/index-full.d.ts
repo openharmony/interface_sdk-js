@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License")
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -44,9 +44,9 @@
 /// <reference path="./divider.d.ts" />
 /// <reference path="./ellipse.d.ts" />
 /// <reference path="./enums.d.ts" />
-/// <reference path="./flex.d.ts" />
 /// <reference path="./focus.d.ts" />
 /// <reference path="./folder_stack.d.ts" />
+/// <reference path="./flex.d.ts" />
 /// <reference path="./for_each.d.ts" />
 /// <reference path="./form_component.d.ts" />
 /// <reference path="./form_link.d.ts" />
@@ -154,4 +154,3 @@
 /// <reference path="./embedded_component.d.ts" />
 /// <reference path="./styled_string.d.ts" />
 /// <reference path="./content_slot.d.ts" />
-/// <reference path="./linearindicator.d.ts" />
