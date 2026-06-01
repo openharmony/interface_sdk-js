@@ -84,7 +84,7 @@ declare namespace hichecker {
    * @FaAndStageModel
    * @since 26.0.0 dynamic&static
    */
-  const RULE_THREAD_CHECK_NETWORK_USARG = 2n;
+  const RULE_THREAD_CHECK_NETWORK_USAGE = 2n;
 
   /**
    * add one or more rule.
