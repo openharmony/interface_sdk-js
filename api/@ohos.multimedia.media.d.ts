@@ -3094,13 +3094,11 @@ declare namespace media {
      *
      * @param { MediaType } trackType - specified media Type, see [MediaType]{@link #MediaType}.
      * @returns { Promise<int> } A Promise instance used to return selected track index.
-     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @throws { BusinessError } 5400101 - No memory. Return by promise.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400103 - I/O error. Return by promise.
      * @throws { BusinessError } 5400105 - Service died. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
@@ -3826,7 +3824,6 @@ declare namespace media {
      * Default value: PRIVACY_TYPE_PUBLIC.
      *
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
-     * @systemapi
      * @stagemodelonly
      * @crossplatform
      * @since 26.0.0 dynamic&static
@@ -3836,6 +3833,7 @@ declare namespace media {
     /**
      * Whether a slower synchronization policy is used at the start of playback to reduce subjective image jitter caused
      * by insufficient frame rate. Default value: false, means that the slower synchronization policy will not be used.
+     * 
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
      * @systemapi
      * @stagemodelonly
@@ -3955,6 +3953,21 @@ declare namespace media {
      * @since 23 static
      */
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
+
+    /**
+     * Enable the post-processing function of Camera for video playback.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    enableCameraPostprocessing(): Promise<void>;
 
     /**
      * Subscribes to media key system information changes.
