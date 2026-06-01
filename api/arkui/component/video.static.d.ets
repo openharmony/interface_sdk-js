@@ -295,6 +295,14 @@ export declare interface VideoOptions {
      */
     controller?: VideoController;
     /**
+     * controllerAsync of video.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    controllerAsync?: VideoControllerAsync;
+    /**
      * image ai options of video.
      *
      * @type { ?ImageAIOptions }
@@ -389,6 +397,91 @@ export declare class VideoController {
      * @since 23 static
      */
     reset(): void;
+}
+
+/**
+ * Video playback controller class for asynchronous operations.
+ * Provides methods to control video playback, timing, and display mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class VideoControllerAsync {
+    /**
+     * Creates a VideoControllerAsync instance.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    constructor();
+    /**
+     * Starts video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    start(): Promise<void>;
+    /**
+     * Pauses video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    pause(): Promise<void>;
+    /**
+     * Stops video playback asynchronously.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    stop(): Promise<void>;
+    /**
+     * Requests fullscreen display for the video.
+     *
+     * @param { boolean } value
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    requestFullscreen(value: boolean): void;
+    /**
+     * Exits fullscreen display mode.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    exitFullscreen(): void;
+    /**
+     * Sets the current playback time with specified seek mode.
+     *
+     * @param { double } value - <br>Unit: Seconds, The value must be greater than or equal to 0, The value must be
+     *     greater than or equal to 0, The maximum value is the total duration of the video. If the duration exceeds the
+     *     maximum value, the system jumps to the end of the video.
+     * @param { SeekMode } [seekMode]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    setCurrentTime(value: double, seekMode?: SeekMode): void;
+    /**
+     * Resets the video controller asynchronously.
+     * Restores the controller to its initial state.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    reset(): Promise<void>;
 }
 
 /**
