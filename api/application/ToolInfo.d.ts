@@ -19,6 +19,10 @@
  */
 
 
+/*** if arkts static */
+import { RecordData } from '../@ohos.base';
+/*** endif */
+
 /**
  * ToolInfo describes the basic information of a cli tool.
  *
@@ -90,6 +94,16 @@ export interface ToolInfo {
   readonly inputSchema: Record<string, Object>;
 
   /**
+   * The input schema of the CLI tool.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly inputSchema: Record<string, RecordData>;
+
+  /**
    * The output schema of the CLI tool.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -98,6 +112,16 @@ export interface ToolInfo {
    * @since 26.0.0 dynamiconly
    */
   readonly outputSchema: Record<string, Object>;
+
+  /**
+   * The output schema of the CLI tool.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly outputSchema: Record<string, RecordData>;
 
   /**
    * Supported event types for custom event.
@@ -118,6 +142,16 @@ export interface ToolInfo {
    * @since 26.0.0 dynamiconly
    */
   readonly eventSchemas?: Record<string, Record<string, Object>>;
+
+  /**
+   * Schemas about custom event.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly eventSchemas?: Record<string, Record<string, RecordData>>;
 
   /**
    * Whether this tool has subcommand.
@@ -221,6 +255,16 @@ export interface SubCommandInfo {
   readonly inputSchema: Record<string, Object>;
 
   /**
+   * The input schema of the subcommand.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly inputSchema: Record<string, RecordData>;  
+
+  /**
    * The output schema of the subcommand.
    *
    * @syscap SystemCapability.Ability.AgentRuntime.Core
@@ -229,6 +273,16 @@ export interface SubCommandInfo {
    * @since 26.0.0 dynamiconly
    */
   readonly outputSchema: Record<string, Object>;
+
+  /**
+   * The output schema of the subcommand.
+   *
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly outputSchema: Record<string, RecordData>;
 
   /**
    * Supported event types for custom event.

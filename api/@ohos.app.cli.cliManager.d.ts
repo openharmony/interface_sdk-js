@@ -306,6 +306,31 @@ declare namespace cliManager {
     execOptions?: ExecOptions): Promise<CliSessionInfo>;
 
   /**
+   * Execute a CLI command.
+   *
+   * @permission ohos.permission.EXEC_CLI_TOOL
+   * @param { string } toolName - The name of target tool.
+   * @param { string } subCommand- The subCommand of this execute action.If there is no subcommand,
+   *     pass an empty value for this field.
+   * @param { Record<string, RecordData> } args - The input args of tool.
+   * @param { string } challenge - The unique identifier get from access token manager.
+   * @param { ExecOptions } [execOptions] - The options of this action.
+   * @returns { Promise<CliSessionInfo> } execute result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application.
+   * @throws { BusinessError } 35600030 - No tool with the specified name exists.
+   * @throws { BusinessError } 35600031 - Maximum number of processes has been reached.
+   * @throws { BusinessError } 35600050 - System Error. 1. Failed to connect to the system service;
+   *     2. The system service failed to communicate with the dependent module.
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  function execTool(toolName: string, subCommand: string, args: Record<string, RecordData>, challenge: string,
+    execOptions?: ExecOptions): Promise<CliSessionInfo>;
+
+  /**
    * Subscribe session event.
    *
    * @permission ohos.permission.EXEC_CLI_TOOL
