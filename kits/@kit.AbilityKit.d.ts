@@ -108,12 +108,13 @@ import screenLockFileManager from '@ohos.ability.screenLockFileManager';
 import AtomicServiceOptions from '@ohos.app.ability.AtomicServiceOptions';
 import EmbeddableUIAbility from '@ohos.app.ability.EmbeddableUIAbility';
 import PhotoEditorExtensionAbility from '@ohos.app.ability.PhotoEditorExtensionAbility';
-import appDomainVerify from '@ohos.bundle.appDomainVerify';
+import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
 import shortcutManager from '@ohos.bundle.shortcutManager';
 import skillManager from '@ohos.bundle.skillManager';
-import scriptManager from '@ohos.app.ability.scriptManager';
+import scriptManager from '@ohos.app.ability.scriptManager.d.ts';
+import skillDriver from '@ohos.app.ability.skillDriver';
 import application from '@ohos.app.ability.application';
-import UIServiceExtensionAbility from '@ohos.app.ability.UIServiceExtensionAbility';
+import appDomainVerify from '@ohos.bundle.appDomainVerify';
 import CompletionHandler from '@ohos.app.ability.CompletionHandler';
 import AppServiceExtensionAbility from '@ohos.app.ability.AppServiceExtensionAbility';
 import kioskManager from '@ohos.app.ability.kioskManager';
@@ -143,11 +144,11 @@ export {
   overlay, particleAbility, quickFixManager, uriPermissionManager, wantAgent, wantConstant, privacyManager,
   EmbeddedUIExtensionAbility, StartupConfig, StartupConfigEntry, StartupListener, StartupTask, startupManager,
   screenLockFileManager, AtomicServiceOptions, EmbeddableUIAbility, ChildProcessArgs, ChildProcessOptions,
-  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, skillManager, scriptManager, application, appDomainVerify,
+  sendableContextManager, PhotoEditorExtensionAbility, UIServiceExtensionAbility, shortcutManager, skillManager, scriptManager, skillDriver, application, appDomainVerify,
   InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, InsightIntentEntryExecutor,
   InsightIntentEntry, LinkParamCategory, CompletionHandler, AppServiceExtensionAbility, InsightIntentForm, InsightIntentEntity, kioskManager,
   CompletionHandlerForAtomicService, CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, FailureCode, InteropAbilityLifecycleCallback,
-  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager, hyperSnapManager, cliManager
+  systemConfiguration, AgentExtensionAbility, AgentUIExtensionAbility, agentConstant, agentManager,hyperSnapManager, cliManager
 };
 
 /*** if arkts static */
@@ -236,6 +237,7 @@ import AgentUIExtensionAbility from '@ohos.app.agent.AgentUIExtensionAbility';
 import agentConstant from '@ohos.app.agent.agentConstant';
 import agentManager from '@ohos.app.agent.agentManager';
 import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
+import cliManager from '@ohos.app.cli.cliManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -243,8 +245,8 @@ export {
   common, ConfigurationConstant, Configuration, ErrorCode, Want, StartOptions, contextConstant,
   AbilityConstant, UIExtensionContentSession, wantConstant, AbilityStage, UIExtensionAbility,
   uriPermissionManager, ServiceExtensionAbility, AtomicServiceOptions, InsightIntentContext,
-  InsightIntentExecutor, insightIntentProvider, OpenLinkOptions, abilityManager, appManager,
-  application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver,
+  InsightIntentExecutor, OpenLinkOptions, abilityManager, appManager,
+  application, appRecovery, autoFillManager, dataUriUtils, dialogSession, insightIntent, insightIntentDriver, insightIntentProvider,
   missionManager, wantAgent, WantAgent, UIAbility, Callee, CalleeCallback, Caller,
   OnReleaseCallback, OnRemoteStateChangeCallback, Ability, AbilityLifecycleCallback, ApplicationStateChangeCallback,
   EnvironmentCallback, ExtensionAbility, ShareExtensionAbility, dialogRequest,
@@ -255,6 +257,7 @@ export {
   CompletionHandlerForAbilityStartCallback, AbilityStartFailureCode, StartupConfig, StartupConfigEntry, StartupListener, 
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
   AgentUIExtensionAbility, agentConstant, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
-  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentEntryExecutor, InsightIntentForm, hyperSnapManager
+  InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentEntryExecutor, InsightIntentForm, hyperSnapManager,
+  cliManager
 };
 /*** endif */
