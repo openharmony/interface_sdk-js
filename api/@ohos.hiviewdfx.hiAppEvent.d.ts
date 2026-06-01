@@ -477,7 +477,7 @@ declare namespace hiAppEvent {
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters (a
-     * to z)(A to Z), underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and end with a
+     * to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a
      * digit or letter.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -507,7 +507,7 @@ declare namespace hiAppEvent {
      * specifications are as follows:
      *
      * - A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters (a to
-     * z)(A to Z), underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and end with
+     * z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with
      * a digit or letter. For example, **testName** and **$123_name**.
      * - The parameter value can be a string, number, boolean, or array. The string type parameter can contain a maximum
      * of 8 * 1024 characters. If the length exceeds the limit, the parameter and its name will be discarded. The value
@@ -638,7 +638,7 @@ declare namespace hiAppEvent {
    *
    * @param { Record<string, ParamType> } params - Custom parameter object. The parameter name and value are defined as
    *     follows:<br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9),
-   *     letters (a to z)(A to Z), underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and
+   *     letters (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and
    *     end with a digit or letter.  <br>- The parameter value is of the [ParamType]{@link hiAppEvent.ParamType} and
    *     contains a maximum of 1024 characters.<br>- The number of parameters must be less than 64.
    * @param { string } domain - Event domain. The event domain can be associated with application events and system
@@ -1241,7 +1241,7 @@ declare namespace hiAppEvent {
 
     /**
      * Event name. The value is string that contains a maximum of 48 characters, including digits (0 to 9), letters (a
-     * to z)(A to Z), underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and end with a
+     * to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and end with a
      * digit or letter. The default value is an empty string.
      *
      * @syscap SystemCapability.HiviewDFX.HiAppEvent
@@ -1435,7 +1435,7 @@ declare namespace hiAppEvent {
      * parameters are not configured by default. The specifications are as follows:
      *
      * <br>- A parameter name is a string that contains a maximum of 32 characters, including digits (0 to 9), letters
-     * (a to z)(A to Z), underscore (_), and dollar sign (`$`). It must start with a letter or dollar sign (`$`) and
+     * (a to z)(A to Z), underscore (_), and dollar sign ($). It must start with a letter or dollar sign ($) and
      * end with a digit or letter.
      * <br>- A parameter value is a string contains a maximum of 1024 characters.
      * <br>- The number of parameters must be less than 32.
