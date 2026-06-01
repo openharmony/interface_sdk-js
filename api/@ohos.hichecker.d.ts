@@ -78,6 +78,15 @@ declare namespace hichecker {
   const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n; // 1 << 34
 
   /**
+   * The thread rule check network usage.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  const RULE_THREAD_CHECK_NETWORK_USAGE = 2n;
+
+  /**
    * add one or more rule.
    *
    * @param { bigint } rule
