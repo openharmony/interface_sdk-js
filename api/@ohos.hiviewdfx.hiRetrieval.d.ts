@@ -70,6 +70,8 @@ declare namespace hiRetrieval {
   /**
    * Init the HiRetrieval functionality.
    *
+   * @throws { BusinessError } 36000002 - Multi-instance applications not supported error.
+   *                                      Possibly caused by invoking this function in a multi-instance application.
    * @syscap SystemCapability.HiviewDFX.HiRetrieval
    * @FaAndStageModel
    * @atomicservice
