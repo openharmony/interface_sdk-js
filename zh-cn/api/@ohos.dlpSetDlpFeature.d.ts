@@ -20,6 +20,7 @@
 
 /**
  * 本模块提供数据防泄漏（Data Loss Prevention，简称为DLP）特性开关的控制能力，包括开启和关闭DLP特性开关、返回特性开关设置结果等。
+ * 
  * **使用场景**：
  * 
  * - 需要满足数据安全合规要求的场景。
@@ -55,7 +56,7 @@ declare namespace dlpSetDlpFeature {
 
     /**
      * DLP特性开关状态的枚举。
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -64,7 +65,7 @@ declare namespace dlpSetDlpFeature {
     export enum DlpFeatureStatus {
         /**
          * 表示关闭DLP特性开关。
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -73,7 +74,7 @@ declare namespace dlpSetDlpFeature {
         NOT_ENABLED_FEATURE = 0,
         /**
          * 表示开启DLP特性开关。
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -84,7 +85,7 @@ declare namespace dlpSetDlpFeature {
 
     /**
      * DLP特性开关的状态信息。
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -108,7 +109,7 @@ declare namespace dlpSetDlpFeature {
      * 当特性开关处于开启状态时，右键单击支持加密的文件，右键菜单中会显示“加密保护”选项。可加密类型包括：.txt，.pdf，.xls，.xlsx，.ppt，.pptx，.doc，.docx。
      * 
      * 企业策略开启或关闭数据防泄漏功能时使用此接口。
-     * 
+     *
      * @param { DlpFeatureStatus } status - DLP特性开关状态。ENABLED_FEATURE用于开启DLP特性；NOT_ENABLED_FEATURE用于关闭DLP特性，菜单中不显示"加密保护"
      *     选项。超出此范围抛出错误码19100001。
      * @returns { Promise<StatusInfoResult> } Promise对象，返回DLP特性开关状态设置的结果信息。成功时返回StatusInfoResult对象，失败时抛出BusinessError错误。
