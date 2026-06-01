@@ -543,7 +543,7 @@ declare namespace dlpPermission {
     export interface DLPManagerResult {
         /**
          * 表示打开DLP权限管理应用并退出后返回的结果码。取值范围为0到3。
-         *
+         * 
          * @syscap SystemCapability.Security.DataLossPrevention
          * @StageModelOnly
          * @since 11
@@ -710,7 +710,6 @@ declare namespace dlpPermission {
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
      * @param { DLPFileAccess } access - DLP文件授权类型。设置不同的授权类型将决定用户对DLP文件的访问权限范围。超出范围时抛出错误码19100001。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。超出范围时抛出错误码19100001。
-     *     <br>取值范围为全体整数。
      * @param { string } uri - DLP文件的URI。不超过4095字节。 超出范围时抛出错误码19100001。
      * @param { AsyncCallback<DLPSandboxInfo> } callback - 回调函数，用于接收应用沙箱信息。回调参数包括：err（错误对象，成功时为undefined）和res（
      *     DLPSandboxInfo对象，包含应用沙箱信息）。
@@ -756,7 +755,6 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。超出范围时抛出错误码19100001。
-     *     <br>取值范围为全体整数。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]。超出范围时抛出错误码
      *     19100001。
      * @param { AsyncCallback<void> } callback - 回调函数，用于接收卸载结果。
@@ -1504,7 +1502,7 @@ declare namespace dlpPermission {
     function setSandboxAppConfig(configInfo: string): Promise<void>;
     /**
      * 清理沙箱应用配置信息。调用成功后，沙箱应用配置将被清除，恢复默认状态。使用Promise异步回调。
-     *
+     * 
      * 该接口用于清理沙箱应用的配置信息，恢复默认状态以防止配置残留影响后续使用。
      *
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -1548,7 +1546,7 @@ declare namespace dlpPermission {
     function isDLPFeatureProvided(): Promise<boolean>;
     /**
      * 表示在文件设定的权限时间到期后所执行的动作枚举，默认为NOT_OPEN。
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
      * @publicapi [since 21]
