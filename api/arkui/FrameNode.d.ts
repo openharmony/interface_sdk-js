@@ -109,6 +109,7 @@ declare interface CrossLanguageOptions {
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -237,6 +238,7 @@ export enum ExpandMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -250,6 +252,7 @@ export enum ExpandMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -261,6 +264,7 @@ export enum ChildrenCountMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -273,6 +277,7 @@ export enum ChildrenCountMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -285,6 +290,7 @@ export enum ChildrenCountMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -699,6 +705,7 @@ export class FrameNode {
    * @returns { int } - Returns the number of children of the current FrameNode based on the count mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1581,6 +1588,7 @@ export class FrameNode {
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */

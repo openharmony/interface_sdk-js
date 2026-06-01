@@ -1912,16 +1912,18 @@ export function borderRadiuses(all: number): BorderRadiuses;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface BackgroundBlur {
   /**
    * Blur radius for background blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the background.
+   * The value must be greater than or equal to 0. The larger the value, the more blurred the background.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1933,6 +1935,7 @@ export interface BackgroundBlur {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1944,16 +1947,18 @@ export interface BackgroundBlur {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface ContentBlur {
   /**
    * Blur radius for content blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the content.
+   * The value must be greater than or equal to 0. The larger the value, the more blurred the content.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1965,6 +1970,7 @@ export interface ContentBlur {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1976,16 +1982,18 @@ export interface ContentBlur {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface ForegroundBlur {
   /**
    * Blur radius for foreground blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the foreground.
+   * The value must be greater than or equal to 0. The larger the value, the more blurred the foreground.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
