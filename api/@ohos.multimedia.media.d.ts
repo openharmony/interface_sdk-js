@@ -3955,6 +3955,19 @@ declare namespace media {
     getMediaKeySystemInfos(): Array<drm.MediaKeySystemInfo>;
 
     /**
+     * Enable the post-processing function of Camera for video playback.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
+     * @throws { BusinessError } 5400105 - Service died.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    enableCameraPostprocessing(): Promise<void>;
+
+    /**
      * Subscribes to media key system information changes.
      *
      * @param { 'mediaKeySystemInfoUpdate' } type - Event type, which is **'mediaKeySystemInfoUpdate'** in this case.
