@@ -1238,6 +1238,7 @@ export class RenderNode {
    *     If undefined, the background blur effect will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1249,6 +1250,7 @@ export class RenderNode {
    * @returns { BackgroundBlur } - Returns the background blur effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1261,6 +1263,7 @@ export class RenderNode {
    *     If undefined, the content blur effect will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1272,6 +1275,7 @@ export class RenderNode {
    * @returns { ContentBlur } - Returns the content blur effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1284,6 +1288,7 @@ export class RenderNode {
    *     If undefined, the foreground blur effect will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1295,6 +1300,7 @@ export class RenderNode {
    * @returns { ForegroundBlur } - Returns the foreground blur effect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */

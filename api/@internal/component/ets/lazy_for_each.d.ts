@@ -134,6 +134,7 @@ declare enum DataOperationType {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -143,6 +144,7 @@ declare enum LazyForEachReleaseStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -155,6 +157,7 @@ declare enum LazyForEachReleaseStrategy {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -167,6 +170,7 @@ declare enum LazyForEachReleaseStrategy {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -177,6 +181,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -187,6 +192,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -198,6 +204,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -234,6 +241,7 @@ declare interface LazyForEachOptions {
    * @default LazyForEachCustomComponentFreezeMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -246,6 +254,7 @@ declare interface LazyForEachOptions {
    * @default LazyForEachReleaseStrategy.BATCH
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1146,6 +1155,7 @@ interface LazyForEachInterface {
    * @returns { LazyForEachAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
