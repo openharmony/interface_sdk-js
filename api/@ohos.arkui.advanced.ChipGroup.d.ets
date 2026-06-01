@@ -679,6 +679,7 @@ export declare struct IconGroupSuffix {
      * @type { ?uiMaterial.Material }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -785,6 +786,7 @@ export declare struct ChipGroup {
      * @type { ?uiMaterial.Material }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */

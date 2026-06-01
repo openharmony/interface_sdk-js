@@ -386,6 +386,7 @@ export interface ChipGroupV2ItemStyleConfig {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -397,6 +398,7 @@ export interface ChipGroupV2ItemStyleConfig {
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
+     * @crossplatform
      * @atomicservice
      * @since 26.0.0 dynamic
      */
@@ -479,6 +481,7 @@ export declare class ChipGroupV2ItemStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -491,6 +494,7 @@ export declare class ChipGroupV2ItemStyle {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
