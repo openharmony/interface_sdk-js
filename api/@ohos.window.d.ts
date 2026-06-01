@@ -4006,9 +4006,13 @@ declare namespace window {
 
   /**
    * Register the callback for application process focus state changes.
+   * This listener monitors the focus state changes between applications. 
+   * If the focus state changes between windows within the same application, the callback function will not be triggered.
    *
    * @param { Callback<boolean> } callback - Callback used to return the result whether application process
    *     focused or not.
+   *     The value true means that the application process becomes focused,
+   *     and false means that the application process becomes unfocused.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -4413,13 +4417,17 @@ declare namespace window {
    */
   interface OrientationResult {
     /**
-     * Execution result of setting preferred orientation.
-     *
-     * @syscap SystemCapability.Window.SessionManager
-     * @stagemodelonly
-     * @atomicservice
-     * @since 26.0.0 dynamic&static
-     */
+      * Execution result of setting preferred orientation.
+      * The result can be one of the following:
+      * - ORIENTATION_APPLIED: The orientation has been successfully applied. This occurs when the orientation setting takes effect immediately.
+      * - ORIENTATION_IGNORED: The orientation setting is ignored. This occurs when the orientation cannot be changed due to system constraints or policy restrictions.
+      * - ORIENTATION_PENDING: The orientation setting is pending and will be applied after system animations complete. This occurs when the orientation change is deferred to avoid conflicts with ongoing system operations.
+      *
+      * @syscap SystemCapability.Window.SessionManager
+      * @stagemodelonly
+      * @atomicservice
+      * @since 26.0.0 dynamic&static
+      */
     executionResult : OrientationExecutionResult;
   }
 
