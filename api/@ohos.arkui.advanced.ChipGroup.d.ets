@@ -794,6 +794,19 @@ export declare struct ChipGroup {
     backgroundSystemMaterial?: uiMaterial.Material;
 
     /**
+     * Set system-styled materials for the component when selected. Different materials have different effects,
+     * which can influence the backgroundColor, border, shadow, and other visual attributes of the component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 26.0.0 dynamic
+     */
+    @Prop
+    selectedBackgroundMaterial?: uiMaterial.Material;
+
+    /**
      * Chip group callback. when chip status is changed, this onChange is called.
      *
      * @type { ?Callback<Array<number>> }
