@@ -94,7 +94,7 @@ declare namespace dlpSetDlpFeature {
     export interface DLPFeatureInfo {
         /**
          * DLP特性开关的状态，包含NOT_ENABLED_FEATURE和ENABLED_FEATURE。
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
