@@ -22,26 +22,31 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the bundles of the enterprise devices.
+ * The **bundleManager** module provides APIs for bundle management, including adding, obtaining, and removing a list of
+ * bundles that are allowed to install.
  *
- * @namespace bundleManager
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 10
  */
 declare namespace bundleManager {
   /**
-   * Provides parameters required for installing an application.
+   * Defines the parameters for application installation.
    *
-   * @typedef InstallParam
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @StageModelOnly
    * @since 12
    */
   interface InstallParam {
     /**
-     * Indicates the user id
+     * User ID, which must be greater than or equal to 0. The default value is the user ID of the caller.
      *
-     * @type { ?number }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
      * @since 12
@@ -49,9 +54,14 @@ declare namespace bundleManager {
     userId?: number;
 
     /**
-     * Indicates the install flag, which 0 for first install, 1 for cover install
+     * Installation flag.
      *
-     * @type { ?number }
+     * - **0**: initial installation.
+     * - **1**: overwrite installation.
+     * - **2**: installation-free.
+     *
+     * Default value: **0**
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @StageModelOnly
      * @since 12
@@ -59,9 +69,9 @@ declare namespace bundleManager {
     installFlag?: number;
 
     /**
-     * Indicates parameters
+     * Extended parameters. The default value is null. The key can be **ohos.bms.param.enterpriseForAllUser**. If the
+     * corresponding value is set **true**, the application is installed for all users.
      *
-     * @type { ?Record<string, string> }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 19
@@ -70,17 +80,115 @@ declare namespace bundleManager {
   }
 
   /**
-   * Used to query the enumeration value of bundleInfo. Multiple values can be passed in the form.
-   * Multiple value input, such as DEFAULT | WITH_APPLICATION_INFO.
+   * Describes application resource information, including the bundle name, module name, and resource ID.
    *
-   * @enum { int }
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  interface Resource {
+    /**
+     * Bundle name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    bundleName: string;
+
+    /**
+     * Module name of the application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    moduleName: string;
+
+    /**
+     * Resource ID.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    id: number;
+  }
+
+  /**
+   * Defines the distribution type of the application signing certificate. For details, please refer to the
+   * **appDistributionType** attribute of [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  enum AppDistributionType {
+    /**
+     * Application installed from AppGallery.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    APP_GALLERY = 1,
+
+    /**
+     * Enterprise application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    ENTERPRISE = 2,
+
+    /**
+     * Common enterprise application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    ENTERPRISE_NORMAL = 3,
+
+    /**
+     * Enterprise MDM application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    ENTERPRISE_MDM = 4,
+
+    /**
+     * Application under internal testing of AppGallery.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    INTERNALTESTING = 5,
+
+    /**
+     * Crowdtesting application.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    CROWDTESTING = 6
+  }
+
+  /**
+   * Enumerates the bundle flags, which indicate the type of bundle information to obtain.
+   *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 23
    */
   export enum BundleInfoGetFlag {
     /**
-     * Used to obtain the default info
+     * Obtains the default bundle information, excluding **applicationInfo** and **signatureInfo**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -89,7 +197,7 @@ declare namespace bundleManager {
     DEFAULT = 0,
 
     /**
-     * Used to obtain application info
+     * Obtains the default bundle information and **applicationInfo** (excluding **iconData**).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -98,7 +206,7 @@ declare namespace bundleManager {
     WITH_APPLICATION_INFO = 1 << 0,
 
     /**
-     * Used to obtain the signature info
+     * Obtains the default bundle information and **signatureInfo**.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -107,7 +215,7 @@ declare namespace bundleManager {
     WITH_SIGNATURE_INFO = 1 << 1,
 
     /**
-     * Used to obtain the application icon info
+     * Obtains the default bundle information and **applicationInfo** (including **iconData**).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -117,59 +225,17 @@ declare namespace bundleManager {
   }
 
   /**
-   * Contains resource descriptor information.
+   * Describes the application bundle information.
    *
-   * @typedef Resource
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  interface Resource {
-    /**
-     * Bundle name in hap
-     *
-     * @type { string }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-    bundleName: string;
-
-    /**
-     * Module name in hap
-     *
-     * @type { string }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-    moduleName: string;
-
-    /**
-     * Resource id in hap
-     *
-     * @type { number }
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-    id: number;
-  }
-
-  /**
-   * Obtains configuration information about a bundle
-   *
-   * @typedef BundleInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
   interface BundleInfo {
     /**
-     * Indicates the name of this bundle
+     * Name of the application bundle. It corresponds to the **bundleName** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -177,10 +243,9 @@ declare namespace bundleManager {
     readonly name: string;
 
     /**
-     * Indicates the bundle vendor
+     * Vendor of the application bundle. It corresponds to the **vendor** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -188,10 +253,9 @@ declare namespace bundleManager {
     readonly vendor: string;
 
     /**
-     * Indicates the version code of the bundle
+     * Version code of the application bundle. It corresponds to the **versionCode** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -199,10 +263,9 @@ declare namespace bundleManager {
     readonly versionCode: number;
 
     /**
-     * Indicates the version name of the bundle
+     * Version description of the application bundle. It corresponds to the **versionName** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -210,10 +273,9 @@ declare namespace bundleManager {
     readonly versionName: string;
 
     /**
-     * Indicates the minimum version compatible with the bundle
+     * Minimum compatible version of the application bundle in the distributed scenario. It corresponds to the
+     * **minCompatibleVersionCode** field in the [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -221,10 +283,9 @@ declare namespace bundleManager {
     readonly minCompatibleVersionCode: number;
 
     /**
-     * Indicates the target version number of the bundle
+     * Target version of the application. It corresponds to the **targetAPIVersion** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -232,10 +293,8 @@ declare namespace bundleManager {
     readonly targetVersion: number;
 
     /**
-     * Obtains configuration information about an application
+     * Application information.
      *
-     * @type { ApplicationInfo }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -243,10 +302,8 @@ declare namespace bundleManager {
     readonly appInfo: ApplicationInfo;
 
     /**
-     * Indicates the SignatureInfo of the bundle
+     * Signature information of the bundle.
      *
-     * @type { SignatureInfo }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -254,10 +311,9 @@ declare namespace bundleManager {
     readonly signatureInfo: SignatureInfo;
 
     /**
-     * Indicates the hap install time
+     * Timestamp for the installation of the application bundle. It measures the milliseconds elapsed since the Unix
+     * epoch (January 1, 1970, 08:00:00 UTC+8).
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -265,10 +321,9 @@ declare namespace bundleManager {
     readonly installTime: number;
 
     /**
-     * Indicates the hap update time
+     * Timestamp for the last update of the application bundle. It measures the milliseconds elapsed since the Unix
+     * epoch (January 1, 1970, 08:00:00 UTC+8).
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -276,10 +331,8 @@ declare namespace bundleManager {
     readonly updateTime: number;
 
     /**
-     * Indicates the appIndex of application, only work in appClone mode
+     * Index of an application clone. It takes effect only for application clones.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -287,10 +340,10 @@ declare namespace bundleManager {
     readonly appIndex: number;
 
     /**
-     * Indicates the hap first install time
+     * Timestamp for the initial installation of the application bundle. It measures the milliseconds elapsed since the
+     * Unix epoch (January 1, 1970, 08:00:00 UTC+8). For preinstalled applications, the initial installation timestamp
+     * is 1533657660000.
      *
-     * @type { ?number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -299,20 +352,16 @@ declare namespace bundleManager {
   }
 
   /**
-   * Indicates SignatureInfo
+   * Describes the signature information of the bundle.
    *
-   * @typedef SignatureInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
   interface SignatureInfo {
     /**
-     * Indicates the ID of the application to which this bundle belongs
-     * The application ID uniquely identifies an application. It is determined by the bundle name and signature
+     * App ID, which uniquely identifies an app.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -320,10 +369,9 @@ declare namespace bundleManager {
     readonly appId: string;
 
     /**
-     * Indicates the fingerprint of the certificate
+     * Fingerprint information of the application package. It is generated by calculating the hash value of the signing
+     * certificate using the SHA-256 algorithm. This field changes when the used signing certificate changes.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -331,12 +379,8 @@ declare namespace bundleManager {
     readonly fingerprint: string;
 
     /**
-     * Globally unique identifier of an application, which is allocated by the cloud.
-     * AppIdentifier does not change along the application lifecycle, including version updates, certificate changes,
-     * public and private key changes, and application transfer.
+     * Unique ID of the application.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -344,10 +388,8 @@ declare namespace bundleManager {
     readonly appIdentifier: string;
 
     /**
-     * Indicates the certificate
+     * Public key of the application certificate.
      *
-     * @type { ?string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -356,19 +398,17 @@ declare namespace bundleManager {
   }
 
   /**
-   * Obtains configuration information about an application
+   * Defines the application information.
    *
-   * @typedef ApplicationInfo
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
   interface ApplicationInfo {
     /**
-     * Indicates the application name, which is the same as {@code bundleName}
+     * Name of the application bundle. It corresponds to the **bundleName** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -376,10 +416,10 @@ declare namespace bundleManager {
     readonly name: string;
 
     /**
-     * Description of application
+     * Description of the application. It corresponds to the **description** field in
+     * [app.json5](docroot://quick-start/app-configuration-file.md). For details about **description**, see the
+     * **descriptionResource** field in this table.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -387,10 +427,9 @@ declare namespace bundleManager {
     readonly description: string;
 
     /**
-     * Indicates the description id of the application
+     * Resource ID of the application description. It is automatically generated during compilation and build based on
+     * the description configured for the application.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -398,10 +437,8 @@ declare namespace bundleManager {
     readonly descriptionId: number;
 
     /**
-     * Indicates whether or not this application may be instantiated
+     * Whether the application is enabled. **true** if enabled, **false** otherwise.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -409,10 +446,8 @@ declare namespace bundleManager {
     readonly enabled: boolean;
 
     /**
-     * Indicates the label of the application
+     * Application label.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -420,10 +455,9 @@ declare namespace bundleManager {
     readonly label: string;
 
     /**
-     * Indicates the label id of the application
+     * Resource ID of the application label. It is automatically generated during compilation and build based on the
+     * label configured for the application.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -431,10 +465,10 @@ declare namespace bundleManager {
     readonly labelId: number;
 
     /**
-     * Indicates the icon of the application
+     * Application icon. It corresponds to the **icon** field in the
+     * [app.json5](docroot://quick-start/app-configuration-file.md) file. For details about **icon**, see the
+     * **iconResource** field in this table.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -442,10 +476,9 @@ declare namespace bundleManager {
     readonly icon: string;
 
     /**
-     * Indicates the icon id of the application
+     * Resource ID of the application icon. It is automatically generated during compilation and build based on the icon
+     * configured for the application.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -453,10 +486,8 @@ declare namespace bundleManager {
     readonly iconId: number;
 
     /**
-     * Indicates the iconData of the application
+     * Application icon, which is in Base64 encoding format.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 23
@@ -464,10 +495,8 @@ declare namespace bundleManager {
     readonly iconData: string;
 
     /**
-     * Process of the application. If the user does not set it, the value equals the bundleName.
+     * Process name.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -475,10 +504,8 @@ declare namespace bundleManager {
     readonly process: string;
 
     /**
-     * Indicates the application source code path
+     * Installation directory of the application.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -486,10 +513,8 @@ declare namespace bundleManager {
     readonly codePath: string;
 
     /**
-     * Indicates whether or not this application may be removable
+     * Whether the application is removable. **true** if removable, **false** otherwise.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -497,10 +522,10 @@ declare namespace bundleManager {
     readonly removable: boolean;
 
     /**
-     * Indicates the access token of the application
+     * Access token ID of the application, which is used in the
+     * [application access control verification API](docroot://reference/apis-ability-kit/js-apis-abilityAccessCtrl.md#checkaccesstoken9)
+     * .
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -508,10 +533,8 @@ declare namespace bundleManager {
     readonly accessTokenId: number;
 
     /**
-     * Indicates the uid of the application
+     * UID of the application.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -519,10 +542,8 @@ declare namespace bundleManager {
     readonly uid: number;
 
     /**
-     * Indicates icon resource of the application
+     * Resource information of the application icon, including the bundle name, module name, and ID of the resource.
      *
-     * @type { Resource }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -530,10 +551,8 @@ declare namespace bundleManager {
     readonly iconResource: Resource;
 
     /**
-     * Indicates label resource of the application
+     * Resource information of the application label, including the bundle name, module name, and ID of the resource.
      *
-     * @type { Resource }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -541,10 +560,9 @@ declare namespace bundleManager {
     readonly labelResource: Resource;
 
     /**
-     * Indicates description resource of the application
+     * Resource information of the application description, including the bundle name, module name, and ID of the
+     * resource.
      *
-     * @type { Resource }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -552,10 +570,9 @@ declare namespace bundleManager {
     readonly descriptionResource: Resource;
 
     /**
-     * Indicates the appDistributionType of the application
+     * Distribution type of the application signing certificate. For details, see the **appProvisionType** field in
+     * [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -563,10 +580,8 @@ declare namespace bundleManager {
     readonly appDistributionType: string;
 
     /**
-     * Indicates the appProvisionType of the application
+     * Type of the application signing certificate file. The options are **debug** and **release**.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -574,10 +589,8 @@ declare namespace bundleManager {
     readonly appProvisionType: string;
 
     /**
-     * Indicates whether the application is a system application
+     * Whether the application is a system application. **true** if it is a system application, **false** otherwise.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -585,10 +598,8 @@ declare namespace bundleManager {
     readonly systemApp: boolean;
 
     /**
-     * Indicates whether the application is in debug mode.
+     * Whether the application is running in debug mode. **true** if in debug mode, **false** otherwise.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -596,10 +607,9 @@ declare namespace bundleManager {
     readonly debug: boolean;
 
     /**
-     * Indicates whether the application data is unclearable, that is, whether the application data cannot be cleared.
+     * Whether the application data is unclearable. The value **true** means that the application data is unclearable,
+     * and **false** means the opposite.
      *
-     * @type { boolean }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -607,10 +617,8 @@ declare namespace bundleManager {
     readonly dataUnclearable: boolean;
 
     /**
-     * Indicates native library path.
+     * Local library file path of the application.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -618,10 +626,8 @@ declare namespace bundleManager {
     readonly nativeLibraryPath: string;
 
     /**
-     * Indicates the index of the bundle
+     * Index of an application clone. It takes effect only for application clones.
      *
-     * @type { number }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -629,10 +635,14 @@ declare namespace bundleManager {
     readonly appIndex: number;
 
     /**
-     * Indicates sources to install the app
+     * Installation source of the application. The options are as follows:
      *
-     * @type { string }
-     * @readonly
+     * - **pre-installed**: The application is a preset application installed at initial device startup.
+     * - **ota**: The application is a preset application added during system upgrade.
+     * - **recovery**: The preset application is uninstalled and then restored.
+     * - **bundleName**: The application corresponding to the bundle name is installed.
+     * - **unknown**: The installation source is unknown.
+     *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -640,10 +650,12 @@ declare namespace bundleManager {
     readonly installSource: string;
 
     /**
-     * Indicates the release type of the app
+     * Release type of the SDK used for application packing. Currently, the SDK release types include Canary, Beta, and
+     * Release. Each of the Canary and Beta releases can be distinguished by a sequential number, such as Canary1,
+     * Canary2, Beta1, and Beta2. You can compare the SDK release type on which application packaging depends and the OS
+     * release type (specified by [deviceInfo.distributionOSReleaseType]{@link @ohos.deviceInfo:deviceInfo}) to
+     * determine the compatibility.
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
      * @since 20
@@ -688,1561 +700,974 @@ declare namespace bundleManager {
   }
 
   /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that can be installed by the current user. This API uses an asynchronous callback to return
+   * the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that can be installed by the user specified by **userId**. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that can be installed by the current or specified user. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that can be installed by the current or specified user. The reinstallation of system apps
+   * after uninstallation is not restricted by the API. However, the reinstallation of regular apps after uninstallation
+   * is restricted by the API.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Add appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function addAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that can be installed by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that can be installed by the user specified by **userId**. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that can be installed by the current or specified user. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeAllowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeAllowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that can be installed by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Remove appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function removeAllowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Get the appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that can be installed by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getAllowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get the appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that can be installed by the user specified by **userId**. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getAllowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that can be installed by the current or specified user. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<Array<string>> } Promise used to return the applications that can be installed by the current or
+   *     specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getAllowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
   /**
-   * Get appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that can be installed by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } ids of the bundle that can be installed.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of applications that can be installed by the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Get appid list of bundles that can be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } appIds or appIdentifiers of the bundle that can be installed.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that cannot be installed by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that cannot be installed by the user specified by **userId**. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that are not allowed to be installed by the current or specified user. This API uses a
+   * promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that are not allowed to be installed by the current or specified user. The reinstallation of
+   * system apps after uninstallation is not restricted by the API. However, the reinstallation of regular apps after
+   * uninstallation is restricted by the API.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Add appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be installed by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be installed by the user specified by **userId**. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be installed by the current or specified user. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeDisallowedInstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeDisallowedInstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be installed by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be installed. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Remove appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be installed.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedInstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Get the appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be installed by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get the appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be installed by the user specified by **userId**. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be installed by the current or specified user. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<Array<string>> } Promise used to return the applications that cannot be installed by the current
+   *     or specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
   /**
-   * Get appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be installed by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } ids of the bundle that can not be installed.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of applications that cannot be installed by the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Get appid list of bundles that can not be installed in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } appIds or appIdentifiers of the bundle that can not be installed.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that cannot be uninstalled by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that cannot be uninstalled by the user specified by **userId**. This API uses an asynchronous
+   * callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of addDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that cannot be uninstalled by the current or specified user. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: From API version 21 onwards, the **appId** and
+   *     **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API version 20 and earlier
+   *     versions, only **appId** can be passed.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the addDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Adds the applications that are not allowed to be uninstalled by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Value range: The total number of entries in this list for a
+   *     single user must not exceed 200. For example, if user 100 already has 50 entries and user 101 has none, user 10
+   *     0 can add up to 150 more entries, while user 101 can add up to 200 entries. You are advised to configure a
+   *     maximum of 50 entries at a time to prevent potential performance problems.<br>Note: From API version 21 onwards
+   *     , the **appId** and **appIdentifier** of the app can be passed. **appIdentifier** is recommended. In API
+   *     version 20 and earlier versions, only **appId** can be passed.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Add appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function addDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be uninstalled by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be uninstalled by the user specified by **userId**. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of removeDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be uninstalled by the current or specified user. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeDisallowedUninstallBundles.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Note: Since API version 21, elements in the array can use
+   *     **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed. **appIdentifier** or
+   *     **appId** of the same app will not be removed. In API version 20 and earlier versions, only **appId** can be
+   *     transferred.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the removeDisallowedUninstallBundles.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
   /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Removes the applications that cannot be uninstalled by the current or specified user through the specified device
+   * administrator application.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - ids of the bundle that can not be uninstalled. The size of the array after
-   *                                   setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } appIds - Application IDs.<br>Value range: You are advised to configure a maximum of 50
+   *     entries at a time to prevent potential performance problems.<br>Note: Since API version 21, elements in the
+   *     array can use **appId** and **appIdentifier**. Only the input **appId** or **appIdentifier** is removed.
+   *     **appIdentifier** or **appId** of the same app will not be removed. In API version 20 and earlier versions,
+   *     only **appId** can be transferred.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
-   */
-  /**
-   * Remove appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } appIds - appIds or appIdentifiers of the bundle that can not be uninstalled.
-   *                                   The size of the array after setting cannot be greater than 200.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
    */
   function removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array<string>, accountId?: number): void;
 
   /**
-   * Get the appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be uninstalled by the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedUninstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get the appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be uninstalled by the user specified by **userId**. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<Array<string>> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
-   */
-  /**
-   * Get the appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<Array<string>> } callback - the callback that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
    */
   function getDisallowedUninstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
   /**
-   * Get appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the applications that cannot be uninstalled by the current or specified user. This API uses a promise to
+   * return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appid list.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<Array<string>> } Promise used to return the applications that cannot be uninstalled by the
+   *     current or specified user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 10
    */
-  /**
-   * Get appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<Array<string>> } the promise that contains the appIds or appIdentifiers list.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 21
-   */
   function getDisallowedUninstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
   /**
-   * Get appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
+   * Obtains the bundles that cannot be uninstalled by the current or specified user.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } ids of the bundle that can not be uninstalled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
+   *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
+   *     specified user.<br> - If **accountId** is not passed in, this API applies to the current user.
+   * @returns { Array<string> } Array of bundles that cannot be uninstalled by the user.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-  /**
-   * Get appid list of bundles that can not be uninstalled in the device.
-   * Only apps with the ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY permission can call this method.
-   *
-   * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [accountId] - accountId indicates the account ID or do not pass account ID.
-   * @returns { Array<string> } appIds or appIdentifiers of the bundle that can not be uninstalled.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 21
-   */
   function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
 
   /**
-   * Uninstall an application.
+   * Uninstalls an application of the current user without retaining the bundle data. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
+   * > removable pre-installed application or one configured as non-uninstallable via the
+   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
+   * > API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
-   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Name of the bundle to uninstall.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2251,20 +1676,30 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstall an application.
+   * Uninstalls an application of the specified user without retaining the bundle data This API uses an asynchronous
+   * callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
+   * > removable pre-installed application or one configured as non-uninstallable via the
+   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
+   * > API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
-   * @param { number } userId - userId indicates the user ID or do not pass user ID.
-   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Name of the bundle to uninstall.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2273,20 +1708,31 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstall an application.
+   * Uninstalls an application of the current user. The **isKeepData** parameter specifies whether to retain the bundle
+   * data. This API uses an asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
+   * > removable pre-installed application or one configured as non-uninstallable via the
+   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
+   * > API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } bundleName - Indicates the bundle name of the application to be uninstalled.
-   * @param { boolean } isKeepData - isKeepData indicates whether keep the data.
-   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Name of the bundle to uninstall.
+   * @param { boolean } isKeepData - Whether to retain the bundle data. The value **true** means to retain the bundle
+   *     data; the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2295,21 +1741,32 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstall an application.
+   * Uninstalls an application of the specified user. The **isKeepData** parameter specifies whether to retain the
+   * bundle data. This API uses an asynchronous callback to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
+   * > removable pre-installed application or one configured as non-uninstallable via the
+   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
+   * > API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
-   * @param { number } userId - userId indicates the user ID or do not pass user ID.
-   * @param { boolean } isKeepData - isKeepData indicates whether keep the data.
-   * @param { AsyncCallback<void> } callback - the callback of uninstalling application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Name of the bundle to uninstall.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.
+   * @param { boolean } isKeepData - Whether to retain the bundle data. The value **true** means to retain the bundle
+   *     data; the value **false** means the opposite.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2318,20 +1775,33 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, userId: number, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Uninstall an application.
+   * Uninstalls an application of the current or specified user. The **isKeepData** parameter specifies whether to
+   * retain the bundle data. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > Error code **401** will be returned if this API is called to uninstall an application that is either a non-
+   * > removable pre-installed application or one configured as non-uninstallable via the
+   * > [addDisallowedUninstallBundlesSync]{@link @ohos.enterprise.bundleManager:bundleManager.addDisallowedUninstallBundlesSync}
+   * > API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } bundleName - indicates the bundle name of the application to be uninstalled.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @param { boolean } [isKeepData] - isKeepData indicates whether keep the data.
-   * @returns { Promise<void> } the promise of uninstalling application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of an application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @param { boolean } [isKeepData] - Whether to retain the bundle data. The value **true** means to retain the bundle
+   *     data; the value **false** means the opposite.
+   * @returns { Promise<void> } Promise that returns no value. An error object will be thrown if the application fails
+   *     to be uninstalled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @StageModelOnly
    * @since 12
@@ -2339,20 +1809,22 @@ declare namespace bundleManager {
   function uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise<void>;
 
   /**
-   * Install an application.
+   * Installs specified applications. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
-   * @param { AsyncCallback<void> } callback - the callback of installing application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } hapFilePaths - Applications to install.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201002 - Failed to install the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2361,23 +1833,23 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Install an application.
+   * Installs applications with specified parameters. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
-   * @param { InstallParam } installParam - installParam indicates the installation parameters.
-   *                                        It may contain two fields: userId and installFlag.
-   *                                        The flag can only be one of correct flags.
-   * @param { AsyncCallback<void> } callback - the callback of installing application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } hapFilePaths - Applications to install.
+   * @param { InstallParam } installParam - Application installation parameters.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201002 - Failed to install the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -2386,22 +1858,36 @@ declare namespace bundleManager {
   function install(admin: Want, hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 
   /**
-   * Install an application.
+   * Installs specified applications. This API uses a promise to return the result.
+   *
+   * This API can be used to install only applications of the **enterprise_mdm** (MDM application) or
+   * **enterprise_normal** (common enterprise application) distribution type. You can call the
+   * [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)} API
+   * to query the [BundleInfo]{@link ./bundleManager/BundleInfo} of an application, where
+   * **BundleInfo.appInfo.appDistributionType** indicates the distribution type.
+   *
+   * > **NOTE**
+   * >
+   * > This API is time-consuming. Subsequent calls to other synchronous APIs in the application main thread must wait
+   * > for the asynchronous return of this API.
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } hapFilePaths - indicates the path of the application to be installed.
-   * @param { InstallParam } [installParam] - installParam indicates the installation parameters.
-   *                                        It may contain two fields: userId and installFlag.
-   *                                        The flag can only be one of correct flags.
-   * @returns { Promise<void> } the promise of installing application result.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } hapFilePaths - Applications to install. The app bundle must be stored in the path that the
+   *     app has the permission to access, such as the app sandbox path. For details about the mapping between the app
+   *     sandbox path and the actual physical path, see
+   *     [Mappings Between App Sandbox Paths and Physical Paths](docroot://file-management/app-sandbox-directory.md#mappings-between-application-sandbox-paths-and-physical-paths)
+   *     .
+   * @param { InstallParam } [installParam] - Application installation parameters.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9201002 - Failed to install the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @StageModelOnly
    * @since 12
@@ -2456,84 +1942,65 @@ declare namespace bundleManager {
   function installForResult(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam): Promise<void>;
 
   /**
-   * Get the list of install bundles in the device.
+   * Adds the distribution type of the application that can be installed. Only applications of the distribution type
+   * that is added to [AppDistributionType]{@link bundleManager.AppDistributionType} can be installed on the current
+   * device.
    *
-   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * @returns { Promise<Array<BundleInfo>> } The result of getting the bundle info.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
-
-  /**
-   * Get the list of install bundles in the device.
-   *
-   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { int } accountId - accountId indicates the local ID of the OS account.
-   * @param { int } bundleInfoGetFlag - {@link BundleInfoGetFlag} - Indicates the flag used to specify information contained in the BundleInfo object that will be returned.
-   * @returns { Promise<Array<BundleInfo>> } The result of getting the bundle info.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 23
-   */
-  function getInstalledBundleList(admin: Want, accountId: int, bundleInfoGetFlag: int): Promise<Array<BundleInfo>>;
-
-  /**
-   * Add the list of app distribution types can be installed in the device.
+   * For details about the distribution type of the application signing certificate, refer to the
+   * **appDistributionType** attribute in [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<AppDistributionType> } appDistributionTypes - Distribution types of the application signing
+   *     certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
   function addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
-  
+
   /**
-   * Remove the list of app distribution types can be installed in the device.
+   * Removes the distribution type of an application. If only some distribution types in the array are removed, the
+   * current device can install applications of the remaining distribution types in the array, but cannot install
+   * applications of the distribution types not included in
+   * [AppDistributionType]{@link bundleManager.AppDistributionType}.
+   *
+   * For details about the distribution type of the application signing certificate, refer to the
+   * **appDistributionType** attribute in [ApplicationInfo]{@link ./bundleManager/ApplicationInfo:ApplicationInfo}.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<AppDistributionType> } appDistributionTypes - appdistribution types id.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<AppDistributionType> } appDistributionTypes - Distribution types of the application signing
+   *     certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
    */
   function removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array<AppDistributionType>): void;
-  
+
   /**
-   * Get the list of app distribution types can be installed in the device.
+   * Obtains the distribution type of the signing certificate used by applications that can be installed.
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Array<AppDistributionType> } the result of app distribution types can be installed in the device.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Array<AppDistributionType> } Distribution types of the application signing certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 20
@@ -2541,17 +2008,72 @@ declare namespace bundleManager {
   function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
 
   /**
-   * Install the application in the market.
+   * Obtains the applications installed by a specified user on a device. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } accountId - Account ID. The value is a positive integer greater than or equal to 0.<br> You can call
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of @
+   *     ohos.account.osAccount to obtain the account ID.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return the bundle information of the installed application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function getInstalledBundleList(admin: Want, accountId: number): Promise<Array<BundleInfo>>;
+
+  /**
+   * Obtains the list of applications installed by a specified user based on the specified **bundleInfoGetFlag**. This
+   * API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { int } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ ohos.account.osAccount to obtain the account ID.
+   * @param { int } bundleInfoGetFlag - Type of the bundle information to obtain
+   *     <br>The value range is all integers.
+   * @returns { Promise<Array<BundleInfo>> } Promise used to return the bundle information of the installed application.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function getInstalledBundleList(admin: Want, accountId: int, bundleInfoGetFlag: int): Promise<Array<BundleInfo>>;
+
+  /**
+   * Downloads and installs an application from AppGallery.
+   *
+   * > **NOTE**
+   * >
+   * > After this API is successfully called, an application download task is generated on the home screen. The task is
+   * > the same as that created during download from AppGallery. Upon completion of the download and installation, the
+   * > installation result is returned through the
+   * > [EnterpriseAdminExtensionAbility.onMarketAppInstallResult]{@link @ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility.onMarketAppInstallResult}
+   * > callback.<!--RP1--><!--RP1End-->
    *
    * @permission ohos.permission.ENTERPRISE_INSTALL_BUNDLE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { Array<string> } bundleNames - bundleNames indicates the bundleName list of applications that need to install.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<string> } bundleNames - Application bundle name list. A maximum of 10 bundle names can be passed at
+   *     a time. The bundle name must be the same as that on AppGallery. Otherwise, the download task cannot be created,
+   *     and error code 9201002 will be reported.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9201002 - Failed to install the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
@@ -2564,8 +2086,10 @@ declare namespace bundleManager {
    * @permission ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO
    * @param { Want } admin - admin indicates the enterprise admin extension ability information.
    * @param { Array<string> } bundleNames - bundleNames indicates the list of application bundle names.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   *     <br>Value range:[0, +∞)
+   * @param { number } accountId - Account ID.
+   *     <br>The value must be an integer greater than or equal to 0.
+   *     <br> You can call [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()}
+   *     of @ ohos.account.osAccount to obtain the account ID.
    * @returns { Promise<Array<BundleStorageStats>> } Returns the bundle statistics of the installed applications.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2577,70 +2101,6 @@ declare namespace bundleManager {
    * @since 26.0.0
    */
   function getInstalledBundleStorageStats(admin: Want, bundleNames: Array<string>, accountId: number): Promise<Array<BundleStorageStats>>;
-
-  /**
-   * App distribution type.
-   * 
-   * @enum { number }
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  enum AppDistributionType {
-	/**
-     * App distribution type of app gallery
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	APP_GALLERY = 1,
-	
-	/**
-     * App distribution type of enterprise
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	ENTERPRISE = 2,
-	
-	/**
-     * App distribution type of enterprise normal
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	ENTERPRISE_NORMAL = 3,
-	
-	/**
-     * App distribution type of enterprise MDM
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	ENTERPRISE_MDM = 4,
-	
-	/**
-     * App distribution type of enterprise internal testing
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	INTERNALTESTING = 5,
-	
-	/**
-     * App distribution type of enterprise crowd testing
-     * 
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-	CROWDTESTING = 6,
-  }
 }
 
 export default bundleManager;

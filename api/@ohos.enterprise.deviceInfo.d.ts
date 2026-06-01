@@ -22,27 +22,36 @@ import type { AsyncCallback } from './@ohos.base';
 import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the device info of the enterprise devices.
+ * The **deviceInfo** module provides APIs for enterprise device information management, including obtaining device
+ * serial numbers and device names.
  *
- * @namespace deviceInfo
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be used only in the stage model.
+ * >
+ * > The APIs of this module can be called only by a device administrator application that is enabled. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 10
  */
 declare namespace deviceInfo {
   /**
-   * Gets the device serial.
-   * This function can be called by a super administrator.
+   * Obtains the device serial number. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<string> } callback - the callback of getDeviceSerial.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<string> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is the device serial number obtained. If the operation fails, **err** is an
+   *     error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -51,19 +60,19 @@ declare namespace deviceInfo {
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
 
   /**
-   * Gets the device serial.
-   * This function can be called by a super administrator.
+   * Obtains the device serial number. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<string> } the promise returned by the getDeviceSerial.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<string> } Promise used to return the device serial number.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -72,19 +81,21 @@ declare namespace deviceInfo {
   function getDeviceSerial(admin: Want): Promise<string>;
 
   /**
-   * Gets the display version.
-   * This function can be called by a super administrator.
+   * Obtains the device version number. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<string> } callback - the callback of getDisplayVersion.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<string> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is the device version number obtained. If the operation fails, **err** is an
+   *     error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -93,19 +104,19 @@ declare namespace deviceInfo {
   function getDisplayVersion(admin: Want, callback: AsyncCallback<string>): void;
 
   /**
-   * Gets the display version.
-   * This function can be called by a super administrator.
+   * Obtains the device version number. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<string> } the promise returned by the getDisplayVersion.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<string> } Promise used to return the device version number.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -114,19 +125,21 @@ declare namespace deviceInfo {
   function getDisplayVersion(admin: Want): Promise<string>;
 
   /**
-   * Gets the device name.
-   * This function can be called by a super administrator.
+   * Obtains the device name. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<string> } callback - the callback of getDeviceName.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<string> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is the device name obtained. If the operation fails, **err** is an error
+   *     object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -135,19 +148,19 @@ declare namespace deviceInfo {
   function getDeviceName(admin: Want, callback: AsyncCallback<string>): void;
 
   /**
-   * Gets the device name.
-   * This function can be called by a super administrator.
+   * Obtains the device name. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<string> } the promise returned by the getDeviceName.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<string> } Promise used to return the device name.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @StageModelOnly
@@ -156,35 +169,20 @@ declare namespace deviceInfo {
   function getDeviceName(admin: Want): Promise<string>;
 
   /**
-   * Gets the device information.
-   * This function can be called by a super administrator.
+   * Obtains device information.
    *
    * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { string } label - label indicates the specific information that needs to be queried,
-   *                           the supported device information include deviceName, deviceSerial and simInfo.
-   * @returns { string } the specific information of device.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @StageModelOnly
-   * @since 12
-   */
-  /**
-   * Gets the device information.
-   * This function can be called by a super administrator.
-   *
-   * @permission ohos.permission.ENTERPRISE_GET_DEVICE_INFO
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *     The admin must have the corresponding permission.
-   * @param { string } label - label indicates the specific information that needs to be queried,
-   *     the supported device information include deviceName, deviceSerial and simInfo.
-   *     simInfo add show number.
-   * @returns { string } the specific information of device.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } label - Device information label that can be obtained.<br>- **deviceName**: device name.<br>-
+   *     **deviceSerial**: device serial number.<br>- **simInfo**: SIM card information.<!--RP1--><!--RP1End-->
+   * @returns { string } Device information obtained.
+   *     <br>If **label** is **simInfo**, the return value is the SIM card information in a JSON string. For example,
+   *     [{"slotId": 0, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""},
+   *      {"slotId": 1, "MEID": "", "IMSI": "", "ICCID": "", "IMEI": "", "NUMBER": ""}]
+   *     , where **slotId:0** indicates card slot 1, and **slotId:1** indicates card slot 2. **NUMBER** indicates the
+   *     phone number and is supported since API version 23. The value is in the E.164 international standard format (
+   *     for example, +8612345678901) that contains the country code.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -193,7 +191,7 @@ declare namespace deviceInfo {
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @StageModelOnly
-   * @since 23
+   * @since 12
    */
   function getDeviceInfo(admin: Want, label: string): string;
 }
