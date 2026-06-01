@@ -5588,10 +5588,10 @@ declare namespace drawing {
    * 定义蒙版滤镜模糊中操作类型的枚举。
    * | 名称   | 值 | 说明               | 示意图   |
    * | ------ | - | ------------------ | -------- |
-   * | NORMAL | 0 | 全面模糊，外圈边缘和内部实体一起模糊。 | ! [image_BlueType_Normal.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Normal.png) |
-   * | SOLID  | 1 | 内部实体不变，只模糊外圈边缘部分。 | ! [image_BlueType_Solid.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Solid.png) |
-   * | OUTER  | 2 | 只有外圈边缘模糊，内部实体完全透明。 | ! [image_BlueType_Outer.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Outer.png) |
-   * | INNER  | 3 | 只有内部实体模糊，外圈边缘清晰。 | ! [image_BlueType_Inner.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Inner.png) |
+   * | NORMAL | 0 | 全面模糊，外圈边缘和内部实体一起模糊。 | ![image_BlueType_Normal.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Normal.png) |
+   * | SOLID  | 1 | 内部实体不变，只模糊外圈边缘部分。 | ![image_BlueType_Solid.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Solid.png) |
+   * | OUTER  | 2 | 只有外圈边缘模糊，内部实体完全透明。 | ![image_BlueType_Outer.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Outer.png) |
+   * | INNER  | 3 | 只有内部实体模糊，外圈边缘清晰。 | ![image_BlueType_Inner.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Inner.png) |
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
