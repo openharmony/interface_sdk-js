@@ -543,7 +543,7 @@ declare namespace dlpPermission {
     export interface DLPManagerResult {
         /**
          * 表示打开DLP权限管理应用并退出后返回的结果码。取值范围为0到3。
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @StageModelOnly
          * @since 11
@@ -560,7 +560,7 @@ declare namespace dlpPermission {
     }
     /**
      * 在当前[UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility}界面以无边框形式打开DLP权限管理应用。使用Promise异步回调。
-     *
+     * 
      * 该接口用于拉起DLP权限管理应用配置文件权限，并将用户操作结果返回给调用方。
      * 
      * > **说明：**
