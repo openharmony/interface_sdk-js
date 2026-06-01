@@ -3960,7 +3960,9 @@ declare namespace media {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
      * @throws { BusinessError } 5400105 - Service died.
+     * @throws { BusinessError } 202 - Called from Non-System applications. Return by promise.
      * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @systemapi
      * @stagemodelonly
      * @atomicservice
      * @since 26.0.0 dynamic&static
