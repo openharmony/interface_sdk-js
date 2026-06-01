@@ -23,6 +23,10 @@
  * callback.
  *
  * @syscap SystemCapability.Base
+ * @param { T } data Common callback information.
+ * @crossplatform
+ * @form
+ * @atomicservice
  * @since 23 static
  */
 export type Callback<T> = (data: T) => void;
@@ -32,14 +36,25 @@ export type Callback<T> = (data: T) => void;
  * the [BusinessError]{@link BusinessError} type.
  *
  * @syscap SystemCapability.Base
+ * @param { T } err Common error information about the API invoking failure.
+ * @crossplatform
+ * @form
+ * @atomicservice
  * @since 23 static
  */
 export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 
 /**
- * Defines a common callback that carries an error parameter and asynchronous return value.
+ * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
+ * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
+ * developer.
  *
  * @syscap SystemCapability.Base
+ * @param { BusinessError<E> } err Common error information about the API invoking failure.
+ * @param { T } data Common callback information.
+ * @crossplatform
+ * @form
+ * @atomicservice
  * @since 23 static
  */
 export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
@@ -48,58 +63,76 @@ export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T 
  * Defines the error parameter.
  *
  * @syscap SystemCapability.Base
+ * @param { number } code Common error information about the API invoking failure.
+ * @param { T } data Common callback information. If this parameter is left empty, no related information is returned.
+ * @crossplatform
+ * @form
+ * @atomicservice
  * @since 23 static
  */
 export declare class BusinessError<T = void> extends Error {
   /**
-   * A constructor used to create a BusinessError object
+   * Defines a constructor used to create a BusinessError object.
    *
    * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 23 static
    */
   constructor();
   /**
-   * A constructor used to create a BusinessError object
+   * Defines a constructor used to create a BusinessError object.
    *
-   * @param { int } code - Error code information returned when the interface call fails.
-   * @param { Error } error - Incorrect parameters.
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { Error } error - Defines the error parameter.
    * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 23 static
    */
   constructor(code: int, error: Error);
   /**
-   * A constructor used to create a BusinessError object
+   * Defines a constructor used to create a BusinessError object.
    *
-   * @param { int } code - The value range is all integers.
-   * @param { T } data - Common callback information during interface invocation.
-   * @param { Error } error - Incorrect parameters.
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { T } data - Common callback information.
+   * @param { Error } error - Defines the error parameter.
    * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 23 static
    */
   constructor(code: int, data: T, error: Error);
   /**
-   * A constructor used to create a BusinessError object
+   * Defines a constructor used to create a BusinessError object.
    *
-   * @param { int } code - Error code information returned when the interface call fails.
-   * @param { string } message - The error message description returned when the interface call fails.
-   * @param { T } [data] - Common callback information during interface invocation.
+   * @param { int } code - Common error information about the API invoking failure.
+   * @param { string } message - Error message returned when the API call fails.
+   * @param { T } [data] - Common callback information.
    * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 23 static
    */
   constructor(code: int, message: string, data?: T);
 
   /**
-   * Defines the additional information for business
    *
    * @syscap SystemCapability.Base
+   * @crossplatform
+   * @form
+   * @atomicservice
    * @since 23 static
    */
   public data?: T;
  }
 
 /**
- * In ArkTS static typing, for literals where the hierarchy and the number
- * of attributes per level are uncertain, you can use RecordData for initialization.
+ * RecordData is a union type used for object structures with uncertain levels and quantities at each level.
  *
  * @unionmember { undefined } Undefined type.
  * @unionmember { null } Null type.
@@ -107,6 +140,9 @@ export declare class BusinessError<T = void> extends Error {
  * @unionmember { Record<string, RecordData> } Record type with string keys and RecordData values.
  * @unionmember { Array<RecordData> } Array type containing RecordData elements.
  * @syscap SystemCapability.Base
- * @since 23 staticonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 staticOnly
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

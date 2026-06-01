@@ -57,7 +57,9 @@ export interface Callback<T> {
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
-   * Common error information about the API invoking failure.
+   * Common error information about the API invoking failure.The error parameter is of the
+   * [BusinessError]{@link BusinessError} type.
+   * The type of the asynchronous return value is defined by the developer.
    *
    * @param { T } err
    * @syscap SystemCapability.Base
