@@ -28,7 +28,7 @@ import { CliToolEvent } from './CliToolEvent';
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 type OnEventFn = (event: CliToolEvent) => void;
 
@@ -39,7 +39,7 @@ type OnEventFn = (event: CliToolEvent) => void;
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 export interface ToolEventCallback {
   /**
@@ -49,7 +49,7 @@ export interface ToolEventCallback {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   onEvent: OnEventFn;
-}
+}

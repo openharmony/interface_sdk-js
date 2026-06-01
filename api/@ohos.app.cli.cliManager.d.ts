@@ -20,9 +20,6 @@
 import { ToolInfo, ToolSummary } from './application/ToolInfo';
 import { ToolEventCallback } from './application/ToolEventCallback';
 
-/*** if arkts static */
-import { RecordData } from './@ohos.base';
-/*** endif */
 
 /**
  * The module provides the capability to interact with cli tools in the system.
@@ -31,7 +28,7 @@ import { RecordData } from './@ohos.base';
  * @syscap SystemCapability.Ability.AgentRuntime.Core
  * @systemapi
  * @stagemodelonly
- * @since 26.0.0 dynamic&static
+ * @since 26.0.0 dynamiconly
  */
 declare namespace cliManager {
   /**
@@ -40,7 +37,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface ExecOptions {
     /**
@@ -49,7 +46,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     background?: boolean;
 
@@ -59,7 +56,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     yieldMs?: long;
 
@@ -69,7 +66,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     timeout?: long;
   }
@@ -80,7 +77,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface ExecResult {
     /**
@@ -89,7 +86,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     exitCode?: int;
 
@@ -99,7 +96,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     outputText?: string;
 
@@ -109,7 +106,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     errorText?: string;
 
@@ -119,7 +116,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     signalNumber?: int;
 
@@ -129,7 +126,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     timeOut: boolean;
 
@@ -139,7 +136,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     executionTime: long;
   }
@@ -150,7 +147,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   enum SessionStatus {
     /**
@@ -159,7 +156,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     RUNNING = 'running',
 
@@ -169,7 +166,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     COMPLETED = 'completed',
 
@@ -179,7 +176,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     FAILED = 'failed'
   }
@@ -190,7 +187,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface CliSessionInfo {
     /**
@@ -199,7 +196,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     sessionId: string;
 
@@ -209,7 +206,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     toolName: string;
 
@@ -219,7 +216,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     status: SessionStatus;
 
@@ -229,7 +226,7 @@ declare namespace cliManager {
      * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     result?: ExecResult;
   }
@@ -246,7 +243,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function queryToolSummaries(): Promise<Array<ToolSummary>>;
 
@@ -262,7 +259,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function queryTools(): Promise<Array<ToolInfo>>;
 
@@ -280,7 +277,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function getToolInfoByName(toolName: string): Promise<ToolInfo>;
 
@@ -303,34 +300,9 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic
+   * @since 26.0.0 dynamiconly
    */
   function execTool(toolName: string, subCommand: string, args: Record<string, Object>, challenge: string,
-    execOptions?: ExecOptions): Promise<CliSessionInfo>;
-
-  /**
-   * Execute a CLI command.
-   *
-   * @permission ohos.permission.EXEC_CLI_TOOL
-   * @param { string } toolName - The name of target tool.
-   * @param { string } subCommand- The subCommand of this execute action.If there is no subcommand,
-   *     pass an empty value for this field.
-   * @param { Record<string, RecordData> } args - The input args of tool.
-   * @param { string } challenge - The unique identifier get from access token manager.
-   * @param { ExecOptions } [execOptions] - The options of this action.
-   * @returns { Promise<CliSessionInfo> } execute result.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not system application.
-   * @throws { BusinessError } 35600030 - No tool with the specified name exists.
-   * @throws { BusinessError } 35600031 - Maximum number of processes has been reached.
-   * @throws { BusinessError } 35600050 - System Error. 1. Failed to connect to the system service;
-   *     2. The system service failed to communicate with the dependent module.
-   * @syscap SystemCapability.Ability.AgentRuntime.Core
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  function execTool(toolName: string, subCommand: string, args: Record<string, RecordData>, challenge: string,
     execOptions?: ExecOptions): Promise<CliSessionInfo>;
 
   /**
@@ -348,7 +320,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function subscribeSession(sessionId: string, callback: ToolEventCallback): Promise<void>;
 
@@ -366,7 +338,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function clearSession(sessionId: string): Promise<void>;
 
@@ -384,7 +356,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function querySession(sessionId: string): Promise<CliSessionInfo>;
 
@@ -404,7 +376,7 @@ declare namespace cliManager {
    * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function sendMessage(sessionId: string, message: string): Promise<void>;
 }
