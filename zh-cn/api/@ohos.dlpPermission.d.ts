@@ -223,7 +223,7 @@ declare namespace dlpPermission {
     }
     /**
      * 根据文件的fd，查询该文件是否是DLP文件。使用Promise异步回调。
-     *
+     * 
      * 在文件处理流程中，需要先判断文件是否为DLP文件，再决定后续处理策略（如是否需要通过DLP沙箱打开）。
      *
      * @param { number } fd - 待查询文件的fd（文件描述符）。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回false；当fd大于2<sup>31</sup>-1时，fd的值被截
@@ -239,7 +239,7 @@ declare namespace dlpPermission {
     function isDLPFile(fd: number): Promise<boolean>;
     /**
      * 根据文件的fd，查询该文件是否是DLP文件。调用成功后返回查询结果，true表示是DLP文件，false表示非DLP文件。使用callback异步回调。
-     *
+     * 
      * 在文件处理流程中，需要先判断文件是否为DLP文件，再决定后续处理策略（如是否需要通过DLP沙箱打开）。
      *
      * @param { number } fd - 待查询文件的fd（文件描述符）。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数返回false；当fd大于2<sup>31</sup>-1时，fd的值被截
@@ -298,7 +298,7 @@ declare namespace dlpPermission {
     function getOriginalFileName(fileName: string): string;
     /**
      * 获取DLP文件扩展名。调用成功后返回DLP文件扩展名（如'.dlp'）。接口为同步接口。
-     *
+     * 
      * 用于获取DLP文件的标准扩展名，便于构建DLP文件名或进行文件类型判断。
      *
      * @returns { string } 返回DLP文件扩展名。例如：原文件"test.txt"，加密后的DLP文件名为"test.txt.dlp"，返回扩展名为".dlp"。
@@ -356,7 +356,7 @@ declare namespace dlpPermission {
     function isInSandbox(): Promise<boolean>;
     /**
      * 查询当前应用是否运行在DLP沙箱环境。使用callback异步回调。
-     *
+     * 
      * 该接口用于判断当前应用是否处于DLP沙箱环境，以便决定是否执行沙箱相关的操作或调用沙箱专用接口。
      *
      * @param { AsyncCallback<boolean> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。返回true表示当前应用运行在沙箱中，返回false表示当前应用不是
@@ -370,7 +370,7 @@ declare namespace dlpPermission {
     function isInSandbox(callback: AsyncCallback<boolean>): void;
     /**
      * 查询当前可支持权限设置和校验的文件扩展名类型列表。调用成功后返回支持的文件类型列表，用于判断哪些文件类型可进行DLP权限管理。使用Promise异步回调。
-     *
+     * 
      * 该接口用于获取支持DLP权限管理的文件类型列表，以便决定当前文件是否可以进行加密。
      *
      * @returns { Promise<Array<string>> } Promise对象。返回当前可支持权限设置和校验的文件扩展名类型列表。
@@ -382,7 +382,7 @@ declare namespace dlpPermission {
     function getDLPSupportedFileTypes(): Promise<Array<string>>;
     /**
      * 查询当前可支持权限设置和校验的文件扩展名类型列表。调用成功后返回支持的文件类型列表，用于判断哪些文件类型可进行DLP权限管理。使用callback异步回调。
-     *
+     * 
      * 该接口用于获取支持DLP权限管理的文件类型列表，以便决定当前文件是否可以进行加密。
      *
      * @param { AsyncCallback<Array<string>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
@@ -397,7 +397,7 @@ declare namespace dlpPermission {
      * 设置DLP沙箱的保留状态。默认情况下，打开DLP文件时系统会自动创建沙箱环境，关闭文件后自动销毁沙箱。设置保留状态后，即使关闭DLP文件，沙箱环境也会保留，便于快速重新打开相同DLP文件。适用于需要频繁操作同一DLP文件的场景
      * ，可提升文件打开效率。使用Promise异步回调。
      *
-     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节，否则返回null。
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string不超过4095字节，超出此范围抛出错误码19100001。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -413,7 +413,7 @@ declare namespace dlpPermission {
      * 设置DLP沙箱的保留状态。默认情况下，打开DLP文件时系统会自动创建沙箱环境，关闭文件后自动销毁沙箱。设置保留状态后，即使关闭DLP文件，沙箱环境也会保留，便于快速重新打开相同DLP文件。适用于需要频繁操作同一DLP文件的场景
      * ，可提升文件打开效率。
      *
-     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节。
+     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。不对Array长度进行限制，每个string长度范围[0, 4095]字节，超出此范围抛出错误码19100001。
      * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -427,7 +427,7 @@ declare namespace dlpPermission {
     function setRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
     /**
      * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用Promise异步回调。
-     *
+     * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
      * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string长度范围[0, 4095]字节，超出此范围抛出错误码19100001。
@@ -442,10 +442,10 @@ declare namespace dlpPermission {
     function cancelRetentionState(docUris: Array<string>): Promise<void>;
     /**
      * 取消沙箱保留状态即恢复DLP文件关闭时自动卸载沙箱策略。使用callback异步回调。
-     *
+     * 
      * 该接口用于取消沙箱保留状态，恢复默认行为以释放系统资源，适用于不再频繁访问DLP文件的场景。
      *
-     * @param { Array<string> } docUris - 表示需要设置保留状态的文件uri列表。Array不限长度，每个string不超过4095字节，否则返回null。
+     * @param { Array<string> } docUris - 表示需要取消保留状态的文件uri列表。不对Array长度进行限制，每个string不超过4095字节，超出此范围抛出错误码19100001。
      * @param { AsyncCallback<void> } callback - 回调函数。err为undefined时表示设置成功；否则为错误对象。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -474,7 +474,7 @@ declare namespace dlpPermission {
     function getRetentionSandboxList(bundleName?: string): Promise<Array<RetentionSandboxInfo>>;
     /**
      * 查询指定应用的保留沙箱信息列表。使用callback异步回调。
-     *
+     * 
      * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。
      *
      * @param { string } bundleName - 指定应用包名，用于查询该应用的保留沙箱信息列表。当需要查询其他应用的保留沙箱信息时传入此参数，当需要查询当前应用的保留沙箱信息时可不传此参数。长度范围
@@ -491,7 +491,7 @@ declare namespace dlpPermission {
     function getRetentionSandboxList(bundleName: string, callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
     /**
      * 查询当前应用的保留沙箱信息列表。使用callback异步回调。
-     *
+     * 
      * 该接口用于查询指定应用的保留沙箱列表，以便查看或管理当前处于保留状态的沙箱环境。
      *
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
@@ -506,7 +506,7 @@ declare namespace dlpPermission {
     function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
     /**
      * 查询最近访问的DLP文件列表。调用成功后返回文件访问记录，用于追踪和管理DLP文件的使用情况。仅支持在非DLP沙箱应用中调用。使用Promise异步回调。
-     *
+     * 
      * 该接口用于获取最近访问的DLP文件记录列表，便于审计追踪和文件使用情况管理。
      *
      * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise对象。返回最近访问的DLP文件列表。
@@ -520,7 +520,7 @@ declare namespace dlpPermission {
     function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
     /**
      * 查询最近访问的DLP文件列表。调用成功后返回文件访问记录，用于追踪和管理DLP文件的使用情况。使用callback异步回调。
-     *
+     * 
      * 该接口用于获取最近访问的DLP文件记录列表，便于审计追踪和文件使用情况管理。
      *
      * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - 回调函数。err为undefined时表示查询成功；否则为错误对象。
@@ -609,7 +609,7 @@ declare namespace dlpPermission {
     }
     /**
      * 查询DLP沙箱聚合策略。使用Promise异步回调。
-     *
+     * 
      * 应用需要获取当前系统的DLP沙箱聚合策略配置时使用此接口。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
@@ -667,7 +667,6 @@ declare namespace dlpPermission {
         /**
          * 表示被绑定的DLP沙箱应用的应用索引。默认不返回，仅当沙箱应用是预览时返回。
          * **模型约束**：此接口仅可在Stage模型下使用。
-         * 取值应为[-1,1100]内的整数。默认值：-1。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -704,7 +703,7 @@ declare namespace dlpPermission {
      * 安装一个应用的DLP沙箱。使用callback异步回调。调用成功后，系统为应用创建DLP沙箱环境并返回沙箱信息。
      * 
      * 调用installDLPSandbox成功后必须在使用完毕后调用uninstallDLPSandbox卸载沙箱。
-     *
+     * 
      * DLP文件管理应用打开受保护文件前，需要先为目标应用安装DLP沙箱。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
@@ -736,8 +735,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。超出范围时抛出错误码19100001。
-     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。超出范围时抛出错误码
-     *     19100001。
+     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。超出范围时抛出错误码19100001。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -800,7 +798,7 @@ declare namespace dlpPermission {
     }
     /**
      * 注册监听DLP沙箱卸载事件，用于感知沙箱环境的变化。注册成功后，当DLP沙箱被卸载时，系统会通过回调函数通知应用。
-     *
+     * 
      * 调用on()注册监听后，建议在不需要监听时调用off()取消监听释放资源。
      * 
      * DLP管理应用需要追踪沙箱的创建和销毁状态，以便维护沙箱列表或执行相关的清理操作。
@@ -1072,7 +1070,7 @@ declare namespace dlpPermission {
         /**
          * 在FUSE文件系统(Filesystem in Userspace)添加link文件。FUSE是一种用户空间文件系统框架，允许在用户空间实现自定义文件系统逻辑。link文件是FUSE中映射到DLP密文的虚拟文件，对该文
          * 件的读写操作会同步到实际DLP文件。使用Promise异步回调。
-         *
+         * 
          * DLP应用需要通过标准文件接口访问加密文件内容时，先添加link文件将DLP文件映射为虚拟明文文件，应用可像操作普通文件一样读写该link文件。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1114,9 +1112,9 @@ declare namespace dlpPermission {
         addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
          * 停止FUSE关联读写。使用Promise异步回调。调用成功后，暂停对link文件的读写操作。
-         *
+         * 
          * 调用stopFuseLink()暂停FUSE关联读写后，必须调用resumeFuseLink()恢复读写功能。
-         *
+         * 
          * 在删除link文件前，需要先停止关联读写以确保文件操作安全。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1133,7 +1131,7 @@ declare namespace dlpPermission {
         stopFuseLink(): Promise<void>;
         /**
          * 停止FUSE关联读写。使用callback异步回调。调用成功后，暂停对link文件的读写操作。
-         *
+         * 
          * 删除link文件前需要暂停读写关联。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1153,7 +1151,7 @@ declare namespace dlpPermission {
          * 恢复FUSE关联读写。使用Promise异步回调。调用成功后，恢复对link文件的读写操作。
          * 
          * 必须在调用stopFuseLink()暂停读写后才能调用此方法恢复读写功能。
-         *
+         * 
          * link文件替换完成后，需要恢复读写关联以继续正常的文件访问。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1209,7 +1207,7 @@ declare namespace dlpPermission {
         replaceDLPLinkFile(linkFileName: string): Promise<void>;
         /**
          * 替换link文件，使用callback异步回调。调用成功后，使用新的link文件名替换当前link文件。
-         *
+         * 
          * 需要切换访问不同的DLP文件时替换link文件。
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
@@ -1330,7 +1328,7 @@ declare namespace dlpPermission {
          * 调用openDLPFile()成功后返回DLPFile对象，必须在使用完毕后调用closeDLPFile()释放资源。
          * 
          * 文件所有者决定关闭DLP文件时使用此接口。
-         *
+         * 
          * > **说明：**
          * >
          * > dlpFile不再使用，应该关闭释放内存，且对象不应继续使用。
@@ -1408,7 +1406,8 @@ declare namespace dlpPermission {
      * @param { number } plaintextFd - 待加密明文文件的fd。取值范围为[0, 2<sup>31</sup>-1]。超出范围时该数值会被截断。
      * @param { number } ciphertextFd - 目标加密文件的fd。取值范围为[0, 2<sup>31</sup>-1]。超出范围时该数值会被截断。
      * @param { DLPProperty } property - 授权用户信息：授权用户列表、owner账号、联系人账号。
-     * @param { AsyncCallback<DLPFile> } callback - 回调函数，用于接收生成DLP文件的结果。回调参数包括：err（错误对象，成功时为undefined）和res（DLPFile对象，表示生成的DLP文件）。
+     * @param { AsyncCallback<DLPFile> } callback - 回调函数，用于接收生成DLP文件的结果。回调参数包括：err（错误对象，成功时为undefined）和res（DLPFile对象，表示生
+     *     成的DLP文件）。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1536,7 +1535,7 @@ declare namespace dlpPermission {
      * 用于判断系统是否支持DLP加密功能。使用Promise异步回调。
      * 
      * 该接口用于判断当前系统是否支持DLP加密功能，以便在不支持的设备上做兼容处理或功能降级。
-     *
+     * 
      * > **说明：**
      * >
      * > 该接口由[MDM](docroot://mdm/mdm-kit-intro.md)配置使能，且使能场景为企业设备。其他设备（如消费者终端设备）无需关注该接口，如若调用该接口，则返回值为false。
@@ -1549,7 +1548,7 @@ declare namespace dlpPermission {
     function isDLPFeatureProvided(): Promise<boolean>;
     /**
      * 表示在文件设定的权限时间到期后所执行的动作枚举，默认为NOT_OPEN。
-     *
+     * 
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use. [since 20 - 20]
      * @publicapi [since 21]
@@ -1607,7 +1606,7 @@ declare namespace dlpPermission {
      * 将明文文件加密生成企业账号DLP文件，仅支持企业账号调用。使用Promise异步回调。
      * 
      * 用于将明文文件加密生成企业账号的DLP权限受控文件，实现企业级的文件权限管理。
-     *
+     * 
      * > **说明：**
      * >
      * > 该接口仅支持企业账号调用，需要企业自行搭建企业账号服务器配套使用。使用该接口可以将明文文件加密生成权限受控文件，由企业服务器管控账号是否有权限解密该文件。
@@ -1615,7 +1614,7 @@ declare namespace dlpPermission {
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } plaintextFd - 明文文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数抛出错误码19100001；当fd大于2<sup>31</sup>
      *     -1时，fd的值被截断。
-     * @param { number } dlpFd - 加密文件的文件描述符。取值范围为[0, 231-1]。当fd小于0时，函数抛出错误码19100001；当fd大于2<sup>31</sup>-1时，fd
+     * @param { number } dlpFd - 加密文件的文件描述符。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，函数抛出错误码19100001；当fd大于2<sup>31</sup>-1时，fd
      *     的值被截断。
      * @param { DLPProperty } property - DLP文件通用策略。
      * @param { CustomProperty } customProperty - 企业定制策略。
@@ -1641,6 +1640,7 @@ declare namespace dlpPermission {
      * [CustomProperty]{@link dlpPermission.CustomProperty}信息。使用Promise异步回调。
      * 
      * 该接口可用于在查看DLP文件权限配置等场景中，获取文件的策略信息以便进行分析。
+     * 
      * > **说明：**
      * >
      * > 该接口仅支持企业账号调用
@@ -1797,7 +1797,7 @@ declare namespace dlpPermission {
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
          * @param { DlpConnPlugin } plugin - 回调插件对象，用于注册回调能力到SA（System Ability）侧。需要继承DlpConnPlugin接口并实现connectServer方法，以
          *     便SA侧调用时能够通过回调返回处理结果。
-         * @returns { number } 注册结果，代表该回调的id。取值范围为[0, 2<sup>64</sup>-1]。
+         * @returns { number } 注册结果，返回该回调的唯一标识ID。取值范围为[0, 2<sup>64</sup>-1]。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
          * @throws { BusinessError } 19100002 - Credential service busy due to too many tasks or duplicate tasks.
