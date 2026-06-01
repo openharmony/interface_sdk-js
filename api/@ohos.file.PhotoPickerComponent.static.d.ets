@@ -146,6 +146,15 @@ export declare struct PhotoPickerComponent {
   onVideoPlayStateChanged?: VideoPlayStateChangedCallback;
 
   /**
+   * Callback when the zoom scale changes during large image browsing.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  onPhotoBrowserZoom?: PhotoBrowserZoomCallback;
+
+  /**
    * PickerController
    * @type { PickerController }
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -1351,3 +1360,13 @@ export type CurrentAlbumDeletedCallback = () => void;
  * @since 26.0.0 static
  */
 export type VideoPlayStateChangedCallback = (state: VideoPlayerState) => void;
+
+/**
+ * The callback of onPhotoBrowserZoom event
+ *
+ * @param { double } scale
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @since 26.1.0 static
+ */
+export type PhotoBrowserZoomCallback = (scale: double) => void;

@@ -229,6 +229,16 @@ export declare struct PhotoPickerComponent {
   onError?: ErrorCallback;
 
   /**
+   * Callback when the zoom scale changes during large image browsing.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onPhotoBrowserZoom?: PhotoBrowserZoomCallback;
+
+  /**
    * PickerController
    *
    * @type { ?PickerController }
@@ -1934,3 +1944,14 @@ export type PhotoBrowserChangeStartCallback = (targetPhotoInfo: BaseItemInfo) =>
  * @since 23 dynamic
  */
 export type ErrorCallback = (pickerError: PickerError) => void;
+
+/**
+ * The callback of onPhotoBrowserZoom event
+ *
+ * @param { double } scale
+ * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+ * @stagemodelonly
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+export type PhotoBrowserZoomCallback = (scale: double) => void;
