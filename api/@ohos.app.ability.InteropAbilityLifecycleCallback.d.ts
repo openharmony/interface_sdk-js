@@ -259,7 +259,7 @@ declare interface InteropAbilityLifecycleCallback {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  onWindowStageRestore?: AbilityCallbackFn;
+  onWindowStageRestore?: WindowStageCallbackFn;
 
   /**
    * Called back when the ability prepares to call onSaveState.
