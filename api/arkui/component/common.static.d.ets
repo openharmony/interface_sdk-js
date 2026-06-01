@@ -10139,6 +10139,7 @@ export declare class TouchResult {
  *
  * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -10148,6 +10149,7 @@ export declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10158,6 +10160,7 @@ export declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10168,6 +10171,7 @@ export declare interface DepthVector3 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10179,6 +10183,7 @@ export declare interface DepthVector3 {
  *
  * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -10188,6 +10193,7 @@ export declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10198,6 +10204,7 @@ export declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10208,6 +10215,7 @@ export declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10218,6 +10226,7 @@ export declare interface DepthVector4 {
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10229,6 +10238,7 @@ export declare interface DepthVector4 {
  *
  * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -10238,6 +10248,7 @@ export declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10248,6 +10259,7 @@ export declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10258,6 +10270,7 @@ export declare interface DepthColorRGB {
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10269,6 +10282,7 @@ export declare interface DepthColorRGB {
  *
  * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -10278,6 +10292,7 @@ export declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10288,6 +10303,7 @@ export declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10298,6 +10314,7 @@ export declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10308,6 +10325,7 @@ export declare interface SpatialPosition {
    *
    * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10319,6 +10337,7 @@ export declare interface SpatialPosition {
  *
  * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
@@ -10328,6 +10347,7 @@ export declare interface SpatialEffectParams {
    *
    * @type { SpatialPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -10335,10 +10355,11 @@ export declare interface SpatialEffectParams {
 
   /**
    * Occlusion weight for spatial effect.
-   * <br>Value range:[0, 1].Default value:0
+   * Value range:[0, 1]Default value: 0.
    *
    * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
@@ -13395,6 +13416,7 @@ export declare interface CommonMethod {
      * @param { SpatialEffectParams | undefined } params - Spatial effect parameters.
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
      * @stagemodelonly
      * @since 26.0.0 static
      */
