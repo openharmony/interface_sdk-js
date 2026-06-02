@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 /**
- * @file
+ * @file DLP
  * @kit DataProtectionKit
  */
 import type { AsyncCallback, Callback } from './@ohos.base';
@@ -21,11 +21,17 @@ import type common from './@ohos.app.ability.common';
 import type Want from './@ohos.app.ability.Want';
 /**
  * Data loss prevention (DLP) is a system solution provided to prevent data disclosure. This module provides APIs for 
- * cross-device file access management, encrypted storage, and access authorization.
+ * cross-device file access management, encrypted storage, and access authorization. DLP protects sensitive files 
+ * through encryption and generates encrypted files in .dlp format (DLP files). When opening a DLP file, the system 
+ * automatically creates an isolated DLP sandbox environment to ensure that the file content is not leaked to 
+ * unauthorized environments.
  * 
  * > **NOTE**
  * >
- * > The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
+ * > - The initial APIs of this module are supported since API version 10. Newly added APIs will be marked with a 
+ * > superscript to indicate their earliest API version.
+ * >
+ * > - The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
  * > DataProtectionKit`. You are advised to use the new module name `@kit.DataProtectionKit` to import the module. If `@
  * > kit.DataLossPreventionKit` is imported, only the APIs before the change can be called and the APIs after the change
  * > cannot be used.
@@ -171,8 +177,9 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Operations that can be performed on the DLP file. It is a combination of different 
-         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}.
+         * Operations that can be performed on the DLP file. The value is a combination of different 
+         * [ActionFlagTypes]{@link dlpPermission.ActionFlagType}. If the value is out of range, error code 19100001 is 
+         * thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -187,14 +194,15 @@ declare namespace dlpPermission {
      */
     export interface AccessedDLPFileInfo {
         /**
-         * URI of the DLP file. The value contains up to 4095 bytes.
+         * URI of the DLP file. The value contains a maximum of 4095 bytes. If the value is out of range, error code 
+         * 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         uri: string;
         /**
-         * Time when the file was last opened. The value must be greater than or equal to 0.
+         * Time when the file was last opened. The value must be greater than or equal to 0. Unit: s.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -216,14 +224,16 @@ declare namespace dlpPermission {
          */
         appIndex: number;
         /**
-         * Bundle name of the application. The value contains 7 to 128 bytes.
+         * Bundle name of the application. The value contains 7 to 128 bytes. If the value is out of range, error code 
+         * 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
          */
         bundleName: string;
         /**
-         * URI list of the DLP files. The array has no length limit, but each string cannot exceed 4095 bytes.
+         * URI list of the DLP files. The length of the array is not limited. Each string contains a maximum of 4095 
+         * bytes. If the string is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 10
@@ -232,6 +242,9 @@ declare namespace dlpPermission {
     }
     /**
      * Checks whether a file is a DLP file based on the FD. This API uses a promise to return the result.
+     * 
+     * During file processing, the system checks whether the file is a DLP file and then determines the subsequent 
+     * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
      *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
@@ -246,13 +259,20 @@ declare namespace dlpPermission {
      */
     function isDLPFile(fd: number): Promise<boolean>;
     /**
-     * Checks whether a file is a DLP file based on the FD. This API uses an asynchronous callback to return the result.
+     * Checks whether a file is a DLP file based on the FD. After the API is successfully called, a result is returned. 
+     * The value **true** means the file is a DLP file; the value **false** means the opposite. This API uses an 
+     * asynchronous callback to return the result.
+     * 
+     * During file processing, the system checks whether the file is a DLP file and then determines the subsequent 
+     * processing policy. For example, whether to open the file in a DLP sandbox.
      *
      * @param { number } fd - FD of the file to be checked. The value range is [0, 2<sup>31</sup>-1]. If the value of
      *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
      *     value is truncated.
-     * @param { AsyncCallback<boolean> } callback - Callback used to return the result. The value **true** means the
-     *     file is a DLP file; the value **false** means the opposite.
+     * @param { AsyncCallback<boolean> } callback - Callback used to receive the query result. The callback parameters
+     *     include **err** and **res**. **err** is **undefined** when the query is successful; otherwise, **err** is an
+     *     error object. If **true** is returned, **res** is a DLP file; if **false** is returned, **res** is not a DLP
+     *     file.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -262,7 +282,12 @@ declare namespace dlpPermission {
      */
     function isDLPFile(fd: number, callback: AsyncCallback<boolean>): void;
     /**
-     * Obtains the permission information of this DLP file. This API uses a promise to return the result.
+     * Queries the permission information of the current DLP sandbox, including permissions on the file and operations 
+     * that can be performed (such as viewing, editing, and copying). This API can be called only in DLP sandbox 
+     * applications. This API uses a promise to return the result.
+     * 
+     * When processing files in the DLP sandbox, the system determines the operations that can be performed for the 
+     * current user to prevent calling unauthorized capabilities.
      *
      * @returns { Promise<DLPPermissionInfo> } Promise used to return the permission information about the DLP file. The
      *     operation is successful if no error is reported.
@@ -275,7 +300,12 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(): Promise<DLPPermissionInfo>;
     /**
-     * Obtains the permission information of this DLP file. This API uses an asynchronous callback to return the result.
+     * Obtains the permission information of this DLP file. The returned permission information includes permissions on 
+     * the file and operations that can be performed (such as viewing, editing, and copying). This API uses an 
+     * asynchronous callback to return the result.
+     * 
+     * When processing files in the DLP sandbox, the system determines the operations that can be performed for the 
+     * current user to prevent calling unauthorized capabilities.
      *
      * @param { AsyncCallback<DLPPermissionInfo> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -289,10 +319,12 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
     /**
-     * Obtains the original file name of a DLP file. This API returns the result synchronously.
+     * Obtains the original name of a DLP file. This API returns the result synchronously.
+     * 
+     * Determine the file type based on the original file name extension and select an application to open the file.
      *
-     * @param { string } fileName - Name of the target file. The value contains up to 255 bytes. Otherwise, **null** is
-     *     returned.
+     * @param { string } fileName - Name of the target DLP file. The value contains 1 to 255 bytes. If the value is out
+     *     of range, error code 19100001 is thrown.
      * @returns { string } Original name of the DLP file obtained. For example, if the DLP file name is **test.txt.dlp**
      *     , the original file name returned is **test.txt**. The value contains up to 255 bytes.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -302,9 +334,13 @@ declare namespace dlpPermission {
      */
     function getOriginalFileName(fileName: string): string;
     /**
-     * Obtains the DLP file name extension. This API returns the result synchronously.
+     * Obtains the DLP file name extension. After the API is called successfully, the DLP file name extension (for 
+     * example, .dlp) is returned. This API returns the result synchronously.
+     * 
+     * This API is used to obtain the standard extension of the DLP file, which can be used to construct the DLP file 
+     * name or the determination of the file type.
      *
-     * @returns { string } DLP file name extension obtained. For example, if the original file name is **text.txt**, the
+     * @returns { string } DLP file name extension obtained. For example, if the original file name is **test.txt**, the
      *     encrypted DLP file name is **test.txt.dlp**, and the returned extension is **.dlp**.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -312,7 +348,11 @@ declare namespace dlpPermission {
      */
     function getDLPSuffix(): string;
     /**
-     * Subscribes to a DLP file open event. The application will be notified when the DLP file is opened.
+     * Subscribes to a DLP file open event. After this API is successfully called, a callback notification is sent to 
+     * the current application when the DLP file is opened. This API can be called only in non-DLP sandbox applications.
+     * 
+     * You can subscribe to this event when your application needs to perform specific operations (such as logging and 
+     * updating the UI) after a DLP file is opened.
      *
      * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
      *     open event.
@@ -329,7 +369,11 @@ declare namespace dlpPermission {
      */
     function on(type: 'openDLPFile', listener: Callback<AccessedDLPFileInfo>): void;
     /**
-     * Unsubscribes from the DLP file open event. The application will not be notified when a DLP file is opened.
+     * Unsubscribes from the DLP file open event. This API can be called only in non-DLP sandbox applications. After the
+     * API is successfully called, the application will no longer receive notifications for the DLP file open event.
+     * 
+     * This API is usually called to release resources when the page is destroyed or the subscription is no longer 
+     * needed.
      *
      * @param { 'openDLPFile' } type - Event type. It has a fixed value of **openDLPFile**, which indicates the DLP file
      *     open event.
@@ -349,9 +393,12 @@ declare namespace dlpPermission {
     /**
      * Checks whether this application is running in a DLP sandbox environment. This API uses a promise to return the 
      * result.
+     * 
+     * This API is used to determine whether the current application is running in a DLP sandbox environment. If it is, 
+     * the system can perform operations or call APIs for sandbox applications.
      *
-     * @returns { Promise<boolean> } Promise object. The value **true** means the application is running in a sandbox;
-     *     the value **false** means the opposite.
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the application is
+     *     running in a sandbox; the value **false** means the opposite.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -361,6 +408,9 @@ declare namespace dlpPermission {
     /**
      * Checks whether this application is running in a DLP sandbox environment. This API uses an asynchronous callback 
      * to return the result.
+     * 
+     * This API is used to determine whether the current application is running in a DLP sandbox environment. If it is, 
+     * the system can perform operations or call APIs for sandbox applications.
      *
      * @param { AsyncCallback<boolean> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object. The value **true** means the application is
@@ -373,7 +423,12 @@ declare namespace dlpPermission {
      */
     function isInSandbox(callback: AsyncCallback<boolean>): void;
     /**
-     * Obtains the file name extension types that support DLP. This API uses a promise to return the result.
+     * Obtains the file name extension types that support DLP. After the API is successfully called, the list of 
+     * supported file types is returned, indicating the types of files that can be used to generate DLP files. This API 
+     * uses a promise to return the result.
+     * 
+     * This API is used to obtain the types of files that can be used to generate DLP files. If the current file type is
+     * in the list, it can be encrypted.
      *
      * @returns { Promise<Array<string>> } Promise used to return the file name extension types obtained.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -383,8 +438,12 @@ declare namespace dlpPermission {
      */
     function getDLPSupportedFileTypes(): Promise<Array<string>>;
     /**
-     * Obtains the file name extension types that support DLP. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the file name extension types that support DLP. After the API is successfully called, the list of 
+     * supported file types is returned, indicating the types of files that can be used to generate DLP files. This API 
+     * uses an asynchronous callback to return the result.
+     * 
+     * This API is used to obtain the types of files that can be used to generate DLP files. If the current file type is
+     * in the list, it can be encrypted.
      *
      * @param { AsyncCallback<Array<string>> } callback - Callback used to return the result. If the operation is
      *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -396,13 +455,15 @@ declare namespace dlpPermission {
      */
     function getDLPSupportedFileTypes(callback: AsyncCallback<Array<string>>): void;
     /**
-     * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox 
-     * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
-     * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be 
-     * automatically uninstalled when the DLP file is closed. This API uses a promise to return the result.
+     * Sets the retention state for sandbox applications. By default, when a DLP file is opened, the system 
+     * automatically creates a sandbox environment. After the file is closed, the sandbox is automatically destroyed. 
+     * After the retention state is set, the sandbox environment is retained even if the DLP file is closed, allowing 
+     * the system to quickly reopen the same DLP file. This is applicable to scenarios where the same DLP file needs to 
+     * be frequently operated, improving the file opening efficiency. This API uses a promise to return the result.
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The length of the array
+     *     is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
+     *     19100001 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -415,14 +476,15 @@ declare namespace dlpPermission {
      */
     function setRetentionState(docUris: Array<string>): Promise<void>;
     /**
-     * Sets the sandbox retention state. This API uses an asynchronous callback to return the result. A sandbox 
-     * application is automatically installed when a DLP file is opened, and automatically uninstalled when the DLP file
-     * is closed. Once the sandbox retention state is set for a DLP file, the sandbox application will not be 
-     * automatically uninstalled when the DLP file is closed. This API uses an asynchronous callback to return the 
-     * result.
+     * Sets the retention state for sandbox applications. By default, when a DLP file is opened, the system 
+     * automatically creates a sandbox environment. After the file is closed, the sandbox is automatically destroyed. 
+     * After the retention state is set, the sandbox environment is retained even if the DLP file is closed, allowing 
+     * the system to quickly reopen the same DLP file. This is applicable to scenarios where the same DLP file needs to 
+     * be frequently operated, improving the file opening efficiency.
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4095 bytes.
+     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The length of the array
+     *     is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
+     *     19100001 is thrown.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -438,9 +500,13 @@ declare namespace dlpPermission {
     /**
      * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
      * the DLP file is closed. This API uses a promise to return the result.
+     * 
+     * This API is used to cancel the retention state for sandbox application and restore the default behavior to 
+     * release system resources. It is applicable to scenarios where the DLP file is no longer frequently accessed.
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+     * @param { Array<string> } docUris - URIs of the files to be canceled with the retention state. The length of the
+     *     array is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
+     *     19100001 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -453,9 +519,13 @@ declare namespace dlpPermission {
     /**
      * Cancels the sandbox retention state, that is, allows the sandbox application to be automatically uninstalled when
      * the DLP file is closed. This API uses an asynchronous callback to return the result.
+     * 
+     * This API is used to cancel the retention state for sandbox application and restore the default behavior to 
+     * release system resources. It is applicable to scenarios where the DLP file is no longer frequently accessed.
      *
-     * @param { Array<string> } docUris - URIs of the files to be set with the retention state. The array has no length
-     *     limit, but each string cannot exceed 4,095 bytes. Otherwise, **null** is returned.
+     * @param { Array<string> } docUris - URIs of the files to be canceled with the retention state. The length of the
+     *     array is not limited. Each string contains a maximum of 4095 bytes. If the string is out of range, error code
+     *     19100001 is thrown.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -467,12 +537,17 @@ declare namespace dlpPermission {
      */
     function cancelRetentionState(docUris: Array<string>, callback: AsyncCallback<void>): void;
     /**
-     * Obtains the sandbox applications in the retention state of an application. This API uses a promise to return the 
-     * result.
+     * Obtains the sandbox applications in the retention state of an application. This API can be called only in non-DLP
+     * sandbox applications. This API uses a promise to return the result.
+     * 
+     * This API is used to query the sandbox retention information of a specified application, so that the sandbox 
+     * environment in the retention state can be checked or managed.
      *
-     * @param { string } [bundleName] - Bundle name of the application. By default, this parameter is left empty, which
-     *     obtains the sandbox retention information about the current application. The value contains 7 to 128 bytes.
-     *     If the value exceeds this range, **null** is returned.
+     * @param { string } [bundleName] - Bundle name of the application, which is used to query the sandbox retention
+     *     information of the application. This parameter is required when you need to query the sandbox retention
+     *     information of another application. It is optional when you need to query the sandbox retention information
+     *     of the current application. The value contains 7 to 128 bytes. If the value is out of range, error code
+     *     19100001 is thrown.
      * @returns { Promise<Array<RetentionSandboxInfo>> } Promise used to return the sandbox retention information
      *     obtained.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -487,9 +562,15 @@ declare namespace dlpPermission {
     /**
      * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
      * to return the result.
+     * 
+     * This API is used to query the sandbox retention information of a specified application, so that the sandbox 
+     * environment in the retention state can be checked or managed.
      *
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value
-     *     exceeds this range, **null** is returned.
+     * @param { string } bundleName - Bundle name of the application, which is used to query the sandbox retention
+     *     information of the application. This parameter is required when you need to query the sandbox retention
+     *     information of another application. It is optional when you need to query the sandbox retention information
+     *     of the current application. The value contains 7 to 128 bytes. If the value is out of range, error code
+     *     19100001 is thrown.
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -504,6 +585,9 @@ declare namespace dlpPermission {
     /**
      * Obtains the sandbox applications in the retention state of an application. This API uses an asynchronous callback
      * to return the result.
+     * 
+     * This API is used to query the sandbox retention information of a specified application, so that the sandbox 
+     * environment in the retention state can be checked or managed.
      *
      * @param { AsyncCallback<Array<RetentionSandboxInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -517,9 +601,14 @@ declare namespace dlpPermission {
      */
     function getRetentionSandboxList(callback: AsyncCallback<Array<RetentionSandboxInfo>>): void;
     /**
-     * Obtains the list of DLP files that are accessed recently. This API uses a promise to return the result.
+     * Obtains the list of DLP files that are accessed recently. After the API is successfully called, the file access 
+     * records are returned, which can be used to track and manage the usage of DLP files. This API can be called only 
+     * in non-DLP sandbox applications. This API uses a promise to return the result.
+     * 
+     * This API is used to obtain the list of DLP files that are accessed recently, which can be used to track and 
+     * manage file usage.
      *
-     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed files
+     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed DLP files
      *     obtained.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -530,8 +619,12 @@ declare namespace dlpPermission {
      */
     function getDLPFileAccessRecords(): Promise<Array<AccessedDLPFileInfo>>;
     /**
-     * Obtains the list of DLP files that are accessed recently. This API uses an asynchronous callback to return the 
-     * result.
+     * Obtains the list of DLP files that are accessed recently. After the API is successfully called, the file access 
+     * records are returned, which can be used to track and manage the usage of DLP files. This API uses an asynchronous
+     * callback to return the result.
+     * 
+     * This API is used to obtain the list of DLP files that are accessed recently, which can be used to track and 
+     * manage file usage.
      *
      * @param { AsyncCallback<Array<AccessedDLPFileInfo>> } callback - Callback used to return the result. If the
      *     operation is successful, **err** is **undefined**. Otherwise, **err** is an error object.
@@ -571,7 +664,11 @@ declare namespace dlpPermission {
     }
     /**
      * Starts the DLP manager application on the current 
-     * [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} page in borderless mode. This API uses a promise to return the result.
+     * [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} page in borderless 
+     * mode. This API uses a promise to return the result.
+     * 
+     * This API starts the DLP manager application to configure file permissions and return the user operation result to
+     * the caller.
      * 
      * > **NOTE**
      * >
@@ -579,7 +676,7 @@ declare namespace dlpPermission {
      *
      * @param { common.UIAbilityContext } context -
      *     [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} context.
-     * @param { Want } want - Object that requests the start of the DLP manager application.
+     * @param { Want } want - Request object, which must contain the **uri** and **displayName** fields.
      * @returns { Promise<DLPManagerResult> } Promise used to return the **DLPManagerResult** object.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -622,6 +719,8 @@ declare namespace dlpPermission {
     }
     /**
      * Obtains the DLP sandbox gathering policy. This API uses a promise to return the result.
+     * 
+     * This API is used to obtain the DLP sandbox gathering policy of the current system.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @returns { Promise<GatheringPolicyType> } Promise used to return the DLP sandbox gathering policy obtained.
@@ -636,6 +735,8 @@ declare namespace dlpPermission {
     function getDLPGatheringPolicy(): Promise<GatheringPolicyType>;
     /**
      * Obtains the DLP sandbox gathering policy. This API uses an asynchronous callback to return the result.
+     * 
+     * This API is used to obtain the DLP sandbox gathering policy of the current system.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { AsyncCallback<GatheringPolicyType> } callback - Callback used to return the result. If the operation is
@@ -675,9 +776,8 @@ declare namespace dlpPermission {
          */
         tokenID: number;
         /**
-         * Index of the DLP sandbox application to be bound. **Model restriction**: This API can be used only in the stage 
-         * model.
-         * The value must be an integer within [-1,1100]. Default value: -1.
+         * Index of the DLP sandbox application to be bound. This parameter is not returned by default. It is returned 
+         * only when the sandbox application is previewed.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -687,15 +787,26 @@ declare namespace dlpPermission {
         bindAppIndex?: number;
     }
     /**
-     * Installs a DLP sandbox application for an application. This API uses a promise to return the sandbox application 
-     * installed.
+     * Installs a DLP sandbox application for an application. The DLP sandbox creates an independent running environment
+     * for protected DLP files, which is isolated from the original application process. This ensures that data is 
+     * securely transferred within the authorized scope. The sandbox application inherits the functions of the original 
+     * application but can access only authorized DLP files. This API uses a promise to return the result.
+     * 
+     * After calling **installDLPSandbox** to install a sandbox, the system must call **uninstallDLPSandbox** to 
+     * uninstall the sandbox after using it.
+     * 
+     * Before a DLP file management application opens a protected file, the system needs to install a DLP sandbox for 
+     * the target application.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
-     * @param { DLPFileAccess } access - Permission on the DLP file.
+     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
+     *     out of range, error code 19100001 is thrown.
+     * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
+     *     scope of the file. If the value is out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes.
+     *     default super user ID is **100**. If the input value is invalid, error code 19100001 is thrown.
+     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
+     *     error code 19100001 is thrown.
      * @returns { Promise<DLPSandboxInfo> } Promise used to return the information about the sandbox application
      *     installed.
      * @throws { BusinessError } 201 - Permission denied.
@@ -710,21 +821,29 @@ declare namespace dlpPermission {
      */
     function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string): Promise<DLPSandboxInfo>;
     /**
-     * Installs a DLP sandbox application for an application. This API uses an asynchronous callback to return the index
-     * of the sandbox application installed.
+     * Installs a DLP sandbox application for an application. This API uses an asynchronous callback to return the 
+     * result. After the API is called, the system creates a DLP sandbox for the application and returns the sandbox 
+     * information.
+     * 
+     * After calling **installDLPSandbox** to install a sandbox, the system must call **uninstallDLPSandbox** to 
+     * uninstall the sandbox after using it.
+     * 
+     * Before a DLP file management application opens a protected file, the system needs to install a DLP sandbox for 
+     * the target application.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. 
-     *     <br>The minimum length is 7 and the maximum length is 128.
-     * @param { DLPFileAccess } access - Permission on the DLP file.
-     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. 
-     *     The default user ID is **100**.
-     *     <br>The value should be an integer.
-     * @param { string } uri - URI of the DLP file. 
-     *     <br>The maximum length is 4095.
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If installDLPSandbox is 
-     *     successful, **err** is **undefined**, and DLPSandboxInfo is the information about the sandbox application 
-     *     obtained. Otherwise, **err** is an error object.
+     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
+     *     out of range, error code 19100001 is thrown.
+     * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
+     *     scope of the file. If the value is out of range, error code 19100001 is thrown.
+     * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
+     *     default super user ID is **100**. If the value is out of range, error code 19100001 is thrown.
+     * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
+     *     error code 19100001 is thrown.
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to receive information about the application
+     *     sandbox. The callback parameters include **err** and **res**. **err** is **undefined** when the operation is
+     *     successful; otherwise, **err** is an error object. **res** is a **DLPSandboxInfo** object that contains
+     *     information about the application sandbox.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -737,13 +856,21 @@ declare namespace dlpPermission {
      */
     function installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string, callback: AsyncCallback<DLPSandboxInfo>): void;
     /**
-     * Uninstalls a DLP sandbox application for an application. This API uses a promise to return the result.
+     * Uninstalls a DLP sandbox application for an application. This API uses a promise to return the result. After this
+     * API is called, the system destroys the specified DLP sandbox environment and releases related resources.
+     * 
+     * Use this API to clear the corresponding sandbox environment.
+     * 
+     * This API can be called only after a DLP sandbox is installed by calling **installDLPSandbox**.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes.
+     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
+     *     out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     * @param { number } appIndex - DLP sandbox index.
+     *     default super user ID is **100**. If the value is out of range, error code 19100001 is thrown.
+     * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
+     *     successfully called. It is used to identify the installed DLP sandbox. If the value is out of range, error
+     *     code 19100001 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -758,19 +885,20 @@ declare namespace dlpPermission {
     function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number): Promise<void>;
     /**
      * Uninstalls a DLP sandbox application for an application. This API uses an asynchronous callback to return the 
-     * result.
+     * result. After this API is called, the system destroys the specified DLP sandbox environment and releases related 
+     * resources.
+     * 
+     * Use this API to clear the sandbox environment.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { string } bundleName - Bundle name of the application. 
-     *     <br>The minimum length is 7 and the maximum length is 128.
+     * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
+     *     out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.
-     *     <br>The value should be integer.
+     *     default super user ID is **100**. If the value is out of range, error code 19100001 is thrown.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
-     *     successfully called.
-     *     <br>The value must be an integer within [1001, 1100].
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If uninstallDLPSandbox is 
-     *     successful, **err** is **undefined**. Otherwise, **err** is an error object.
+     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
+     *     the value is out of range, error code 19100001 is thrown.
+     * @param { AsyncCallback<void> } callback - Callback used to receive the uninstallation result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -783,7 +911,7 @@ declare namespace dlpPermission {
      */
     function uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number, callback: AsyncCallback<void>): void;
     /**
-     * DLP sandbox identity.
+     * Represents the DLP sandbox state information.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -791,7 +919,8 @@ declare namespace dlpPermission {
      */
     export interface DLPSandboxState {
         /**
-         * Bundle name of the application. The value contains 7 to 128 bytes.
+         * Bundle name of the application. The value contains 7 to 128 bytes. If the value is out of range, error code
+         * 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -799,7 +928,8 @@ declare namespace dlpPermission {
          */
         bundleName: string;
         /**
-         * Index of the DLP sandbox application.
+         * Index of the DLP sandbox application. The value range is [1000, 1100]. If the value is out of range, error 
+         * code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -808,7 +938,15 @@ declare namespace dlpPermission {
         appIndex: number;
     }
     /**
-     * Subscribes to a DLP sandbox uninstall event.
+     * Registers a listener for the DLP sandbox uninstall event, which is used to detect changes in the sandbox 
+     * environment. After the registration, the system notifies the application using a callback when the DLP sandbox is
+     * uninstalled.
+     * 
+     * After a listener is registered by calling **on()**, you are advised to call **off()** to unregister the listener 
+     * and release resources when the listener is no longer needed.
+     * 
+     * The DLP management application needs to track the creation and destruction status of the sandbox to maintain the 
+     * sandbox list or release resources.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which
@@ -826,12 +964,18 @@ declare namespace dlpPermission {
      */
     function on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>): void;
     /**
-     * Unsubscribes from the DLP sandbox uninstall event.
+     * Unsubscribes from the DLP sandbox uninstall event. After the API is successfully called, the application will no 
+     * longer receive callback notifications for the DLP sandbox uninstall event.
+     * 
+     * This API can be called only after a listener is registered using **on()**.
+     * 
+     * When the DLP management application exits or no longer needs to track sandbox status changes, unregister the 
+     * listener to release resources.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which 
+     * @param { 'uninstallDLPSandbox' } type - Event type. It has a fixed value of **uninstallDLPSandbox**, which
      *     indicates the DLP sandbox application uninstall event.
-     * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By 
+     * @param { Callback<DLPSandboxState> } [listener] - Callback used when a sandbox application is uninstalled. By
      *     default, this parameter is left blank, which unregisters all callbacks for the sandbox uninstall event.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -889,7 +1033,8 @@ declare namespace dlpPermission {
      */
     export interface AuthUser {
         /**
-         * Account of the user who can access the DLP file. The value contains up to 255 bytes.
+         * Account of the user who can access the DLP file. The value contains a maximum of 255 bytes. If the value is 
+         * out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -916,7 +1061,8 @@ declare namespace dlpPermission {
          */
         dlpFileAccess: DLPFileAccess;
         /**
-         * Time when the authorization expires. The value must be greater than or equal to 0.
+         * Time when the authorization expires. The value must be greater than or equal to 0. If the value is out of 
+         * range, error code 19100001 is thrown. Unit: s.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -935,8 +1081,8 @@ declare namespace dlpPermission {
      */
     export interface DLPProperty {
         /**
-         * Account of the owner who can set the permission. The value contains up to 255 bytes. If the value exceeds 
-         * this range, **null** is returned.
+         * Account of the owner who can set the permission. The value contains 1 to 255 bytes. If the value is out of 
+         * range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -945,8 +1091,8 @@ declare namespace dlpPermission {
          */
         ownerAccount: string;
         /**
-         * Account ID of the owner. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
-         * returned.
+         * Account ID of the owner. The value contains a maximum of 255 bytes. If the value is out of range, error code 
+         * 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -973,8 +1119,8 @@ declare namespace dlpPermission {
          */
         authUserList?: Array<AuthUser>;
         /**
-         * Account of the contact. The value contains up to 255 bytes. If the value exceeds this range, **null** is 
-         * returned.
+         * Account of the contact. The value contains 1 to 255 bytes. If the value is out of range, error code 19100001 
+         * is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 10 - 20]
@@ -1002,7 +1148,7 @@ declare namespace dlpPermission {
         everyoneAccessList?: Array<DLPFileAccess>;
         /**
          * Timestamp when the file permission has expired. This parameter is left blank by default. The value must be 
-         * greater than or equal to 0. If the value is not within the range, **null** is returned.
+         * greater than or equal to 0. If the value is out of range, an error code is thrown. Unit: s.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 11 - 20]
@@ -1021,25 +1167,23 @@ declare namespace dlpPermission {
          */
         actionUponExpiry?: ActionType;
         /**
-         * System account ID. 
-         * The maximum length is 255. Default value: Empty. If the value exceeds this range, **null** is returned.
+         * System account ID. This parameter is left empty by default. The value contains a maximum of 255 bytes. If the
+         * value is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         fileId?: string;
         /**
-         * Number of allowed opening times. This parameter is left empty by default.
-         * The value must be greater than or equal to 0. If the value is not within the range, **null** is 
-         * returned. Default value: 0.
+         * Number of allowed opening times. This parameter is left empty by default. The value must be greater than or 
+         * equal to 0. If the value is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         allowedOpenCount?: number;
         /**
-         * Whether watermarks are required. **true**: yes; **false**: no.
-         * Default value: false.
+         * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
@@ -1047,10 +1191,8 @@ declare namespace dlpPermission {
         waterMarkConfig?: boolean;
         /**
          * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
-         * closed. This parameter is left empty by default.
-         * The value must be greater than or equal to 0. If the value 
-         * is not within the range, **null** is returned. 
-         * **Model restriction**: This API can be used only in the stage model.
+         * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
+         * is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1058,9 +1200,7 @@ declare namespace dlpPermission {
          */
         countdown?: number;
         /**
-         * Extended attribute of a DLP file. **Model restriction**: This API 
-         * can be used only in the stage model.
-         * Default value: Empty.
+         * Extended attribute of a DLP file. This parameter is left empty by default.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1072,7 +1212,9 @@ declare namespace dlpPermission {
      * Provides APIs for managing DLP files. A **DLPFile** instance indicates a DLP file object. You can use 
      * [generateDLPFile]{@link dlpPermission.generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty)}
      * or [openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to obtain a **DLPFile** 
-     * instance.
+     * instance. The **DLPFile** object represents an opened DLP file handle, which encapsulates all operation APIs for 
+     * DLP files. After using the object, the system must call the **closeDLPFile** API to release resources to prevent 
+     * file handle leaks. Authorization is required when the **DLPFile** object is transferred across processes.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi Hide this for inner system use.
@@ -1088,12 +1230,18 @@ declare namespace dlpPermission {
          */
         dlpProperty: DLPProperty;
         /**
-         * Adds a link file to the Filesystem in Userspace (FUSE). The link file is a virtual file mapped to the 
-         * ciphertext in the FUSE. The read and write operations on the link file will be synchronized to the DLP file. 
-         * This API uses a promise to return the result.
+         * Adds a link file to the Filesystem in Userspace (FUSE). FUSE allows you to implement custom logic of the file
+         * system in user space. The link file is a virtual file in the FUSE, which is used to map to the DLP file. The 
+         * read and write on the link file will be synchronized to the actual DLP file. This API uses a promise to 
+         * return the result.
+         * 
+         * When a DLP application needs to access a DLP file using a standard file API, it can add a link file as the 
+         * virtual plaintext file to map the DLP file, and then perform read and write on the link file as it does on a 
+         * common file.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is returned.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1109,11 +1257,15 @@ declare namespace dlpPermission {
          */
         addDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Adds a link file to the FUSE. This API uses an asynchronous callback to return the result.
+         * Adds a link file to the FUSE. This API uses an asynchronous callback to return the result. After this API is 
+         * successfully called, a virtual file used to map the DLP file is created in the FUSE.
+         * 
+         * This API is called when a DLP application needs to access a DLP file using a standard file API.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is thrown.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of adding a link file.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1128,7 +1280,13 @@ declare namespace dlpPermission {
          */
         addDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
-         * Stops the read and write on the FUSE. This API uses a promise to return the result.
+         * Stops the read and write on the FUSE. This API uses a promise to return the result. After the API is 
+         * successfully called, the read and write on the link file are stopped.
+         * 
+         * After calling **stopFuseLink()** to stop the read and write on the FUSE, the system must call 
+         * **resumeFuseLink()** to resume the read and write.
+         * 
+         * Before deleting a link file, stop the read and write to ensure secure file operations.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @returns { Promise<void> } Promise that returns no value.
@@ -1143,10 +1301,15 @@ declare namespace dlpPermission {
          */
         stopFuseLink(): Promise<void>;
         /**
-         * Stops the read and write on the FUSE. This API uses an asynchronous callback to return the result.
+         * Stops the read and write on the FUSE. This API uses an asynchronous callback to return the result. After the 
+         * API is successfully called, the read and write on the link file are stopped.
+         * 
+         * Before deleting a link file, stop the read and write.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of stopping read and write on
+         *     the FUSE. The callback parameter is **err**. **err** is **undefined** when the operation is successful;
+         *     otherwise, **err** is an error object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1159,7 +1322,13 @@ declare namespace dlpPermission {
          */
         stopFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * Resumes the read and write on the FUSE. This API uses a promise to return the result.
+         * Resumes the read and write on the FUSE. This API uses a promise to return the result. After the API is 
+         * successfully called, the read and write on the link file are resumed.
+         * 
+         * This API can be called to resume read and write only after **stopFuseLink()** is called to stop the read and 
+         * write operations.
+         * 
+         * After the link file is replaced, the read and write need to be resumed for normal file access.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @returns { Promise<void> } Promise that returns no value.
@@ -1174,10 +1343,14 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(): Promise<void>;
         /**
-         * Resumes the read and write on the FUSE. This API uses an asynchronous callback to return the result.
+         * Resumes the read and write on the FUSE. This API uses an asynchronous callback to return the result. After 
+         * the API is successfully called, the read and write on the link file are resumed.
+         * 
+         * After the link file is replaced, the read and write need to be resumed.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of resume the read and write on
+         *     the FUSE.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1190,10 +1363,14 @@ declare namespace dlpPermission {
          */
         resumeFuseLink(callback: AsyncCallback<void>): void;
         /**
-         * Replaces a link file. This API uses a promise to return the result.
+         * Replaces a link file. This API uses a promise to return the result. After the API is successfully called, the
+         * current link file is replaced with the new link file.
+         * 
+         * When you need to access a different DLP file, you can replace the link file to change the file mapping.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is thrown.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1209,11 +1386,17 @@ declare namespace dlpPermission {
          */
         replaceDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Replaces a link file. This API uses an asynchronous callback to return the result.
+         * Replaces a link file. This API uses an asynchronous callback to return the result. After the API is 
+         * successfully called, the current link file is replaced with the new link file.
+         * 
+         * When you need to access a different DLP file, you can replace the link file.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is thrown.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of replacing a link file. The
+         *     callback parameter is **err**. **err** is **undefined** when the operation is successful; otherwise,
+         *     **err** is an error object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1228,10 +1411,14 @@ declare namespace dlpPermission {
          */
         replaceDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
-         * Deletes a link file from the FUSE. This API uses a promise to return the result.
+         * Deletes a link file from the FUSE. This API uses a promise to return the result. After the API is 
+         * successfully called, the specified link file is deleted from the FUSE.
+         * 
+         * This API is used to clear the link file mapping after DLP file access is complete.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is thrown.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1247,11 +1434,15 @@ declare namespace dlpPermission {
          */
         deleteDLPLinkFile(linkFileName: string): Promise<void>;
         /**
-         * Deletes a link file. This API uses an asynchronous callback to return the result.
+         * Deletes a link file from the FUSE. This API uses an asynchronous callback to return the result. After the API
+         * is successfully called, the specified link file is deleted from the FUSE.
+         * 
+         * This API is used to clear the link file mapping after DLP file access is complete.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { string } linkFileName - Name of the link file. The value contains up to 255 bytes.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { string } linkFileName - Name of the link file in the FUSE. The value contains up to 255 bytes. If
+         *     the value is out of range, error code 19100001 is thrown.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of deleting a link file.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1267,6 +1458,9 @@ declare namespace dlpPermission {
         deleteDLPLinkFile(linkFileName: string, callback: AsyncCallback<void>): void;
         /**
          * Recovers the plaintext of a DLP file. This API uses a promise to return the result.
+         * 
+         * This API is used when the file owner decides to disable the DLP protection for a file and convert it into a 
+         * common file for free sharing.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { number } plaintextFd - FD of the target plaintext file.
@@ -1292,10 +1486,15 @@ declare namespace dlpPermission {
         recoverDLPFile(plaintextFd: number): Promise<void>;
         /**
          * Recovers the plaintext of a DLP file. This API uses an asynchronous callback to return the result.
+         * 
+         * This API is used when the file owner decides to disable the DLP protection for a file.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { number } plaintextFd - FD of the target plaintext file.
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { number } plaintextFd - FD of the target plaintext file. The value range is [0, 2<sup>31</sup>-1]. If
+         *     the value is out of range, the excess part will be truncated.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of recovering the plaintext of
+         *     a DLP file. The callback parameter is **err**. **err** is **undefined** when the operation is successful;
+         *     otherwise, **err** is an error object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left
@@ -1316,11 +1515,16 @@ declare namespace dlpPermission {
          */
         recoverDLPFile(plaintextFd: number, callback: AsyncCallback<void>): void;
         /**
-         * Closes this **DLPFile** instance. This API uses a promise to return the result.
+         * Closes a **DLPFile** object. This API uses a promise to return the result.
+         * 
+         * After calling **openDLPFile()** to return a **DLPFile** object, the system must call **closeDLPFile()** to 
+         * release resources after using the object.
+         * 
+         * This API is used when the file owner decides to close a DLP file.
          * 
          * > **NOTE**
          * >
-         * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
+         * > If a DLP file is no longer used, close the **dlpFile** object to release the memory.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @returns { Promise<void> } Promise that returns no value.
@@ -1335,14 +1539,20 @@ declare namespace dlpPermission {
          */
         closeDLPFile(): Promise<void>;
         /**
-         * Closes this **DLPFile** instance. This API uses an asynchronous callback to return the result.
+         * Closes a **DLPFile** object. This API uses an asynchronous callback to return the result.
+         * 
+         * After calling **openDLPFile()** to return a **DLPFile** object, the system must call **closeDLPFile()** to 
+         * release resources after using the object.
+         * 
+         * This API is used when the file owner decides to close a DLP file.
          * 
          * > **NOTE**
          * >
          * > If a DLP file is no longer used, close the **dlpFile** instance to release the memory.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to return the result.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of closing a **DLPFile**
+         *     object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1356,17 +1566,23 @@ declare namespace dlpPermission {
         closeDLPFile(callback: AsyncCallback<void>): void;
     }
     /**
-     * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can 
-     * have the full control permission or read-only permission on the DLP file. This API uses a promise to return the 
-     * result.
+     * Generates a **DLPFile** object, which is an encrypted file that can be accessed only by authorized users. The 
+     * users can have the full control permission or read-only permission on the DLP file. This API uses a promise to 
+     * return the result.
+     * 
+     * After calling **generateDLPFile** to return a **DLPFile** object, the system must call **closeDLPFile** to 
+     * release resources after using the object.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
-     * @param { number } ciphertextFd - FD of the encrypted file.
+     * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
+     *     [0, 2<sup>31</sup>-1]. If the value is out of range, the excess part will be truncated.
+     * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
+     *     is out of range, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
-     * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
-     *     Otherwise, **null** is returned.
+     * @returns { Promise<DLPFile> } Promise used to return the result. If the value is **resolve**, a **DLPFile**
+     *     object is returned, indicating that a DLP file is successfully generated. If the value is **reject**, an
+     *     error is returned, indicating that the DLP file fails to be generated.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1385,19 +1601,24 @@ declare namespace dlpPermission {
     function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty): Promise<DLPFile>;
     /**
      * Generates a DLP file, which is an encrypted file that can be accessed only by authorized users. The users can 
-     * have the full control permission or read-only permission on the DLP file. This API uses an asynchronous callback 
-     * to return the result.
+     * have the full control permission or read-only permission on the DLP file. Obtains a **DLPFile** object. This API 
+     * uses an asynchronous callback to return the result. After using the **DLPFile** object, call **closeDLPFile** to 
+     * close the object to prevent resource leakage.
+     * 
+     * After calling **generateDLPFile()** to return a **DLPFile** object, the system must call **closeDLPFile()** to 
+     * release resources after using the object.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
-     * @param { number } plaintextFd - FD of the plaintext file to be encrypted.
-     *     <br>The value should be an integer.
-     * @param { number } ciphertextFd - FD of the encrypted file.
-     *     <br>The value should be an integer.
+     * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
+     *     [0, 2<sup>31</sup>-1]. If the value is out of range, the excess part will be truncated.
+     * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
+     *     is out of range, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If generateDLPFile is 
-     *     successful, **err** is **undefined**, and DLPFile is the **DLPFile** instance obtained. Otherwise, **err** is 
-     *     an error object.
+     * @param { AsyncCallback<DLPFile> } callback - Callback used to receive the result of generating a DLP file. The
+     *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful;
+     *     otherwise, **err** is an error object. **res** is a **DLPFile** object that represents the DLP file
+     *     generated.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1415,13 +1636,22 @@ declare namespace dlpPermission {
      */
     function generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty, callback: AsyncCallback<DLPFile>): void;
     /**
-     * Opens a DLP file. This API uses a promise to return the result.
+     * Opens a DLP file. After the API is successfully called, the **DLPFile** object is returned, which can be used to 
+     * manage the permissions on the DLP file and perform related operations. This API uses a promise to return the 
+     * result.
+     * 
+     * After calling **openDLPFile()** to return a **DLPFile** object, the system must call **closeDLPFile** to release 
+     * resources after using the object.
+     * 
+     * When a DLP management application or an authorized application needs to access a DLP file, it must first open the
+     * file to obtain the managed object.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - FD of the encrypted file.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
-     * @returns { Promise<DLPFile> } Promise If the operation is successful, a **DLPFile** instance is returned.
-     *     Otherwise, **null** is returned.
+     * @returns { Promise<DLPFile> } Promise If the value is **resolve**, a **DLPFile** object is returned, indicating
+     *     that a DLP file is successfully opened. If the value is **reject**, an error is returned, indicating that the
+     *     DLP file fails to be opened.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1443,12 +1673,18 @@ declare namespace dlpPermission {
      */
     function openDLPFile(ciphertextFd: number, appId: string): Promise<DLPFile>;
     /**
-     * Opens a DLP file. This API uses an asynchronous callback to return the result.
+     * Opens a DLP file. This API uses an asynchronous callback to return the result. After the API is successfully 
+     * called, the **DLPFile** object is returned, which can be used to manage the permissions on the DLP file and 
+     * perform related operations. After using the **DLPFile** object, call **closeDLPFile** to close the object to 
+     * prevent resource leakage.
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - FD of the encrypted file.
-     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the **DLPFile** instance created.
+     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
+     *     error code 19100001 is returned.
+     * @param { AsyncCallback<DLPFile> } callback - Callback used to receive the result of opening a DLP file. The
+     *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful;
+     *     otherwise, **err** is an error object. **res** is a **DLPFile** object that represents the DLP file opened.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1470,10 +1706,15 @@ declare namespace dlpPermission {
      */
     function openDLPFile(ciphertextFd: number, appId: string, callback: AsyncCallback<DLPFile>): void;
     /**
-     * Sets sandbox application configuration. This API uses a promise to return the result.
+     * Sets the configuration information of the sandbox application. The configuration information is in JSON string 
+     * format and can be set by the application. After the API is successfully called, the sandbox application runs 
+     * based on the configuration information. This API uses a promise to return the result.
+     * 
+     * This API sets the sandbox application configuration so that the application can pass custom parameters as 
+     * required.
      *
-     * @param { string } configInfo - Sandbox application configuration. The length must be less than 4 MB. If the value
-     *     exceeds this range, **null** is returned.
+     * @param { string } configInfo - Sandbox application configuration. The value contains a maximum of 4,194,304
+     *     bytes. If the value is out of range, error code 19100001 is thrown.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     2. Incorrect parameter types.
@@ -1487,7 +1728,11 @@ declare namespace dlpPermission {
      */
     function setSandboxAppConfig(configInfo: string): Promise<void>;
     /**
-     * Cleans sandbox application configuration. This API uses a promise to return the result.
+     * Clears the sandbox application configuration. After the API is successfully called, the sandbox application 
+     * configuration is cleared and the default state is restored. This API uses a promise to return the result.
+     * 
+     * This API clears the sandbox application configuration and restores the default state to prevent residual 
+     * configurations from affecting subsequent use.
      *
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1501,6 +1746,9 @@ declare namespace dlpPermission {
     function cleanSandboxAppConfig(): Promise<void>;
     /**
      * Obtains sandbox application configuration. This API uses a promise to return the result.
+     * 
+     * This API obtains the sandbox application configuration, which can be used to read or verify the current 
+     * configuration status.
      *
      * @returns { Promise<string> } Promise used to return the result.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1511,8 +1759,13 @@ declare namespace dlpPermission {
      */
     function getSandboxAppConfig(): Promise<string>;
     /**
-     * Queries whether the current system provides the data encryption feature. This API uses a promise to return the 
-     * result.
+     * Checks whether the current system provides the encryption protection feature. This API is available only for 
+     * enterprise devices and must be enabled by the [MDM](docroot://mdm/mdm-kit-intro.md) kit. After the API is 
+     * successfully called, the query result is returned, indicating whether the system supports DLP encryption. This 
+     * API uses a promise to return the result.
+     * 
+     * This API checks whether the current system supports the DLP encryption function, so that compatibility processing
+     * or function degradation can be performed on devices that do not support this function.
      * 
      * > **NOTE**
      * >
@@ -1545,7 +1798,8 @@ declare namespace dlpPermission {
          */
         NOT_OPEN = 0,
         /**
-         * Logged-in users are allowed to edit the DLP file when the file's permission expiration time is reached.
+         * Logged-in accounts can still open and edit the DLP file when the file's permission expiration time is 
+         * reached.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1564,8 +1818,8 @@ declare namespace dlpPermission {
      */
     export interface CustomProperty {
         /**
-         * JSON string of an enterprise custom policy. The length cannot exceed 4 MB. If the value exceeds this range, 
-         * **null** is returned.
+         * JSON string of an enterprise custom policy. The value contains a maximum of 4,194,304 bytes. If the value is 
+         * out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
@@ -1574,7 +1828,7 @@ declare namespace dlpPermission {
          */
         enterprise: string;
         /**
-         * Represents query options for DLP files.
+         * Query options about an enterprise DLP file. This parameter is left blank by default. **Since**: 26.0.0
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1583,7 +1837,11 @@ declare namespace dlpPermission {
         options?: DlpFileQueryOptions;
     }
     /**
-     * Obtains a **DLPFile** object. This API uses a promise to return the result.
+     * Encrypts a plaintext file to generate a DLP file for an enterprise account. This API can be called only by 
+     * enterprise accounts. This API uses a promise to return the result.
+     * 
+     * This API encrypts a plaintext file to generate a DLP file that can be accessed only by enterprise accounts, 
+     * implementing enterprise-level file permission management.
      * 
      * > **NOTE**
      * >
@@ -1593,11 +1851,11 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of a plaintext file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
+     *     , the value is truncated.
      * @param { number } dlpFd - FD of an encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value of
-     *     **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 2<sup>31</sup>-1
+     *     , the value is truncated.
      * @param { DLPProperty } property - General policy of DLP files.
      * @param { CustomProperty } customProperty - Enterprise custom policy.
      * @returns { Promise<void> } Promise that returns no value.
@@ -1618,15 +1876,23 @@ declare namespace dlpPermission {
      */
     function generateDlpFileForEnterprise(plaintextFd: number, dlpFd: number, property: DLPProperty, customProperty: CustomProperty): Promise<void>;
     /**
-     * Parses the file header in a DLP file to obtain the DLP plaintext policy. This API uses a promise to return the 
-     * result.
+     * Parses the file header in a DLP file to obtain the DLP plaintext policy. The returned JSON string of the DLP 
+     * policy contains the [DLPProperty]{@link dlpPermission.DLPProperty} and 
+     * [CustomProperty]{@link dlpPermission.CustomProperty} information. This API uses a promise to return the result.
+     * 
+     * This API obtains the policy information of a DLP file for analysis in scenarios such as viewing the DLP file 
+     * permission configuration.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called only by enterprise accounts.
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
-     * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed 4
-     *     MB.
+     * @param { number } dlpFd - FD of the DLP file to be queried. The value range is [0, 2<sup>31</sup>-1]. If the 
+     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than 
+     *     2<sup>31</sup>-1, the value is truncated.
+     * @returns { Promise<string> } Promise used to return the JSON string of the DLP policy. The length cannot exceed
+     *     4,194,304 bytes.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1645,7 +1911,11 @@ declare namespace dlpPermission {
      */
     function queryDlpPolicy(dlpFd: number): Promise<string>;
     /**
-     * Decrypts a DLP file to generate a plaintext file. This API uses a promise to return the result.
+     * Decrypts a DLP file to generate a plaintext file. This API can be called only by enterprise accounts. This API 
+     * uses a promise to return the result.
+     * 
+     * This API decrypts DLP files into plaintext files, which is applicable to exporting or migrating files by users 
+     * with owner permissions.
      * 
      * > **NOTE**
      * >
@@ -1653,12 +1923,12 @@ declare namespace dlpPermission {
      * > servers. The enterprise server determines whether an account is authorized to decrypt DLP files.
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { number } dlpFd - FD of the file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     * @param { number } dlpFd - FD of the DLP file to be decrypted. The value range is [0, 2<sup>31</sup>-1]. If the
+     *     value of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
+     *     2<sup>31</sup>-1, the value is truncated.
      * @param { number } plaintextFd - FD of the decrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, **false** is returned. If the value of **fd** is greater than 2<sup>31</sup>-1, the
-     *     value is truncated.
+     *     of **fd** is less than 0, error code 19100001 is thrown. If the value of **fd** is greater than
+     *     2<sup>31</sup>, the value is truncated.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs. [since 20 - 20]
@@ -1685,8 +1955,8 @@ declare namespace dlpPermission {
      */
     export interface EnterprisePolicy {
         /**
-         * JSON string of an enterprise custom policy. 
-         * The maximum length is 4139304.
+         * JSON string of an enterprise custom policy. The value contains a maximum of 4,194,304 bytes. If the value is 
+         * out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -1694,10 +1964,19 @@ declare namespace dlpPermission {
         policyString: string;
     }
     /**
-     * Sets the protection policy for enterprise applications.
+     * Sets the protection policy for enterprise applications. After the API is successfully called, the DLP protection 
+     * for enterprise applications is implemented based on the configured policy.
+     * 
+     * This API is used by the enterprise administrator to configure DLP security policies for unified management of 
+     * data security protection rules.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can be called only by enterprise accounts.
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { EnterprisePolicy } policy - Protection policy to be set for enterprise applications.
+     * @param { EnterprisePolicy } policy - Enterprise application protection policy to be set. Access control and
+     *     behavior restrictions of enterprise DLP files are implemented based on the policy.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
@@ -1720,8 +1999,11 @@ declare namespace dlpPermission {
      */
     export interface DlpConnPlugin {
         /**
-         * This API is called by the SA. After processing the cloud connection capability, it will be called as a 
-         * callback in the SA.
+         * This API is called by the SA. After the request of connecting to the cloud server is processed, the result is
+         * returned the SA using a callback.
+         * 
+         * This API can be used in enterprise account authentication and cloud permission verification to enable 
+         * communication between the SA and the cloud server.
          * 
          * > **NOTE**
          * >
@@ -1742,7 +2024,7 @@ declare namespace dlpPermission {
         connectServer(requestId: string, requestData: string, callback: Callback<string>): void;
     }
     /**
-     * Calls **registerPlugin** and **unregisterPlugin** to register and unregister callback capabilities in the SA.
+     * Calls **registerPlugin** and **unregisterPlugin** to register or unregister callback capabilities in the SA.
      * 
      * > **NOTE**
      * >
@@ -1772,8 +2054,11 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE [since 21 - 24]
          * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE or ohos.permission.ACCESS_DLP_SERVICE [since 26.0.0]
-         * @param { DlpConnPlugin } plugin - Callback capability.
-         * @returns { number } Registration result, which indicates the ID of the callback. The value range is
+         * @param { DlpConnPlugin } plugin - Callback plugin object, which is used to register the callback capability
+         *     with the SA. The **DlpConnPlugin** API needs to be inherited and the **connectServer** method needs to be
+         *     implemented so that the processing result can be returned using a callback when the API is called on the
+         *     SA.
+         * @returns { number } Registration result. The unique ID of the callback is returned. The value range is
          *     [0, 2<sup>64</sup>-1].
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1786,6 +2071,9 @@ declare namespace dlpPermission {
         static registerPlugin(plugin: DlpConnPlugin): number;
         /**
          * Unregisters a callback from the SA.
+         * 
+         * This API unregisters a callback and releases resources when an application exits, ensuring that the callback 
+         * capability is correctly released.
          * 
          * > **NOTE**
          * >
@@ -1804,11 +2092,29 @@ declare namespace dlpPermission {
         static unregisterPlugin(): void;
     }
     /**
-     * Queries the list of URIs of DLP files that have been opened and matched the specified options.
+     * Queries the URIs of enterprise DLP files that have been opened and meet the specified options. This API uses a 
+     * promise to return the result.
+     * 
+     * This API is called when the system needs to manage or track enterprise DLP files that have been opened by the 
+     * current application. It can be used in scenarios such as file status check and resource management.
+     * 
+     * > **NOTE**
+     * >
+     * > - This API can only query enterprise DLP files generated by the caller application through 
+     * > [generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}. Enterprise DLP files 
+     * > generated by other applications cannot be queried.
+     * >
+     * > - Read-only enterprise DLP files with the same classification label are opened in the same sandbox. If multiple
+     * > such files are opened in a sandbox, the URIs of all files that have been opened (including manually closed 
+     * > files) are returned.
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
-     * @returns { Promise<Array<string>> } Returns list of URIs of the target DLP files that have been opened.
+     * @param { DlpFileQueryOptions } [options] - Query options about an enterprise DLP file. This parameter is required
+     *     when specific enterprise DLP files are queried by classification label. It is optional when all enterprise
+     *     DLP files are queried. If this parameter is not passed or an empty string is passed, all enterprise DLP files
+     *     are queried.
+     * @returns { Promise<Array<string>> } Promise used to return the URI list of the target enterprise DLP files that
+     *     have been opened.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
@@ -1819,10 +2125,22 @@ declare namespace dlpPermission {
      */
     function queryOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<Array<string>>;
     /**
-     * Closes all currently open DLP files that match the specified options.
+     * Closes all opened enterprise DLP files that meet the specified options. This API uses a promise to return the 
+     * result.
+     * 
+     * This API can be called to close enterprise DLP files in batches, clear file resources, or release file handles 
+     * before exiting the application.
+     * 
+     * > **NOTE**
+     * >
+     * > This API can only close enterprise DLP files generated by the caller app through 
+     * > [generateDlpFileForEnterprise]{@link dlpPermission.generateDlpFileForEnterprise}.
      *
      * @permission ohos.permission.ENTERPRISE_ACCESS_DLP_FILE
-     * @param { DlpFileQueryOptions } [options] - Represents the query options for DLP files.
+     * @param { DlpFileQueryOptions } [options] - Query options about an enterprise DLP file. This parameter is passed
+     *     when you need to disable specific enterprise DLP files by category tag. This parameter is not required when
+     *     you need to disable all enterprise DLP files. If this parameter is not passed or an empty string is passed,
+     *     all enterprise DLP files are closed.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -1834,7 +2152,7 @@ declare namespace dlpPermission {
      */
     function closeOpenedEnterpriseDlpFiles(options?: DlpFileQueryOptions): Promise<void>;
     /**
-     * Represents query options for DLP files.
+     * Represents the query options about an enterprise DLP file.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @stagemodelonly
@@ -1842,8 +2160,8 @@ declare namespace dlpPermission {
      */
     export interface DlpFileQueryOptions {
         /**
-         * User-defined classification label for an enterprise DLP file.
-         * The maximum length is 255. Default value: Empty.     
+         * User-defined classification label of an enterprise DLP file. The value contains a maximum of 255 bytes. If 
+         * the value is out of range, error code 19100001 is thrown.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
