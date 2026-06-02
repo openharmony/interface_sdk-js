@@ -62,6 +62,7 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
 
 /**
+ * 错误参数。
  *
  * @syscap SystemCapability.Base
  * @param { T } data - 接口调用时的公共回调信息。如未填写，则回调不返回相关信息。
@@ -142,6 +143,6 @@ export declare class BusinessError<T = void> extends Error {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 staticOnly
+ * @since 23 staticonly
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;
