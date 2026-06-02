@@ -27,8 +27,9 @@
  * @since 12 dynamic
  */
 export declare enum WebNetErrorList {
+
   /**
-   * Normal.
+   * 访问正常。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -38,10 +39,7 @@ export declare enum WebNetErrorList {
   NET_OK = 0,
 
   /**
-   * An asynchronous IO operation is not yet complete.  This usually does not
-   * indicate a fatal error.  Typically this error will be generated as a
-   * notification to wait for some external notification that the IO operation
-   * finally completed.
+   * 异步IO操作尚未完成。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -51,7 +49,7 @@ export declare enum WebNetErrorList {
   ERR_IO_PENDING = -1,
 
   /**
-   * A generic failure occurred.
+   * 一般性的错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -61,7 +59,7 @@ export declare enum WebNetErrorList {
   ERR_FAILED = -2,
 
   /**
-   * An operation was aborted (due to user action).
+   * 操作已被中止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -71,7 +69,7 @@ export declare enum WebNetErrorList {
   ERR_ABORTED = -3,
 
   /**
-   * An argument to the function is incorrect.
+   * 参数无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -81,7 +79,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_ARGUMENT = -4,
 
   /**
-   * The handle or file descriptor is invalid.
+   * 文件描述符的句柄是无效的。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -91,7 +89,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_HANDLE = -5,
 
   /**
-   * The file or directory cannot be found.
+   * 文件未找到。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -101,7 +99,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_NOT_FOUND = -6,
 
   /**
-   * An operation timed out.
+   * 操作超时。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -111,7 +109,7 @@ export declare enum WebNetErrorList {
   ERR_TIMED_OUT = -7,
 
   /**
-   * The file is too large.
+   * 文件过大。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -121,8 +119,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_TOO_LARGE = -8,
 
   /**
-   * An unexpected error.  This may be caused by a programming mistake or an
-   * invalid assumption.
+   * 遇到了一个未被预期或未被特定处理的问题。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -132,7 +129,7 @@ export declare enum WebNetErrorList {
   ERR_UNEXPECTED = -9,
 
   /**
-   * Permission to access a resource, other than the network, was denied.
+   * 访问除了网络以外的资源被拒绝。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -142,7 +139,7 @@ export declare enum WebNetErrorList {
   ERR_ACCESS_DENIED = -10,
 
   /**
-   * The operation failed because of unimplemented functionality.
+   * 功能未实现，导致操作失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -152,7 +149,7 @@ export declare enum WebNetErrorList {
   ERR_NOT_IMPLEMENTED = -11,
 
   /**
-   * There were not enough resources to complete the operation.
+   * 系统或程序执行所需的资源不足。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -162,7 +159,7 @@ export declare enum WebNetErrorList {
   ERR_INSUFFICIENT_RESOURCES = -12,
 
   /**
-   * Memory allocation failed.
+   * 内存溢出。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -172,8 +169,7 @@ export declare enum WebNetErrorList {
   ERR_OUT_OF_MEMORY = -13,
 
   /**
-   * The file upload failed because the file's modification time was different
-   * from the expectation.
+   * 上传文件失败因为文件的修改时间不符合预期。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -183,7 +179,7 @@ export declare enum WebNetErrorList {
   ERR_UPLOAD_FILE_CHANGED = -14,
 
   /**
-   * The socket is not connected.
+   * 长连接断开。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -193,7 +189,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_NOT_CONNECTED = -15,
 
   /**
-   * The file already exists.
+   * 文件已存在。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -203,7 +199,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_EXISTS = -16,
 
   /**
-   * The path or file name is too long.
+   * 文件路径或者文件名过长。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -213,7 +209,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_PATH_TOO_LONG = -17,
 
   /**
-   * Not enough room left on the disk.
+   * 磁盘没有足够空间。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -223,7 +219,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_NO_SPACE = -18,
 
   /**
-   * The file has a virus.
+   * 文件包含病毒。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -233,7 +229,7 @@ export declare enum WebNetErrorList {
   ERR_FILE_VIRUS_INFECTED = -19,
 
   /**
-   * The client chose to block the request.
+   * 客户端已阻止该请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -243,7 +239,7 @@ export declare enum WebNetErrorList {
   ERR_BLOCKED_BY_CLIENT = -20,
 
   /**
-   * The network changed.
+   * 网络发生变化。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -253,8 +249,7 @@ export declare enum WebNetErrorList {
   ERR_NETWORK_CHANGED = -21,
 
   /**
-   * The request was blocked by the URL block list configured by the domain
-   * administrator.
+   *  被管理员阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -264,7 +259,7 @@ export declare enum WebNetErrorList {
   ERR_BLOCKED_BY_ADMINISTRATOR = -22,
 
   /**
-   * The socket is already connected.
+   * socket已经处于连接状态。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -274,8 +269,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_CONNECTED = -23,
 
   /**
-   * The upload failed because the upload stream needed to be re-read, due to a
-   * retry or a redirect, but the upload stream doesn't support that operation.
+   * 上传重传不支持。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -285,8 +279,7 @@ export declare enum WebNetErrorList {
   ERR_UPLOAD_STREAM_REWIND_NOT_SUPPORTED = -25,
 
   /**
-   * The request failed because the URLRequestContext is shutting down, or has
-   * been shut down.
+   * 因为上下文已关闭导致请求失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -296,9 +289,7 @@ export declare enum WebNetErrorList {
   ERR_CONTEXT_SHUT_DOWN = -26,
 
   /**
-   * The request failed because the response was delivered along with requirements
-   * which are not met ('X-Frame-Options' and 'Content-Security-Policy' ancestor
-   * checks and 'Cross-Origin-Resource-Policy' for instance).
+   *请求失败，因为响应不满足要求（例如“X-Frame-Options”和“Content Security Policy”检查以及“Cross Origin Resource Policy”）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -308,8 +299,7 @@ export declare enum WebNetErrorList {
   ERR_BLOCKED_BY_RESPONSE = -27,
 
   /**
-   * The request was blocked by system policy disallowing some or all cleartext
-   * requests.
+   * 该请求被系统策略阻止，不允许部分或全部明文请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -319,7 +309,7 @@ export declare enum WebNetErrorList {
   ERR_CLEARTEXT_NOT_PERMITTED = -29,
 
   /**
-   * The request was blocked by a Content Security Policy.
+   * 请求被内容安全策略阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -329,7 +319,7 @@ export declare enum WebNetErrorList {
   ERR_BLOCKED_BY_CSP = -30,
 
   /**
-   * The request was blocked because of no H/2 or QUIC session.
+   * 由于没有HTTP/2或QUIC会话，请求被阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -339,7 +329,7 @@ export declare enum WebNetErrorList {
   ERR_H2_OR_QUIC_REQUIRED = -31,
 
   /**
-   * The request was blocked by CORB or ORB.
+   * 请求被 CORB 或 ORB 阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -349,7 +339,7 @@ export declare enum WebNetErrorList {
   ERR_BLOCKED_BY_ORB = -32,
 
   /**
-   * A connection was closed (corresponding to a TCP FIN).
+   * 连接已关闭（对应于TCP FIN）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -359,7 +349,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_CLOSED = -100,
 
   /**
-   * A connection was reset (corresponding to a TCP RST).
+   * 连接被重置（对应于TCP RST）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -369,7 +359,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_RESET = -101,
 
   /**
-   * A connection attempt was refused.
+   * 连接被拒绝。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -379,8 +369,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_REFUSED = -102,
 
   /**
-   * A connection timed out as a result of not receiving an ACK for data sent.
-   * This can include a FIN packet that did not get ACK'd.
+   * 由于未接收到发送数据的ACK，连接超时。这可能包括一个未得到ACK的FIN数据包。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -390,7 +379,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_ABORTED = -103,
 
   /**
-   * A connection attempt failed.
+   * 连接失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -400,7 +389,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_FAILED = -104,
 
   /**
-   * The host name could not be resolved.
+   * 域名无法解析。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -410,7 +399,7 @@ export declare enum WebNetErrorList {
   ERR_NAME_NOT_RESOLVED = -105,
 
   /**
-   * The Internet connection has been lost.
+   * 网络断开连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -420,7 +409,7 @@ export declare enum WebNetErrorList {
   ERR_INTERNET_DISCONNECTED = -106,
 
   /**
-   * An SSL protocol error occurred.
+   * SSL 协议错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -430,8 +419,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_PROTOCOL_ERROR = -107,
 
   /**
-   * The IP address or port number is invalid (e.g., cannot connect to the IP
-   * address 0 or the port 0).
+   * IP地址或端口号无效（例如，无法连接到IP地址0或端口0）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -441,8 +429,7 @@ export declare enum WebNetErrorList {
   ERR_ADDRESS_INVALID = -108,
 
   /**
-   * The IP address is unreachable.  This usually means that there is no route to
-   * the specified host or network.
+   * 无法访问IP地址。这通常意味着没有到指定主机或网络的路由。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -452,7 +439,7 @@ export declare enum WebNetErrorList {
   ERR_ADDRESS_UNREACHABLE = -109,
 
   /**
-   * The server requested a client certificate for SSL client authentication.
+   * 服务器指定需要客户端提供SSL证书来校验身份。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -462,7 +449,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_CERT_NEEDED = -110,
 
   /**
-   * A tunnel connection through the proxy could not be established.
+   * 无法建立通过代理的隧道连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -472,7 +459,7 @@ export declare enum WebNetErrorList {
   ERR_TUNNEL_CONNECTION_FAILED = -111,
 
   /**
-   * No SSL protocol versions are enabled.
+   * 不支持SSL协议的任何版本。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -482,8 +469,7 @@ export declare enum WebNetErrorList {
   ERR_NO_SSL_VERSIONS_ENABLED = -112,
 
   /**
-   * The client and server don't support a common SSL protocol version or
-   * cipher suite.
+   * 客户端和服务器不支持通用的SSL协议版本或密码套件。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -493,7 +479,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_VERSION_OR_CIPHER_MISMATCH = -113,
 
   /**
-   * The server requested a renegotiation (rehandshake).
+   * 服务器请求重新协商（rehandshake）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -503,8 +489,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_RENEGOTIATION_REQUESTED = -114,
 
   /**
-   * The proxy requested authentication (for tunnel establishment) with an
-   * unsupported method.
+   * 代理请求身份验证（隧道连接使用不支持的方法）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -514,7 +499,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_AUTH_UNSUPPORTED = -115,
 
   /**
-   * The SSL handshake failed because of a bad or missing client certificate.
+   * SSL 客户端证书错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -524,7 +509,7 @@ export declare enum WebNetErrorList {
   ERR_BAD_SSL_CLIENT_AUTH_CERT = -117,
 
   /**
-   * A connection attempt timed out.
+   * 连接超时。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -534,8 +519,7 @@ export declare enum WebNetErrorList {
   ERR_CONNECTION_TIMED_OUT = -118,
 
   /**
-   * There are too many pending DNS resolves, so a request in the queue was
-   * aborted.
+   * 挂起的DNS解析太多，因此队列中的请求被中止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -545,7 +529,7 @@ export declare enum WebNetErrorList {
   ERR_HOST_RESOLVER_QUEUE_TOO_LARGE = -119,
 
   /**
-   * Failed establishing a connection to the SOCKS proxy server for a target host.
+   * 无法为目标主机建立与 SOCKS 代理服务器的连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -555,8 +539,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKS_CONNECTION_FAILED = -120,
 
   /**
-   * The SOCKS proxy server failed establishing connection to the target host
-   * because that host is unreachable.
+   * 域名不可达。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -566,7 +549,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKS_CONNECTION_HOST_UNREACHABLE = -121,
 
   /**
-   * The request to negotiate an alternate protocol failed.
+   * 协商备用协议的请求失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -576,7 +559,7 @@ export declare enum WebNetErrorList {
   ERR_ALPN_NEGOTIATION_FAILED = -122,
 
   /**
-   * The peer sent an SSL no_renegotiation alert message.
+   * 对方发送了SSL no_renegotiation警报消息。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -586,8 +569,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_NO_RENEGOTIATION = -123,
 
   /**
-   * Winsock sometimes reports more data written than passed.  This is probably
-   * due to a broken LSP.
+   * Winsock有时会报告写入的数据多于传递的数据。这可能是由于LSP损坏。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -597,9 +579,7 @@ export declare enum WebNetErrorList {
   ERR_WINSOCK_UNEXPECTED_WRITTEN_BYTES = -124,
 
   /**
-   * An SSL peer sent us a fatal decompression_failure alert. This typically
-   * occurs when a peer selects DEFLATE compression in the mistaken belief that
-   * it supports it.
+   * SSL对等端向本端发送了致命的解压失败警报。当对等方错误地认为它支持DEFLATE压缩时，通常会发生这种情况。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -609,8 +589,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_DECOMPRESSION_FAILURE_ALERT = -125,
 
   /**
-   * An SSL peer sent us a fatal bad_record_mac alert. This has been observed
-   * from servers with buggy DEFLATE support.
+   * SSL对等端向本端发送了致命的bad_record_mac警报。一个对DELEGATE支持有问题的服务器可能发生这个情况。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -620,7 +599,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_BAD_RECORD_MAC_ALERT = -126,
 
   /**
-   * The proxy requested authentication (for tunnel establishment).
+   * 代理请求身份验证（用于隧道建立）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -630,10 +609,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_AUTH_REQUESTED = -127,
 
   /**
-   * Could not create a connection to the proxy server. An error occurred
-   * either in resolving its name, or in connecting a socket to it.
-   * Note that this does NOT include failures during the actual "CONNECT" method
-   * of an HTTP proxy.
+   * 无法创建到代理服务器的连接。域名解析或连接套接字时出错。请注意，这不包括HTTP代理的实际“CONNECT”方法期间的故障。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -643,8 +619,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_CONNECTION_FAILED = -130,
 
   /**
-   * A mandatory proxy configuration could not be used. Currently this means
-   * that a mandatory PAC script could not be fetched, parsed or executed.
+   * 无法使用强制代理配置。目前，这意味着无法获取、解析或执行强制的PAC脚本。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -654,8 +629,7 @@ export declare enum WebNetErrorList {
   ERR_MANDATORY_PROXY_CONFIGURATION_FAILED = -131,
 
   /**
-   * We've hit the max socket limit for the socket pool while preconnecting.  We
-   * don't bother trying to preconnect more sockets.
+   * 在预连接时，已经达到了套接字池的最大套接字限制。因此不需要尝试预连接更多的套接字。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -665,7 +639,7 @@ export declare enum WebNetErrorList {
   ERR_PRECONNECT_MAX_SOCKET_LIMIT = -133,
 
   /**
-   * The permission to use the SSL client certificate's private key was denied.
+   * 使用SSL客户端证书私钥的权限被拒绝。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -675,7 +649,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_PRIVATE_KEY_ACCESS_DENIED = -134,
 
   /**
-   * The SSL client certificate has no private key.
+   * SSL客户端证书没有私钥。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -685,7 +659,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_CERT_NO_PRIVATE_KEY = -135,
 
   /**
-   * The certificate presented by the HTTPS Proxy was invalid.
+   *  HTTPS 代理提供的证书无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -695,7 +669,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_CERTIFICATE_INVALID = -136,
 
   /**
-   * An error occurred when trying to do a name resolution (DNS).
+   * 域名解析时出错（DNS）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -705,9 +679,7 @@ export declare enum WebNetErrorList {
   ERR_NAME_RESOLUTION_FAILED = -137,
 
   /**
-   * Permission to access the network was denied. This is used to distinguish
-   * errors that were most likely caused by a firewall from other access denied
-   * errors. See also ERR_ACCESS_DENIED.
+   * 网络被禁用。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -717,7 +689,7 @@ export declare enum WebNetErrorList {
   ERR_NETWORK_ACCESS_DENIED = -138,
 
   /**
-   * The request throttler module cancelled this request to avoid DDOS.
+   * 因节流而取消了此请求以避免DDOS。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -727,9 +699,7 @@ export declare enum WebNetErrorList {
   ERR_TEMPORARILY_THROTTLED = -139,
 
   /**
-   * A request to create an SSL tunnel connection through the HTTPS proxy
-   * received a 302 (temporary redirect) response.  The response body might
-   * include a description of why the request failed.
+   * 通过HTTPS代理创建SSL隧道连接的请求收到302（响应正文可能包括请求失败原因的描述）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -739,12 +709,7 @@ export declare enum WebNetErrorList {
   ERR_HTTPS_PROXY_TUNNEL_RESPONSE_REDIRECT = -140,
 
   /**
-   * We were unable to sign the CertificateVerify data of an SSL client auth
-   * handshake with the client certificate's private key.
-   * Possible causes for this include the user implicitly or explicitly
-   * denying access to the private key, the private key may not be valid for
-   * signing, the key may be relying on a cached handle which is no longer
-   * valid, or the CSP won't allow arbitrary data to be signed.
+   * 无法使用客户端证书的私钥对SSL客户端身份验证握手的CertificateVerify数据进行签名。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -754,8 +719,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_SIGNATURE_FAILED = -141,
 
   /**
-   * The message was too large for the transport.  (for example a UDP message
-   * which exceeds size threshold).
+   * 消息太大，无法传输。（例如，超过大小阈值的UDP消息）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -765,8 +729,7 @@ export declare enum WebNetErrorList {
   ERR_MSG_TOO_BIG = -142,
 
   /**
-   * Websocket protocol error. Indicates that we are terminating the connection
-   * due to a malformed frame or other protocol violation.
+   * Websocket协议错误。表示由于帧格式错误或其他协议冲突，正在终止连接。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -776,7 +739,7 @@ export declare enum WebNetErrorList {
   ERR_WS_PROTOCOL_ERROR = -145,
 
   /**
-   * Returned when attempting to bind an address that is already in use.
+   * 尝试绑定已在使用的地址时返回。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -786,7 +749,7 @@ export declare enum WebNetErrorList {
   ERR_ADDRESS_IN_USE = -147,
 
   /**
-   * An operation failed because the SSL handshake has not completed.
+   * 由于SSL握手尚未完成，操作失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -796,7 +759,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_HANDSHAKE_NOT_COMPLETED = -148,
 
   /**
-   * SSL peer's public key is invalid.
+   * SSL 公钥错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -806,9 +769,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_BAD_PEER_PUBLIC_KEY = -149,
 
   /**
-   * The certificate didn't match the built-in public key pins for the host name.
-   * The pins are set in net/http/transport_security_state.cc and require that
-   * one of a set of public keys exist on the path from the leaf to the root.
+   * 收到的证书与内置域名指定的公钥不匹配。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -818,7 +779,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_PINNED_KEY_NOT_IN_CERT_CHAIN = -150,
 
   /**
-   * Server request for client certificate did not contain any types we support.
+   * 服务器对客户端证书的请求不包含本机支持的任何类型。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -828,9 +789,8 @@ export declare enum WebNetErrorList {
   ERR_CLIENT_AUTH_CERT_TYPE_UNSUPPORTED = -151,
 
   /**
-   * An SSL peer sent us a fatal decrypt_error alert. This typically occurs when
-   * a peer could not correctly verify a signature (in CertificateVerify or
-   * ServerKeyExchange) or validate a Finished message.
+   * SSL对等端向本端发送了致命的decrypt_error警报。当对等方无法正确验证签名（在CertificateVerify或ServerKeyExchange中）
+   * 或验证Finished消息时，通常会发生这种情况。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -840,8 +800,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_DECRYPT_ERROR_ALERT = -153,
 
   /**
-   * There are too many pending WebSocketJob instances, so the new job was not
-   * pushed to the queue.
+   * 挂起的WebSocketJob实例太多，因此没有将新Job推送到队列中。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -851,7 +810,7 @@ export declare enum WebNetErrorList {
   ERR_WS_THROTTLE_QUEUE_TOO_LARGE = -154,
 
   /**
-   * The SSL server certificate changed in a renegotiation.
+   * SSL服务器证书在重新协商中更改。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -861,7 +820,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_SERVER_CERT_CHANGED = -156,
 
   /**
-   * The SSL server sent us a fatal unrecognized_name alert.
+   * SSL服务器向本端发送了致命的未识别名称警报。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -871,7 +830,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_UNRECOGNIZED_NAME_ALERT = -159,
 
   /**
-   * Failed to set the socket's receive buffer size as requested.
+   * 未能按请求设置套接字的接收缓冲区大小。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -881,7 +840,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_SET_RECEIVE_BUFFER_SIZE_ERROR = -160,
 
   /**
-   * Failed to set the socket's send buffer size as requested.
+   * 未能按请求设置套接字的发送缓冲区大小。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -891,8 +850,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_SET_SEND_BUFFER_SIZE_ERROR = -161,
 
   /**
-   * Failed to set the socket's receive buffer size as requested, despite success
-   * return code from setsockopt.
+   * 尽管setsockopt返回了成功的代码，但未能按请求设置套接字的接收缓冲区大小。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -902,8 +860,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_RECEIVE_BUFFER_SIZE_UNCHANGEABLE = -162,
 
   /**
-   * Failed to set the socket's send buffer size as requested, despite success
-   * return code from setsockopt.
+   * 尽管setsockopt返回了成功的代码，但未能按请求设置套接字的发送缓冲区大小。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -913,8 +870,7 @@ export declare enum WebNetErrorList {
   ERR_SOCKET_SEND_BUFFER_SIZE_UNCHANGEABLE = -163,
 
   /**
-   * Failed to import a client certificate from the platform store into the SSL
-   * library.
+   * 无法将客户端证书从平台存储导入SSL库。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -924,10 +880,8 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_CERT_BAD_FORMAT = -164,
 
   /**
-   * Resolving a hostname to an IP address list included the IPv4 address
-   * "127.0.53.53". This is a special IP address which ICANN has recommended to
-   * indicate there was a name collision, and alert admins to a potential
-   * problem.
+   * 将主机名解析为包含IPv4地址“127.0.53.53”的IP地址列表。这是ICANN建议的一个特殊IP地址，用于表示存在名称冲突，
+   * 并提醒管理员注意潜在问题。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -937,9 +891,7 @@ export declare enum WebNetErrorList {
   ERR_ICANN_NAME_COLLISION = -166,
 
   /**
-   * The SSL server presented a certificate which could not be decoded. This is
-   * not a certificate error code as no X509Certificate object is available. This
-   * error is fatal.
+   * SSL服务器提供了一个无法解码的证书。这不是证书错误代码，因为没有X509Certificate对象可用。此错误是致命的。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -949,7 +901,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_SERVER_CERT_BAD_FORMAT = -167,
 
   /**
-   * Certificate Transparency: Received a signed tree head that failed to parse.
+   * Certificate Transparency：解析signed tree head失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -959,8 +911,7 @@ export declare enum WebNetErrorList {
   ERR_CT_STH_PARSING_FAILED = -168,
 
   /**
-   * Certificate Transparency: Received a signed tree head whose JSON parsing was
-   * OK but was missing some of the fields.
+   * Certificate Transparency: 解析signed tree head成功，但是缺少了一些信息。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -970,10 +921,7 @@ export declare enum WebNetErrorList {
   ERR_CT_STH_INCOMPLETE = -169,
 
   /**
-   * The attempt to reuse a connection to send proxy auth credentials failed
-   * before the AuthController was used to generate credentials. The caller should
-   * reuse the controller with a new connection. This error is only used
-   * internally by the network stack.
+   * 在使用AuthController生成凭据之前，尝试重新使用连接发送代理身份验证凭据失败。调用方应使用新连接重新使用控制器。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -983,7 +931,7 @@ export declare enum WebNetErrorList {
   ERR_UNABLE_TO_REUSE_CONNECTION_FOR_PROXY_AUTH = -170,
 
   /**
-   * Certificate Transparency: Failed to parse the received consistency proof.
+   * Certificate Transparency: 一致性验证解析失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -993,10 +941,8 @@ export declare enum WebNetErrorList {
   ERR_CT_CONSISTENCY_PROOF_PARSING_FAILED = -171,
 
   /**
-   * The SSL server required an unsupported cipher suite that has since been
-   * removed. This error will temporarily be signaled on a fallback for one or two
-   * releases immediately following a cipher suite's removal, after which the
-   * fallback will be removed.
+   * SSL服务器需要一个不受支持的密码套件，该套件已被删除。此错误将在密码套件删除后立即在一个或两个版本的回退中临时
+   * 发出信号，之后回退将被删除。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1006,8 +952,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_OBSOLETE_CIPHER = -172,
 
   /**
-   * When a WebSocket handshake is done successfully and the connection has been
-   * upgraded, the URLRequest is cancelled with this error code.
+   * 当WebSocket握手成功完成并且连接已升级时，URLRequest将被取消，并返回此错误代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1017,8 +962,7 @@ export declare enum WebNetErrorList {
   ERR_WS_UPGRADE = -173,
 
   /**
-   * Socket ReadIfReady support is not implemented. This error should not be user
-   * visible, because the normal Read() method is used as a fallback.
+   * 套接字ReadIfReady支持未实现。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1028,7 +972,7 @@ export declare enum WebNetErrorList {
   ERR_READ_IF_READY_NOT_IMPLEMENTED = -174,
 
   /**
-   * No socket buffer space is available.
+   * 没有可用的套接字缓冲区空间。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1038,8 +982,7 @@ export declare enum WebNetErrorList {
   ERR_NO_BUFFER_SPACE = -176,
 
   /**
-   * There were no common signature algorithms between our client certificate
-   * private key and the server's preferences.
+   * 在本端的客户端证书私钥和服务器的首选项之间没有共同的签名算法。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1049,9 +992,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_CLIENT_AUTH_NO_COMMON_ALGORITHMS = -177,
 
   /**
-   * TLS 1.3 early data was rejected by the server. This will be received before
-   * any data is returned from the socket. The request should be retried with
-   * early data disabled.
+   * TLS 1.3 early data 被服务器拒绝。这将在从套接字返回任何数据之前接收。应在禁用early data的情况下重试请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1061,12 +1002,7 @@ export declare enum WebNetErrorList {
   ERR_EARLY_DATA_REJECTED = -178,
 
   /**
-   * TLS 1.3 early data was offered, but the server responded with TLS 1.2 or
-   * earlier. This is an internal error code to account for a
-   * backwards-compatibility issue with early data and TLS 1.2. It will be
-   * received before any data is returned from the socket. The request should be
-   * retried with early data disabled.
-   * See https://tools.ietf.org/html/rfc8446#appendix-D.3 for details.
+   * TLS 1.3 early data 版本错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1076,10 +1012,8 @@ export declare enum WebNetErrorList {
   ERR_WRONG_VERSION_ON_EARLY_DATA = -179,
 
   /**
-   * TLS 1.3 was enabled, but a lower version was negotiated and the server
-   * returned a value indicating it supported TLS 1.3. This is part of a security
-   * check in TLS 1.3, but it may also indicate the user is behind a buggy
-   * TLS-terminating proxy which implemented TLS 1.2 incorrectly.
+   * TLS 1.3已启用，但已协商更低的版本，服务器返回一个值，表示它支持TLS 1.3。这是TLS 1.3中安全检查的一部分，
+   * 但也可能表明用户使用了一个有问题的TLS-terminating代理。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1089,8 +1023,7 @@ export declare enum WebNetErrorList {
   ERR_TLS13_DOWNGRADE_DETECTED = -180,
 
   /**
-   * The server's certificate has a keyUsage extension incompatible with the
-   * negotiated TLS key exchange method.
+   * 服务器的证书具有与协商的TLS密钥交换方法不兼容的keyUsage扩展。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1100,7 +1033,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_KEY_USAGE_INCOMPATIBLE = -181,
 
   /**
-   * The ECHConfigList fetched over DNS cannot be parsed.
+   * 无法解析通过DNS获取的ECHConfigList。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1110,8 +1043,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_ECH_CONFIG_LIST = -182,
 
   /**
-   * ECH was enabled, but the server was unable to decrypt the encrypted
-   * ClientHello.
+   * ECH已启用，但服务器无法解密加密的ClientHello。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1121,8 +1053,7 @@ export declare enum WebNetErrorList {
   ERR_ECH_NOT_NEGOTIATED = -183,
 
   /**
-   * ECH was enabled, the server was unable to decrypt the encrypted ClientHello,
-   * and additionally did not present a certificate valid for the public name.
+   * ECH已启用，服务器无法解密加密的ClientHello，并且没有提供对公用名称有效的证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1132,15 +1063,11 @@ export declare enum WebNetErrorList {
   ERR_ECH_FALLBACK_CERTIFICATE_INVALID = -184,
 
   /**
-   * The server responded with a certificate whose common name did not match
-   * the host name.  This could mean:
-   * 1. An attacker has redirected our traffic to their server and is
-   *    presenting a certificate for which they know the private key.
-   * 2. The server is misconfigured and responding with the wrong cert.
-   * 3. The user is on a wireless network and is being redirected to the
-   *    network's login page.
-   * 4. The OS has used a DNS search suffix and the server doesn't have
-   *    a certificate for the abbreviated name in the address bar.
+   * 服务器响应时使用的证书的公用名称与主机名不匹配。这可能意味着：
+   * 1.攻击者已将本端的流量重定向到他们的服务器，并提供了他们知道私钥的证书。
+   * 2.服务器配置错误，使用错误的证书进行响应。
+   * 3.用户在无线网络上，并被重定向到网络的登录页面。
+   * 4.操作系统使用了DNS搜索后缀，服务器在地址栏中没有缩写名称的证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1150,13 +1077,11 @@ export declare enum WebNetErrorList {
   ERR_CERT_COMMON_NAME_INVALID = -200,
 
   /**
-   * The server responded with a certificate that, by our clock, appears to
-   * either not yet be valid or to have expired.  This could mean:
+   * 证书已过期。这可能意味着：
    *
-   * 1. An attacker is presenting an old certificate for which they have
-   *    managed to obtain the private key.
-   * 2. The server is misconfigured and is not presenting a valid cert.
-   * 3. Our clock is wrong.
+   * 1.攻击者正在出示一个旧证书，他们已设法获得该证书的私钥。
+   * 2.服务器配置错误，没有提供有效的证书。
+   * 3.设备的时钟错了。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1166,14 +1091,10 @@ export declare enum WebNetErrorList {
   ERR_CERT_DATE_INVALID = -201,
 
   /**
-   * The server responded with a certificate that is signed by an authority
-   * we don't trust.  The could mean:
-   * 1. An attacker has substituted the real certificate for a cert that
-   *    contains their public key and is signed by their cousin.
-   * 2. The server operator has a legitimate certificate from a CA we don't
-   *    know about, but should trust.
-   * 3. The server is presenting a self-signed certificate, providing no
-   *    defense against active attackers (but foiling passive attackers).
+   * 未信任的证书签发机构。这可能意味着：
+   * 1.攻击者用真实证书代替了包含其公钥并由其表亲签名的证书。
+   * 2.服务器操作员拥有来自本端不知道但应该信任的CA的合法证书。
+   * 3.服务器提供了一个自签名证书，无法抵御主动攻击者。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1183,12 +1104,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_AUTHORITY_INVALID = -202,
 
   /**
-   * The server responded with a certificate that contains errors.
-   * This error is not recoverable.
-   * MSDN describes this error as follows:
-   *    "The SSL certificate contains errors."
-   * NOTE: It's unclear how this differs from ERR_CERT_INVALID. For consistency,
-   * use that code instead of this one from now on.
+   * 证书中包含错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1198,8 +1114,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_CONTAINS_ERRORS = -203,
 
   /**
-   * The certificate has no mechanism for determining if it is revoked.  In
-   * effect, this certificate cannot be revoked.
+   * 证书无撤销机制，实际上，此证书不能被吊销。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1209,13 +1124,10 @@ export declare enum WebNetErrorList {
   ERR_CERT_NO_REVOCATION_MECHANISM = -204,
 
   /**
-   * Revocation information for the security certificate for this site is not
-   * available.  This could mean:
+   * 此网站的安全证书的吊销信息不可用。这可能意味着：
    *
-   * 1. An attacker has compromised the private key in the certificate and is
-   *    blocking our attempt to find out that the cert was revoked.
-   * 2. The certificate is unrevoked, but the revocation server is busy or
-   *    unavailable.
+   * 1.一个攻击者破坏了证书中的私钥，并阻止了本端发现证书已被吊销的尝试。
+   * 2.证书未被吊销，但吊销服务器正忙或不可用。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1225,9 +1137,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_UNABLE_TO_CHECK_REVOCATION = -205,
 
   /**
-   * The server responded with a certificate has been revoked.
-   * We have the capability to ignore this error, but it is probably not the
-   * thing to do.
+   * 证书已撤销。本端有能力忽略这个错误，但这可能不是本端应该做的事情。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1237,10 +1147,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_REVOKED = -206,
 
   /**
-   * The server responded with a certificate that is invalid.
-   * This error is not recoverable.
-   * MSDN describes this error as follows:
-   *    "The SSL certificate is invalid."
+   * 证书非法。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1250,8 +1157,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_INVALID = -207,
 
   /**
-   * The server responded with a certificate that is signed using a weak
-   * signature algorithm.
+   * 服务器以使用弱签名算法签名的证书作为响应。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1261,7 +1167,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_WEAK_SIGNATURE_ALGORITHM = -208,
 
   /**
-   * The host name specified in the certificate is not unique.
+   * 证书中指定的域名不是唯一的。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1271,8 +1177,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_NON_UNIQUE_NAME = -210,
 
   /**
-   * The server responded with a certificate that contains a weak key (e.g.
-   * a too-small RSA key).
+   * 服务器以包含弱密钥（例如，RSA密钥太小）的证书作为响应。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1282,7 +1187,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_WEAK_KEY = -211,
 
   /**
-   * The certificate claimed DNS names that are in violation of name constraints.
+   * 违反证书名称约束。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1292,7 +1197,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_NAME_CONSTRAINT_VIOLATION = -212,
 
   /**
-   * The certificate's validity period is too long.
+   * 证书有效期过长。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1302,8 +1207,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_VALIDITY_TOO_LONG = -213,
 
   /**
-   * Certificate Transparency was required for this connection, but the server
-   * did not provide CT information that complied with the policy.
+   * 此连接需要Certificate Transparency，但服务器未提供符合策略的CT信息。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1313,7 +1217,7 @@ export declare enum WebNetErrorList {
   ERR_CERTIFICATE_TRANSPARENCY_REQUIRED = -214,
 
   /**
-   * The certificate chained to a legacy Symantec root that is no longer trusted.
+   * 该证书链接到不再受信任的旧赛门铁克根目录。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1323,8 +1227,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_SYMANTEC_LEGACY = -215,
 
   /**
-   * The certificate is known to be used for interception by an entity other
-   * the device owner.
+   * 已知该证书被设备所有者以外的实体用于拦截。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1334,7 +1237,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_KNOWN_INTERCEPTION_BLOCKED = -217,
 
   /**
-   * The connection uses an obsolete version of SSL/TLS or cipher.
+   * 连接使用过时版本的 SSL/TLS 或密码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1344,7 +1247,7 @@ export declare enum WebNetErrorList {
   ERR_SSL_OBSOLETE_VERSION_OR_CIPHER = -218,
 
   /**
-   * The value immediately past the last certificate error code.
+   * 紧跟在上一个证书错误代码之后的值。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1354,7 +1257,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_END = -219,
 
   /**
-   * The URL is invalid.
+   * 非法URL。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1364,7 +1267,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_URL = -300,
 
   /**
-   * The scheme of the URL is disallowed.
+   * 不允许使用的URL scheme。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1374,7 +1277,7 @@ export declare enum WebNetErrorList {
   ERR_DISALLOWED_URL_SCHEME = -301,
 
   /**
-   * The scheme of the URL is unknown.
+   * 未知 scheme。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1384,7 +1287,7 @@ export declare enum WebNetErrorList {
   ERR_UNKNOWN_URL_SCHEME = -302,
 
   /**
-   * Attempting to load an URL resulted in a redirect to an invalid URL.
+   * 试图加载URL导致重定向到无效的URL。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1394,7 +1297,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_REDIRECT = -303,
 
   /**
-   * Attempting to load an URL resulted in too many redirects.
+   * 重定向过多。 
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1404,8 +1307,7 @@ export declare enum WebNetErrorList {
   ERR_TOO_MANY_REDIRECTS = -310,
 
   /**
-   * Attempting to load an URL resulted in an unsafe redirect (e.g., a redirect
-   * to file:// is considered unsafe).
+   * 不安全的重定向。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1415,7 +1317,7 @@ export declare enum WebNetErrorList {
   ERR_UNSAFE_REDIRECT = -311,
 
   /**
-   * Attempting to load an URL with an unsafe port number.
+   * 不安全的端口。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1425,7 +1327,7 @@ export declare enum WebNetErrorList {
   ERR_UNSAFE_PORT = -312,
 
   /**
-   * The server's response was invalid.
+   * 非法返回。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1435,7 +1337,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_RESPONSE = -320,
 
   /**
-   * Error in chunked transfer encoding.
+   * 分块传输编码错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1445,7 +1347,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_CHUNKED_ENCODING = -321,
 
   /**
-   * The server did not support the request method.
+   * 方法不支持。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1455,8 +1357,7 @@ export declare enum WebNetErrorList {
   ERR_METHOD_UNSUPPORTED = -322,
 
   /**
-   * The response was 407 (Proxy Authentication Required), yet we did not send
-   * the request to a proxy.
+   * 意外的代理身份验证。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1466,7 +1367,7 @@ export declare enum WebNetErrorList {
   ERR_UNEXPECTED_PROXY_AUTH = -323,
 
   /**
-   * The server closed the connection without sending any data.
+   * 空返回错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1476,7 +1377,7 @@ export declare enum WebNetErrorList {
   ERR_EMPTY_RESPONSE = -324,
 
   /**
-   * The headers section of the response is too large.
+   * 返回体中 headers 太大。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1486,7 +1387,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_TOO_BIG = -325,
 
   /**
-   * The evaluation of the PAC script failed.
+   * pac 脚本错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1496,8 +1397,7 @@ export declare enum WebNetErrorList {
   ERR_PAC_SCRIPT_FAILED = -327,
 
   /**
-   * The response was 416 (Requested range not satisfiable) and the server cannot
-   * satisfy the range requested.
+   * 请求范围不可满足。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1507,7 +1407,7 @@ export declare enum WebNetErrorList {
   ERR_REQUEST_RANGE_NOT_SATISFIABLE = -328,
 
   /**
-   * The identity used for authentication is invalid.
+   * 用于身份验证的标识无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1517,7 +1417,7 @@ export declare enum WebNetErrorList {
   ERR_MALFORMED_IDENTITY = -329,
 
   /**
-   * Content decoding of the response body failed.
+   * 响应正文的内容解码失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1527,8 +1427,7 @@ export declare enum WebNetErrorList {
   ERR_CONTENT_DECODING_FAILED = -330,
 
   /**
-   * An operation could not be completed because all network IO
-   * is suspended.
+   * 操作无法完成，因为所有网络IO都已挂起。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1538,7 +1437,7 @@ export declare enum WebNetErrorList {
   ERR_NETWORK_IO_SUSPENDED = -331,
 
   /**
-   * FLIP data received without receiving a SYN_REPLY on the stream.
+   * 在流上未接收到SYN_REPLY的情况下接收到的FLIP数据。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1548,7 +1447,7 @@ export declare enum WebNetErrorList {
   ERR_SYN_REPLY_NOT_RECEIVED = -332,
 
   /**
-   * Converting the response to target encoding failed.
+   * 将响应转换为目标编码失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1558,7 +1457,7 @@ export declare enum WebNetErrorList {
   ERR_ENCODING_CONVERSION_FAILED = -333,
 
   /**
-   * The server sent an FTP directory listing in a format we do not understand.
+   * 无法识别的 ftp 目录列表格式。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1568,7 +1467,7 @@ export declare enum WebNetErrorList {
   ERR_UNRECOGNIZED_FTP_DIRECTORY_LISTING_FORMAT = -334,
 
   /**
-   * There are no supported proxies in the provided list.
+   * 没有支持的代理。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1588,7 +1487,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_PROTOCOL_ERROR = -337,
 
   /**
-   * Credentials could not be established during HTTP Authentication.
+   * HTTP/2协议错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1598,8 +1497,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_AUTH_CREDENTIALS = -338,
 
   /**
-   * An HTTP Authentication scheme was tried which is not supported on this
-   * machine.
+   * 不支持的身份验证方案。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1609,7 +1507,7 @@ export declare enum WebNetErrorList {
   ERR_UNSUPPORTED_AUTH_SCHEME = -339,
 
   /**
-   * Detecting the encoding of the response failed.
+   * 编码检测失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1619,7 +1517,7 @@ export declare enum WebNetErrorList {
   ERR_ENCODING_DETECTION_FAILED = -340,
 
   /**
-   * (GSSAPI) No Kerberos credentials were available during HTTP Authentication.
+   * 缺少身份验证凭据。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1629,7 +1527,7 @@ export declare enum WebNetErrorList {
   ERR_MISSING_AUTH_CREDENTIALS = -341,
 
   /**
-   * An unexpected, but documented, SSPI or GSSAPI status code was returned.
+   * 意外的安全库状态。 
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1639,8 +1537,7 @@ export declare enum WebNetErrorList {
   ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS = -342,
 
   /**
-   * The environment was not set up correctly for authentication (for
-   * example, no KDC could be found or the principal is unknown).
+   * 配置错误的身份验证环境。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1650,7 +1547,7 @@ export declare enum WebNetErrorList {
   ERR_MISCONFIGURED_AUTH_ENVIRONMENT = -343,
 
   /**
-   * An undocumented SSPI or GSSAPI status code was returned.
+   * 未记录的SSPI或GSSAPI状态码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1660,7 +1557,7 @@ export declare enum WebNetErrorList {
   ERR_UNDOCUMENTED_SECURITY_LIBRARY_STATUS = -344,
 
   /**
-   * The HTTP response was too big to drain.
+   * 响应体太大。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1670,7 +1567,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_BODY_TOO_BIG_TO_DRAIN = -345,
 
   /**
-   * The HTTP response contained multiple distinct Content-Length headers.
+   * 响应 headers 多个内容长度。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1680,8 +1577,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_LENGTH = -346,
 
   /**
-   * HTTP/2 headers have been received, but not all of them - status or version
-   * headers are missing, so we're expecting additional frames to complete them.
+   * 不完整的 HTTP/2 headers。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1691,9 +1587,7 @@ export declare enum WebNetErrorList {
   ERR_INCOMPLETE_HTTP2_HEADERS = -347,
 
   /**
-   * No PAC URL configuration could be retrieved from DHCP. This can indicate
-   * either a failure to retrieve the DHCP configuration, or that there was no
-   * PAC URL configured in DHCP.
+   * pac 不在 dhcp 中。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1703,7 +1597,7 @@ export declare enum WebNetErrorList {
   ERR_PAC_NOT_IN_DHCP = -348,
 
   /**
-   * The HTTP response contained multiple Content-Disposition headers.
+   * 响应标头多重内容处置。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1713,7 +1607,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_MULTIPLE_CONTENT_DISPOSITION = -349,
 
   /**
-   * The HTTP response contained multiple Location headers.
+   * 多个位置的响应标头。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1723,11 +1617,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_MULTIPLE_LOCATION = -350,
 
   /**
-   * HTTP/2 server refused the request without processing, and sent either a
-   * GOAWAY frame with error code NO_ERROR and Last-Stream-ID lower than the
-   * stream id corresponding to the request indicating that this request has not
-   * been processed yet, or a RST_STREAM frame with error code REFUSED_STREAM.
-   * Client MAY retry (on a different connection).  See RFC7540 Section 8.1.4.
+   * HTTP/2 服务器拒绝流。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1737,7 +1627,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_SERVER_REFUSED_STREAM = -351,
 
   /**
-   * HTTP/2 server didn't respond to the PING message.
+   * HTTP/2 ping 失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1747,8 +1637,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_PING_FAILED = -352,
 
   /**
-   * The HTTP response body transferred fewer bytes than were advertised by the
-   * Content-Length header when the connection is closed.
+   * 当连接关闭时，HTTP 响应主体传输的字节数少于 Content-Length 头中公布的字节数。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1758,8 +1647,7 @@ export declare enum WebNetErrorList {
   ERR_CONTENT_LENGTH_MISMATCH = -354,
 
   /**
-   * The HTTP response body is transferred with Chunked-Encoding, but the
-   * terminating zero-length chunk was never sent when the connection is closed.
+   * HTTP 响应体使用分块编码传输，但在连接关闭时从未发送终止零长度块。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1769,7 +1657,7 @@ export declare enum WebNetErrorList {
   ERR_INCOMPLETE_CHUNKED_ENCODING = -355,
 
   /**
-   * There is a QUIC protocol error.
+   * 存在QUIC协议错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1779,7 +1667,7 @@ export declare enum WebNetErrorList {
   ERR_QUIC_PROTOCOL_ERROR = -356,
 
   /**
-   * The HTTP headers were truncated by an EOF.
+   * HTTP 头部信息被文件结束符（EOF）截断。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1789,8 +1677,7 @@ export declare enum WebNetErrorList {
   ERR_RESPONSE_HEADERS_TRUNCATED = -357,
 
   /**
-   * The QUIC crypto handshake failed.  This means that the server was unable
-   * to read any requests sent, so they may be resent.
+   * QUIC 加密握手失败。这意味着服务器无法读取发送的任何请求，因此它们可能会被重新发送。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1800,7 +1687,7 @@ export declare enum WebNetErrorList {
   ERR_QUIC_HANDSHAKE_FAILED = -358,
 
   /**
-   * Transport security is inadequate for the HTTP/2 version.
+   * 传输安全性不适合HTTP/2版本。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1810,7 +1697,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_INADEQUATE_TRANSPORT_SECURITY = -360,
 
   /**
-   * The peer violated HTTP/2 flow control.
+   * 对等方违反了HTTP/2流控制。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1820,7 +1707,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_FLOW_CONTROL_ERROR = -361,
 
   /**
-   * The peer sent an improperly sized HTTP/2 frame.
+   * 对等方发送了大小不正确的HTTP/2帧。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1830,7 +1717,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_FRAME_SIZE_ERROR = -362,
 
   /**
-   * Decoding or encoding of compressed HTTP/2 headers failed.
+   * 压缩HTTP/2 头部信息的解码或编码失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1840,7 +1727,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_COMPRESSION_ERROR = -363,
 
   /**
-   * Proxy Auth Requested without a valid Client Socket Handle.
+   * 请求的代理身份验证没有有效的客户端套接字句柄。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1850,7 +1737,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_AUTH_REQUESTED_WITH_NO_CONNECTION = -364,
 
   /**
-   * HTTP_1_1_REQUIRED error code received on HTTP/2 session.
+   * 在 HTTP/2 会话中收到 HTTP_1_1_REQUIRED 错误代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1860,7 +1747,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP_1_1_REQUIRED = -365,
 
   /**
-   * HTTP_1_1_REQUIRED error code received on HTTP/2 session to proxy.
+   * 在通过 HTTP/2 会话代理时收到 HTTP_1_1_REQUIRED 错误代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1870,7 +1757,7 @@ export declare enum WebNetErrorList {
   ERR_PROXY_HTTP_1_1_REQUIRED = -366,
 
   /**
-   * The PAC script terminated fatally and must be reloaded.
+   * PAC 脚本已终止并必须重新加载。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1880,8 +1767,7 @@ export declare enum WebNetErrorList {
   ERR_PAC_SCRIPT_TERMINATED = -367,
 
   /**
-   * The server was expected to return an HTTP/1.x response, but did not. Rather
-   * than treat it as HTTP/0.9, this error is returned.
+   * 服务器应返回 HTTP/1.x 响应，但未返回。而不是将其视为 HTTP/0.9，返回此错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1891,7 +1777,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_HTTP_RESPONSE = -370,
 
   /**
-   * Initializing content decoding failed.
+   * 内容解码初始化失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1901,9 +1787,7 @@ export declare enum WebNetErrorList {
   ERR_CONTENT_DECODING_INIT_FAILED = -371,
 
   /**
-   * Received HTTP/2 RST_STREAM frame with NO_ERROR error code.  This error should
-   * be handled internally by HTTP/2 code, and should not make it above the
-   * SpdyStream layer.
+   * 收到带有 NO_ERROR 错误代码的 HTTP/2 RST_STREAM 帧。此错误应由 HTTP/2 代码内部处理，而不应超过 SpdyStream 层。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1913,7 +1797,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_RST_STREAM_NO_ERROR_RECEIVED = -372,
 
   /**
-   * The pushed stream claimed by the request is no longer available.
+   * 请求声明的推送流不再可用。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1923,8 +1807,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_PUSHED_STREAM_NOT_AVAILABLE = -373,
 
   /**
-   * A pushed stream was claimed and later reset by the server. When this happens,
-   * the request should be retried.
+   * 已声明推送的流，随后服务器将其重置。发生这种情况时，应该重试请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1934,8 +1817,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_CLAIMED_PUSHED_STREAM_RESET_BY_SERVER = -374,
 
   /**
-   * An HTTP transaction was retried too many times due for authentication or
-   * invalid certificates.
+   * 由于身份验证或证书无效，HTTP事务重试次数过多。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1945,7 +1827,7 @@ export declare enum WebNetErrorList {
   ERR_TOO_MANY_RETRIES = -375,
 
   /**
-   * Received an HTTP/2 frame on a closed stream.
+   * 在已关闭的流上收到一个 HTTP/2 帧。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1955,7 +1837,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_STREAM_CLOSED = -376,
 
   /**
-   * Client is refusing an HTTP/2 stream.
+   * 客户端拒绝了一个 HTTP/2 流。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1965,8 +1847,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_CLIENT_REFUSED_STREAM = -377,
 
   /**
-   * A pushed HTTP/2 stream was claimed by a request based on matching URL and
-   * request headers, but the pushed response headers do not match the request.
+   * 基于匹配的 URL 和请求头，一个 HTTP/2 推送的流被请求所接收，但是推送的响应头并不匹配请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1976,7 +1857,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP2_PUSHED_RESPONSE_DOES_NOT_MATCH = -378,
 
   /**
-   * The server returned a non-2xx HTTP response code.
+   * 服务器返回了non-2xx的HTTP响应代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1986,9 +1867,7 @@ export declare enum WebNetErrorList {
   ERR_HTTP_RESPONSE_CODE_FAILURE = -379,
 
   /**
-   * The certificate presented on a QUIC connection does not chain to a known root
-   * and the origin connected to is not on a list of domains where unknown roots
-   * are allowed.
+   * 在 QUIC 连接上展示的证书未链接到已知根证书，并且连接到的原始服务器不在允许未知根证书的域名列表中。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -1998,8 +1877,7 @@ export declare enum WebNetErrorList {
   ERR_QUIC_UNKNOWN_CERT_ROOT = -380,
 
   /**
-   * A GOAWAY frame has been received indicating that the request has not been
-   * processed and is therefore safe to retry on a different connection.
+   * 已接收到一个 GOAWAY 帧，表明请求未得到处理，因此可以安全地在不同的连接上重试。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2009,7 +1887,7 @@ export declare enum WebNetErrorList {
   ERR_QUIC_GOAWAY_REQUEST_CAN_BE_RETRIED = -381,
 
   /**
-   * The ACCEPT_CH restart has been triggered too many times.
+   * ACCEPT_CH 重启已被触发太多次。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2019,9 +1897,7 @@ export declare enum WebNetErrorList {
   ERR_TOO_MANY_ACCEPT_CH_RESTARTS = -382,
 
   /**
-   * The IP address space of the remote endpoint differed from the previous
-   * observed value during the same request. Any cache entry for the affected
-   * request should be invalidated.
+   * 在相同的请求期间，远程端点的 IP 地址空间与先前观察到的值不同。任何受影响的请求的缓存条目都应被标记为无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2031,8 +1907,7 @@ export declare enum WebNetErrorList {
   ERR_INCONSISTENT_IP_ADDRESS_SPACE = -383,
 
   /**
-   * The IP address space of the cached remote endpoint is blocked by local
-   * network access check.
+   * 缓存的远程端点的 IP 地址空间被本地网络访问检查所阻止。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2042,7 +1917,7 @@ export declare enum WebNetErrorList {
   ERR_CACHED_IP_ADDRESS_SPACE_BLOCKED_BY_LOCAL_NETWORK_ACCESS_POLICY = -384,
 
   /**
-   * The cache does not have the requested entry.
+   * 缓存中没有请求的条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2052,7 +1927,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_MISS = -400,
 
   /**
-   * Unable to read from the disk cache.
+   * 无法从磁盘缓存中读取。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2062,7 +1937,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_READ_FAILURE = -401,
 
   /**
-   * Unable to write to the disk cache.
+   * 无法写入磁盘缓存。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2072,7 +1947,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_WRITE_FAILURE = -402,
 
   /**
-   * The operation is not supported for this entry.
+   * 此条目不支持此操作。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2082,7 +1957,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_OPERATION_UNSUPPORTED = -403,
 
   /**
-   * The disk cache is unable to open this entry.
+   * 磁盘缓存无法打开此条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2092,7 +1967,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_OPEN_FAILURE = -404,
 
   /**
-   * The disk cache is unable to create this entry.
+   * 磁盘缓存无法创建此条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2102,7 +1977,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_CREATE_FAILURE = -405,
 
   /**
-   * Multiple transactions are racing to create disk cache entries.
+   * 多个事务正在竞相创建磁盘缓存条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2112,7 +1987,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_RACE = -406,
 
   /**
-   * The cache was unable to read a checksum record on an entry.
+   * 缓存无法读取条目上的校验和记录。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2122,7 +1997,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_CHECKSUM_READ_FAILURE = -407,
 
   /**
-   * The cache found an entry with an invalid checksum.
+   * 缓存发现一个具有无效校验和的条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2132,7 +2007,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_CHECKSUM_MISMATCH = -408,
 
   /**
-   * Internal error code for the HTTP cache.
+   * HTTP缓存的内部错误代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2142,8 +2017,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_LOCK_TIMEOUT = -409,
 
   /**
-   * Received a challenge after the transaction has read some data, and the
-   * credentials aren't available.
+   * 在事务读取某些数据后收到质询，但凭据不可用。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2153,7 +2027,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_AUTH_FAILURE_AFTER_READ = -410,
 
   /**
-   * Internal not-quite error code for the HTTP cache.
+   * HTTP缓存的内部不完全错误代码。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2163,7 +2037,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_ENTRY_NOT_SUITABLE = -411,
 
   /**
-   * The disk cache is unable to doom this entry.
+   * 磁盘缓存无法删除此条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2173,7 +2047,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_DOOM_FAILURE = -412,
 
   /**
-   * The disk cache is unable to open or create this entry.
+   * 磁盘缓存无法打开或创建此条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2183,7 +2057,7 @@ export declare enum WebNetErrorList {
   ERR_CACHE_OPEN_OR_CREATE_FAILURE = -413,
 
   /**
-   * The server's response was insecure (e.g. there was a cert error).
+   * 服务器的响应不安全（例如，存在证书错误）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2193,8 +2067,7 @@ export declare enum WebNetErrorList {
   ERR_INSECURE_RESPONSE = -501,
 
   /**
-   * An attempt to import a client certificate failed, as the user's key
-   * database lacked a corresponding private key.
+   * 尝试导入客户端证书失败，因为用户的密钥数据库缺少相应的私钥。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2204,7 +2077,7 @@ export declare enum WebNetErrorList {
   ERR_NO_PRIVATE_KEY_FOR_CERT = -502,
 
   /**
-   * An error adding a certificate to the OS certificate database.
+   * 向操作系统证书数据库添加证书时发生错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2214,7 +2087,7 @@ export declare enum WebNetErrorList {
   ERR_ADD_USER_CERT_FAILED = -503,
 
   /**
-   * An error occurred while handling a signed exchange.
+   * 处理已签名的交换时发生错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2224,7 +2097,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_SIGNED_EXCHANGE = -504,
 
   /**
-   * An error occurred while handling a Web Bundle source.
+   * 处理Web Bundle源时发生错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2234,8 +2107,7 @@ export declare enum WebNetErrorList {
   ERR_INVALID_WEB_BUNDLE = -505,
 
   /**
-   * A Trust Tokens protocol operation-executing request failed for one of a
-   * number of reasons (precondition failure, internal error, bad response).
+   * 执行Trust Tokens协议操作的请求失败（原因包括：预置条件失败、内部错误、不良响应）。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2245,9 +2117,8 @@ export declare enum WebNetErrorList {
   ERR_TRUST_TOKEN_OPERATION_FAILED = -506,
 
   /**
-   * When handling a Trust Tokens protocol operation-executing request, the system
-   * was able to execute the request's Trust Tokens operation without sending the
-   * request to its destination.
+   * 在处理一个与Trust Tokens协议相关的操作执行请求时，系统能够执行该请求中的Trust Tokens操作，
+   * 但并没有将请求发送到其指定的目的地。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2257,8 +2128,7 @@ export declare enum WebNetErrorList {
   ERR_TRUST_TOKEN_OPERATION_SUCCESS_WITHOUT_SENDING_REQUEST = -507,
 
   /**
-   * A generic error for failed FTP control connection command.
-   * If possible, please use or add a more specific error code.
+   * FTP控制连接命令失败的通用错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2268,8 +2138,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_FAILED = -601,
 
   /**
-   * The server cannot fulfill the request at this point. This is a temporary error.
-   * FTP response code 421.
+   * 服务器目前无法满足请求。这是一个临时错误。FTP响应代码421。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2279,8 +2148,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_SERVICE_UNAVAILABLE = -602,
 
   /**
-   * The server has aborted the transfer.
-   * FTP response code 426.
+   * 服务器已中止传输。FTP响应代码426。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2290,8 +2158,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_TRANSFER_ABORTED = -603,
 
   /**
-   * The file is busy, or some other temporary error condition on opening the file.
-   * FTP response code 450.
+   * 文件正在使用中，或在打开文件时发生了一些其他临时错误条件。FTP响应代码450。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2301,8 +2168,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_FILE_BUSY = -604,
 
   /**
-   * Server rejected our command because of syntax errors.
-   * FTP response codes 500, 501.
+   * 由于语法错误，服务器拒绝了本端的命令。FTP响应代码500、501。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2312,8 +2178,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_SYNTAX_ERROR = -605,
 
   /**
-   * Server does not support the command we issued.
-   * FTP response codes 502, 504.
+   * 服务器不支持本端发出的命令。FTP响应代码502、504。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2323,8 +2188,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_COMMAND_UNSUPPORTED = -606,
 
   /**
-   * Server rejected our command because we didn't issue the commands in right order.
-   * FTP response code 503.
+   * 服务器拒绝了本端的命令，因为本端没有按照正确的顺序发出命令。FTP响应代码503。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2334,7 +2198,7 @@ export declare enum WebNetErrorList {
   ERR_FTP_BAD_COMMAND_SEQUENCE = -607,
 
   /**
-   * PKCS #12 import failed due to incorrect password.
+   *由于密码不正确，PKCS #12 导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2344,7 +2208,7 @@ export declare enum WebNetErrorList {
   ERR_PKCS12_IMPORT_BAD_PASSWORD = -701,
 
   /**
-   * PKCS #12 import failed due to other error.
+   * 由于其他错误，PKCS #12 导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2354,7 +2218,7 @@ export declare enum WebNetErrorList {
   ERR_PKCS12_IMPORT_FAILED = -702,
 
   /**
-   * CA import failed - not a CA cert.
+   * CA导入失败-不是CA证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2364,7 +2228,7 @@ export declare enum WebNetErrorList {
   ERR_IMPORT_CA_CERT_NOT_CA = -703,
 
   /**
-   * Import failed - certificate already exists in database.
+   * 导入失败-数据库中已存在证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2374,7 +2238,7 @@ export declare enum WebNetErrorList {
   ERR_IMPORT_CERT_ALREADY_EXISTS = -704,
 
   /**
-   * CA import failed due to some other error.
+   * 由于其他错误，CA导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2384,7 +2248,7 @@ export declare enum WebNetErrorList {
   ERR_IMPORT_CA_CERT_FAILED = -705,
 
   /**
-   * Server certificate import failed due to some internal error.
+   * 由于某些内部错误，服务器证书导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2394,7 +2258,7 @@ export declare enum WebNetErrorList {
   ERR_IMPORT_SERVER_CERT_FAILED = -706,
 
   /**
-   * PKCS #12 import failed due to invalid MAC.
+   * PKCS #12 导入失败，因为 MAC（消息认证码）无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2404,7 +2268,7 @@ export declare enum WebNetErrorList {
   ERR_PKCS12_IMPORT_INVALID_MAC = -707,
 
   /**
-   * PKCS #12 import failed due to invalid/corrupt file.
+   * PKCS #12 导入失败，因为文件无效或已损坏。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2414,7 +2278,7 @@ export declare enum WebNetErrorList {
   ERR_PKCS12_IMPORT_INVALID_FILE = -708,
 
   /**
-   * PKCS #12 import failed due to unsupported features.
+   * 由于不支持的特性，PKCS #12 导入失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2424,7 +2288,7 @@ export declare enum WebNetErrorList {
   ERR_PKCS12_IMPORT_UNSUPPORTED = -709,
 
   /**
-   * Key generation failed.
+   * 密钥生成失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2434,7 +2298,7 @@ export declare enum WebNetErrorList {
   ERR_KEY_GENERATION_FAILED = -710,
 
   /**
-   * Failure to export private key.
+   * 无法导出私钥。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2444,7 +2308,7 @@ export declare enum WebNetErrorList {
   ERR_PRIVATE_KEY_EXPORT_FAILED = -712,
 
   /**
-   * Self-signed certificate generation failed.
+   * 自签名证书生成失败。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2454,7 +2318,7 @@ export declare enum WebNetErrorList {
   ERR_SELF_SIGNED_CERT_GENERATION_FAILED = -713,
 
   /**
-   * The certificate database changed in some way.
+   * 证书数据库已发生某种更改。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2464,7 +2328,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_DATABASE_CHANGED = -714,
 
   /**
-   * The certificate verifier configuration changed in some way.
+   * 证书验证配置已发生某种更改。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2474,7 +2338,7 @@ export declare enum WebNetErrorList {
   ERR_CERT_VERIFIER_CHANGED = -716,
 
   /**
-   * DNS resolver received a malformed response.
+   * DNS解析程序收到格式错误的响应。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2484,7 +2348,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_MALFORMED_RESPONSE = -800,
 
   /**
-   * DNS server requires TCP.
+   * DNS服务器需要TCP。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2494,15 +2358,11 @@ export declare enum WebNetErrorList {
   ERR_DNS_SERVER_REQUIRES_TCP = -801,
 
   /**
-   * DNS server failed.  This error is returned for all of the following
-   * error conditions:
-   * 1 - Format error - The name server was unable to interpret the query.
-   * 2 - Server failure - The name server was unable to process this query
-   *     due to a problem with the name server.
-   * 4 - Not Implemented - The name server does not support the requested
-   *     kind of query.
-   * 5 - Refused - The name server refuses to perform the specified
-   *     operation for policy reasons.
+   * DNS服务器失败。对于以下所有错误情况，都会返回此错误。
+   * 1 - 格式错误 - 名称服务器无法解释查询。
+   * 2 - 服务器故障 - 名称服务器由于自身问题无法处理这个查询。
+   * 4 - 未实现 - 名称服务器不支持请求的查询类型。
+   * 5 - 拒绝 - 名称服务器出于策略原因拒绝执行指定的操作。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2512,7 +2372,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_SERVER_FAILED = -802,
 
   /**
-   * DNS transaction timed out.
+   * DNS事务超时。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2522,8 +2382,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_TIMED_OUT = -803,
 
   /**
-   * The entry was not found in cache or other local sources, for lookups where
-   * only local sources were queried.
+   * 对于只查询本地源的查找，在缓存或其他本地源中未找到该条目。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2533,7 +2392,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_CACHE_MISS = -804,
 
   /**
-   * Suffix search list rules prevent resolution of the given host name.
+   * 后缀搜索列表规则阻止了给定主机名的解析。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2543,7 +2402,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_SEARCH_EMPTY = -805,
 
   /**
-   * Failed to sort addresses according to RFC3484.
+   * 未能根据RFC3484对地址进行排序。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2553,7 +2412,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_SORT_ERROR = -806,
 
   /**
-   * Failed to resolve the hostname of a DNS-over-HTTPS server.
+   * 未能解析DNS-over-HTTPS服务器的主机名。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2563,9 +2422,8 @@ export declare enum WebNetErrorList {
   ERR_DNS_SECURE_RESOLVER_HOSTNAME_RESOLUTION_FAILED = -808,
 
   /**
-   * DNS identified the request as disallowed for insecure connection (http/ws).
-   * Error should be handled as if an HTTP redirect was received to redirect to
-   * https or wss.
+   * DNS已识别请求因不安全的连接（http/ws）而被禁止。应用程序应该像处理HTTP重定向一样处理这个错误，将连接重定向到
+   * 安全的https或wss。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2575,7 +2433,7 @@ export declare enum WebNetErrorList {
   ERR_DNS_NAME_HTTPS_ONLY = -809,
 
   /**
-   * All DNS requests associated with this job have been cancelled.
+   * 与此任务相关的所有 DNS 请求已被取消。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
@@ -2585,13 +2443,12 @@ export declare enum WebNetErrorList {
   ERR_DNS_REQUEST_CANCELED = -810,
 
   /**
-   * The hostname resolution of HTTPS record was expected to be resolved with
-   * alpn values of supported protocols, but did not.
+   * HTTPS记录的主机名解析预期未能使用受支持协议的ALPN值进行解析。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform [since 23]
    * @atomicservice
    * @since 12 dynamic
    */
-  ERR_DNS_NO_MATCHING_SUPPORTED_ALPN = -811,
+  ERR_DNS_NO_MATCHING_SUPPORTED_ALPN = -811
 }

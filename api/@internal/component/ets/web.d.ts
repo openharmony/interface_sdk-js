@@ -21,7 +21,6 @@
 /**
  * Provides methods for controlling the web controller.
  *
- * @typedef { import('../api/@ohos.web.webview').default.WebviewController }
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -32,7 +31,6 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 /**
  * The callback of load committed.
  *
- * @typedef { function } OnNavigationEntryCommittedCallback
  * @param { LoadCommittedDetails } loadCommittedDetails - callback information of onNavigationEntryCommitted.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -43,28 +41,17 @@ type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDe
 /**
  * The callback of ssl error event.
  *
- * @typedef { function } OnSslErrorEventCallback
  * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback of ssl error event.
- *
- * @typedef { function } OnSslErrorEventCallback
- * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
  * The callback of verify pin.
  *
- * @typedef { function } OnVerifyPinCallback
  * @param { VerifyPinEvent } verifyPinEvent - The event of verify PIN.
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -74,7 +61,6 @@ type OnVerifyPinCallback = (verifyPinEvent: VerifyPinEvent) => void;
 /**
  * The callback of onOverrideErrorPage.
  *
- * @typedef { function } OnOverrideErrorPageCallback
  * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
@@ -106,33 +92,19 @@ type OnFirstMeaningfulPaintCallback = (firstMeaningfulPaint: FirstMeaningfulPain
  * The callback of onOverrideUrlLoading.
  * Should not call WebviewController.loadUrl with the request's URL and then return true.
  *
- * @typedef { function } OnOverrideUrlLoadingCallback
  * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
  * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
- *                        false causes the Web to continue loading the url as usual.
+ *     false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback of onOverrideUrlLoading.
- * Should not call WebviewController.loadUrl with the request's URL and then return true.
- *
- * @typedef { function } OnOverrideUrlLoadingCallback
- * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
- * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
- *                        false causes the Web to continue loading the url as usual.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
 /**
  * The callback of Intelligent Tracking Prevention.
  *
- * @typedef { function } OnIntelligentTrackingPreventionCallback
  * @param { IntelligentTrackingPreventionDetails } details - callback information of onIntelligentTrackingPrevention.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -413,7 +385,6 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 /**
  * The callback of ads block
  *
- * @typedef { function } OnAdsBlockedCallback
  * @param { AdsBlockedDetails } details - details of OnAdsBlockedCallback.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -442,7 +413,6 @@ type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChan
 /**
  * The callback will be triggered when inputmethod is attached.
  *
- * @typedef { function } OnInputmethodAttachedCallback
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 26.0.0 dynamic
@@ -452,7 +422,6 @@ type OnInputmethodAttachedCallback = () => void;
 /**
  * Defines the ads block details.
  *
- * @interface AdsBlockedDetails
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -461,7 +430,6 @@ declare interface AdsBlockedDetails {
   /**
    * The url of main frame.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -471,7 +439,6 @@ declare interface AdsBlockedDetails {
   /**
    * the url of ads.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -644,33 +611,19 @@ type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => We
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum MessageLevel {
   /**
    * Debug level.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Debug level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Debug = 1,
 
@@ -678,15 +631,9 @@ declare enum MessageLevel {
    * Info level.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Info level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Info = 2,
 
@@ -694,15 +641,9 @@ declare enum MessageLevel {
    * Warn level.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Warn level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Warn = 3,
 
@@ -710,15 +651,9 @@ declare enum MessageLevel {
    * Error level.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Error level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Error = 4,
 
@@ -726,15 +661,9 @@ declare enum MessageLevel {
    * Log level.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Log level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    * @deprecated since 26.0.0
    */
   Log = 5
@@ -743,7 +672,6 @@ declare enum MessageLevel {
 /**
  * The source of console message.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 23 dynamic
  */
@@ -857,94 +785,40 @@ declare enum ConsoleMessageSource {
 /**
  * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum MixedMode {
+
   /**
-   * Allows all sources.
+   * Loose mode: Allow a secure origin to load content from any other origin.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Allows all sources.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Loose Mode: HTTP and HTTPS hybrid content can be loaded. This means that all insecure content can be loaded.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   All = 0,
 
   /**
-   * Allows sources Compatibly.
+   * Compatible mode: Some insecure content may be allowed to be loaded by a secure origin.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Allows sources Compatibly.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Compatibility Modes: HTTP and HTTPS hybrid content can be loaded in compatibility mode. This means that some insecure content may be loaded.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Compatible = 1,
 
   /**
-   * Don't allow unsecure sources from a secure origin.
+   * Strict mode: Not allow a secure origin to load content from an insecure origin.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Don't allow unsecure sources from a secure origin.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Strict Mode: HTTP and HTTPS hybrid content cannot be loaded.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None = 2
 }
@@ -952,7 +826,6 @@ declare enum MixedMode {
 /**
  * The callback of safe browsing check.
  *
- * @typedef { function } OnSafeBrowsingCheckResultCallback
  * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -1062,48 +935,19 @@ declare enum HitTestType {
 /**
  * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum CacheMode {
   /**
    * load cache when they are available and not expired, otherwise load online.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * load cache when they are available and not expired, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache when they are available and not expired, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Default = 0,
 
@@ -1111,22 +955,9 @@ declare enum CacheMode {
    * load cache when they are available, otherwise load online.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * load cache when they are available, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache when they are available, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None = 1,
 
@@ -1134,22 +965,9 @@ declare enum CacheMode {
    * Load online and not cache.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Load online and not cache.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Load online and not cache.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Online = 2,
 
@@ -1157,22 +975,9 @@ declare enum CacheMode {
    * load cache and not online.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * load cache and not online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache and not online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Only = 3
 }
@@ -1290,7 +1095,6 @@ declare enum WebCaptureMode {
 /**
  * Enum type supplied to {@link threatType} for the website's threat type.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -1598,40 +1402,19 @@ type OnContextMenuHideCallback = () => void;
 /**
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum SslError {
+
   /**
    * General error.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * General error.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Invalid = 0,
 
@@ -1639,22 +1422,9 @@ declare enum SslError {
    * Hostname mismatch.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Hostname mismatch.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Hostname mismatch.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   HostMismatch = 1,
 
@@ -1662,22 +1432,9 @@ declare enum SslError {
    * The certificate date is invalid.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The certificate date is invalid.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The certificate date is invalid.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   DateInvalid = 2,
 
@@ -1685,22 +1442,9 @@ declare enum SslError {
    * The certificate authority is not trusted.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The certificate authority is not trusted.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The certificate authority is not trusted.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Untrusted = 3
 }
@@ -2012,86 +1756,54 @@ declare class FileSelectorResult {
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class HttpAuthHandler {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * confirm.
+   * Performs HTTP authentication with the user name and password provided by the user.
    *
-   * @param { string } userName
-   * @param { string } password
-   * @returns { boolean }
+   * @param { string } userName - HTTP authentication user name.
+   * @param { string } password - HTTP authentication password.
+   * @returns { boolean } **true** is returned if the authentication is successful; otherwise, **false** is returned.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * confirm.
-   *
-   * @param { string } userName
-   * @param { string } password
-   * @returns { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   confirm(userName: string, password: string): boolean;
 
   /**
-   * cancel.
+   * Cancels HTTP authentication as requested by the user.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * cancel.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 
   /**
-   * isHttpAuthInfoSaved.
+   * Determine whether the credentials stored for the current host are suitable for use. If the credentials have
+   * previously been rejected by the server for the current request, they are not suitable for use.
    *
-   * @returns { boolean }
+   * @returns { boolean } **true** is suitable for use; otherwise, **false** is not suitable for use.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * isHttpAuthInfoSaved.
-   *
-   * @returns { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   isHttpAuthInfoSaved(): boolean;
 }
@@ -2100,44 +1812,18 @@ declare class HttpAuthHandler {
  * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class SslErrorHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -2145,22 +1831,9 @@ declare class SslErrorHandler {
    * Confirm to use the SSL certificate.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Confirm to use the SSL certificate.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Confirm to use the SSL certificate.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handleConfirm(): void;
 
@@ -2168,22 +1841,9 @@ declare class SslErrorHandler {
    * Cancel this request.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Cancel this request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Cancel this request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handleCancel(): void;
 
@@ -2206,28 +1866,16 @@ declare class SslErrorHandler {
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class ClientAuthenticationHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -2237,16 +1885,8 @@ declare class ClientAuthenticationHandler {
    * @param { string } priKeyFile - The file that store private key.
    * @param { string } certChainFile - The file that store client certificate chain.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Confirm to use the specified private key and client certificate chain.
-   *
-   * @param { string } priKeyFile - The file that store private key.
-   * @param { string } certChainFile - The file that store client certificate chain.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   confirm(priKeyFile: string, certChainFile: string): void;
 
@@ -2255,15 +1895,8 @@ declare class ClientAuthenticationHandler {
    *
    * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Confirm to use the authUri.The authUri can be obtained from certificate management.
-   *
-   * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   confirm(authUri: string): void;
 
@@ -2283,14 +1916,8 @@ declare class ClientAuthenticationHandler {
    * Cancel this certificate request.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Cancel this certificate request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 
@@ -2298,20 +1925,14 @@ declare class ClientAuthenticationHandler {
    * Ignore this certificate request temporarily.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Ignore this certificate request temporarily.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ignore(): void;
 }
 
 /**
- * Passes the PIN code verify result through VerifyPinHandler#confirm
+ * Handle the result of PIN verification.
  *
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
@@ -2325,7 +1946,7 @@ declare class VerifyPinHandler {
    */
   constructor();
   /**
-   * Passes the PIN code verify result.
+   * Passes the PIN verify result.
    *
    * @param { PinVerifyResult } result The PIN code verify result.
    * @syscap SystemCapability.Web.Webview.Core
@@ -2521,28 +2142,16 @@ declare class ScreenCaptureHandler {
  * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class DataResubmissionHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -2550,14 +2159,8 @@ declare class DataResubmissionHandler {
    * Resend related form data.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Resend related form data.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   resend(): void;
 
@@ -2565,14 +2168,8 @@ declare class DataResubmissionHandler {
    * Do not resend related form data.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Do not resend related form data.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 }
@@ -2894,7 +2491,6 @@ declare enum ContextMenuEditStateFlags {
 /**
  * Enum type supplied to {@link navigationType} for the navigation's type.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -3318,15 +2914,9 @@ declare class WebContextMenuResult {
  * Encompassed message information as parameters to {@link onConsole} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Encompassed message information as parameters to {@link onConsole} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class ConsoleMessage {
   /**
@@ -3347,15 +2937,9 @@ declare class ConsoleMessage {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
@@ -3364,16 +2948,9 @@ declare class ConsoleMessage {
    *
    * @returns { string } Return the message of a console message.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the message of a console message.
-   *
-   * @returns { string } Return the message of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getMessage(): string;
 
@@ -3382,24 +2959,9 @@ declare class ConsoleMessage {
    *
    * @returns { string } Return the Web source file's path and name of a console message.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the Web source file's path and name of a console message.
-   *
-   * @returns { string } Return the Web source file's path and name of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the Web source file's path and name of a console message.
-   *
-   * @returns { string } Return the Web source file's path and name of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getSourceId(): string;
 
@@ -3408,24 +2970,9 @@ declare class ConsoleMessage {
    *
    * @returns { number } Return the line number of a console message.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the line number of a console message.
-   *
-   * @returns { number } Return the line number of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the line number of a console message.
-   *
-   * @returns { number } Return the line number of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getLineNumber(): number;
 
@@ -3434,16 +2981,9 @@ declare class ConsoleMessage {
    *
    * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the message level of a console message.
-   *
-   * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getMessageLevel(): MessageLevel;
   /**
@@ -3457,53 +2997,22 @@ declare class ConsoleMessage {
 }
 
 /**
- * Encompassed message information as parameters to {@link onConsole} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
  * Defines the Web resource request.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web resource request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceRequest {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
@@ -3512,24 +3021,9 @@ declare class WebResourceRequest {
    *
    * @returns { Array<Header> } Return the request headers
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets request headers.
-   *
-   * @returns { Array<Header> } Return the request headers
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets request headers.
-   *
-   * @returns { Array<Header> } Return the request headers
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getRequestHeader(): Array<Header>;
 
@@ -3538,24 +3032,9 @@ declare class WebResourceRequest {
    *
    * @returns { string } Return the request URL.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the request URL.
-   *
-   * @returns { string } Return the request URL.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the request URL.
-   *
-   * @returns { string } Return the request URL.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getRequestUrl(): string;
 
@@ -3564,50 +3043,21 @@ declare class WebResourceRequest {
    *
    * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request is associated with gesture.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request is associated with gesture.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isRequestGesture(): boolean;
 
   /**
    * Check whether the request is for getting the main frame.
    *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame;
+   *     return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request is for getting the main frame.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request is for getting the main frame.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isMainFrame(): boolean;
 
@@ -3616,24 +3066,9 @@ declare class WebResourceRequest {
    *
    * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request redirects.
-   *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request redirects.
-   *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isRedirect(): boolean;
 
@@ -3642,24 +3077,9 @@ declare class WebResourceRequest {
    *
    * @returns { string } Return the request method.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Get request method.
-   *
-   * @returns { string } Return the request method.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get request method.
-   *
-   * @returns { string } Return the request method.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getRequestMethod(): string;
 }
@@ -3668,30 +3088,19 @@ declare class WebResourceRequest {
  * Defines the Web resource response.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource response.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceResponse {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
@@ -3700,24 +3109,9 @@ declare class WebResourceResponse {
    *
    * @returns { string } Return the response data.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string } Return the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string } Return the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseData(): string;
 
@@ -3725,24 +3119,13 @@ declare class WebResourceResponse {
    * Gets the response data.
    *
    * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *                                                                   string type indicate string in HTML format.
-   *                                                                   number type indicate file handle.
-   *                                                                   Resource type indicate $rawfile resource.
-   *                                                                   ArrayBuffer type indicate binary data.
+   *     string type indicate string in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
+   *     ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *                                                                   string type indicate string in HTML format.
-   *                                                                   number type indicate file handle.
-   *                                                                   Resource type indicate $rawfile resource.
-   *                                                                   ArrayBuffer type indicate binary data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @since 13 dynamic
    */
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
@@ -3751,16 +3134,9 @@ declare class WebResourceResponse {
    *
    * @returns { string } Return the response encoding.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response encoding.
-   *
-   * @returns { string } Return the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseEncoding(): string;
 
@@ -3769,16 +3145,9 @@ declare class WebResourceResponse {
    *
    * @returns { string } Return the response MIME type.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response MIME type.
-   *
-   * @returns { string } Return the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseMimeType(): string;
 
@@ -3787,24 +3156,9 @@ declare class WebResourceResponse {
    *
    * @returns { string } Return the reason message.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the reason message.
-   *
-   * @returns { string } Return the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the reason message.
-   *
-   * @returns { string } Return the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getReasonMessage(): string;
 
@@ -3813,24 +3167,9 @@ declare class WebResourceResponse {
    *
    * @returns { Array<Header> } Return the response headers.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response headers.
-   *
-   * @returns { Array<Header> } Return the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the response headers.
-   *
-   * @returns { Array<Header> } Return the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseHeader(): Array<Header>;
 
@@ -3839,16 +3178,9 @@ declare class WebResourceResponse {
    *
    * @returns { number } Return the response code.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response code.
-   *
-   * @returns { number } Return the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseCode(): number;
 
@@ -3856,43 +3188,18 @@ declare class WebResourceResponse {
    * Sets the response data.
    *
    * @param { string | number | Resource } data - the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response data.
-   *
-   * @param { string | number | Resource } data - the response data.
-   *                                              string type indicate strings in HTML format.
-   *                                              number type indicate file handle.
-   *                                              Resource type indicate $rawfile resource.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Sets the response data.
-   *
+   *     string type indicate strings in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource. [since 9 - 10]
    * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *                                                            string type indicate strings in HTML format.
-   *                                                            number type indicate file handle.
-   *                                                            Resource type indicate $rawfile resource.
-   *                                                            ArrayBuffer type indicate binary data.
+   *     string type indicate strings in HTML format.
+   *     number type indicate file handle.
+   *     Resource type indicate $rawfile resource.
+   *     ArrayBuffer type indicate binary data. [since 11]
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response data.
-   *
-   * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *                                                            string type indicate strings in HTML format.
-   *                                                            number type indicate file handle.
-   *                                                            Resource type indicate $rawfile resource.
-   *                                                            ArrayBuffer type indicate binary data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseData(data: string | number | Resource | ArrayBuffer): void;
 
@@ -3901,32 +3208,9 @@ declare class WebResourceResponse {
    *
    * @param { string } encoding the response encoding.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseEncoding(encoding: string): void;
 
@@ -3935,32 +3219,9 @@ declare class WebResourceResponse {
    *
    * @param { string } mimeType the response MIME type.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseMimeType(mimeType: string): void;
 
@@ -3969,32 +3230,9 @@ declare class WebResourceResponse {
    *
    * @param { string } reason the reason message.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setReasonMessage(reason: string): void;
 
@@ -4003,32 +3241,9 @@ declare class WebResourceResponse {
    *
    * @param { Array<Header> } header the response headers.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseHeader(header: Array<Header>): void;
 
@@ -4037,32 +3252,9 @@ declare class WebResourceResponse {
    *
    * @param { number } code the response code.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseCode(code: number): void;
 
@@ -4071,32 +3263,9 @@ declare class WebResourceResponse {
    *
    * @param { boolean } IsReady whether the response is ready.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseIsReady(IsReady: boolean): void;
 
@@ -4105,15 +3274,8 @@ declare class WebResourceResponse {
    *
    * @returns { boolean } True indicates the response data is ready and false is not ready.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
-   */
-  /**
-   * Gets whether the response is ready.
-   *
-   * @returns { boolean } True indicates the response data is ready and false is not ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @since 13 dynamic
    */
   getResponseIsReady(): boolean;
 }
@@ -4121,85 +3283,31 @@ declare class WebResourceResponse {
 /**
  * Defines the Web's request/response header.
  *
- * @interface Header
+ * @interface Header [since 8 - 11]
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web's request/response header.
- *
- * @interface Header
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the Web's request/response header.
- *
- * @typedef Header
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12
- */
-/**
- * Defines the Web's request/response header.
- *
- * @typedef Header
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface Header {
+
   /**
    * Gets the key of the request/response header.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the key of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the key of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   headerKey: string;
 
   /**
    * Gets the value of the request/response header.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the value of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the value of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   headerValue: string;
 }
@@ -4208,44 +3316,19 @@ declare interface Header {
  * Defines the Web resource error.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource error.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web resource error.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceError {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
@@ -4254,24 +3337,9 @@ declare class WebResourceError {
    *
    * @returns { string } Return the info of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the info of the Web resource error.
-   *
-   * @returns { string } Return the info of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the info of the Web resource error.
-   *
-   * @returns { string } Return the info of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getErrorInfo(): string;
 
@@ -4280,24 +3348,9 @@ declare class WebResourceError {
    *
    * @returns { number } Return the code of the Web resource error.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the code of the Web resource error.
-   *
-   * @returns { number } Return the code of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the code of the Web resource error.
-   *
-   * @returns { number } Return the code of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getErrorCode(): number;
 }
@@ -4344,30 +3397,19 @@ declare class JsGeolocation {
  * Defines the Web cookie.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web cookie.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 23
  * @useinstead ohos.web.webview.webview.WebCookieManager
  */
 declare class WebCookie {
+
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 23
    * @useinstead ohos.web.webview.webview.WebCookieManager
    */
@@ -4784,18 +3826,16 @@ declare interface WebOptions {
 /**
  * Defines the regular expression rule.
  *
- * @typedef UrlRegexRule
  * @syscap SystemCapability.Web.Webview.Core
  * @stagemodelonly
  * @since 23 dynamic
-*/
+ */
 declare interface UrlRegexRule {
   /**
    * Exact match of the second-level domain. For example, the second-level domain of https://www.example.com
    * is example.com, and the second-level domain of https://www.example.com.cn is example.com.cn. If the URL
    * is an IP address, the full IP is matched against the secondLevelDomain.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 23 dynamic
@@ -4804,7 +3844,6 @@ declare interface UrlRegexRule {
   /**
    * Full URL regular expression.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 23 dynamic
@@ -4815,24 +3854,15 @@ declare interface UrlRegexRule {
 /**
  * Defines the contents of the JavaScript to be injected.
  *
- * @interface ScriptItem
+ * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
- */
-/**
- * Defines the contents of the JavaScript to be injected.
- *
- * @typedef ScriptItem
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface ScriptItem {
   /**
    * Sets the JavaScript to be injected.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4841,8 +3871,15 @@ declare interface ScriptItem {
 
   /**
    * Sets the rules of the JavaScript.
+   * 1. To allow URLs from all sources, use the wildcard (*).
+   * 2. If exact match is required, specify the exact URL, for example, **https://www.example.com**.
+   * 3. For fuzzy match, you can use a wildcard (*) in the website URL, for example, **https://*.example.com**.
+   *    Websites such as "x,*.y.com" and "* foobar.com" are not allowed.
+   * 4. If the source is an IP address, follow rule 2.
+   * 5. For protocols other than HTTP/HTTPS (custom protocols), exact match and fuzzy match are not supported,
+   *    and the protocol must end with **://**, for example, **resource://**.
+   * 6. If one of the preceding rules is not met in **scriptRules**, the **scriptRules** does not take effect.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4852,7 +3889,6 @@ declare interface ScriptItem {
   /**
    * Set the regular expression rule that allows execution of this JavaScript.
    *
-   * @type { ?Array<UrlRegexRule> }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 23 dynamic
@@ -4863,24 +3899,15 @@ declare interface ScriptItem {
 /**
  * Defines the load committed details.
  *
- * @interface LoadCommittedDetails
+ * @interface LoadCommittedDetails [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
- */
-/**
- * Defines the load committed details.
- *
- * @typedef LoadCommittedDetails
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface LoadCommittedDetails {
   /**
    * Check whether the request is for getting the main frame.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4894,7 +3921,6 @@ declare interface LoadCommittedDetails {
    *   2. pushState/replaceState.
    *   3. same page history navigation
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4906,7 +3932,6 @@ declare interface LoadCommittedDetails {
    * case of subframes, the NavigationEntry and FrameNavigationEntry objects
    * don't actually get replaced - they're reused, but with updated attributes.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4916,7 +3941,6 @@ declare interface LoadCommittedDetails {
   /**
    * The type of the navigation.
    *
-   * @type { WebNavigationType }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4926,7 +3950,6 @@ declare interface LoadCommittedDetails {
   /**
    * The url to navigate.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -4937,7 +3960,6 @@ declare interface LoadCommittedDetails {
 /**
  * Defines the Intelligent Tracking Prevention details.
  *
- * @typedef IntelligentTrackingPreventionDetails
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -4946,7 +3968,6 @@ declare interface IntelligentTrackingPreventionDetails {
   /**
    * The host of website url.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -4956,7 +3977,6 @@ declare interface IntelligentTrackingPreventionDetails {
   /**
    * The host of tracker url.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -5378,7 +4398,6 @@ declare interface OnPageEndEvent {
   /**
    * The url of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5390,7 +4409,6 @@ declare interface OnPageEndEvent {
 /**
  * Defines the triggered function at the begin of web page loading.
  *
- * @typedef OnPageBeginEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5400,7 +4418,6 @@ declare interface OnPageBeginEvent {
   /**
    * The url of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5412,7 +4429,6 @@ declare interface OnPageBeginEvent {
 /**
  * Defines the triggered function at the begin of web page loading.
  *
- * @typedef OnLoadStartedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
@@ -5420,7 +4436,6 @@ declare interface OnLoadStartedEvent {
   /**
    * The url to be loaded.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5430,7 +4445,6 @@ declare interface OnLoadStartedEvent {
 /**
  * Defines the triggered function at the end of web page loading.
  *
- * @typedef OnLoadFinishedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
@@ -5438,7 +4452,6 @@ declare interface OnLoadFinishedEvent {
   /**
    * The url to be loaded.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5458,7 +4471,6 @@ declare interface OnProgressChangeEvent {
   /**
    * The new progress of the page.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5470,7 +4482,6 @@ declare interface OnProgressChangeEvent {
 /**
  * Defines the triggered function when the title of the main application document changes.
  *
- * @typedef OnTitleReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5480,7 +4491,6 @@ declare interface OnTitleReceiveEvent {
   /**
    * The title of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5492,7 +4502,6 @@ declare interface OnTitleReceiveEvent {
    * Mark the source of the title. If it is true, the title is derived from the H5 title element;
    * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5572,75 +4581,40 @@ declare interface OnAlertEvent {
 /**
  * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
  *
- * @typedef OnBeforeUnloadEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
- *
- * @typedef OnBeforeUnloadEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface OnBeforeUnloadEvent {
+
   /**
    * The url of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The url of the page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
    * The message of confirm dialog.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The message of confirm dialog.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   message: string;
 
   /**
    *  Handle the user's JavaScript result.
    *
-   * @type { JsResult }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   *  Handle the user's JavaScript result.
-   *
-   * @type { JsResult }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   result: JsResult;
 
@@ -5648,7 +4622,6 @@ declare interface OnBeforeUnloadEvent {
    * The isReload parameter is set to true when the page is refreshed;
    * otherwise, it remains false. Default is false.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5748,7 +4721,6 @@ declare interface OnPromptEvent {
 /**
  * Defines the triggered function when the web page receives a JavaScript console message.
  *
- * @typedef OnConsoleEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5758,7 +4730,6 @@ declare interface OnConsoleEvent {
   /**
    * Console message information of the event.
    *
-   * @type { ConsoleMessage }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5770,7 +4741,6 @@ declare interface OnConsoleEvent {
 /**
  * Defines the triggered function when the web page receives a web resource loading error.
  *
- * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5780,7 +4750,6 @@ declare interface OnErrorReceiveEvent {
   /**
    * The information of request.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5791,7 +4760,6 @@ declare interface OnErrorReceiveEvent {
   /**
    * The information of error.
    *
-   * @type { WebResourceError }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5803,7 +4771,6 @@ declare interface OnErrorReceiveEvent {
 /**
  * Defines the triggered function when the web page receives a web resource loading HTTP error.
  *
- * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5813,7 +4780,6 @@ declare interface OnHttpErrorReceiveEvent {
   /**
    * The information of request.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5824,7 +4790,6 @@ declare interface OnHttpErrorReceiveEvent {
   /**
    *  Web resource response of event.
    *
-   * @type { WebResourceResponse }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5836,7 +4801,6 @@ declare interface OnHttpErrorReceiveEvent {
 /**
  * Defines the triggered function when starting to download.
  *
- * @typedef OnDownloadStartEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5846,7 +4810,6 @@ declare interface OnDownloadStartEvent {
   /**
    * The URL of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5857,7 +4820,6 @@ declare interface OnDownloadStartEvent {
   /**
    * The userAgent of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5868,26 +4830,16 @@ declare interface OnDownloadStartEvent {
   /**
    * The contentDisposition of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The contentDisposition of page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   contentDisposition: string;
 
   /**
    * The mimetype of page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5898,7 +4850,6 @@ declare interface OnDownloadStartEvent {
   /**
    * The contentLength of page. Unit: bytes.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5908,65 +4859,41 @@ declare interface OnDownloadStartEvent {
 }
 
 /**
- * Defines the triggered callback when the Web page refreshes accessed history.
+ * Callback triggered when the navigation is complete.
  *
- * @typedef OnRefreshAccessedHistoryEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the Web page refreshes accessed history.
- *
- * @typedef OnRefreshAccessedHistoryEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface OnRefreshAccessedHistoryEvent {
+
   /**
-   * URL of the visit.
+   * URL to be accessed.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * URL of the visit.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
-   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
+   * Whether the page is reloaded. The value **true** means that the page is reloaded by invoking the
+   * [refresh]{@link ./../../../@ohos.web.webview:webview.WebviewController#refresh()} API, and **false**
+   * means the opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   isRefreshed: boolean;
 
   /**
-   * Whether is triggered by main frame.
+   * Whether the event is triggered by the main frame.
+   * The value **true** indicates that the event is triggered by the main frame, and **false** indicates the opposite.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
    */
@@ -6026,7 +4953,6 @@ declare interface OnShowFileSelectorEvent {
 /**
  * Defines the triggered when the url loading.
  *
- * @typedef OnResourceLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6035,7 +4961,6 @@ declare interface OnResourceLoadEvent {
   /**
    * The URL of the loaded resource file.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6076,7 +5001,6 @@ declare interface OnScaleChangeEvent {
 /**
  * Defines the triggered when the browser needs credentials from the user.
  *
- * @typedef OnHttpAuthRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6086,7 +5010,6 @@ declare interface OnHttpAuthRequestEvent {
   /**
    * Defines the http auth request result.
    *
-   * @type { HttpAuthHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6097,7 +5020,6 @@ declare interface OnHttpAuthRequestEvent {
   /**
    * Host of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6108,7 +5030,6 @@ declare interface OnHttpAuthRequestEvent {
   /**
    * realm of the page.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6120,37 +5041,20 @@ declare interface OnHttpAuthRequestEvent {
 /**
  * Defines the triggered callback when the resources loading is intercepted.
  *
- * @typedef OnInterceptRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the resources loading is intercepted.
- *
- * @typedef OnInterceptRequestEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface OnInterceptRequestEvent {
+
   /**
    * The information of request.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The information of request.
-   *
-   * @type { WebResourceRequest }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   request: WebResourceRequest;
 }
@@ -6223,7 +5127,6 @@ declare interface OnContextMenuShowEvent {
 /**
  * Defines function Triggered when the host application call searchAllAsync.
  *
- * @typedef OnSearchResultReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6232,7 +5135,6 @@ declare interface OnSearchResultReceiveEvent {
   /**
    * The ordinal number of the currently matched lookup item (starting from 0).
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6242,7 +5144,6 @@ declare interface OnSearchResultReceiveEvent {
   /**
    * The number of all matched keywords.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6250,9 +5151,9 @@ declare interface OnSearchResultReceiveEvent {
   numberOfMatches: number;
 
   /**
-   * Indicates whether the current in-page search operation is complete. The method may be called back multiple times until isDoneCounting is true.
+   * Indicates whether the current in-page search operation is complete. The method may be called back multiple times
+   * until isDoneCounting is true.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6297,73 +5198,39 @@ declare interface OnScrollEvent {
 /**
  * Defines the triggered callback when the Web page receives an ssl Error.
  *
- * @typedef OnSslErrorEventReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the Web page receives an ssl Error.
- *
- * @typedef OnSslErrorEventReceiveEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface OnSslErrorEventReceiveEvent {
+
   /**
    * Notifies the user of the operation behavior of the web component.
    *
-   * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Notifies the user of the operation behavior of the web component.
-   *
-   * @type { SslErrorHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   handler: SslErrorHandler;
 
   /**
    * Error codes.
    *
-   * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Error codes.
-   *
-   * @type { SslError }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   error: SslError;
 
   /**
    * Certificate chain data in DER format.
    *
-   * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 15
-   */
-  /**
-   * Certificate chain data in DER format.
-   *
-   * @type { ?Array<Uint8Array> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 15 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -6371,7 +5238,6 @@ declare interface OnSslErrorEventReceiveEvent {
 /**
  * Defines the triggered callback when needs ssl client certificate from the user.
  *
- * @typedef OnClientAuthenticationEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6380,7 +5246,6 @@ declare interface OnClientAuthenticationEvent {
   /**
    * Notifies the user of the operation behavior of the web component.
    *
-   * @type { ClientAuthenticationHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6390,7 +5255,6 @@ declare interface OnClientAuthenticationEvent {
   /**
    * The hostname of the requesting certificate server.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6400,7 +5264,6 @@ declare interface OnClientAuthenticationEvent {
   /**
    * The port number of the request certificate server.
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6410,7 +5273,6 @@ declare interface OnClientAuthenticationEvent {
   /**
    * Acceptable asymmetric key types.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6420,7 +5282,6 @@ declare interface OnClientAuthenticationEvent {
   /**
    * Certificates that match the private key are acceptable to the issuer.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6431,7 +5292,6 @@ declare interface OnClientAuthenticationEvent {
 /**
  * Represents the callback invoked when the web page requests the user to create a window.
  *
- * @typedef OnWindowNewEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6441,7 +5301,6 @@ declare interface OnWindowNewEvent {
    * Whether to open the target URL in a new window. The value **true** means to open the target URL in a new window,
    * and **false** means to open the target URL in a new tab.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6452,7 +5311,6 @@ declare interface OnWindowNewEvent {
    * Whether the creation is triggered by the user. The value **true** means that the creation is triggered by the user,
    * and **false** means the opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6462,7 +5320,6 @@ declare interface OnWindowNewEvent {
   /**
    * Target URL.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6472,7 +5329,6 @@ declare interface OnWindowNewEvent {
   /**
    * **WebviewController** instance for setting the new window.
    *
-   * @type { ControllerHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6642,7 +5498,6 @@ declare interface OnWindowNewExtEvent {
 /**
  * Defines the triggered callback when the application receive an new url of an apple-touch-icon.
  *
- * @typedef OnTouchIconUrlReceivedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6651,7 +5506,6 @@ declare interface OnTouchIconUrlReceivedEvent {
   /**
    * The apple-touch-icon URL address received.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6661,7 +5515,6 @@ declare interface OnTouchIconUrlReceivedEvent {
   /**
    * Corresponding to whether apple-touch-icon is precomposited.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6672,7 +5525,6 @@ declare interface OnTouchIconUrlReceivedEvent {
 /**
  * Defines the triggered callback when the application receive a new favicon for the current web page.
  *
- * @typedef OnFaviconReceivedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6681,7 +5533,6 @@ declare interface OnFaviconReceivedEvent {
   /**
    * Received the Favicon icon for the PixelMap object.
    *
-   * @type { PixelMap }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6783,7 +5634,6 @@ declare interface OnFirstContentfulPaintEvent {
 /**
  * Defines the triggered callback when the resources loading is intercepted.
  *
- * @typedef OnLoadInterceptEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6793,7 +5643,6 @@ declare interface OnLoadInterceptEvent {
   /**
    * The information of request.
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6877,37 +5726,20 @@ declare interface OnPdfLoadEvent {
 /**
  * Defines the JavaScript object to be injected.
  *
- * @typedef JavaScriptProxy
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the JavaScript object to be injected.
- *
- * @typedef JavaScriptProxy
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare interface JavaScriptProxy {
+
   /**
    * Objects participating in registration.
    *
-   * @type { object }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Objects participating in registration.
-   *
-   * @type { object }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   object: object;
 
@@ -6915,20 +5747,10 @@ declare interface JavaScriptProxy {
    * The name of the registered object, which is consistent with the
    *                          object name called in the window.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The name of the registered object, which is consistent with the
-   *                          object name called in the window.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   name: string;
 
@@ -6936,58 +5758,30 @@ declare interface JavaScriptProxy {
    * The method of the application side JavaScript object participating
    *                                       in the registration.
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The method of the application side JavaScript object participating
-   *                                       in the registration.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   methodList: Array<string>;
 
   /**
    * Controller.
    *
-   * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Controller.
-   *
-   * @type { WebController | WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   controller: WebController | WebviewController;
 
   /**
    * The async method of the application side JavaScript object participating in the registration.
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The async method of the application side JavaScript object participating in the registration.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   asyncMethodList?: Array<string>;
 
@@ -6995,7 +5789,6 @@ declare interface JavaScriptProxy {
    * permission configuration defining web page URLs that can access JavaScriptProxy methods.
    * The configuration can be defined at two levels, object level and method level.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -7524,32 +6317,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Sets whether the Web allows JavaScript scripts to execute.
    *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; 
+   *     {@code false} otherwise.
+   *     The default value is true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether the Web allows JavaScript scripts to execute.
-   *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether the Web allows JavaScript scripts to execute.
-   *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
@@ -7621,34 +6396,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets how to load HTTP and HTTPS content.
+   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
+   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
    *
    * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * Sets how to load HTTP and HTTPS content.
-   *
-   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-  * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
-  * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
-  *
-  * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
-  *    Default value: MixedMode.None, which means that secure origin is not allowed to load content from insecure origin.
-  * @returns { WebAttribute }
-  * @syscap SystemCapability.Web.Webview.Core
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
   /**
@@ -7680,52 +6437,10 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   geolocationAccess(geolocationAccess: boolean): WebAttribute;
 
   /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
-   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
-   *
-   * <p><strong>API Note</strong>:
-   * <strong>Performance Note</strong>:
-   * <p>For details about the arkweb rendering framework adaptation solution,
-   * see [ArkWeb Rendering Framework Adaptation]{@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
-   * </p>
-   *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Registers the supplied ArkTS object in javaScriptProxy into this Web component.
-   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTS object in javaScriptProxy to be accessed from JavaScript.
+   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
+   * The object is registered into all frames of the web page, including all frames, using the specified name in
+   * javaScriptProxy.
+   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
    *
    * <p><strong>API Note</strong>:
    * <strong>Performance Note</strong>:
@@ -7734,13 +6449,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
    * </p>
    *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTS object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTS object declared in javaScriptProxy can be accessed by JavaScript.
+   * @param { object } javaScriptProxy - The JavaScript object to be injected. [since 8 - 11]
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web
+   *     component,
+   *     and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed
+   *     by JavaScript. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
@@ -7762,26 +6480,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets the mode of cache in Web.
-   *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the mode of cache in Web.
-   *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -8010,85 +6711,30 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   metaViewport(enabled: boolean): WebAttribute;
 
   /**
-   * Triggered at the end of web page loading.
-   * This callback is only invoked for the main frame and not for subframes.
+   * Triggered at the end of web page loading.This callback is called only for the main frame content, and not
+   * for the iframe or frameset content.
    *
-   * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
+   * @param { function } callback The triggered function at the end of web page loading. [since 8 - 11]
+   * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading. [since 12]
+   * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered at the end of web page loading.
-   * This callback is only invoked for the main frame and not for subframes.
-   *
-   * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered at the end of web page loading.
-   * This callback is only invoked for the main frame and not for subframes.
-   *
-   * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered at the end of web page loading.
-   * This callback is only invoked for the main frame and not for subframes.
-   *
-   * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute } The WebAttribute object representing the attributes of the web page.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
   /**
-   * Triggered at the begin of web page loading.
-   *
-   * @param { function } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered at the begin of web page loading.
-   *
-   * @param { function } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered at the begin of web page loading.
-   *
-   * @param { function } callback The triggered function at the begin of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Called when the web page starts to be loaded.
    * This API is called only for the main frame, and not for the iframe or frameset content.
    *
-   * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading.
+   * @param { function } callback The triggered function at the begin of web page loading. [since 8 - 11]
+   * @param { Callback<OnPageBeginEvent> } callback The triggered function at the begin of web page loading. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
 
@@ -8117,7 +6763,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * 1. Fragment navigation also triggers onLoadFinished, but onPageEnd will not be triggered.
    * 2. onLoadFinished is triggered only once if the mainframe is automatically redirected before the page is
    *    completely loaded. onPageEnd is triggered every navigation on mainframe.
-   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded , it will simulate the
+   * 3. When the document of a pop-up window has been modified by JavaScript before it is loaded, it will simulate the
    *    triggering of onLoadStarted with the URL set to empty because displaying the URL that is currently
    *    loading may be unsafe. onPageBegin will not be simulated.
    * </p>
@@ -8132,62 +6778,31 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the page loading progress changes.
    *
-   * @param { function } callback The triggered function when the page loading progress changes.
+   * @param { function } callback The triggered function when the page loading progress changes. [since 8 - 11]
+   * @param { Callback<OnProgressChangeEvent> } callback The triggered function when the page loading progress
+   *     changes. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the page loading progress changes.
-   *
-   * @param { function } callback The triggered function when the page loading progress changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the page loading progress changes.
-   *
-   * @param { Callback<OnProgressChangeEvent> } callback The triggered function when the page loading progress changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
-  /**
-   * Triggered when the title of the main application document changes.
-   *
-   * @param { function } callback The triggered function when the title of the main application document changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the title of the main application document changes.
-   *
-   * @param { function } callback The triggered function when the title of the main application document changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
   /**
    * Notifies the application that the title has changed.
    * If the page being loaded does not specify a title via the <title> element,
    * ArkWeb will generate a title baseed on the URL and return it to the application.
    *
-   * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
+   * @param { function } callback The triggered function when the title of the main application document
+   *     changes. [since 8 - 11]
+   * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application
+   *     document changes. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onTitleReceive(callback: Callback<OnTitleReceiveEvent>): WebAttribute;
 
@@ -8254,38 +6869,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
    *
-   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript
+   *     onbeforeunload. [since 8 - 11]
+   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to
+   *     confirm navigation from JavaScript onbeforeunload. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
@@ -8328,169 +6920,74 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the web page receives a JavaScript console message.
    *
-   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
+   * @param { function } callback The triggered function when the web page receives a JavaScript console
+   *     message. [since 8 - 11]
+   * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a
+   *     JavaScript console message. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a JavaScript console message.
-   *
-   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a JavaScript console message.
-   *
-   * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a JavaScript console message.
-   *     {@code true} means the message will no longer be printed to the console.
-   *     {@code false} means it will still be printed to the console.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onConsole(callback: Callback<OnConsoleEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a web resource loading error.
+   * Triggered when an error occurs during web page loading. The error may occur on the main resource or sub-resource.
+   * You can use [isMainFrame]{@link web:WebResourceRequest.isMainFrame} to determine whether the error occurs on the
+   * main resource. This API is called when there is no network connection.
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading
+   *     error. [since 8 - 11]
+   * @param { Callback<OnErrorReceiveEvent> } callback The triggered function when the web page receives a web resource
+   *     loading error. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { Callback<OnErrorReceiveEvent> } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onErrorReceive(callback: Callback<OnErrorReceiveEvent>): WebAttribute;
 
   /**
    * Triggered when the web page receives a web resource loading HTTP error.
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP
+   *     error. [since 8 - 11]
+   * @param { Callback<OnHttpErrorReceiveEvent> } callback The triggered function when the web page receives a web
+   *     resource loading HTTP error. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a web resource loading HTTP error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a web resource loading HTTP error.
-   *
-   * @param { Callback<OnHttpErrorReceiveEvent> } callback The triggered function when the web page receives a web resource loading HTTP error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
 
   /**
    * Triggered when starting to download.
    *
-   * @param { function } callback The triggered function when starting to download.
+   * @param { function } callback The triggered function when starting to download. [since 8 - 11]
+   * @param { Callback<OnDownloadStartEvent> } callback The triggered function when starting to download. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when starting to download.
-   *
-   * @param { function } callback The triggered function when starting to download.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when starting to download.
-   *
-   * @param { Callback<OnDownloadStartEvent> } callback The triggered function when starting to download.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDownloadStart(callback: Callback<OnDownloadStartEvent>): WebAttribute;
 
   /**
    * Triggered when the Web page refreshes accessed history.
    *
-   * @param { function } callback The triggered callback when the Web page refreshes accessed history.
+   * @param { function } callback The triggered callback when the Web page refreshes accessed history. [since 8 - 11]
+   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes
+   *     accessed history. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { function } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
@@ -8580,28 +7077,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the url loading.
    *
-   * @param { function } callback The triggered when the url loading.
+   * @param { function } callback The triggered when the url loading. [since 9 - 11]
+   * @param { Callback<OnResourceLoadEvent> } callback The triggered when the url loading. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the url loading.
-   *
-   * @param { function } callback The triggered when the url loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the url loading.
-   *
-   * @param { Callback<OnResourceLoadEvent> } callback The triggered when the url loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onResourceLoad(callback: Callback<OnResourceLoadEvent>): WebAttribute;
 
@@ -8646,68 +7127,33 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the browser needs credentials from the user.
    *
-   * @param { function } callback The triggered when the browser needs credentials from the user.
+   * @param { function } callback The triggered when the browser needs credentials from the user. [since 9 - 11]
+   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback The triggered when the browser needs credentials from
+   *     the user. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the browser needs credentials from the user.
-   *
-   * @param { function } callback The triggered when the browser needs credentials from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the browser needs credentials from the user.
-   *
-   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback The triggered when the browser needs credentials from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onHttpAuthRequest(callback: Callback<OnHttpAuthRequestEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the resources loading is intercepted.
+   * This API is used to intercept the resource loading and return the response data.
    *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
+   * <p><strong>API Note</strong>:<br>
+   * POST data cannot be retrieved when intercepting POST requests.
+   * </p>
    *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
+   * @param { function } callback The triggered callback when the resources loading is intercepted. [since 9 - 11]
+   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered
+   *     callback when the resources loading is intercepted. [since 12]
+   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
+   *     Otherwise, the response value will be used
    * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources. Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
@@ -8783,30 +7229,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Notify search result to host application through onSearchResultReceive.
    *
    * @param { function } callback Function Triggered when the host application call searchAllAsync.
-   * or searchNext api on WebController and the request is valid.
+   *     or searchNext api on WebController and the request is valid. [since 9 - 11]
+   * @param { Callback<OnSearchResultReceiveEvent> } callback Function Triggered when the host application call
+   *     searchAllAsync.
+   *     or searchNext api on WebController and the request is valid. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Notify search result to host application through onSearchResultReceive.
-   *
-   * @param { function } callback Function Triggered when the host application call searchAllAsync.
-   * or searchNext api on WebController and the request is valid.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Notify search result to host application through onSearchResultReceive.
-   *
-   * @param { Callback<OnSearchResultReceiveEvent> } callback Function Triggered when the host application call searchAllAsync.
-   * or searchNext api on WebController and the request is valid.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onSearchResultReceive(callback: Callback<OnSearchResultReceiveEvent>): WebAttribute;
 
@@ -8836,55 +7266,20 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
-   *     when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
    * Called to notify users when an SSL error occurs with a request for the main frame.
    * To include errors with requests for subframes, use the OnSslErrorEvent API.
    *
+   * @param { function } callback The triggered callback when the Web page receives an ssl Error. [since 9 - 11]
    * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
-   *     when the Web page receives an ssl Error.
+   *     when the Web page receives an ssl Error. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
   /**
    * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
    * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
@@ -8892,44 +7287,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
   /**
    * Triggered when the Web page needs ssl client certificate from the user.
    *
-   * @param { function } callback The triggered callback when needs ssl client certificate from the user.
+   * @param { function } callback The triggered callback when needs ssl client certificate from the user. [since 9 - 11]
+   * @param { Callback<OnClientAuthenticationEvent> } callback The triggered callback when needs ssl client certificate
+   *     from the user. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the Web page needs ssl client certificate from the user.
-   *
-   * @param { function } callback The triggered callback when needs ssl client certificate from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page needs ssl client certificate from the user.
-   *
-   * @param { Callback<OnClientAuthenticationEvent> } callback The triggered callback when needs ssl client certificate from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent>): WebAttribute;
 
   /**
    * Triggered when the Web page needs verify pin from the user.
    *
-   * @param { OnVerifyPinCallback } callback The triggered callback when needs verify pin from the user.
+   * @param { OnVerifyPinCallback } callback - The triggered callback when needs verify pin from the user.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
@@ -9225,26 +7605,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Whether web component can load resource from network.
-   *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Whether web component can load resource from network.
-   *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   blockNetwork(block: boolean): WebAttribute;
 
@@ -9288,30 +7651,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the application receive the url of an apple-touch-icon.
    *
    * @param { function } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
+   *     apple-touch-icon. [since 9 - 11]
+   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback The triggered callback when the application receive an
+   *     new url of an apple-touch-icon. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the application receive the url of an apple-touch-icon.
-   *
-   * @param { function } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the application receive the url of an apple-touch-icon.
-   *
-   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onTouchIconUrlReceived(callback: Callback<OnTouchIconUrlReceivedEvent>): WebAttribute;
 
@@ -9319,30 +7665,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * Triggered when the application receive a new favicon for the current web page.
    *
    * @param { function } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
+   *     current web page. [since 9 - 11]
+   * @param { Callback<OnFaviconReceivedEvent> } callback The triggered callback when the application receive a new
+   *     favicon for the current web page. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the application receive a new favicon for the current web page.
-   *
-   * @param { function } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the application receive a new favicon for the current web page.
-   *
-   * @param { Callback<OnFaviconReceivedEvent> } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFaviconReceived(callback: Callback<OnFaviconReceivedEvent>): WebAttribute;
 
@@ -9363,28 +7692,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the form could be resubmitted.
    *
-   * @param { function } callback The triggered callback to decision whether resend form data or not.
+   * @param { function } callback The triggered callback to decision whether resend form data or not. [since 9 - 11]
+   * @param { Callback<OnDataResubmittedEvent> } callback The triggered callback to decision whether resend form data or
+   *     not. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the form could be resubmitted.
-   *
-   * @param { function } callback The triggered callback to decision whether resend form data or not.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the form could be resubmitted.
-   *
-   * @param { Callback<OnDataResubmittedEvent> } callback The triggered callback to decision whether resend form data or not.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onDataResubmitted(callback: Callback<OnDataResubmittedEvent>): WebAttribute;
 
@@ -9482,32 +7796,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
   /**
-   * Triggered when the resources loading is intercepted.
+   * Triggered when the navigation is intercepted.
    *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
+   * @param { function } callback The triggered callback when the navigation is intercepted. [since 10 - 11]
+   * @param { Callback<OnLoadInterceptEvent, boolean> } callback The triggered callback when the navigation is
+   *     intercepted. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnLoadInterceptEvent, boolean> } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onLoadIntercept(callback: Callback<OnLoadInterceptEvent, boolean>): WebAttribute;
 
@@ -9571,6 +7869,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Triggered when the website security risk check is completed.
+   *
    * <p><strong>API Note</strong>:<br>
    * Unlike onSafeBrowsingCheckResult, which is only triggered when a URL has security risks, onSafeBrowsingCheckFinish
    * is also triggered when the website security risk check is not performed or no risks are found.
@@ -9596,7 +7895,8 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Called when tracker's cookie is prevented.
    *
-   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is prevented.
+   * @param { OnIntelligentTrackingPreventionCallback } callback - Callback triggered when tracker's cookie is
+   *     prevented.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -9606,15 +7906,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Injects the JavaScripts script into the Web component.
-   * When the specified page or document starts to be loaded, the script is executed on any page whose source matches scriptRules.
+   * When the specified page or document starts to be loaded, the script is executed on any page whose source matches
+   * scriptRules.
+   *
    * <p><strong>API Note</strong>:<br>
    * The script runs before any JavaScript code of the page, when the DOM tree may not have been loaded or rendered.
-   * The script is executed in the lexicographic order, not array order.
-   * If the array order is required, you are advised to use the runJavaScriptOnDocumentStart interface.
+   * The script is executed in the lexicographic order instead of array sequence.
+   * if the array sequemce is required, you are advised to use the runJavaScriptOnDocumentStart interface.
    * You are not advised to use this API together with runJavaScriptOnDocumentStart.
-   * When scripts with identical content are injected multiple times,
-   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
-   * and the scriptRules used during the first injection will be adopted.
    * </p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
@@ -9626,16 +7925,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   javaScriptOnDocumentStart(scripts: Array<ScriptItem>): WebAttribute;
 
   /**
-   * Injects the JavaScripts script into the Web component.
-   * When the specified page or document has been loaded, the script is executed on any page whose source matches scriptRules.
+   * Injects the JavaScripts script into the Web component. When the specified page or document has been loaded,
+   * the script is executed on any page whose source matches scriptRules.
+   *
    * <p><strong>API NOTE</strong>:<br>
-   * The script runs after any JavaScript code of the page, when the DOM tree has been loaded and rendered.
-   * The script is excuted in the lexicographic order, not array order.
-   * If the array order is required, you are advised to use the runJavaScriptOnDocumentEnd interface.
+   * The script runs before any Javascript code of the page, when the DOM tree has been loaded and rendered.
+   * The script is excuted in the lexicographic order, not the array order.
    * You are not advised to use this API together with runJavaScriptOnDocumentEnd.
-   * When scripts with identical content are injected multiple times,
-   * silent deduplication will be performed: repeated scripts will neither be displayed nor prompted,
-   * and the scriptRules used during the first injection will be adopted.
    * <p>
    *
    * @param { Array<ScriptItem> } scripts - The array of the JavaScripts to be injected.
@@ -9811,24 +8107,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
-   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
-   *
-   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
   /**
    * Triggered when the web page's document resource error.
+   *
    * <p><strong>API Note</strong>:<br>
    * This only triggered for main frame.
    * </p>
@@ -10098,6 +8385,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScripts that will be run just after document object has been created.
    *
+   * > **NOTE**
+   * >
+   * > - Inject the script after the root element (HTML Element) of the web page file is created, but before any other
+   * > content is loaded.
+   * >
+   * > - This script is executed in the array order.
+   * >
+   * > - You are advised not to use this API together with
+   * > [javaScriptOnDocumentStart]{@link WebAttribute.javaScriptOnDocumentStart}.
+   * >
+   * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
+   * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
+   *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10108,6 +8408,18 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScripts that will be run after document has been parsed finished.
    *
+   * > **NOTE**
+   * >
+   * > - The script runs before any JavaScript code of the page, when the DOM tree has been loaded and rendered.
+   * >
+   * > - This script is executed in the array order.
+   * >
+   * > - You are advised not to use this API together with
+   * > [javaScriptOnDocumentEnd]{@link WebAttribute.javaScriptOnDocumentEnd}.
+   * >
+   * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
+   * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
+   *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10117,6 +8429,13 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Injects the JavaScripts that will be run after head element has been parsed finished.
+   *
+   * > **NOTE**
+   * >
+   * > - This script is executed in the array order.
+   * >
+   * > - If a script with the same content is injected for multiple times, the script is silently deduplicated, not
+   * > displayed, and no notification is displayed. The **scriptRules** of the first injection is used.
    *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
@@ -10559,120 +8878,66 @@ declare const WebInstance: WebAttribute;
 /**
  * Defines the ssl error event.
  *
- * @typedef SslErrorEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the ssl error event.
- *
- * @typedef SslErrorEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface SslErrorEvent {
+
   /**
    * Notifies the user of the operation behavior of the web component.
    *
-   * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Notifies the user of the operation behavior of the web component.
-   *
-   * @type { SslErrorHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   handler: SslErrorHandler;
 
   /**
    * Error codes.
    *
-   * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Error codes.
-   *
-   * @type { SslError }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   error: SslError;
 
   /**
    * Request url.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Request url.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
    * Original url.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Original url.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   originalUrl: string;
 
   /**
    * Referrer.
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Referrer.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   referrer: string;
 
   /**
    * Whether the error is fatal.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -10682,36 +8947,19 @@ declare interface SslErrorEvent {
   /**
    * Whether the request is main frame.
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Whether the request is main frame.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   isMainFrame: boolean;
 
   /**
    * Certificate chain data in DER format.
    *
-   * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  /**
-   * Certificate chain data in DER format.
-   *
-   * @type { ?Array<Uint8Array> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 20 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
@@ -10934,7 +9182,6 @@ declare interface AcceptableFileType {
 /**
  * Enum type supplied to {@link PinVerifyResult} when VerifyPinHandler#confirm being called.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
  */
@@ -10958,7 +9205,6 @@ declare enum PinVerifyResult {
 /**
  * Enum type supplied to {@link CredentialType} when ClientAuthenticationHandler#confirm being called.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @since 22 dynamic
  */

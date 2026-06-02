@@ -19,33 +19,18 @@
  */
 
 /**
- * Provides methods for controlling the web controller.
+ * 提供Web控制器的方法。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Provides methods for controlling the web controller.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Provides methods for controlling the web controller.
- *
- * @typedef { import('../api/@ohos.web.webview').default.WebviewController }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type WebviewController = import('../api/@ohos.web.webview').default.WebviewController;
 
 /**
  * The callback of load committed.
  *
- * @typedef { function } OnNavigationEntryCommittedCallback
  * @param { LoadCommittedDetails } loadCommittedDetails - callback information of onNavigationEntryCommitted.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -54,30 +39,19 @@ declare type WebviewController = import('../api/@ohos.web.webview').default.Webv
 type OnNavigationEntryCommittedCallback = (loadCommittedDetails: LoadCommittedDetails) => void;
 
 /**
- * The callback of ssl error event.
+ * SSL错误事件的回调函数。
  *
- * @typedef { function } OnSslErrorEventCallback
  * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback of ssl error event.
- *
- * @typedef { function } OnSslErrorEventCallback
- * @param { SslErrorEvent } sslErrorEvent - callback information of onSslErrorEvent.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 type OnSslErrorEventCallback = (sslErrorEvent: SslErrorEvent) => void;
 
 /**
  * The callback of onOverrideErrorPage.
  *
- * @typedef { function } OnOverrideErrorPageCallback
  * @param { OnErrorReceiveEvent } errorPageEvent - The information of error.
  * @returns { string } - Return an HTML text content encoded in Base64.
  * @syscap SystemCapability.Web.Webview.Core
@@ -235,33 +209,19 @@ type OnMicrophoneCaptureStateChangeCallback = (event: MicrophoneCaptureStateChan
  * The callback of onOverrideUrlLoading.
  * Should not call WebviewController.loadUrl with the request's URL and then return true.
  *
- * @typedef { function } OnOverrideUrlLoadingCallback
  * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
  * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
  *     false causes the Web to continue loading the url as usual.
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * The callback of onOverrideUrlLoading.
- * Should not call WebviewController.loadUrl with the request's URL and then return true.
- *
- * @typedef { function } OnOverrideUrlLoadingCallback
- * @param { WebResourceRequest } webResourceRequest - callback information of onOverrideUrlLoading.
- * @returns { boolean } - Returning true causes the current Web to abort loading the URL,
- *     false causes the Web to continue loading the url as usual.
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 type OnOverrideUrlLoadingCallback = (webResourceRequest: WebResourceRequest) => boolean;
 
 /**
  * The callback of Intelligent Tracking Prevention.
  *
- * @typedef { function } OnIntelligentTrackingPreventionCallback
  * @param { IntelligentTrackingPreventionDetails } details - callback information of onIntelligentTrackingPrevention.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -714,7 +674,6 @@ type OnViewportFitChangedCallback = (viewportFit: ViewportFit) => void;
 /**
  * The callback of ads block
  *
- * @typedef { function } OnAdsBlockedCallback
  * @param { AdsBlockedDetails } details - details of OnAdsBlockedCallback.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -725,16 +684,14 @@ type OnAdsBlockedCallback = (details: AdsBlockedDetails) => void;
 /**
  * Defines the ads block details.
  *
- * @interface AdsBlockedDetails
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface AdsBlockedDetails {
   /**
-   * The url of main frame.
+   * 发生广告过滤的页面url。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -742,9 +699,8 @@ declare interface AdsBlockedDetails {
   url: string;
 
   /**
-   * the url of ads.
+   * 被过滤的资源的url或dompath标识，被过滤的多个对象url相同则可能出现重复元素。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -930,192 +886,102 @@ type WebKeyboardCallback = (keyboardCallbackInfo: WebKeyboardCallbackInfo) => We
 /**
  * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link getMessageLevel} for receiving the console log level of JavaScript.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum MessageLevel {
-  /**
-   * Debug level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Debug level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Debug = 0,
 
   /**
-   * Error level.
+   * 调试级别。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * Error level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Error = 1,
+  Debug = 1,
 
   /**
-   * Info level.
+   * 消息级别。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Info level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Info = 2,
 
   /**
-   * Log level.
+   * 警告级别。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * Log level.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Log = 3,
+  Warn = 3,
 
   /**
-   * Warn level.
+   * 错误级别。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
+  Error = 4,
+
   /**
-   * Warn level.
+   * 日志级别。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   * @deprecated since 26.0.0
    */
-  Warn = 4
+  Log = 5
 }
 
+
 /**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
+ * 混合内容模式。默认设置为 MixedMode.None。
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * The Web's behavior to load from HTTP or HTTPS. Defaults to MixedMode.None.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum MixedMode {
   /**
-   * Allows all sources.
+   * 宽松模式：允许加载HTTP和HTTPS混合内容。所有不安全的内容都可以被加载。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Allows all sources.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Allows all sources.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   All = 0,
 
   /**
-   * Allows sources Compatibly.
+   * 兼容模式：混合内容兼容性模式，部分不安全的内容可能被加载。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Allows sources Compatibly.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Allows sources Compatibly.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Compatible = 1,
 
   /**
-   * Don't allow unsecure sources from a secure origin.
+   * 严格模式：不允许加载HTTP和HTTPS混合内容。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Don't allow unsecure sources from a secure origin.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Don't allow unsecure sources from a secure origin.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None = 2
 }
@@ -1123,7 +989,6 @@ declare enum MixedMode {
 /**
  * The callback of safe browsing check.
  *
- * @typedef { function } OnSafeBrowsingCheckResultCallback
  * @param { ThreatType } threatType - callback information of onSafeBrowsingCheckResult.
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
@@ -1233,117 +1098,49 @@ declare enum HitTestType {
 /**
  * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Enum type supplied to {@link cacheMode} for setting the Web cache mode.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum CacheMode {
   /**
-   * load cache when they are available and not expired, otherwise load online.
+   * 优先使用未过期cache加载资源，无效或无cache时从网络获取。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * load cache when they are available and not expired, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache when they are available and not expired, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Default = 0,
 
   /**
-   * load cache when they are available, otherwise load online.
+   * 优先使用cache（含过期）加载资源，无cache时从网络获取。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * load cache when they are available, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache when they are available, otherwise load online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None = 1,
 
   /**
-   * Load online and not cache.
+   * 强制从网络获取最新资源，不使用任何cache。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Load online and not cache.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Load online and not cache.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Online = 2,
 
   /**
-   * load cache and not online.
+   * 仅使用本地cache加载资源。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * load cache and not online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * load cache and not online.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Only = 3,
 }
@@ -1472,14 +1269,13 @@ declare enum WebCaptureMode {
 /**
  * Enum type supplied to {@link threatType} for the website's threat type.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
  */
 declare enum ThreatType {
   /**
-   * Illegal websites.
+   * 非法网站。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1488,7 +1284,7 @@ declare enum ThreatType {
   THREAT_ILLEGAL = 0,
 
   /**
-   * Fraud websites.
+   * 欺诈网站。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1497,7 +1293,7 @@ declare enum ThreatType {
   THREAT_FRAUD = 1,
 
   /**
-   * Websites with security risks.
+   * 存在安全风险的网站。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1506,8 +1302,8 @@ declare enum ThreatType {
   THREAT_RISK = 2,
 
   /**
-   * Websites suspected of containing unhealthy content.
-   * ArkWeb will not intercept this type of website and apps could handle it themselves.
+   * 涉嫌包含不健康内容的网站。
+   * ArkWeb 不会拦截此类网站，应用程序可以自行处理。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
@@ -1516,7 +1312,7 @@ declare enum ThreatType {
   THREAT_WARNING = 3,
 
   /**
-   * Security check passed, no risks found.
+   * 安全检查通过，未发现任何风险。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -1524,7 +1320,7 @@ declare enum ThreatType {
   THREAT_NONE = 4,
 
   /**
-   * 未进行网址检测
+   * 未进行安全检查。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 21 dynamic
@@ -1861,109 +1657,48 @@ type OnContextMenuHideCallback = () => void;
 /**
  * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Enum type supplied to {@link error} when onSslErrorEventReceive being called.
- *
- * @enum { number }
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum SslError {
   /**
-   * General error.
+   * 一般错误。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * General error.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Invalid = 0,
 
   /**
-   * Hostname mismatch.
+   * 主机名不匹配。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Hostname mismatch.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Hostname mismatch.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   HostMismatch = 1,
 
   /**
-   * The certificate date is invalid.
+   * 证书日期无效。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The certificate date is invalid.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The certificate date is invalid.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   DateInvalid = 2,
 
   /**
-   * The certificate authority is not trusted.
+   * 证书颁发机构不受信任。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * The certificate authority is not trusted.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The certificate authority is not trusted.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Untrusted = 3
 }
@@ -2275,86 +2010,52 @@ declare class FileSelectorResult {
  * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the http auth request result, related to {@link onHttpAuthRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class HttpAuthHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * confirm.
+   * 使用用户名和密码进行HTTP认证操作。
    *
-   * @param { string } userName
-   * @param { string } password
-   * @returns { boolean }
+   * @param { string } userName - HTTP认证用户名。
+   * @param { string } password - HTTP认证密码。
+   * @returns { boolean }    **true** is returned if the authentication is successful; otherwise, **false** is returned.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * confirm.
-   *
-   * @param { string } userName
-   * @param { string } password
-   * @returns { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   confirm(userName: string, password: string): boolean;
 
   /**
-   * cancel.
+   * 通知Web组件用户取消HTTP认证操作。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * cancel.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 
   /**
-   * isHttpAuthInfoSaved.
+   * 通知Web组件用户使用服务器缓存的账号密码认证。
    *
-   * @returns { boolean }
+   * @returns { boolean }    **true** is suitable for use; otherwise, **false** is not suitable for use.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * isHttpAuthInfoSaved.
-   *
-   * @returns { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   isHttpAuthInfoSaved(): boolean;
 }
@@ -2363,90 +2064,38 @@ declare class HttpAuthHandler {
  * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the ssl error request result, related to {@link onSslErrorEventReceive} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class SslErrorHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Confirm to use the SSL certificate.
+   * 继续使用SSL证书。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Confirm to use the SSL certificate.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Confirm to use the SSL certificate.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handleConfirm(): void;
 
   /**
-   * Cancel this request.
+   * 取消此请求。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Cancel this request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Cancel this request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   handleCancel(): void;
 
@@ -2464,69 +2113,42 @@ declare class SslErrorHandler {
  * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the client certificate request result, related to {@link onClientAuthenticationRequest} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class ClientAuthenticationHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Confirm to use the specified private key and client certificate chain.
+   * 确认使用指定的私钥和客户端证书链。
    *
    * @param { string } priKeyFile - The file that store private key.
    * @param { string } certChainFile - The file that store client certificate chain.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Confirm to use the specified private key and client certificate chain.
-   *
-   * @param { string } priKeyFile - The file that store private key.
-   * @param { string } certChainFile - The file that store client certificate chain.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   confirm(priKeyFile: string, certChainFile: string): void;
 
   /**
-   * Confirm to use the authUri.The authUri can be obtained from certificate management.
+   * 使用指定的凭据(从证书管理模块获得)。
    *
    * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Confirm to use the authUri.The authUri can be obtained from certificate management.
-   *
-   * @param { string } authUri is the key of credentials.The credentials contain sign info and client certificates info.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   confirm(authUri: string): void;
 
   /**
-   * Confirm to use the identify of the certificate. The identify can be obtained from certificate management.
+   * 确认使用从证书管理模块获取的指定凭据和凭据类型。
    *
    * @param { string } identity - The identify of the credential.
    * @param { CredentialType | string } credentialTypeOrCertChainFile - The type of the credential or the file that store
@@ -2538,17 +2160,11 @@ declare class ClientAuthenticationHandler {
   confirm(identity: string, credentialTypeOrCertChainFile: CredentialType | string): void;
 
   /**
-   * Cancel this certificate request.
+   * 取消证书请求事件。同时，相同host和port服务器的请求，不重复上报该事件。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Cancel this certificate request.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 
@@ -2556,14 +2172,8 @@ declare class ClientAuthenticationHandler {
    * Ignore this certificate request temporarily.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Ignore this certificate request temporarily.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   ignore(): void;
 }
@@ -2729,58 +2339,34 @@ declare class ScreenCaptureHandler {
  * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 9
- */
-/**
- * Defines the onDataResubmission callback, related to {@link onDataResubmission} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class DataResubmissionHandler {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Resend related form data.
+   * 重新发送表单数据。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Resend related form data.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   resend(): void;
 
   /**
-   * Do not resend related form data.
+   * 取消重新发送表单数据。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Do not resend related form data.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   cancel(): void;
 }
@@ -3117,7 +2703,6 @@ declare enum ContextMenuEditStateFlags {
 /**
  * Enum type supplied to {@link navigationType} for the navigation's type.
  *
- * @enum { number }
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 11 dynamic
@@ -3528,24 +3113,18 @@ declare class WebContextMenuResult {
  * Encompassed message information as parameters to {@link onConsole} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Encompassed message information as parameters to {@link onConsole} method.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class ConsoleMessage {
   /**
    * Constructor.
    *
-   * @param { string } message - The console message.
-   * @param { string } sourceId - The Web source file's path and name.
-   * @param { number } lineNumber - The line number of the console message.
-   * @param { MessageLevel } messageLevel - The console log level.
+   * @param { string } message - ConsoleMessage的日志输出信息。
+   * @param { string } sourceId - 网页源文件的路径和文件名。
+   * @param { number } lineNumber - ConsoleMessage的行号。
+   * @param { MessageLevel } messageLevel - ConsoleMessage的日志级别。
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -3554,113 +3133,63 @@ declare class ConsoleMessage {
   constructor(message: string, sourceId: string, lineNumber: number, messageLevel: MessageLevel);
 
   /**
-   * Constructor.
+   * ConsoleMessage的构造函数。
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Gets the message of a console message.
+   * 获取ConsoleMessage的日志信息。
    *
-   * @returns { string } Return the message of a console message.
+   * @returns { string } 返回ConsoleMessage的日志信息。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the message of a console message.
-   *
-   * @returns { string } Return the message of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getMessage(): string;
 
   /**
-   * Gets the Web source file's path and name of a console message.
+   * 获取网页源文件路径和文件名。
    *
-   * @returns { string } Return the Web source file's path and name of a console message.
+   * @returns { string } 返回网页源文件路径和文件名。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the Web source file's path and name of a console message.
-   *
-   * @returns { string } Return the Web source file's path and name of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the Web source file's path and name of a console message.
-   *
-   * @returns { string } Return the Web source file's path and name of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getSourceId(): string;
 
   /**
-   * Gets the line number of a console message.
+   * 获取ConsoleMessage的行数。
    *
-   * @returns { number } Return the line number of a console message.
+   * @returns { number } 返回ConsoleMessage的行数。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the line number of a console message.
-   *
-   * @returns { number } Return the line number of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the line number of a console message.
-   *
-   * @returns { number } Return the line number of a console message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getLineNumber(): number;
 
   /**
-   * Gets the message level of a console message.
+   * 获取ConsoleMessage的信息级别。
    *
-   * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
+   * @returns { MessageLevel } 返回ConsoleMessage的信息级别。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the message level of a console message.
-   *
-   * @returns { MessageLevel } Return the message level of a console message, which can be {@link MessageLevel}.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getMessageLevel(): MessageLevel;
 
   /**
-   * Gets the source of a console message.
+   * 获取ConsoleMessage的日志来源。
    *
-   * @returns { ConsoleMessageSource } Return the source of a console message.
+   * @returns { ConsoleMessageSource } 返回ConsoleMessage的日志来源。
    * @syscap SystemCapability.Web.Webview.Core
    * @since 23 dynamic
    */
@@ -3671,269 +3200,120 @@ declare class ConsoleMessage {
  * Encompassed message information as parameters to {@link onConsole} method.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web resource request.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceRequest {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Gets request headers.
+   * 获取资源请求头信息。
    *
-   * @returns { Array<Header> } Return the request headers
+   * @returns { Array<Header> } 返回资源请求头信息。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets request headers.
-   *
-   * @returns { Array<Header> } Return the request headers
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets request headers.
-   *
-   * @returns { Array<Header> } Return the request headers
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getRequestHeader(): Array<Header>;
 
   /**
-   * Gets the request URL.
+   * 获取资源请求的URL信息。
    *
-   * @returns { string } Return the request URL.
+   * @returns { string } 返回资源请求的URL信息。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the request URL.
-   *
-   * @returns { string } Return the request URL.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the request URL.
-   *
-   * @returns { string } Return the request URL.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getRequestUrl(): string;
 
   /**
-   * Check whether the request is associated with gesture.
+   * 获取资源请求是否与手势（如点击）相关联。
    *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
+   * @returns { boolean } 返回 {@code true} 表示请求与手势（如点击）相关联;返回 {@code false} 则相反.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request is associated with gesture.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request is associated with gesture.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture;return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isRequestGesture(): boolean;
 
   /**
-   * Check whether the request is for getting the main frame.
+   * 判断资源请求是否为主frame。
    *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
+   * @returns { boolean } 返回 {@code true} 表示请求为主frame; 返回 {@code false} 表示请求不为主frame。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request is for getting the main frame.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request is for getting the main frame.
-   *
-   * @returns { boolean } Return {@code true} if the request is associated with gesture for getting the main frame; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isMainFrame(): boolean;
 
   /**
-   * Check whether the request redirects.
+   * 判断资源请求是否被服务端重定向。
    *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
+   * @returns { boolean } 返回 {@code true} 表示请求被服务端重定向; 返回 {@code false} 表示请求未被服务端重定向。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Check whether the request redirects.
-   *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Check whether the request redirects.
-   *
-   * @returns { boolean } Return {@code true} if the request redirects; return {@code false} otherwise.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isRedirect(): boolean;
 
   /**
-   * Get request method.
+   * 获取请求方法。
    *
-   * @returns { string } Return the request method.
+   * @returns { string } 返回请求方法。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Get request method.
-   *
-   * @returns { string } Return the request method.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get request method.
-   *
-   * @returns { string } Return the request method.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   getRequestMethod(): string;
 }
 
 /**
- * Defines the Web resource response.
+ * Web组件资源响应对象。
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource response.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceResponse {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Gets the response data.
+   * 获取资源响应数据。
    *
-   * @returns { string } Return the response data.
+   * @returns { string } 返回资源响应数据。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string } Return the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string } Return the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseData(): string;
 
   /**
-   * Gets the response data.
+   * 获取资源响应数据，支持多种数据类型。
    *
    * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
    *     string type indicate string in HTML format.
@@ -3941,476 +3321,188 @@ declare class WebResourceResponse {
    *     Resource type indicate $rawfile resource.
    *     ArrayBuffer type indicate binary data.
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
-   */
-  /**
-   * Gets the response data.
-   *
-   * @returns { string | number | ArrayBuffer | Resource | undefined } Return the response data.
-   *     string type indicate string in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
-   *     ArrayBuffer type indicate binary data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @since 13 dynamic
    */
   getResponseDataEx(): string | number | ArrayBuffer | Resource | undefined;
 
   /**
-   * Gets the response encoding.
+   * 获取资源响应的编码。
    *
-   * @returns { string } Return the response encoding.
+   * @returns { string } 返回资源响应的编码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response encoding.
-   *
-   * @returns { string } Return the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseEncoding(): string;
 
   /**
-   * Gets the response MIME type.
+   * 获取资源响应的媒体（MIME）类型。
    *
-   * @returns { string } Return the response MIME type.
+   * @returns { string } 返回资源响应的媒体（MIME）类型。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response MIME type.
-   *
-   * @returns { string } Return the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseMimeType(): string;
 
   /**
-   * Gets the reason message.
+   * 获取资源响应的状态码描述。
    *
-   * @returns { string } Return the reason message.
+   * @returns { string } 返回资源响应的状态码描述。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the reason message.
-   *
-   * @returns { string } Return the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the reason message.
-   *
-   * @returns { string } Return the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getReasonMessage(): string;
 
   /**
-   * Gets the response headers.
+   * 获取资源响应头。
    *
-   * @returns { Array<Header> } Return the response headers.
+   * @returns { Array<Header> } 返回资源响应头。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response headers.
-   *
-   * @returns { Array<Header> } Return the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the response headers.
-   *
-   * @returns { Array<Header> } Return the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseHeader(): Array<Header>;
 
   /**
-   * Gets the response code.
+   * 获取资源响应的状态码。
    *
-   * @returns { number } Return the response code.
+   * @returns { number } 返回资源响应的状态码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the response code.
-   *
-   * @returns { number } Return the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getResponseCode(): number;
 
   /**
-   * Sets the response data.
-   *
-   * @param { string | number | Resource } data - the response data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response data.
+   * 设置资源响应数据。
    *
    * @param { string | number | Resource } data - the response data.
    *     string type indicate strings in HTML format.
    *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
+   *     Resource type indicate $rawfile resource. [since 9 - 10]
+   * @param { string | number | Resource | ArrayBuffer } data - 要设置的资源响应数据。
+   *     string表示HTML格式的字符串。
+   *     number表示文件句柄，此句柄由系统的Web组件负责关闭。
+   *     Resource表示应用rawfile目录下文件资源. [since 9 - 10]
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Sets the response data.
-   *
-   * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *     string type indicate strings in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
-   *     ArrayBuffer type indicate binary data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response data.
-   *
-   * @param { string | number | Resource | ArrayBuffer } data - the response data.
-   *     string type indicate strings in HTML format.
-   *     number type indicate file handle.
-   *     Resource type indicate $rawfile resource.
-   *     ArrayBuffer type indicate binary data.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseData(data: string | number | Resource | ArrayBuffer): void;
 
   /**
-   * Sets the response encoding.
+   * 设置资源响应的编码。
    *
-   * @param { string } encoding the response encoding.
+   * @param { string } encoding 要设置的资源响应的编码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response encoding.
-   *
-   * @param { string } encoding the response encoding.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseEncoding(encoding: string): void;
 
   /**
-   * Sets the response MIME type.
+   * 设置资源响应的媒体（MIME）类型。
    *
-   * @param { string } mimeType the response MIME type.
+   * @param { string } mimeType 要设置的资源响应的媒体（MIME）类型。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response MIME type.
-   *
-   * @param { string } mimeType the response MIME type.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseMimeType(mimeType: string): void;
 
   /**
-   * Sets the reason message.
+   * 设置资源响应的状态码描述。
    *
-   * @param { string } reason the reason message.
+   * @param { string } reason 要设置的资源响应的状态码描述。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the reason message.
-   *
-   * @param { string } reason the reason message.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setReasonMessage(reason: string): void;
 
   /**
-   * Sets the response headers.
+   * 设置资源响应头。
    *
-   * @param { Array<Header> } header the response headers.
+   * @param { Array<Header> } header 要设置的资源响应头。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response headers.
-   *
-   * @param { Array<Header> } header the response headers.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseHeader(header: Array<Header>): void;
 
   /**
-   * Sets the response code.
+   * 设置资源响应的状态码。
    *
-   * @param { number } code the response code.
+   * @param { number } code 要设置的资源响应的状态码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response code.
-   *
-   * @param { number } code the response code.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseCode(code: number): void;
 
   /**
-   * Sets the response is ready or not.
+   * 设置资源响应数据是否已经就绪。
    *
-   * @param { boolean } IsReady whether the response is ready.
+   * @param { boolean } IsReady 资源响应数据是否已经就绪。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the response is ready or not.
-   *
-   * @param { boolean } IsReady whether the response is ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   setResponseIsReady(IsReady: boolean): void;
 
   /**
-   * Gets whether the response is ready.
+   * 获取响应数据是否已准备就绪。
    *
-   * @returns { boolean } True indicates the response data is ready and false is not ready.
+   * @returns { boolean } `true`表示响应数据已准备好，`false`表示未准备好。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 13
-   */
-  /**
-   * Gets whether the response is ready.
-   *
-   * @returns { boolean } True indicates the response data is ready and false is not ready.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @since 13 dynamic
    */
   getResponseIsReady(): boolean;
 }
 
 /**
- * Defines the Web's request/response header.
+ * Web组件返回的请求/响应头对象。
  *
- * @interface Header
+ * @interface Header [since 8 - 11]
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web's request/response header.
- *
- * @interface Header
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11
- */
-/**
- * Defines the Web's request/response header.
- *
- * @typedef Header
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12
- */
-/**
- * Defines the Web's request/response header.
- *
- * @typedef Header
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface Header {
   /**
-   * Gets the key of the request/response header.
+   * 请求/响应头的key。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the key of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the key of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   headerKey: string;
 
   /**
-   * Gets the value of the request/response header.
+   * 请求/响应头的value。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the value of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets the value of the request/response header.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   headerValue: string;
 }
@@ -4419,96 +3511,40 @@ declare interface Header {
  * Defines the Web resource error.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web resource error.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the Web resource error.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class WebResourceError {
   /**
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Gets the info of the Web resource error.
+   * 获取加载资源的错误信息。
    *
-   * @returns { string } Return the info of the Web resource error.
+   * @returns { string } 返回加载资源的错误信息。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the info of the Web resource error.
-   *
-   * @returns { string } Return the info of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the info of the Web resource error.
-   *
-   * @returns { string } Return the info of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getErrorInfo(): string;
 
   /**
-   * Gets the code of the Web resource error.
+   * 获取加载资源的错误码。
    *
-   * @returns { number } Return the code of the Web resource error.
+   * @returns { number } 返回加载资源的错误码。
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Gets the code of the Web resource error.
-   *
-   * @returns { number } Return the code of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Gets the code of the Web resource error.
-   *
-   * @returns { number } Return the code of the Web resource error.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   getErrorCode(): number;
 
@@ -4564,14 +3600,8 @@ declare class JsGeolocation {
  * Defines the Web cookie.
  *
  * @syscap SystemCapability.Web.Webview.Core
- * @since 8
- */
-/**
- * Defines the Web cookie.
- *
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 23
  * @useinstead ohos.web.webview.webview.WebCookieManager
  */
@@ -4580,21 +3610,15 @@ declare class WebCookie {
    * Constructor.
    *
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Constructor.
-   *
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 23
    * @useinstead ohos.web.webview.webview.WebCookieManager
    */
   constructor();
 
   /**
-   * Sets the cookie.
+   *  设置cookie。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -4604,7 +3628,7 @@ declare class WebCookie {
   setCookie();
 
   /**
-   * Saves the cookies.
+   * 保存cookie。
    *
    * @syscap SystemCapability.Web.Webview.Core
    * @since 8 dynamiconly
@@ -5054,24 +4078,15 @@ declare interface WebOptions {
 /**
  * Defines the contents of the JavaScript to be injected.
  *
- * @interface ScriptItem
+ * @interface ScriptItem [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
- */
-/**
- * Defines the contents of the JavaScript to be injected.
- *
- * @typedef ScriptItem
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface ScriptItem {
   /**
-   * Sets the JavaScript to be injected.
+   * 需要注入、执行的JavaScript脚本。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5079,9 +4094,14 @@ declare interface ScriptItem {
   script: string;
 
   /**
-   * Sets the rules of the JavaScript.
+   * 一组允许来源的匹配规则。.
+   * 1.如果需要允许所有来源的网址，使用通配符“ * ”。
+   * 2.如果需要精确匹配，则描述网站地址，如"https://www.example.com"。
+   * 3.如果模糊匹配网址，可以使用“ * ”通配符替代，如"https://*.example.com"。不允许使用"x. * .y.com"、" * foobar.com"等。
+   * 4.如果来源是ip地址，则使用规则2。
+   * 5.对于http/https以外的协议（自定义协议），不支持使用精确匹配和模糊匹配，且必须以`://`结尾，例如"resource://"。
+   * 6.一组scriptRule中，如果其中一条不满足以上规则，则整组scriptRule都不生效。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5089,9 +4109,8 @@ declare interface ScriptItem {
   scriptRules: Array<string>;
 
   /**
-   * Set the regular expression rule that allows execution of this JavaScript.
+   * 一组允许来源的正则匹配规则。 当scriptRules设置为[]时，才使用urlRegexRules进行匹配。
    *
-   * @type { ?Array<UrlRegexRule> }
    * @syscap SystemCapability.Web.Webview.Core
    * @stagemodelonly
    * @since 23 dynamic
@@ -5100,26 +4119,17 @@ declare interface ScriptItem {
 }
 
 /**
- * Defines the load committed details.
+ * 提供已提交跳转的网页的详细信息。
  *
- * @interface LoadCommittedDetails
+ * @interface LoadCommittedDetails [since 11 - 11]
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
- * @since 11
- */
-/**
- * Defines the load committed details.
- *
- * @typedef LoadCommittedDetails
- * @syscap SystemCapability.Web.Webview.Core
- * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare interface LoadCommittedDetails {
   /**
-   * Check whether the request is for getting the main frame.
+   * 是否是主文档。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5127,13 +4137,9 @@ declare interface LoadCommittedDetails {
   isMainFrame: boolean;
 
   /**
-   * Whether the navigation happened without changing document. Examples of
-   * same document navigations are:
-   *   1. reference fragment navigations.
-   *   2. pushState/replaceState.
-   *   3. same page history navigation
+   * 是否在不更改文档的情况下进行的网页跳转。
+   * 在同文档跳转的示例：1.参考片段跳转；2.pushState或replaceState触发的跳转；3.同一页面历史跳转。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5141,11 +4147,9 @@ declare interface LoadCommittedDetails {
   isSameDocument: boolean;
 
   /**
-   * True if the committed entry has replaced the existing one. Note that in
-   * case of subframes, the NavigationEntry and FrameNavigationEntry objects
-   * don't actually get replaced - they're reused, but with updated attributes.
+   * true表示提交的新节点替换了已有的节点。
+   * 另外在一些子文档跳转的场景，虽然没有实际替换已有节点，但是有一些属性发生了变更。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5153,9 +4157,8 @@ declare interface LoadCommittedDetails {
   didReplaceEntry: boolean;
 
   /**
-   * The type of the navigation.
+   * 网页跳转的类型。
    *
-   * @type { WebNavigationType }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5163,9 +4166,8 @@ declare interface LoadCommittedDetails {
   navigationType: WebNavigationType;
 
   /**
-   * The url to navigate.
+   * 当前跳转网页的URL。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 11 dynamic
@@ -5174,18 +4176,16 @@ declare interface LoadCommittedDetails {
 }
 
 /**
- * Defines the Intelligent Tracking Prevention details.
+ * 提供智能防跟踪拦截的详细信息。
  *
- * @typedef IntelligentTrackingPreventionDetails
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface IntelligentTrackingPreventionDetails {
   /**
-   * The host of website url.
+   * 网站域名。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -5193,9 +4193,8 @@ declare interface IntelligentTrackingPreventionDetails {
   host: string;
 
   /**
-   * The host of tracker url.
+   * 追踪者域名。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -5616,7 +4615,7 @@ declare interface RenderProcessNotRespondingData {
 }
 
 /**
- * Defines the triggered function at the end of web page loading.
+ * 定义网页加载结束时触发的函数。
  *
  * @typedef OnPageEndEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -5626,9 +4625,8 @@ declare interface RenderProcessNotRespondingData {
  */
 declare interface OnPageEndEvent {
   /**
-   * The url of page.
+   * 页面的URL地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5638,9 +4636,8 @@ declare interface OnPageEndEvent {
 }
 
 /**
- * Defines the triggered function at the begin of web page loading.
+ * 定义网页加载开始时触发的函数。
  *
- * @typedef OnPageBeginEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5648,9 +4645,8 @@ declare interface OnPageEndEvent {
  */
 declare interface OnPageBeginEvent {
   /**
-   * The url of page.
+   * 页面的URL地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5660,17 +4656,15 @@ declare interface OnPageBeginEvent {
 }
 
 /**
- * 页面加载开始
+ * 定义网页加载开始时触发的函数。
  *
- * @typedef OnLoadStartedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnLoadStartedEvent {
   /**
-   * 当前加载中的url
+   * 页面的URL地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5678,17 +4672,15 @@ declare interface OnLoadStartedEvent {
 }
 
 /**
- * Defines the triggered function at the end of web page loading.
+ * 定义网页加载结束时触发的函数。
  *
- * @typedef OnLoadFinishedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @since 20 dynamic
  */
 declare interface OnLoadFinishedEvent {
   /**
-   * 当前加载中的url
+   * 页面的URL地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5696,7 +4688,7 @@ declare interface OnLoadFinishedEvent {
 }
 
 /**
- * Defines the triggered function when the page loading progress changes.
+ * 定义网页加载进度变化时触发该回调。
  *
  * @typedef OnProgressChangeEvent
  * @syscap SystemCapability.Web.Webview.Core
@@ -5706,9 +4698,8 @@ declare interface OnLoadFinishedEvent {
  */
 declare interface OnProgressChangeEvent {
   /**
-   * The new progress of the page.
+   * 新的加载进度。
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5718,9 +4709,8 @@ declare interface OnProgressChangeEvent {
 }
 
 /**
- * Defines the triggered function when the title of the main application document changes.
+ * 定义网页document标题更改时触发该回调。
  *
- * @typedef OnTitleReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -5728,9 +4718,8 @@ declare interface OnProgressChangeEvent {
  */
 declare interface OnTitleReceiveEvent {
   /**
-   * The title of the page.
+   * document标题内容。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -5739,10 +4728,9 @@ declare interface OnTitleReceiveEvent {
   title: string;
 
   /**
-   * Mark the source of the title. If it is true, the title is derived from the H5 title element;
-   * If it is false, it is calculated from the URL. By default, it is calculated from the URL.
+   * document标题来源，true表示来自网页的title标签，false表示该title是根据url自动生成。
+   * 默认值：false
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5822,83 +4810,45 @@ declare interface OnAlertEvent {
 /**
  * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
  *
- * @typedef OnBeforeUnloadEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
- *
- * @typedef OnBeforeUnloadEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface OnBeforeUnloadEvent {
   /**
-   * The url of the page.
+   * 当前显示弹窗所在网页的URL。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The url of the page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
-   * The message of confirm dialog.
+   * 弹窗中显示的信息。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The message of confirm dialog.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   message: string;
 
   /**
-   *  Handle the user's JavaScript result.
+   *  通知Web组件用户操作行为。
    *
-   * @type { JsResult }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   *  Handle the user's JavaScript result.
-   *
-   * @type { JsResult }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   result: JsResult;
 
   /**
-   * 当页面刷新时，isReload 参数被设置为 true；否则，它保持为 false。默认值为 false。
+   * 页面是否刷新。<br>当页面因刷新即将离开时，isReload参数被设置为true；当页面因关闭即将离开时，isReload参数被设置为false。
    *
-   *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 20 dynamic
    */
@@ -5998,7 +4948,6 @@ declare interface OnPromptEvent {
 /**
  * Defines the triggered function when the web page receives a JavaScript console message.
  *
- * @typedef OnConsoleEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6006,9 +4955,8 @@ declare interface OnPromptEvent {
  */
 declare interface OnConsoleEvent {
   /**
-   * Console message information of the event.
+   * 触发的控制台信息。
    *
-   * @type { ConsoleMessage }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6018,9 +4966,8 @@ declare interface OnConsoleEvent {
 }
 
 /**
- * Defines the triggered function when the web page receives a web resource loading error.
+ * 定义网页加载遇到错误时触发该回调。
  *
- * @typedef OnErrorReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6028,9 +4975,8 @@ declare interface OnConsoleEvent {
  */
 declare interface OnErrorReceiveEvent {
   /**
-   * The information of request.
+   * 网页请求的封装信息。
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6039,9 +4985,8 @@ declare interface OnErrorReceiveEvent {
   request: WebResourceRequest;
 
   /**
-   * The information of error.
+   * 网页加载资源错误的封装信息。
    *
-   * @type { WebResourceError }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6051,9 +4996,8 @@ declare interface OnErrorReceiveEvent {
 }
 
 /**
- * Defines the triggered function when the web page receives a web resource loading HTTP error.
+ * 定义网页收到资源加载HTTP错误时触发。
  *
- * @typedef OnHttpErrorReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6061,9 +5005,8 @@ declare interface OnErrorReceiveEvent {
  */
 declare interface OnHttpErrorReceiveEvent {
   /**
-   * The information of request.
+   * 网页请求的封装信息。
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6072,9 +5015,8 @@ declare interface OnHttpErrorReceiveEvent {
   request: WebResourceRequest;
 
   /**
-   *  Web resource response of event.
+   *  资源响应的封装信息。
    *
-   * @type { WebResourceResponse }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6084,9 +5026,8 @@ declare interface OnHttpErrorReceiveEvent {
 }
 
 /**
- * Defines the triggered function when starting to download.
+ * 定义通知主应用开始下载一个文件。
  *
- * @typedef OnDownloadStartEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6094,9 +5035,8 @@ declare interface OnHttpErrorReceiveEvent {
  */
 declare interface OnDownloadStartEvent {
   /**
-   * The URL of page.
+   * 文件下载的URL。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6105,9 +5045,8 @@ declare interface OnDownloadStartEvent {
   url: string;
 
   /**
-   * The userAgent of page.
+   * 用于下载的用户代理。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6116,28 +5055,18 @@ declare interface OnDownloadStartEvent {
   userAgent: string;
 
   /**
-   * The contentDisposition of page.
+   * 服务器返回的 Content-Disposition响应头，服务器可能返回空。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The contentDisposition of page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   contentDisposition: string;
 
   /**
-   * The mimetype of page.
+   * 服务器返回内容媒体类型（MIME）信息。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6146,9 +5075,8 @@ declare interface OnDownloadStartEvent {
   mimetype: string;
 
   /**
-   * The contentLength of page.
+   * 服务器返回文件的长度。单位：字节。
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6158,65 +5086,39 @@ declare interface OnDownloadStartEvent {
 }
 
 /**
- * Defines the triggered callback when the Web page refreshes accessed history.
+ * 定义导航完成时触发。
  *
- * @typedef OnRefreshAccessedHistoryEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 18]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the Web page refreshes accessed history.
- *
- * @typedef OnRefreshAccessedHistoryEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @since 12 dynamic
  */
 declare interface OnRefreshAccessedHistoryEvent {
   /**
-   * URL of the visit.
+   * 访问的url。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * URL of the visit.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
-   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
+   * true表示该页面是被重新加载的（调用[refresh]{@link ./../../../@ohos.web.webview:webview.WebviewController#refresh()}接口
+   * ），false表示该页面是新加载的。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * If true, the page is being reloaded, otherwise,  means that the page is newly loaded.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   isRefreshed: boolean;
 
   /**
-   * Whether is triggered by main frame.
+   * 是否是主文档触发。
+   * true表示是主文档触发，false表示不是主文档触发。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @since 22 dynamic
    */
@@ -6274,18 +5176,16 @@ declare interface OnShowFileSelectorEvent {
 }
 
 /**
- * Defines the triggered when the url loading.
+ * 定义加载url时触发。
  *
- * @typedef OnResourceLoadEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnResourceLoadEvent {
   /**
-   * The URL of the loaded resource file.
+   * 所加载的资源文件url信息。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6324,9 +5224,8 @@ declare interface OnScaleChangeEvent {
 }
 
 /**
- * Defines the triggered when the browser needs credentials from the user.
+ * 定义通知收到http auth认证请求。
  *
- * @typedef OnHttpAuthRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6334,9 +5233,8 @@ declare interface OnScaleChangeEvent {
  */
 declare interface OnHttpAuthRequestEvent {
   /**
-   * Defines the http auth request result.
+   * 通知Web组件用户操作行为。
    *
-   * @type { HttpAuthHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6345,9 +5243,8 @@ declare interface OnHttpAuthRequestEvent {
   handler: HttpAuthHandler;
 
   /**
-   * Host of the page.
+   *  HTTP身份验证凭据应用的主机。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6356,9 +5253,8 @@ declare interface OnHttpAuthRequestEvent {
   host: string;
 
   /**
-   * realm of the page.
+   * HTTP身份验证凭据应用的域。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6368,39 +5264,21 @@ declare interface OnHttpAuthRequestEvent {
 }
 
 /**
- * Defines the triggered callback when the resources loading is intercepted.
+ * 定义当Web组件加载url之前触发。
  *
- * @typedef OnInterceptRequestEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the resources loading is intercepted.
- *
- * @typedef OnInterceptRequestEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface OnInterceptRequestEvent {
   /**
-   * The information of request.
+   * url请求的相关信息。
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The information of request.
-   *
-   * @type { WebResourceRequest }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   request: WebResourceRequest;
 }
@@ -6471,18 +5349,16 @@ declare interface OnContextMenuShowEvent {
 }
 
 /**
- * Defines function Triggered when the host application call searchAllAsync.
+ * 定义通知调用方网页页内查找的结果。
  *
- * @typedef OnSearchResultReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnSearchResultReceiveEvent {
   /**
-   * The ordinal number of the currently matched lookup item (starting from 0).
+   * 当前匹配的查找项的序号（从0开始）。
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6490,9 +5366,8 @@ declare interface OnSearchResultReceiveEvent {
   activeMatchOrdinal: number;
 
   /**
-   * The number of all matched keywords.
+   * 所有匹配到的关键词的个数。
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6500,9 +5375,8 @@ declare interface OnSearchResultReceiveEvent {
   numberOfMatches: number;
 
   /**
-   * Indicates whether the current in-page search operation is complete. The method may be called back multiple times until isDoneCounting is true.
+   * 当次页内查找操作是否结束。该方法可能会回调多次，直到isDoneCounting为true为止。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6545,92 +5419,55 @@ declare interface OnScrollEvent {
 }
 
 /**
- * Defines the triggered callback when the Web page receives an ssl Error.
+ * 定义网页收到SSL错误时触发。
  *
- * @typedef OnSslErrorEventReceiveEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the triggered callback when the Web page receives an ssl Error.
- *
- * @typedef OnSslErrorEventReceiveEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface OnSslErrorEventReceiveEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * 通知Web组件用户操作行为。
    *
-   * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Notifies the user of the operation behavior of the web component.
-   *
-   * @type { SslErrorHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   handler: SslErrorHandler;
 
   /**
-   * Error codes.
+   * 错误码。
    *
-   * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Error codes.
-   *
-   * @type { SslError }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   error: SslError;
 
   /**
-   * Certificate chain data in DER format.
+   * 证书链数据。
    *
-   * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 15
-   */
-  /**
-   * Certificate chain data in DER format.
-   *
-   * @type { ?Array<Uint8Array> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 15 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
 
 /**
- * Defines the triggered callback when needs ssl client certificate from the user.
+ * 定义当需要用户提供SSL客户端证书时触发回调。
  *
- * @typedef OnClientAuthenticationEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnClientAuthenticationEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * 通知Web组件用户操作行为。
    *
-   * @type { ClientAuthenticationHandler }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6638,9 +5475,8 @@ declare interface OnClientAuthenticationEvent {
   handler : ClientAuthenticationHandler;
 
   /**
-   * The hostname of the requesting certificate server.
+   * 请求证书服务器的主机名。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6648,9 +5484,8 @@ declare interface OnClientAuthenticationEvent {
   host : string;
 
   /**
-   * The port number of the request certificate server.
+   * 请求证书服务器的端口号。
    *
-   * @type { number }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6658,9 +5493,8 @@ declare interface OnClientAuthenticationEvent {
   port : number;
 
   /**
-   * Acceptable asymmetric key types.
+   * 可接受的非对称密钥类型。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6668,9 +5502,8 @@ declare interface OnClientAuthenticationEvent {
   keyTypes : Array<string>;
 
   /**
-   * Certificates that match the private key are acceptable to the issuer.
+   * 与私钥匹配的证书可接受颁发者。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6679,9 +5512,8 @@ declare interface OnClientAuthenticationEvent {
 }
 
 /**
- * Defines the triggered callback when web page requires the user to create a window.
+ * 定义网页要求用户创建窗口时触发的回调。
  *
- * @typedef OnWindowNewEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
@@ -6729,18 +5561,16 @@ declare interface OnWindowNewEvent {
 }
 
 /**
- * Defines the triggered callback when the application receive an new url of an apple-touch-icon.
+ * 定义设置接收到apple-touch-icon url地址时的回调函数。
  *
- * @typedef OnTouchIconUrlReceivedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnTouchIconUrlReceivedEvent {
   /**
-   * The apple-touch-icon URL address received.
+   * 接收到的apple-touch-icon url地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6748,9 +5578,8 @@ declare interface OnTouchIconUrlReceivedEvent {
   url: string;
 
   /**
-   * Corresponding to whether apple-touch-icon is precomposited.
+   * 对应apple-touch-icon是否为预合成。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6759,18 +5588,16 @@ declare interface OnTouchIconUrlReceivedEvent {
 }
 
 /**
- * Defines the triggered callback when the application receive a new favicon for the current web page.
+ * 定义应用为当前页面接收到新的网站图标（favicon）时的回调函数。
  *
- * @typedef OnFaviconReceivedEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @atomicservice
  * @since 12 dynamic
  */
 declare interface OnFaviconReceivedEvent {
   /**
-   * Received the Favicon icon for the PixelMap object.
+   * 接收到的favicon图标的PixelMap对象。
    *
-   * @type { PixelMap }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -6866,9 +5693,8 @@ declare interface OnFirstContentfulPaintEvent {
 }
 
 /**
- * Defines the triggered callback when the resources loading is intercepted.
+ * 定义截获资源加载时触发的回调。
  *
- * @typedef OnLoadInterceptEvent
  * @syscap SystemCapability.Web.Webview.Core
  * @crossplatform
  * @atomicservice
@@ -6876,9 +5702,8 @@ declare interface OnFirstContentfulPaintEvent {
  */
 declare interface OnLoadInterceptEvent {
   /**
-   * The information of request.
+   * 网页请求的封装信息。
    *
-   * @type { WebResourceRequest }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
    * @atomicservice
@@ -6958,119 +5783,61 @@ declare interface OnPdfLoadEvent {
   url: string;
 }
 /**
- * Defines the JavaScript object to be injected.
+ * 定义要注入的JavaScript对象。
  *
- * @typedef JavaScriptProxy
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the JavaScript object to be injected.
- *
- * @typedef JavaScriptProxy
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare interface JavaScriptProxy {
   /**
-   * Objects participating in registration.
+   * 参与注册的对象。
    *
-   * @type { object }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Objects participating in registration.
-   *
-   * @type { object }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   object: object;
 
   /**
-   * The name of the registered object, which is consistent with the
-   *                          object name called in the window.
+   * 注册对象的名称，与window中调用的对象名一致。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The name of the registered object, which is consistent with the
-   *                          object name called in the window.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   name: string;
 
   /**
-   * The method of the application side JavaScript object participating
-   *                                       in the registration.
+   * 参与注册的应用侧JavaScript对象的同步方法。
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The method of the application side JavaScript object participating
-   *                                       in the registration.
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   methodList: Array<string>;
 
   /**
    * Controller.
    *
-   * @type { WebController | WebviewController }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Controller.
-   *
-   * @type { WebController | WebviewController }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   controller: WebController | WebviewController;
 
   /**
-   * The async method of the application side JavaScript object participating in the registration.
+   * 参与注册的应用侧JavaScript对象的异步方法。异步方法无法获取返回值。
    *
-   * @type { ?Array<string> }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The async method of the application side JavaScript object participating in the registration.
-   *
-   * @type { ?Array<string> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   asyncMethodList?: Array<string>;
 
@@ -7078,7 +5845,6 @@ declare interface JavaScriptProxy {
    * permission configuration defining web page URLs that can access JavaScriptProxy methods.
    * The configuration can be defined at two levels, object level and method level.
    *
-   * @type { ?string }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -7673,34 +6439,15 @@ declare enum WebKeyboardAppearanceMode {
  */
 declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
-   * Sets whether the Web allows JavaScript scripts to execute.
+   * 设置是否允许执行JavaScript脚本。
    *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
+   * @param { boolean } javaScriptAccess - {@code true} true表示允许执行JavaScript脚本，false表示不允许执行JavaScript脚本。
+   *     默认值为true.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets whether the Web allows JavaScript scripts to execute.
-   *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether the Web allows JavaScript scripts to execute.
-   *
-   * @param { boolean } javaScriptAccess - {@code true} means the Web can allows JavaScript scripts to execute; {@code false} otherwise.
-   *    The default value is true.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   javaScriptAccess(javaScriptAccess: boolean): WebAttribute;
 
@@ -7816,33 +6563,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   imageAccess(imageAccess: boolean): WebAttribute;
 
   /**
-   * Sets how to load HTTP and HTTPS content.
+   * 设定当安全源尝试从非安全源加载资源时的行为。当属性没有显式调用时，默认值为MixedMode.None，即禁止安全源从非安全源加载内容。
    *
-   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
+   * @param { MixedMode } mixedMode - 要设置的混合内容模式。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets how to load HTTP and HTTPS content.
-   *
-   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the behavior when a secure origin attempts to load a resource from an insecure origin.
-   * The default is MixedMode.None, meaning not allow a secure origin to load content from an insecure origin.
-   *
-   *
-   * @param { MixedMode } mixedMode - The mixed mode, which can be {@link MixedMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   mixedMode(mixedMode: MixedMode): WebAttribute;
 
@@ -7876,66 +6604,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScript object into window and invoke the function in window.
    *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
+   * @param { object } javaScriptProxy - The JavaScript object to be injected. [since 8 - 11]
+   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web
+   *     component,
+   *     and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed
+   *     by JavaScript. [since 12]
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Injects the JavaScript object into window and invoke the function in window.
-   *
-   * @param { object } javaScriptProxy - The JavaScript object to be injected.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
-   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
-   *
-   * <p><strong>API Note</strong>:
-   * <strong>Performance Note</strong>:
-   * <p>For details about how to arkWeb rendering framework adaptation solution,
-   * see [ArkWeb Rendering Framework Adaptation]
-   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
-   * </p>
-   *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Registers the supplied ArkTs object in javaScriptProxy into this Web component.
-   * The object is registered into all frames of the web page, including all frames, using the specified name in javaScriptProxy.
-   * This allows the methods of the ArkTs object in javaScriptProxy to be accessed from JavaScript.
-   *
-   * <p><strong>API Note</strong>:
-   * <strong>Performance Note</strong>:
-   * <p>For details about how to arkWeb rendering framework adaptation solution,
-   * see [ArkWeb Rendering Framework Adaptation]
-   * {@link https://developer.huawei.com/consumer/en/doc/best-practices/bpta-arkweb_rendering_framework}
-   * </p>
-   *
-   * @param { JavaScriptProxy } javaScriptProxy - The ArkTs object in javaScriptProxy will be registered into this Web component,
-   * and the methods within the methodList of the injected ArkTs object declared in javaScriptProxy can be accessed by JavaScript.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 20]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   javaScriptProxy(javaScriptProxy: JavaScriptProxy): WebAttribute;
 
@@ -7952,31 +6630,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   password(password: boolean): WebAttribute;
 
   /**
-   * Sets the mode of cache in Web.
+   * 设置缓存模式。
    *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
+   * @param { CacheMode } cacheMode - 要设置的缓存模式。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Sets the mode of cache in Web.
-   *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the mode of cache in Web.
-   *
-   * @param { CacheMode } cacheMode - The cache mode, which can be {@link CacheMode}.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   cacheMode(cacheMode: CacheMode): WebAttribute;
 
@@ -8183,41 +6844,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   metaViewport(enabled: boolean): WebAttribute;
 
   /**
-   * Triggered at the end of web page loading.
+   * 网页加载完成时触发该回调，且只在主frame触发，iframe或者frameset的内容加载时不会触发此回调。
    *
-   * @param { function } callback The triggered function at the end of web page loading.
+   * @param { function } callback The triggered function at the end of web page loading. [since 8 - 11]
+   * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading. [since 12]
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered at the end of web page loading.
-   *
-   * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered at the end of web page loading.
-   *
-   * @param { function } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered at the end of web page loading.
-   *
-   * @param { Callback<OnPageEndEvent> } callback The triggered function at the end of web page loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPageEnd(callback: Callback<OnPageEndEvent>): WebAttribute;
 
@@ -8287,59 +6922,24 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPageBegin(callback: Callback<OnPageBeginEvent>): WebAttribute;
 
   /**
-   * Triggered when the page loading progress changes.
+   * 网页加载进度变化时触发该回调。
    *
-   * @param { function } callback The triggered function when the page loading progress changes.
+   * @param { function } callback The triggered function when the page loading progress changes. [since 8 - 11]
+   * @param { Callback<OnProgressChangeEvent> } callback 页面加载进度变化时触发的回调。 [since 8 - 11]
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the page loading progress changes.
-   *
-   * @param { function } callback The triggered function when the page loading progress changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the page loading progress changes.
-   *
-   * @param { Callback<OnProgressChangeEvent> } callback The triggered function when the page loading progress changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onProgressChange(callback: Callback<OnProgressChangeEvent>): WebAttribute;
 
   /**
-   * Triggered when the title of the main application document changes.
+   * 当页面文档标题`<title>`元素发生变更时，触发回调。若当前页面未显示设置标题，ArkWeb将在加载完成前基于页面的URL生成标题并返回给应用。
    *
-   * @param { function } callback The triggered function when the title of the main application document changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the title of the main application document changes.
-   *
-   * @param { function } callback The triggered function when the title of the main application document changes.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Notifies the application that the title has changed..
-   * If the page being loaded does not specify a title via the <title> element,
-   * ArkWeb will generate a title baseed on the URL and return it to the application.
-   *
-   * @param { Callback<OnTitleReceiveEvent> } callback The triggered function when the title of the main application document changes.
+   * @param { function } callback The triggered function when the title of the main application document
+   *     changes. [since 8 - 11]
+   * @param { Callback<OnTitleReceiveEvent> } callback 页面文档标题发生变更时触发。 [since 8 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
    * @crossplatform
@@ -8406,38 +7006,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
    *
-   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
+   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript
+   *     onbeforeunload. [since 8 - 11]
+   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to
+   *     confirm navigation from JavaScript onbeforeunload. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { function } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the Web wants to confirm navigation from JavaScript onbeforeunload.
-   *
-   * @param { Callback<OnBeforeUnloadEvent, boolean> } callback The triggered function when the web page wants to confirm navigation from JavaScript onbeforeunload.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onBeforeUnload(callback: Callback<OnBeforeUnloadEvent, boolean>): WebAttribute;
 
@@ -8474,169 +7051,72 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onPrompt(callback: Callback<OnPromptEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a JavaScript console message.
+   * 通知宿主应用JavaScript console消息。
    *
-   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
+   * @param { function } callback The triggered function when the web page receives a JavaScript console
+   *     message. [since 8 - 11]
+   * @param {  Callback<OnConsoleEvent, boolean> } callback 网页收到JavaScript控制台消息时触发。 [since 8 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a JavaScript console message.
-   *
-   * @param { function } callback The triggered function when the web page receives a JavaScript console message.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a JavaScript console message.
-   *
-   * @param {  Callback<OnConsoleEvent, boolean> } callback The triggered function when the web page receives a JavaScript console message.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onConsole(callback: Callback<OnConsoleEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a web resource loading error.
+   * 网页加载遇到错误时触发该回调。主资源与子资源出错都会回调该接口，可以通过[isMainFrame]{@link web:WebResourceRequest.isMainFrame}来判断是否是主资源报错。出于性能考虑，建议此回调
+   * 中尽量执行简单逻辑。在无网络的情况下，触发此回调。
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading
+   *     error. [since 8 - 11]
+   * @param { Callback<OnErrorReceiveEvent> } callback 网页收到 Web 资源加载错误时触发。 [since 8 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a web resource loading error.
-   *
-   * @param { Callback<OnErrorReceiveEvent> } callback The triggered function when the web page receives a web resource loading error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onErrorReceive(callback: Callback<OnErrorReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the web page receives a web resource loading HTTP error.
+   * 网页加载资源遇到的HTTP错误（响应码>=400）时触发该回调。
    *
-   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
+   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP
+   *     error. [since 8 - 11]
+   * @param { Callback<OnHttpErrorReceiveEvent> } callback 网页收到加载资源返回HTTP错误码时触发。 [since 8 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the web page receives a web resource loading HTTP error.
-   *
-   * @param { function } callback The triggered function when the web page receives a web resource loading HTTP error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the web page receives a web resource loading HTTP error.
-   *
-   * @param { Callback<OnHttpErrorReceiveEvent> } callback The triggered function when the web page receives a web resource loading HTTP error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onHttpErrorReceive(callback: Callback<OnHttpErrorReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when starting to download.
+   * 通知主应用开始下载一个文件。
    *
-   * @param { function } callback The triggered function when starting to download.
+   * @param { function } callback The triggered function when starting to download. [since 8 - 11]
+   * @param { Callback<OnDownloadStartEvent> } callback 开始下载时触发。 [since 8 - 11]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when starting to download.
-   *
-   * @param { function } callback The triggered function when starting to download.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when starting to download.
-   *
-   * @param { Callback<OnDownloadStartEvent> } callback The triggered function when starting to download.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDownloadStart(callback: Callback<OnDownloadStartEvent>): WebAttribute;
 
   /**
    * Triggered when the Web page refreshes accessed history.
    *
-   * @param { function } callback The triggered callback when the Web page refreshes accessed history.
+   * @param { function } callback The triggered callback when the Web page refreshes accessed history. [since 8 - 11]
+   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes
+   *     accessed history. [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 8
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { function } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the Web page refreshes accessed history.
-   *
-   * @param { Callback<OnRefreshAccessedHistoryEvent> } callback The triggered callback when the Web page refreshes accessed history.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onRefreshAccessedHistory(callback: Callback<OnRefreshAccessedHistoryEvent>): WebAttribute;
 
@@ -8732,30 +7212,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onFileSelectorShow(callback: (event?: { callback: Function, fileSelector: object }) => void): WebAttribute;
 
   /**
-   * Triggered when the url loading.
+   * 通知Web组件所加载的资源文件url信息。
    *
-   * @param { function } callback The triggered when the url loading.
+   * @param { function } callback The triggered when the url loading. [since 9 - 11]
+   * @param { Callback<OnResourceLoadEvent> } callback 加载url时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the url loading.
-   *
-   * @param { function } callback The triggered when the url loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the url loading.
-   *
-   * @param { Callback<OnResourceLoadEvent> } callback The triggered when the url loading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onResourceLoad(callback: Callback<OnResourceLoadEvent>): WebAttribute;
 
@@ -8797,76 +7261,29 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScaleChange(callback: Callback<OnScaleChangeEvent>): WebAttribute;
 
   /**
-   * Triggered when the browser needs credentials from the user.
+   * 通知收到http auth认证请求。
    *
-   * @param { function } callback The triggered when the browser needs credentials from the user.
+   * @param { function } callback The triggered when the browser needs credentials from the user. [since 9 - 11]
+   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback 当浏览器需要用户的凭据时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the browser needs credentials from the user.
-   *
-   * @param { function } callback The triggered when the browser needs credentials from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the browser needs credentials from the user.
-   *
-   * @param { Callback<OnHttpAuthRequestEvent, boolean> } callback The triggered when the browser needs credentials from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onHttpAuthRequest(callback: Callback<OnHttpAuthRequestEvent, boolean>): WebAttribute;
 
   /**
-   * Triggered when the resources loading is intercepted.
+   * 当Web组件加载URL之前触发该回调，用于拦截URL并返回响应数据。`onInterceptRequest`可拦截所有跳转请求并返回响应数据，但无法访问POST请求体（Body）内容。
    *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
+   * @param { function } callback The triggered callback when the resources loading is intercepted. [since 9 - 11]
+   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback 当Web组件加载url之前触发。 [since 12]
    * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
    *     Otherwise, the response value will be used
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
-   *     Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered
-   *     callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
-   *     Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnInterceptRequestEvent, WebResourceResponse> } callback The triggered
-   *     callback when the resources loading is intercepted.
-   * @returns { WebAttribute } If the response value is null, the Web will continue to load the resources.
-   *     Otherwise, the response value will be used
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onInterceptRequest(callback: Callback<OnInterceptRequestEvent, WebResourceResponse>): WebAttribute;
 
@@ -9014,93 +7431,40 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onScroll(callback: Callback<OnScrollEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * 通知用户加载资源时发生SSL错误，只支持主资源。
+   * 如果需要支持子资源，请使用 OnSslErrorEvent 接口。
    *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
+   * @param { function } callback The triggered callback when the Web page receives an ssl Error. [since 9 - 11]
+   * @param { Callback<OnSslErrorEventReceiveEvent> } callback 当网页收到SSL错误时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { function } callback The triggered callback when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page receives an ssl Error.
-   *
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
-   *     when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called to notify users when an SSL error occurs with a request for the main frame.
-   * To include errors with requests for subframes, use the OnSslErrorEvent API.
-   *
-   * @param { Callback<OnSslErrorEventReceiveEvent> } callback The triggered callback
-   *     when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onSslErrorEventReceive(callback: Callback<OnSslErrorEventReceiveEvent>): WebAttribute;
 
   /**
-   * Triggered when the Web page receives an ssl Error.
+   * 通知用户加载资源（主资源+子资源）时发生SSL错误，如果只想处理主资源的SSL错误，请用 isMainFrame 字段进行区分。
    *
    * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called to notify users when an SSL error occurs during the loading of resources (for the main frame and subframes).
-   * To handle SSL errors for requests for the main frame, use the isMainFrame field to distinguish.
-   *
-   * @param { OnSslErrorEventCallback } callback The triggered callback when the Web page receives an ssl Error.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   onSslErrorEvent(callback: OnSslErrorEventCallback): WebAttribute;
 
   /**
-   * Triggered when the Web page needs ssl client certificate from the user.
+   * 通知用户收到SSL客户端证书请求事件。
    *
-   * @param { function } callback The triggered callback when needs ssl client certificate from the user.
+   * @param { function } callback The triggered callback when needs ssl client certificate from the user. [since 9 - 11]
+   * @param { Callback<OnClientAuthenticationEvent> } callback 当需要用户提供的SSL客户端证书时触发的回调。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the Web page needs ssl client certificate from the user.
-   *
-   * @param { function } callback The triggered callback when needs ssl client certificate from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the Web page needs ssl client certificate from the user.
-   *
-   * @param { Callback<OnClientAuthenticationEvent> } callback The triggered callback when needs ssl client certificate from the user.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onClientAuthenticationRequest(callback: Callback<OnClientAuthenticationEvent>): WebAttribute;
 
@@ -9418,31 +7782,14 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   forceDisplayScrollBar(enabled: boolean): WebAttribute;
 
   /**
-   * Whether web component can load resource from network.
+   * 设置Web组件是否阻止从网络加载资源。
    *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
+   * @param { boolean } block {@code true} 不允许从网络加载资源; {@code false} 表示允许从网络加载资源。
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Whether web component can load resource from network.
-   *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Whether web component can load resource from network.
-   *
-   * @param { boolean } block {@code true} means it can't load resource from network; {@code false} otherwise.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   blockNetwork(block: boolean): WebAttribute;
 
@@ -9473,64 +7820,28 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   verticalScrollBarAccess(verticalScrollBar: boolean): WebAttribute;
 
   /**
-   * Triggered when the application receive the url of an apple-touch-icon.
+   * 设置接收到apple-touch-icon url地址时的回调函数。
    *
    * @param { function } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
+   *     apple-touch-icon. [since 9 - 11]
+   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback 接收到的apple-touch-icon url地址时触发。 [since 12]
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the application receive the url of an apple-touch-icon.
-   *
-   * @param { function } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the application receive the url of an apple-touch-icon.
-   *
-   * @param { Callback<OnTouchIconUrlReceivedEvent> } callback The triggered callback when the application receive an new url of an
-   * apple-touch-icon.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onTouchIconUrlReceived(callback: Callback<OnTouchIconUrlReceivedEvent>): WebAttribute;
 
   /**
-   * Triggered when the application receive a new favicon for the current web page.
+   * 设置应用为当前页面接收到新的favicon时的回调函数。
    *
    * @param { function } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
+   *     current web page. [since 9 - 11]
+   * @param { Callback<OnFaviconReceivedEvent> } callback 当前页面接收到新的favicon时触发。 [since 12]
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Triggered when the application receive a new favicon for the current web page.
-   *
-   * @param { function } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the application receive a new favicon for the current web page.
-   *
-   * @param { Callback<OnFaviconReceivedEvent> } callback The triggered callback when the application receive a new favicon for the
-   * current web page.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 12 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onFaviconReceived(callback: Callback<OnFaviconReceivedEvent>): WebAttribute;
 
@@ -9676,32 +7987,15 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onLargestContentfulPaint(callback: OnLargestContentfulPaintCallback): WebAttribute;
 
   /**
-   * Triggered when the resources loading is intercepted.
+   * 当Web组件加载url之前触发该回调，用于判断是否阻止此次访问。
    *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
+   * @param { function } callback The triggered callback when the navigation is intercepted. [since 10 - 11]
+   * @param { Callback<OnLoadInterceptEvent, boolean> } callback 导航触发时的回调包括iframe导航，在回调中可以选择允许或者取消此次导航。 [since 12]
    * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 10
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { function } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the resources loading is intercepted.
-   *
-   * @param { Callback<OnLoadInterceptEvent, boolean> } callback The triggered callback when the resources loading is intercepted.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+      * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onLoadIntercept(callback: Callback<OnLoadInterceptEvent, boolean>): WebAttribute;
 
@@ -9985,19 +8279,9 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * When the URL is about to be loaded into the current Web, it gives the application the opportunity to take control.
-   * This will not called for POST requests, may be called for subframes and with non-HTTP(S) schemes.
-   *
-   * @param { OnOverrideUrlLoadingCallback } callback - The callback for onOverrideUrlLoading.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   onOverrideUrlLoading(callback: OnOverrideUrlLoadingCallback): WebAttribute;
 
@@ -10212,6 +8496,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScripts that will be run just after document object has been created.
    *
+   * > **说明：**
+   * >
+   * > - 网页文档根元素（HTML Element）创建后、但尚未加载任何其他内容之前注入脚本。
+   * >
+   * > - 该脚本按照数组本身顺序执行。
+   * >
+   * > - 不建议与[javaScriptOnDocumentStart]{@link WebAttribute.javaScriptOnDocumentStart}同时使用。
+   * >
+   * > - 内容相同的脚本多次注入时将被静默去重，不展示，不提醒，使用首次注入时的scriptRules。
+   *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10222,6 +8516,16 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   /**
    * Injects the JavaScripts that will be run after document has been parsed finished.
    *
+   * > **说明：**
+   * >
+   * > - 网页文档根元素（HTML Element）创建后、但尚未加载任何其他内容之前注入脚本。
+   * >
+   * > - 该脚本按照数组本身顺序执行。
+   * >
+   * > - 不建议与[javaScriptOnDocumentStart]{@link WebAttribute.javaScriptOnDocumentStart}同时使用。
+   * >
+   * > - 内容相同的脚本多次注入时将被静默去重，不展示，不提醒，使用首次注入时的scriptRules。
+   *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
@@ -10231,6 +8535,12 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
 
   /**
    * Injects the JavaScripts that will be run after head element has been parsed finished.
+   *
+   * > **说明：**
+   * >
+   * > - 该脚本按照数组本身顺序执行。
+   * >
+   * > - 内容相同的脚本多次注入时将被静默去重，不展示，不提醒，使用首次注入时的scriptRules。
    *
    * @param { Array<ScriptItem> } scripts - The JavaScripts executed in array order.
    * @returns { WebAttribute }
@@ -10666,120 +8976,65 @@ declare const WebInstance: WebAttribute;
 /**
  * Defines the ssl error event.
  *
- * @typedef SslErrorEvent
  * @syscap SystemCapability.Web.Webview.Core
+ * @crossplatform [since 23]
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the ssl error event.
- *
- * @typedef SslErrorEvent
- * @syscap SystemCapability.Web.Webview.Core
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @since 12 dynamic
  */
 declare interface SslErrorEvent {
   /**
-   * Notifies the user of the operation behavior of the web component.
+   * 通知Web组件用户操作行为。
    *
-   * @type { SslErrorHandler }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Notifies the user of the operation behavior of the web component.
-   *
-   * @type { SslErrorHandler }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   handler: SslErrorHandler;
 
   /**
-   * Error codes.
+   * 错误码。
    *
-   * @type { SslError }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Error codes.
-   *
-   * @type { SslError }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   error: SslError;
 
   /**
-   * Request url.
+   * url地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Request url.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   url: string;
 
   /**
-   * Original url.
+   * 请求的原始url地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Original url.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   originalUrl: string;
 
   /**
-   * Referrer.
+   * referrer url地址。
    *
-   * @type { string }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Referrer.
-   *
-   * @type { string }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   referrer: string;
 
   /**
-   * Whether the error is fatal.
+   * 是否是致命错误。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
    * @atomicservice
    * @since 12 dynamic
@@ -10787,38 +9042,21 @@ declare interface SslErrorEvent {
   isFatalError: boolean;
 
   /**
-   * Whether the request is main frame.
+   * 是否是主资源。
    *
-   * @type { boolean }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 23]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Whether the request is main frame.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   isMainFrame: boolean;
 
   /**
-   * Certificate chain data in DER format.
+   * 证书链数据。
    *
-   * @type { ?Array<Uint8Array> }
    * @syscap SystemCapability.Web.Webview.Core
-   * @since 20
-   */
-  /**
-   * Certificate chain data in DER format.
-   *
-   * @type { ?Array<Uint8Array> }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @crossplatform
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @since 20 dynamic
    */
   certChainData?: Array<Uint8Array>;
 }
