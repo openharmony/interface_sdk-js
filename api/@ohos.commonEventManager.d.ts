@@ -3202,6 +3202,18 @@ declare namespace commonEventManager {
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
 
     /**
+     * This common event indicates that the skill information of an application has been changed.
+     *
+     * To receive this common event, your application must have the ohos.permission.MANAGE_SKILL_PRIVILEGE permission.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SKILL_CHANGED = 'usual.event.SKILL_CHANGED',
+
+    /**
      * Indicates that the lid state of a device (such as a laptop) has been changed.
      * 
      * When the lid state of a device has been changed, the event notification service is triggered to publish this
