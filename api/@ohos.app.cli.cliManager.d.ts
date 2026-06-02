@@ -144,7 +144,7 @@ declare namespace cliManager {
   /**
    * Enum for session status.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -153,7 +153,7 @@ declare namespace cliManager {
     /**
      * Indicates that the status is running.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
@@ -163,7 +163,7 @@ declare namespace cliManager {
     /**
      * Indicates that the status is completed.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
@@ -173,7 +173,7 @@ declare namespace cliManager {
     /**
      * Indicates that the status is failed.
      *
-     * @syscap SystemCapability.Ability.AbilityRuntime.Core
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
      * @systemapi
      * @stagemodelonly
      * @since 26.0.0 dynamiconly
