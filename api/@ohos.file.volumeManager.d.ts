@@ -243,6 +243,16 @@ declare namespace volumeManager {
     DATA_DISK_HDD = 5,
 
     /**
+     * The type of DVR USB.
+     *
+     * @syscap SystemCapability.FileManagement.StorageService.Volume
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    DVR_USB =  6,
+
+    /**
      * Unknown disk type.
      *
      * @syscap SystemCapability.FileManagement.StorageService.Volume
