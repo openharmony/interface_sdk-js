@@ -10149,6 +10149,7 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @param { boolean } enabled - 默认值为 true，设置为 false 可禁用触觉反馈。
    * @returns { WebAttribute }
    * @syscap SystemCapability.Web.Webview.Core
+   * @crossplatform [since 26.0.0]
    * @since 13 dynamic
    */
   enableHapticFeedback(enabled: boolean): WebAttribute;

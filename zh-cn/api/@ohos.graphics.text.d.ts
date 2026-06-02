@@ -4310,6 +4310,7 @@ declare namespace text {
      * 跟随系统设置中的高对比度文字配置。
      *
      * @syscap SystemCapability.Graphics.Drawing
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 22]
      * @since 20 dynamic
      * @since 23 static
