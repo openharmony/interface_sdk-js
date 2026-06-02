@@ -4417,13 +4417,13 @@ declare namespace window {
    */
   interface OrientationResult {
     /**
-      * Execution result of setting preferred orientation.
-      *
-      * @syscap SystemCapability.Window.SessionManager
-      * @stagemodelonly
-      * @atomicservice
-      * @since 26.0.0 dynamic&static
-      */
+    * Execution result of setting preferred orientation.
+    *
+    * @syscap SystemCapability.Window.SessionManager
+    * @stagemodelonly
+    * @atomicservice
+    * @since 26.0.0 dynamic&static
+    */
     executionResult : OrientationExecutionResult;
   }
 
