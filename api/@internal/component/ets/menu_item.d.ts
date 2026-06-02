@@ -515,6 +515,19 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
    * @since 11 dynamic
    */
   labelFontColor(value: ResourceColor): MenuItemAttribute;
+
+  /**
+   * Create the submenu for custom menu item.
+   *
+   * @param { CustomBuilder } builder - Indicates the builder function for submenu.
+   * @returns { MenuItemAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  subMenuBuilder(builder: CustomBuilder): MenuItemAttribute;
 }
 
 /**

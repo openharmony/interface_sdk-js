@@ -194,6 +194,16 @@ export declare interface MenuItemAttribute extends CommonMethod {
      */
     default attributeModifier(
         modifier: AttributeModifier<MenuItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+    /**
+     * Create the submenu for custom menu item.
+     *
+     * @param { CustomBuilder | undefined } builder - Indicates the builder function for submenu.
+     * @returns { MenuItemAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default subMenuBuilder(builder: CustomBuilder | undefined): this;
 
     /**
      * Set menuitem options.
