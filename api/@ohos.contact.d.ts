@@ -3290,7 +3290,7 @@ declare namespace contact {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Mandatory parameters are left unspecified.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 16700001 - General error.
-   * @throws { BusinessError } 16700101 - Failed to get value to contacts data.
+   * @throws { BusinessError } 16700101 - Failed to get value from contacts data.
    * @throws { BusinessError } 16700102 - Failed to set value to contacts data.
    * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.Contacts
