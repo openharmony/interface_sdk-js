@@ -19,8 +19,8 @@
  * @kit ArkUI
  */
 
-import { ComponentBuilder, CustomBuilder } from './builder';
-import { CustomEnvKey, WritableEnvKey } from '../stateManagement/decorator';
+import { ComponentBuilder, CustomBuilder, Builder } from './arkui/component/builder';
+import { CustomEnvKey, WritableEnvKey, WritableSystemEnvKey } from './arkui/stateManagement/decorator';
 
 
 /**
