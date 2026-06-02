@@ -92,6 +92,15 @@ declare namespace restrictions {
     CORE_DUMP = 6,
 
     /**
+     * RS232.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    RS232 = 7,
+
+    /**
      * Disk erasure
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
