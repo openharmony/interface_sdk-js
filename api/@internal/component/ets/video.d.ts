@@ -687,14 +687,14 @@ declare class VideoControllerAsync {
    * @param { double } value - The target time in seconds
    *     <br>Unit: Seconds, The value must be greater than or equal to 0, The maximum value is the total duration of the
    *     video. If the duration exceeds the maximum value, the system jumps to the end of the video.
-   * @param { SeekMode } seekMode - The seek mode to use for time adjustment.
+   * @param { SeekMode } [seekMode] - The seek mode to use for time adjustment.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  setCurrentTime(value: double, seekMode: SeekMode);
+  setCurrentTime(value: double, seekMode?: SeekMode);
   /**
    * Resets the video controller asynchronously.
    * Restores the controller to its initial state.
