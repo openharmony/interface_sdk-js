@@ -1448,26 +1448,6 @@ declare namespace call {
    * @since 7 dynamic
    */
   function off(type: 'callDetailsChange', callback?: Callback<CallAttributeOptions>): void;
-  
-  /**
-   * Unsubscribe from the callDetailsChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallAttributeOptions> } [callback] - Indicates the callback to unsubscribe from
-   *     the callDetailsChange event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offCallDetailsChange(callback?: Callback<CallAttributeOptions>): void;
 
   /**
    * Subscribe to the callEventChange event.
@@ -1488,25 +1468,6 @@ declare namespace call {
    * @since 8 dynamic
    */
   function on(type: 'callEventChange', callback: Callback<CallEventOptions>): void;
-  
-  /**
-   * Subscribe to the callEventChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallEventOptions> } callback - Indicates the callback for getting the call event id.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onCallEventChange(callback: Callback<CallEventOptions>): void;
 
   /**
    * Unsubscribe from the callEventChange event.
@@ -1527,26 +1488,6 @@ declare namespace call {
    * @since 8 dynamic
    */
   function off(type: 'callEventChange', callback?: Callback<CallEventOptions>): void;
-  
-  /**
-   * Unsubscribe from the callEventChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallEventOptions> } [callback] - Indicates the callback to unsubscribe from the
-   *     callEventChange event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offCallEventChange(callback?: Callback<CallEventOptions>): void;
 
   /**
    * Subscribe to the callDisconnectedCause event.
@@ -1567,26 +1508,6 @@ declare namespace call {
    * @since 8 dynamic
    */
   function on(type: 'callDisconnectedCause', callback: Callback<DisconnectedDetails>): void;
-  
-  /**
-   * Subscribe to the callDisconnectedCause event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<DisconnectedDetails> } callback - Indicates the callback for getting the call
-   *     disconnection reason.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onCallDisconnectedCause(callback: Callback<DisconnectedDetails>): void;
 
   /**
    * Unsubscribe from the callDisconnectedCause event.
@@ -1608,26 +1529,6 @@ declare namespace call {
    * @since 8 dynamic
    */
   function off(type: 'callDisconnectedCause', callback?: Callback<DisconnectedDetails>): void;
-  
-  /**
-   * Unsubscribe from the callDisconnectedCause event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<DisconnectedDetails> } [callback] - Indicates the callback used to cancel
-   *     the registration monitoring for obtaining the call end reason.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offCallDisconnectedCause(callback?: Callback<DisconnectedDetails>): void;
 
   /**
    * Subscribe to the mmiCodeResult event.
@@ -1648,25 +1549,6 @@ declare namespace call {
    * @since 9 dynamic
    */
   function on(type: 'mmiCodeResult', callback: Callback<MmiCodeResults>): void;
-  
-  /**
-   * Subscribe to the mmiCodeResult event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<MmiCodeResults> } callback - Indicates the callback for getting the result of MMI code.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onMmiCodeResult(callback: Callback<MmiCodeResults>): void;
 
   /**
    * Unsubscribe from the mmiCodeResult event.
@@ -1687,26 +1569,6 @@ declare namespace call {
    * @since 9 dynamic
    */
   function off(type: 'mmiCodeResult', callback?: Callback<MmiCodeResults>): void;
-  
-  /**
-   * Unsubscribe from the mmiCodeResult event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<MmiCodeResults> } [callback] - Indicates the callback used to cancel getting mmicode
-   *     registered listening.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offMmiCodeResult(callback?: Callback<MmiCodeResults>): void;
 
   /**
    * Subscribe to the audioDeviceChange event.
@@ -1727,26 +1589,6 @@ declare namespace call {
    * @since 10 dynamic
    */
   function on(type: 'audioDeviceChange', callback: Callback<AudioDeviceCallbackInfo>): void;
-  
-  /**
-   * Subscribe to the audioDeviceChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<AudioDeviceCallbackInfo> } callback - Indicates the callback for getting the result
-   *     of Current AudioDevice.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onAudioDeviceChange(callback: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
    * Unsubscribe from the audioDeviceChange event.
@@ -1767,26 +1609,6 @@ declare namespace call {
    * @since 10 dynamic
    */
   function off(type: 'audioDeviceChange', callback?: Callback<AudioDeviceCallbackInfo>): void;
-  
-  /**
-   * Unsubscribe from the audioDeviceChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<AudioDeviceCallbackInfo> } [callback] - Indicates the callback for getting the result
-   *     of Current AudioDevice.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offAudioDeviceChange(callback?: Callback<AudioDeviceCallbackInfo>): void;
 
   /**
    * Subscribe to the postDialDelay event.
@@ -1807,25 +1629,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function on(type: 'postDialDelay', callback: Callback<string>): void;
-  
-  /**
-   * Subscribe to the postDialDelay event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<string> } callback - Indicates the callback for getting the result of post-dial string.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onPostDialDelay(callback: Callback<string>): void;
 
   /**
    * Unsubscribe from the postDialDelay event.
@@ -1846,25 +1649,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function off(type: 'postDialDelay', callback?: Callback<string>): void;
-  
-  /**
-   * Unsubscribe from the postDialDelay event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<string> } [callback] - Indicates the callback for getting the result of post-dial string.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offPostDialDelay(callback?: Callback<string>): void;
 
   /**
    * Subscribe to the rtt message event.
@@ -2692,26 +2476,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function on(type: 'imsCallModeChange', callback: Callback<ImsCallModeInfo>): void;
-  
-  /**
-   * Subscribe to the imsCallModeChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<ImsCallModeInfo> } callback - Indicates the callback for
-   *     getting the result of ImsCallModeInfo details.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onImsCallModeChange(callback: Callback<ImsCallModeInfo>): void;
 
   /**
    * Unsubscribe from the imsCallModeChange event.
@@ -2733,26 +2497,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function off(type: 'imsCallModeChange', callback?: Callback<ImsCallModeInfo>): void;
-  
-  /**
-   * Unsubscribe from the imsCallModeChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<ImsCallModeInfo> } [callback] - Indicates the callback to unsubscribe from
-   *     the imsCallModeChange event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offImsCallModeChange(callback?: Callback<ImsCallModeInfo>): void;
 
   /**
    * Subscribe to the callSessionEvent.
@@ -2775,26 +2519,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function on(type: 'callSessionEvent', callback: Callback<CallSessionEvent>): void;
-  
-  /**
-   * Subscribe to the callSessionEvent.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallSessionEvent> } callback - Indicates the callback for
-   *     getting the result of CallSessionEvent.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onCallSessionEvent(callback: Callback<CallSessionEvent>): void;
 
   /**
    * Unsubscribe from the callSessionEvent.
@@ -2817,26 +2541,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function off(type: 'callSessionEvent', callback?: Callback<CallSessionEvent>): void;
-  
-  /**
-   * Unsubscribe from the callSessionEvent.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallSessionEvent> } [callback] - Indicates the callback to unsubscribe from
-   *     the CallSessionEvent event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offCallSessionEvent(callback?: Callback<CallSessionEvent>): void;
 
   /**
    * Subscribe to the peerDimensionsChange event.
@@ -2859,26 +2563,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function on(type: 'peerDimensionsChange', callback: Callback<PeerDimensionsDetail>): void;
-  
-  /**
-   * Subscribe to the peerDimensionsChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<PeerDimensionsDetail> } callback - Indicates the callback for
-   *     getting the result of PeerDimensionsDetail details.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onPeerDimensionsChange(callback: Callback<PeerDimensionsDetail>): void;
 
   /**
    * Unsubscribe from the peerDimensionsChange event.
@@ -2901,26 +2585,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function off(type: 'peerDimensionsChange', callback?: Callback<PeerDimensionsDetail>): void;
-  
-  /**
-   * Unsubscribe from the peerDimensionsChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<PeerDimensionsDetail> } [callback] - Indicates the callback to unsubscribe from
-   *     peerDimensionsChange event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offPeerDimensionsChange(callback?: Callback<PeerDimensionsDetail>): void;
 
   /**
    * Subscribe to the cameraCapabilitiesChange event.
@@ -2943,26 +2607,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function on(type: 'cameraCapabilitiesChange', callback: Callback<CameraCapabilities>): void;
-  
-  /**
-   * Subscribe to the cameraCapabilitiesChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CameraCapabilities> } callback - Indicates the callback for
-   *     getting the result of CameraCapabilities details.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onCameraCapabilitiesChange(callback: Callback<CameraCapabilities>): void;
 
   /**
    * Unsubscribe from the cameraCapabilitiesChange event.
@@ -2985,26 +2629,6 @@ declare namespace call {
    * @since 11 dynamic
    */
   function off(type: 'cameraCapabilitiesChange', callback?: Callback<CameraCapabilities>): void;
-  
-  /**
-   * Unsubscribe from the cameraCapabilitiesChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CameraCapabilities> } [callback] - Indicates the callback to unsubscribe from
-   *     cameraCapabilitiesChange event.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function offCameraCapabilitiesChange(callback?: Callback<CameraCapabilities>): void;
 
   /**
    * Turn on Ims switch.
@@ -6905,7 +6529,7 @@ declare namespace call {
    * @since 22 dynamic
    * @since 23 static
    */
-  export interface RttErrorInfo {  
+  export interface RttErrorInfo {
     /**
      * Indicates the id of rtt.
      *
@@ -6965,7 +6589,7 @@ declare namespace call {
    * @since 22 dynamic
    * @since 23 static
    */
-  export interface RttEventInfo {  
+  export interface RttEventInfo {
     /**
      * Indicates the id of rtt.
      *
@@ -7013,7 +6637,7 @@ declare namespace call {
    * @since 22 dynamic
    * @since 23 static
    */
-  export interface RttMessageInfo {  
+  export interface RttMessageInfo {
     /**
      * Indicates the id of rtt.
      *
@@ -7180,7 +6804,7 @@ declare namespace call {
    * @since 22 dynamic
    * @since 23 static
    */
-  export enum RttState {  
+  export enum RttState {
     /**
      * Indicates the rtt is disable.
      *
@@ -7232,7 +6856,7 @@ declare namespace call {
    * @since 22 dynamic
    * @since 23 static
    */
-  export enum ImsRttMode {  
+  export enum ImsRttMode {
     /**
      * Indicates the rtt is local request update.
      *
@@ -7242,7 +6866,7 @@ declare namespace call {
      * @since 22 dynamic
      * @since 23 static
      */
-     LOCAL_REQUEST_UPGRADE = 0,
+    LOCAL_REQUEST_UPGRADE = 0,
     /**
      * Indicates the rtt is local request downgrade.
      *
