@@ -3041,7 +3041,17 @@ declare namespace sim {
      * @since 8 dynamic
      * @since 23 static
      */
-    FIXED_DIALING = 2
+    FIXED_DIALING = 2,
+ 
+    /**
+     * Service dialing number.
+     *
+     * @syscap SystemCapability.Telephony.CoreService
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 24 dynamic&static
+     */
+    SDN_DIALING = 3
   }
 
   /**
