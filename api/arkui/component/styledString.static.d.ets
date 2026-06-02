@@ -944,6 +944,16 @@ export declare class ParagraphStyle {
      * @since 26.0.0 static
      */
     readonly shaderStyle?: ShaderStyle;
+
+    /**
+        * Get the tail indentation of the StyledString.
+        * The unit is vp.
+        *
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    readonly tailIndents?: Array<double>;
 }
 /**
  * ParagraphStyleInterface
@@ -1052,6 +1062,23 @@ export declare interface ParagraphStyleInterface {
      * @since 26.0.0 static
      */
     shaderStyle?: ShaderStyle;
+
+    /**
+        * Specify the tail indentation for each line in a paragraph.
+        *
+        * <p><strong>NOTE</strong>:
+        * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
+        * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
+        * If the number of text lines exceeds the array length, the last element in the array is used
+        * for the remaining lines.
+        * <br>Negative values are treated as 0.
+        * </p>.
+        *
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    tailIndents?: LengthMetrics | Array<LengthMetrics>;
 }
 /**
  * Defines LineHeightStyle.

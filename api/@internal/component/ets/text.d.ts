@@ -1388,6 +1388,28 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
   textIndent(value: Length): TextAttribute;
 
   /**
+   * Specify the tail indentation for each line in a text block.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
+   * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
+   * If the number of text lines exceeds the array length, the last element in the array is used
+   * for the remaining lines.
+   * <br>Negative values are treated as 0.
+   * <br>If the value is set to undefined, the default value 0 is used.
+   * </p>
+   *
+   * @param { Optional<LengthMetrics | Array<LengthMetrics>> } value - The tail indent value(s).Default value is 0.
+   * @returns { TextAttribute } The attribute of the text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  tailIndents(value: Optional<LengthMetrics | Array<LengthMetrics>>): TextAttribute;
+
+  /**
    * Set the word break type.
    *
    * <p><strong>NOTE</strong>:
