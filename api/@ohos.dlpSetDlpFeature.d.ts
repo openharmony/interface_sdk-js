@@ -14,14 +14,20 @@
  */
 
 /**
- * @file
+ * @file DLP
  * @kit DataProtectionKit
  */
 
 /**
- * Provides the capability to set the DLP feature information.
+ * This module controls the Data Loss Prevention (DLP) feature, including enabling or disabling DLP and returning the
+ * DLP status.
  * 
- * @namespace dlpSetDlpFeature
+ * **Since:** 26.0.0
+ * 
+ * > **NOTE**
+ * >
+ * > The APIs provided by this module are system APIs.
+ * 
  * @syscap SystemCapability.Security.DataLossPrevention
  * @systemapi
  * @stagemodelonly
@@ -29,9 +35,8 @@
  */
 declare namespace dlpSetDlpFeature {
     /**
-     * Sets DLP feature status information.
+     * Describes the DLP settings.
      * 
-     * @interface StatusInfoResult
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -39,9 +44,9 @@ declare namespace dlpSetDlpFeature {
      */
     export interface StatusInfoResult {
         /**
-         * Whether the DLP information is set successfully.
+         * Whether the DLP setting is successful. The value **true** indicates that the setting is successful, and the
+         * value **false** indicates that the setting fails.
          * 
-         * @type { boolean }
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -51,9 +56,8 @@ declare namespace dlpSetDlpFeature {
     }
 
     /**
-     * Sets DLP feature status.
+     * Enumerates DLP statuses.
      * 
-     * @enum { number } DlpFeatureStatus
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -61,7 +65,7 @@ declare namespace dlpSetDlpFeature {
      */
     export enum DlpFeatureStatus {
         /**
-         * DLP feature is not enabled.
+         * DLP disabled.
          * 
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
@@ -70,7 +74,7 @@ declare namespace dlpSetDlpFeature {
          */
         NOT_ENABLED_FEATURE = 0,
         /**
-         * DLP feature is enabled.
+         * DLP enabled.
          * 
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
@@ -81,7 +85,7 @@ declare namespace dlpSetDlpFeature {
     }
 
     /**
-     * Sets DLP feature status information.
+     * Sets the DLP status.
      * 
      * @interface DLPFeatureInfo
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -91,7 +95,7 @@ declare namespace dlpSetDlpFeature {
      */
     export interface DLPFeatureInfo {
         /**
-         * Feature information for DLP.
+         * DLP status, which can be set to **NOT_ENABLED_FEATURE** or **ENABLED_FEATURE**.
          * 
          * @type { DlpFeatureStatus }
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -103,10 +107,19 @@ declare namespace dlpSetDlpFeature {
     }
 
     /**
-     * Sets DLP feature status. This method returns a Promise with the result.
+     * Sets the DLP status. This API uses a promise to return the result. The system enables or disables the DLP 
+     * protection function based on the DLP status specified using this API.
      * 
-     * @param { DlpFeatureStatus } status - Indicates the DLP feature status.
-     * @returns { Promise<StatusInfoResult> } Returns the {@link StatusInfoResult}.
+     * When this feature is enabled, right-click the file to be encrypted, and the encryption option is displayed in the 
+     * shortcut menu. Files in .txt, .pdf, .xls, .xlsx, .ppt, .pptx, .doc, and .docx formats can be encrypted.
+     * 
+     * This API is used to enable or disable the DLP function in enterprise policies.
+     * 
+     * @param { DlpFeatureStatus } status - DLP status. The value **ENABLED_FEATURE** indicates the DLP feature is 
+     *     enabled; the value **NOT_ENABLED_FEATURE** indicates the DLP feature is disabled, and the encryption option 
+     *     is not displayed in the menu. If the value is out of range, error code 19100001 is thrown.
+     * @returns { Promise<StatusInfoResult> } Promise used to return the DLP status. If the operation is successful, a
+     *     **StatusInfoResult** object is returned. If the operation fails, a **BusinessError** error code is thrown.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100011 - The system ability works abnormally.
