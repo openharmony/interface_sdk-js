@@ -3889,6 +3889,15 @@ declare namespace call {
      * @since 23 static
      */
     extraParams?: Record<string, Object>;
+    /**
+     * Indicates the type of the xcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    xCallType?: XCallType;
 
     /**
      * Indicates the rtt state.
@@ -3901,6 +3910,16 @@ declare namespace call {
      * @since 23 static
      */
     rttState?: RttState;
+
+    /**
+     * Indicates the xcall type.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    xCallType?: XCallType;
   }
 
   /**
@@ -4122,7 +4141,17 @@ declare namespace call {
      * @since 11 dynamic
      * @since 23 static
      */
-    TYPE_VOIP = 4
+    TYPE_VOIP = 4,
+
+    /**
+     * Indicates the call type is XCALL.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    TYPE_XCALL = 5
   }
 
   /**
@@ -5099,7 +5128,17 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    DIAL_OTT_TYPE = 2
+    DIAL_OTT_TYPE = 2,
+
+    /**
+     * Indicates this is a xcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    DIAL_XCALL_TYPE = 3
   }
 
   /**
