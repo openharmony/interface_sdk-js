@@ -4006,9 +4006,13 @@ declare namespace window {
 
   /**
    * Register the callback for application process focus state changes.
+   * This listener monitors the focus state changes between applications. 
+   * If the focus state changes between windows within the same application, the callback function will not be triggered.
    *
    * @param { Callback<boolean> } callback - Callback used to return the result whether application process
    *     focused or not.
+   *     The value true means that the application process becomes focused,
+   *     and false means that the application process becomes unfocused.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
