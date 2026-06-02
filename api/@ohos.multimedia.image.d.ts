@@ -7035,6 +7035,61 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
   }
 
   /**
+   * Describes the options for decomposing an HDR Pixelmap to a Picture containing an SDR PixelMap and a gainmap.
+   *
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HdrDecomposeOptions {  
+    /**
+     * Indicates generating a full-size gainmap or a 1/2 downscaled gainmap.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isFullSizeGainmap?: boolean;
+
+    /**
+     * Indicates the pixel format of the decomposed SDR Pixelmap and the gainmap. The formats of
+     * RGBA_8888\NV12\NV21 are supported.
+     * Default value: RGBA_8888.
+     *
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    desiredPixelFormat?: PixelMapFormat;
+  }
+
+  /**
+   * Decomposes an HDR Pixelmap object to a Picture object which contains an SDR PixelMap and a gainmap. This API uses
+   * a promise to return the result.
+   *
+   * @param { PixelMap } hdrPixelMap - An HDR PixelMap, whose PixelMapFormat should be
+   *     RGBA_F16\RGBA_1010102\YCBCR_P010\YCRCB_P010.
+   * @param { HdrDecomposeOptions } [options] - The HDR decomposition configurations.
+   * @returns { Promise<Picture | undefined> } Promise used to return the Picture object.
+   * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 7600201 - Unsupported operation. hdrPixelMap's PixelMapFormat is not
+   *     RGBA_F16\RGBA_1010102\YCBCR_P010\YCRCB_P010.
+   * @throws { BusinessError } 7600206 - Invalid parameter. Possible cause: hdrPixelMap is empty.
+   * @throws { BusinessError } 7600208 - HDR image decomposition failed. Possible causes: 1. Decomposition processing
+   *     is not supported. 2. Processing error occurs.
+   * @throws { BusinessError } 7600301 - Alloc memory failed.
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function decomposeToPicture(hdrPixelMap : PixelMap, options?: HdrDecomposeOptions): Promise<Picture | undefined>;
+
+  /**
    * An image that contains special information can be decoded into a picture object, which generally contains the main 
    * picture, auxiliary picture, and metadata. The main picture contains most information about the image and is mainly 
    * used to render the image. The auxiliary picture is used to store data related to but different from the main 
