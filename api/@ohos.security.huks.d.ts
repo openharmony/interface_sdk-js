@@ -89,7 +89,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
    *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario. [since 26.0.0]
@@ -131,7 +131,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
    *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario. [since 26.0.0]
@@ -466,7 +466,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000020 - the provider operation failed [since 26.0.0]
    * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 26.0.0]
@@ -552,7 +552,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000020 - the provider operation failed [since 26.0.0]
    * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 26.0.0]
