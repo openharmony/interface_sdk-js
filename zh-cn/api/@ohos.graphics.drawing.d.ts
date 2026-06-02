@@ -401,7 +401,7 @@ declare namespace drawing {
    * 
    * > **说明：**
    * 
-   * > ![WINDING&EVEN_ODD](figures/zh-ch_image_PathFillType_Winding_Even_Odd.png)
+   * > ![image_PathFillType_Winding_Even_Odd.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_PathFillType_Winding_Even_Odd.png)
    * 
    * > 如图所示圆环为路径，箭头指示路径的方向，p为区域内任意一点，蓝色线条为点p出发的射线，黑色箭头所指为对应填充规则下使用蓝色填
    * 充路径的结果。WINDING填充规则下，射线与路径的交点计数为2，不为0，点p被涂色；EVEN_ODD
@@ -5588,10 +5588,10 @@ declare namespace drawing {
    * 定义蒙版滤镜模糊中操作类型的枚举。
    * | 名称   | 值 | 说明               | 示意图   |
    * | ------ | - | ------------------ | -------- |
-   * | NORMAL | 0 | 全面模糊，外圈边缘和内部实体一起模糊。 | ![NORMAL](figures/zh-ch_image_BlueType_Normal.png) |
-   * | SOLID  | 1 | 内部实体不变，只模糊外圈边缘部分。 | ![SOLID](figures/zh-ch_image_BlueType_Solid.png) |
-   * | OUTER  | 2 | 只有外圈边缘模糊，内部实体完全透明。 | ![OUTER](figures/zh-ch_image_BlueType_Outer.png) |
-   * | INNER  | 3 | 只有内部实体模糊，外圈边缘清晰。 | ![INNER](figures/zh-ch_image_BlueType_Inner.png) |
+   * | NORMAL | 0 | 全面模糊，外圈边缘和内部实体一起模糊。 | ![image_BlueType_Normal.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Normal.png) |
+   * | SOLID  | 1 | 内部实体不变，只模糊外圈边缘部分。 | ![image_BlueType_Solid.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Solid.png) |
+   * | OUTER  | 2 | 只有外圈边缘模糊，内部实体完全透明。 | ![image_BlueType_Outer.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Outer.png) |
+   * | INNER  | 3 | 只有内部实体模糊，外圈边缘清晰。 | ![image_BlueType_Inner.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Inner.png) |
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -6386,11 +6386,11 @@ declare namespace drawing {
   /**
    * 矩阵对象。
    * 表示为3*3的矩阵，如下图所示：
-   * ![matrix_3x3](figures/matrix3X3.PNG)
+   * ![matrix_3x3](docroot://reference/apis-arkgraphics2d/figures/matrix3X3.PNG)
    * 矩阵中的元素从左到右，从上到下分别表示水平缩放系数、水平倾斜系数、水平位移系数、垂直倾斜系数、垂直缩放系数、垂直位移系数、X轴透视系数、Y轴透视系数、透视缩放系数。
    * 设(x<sub>1</sub>, y<sub>1</sub>)为源坐标点，(x<sub>2</sub>, y<sub>2</sub>)为源坐标点通过矩阵变换后的坐标点，则两个坐标点的关系如下：
-   * ![matrix_xy](figures/matrix_xy.PNG)
-   * 
+   * ![matrix_xy](docroot://reference/apis-arkgraphics2d/figures/matrix_xy.PNG)
+   *
    * > **说明：**
    * >
    * > - 本Class首批接口从API version 12开始支持。
@@ -6818,7 +6818,7 @@ declare namespace drawing {
     /**
      * 将目标矩形设置为源矩形通过矩阵变换后的图形的外接矩形。如下图所示，蓝色矩形为源矩形，假设黄色矩形为源矩形通过矩阵变换形成的图形，此时黄色矩形的边不与坐标轴平行，无法使用矩形对象表示，因此，将目标矩形设置为黄色矩形的外接矩形，即
      * 黑色矩形。
-     * ![mapRect](figures/zh-ch_matrix_mapRect.png)
+     * ![mapRect](docroot://reference/apis-arkgraphics2d/figures/zh-ch_matrix_mapRect.png)
      *
      * @param { common2D.Rect } dst - 目标矩形对象，用于存储源矩形经矩阵变换后的图形的外接矩形。
      * @param { common2D.Rect } src - 源矩形对象。

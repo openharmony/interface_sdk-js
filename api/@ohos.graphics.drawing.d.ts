@@ -407,7 +407,7 @@ declare namespace drawing {
    *
    * > **NOTE**
    *
-   * > ![WINDING&EVEN_ODD](figures/image_PathFillType_Winding_Even_Odd.png)
+   * > ![image_PathFillType_Winding_Even_Odd.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_PathFillType_Winding_Even_Odd.png)
    *
    * > As shown in the above figure, the path is a circle, the arrow indicates the path direction, **p** is any point "
    * > inside" the path, the blue line is the ray emitted from **p**, and the black arrow indicates the fill result
@@ -4207,38 +4207,6 @@ declare namespace drawing {
     getTextPath(text: string, byteLength: int, x: double, y: double): Path | undefined;
 
     /**
-     * Gets the path outline for the given text with font fallback support.
-     *
-     * @param { string } text - UTF-8 text-encoded.
-     * @param { number } byteLength - The length of the text in bytes.
-     *     which is obtained based on the minimum value between the passed value of byteLength and
-     *     the actual text byte size.
-     * @param { number } x - X coordinate of the text in the drawing area, with the origin as the start point.
-     * @param { number } y - Y coordinate of the text in the drawing area, with the origin as the start point.
-     * @returns { Path } Outline path of the text.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    getTextPathWithFallback(text: string, byteLength: number, x: number, y: number): Path;
-
-    /**
-     * Gets the path outline for the given text with font fallback support.
-     *
-     * @param { string } text - UTF-8 text-encoded.
-     * @param { int } byteLength - The length of the text in bytes.
-     *     which is obtained based on the minimum value between the passed value of byteLength and
-     *     the actual text byte size.
-     * @param { double } x - X coordinate of the text in the drawing area, with the origin as the start point.
-     * @param { double } y - Y coordinate of the text in the drawing area, with the origin as the start point.
-     * @returns { Path | undefined } Returns the path outline for the text.
-     * @syscap SystemCapability.Graphics.Drawing
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    getTextPathWithFallback(text: string, byteLength: int, x: double, y: double): Path | undefined;
-
-    /**
      * Sets whether to follow the theme font. When **followed** is set to **true**, the theme font is used if it is
      * enabled by the system and no typeface is set.
      *
@@ -5985,14 +5953,14 @@ declare namespace drawing {
    * Enumerates the blur types of a mask filter.
    * | Name  | Value| Description              | Diagram  |
    * | ------ | - | ------------------ | -------- |
-   * | NORMAL | 0 | Both the outer edges and the inner solid parts are blurred.| !
-   * [NORMAL](figures/image_BlueType_Normal.png)|
-   * | SOLID  | 1 | The inner solid part remains unchanged, while only the outer edges are blurred.| !
-   * [SOLID](figures/image_BlueType_Solid.png)|
-   * | OUTER  | 2 | Only the outer edges are blurred, with the inner solid part being fully transparent.| !
-   * [OUTER](figures/image_BlueType_Outer.png)|
-   * | INNER  | 3 | Only the inner solid part is blurred, while the outer edges remain sharp.| !
-   * [INNER](figures/image_BlueType_Inner.png)|
+   * | NORMAL | 0 | Both the outer edges and the inner solid parts are blurred.|
+   * ![image_BlueType_Normal.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Normal.png)|
+   * | SOLID  | 1 | The inner solid part remains unchanged, while only the outer edges are blurred.|
+   * ![image_BlueType_Solid.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Solid.png)|
+   * | OUTER  | 2 | Only the outer edges are blurred, with the inner solid part being fully transparent.|
+   * ![image_BlueType_Outer.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Outer.png)|
+   * | INNER  | 3 | Only the inner solid part is blurred, while the outer edges remain sharp.|
+   * ![image_BlueType_Inner.png](docroot://reference/apis-arkgraphics2d/figures/zh-ch_image_BlueType_Inner.png)|
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @crossplatform [since 20]
@@ -6836,7 +6804,7 @@ declare namespace drawing {
   /**
    * Implements a matrix.
    * A 3 x 3 matrix is shown as below.
-   * ![matrix_3x3](figures/matrix3X3.PNG)
+   * ![matrix_3x3](docroot://reference/apis-arkgraphics2d/figures/matrix3X3.PNG)
    * Elements in the matrix from left to right and from top to bottom respectively represent a horizontal scale
    * coefficient, a horizontal skew coefficient, a horizontal translation coefficient, a vertical skew coefficient, a
    * vertical scale coefficient, a vertical translation coefficient, an X-axis perspective coefficient, a Y-axis
@@ -6844,7 +6812,7 @@ declare namespace drawing {
    * If (x<sub>1</sub>, y<sub>1</sub>) is the source coordinate point, (x<sub>2</sub>, y<sub>2</sub>) is the coordinate
    * point obtained by transforming the source coordinate point using the matrix, then the relationship between the two
    * coordinate points is as follows:
-   * ![matrix_xy](figures/matrix_xy.PNG)
+   * ![matrix_xy](docroot://reference/apis-arkgraphics2d/figures/matrix_xy.PNG)
    *
    * > **NOTE**
    * >
@@ -7350,7 +7318,7 @@ declare namespace drawing {
      * rectangle. Since the edges of the yellow rectangle are not aligned with the coordinate axes, it cannot be
      * represented by a rectangle object. To address this issue, a destination rectangle (black rectangle) is defined as
      * the bounding rectangle.
-     * ![mapRect](figures/matrix_mapRect.png)
+     * ![mapRect](docroot://reference/apis-arkgraphics2d/figures/zh-ch_matrix_mapRect.png)
      *
      * @param { common2D.Rect } dst - **Rectangle** object, which is used to store the bounding rectangle.
      * @param { common2D.Rect } src - Source rectangle.
