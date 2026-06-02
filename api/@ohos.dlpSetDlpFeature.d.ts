@@ -27,7 +27,7 @@
  * > **NOTE**
  * >
  * > The APIs provided by this module are system APIs.
- * 
+ *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @systemapi
  * @stagemodelonly
@@ -36,7 +36,7 @@
 declare namespace dlpSetDlpFeature {
     /**
      * Describes the DLP settings.
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -46,7 +46,7 @@ declare namespace dlpSetDlpFeature {
         /**
          * Whether the DLP setting is successful. The value **true** indicates that the setting is successful, and the
          * value **false** indicates that the setting fails.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -57,7 +57,7 @@ declare namespace dlpSetDlpFeature {
 
     /**
      * Enumerates DLP statuses.
-     * 
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -66,7 +66,7 @@ declare namespace dlpSetDlpFeature {
     export enum DlpFeatureStatus {
         /**
          * DLP disabled.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -75,7 +75,7 @@ declare namespace dlpSetDlpFeature {
         NOT_ENABLED_FEATURE = 0,
         /**
          * DLP enabled.
-         * 
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -86,8 +86,7 @@ declare namespace dlpSetDlpFeature {
 
     /**
      * Sets the DLP status.
-     * 
-     * @interface DLPFeatureInfo
+     *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @systemapi
      * @stagemodelonly
@@ -96,8 +95,7 @@ declare namespace dlpSetDlpFeature {
     export interface DLPFeatureInfo {
         /**
          * DLP status, which can be set to **NOT_ENABLED_FEATURE** or **ENABLED_FEATURE**.
-         * 
-         * @type { DlpFeatureStatus }
+         *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi
          * @stagemodelonly
@@ -114,7 +112,7 @@ declare namespace dlpSetDlpFeature {
      * shortcut menu. Files in .txt, .pdf, .xls, .xlsx, .ppt, .pptx, .doc, and .docx formats can be encrypted.
      * 
      * This API is used to enable or disable the DLP function in enterprise policies.
-     * 
+     *
      * @param { DlpFeatureStatus } status - DLP status. The value **ENABLED_FEATURE** indicates the DLP feature is 
      *     enabled; the value **NOT_ENABLED_FEATURE** indicates the DLP feature is disabled, and the encryption option 
      *     is not displayed in the menu. If the value is out of range, error code 19100001 is thrown.
