@@ -6907,6 +6907,44 @@ declare namespace call {
      */
     REMOTE_REQUEST_UPGRADE_LOCAL_REJECT = 3
      }
+
+  /**
+   * Indicates the type of the XCall.
+   *
+   * @syscap SystemCapability.Telephony.CallManager
+   * @systemapi Hide this for inner system use.
+   * @FaAndStageModel
+   * @since 26.0.0 dynamic&static
+   */
+  export enum XCallType {  
+    /**
+     * Indicates the xcall is Ecall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_ECALL_TYPE = 0,
+    /**
+     * Indicates the xcall is Bcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_BCALL_TYPE = 1,
+    /**
+     * Indicates the xcall is Icall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    XCALL_ICALL_TYPE = 2
+    }
 }
 
 export default call;
