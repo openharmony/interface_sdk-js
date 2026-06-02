@@ -1160,7 +1160,7 @@ function extractDynamicContent(message: string, extractors?: ContentExtractor[])
   for (const extractor of extractors) {
     const match = message.match(extractor.regex);
     if (match?.[1]) {
-      extractedValues[extractor.name] = match[1].trim();
+      extractedValues[extractor.name] = match[1].trim().replace('.', '');
     }
   }
   return extractedValues;
