@@ -52,4 +52,4 @@ export interface ToolEventCallback {
    * @since 26.0.0 dynamic&static
    */
   onEvent: OnEventFn;
-}
+}

@@ -96,4 +96,4 @@ export enum ToolEventType {
    * @since 26.0.0 dynamic&static
    */
   ERROR = 'error'
-}
+}
