@@ -22,11 +22,12 @@
  * This module controls the Data Loss Prevention (DLP) feature, including enabling or disabling DLP and returning the 
  * DLP status.
  * 
- * **Since:** 26.0.0
+ * **Use scenarios**
  * 
- * > **NOTE**
- * >
- * > The APIs provided by this module are system APIs.
+ * - Data security compliance requirements must be met.
+ * - Access control and encryption protection are provided for confidential files.
+ * 
+ * **Since:** 26.0.0
  *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @systemapi
