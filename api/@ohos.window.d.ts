@@ -4418,10 +4418,7 @@ declare namespace window {
   interface OrientationResult {
     /**
       * Execution result of setting preferred orientation.
-      * The result can be one of the following:
-      * - ORIENTATION_APPLIED: The orientation has been successfully applied. This occurs when the orientation setting takes effect immediately.
-      * - ORIENTATION_IGNORED: The orientation setting is ignored. This occurs when the orientation cannot be changed due to system constraints or policy restrictions.
-      * - ORIENTATION_PENDING: The orientation setting is pending and will be applied after system animations complete. This occurs when the orientation change is deferred to avoid conflicts with ongoing system operations.
+      * For detailed information about each result type, see {@link OrientationExecutionResult}.
       *
       * @syscap SystemCapability.Window.SessionManager
       * @stagemodelonly
