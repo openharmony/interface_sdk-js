@@ -4418,7 +4418,6 @@ declare namespace window {
   interface OrientationResult {
     /**
       * Execution result of setting preferred orientation.
-      * For detailed information about each result type, see {@link OrientationExecutionResult}.
       *
       * @syscap SystemCapability.Window.SessionManager
       * @stagemodelonly
