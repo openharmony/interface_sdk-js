@@ -1207,13 +1207,13 @@ declare namespace call {
    *     Whether the SIM card exists will be checked.
    * @returns { Promise<CallTransferResult> } - Call transfer status.
    * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 801 - Capability not supported. 
+   * @throws { BusinessError } 801 - Capability not supported.
    *      
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error. 
+   * @throws { BusinessError } 8300003 - System internal error.
    * @throws { BusinessError } 8401002 - Invalid input call number.
-   * @throws { BusinessError } 8401003 - Operation too frequent. 
+   * @throws { BusinessError } 8401003 - Operation too frequent.
    *      
    * @syscap SystemCapability.Telephony.CallManager
    * @FaAndStageModel
@@ -1408,25 +1408,6 @@ declare namespace call {
    * @since 7 dynamic
    */
   function on(type: 'callDetailsChange', callback: Callback<CallAttributeOptions>): void;
-
-  /**
-   * Subscribe to the callDetailsChange event.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { Callback<CallAttributeOptions> } callback - Indicates the callback for getting the result of call details.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-   *     2. Incorrect parameters types;
-   * @throws { BusinessError } 8300001 - Invalid parameter value.
-   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8300003 - System internal error.
-   * @throws { BusinessError } 8300999 - Unknown error code.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @since 24 static
-   */
-  function onCallDetailsChange(callback: Callback<CallAttributeOptions>): void;
 
   /**
    * Unsubscribe from the callDetailsChange event.
