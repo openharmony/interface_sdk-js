@@ -203,7 +203,7 @@ declare namespace audio {
    * @since 8
    */
   /**
-   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the 
+   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the
    * capturer instance.
    * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
    * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
@@ -216,12 +216,12 @@ declare namespace audio {
   function createAudioCapturer(options: AudioCapturerOptions, callback: AsyncCallback<AudioCapturer>): void;
 
   /**
-   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the 
+   * Obtains an {@link #AudioCapturer} instance. This method uses an asynchronous callback to return the
    * capturer instance.
    * Using {@link #AudioCapturer} to record audio will need permission according to different {@link #Sourcetype}
    * in options parameter, like {@link #ohos.permission.MICROPHONE} for the most microphone recording cases.
    * @param { AudioCapturerOptions } options - Capturer configurations.
-   * @param { AsyncCallback<AudioCapturer | null> } callback - Callback used to return the audio capturer 
+   * @param { AsyncCallback<AudioCapturer | null> } callback - Callback used to return the audio capturer
    *     instance, or null if any error occurs.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @throws { BusinessError } 6800301 - Audio system internal error, such as system crash.
@@ -1949,7 +1949,7 @@ declare namespace audio {
     SAMPLE_RATE_192000 = 192000,
     /**
      * 384kHz sample rate.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -4014,6 +4014,18 @@ declare namespace audio {
     getDebuggingManager(): AudioDebuggingManager;
 
     /**
+     * Obtains a recording manager instance. Provides recording strategy management, including collaborative recording and recording control capabilities.
+     *
+     * @returns { AudioRecordingManager } Returns an instance of audio record manager.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getRecordingManager(): AudioRecordingManager;
+
+    /**
      * user disable the safe media volume state.
      * @permission ohos.permission.MODIFY_AUDIO_SETTINGS
      * @returns { Promise<void> } Promise used to return the result.
@@ -4871,7 +4883,7 @@ declare namespace audio {
      * @since 12 dynamic
      */
     on(type: 'preferredInputDeviceChangeForCapturerInfo', capturerInfo: AudioCapturerInfo, callback: Callback<AudioDeviceDescriptors>): void;
-    
+
     /**
      * Subscribes to preferred input device change events. When preferred device for target
      * audio capturer info changes, registered clients will receive the callback.
@@ -5033,7 +5045,7 @@ declare namespace audio {
      * @since 23 static
      */
     offMicBlockStatusChanged(callback?: Callback<DeviceBlockStatusInfo>): void;
-    
+
     /**
      * Exclude output devices. After calling this function successfully, audio will not be played on the specified
      * devices. Note that only the external ouput device can be excluded by this function. Local output devices is not
@@ -6492,7 +6504,7 @@ declare namespace audio {
     /**
      * Set the audio output device to the built-in speaker, when other audio peripherals
      * are connected, such as bluetooth headphones or wired headsets. It should be noted
-     * that this interface only applies to media streams. 
+     * that this interface only applies to media streams.
      * In scenarios where there are concurrent playback streams with higher priority or user
      * selects the output device through system UI, the actual output device used by
      * the application may differ from the selected one. The application can obtain currently
@@ -7443,7 +7455,7 @@ declare namespace audio {
     /**
      * Subscribes to system volume change events.
      * When the system volume for the target filter changes, registered clients will receive a callback.
-     * 
+     *
      * @param { SystemVolumeFilter } filter - Filter for system volume changes.
      * @param { Callback<VolumeEvent> } callback - Callback to receive information about
      *     the system volume.
@@ -8312,7 +8324,7 @@ declare namespace audio {
      * @since 23 static
      */
     offMicStateChange(callback?: Callback<MicStateChangeEvent>): void;
-    
+
     /**
      * Gets if this volume group is volume unadjustable.
      * @returns { boolean } Whether it is volume unadjustable.
@@ -8574,7 +8586,7 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     SPATIAL_AUDIO_SOURCE_TYPE_MULTI_CHANNEL = 2
-  }  
+  }
 
   /**
    * This interface is used to notify the listener of any device Spatialization or Head Tracking enable state change.
@@ -9199,7 +9211,7 @@ declare namespace audio {
 
   /**
    * Volume type for audio separation effect.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Audio.Core
    * @systemapi
    * @stagemodelonly
@@ -9287,7 +9299,7 @@ declare namespace audio {
      * Sets audio separation effect enable or disable for specific application process,
      * or for specific audio playback stream.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { boolean } enabled - The required effect state, true for enabled, false for disabled.
      * @param { int } uid - The uid of target application process to add effect.
@@ -9311,7 +9323,7 @@ declare namespace audio {
      * Subscribes to system audio separation effect enabled state change event.
      * The audio separation effect state in system can be set by system playback controller application,
      * other applications can use this function to listen the change event.
-     * 
+     *
      * @param { Callback<boolean> } callback - Callback used to listen the system audio separation effect
      *     enabled state change event.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -9324,7 +9336,7 @@ declare namespace audio {
 
     /**
      * Unsubscribes from the system audio separation effect enabled state change event.
-     * 
+     *
      * @param { Callback<boolean> } [callback] - The callback used in subscription function for unsubscribing.
      *     If not using this parameter, all callbacks subscribed in current process before will be unsubscribed.
      * @throws { BusinessError } 202 - Caller is not a system application.
@@ -9339,7 +9351,7 @@ declare namespace audio {
     /**
      * Sets audio separation effect volume for specific volume type.
      * This API uses a promise to return the result.
-     * 
+     *
      * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
      * @param { AudioSeparationVolumeType } type - The type to set volume.
      * @param { double } volume - The target volume value.
@@ -9380,7 +9392,7 @@ declare namespace audio {
 
     /**
      * Checks whether the collaborative playback is supported for the specified device.
-     * 
+     *
      * @param { AudioDeviceDescriptor } deviceDescriptor - Audio device descriptor to check.
      * @returns { boolean } Whether the collaborative playback is supported for the specified device.
      * @throws { BusinessError } 202 - Not system application.
@@ -9424,6 +9436,137 @@ declare namespace audio {
      * @since 23 static
      */
     isCollaborativePlaybackEnabledForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+  }
+
+  /**
+   * Defines the configuration for the system recording controller panel.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerConfig {
+    /**
+     * The system uses this to determine the recording scenario of the application according to
+     * the SourceType that the application expects to use for streaming, and provides users with
+     * the ability to select matching noise reduction modes. The supported source types include
+     * {@link SourceType#SOURCE_TYPE_MIC}, {@link SourceType#SOURCE_TYPE_CAMCORDER}, and
+     * {@link SourceType#SOURCE_TYPE_LIVE}.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType: SourceType;
+  }
+
+  /**
+   * Defines the information carried when the system recording controller state changes.
+   * It includes the enable status, application UID and expected audio source type.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SystemRecordControllerChangeInfo {
+    /**
+     * Whether the system recording controller panel is enabled.
+     * The value true means the panel is enabled, and false means disabled.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enabled: boolean;
+
+    /**
+     * The UID of the application that triggers the system recording controller state change.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    uid?: int;
+
+    /**
+     * The expected audio source type configured by the application when enabling the recording controller.
+     * It is used to match the corresponding recording scenario and noise reduction mode.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    sourceType?: SourceType;
+  }
+
+  /**
+   * Provides recording strategy management, including collaborative recording
+   * and recording control capabilities.
+   *
+   * @syscap SystemCapability.Multimedia.Audio.Capturer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  interface AudioRecordingManager {
+    /**
+     * Enables or disables the system recording controller panel.
+     * The application can call this API to pull up the recording controller panel before starting the recording stream,
+     * allowing the user to finish selecting the recording device or audio effect parameters.
+     * The recording service can then be started to avoid inconsistent audio effects caused by switching during the
+     * recording process.
+     * The application must be in the foreground to enable the panel; the enable operation does not take effect
+     * if the application is in the background. Disabling the panel is not restricted by the application's
+     * foreground or background status.
+     * The API uses a promise to return the result.
+     *
+     * @param { boolean } show - A boolean value indicating whether to show (true) or hide (false)
+     *     the system recording controller panel.
+     * @param { SystemRecordControllerConfig } config - Configuration for the system recording controller panel.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    enableSystemRecordController(show: boolean, config: SystemRecordControllerConfig): Promise<void>;
+
+    /**
+     * Subscribes to the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } callback - Callback used to listen
+     *     whether the system recording controller panel enabled state change event.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800102 - Memory allocation failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onSystemRecordControllerEnabledChange(callback: Callback<SystemRecordControllerChangeInfo>): void;
+
+    /**
+     * Unsubscribes from the system recording controller panel enabled state change event.
+     *
+     * @param { Callback<SystemRecordControllerChangeInfo> } [callback] - The Callback used in subscription
+     *     function for unsubscribing. If not using this parameter, all callbacks subscribed in current
+     *     process before will be unsubscribed.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @throws { BusinessError } 6800301 - Audio service error occurs like service died.
+     * @syscap SystemCapability.Multimedia.Audio.Capturer
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offSystemRecordControllerEnabledChange(callback?: Callback<SystemRecordControllerChangeInfo>): void;
   }
 
   /**
@@ -12342,7 +12485,7 @@ declare namespace audio {
      * @since 23 static
      */
     onPeriodReach(frame: long, callback: Callback<long>): void;
-    
+
     /**
      * Unsubscribes from period reached events.
      * @param { 'periodReach' } type - Type of the event to listen for. Only the periodReach event is supported.
@@ -12630,7 +12773,7 @@ declare namespace audio {
      * @since 23 static
      */
     offWriteData(callback?: AudioRendererWriteDataCallback): void;
-  
+
     /**
      * Gets the estimated audio latency in milliseconds for current audio route. For wireless connection
      * audio devices cases, the latency result may not be very accurate, system just provides it for reference only.
@@ -13060,7 +13203,7 @@ declare namespace audio {
   /**
    * Describes audio capturer data that contains processed audio data and
    * microphone input (mic-in) audio data before any processing.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Audio.Capturer
    * @systemapi
    * @stagemodelonly
@@ -13069,7 +13212,7 @@ declare namespace audio {
   interface AudioCapturerMicInData {
     /**
      * Processed audio data buffer.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -13078,7 +13221,7 @@ declare namespace audio {
     data: ArrayBuffer;
     /**
      * Microphone input audio data buffer.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -13089,7 +13232,7 @@ declare namespace audio {
      * Echo reference audio data buffer.
      * If capturer config does not set ecStreamInfo, this buffer will be null.
      * See {@link #AudioCapturerMicInConfig} for details.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @systemapi
      * @stagemodelonly
@@ -13681,7 +13824,7 @@ declare namespace audio {
      * @since 23 static
      */
     onMarkReach(frame: long, callback: Callback<long>): void;
-    
+
     /**
      * Unsubscribes from the mark reached events.
      * @param { 'markReach' } type - Type of the event to listen for. Only the markReach event is supported.
@@ -14104,7 +14247,7 @@ declare namespace audio {
      * If this callback and 'readData' callback are both subscribed, only this callback will be triggered.
      * See {@link #onReadData} for more details.
      * The event is triggered when an audio buffer is available for reading more data.
-     * 
+     *
      * @param { Callback<AudioCapturerMicInData> } callback - Callback for the buffers to read.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800103 - Operation not permitted at running state.
@@ -14117,7 +14260,7 @@ declare namespace audio {
 
     /**
      * Unsubscribes from micIn audio data callback.
-     * 
+     *
      * @param { Callback<AudioCapturerMicInData> } [callback] - Callback for the buffers to read.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -15743,7 +15886,7 @@ declare namespace audio {
 
   /**
    * Describes an audio device pair including both input and output devices.
-   * 
+   *
    * @syscap SystemCapability.Multimedia.Audio.Device
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -15751,7 +15894,7 @@ declare namespace audio {
   interface AudioDevicePair {
     /**
      * Input audio device descriptor.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -15760,7 +15903,7 @@ declare namespace audio {
 
     /**
      * Output audio device descriptor.
-     * 
+     *
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -15806,7 +15949,7 @@ declare namespace audio {
 
     /**
      * Gets the output volume for audio loopback.
-     * 
+     *
      * @returns { double } Current audio loopback output volume value.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
      * @stagemodelonly
@@ -15858,7 +16001,7 @@ declare namespace audio {
 
     /**
      * Gets supported audio device pairs in current device connection situation.
-     * 
+     *
      * @returns { Array<AudioDevicePair> } Audio device pairs that support loopback,
      *     if there is no supported device pair, empty array will be returned.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
@@ -15869,7 +16012,7 @@ declare namespace audio {
 
     /**
      * Gets the preferred audio device pair in current device connection situation.
-     * 
+     *
      * @returns { AudioDevicePair | null }  The preferred audio device pair in audio system,
      *     or null if there is no supported device pair.
      * @syscap SystemCapability.Multimedia.Audio.Capturer
