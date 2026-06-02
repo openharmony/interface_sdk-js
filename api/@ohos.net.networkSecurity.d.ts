@@ -206,8 +206,8 @@ declare namespace networkSecurity {
    * @throws { BusinessError } 2305018 - Self-signed certificate.
    * @throws { BusinessError } 2305024 - Invalid certificate authority (CA).
    * @throws { BusinessError } 2305027 - Certificate is untrusted.
+   * @throws { BusinessError } 2305062 - Invalid hostname.
    * @throws { BusinessError } 2305069 - Invalid certificate verification context.
-   * @throws { BusinessError } 2305070 - Invalid hostname.
    * @syscap SystemCapability.Communication.NetStack
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
