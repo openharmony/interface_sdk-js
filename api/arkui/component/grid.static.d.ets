@@ -703,7 +703,7 @@ export declare interface GridAttribute extends ScrollableCommonMethod {
      * Sets the focus wrap mode of the Gird component.
      *
      * @param { FocusWrapMode | undefined } mode - the focus wrap mode of the Grid component.
-     *     <br>Default value: **FocusWrapMode.DEFAULT**. Passing undefined will restore the default value.
+     *     <br>Default value: <em>FocusWrapMode.DEFAULT</em>. Passing undefined will restore the default value.
      * @returns { this } the attribute of the Grid.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
