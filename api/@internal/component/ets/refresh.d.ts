@@ -465,7 +465,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * The pull-down offset to trigger refresh.
    *
-   * @param { number } value
+   * @param { number } value - The pull-down offset to trigger refresh, in vp.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -478,7 +478,7 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * The pull-down offset to trigger refresh.
    *
-   * @param { number | Resource } value - The pull-down offset to trigger refresh.
+   * @param { number | Resource } value - The pull-down offset to trigger refresh, in vp.
    * @returns { RefreshAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -544,8 +544,12 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * The max pull down distance for Refresh.
    *
-   * @param { Optional<number> } distance - The max pull down distance for Refresh,
-   * value range is [0, +∞), default value is { undefined }. 
+   * @param { Optional<number> } distance - The max pull down distance for Refresh, in vp.
+   * The value must be greater than or equal to 0. Values less than 0 are treated as 0.
+   * If this value is less than the refresh pull-down offset (<em>refreshOffset</em>),
+   * releasing after pull-down will not trigger a refresh.
+   * <br>Setting the value to <em>undefined</em> or <em>null</em> means this attribute is not set,
+   * i.e., there is no maximum pull-down distance limit.
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -558,8 +562,12 @@ declare class RefreshAttribute extends CommonMethod<RefreshAttribute> {
   /**
    * The max pull down distance for Refresh.
    *
-   * @param { number | Resource | undefined } distance - The max pull down distance for Refresh,
-   * value range is [0, +∞), default value is { undefined }. 
+   * @param { number | Resource | undefined } distance - The max pull down distance for Refresh, in vp.
+   * The value must be greater than or equal to 0. Values less than 0 are treated as 0.
+   * If this value is less than the refresh pull-down offset (<em>refreshOffset</em>),
+   * releasing after pull-down will not trigger a refresh.
+   * <br>Setting the value to <em>undefined</em> or <em>null</em> means this attribute is not set,
+   * i.e., there is no maximum pull-down distance limit.
    * @returns { RefreshAttribute } The attribute of the Refresh.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

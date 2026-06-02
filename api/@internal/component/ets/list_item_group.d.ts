@@ -240,7 +240,7 @@ declare interface ListItemGroupOptions {
   space?: number | string;
 
   /**
-   * Spacing between list items along the main axis.
+   * Spacing between list items along the main axis.<br>Unit: vp
    * 
    * <p><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
@@ -283,7 +283,7 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup header style.
-   * @default ListItemGroupAttribute.NONE
+   * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -294,7 +294,7 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup footer style.
-   * @default ListItemGroupAttribute.NONE
+   * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
