@@ -751,7 +751,7 @@ declare namespace dlpPermission {
      *     error code 19100001 is thrown.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to receive information about the application
      *     sandbox. The callback parameters include **err** and **res**. **err** is **undefined** when the operation is
-     *     successful; otherwise, **err** is an error object. **res** is a **DLPSandboxInfo** object that contains
+     *     successful; otherwise, err is an error object. **res** is a **DLPSandboxInfo** object that contains
      *     information about the application sandbox.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -851,9 +851,9 @@ declare namespace dlpPermission {
      * environment. After the registration, the system notifies the application using a callback when the DLP sandbox is
      * uninstalled.
      * 
-     * After a listener is registered by calling **on()**, you are advised to call **off()** to unregister the listener
+     * After a listener is registered by calling **on()**, you are advised to call **off()** to unregister the listener 
      * and release resources when the listener is no longer needed.
-     *
+     * 
      * The DLP management application needs to track the creation and destruction status of the sandbox to maintain the 
      * sandbox list or release resources.
      *
@@ -1220,9 +1220,9 @@ declare namespace dlpPermission {
          * Before deleting a link file, stop the read and write.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to receive the result of stopping read and write on 
-         *      the FUSE. The callback parameter is **err**. **err** is **undefined** when the operation is successful; 
-         *      otherwise, err is an error object.
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of stopping read and write on
+         *     the FUSE. The callback parameter is **err**. **err** is **undefined** when the operation is successful;
+         *     otherwise, err is an error object.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
          * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types.
@@ -1529,7 +1529,7 @@ declare namespace dlpPermission {
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to receive the result of generating a DLP file. The
-     *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful; 
+     *     callback parameters include **err** and **res**. **err** is **undefined** when the operation is successful;
      *     otherwise, err is an error object. **res** is a **DLPFile** object that represents the DLP file generated.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
