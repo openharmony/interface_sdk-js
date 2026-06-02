@@ -52,7 +52,8 @@ import {
   ERROR_CODE_INFO,
   ERROR_MATCH_RULES,
   ErrorMatchRule,
-  ContentExtractor
+  ContentExtractor,
+  ErrorFormatRule
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -1063,7 +1064,7 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
   const runTimeOS: string = globalObject.projectConfig.runtimeOS;
   
   // 1. Use new keyword-based matching strategy
-  const matchResult = findErrorMatchRule(message, runTimeOS);
+  const matchResult: ErrorFormatRule | undefined = findErrorMatchRule(message, runTimeOS);
   
   // 2. Fallback to original logic if keyword matching fails
   let diagnosticInfo: SdkHvigorLogInfo = {
@@ -1079,10 +1080,10 @@ function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
   if (matchResult) {
     diagnosticInfo = {
       code: matchResult.errorCode,
-      description: matchResult.description || ERROR_CODE_INFO.get(matchResult.templateKey)?.description || '',
-      cause: matchResult.templateKey,
+      description: matchResult.description || '',
+      cause: matchResult.cause,
       position: fileInfo,
-      solutions: ERROR_CODE_INFO.get(matchResult.templateKey)?.solutions || []
+      solutions: matchResult.solutions
     };
   }
 
@@ -1175,12 +1176,7 @@ function buildDescription(template: string, extractedValues: Record<string, stri
   return description;
 }
 
-function findErrorMatchRule(message: string, runTimeOS: string): {
-  errorCode: string;
-  templateKey: string;
-  description: string;
-  extractedValues?: Record<string, string>;
-} | undefined {
+function findErrorMatchRule(message: string, runTimeOS: string): ErrorFormatRule | undefined {
   const normalizedMessage = message.trim();
 
   for (const rule of ERROR_MATCH_RULES) {
@@ -1189,13 +1185,16 @@ function findErrorMatchRule(message: string, runTimeOS: string): {
     }
 
     const templateKey = generateTemplateKey(normalizedMessage, rule, runTimeOS);
+    const solutions = ERROR_CODE_INFO.get(templateKey)?.solutions || [];
+    const cause = normalizedMessage;
     const extractedValues = extractDynamicContent(normalizedMessage, rule.extractors);
     const description = buildDescription(rule.descriptionTemplate || '', extractedValues);
 
     return {
       errorCode: rule.errorCode,
-      templateKey,
+      cause,
       description,
+      solutions,
       extractedValues
     };
   }

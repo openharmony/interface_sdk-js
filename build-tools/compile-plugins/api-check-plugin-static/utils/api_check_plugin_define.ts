@@ -176,6 +176,14 @@ export interface ErrorMatchRule {
   extractors?: ContentExtractor[];
 }
 
+export interface ErrorFormatRule {
+  errorCode: string;
+  cause: string;
+  description: string;
+  solutions: string[];
+  extractedValues?: Record<string, string>;
+}
+
 /**
  * Error message matching rule library
  * 
