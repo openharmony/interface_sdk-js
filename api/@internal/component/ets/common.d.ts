@@ -18511,6 +18511,7 @@ declare interface StateStyles {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form
    * @atomicservice
    * @since 26.0.0 dynamic
    */
