@@ -319,7 +319,7 @@ declare namespace dlpPermission {
      */
     function getDLPPermissionInfo(callback: AsyncCallback<DLPPermissionInfo>): void;
     /**
-     * Obtains the original file name of a DLP file. This API returns the result synchronously.
+     * Obtains the original name of a DLP file. This API returns the result synchronously.
      * 
      * Determine the file type based on the original file name extension and select an application to open the file.
      *
@@ -608,7 +608,7 @@ declare namespace dlpPermission {
      * This API is used to obtain the list of DLP files that are accessed recently, which can be used to track and 
      * manage file usage.
      *
-     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed files
+     * @returns { Promise<Array<AccessedDLPFileInfo>> } Promise used to return the list of recently accessed DLP files
      *     obtained.
      * @throws { BusinessError } 19100001 - Invalid parameter value.
      * @throws { BusinessError } 19100007 - No permission to call this API,
@@ -667,7 +667,7 @@ declare namespace dlpPermission {
      * [UIAbility]{@link @ohos.app.ability.UIAbility:UIAbility} page in borderless 
      * mode. This API uses a promise to return the result.
      * 
-     * This API starts the DLP manager application to configure file permissions and return the user operation result to 
+     * This API starts the DLP manager application to configure file permissions and return the user operation result to
      * the caller.
      * 
      * > **NOTE**
@@ -777,7 +777,7 @@ declare namespace dlpPermission {
         tokenID: number;
         /**
          * Index of the DLP sandbox application to be bound. This parameter is not returned by default. It is returned 
-         * only when the sandbox application is previewed. **Model restriction:** This API can be used only in the stage model.
+         * only when the sandbox application is previewed.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -1183,7 +1183,7 @@ declare namespace dlpPermission {
          */
         allowedOpenCount?: number;
         /**
-         * WWhether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
+         * Whether watermarks are required. **true**: yes; **false**: no. This parameter is left empty by default.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 23
@@ -1193,7 +1193,6 @@ declare namespace dlpPermission {
          * Validity period for file viewing, in seconds. After the validity period expires, the file is automatically 
          * closed. This parameter is left empty by default. The value must be greater than or equal to 0. If the value 
          * is out of range, error code 19100001 is thrown.
-         * **Model restriction**: This API can be used only in the stage model.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1202,7 +1201,6 @@ declare namespace dlpPermission {
         countdown?: number;
         /**
          * Extended attribute of a DLP file. This parameter is left empty by default.
-         * **Model restriction**: This API can be used only in the stage model.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1831,7 +1829,6 @@ declare namespace dlpPermission {
         enterprise: string;
         /**
          * Query options about an enterprise DLP file. This parameter is left blank by default. **Since**: 26.0.0
-         * **Model restriction:** This API can be used only in the stage model.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
@@ -1886,7 +1883,7 @@ declare namespace dlpPermission {
      * This API obtains the policy information of a DLP file for analysis in scenarios such as viewing the DLP file 
      * permission configuration.
      * 
-     * > **NOTE:**
+     * > **NOTE**
      * >
      * > This API can be called only by enterprise accounts.
      *
@@ -1973,7 +1970,7 @@ declare namespace dlpPermission {
      * This API is used by the enterprise administrator to configure DLP security policies for unified management of 
      * data security protection rules.
      * 
-     * > **NOTE:**
+     * > **NOTE**
      * >
      * > This API can be called only by enterprise accounts.
      *
@@ -1991,7 +1988,7 @@ declare namespace dlpPermission {
     /**
      * Registers the callback capability with the system ability (SA). This API is used in the **registerPlugin** API.
      * 
-     * > **NOTE:**
+     * > **NOTE**
      * >
      * > [registerPlugin]{@link dlpPermission.DlpConnManager.registerPlugin} requires identical parameters to this API. 
      * > [connectServer]{@link dlpPermission.DlpConnPlugin.connectServer} is called by the SA and the parameters are 
@@ -2074,7 +2071,7 @@ declare namespace dlpPermission {
         static registerPlugin(plugin: DlpConnPlugin): number;
         /**
          * Unregisters a callback from the SA.
-         *  
+         * 
          * This API unregisters a callback and releases resources when an application exits, ensuring that the callback 
          * capability is correctly released.
          * 
@@ -2133,6 +2130,7 @@ declare namespace dlpPermission {
      * 
      * This API can be called to close enterprise DLP files in batches, clear file resources, or release file handles 
      * before exiting the application.
+     * 
      * > **NOTE**
      * >
      * > This API can only close enterprise DLP files generated by the caller app through 
