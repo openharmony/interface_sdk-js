@@ -55,9 +55,8 @@ export interface Callback<T> {
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
-   * 接口调用失败的公共错误信息。
    *
-   * @param { T } err
+   * @param { T } err 接口调用失败的公共错误信息。
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]

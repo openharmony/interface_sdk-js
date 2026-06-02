@@ -57,7 +57,6 @@ export @interface Available {
  * @form
  * @atomicservice
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 export const enum SuppressWarningsType {
   /**
@@ -69,7 +68,6 @@ export const enum SuppressWarningsType {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   COMPATIBILITY = 'compatibility',
   /**
@@ -81,11 +79,10 @@ export const enum SuppressWarningsType {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   SYSCAP = 'syscap',
   /**
-   * Support for suppressing generated permission warnings.
+   * Permission warning.
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
@@ -108,7 +105,6 @@ export const enum SuppressWarningsType {
  * @form
  * @atomicservice
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 export @interface SuppressWarnings {
   /**
@@ -120,7 +116,6 @@ export @interface SuppressWarnings {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   rules: Array<SuppressWarningsType>;
 }
