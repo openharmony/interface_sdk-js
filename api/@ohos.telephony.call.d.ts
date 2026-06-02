@@ -4164,7 +4164,7 @@ declare namespace call {
      * @deprecated since 11
      * @useinstead telephony.call#TYPE_VIDEO_BIDIRECTIONAL
      */
-    TYPE_VIDEO,
+    TYPE_VIDEO = 1,
     /**
      * Indicates the call is in send only video state.
      *
