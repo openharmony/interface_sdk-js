@@ -23,7 +23,7 @@ import type Want from './@ohos.app.ability.Want';
 import _DriverExtensionContext from './application/DriverExtensionContext';
 
 /**
- * Define a DriverExtensionContext for store context.
+ * DriverExtensionAbility的上下文环境。
  *
  * @typedef { _DriverExtensionContext }
  * @syscap SystemCapability.Driver.ExternalDevice
@@ -33,8 +33,7 @@ import _DriverExtensionContext from './application/DriverExtensionContext';
 export type DriverExtensionContext = _DriverExtensionContext;
 
 /**
- * The **DriverExtensionAbility** module provides the ExtensionAbility related to drivers. It provides lifecycle
- * callbacks to be invoked when a driver is created, destroyed, connected, or disconnected.
+ * DriverExtensionAbility模块提供驱动相关扩展能力，提供驱动创建、销毁、连接、断开等生命周期回调。
  *
  * @syscap SystemCapability.Driver.ExternalDevice
  * @StageModelOnly
@@ -43,7 +42,7 @@ export type DriverExtensionContext = _DriverExtensionContext;
  */
 declare class DriverExtensionAbility {
   /**
-   * Context of the **DriverExtension**. This context is inherited from **ExtensionContext**.
+   * DriverExtension的上下文环境，继承自ExtensionContext。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
@@ -53,10 +52,9 @@ declare class DriverExtensionAbility {
   context: DriverExtensionContext;
 
   /**
-   * Called when a DriverExtensionAbility is created to initialize the service logic.
+   * Extension生命周期回调，在创建时回调，执行初始化业务逻辑操作。
    *
-   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and bundle
-   *     name.
+   * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -65,7 +63,7 @@ declare class DriverExtensionAbility {
   onInit(want: Want): void;
 
   /**
-   * Called when this DriverExtensionAbility is destroyed to clear resources.
+   * Extension生命周期回调，在销毁时回调，执行资源清理等操作。
    *
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
@@ -75,13 +73,12 @@ declare class DriverExtensionAbility {
   onRelease(): void;
 
   /**
-   * Called following **onCreate()** when a DriverExtensionAbility is started by calling **connectAbility()**. A
-   * **RemoteObject** object is returned for communication between the server and client.
+   * Extension生命周期回调，会在[onCreate]{@link @ohos.app.ability.AbilityStage:AbilityStage#onCreate}之后回调。返回一个
+   * [RemoteObject]{@link @ohos.rpc:rpc.RemoteObject}对象，用于客户端和服务端进行通信。
    *
-   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and
-   *     bundle name.
-   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } **RemoteObject** object used for communication between
-   *     the server and client, or promise used to return the value.
+   * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
+   * @returns { rpc.RemoteObject | Promise<rpc.RemoteObject> } 一个RemoteObject对象，用于客户端和服务端进行通信；或一个Promise对象，返回用于通信的
+   *     RemoteObject对象。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -90,11 +87,10 @@ declare class DriverExtensionAbility {
   onConnect(want: Want): rpc.RemoteObject | Promise<rpc.RemoteObject>;
 
   /**
-   * Called when a client is disconnected from this DriverExtensionAbility.
+   * Extension的生命周期回调，客户端执行断开连接服务时回调。
    *
-   * @param { Want } want - Want information related to this DriverExtensionAbility, including the ability name and
-   *     bundle name.
-   * @returns { void | Promise<void> } Empty value, or promise used to return the value.
+   * @param { Want } want - 当前Extension相关的Want类型信息，包括ability名称、bundle名称等。
+   * @returns { void | Promise<void> } 返回值为空；或一个Promise对象，无返回结果。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10
@@ -102,9 +98,9 @@ declare class DriverExtensionAbility {
   onDisconnect(want: Want): void | Promise<void>;
 
   /**
-   * Called back when all abilities connected to a driver extension are disconnected.
+   * Extension的生命周期回调，客户端执行断开连接服务时回调。
    * @param { Want } want - Indicates disconnection information about the driver extension.
-   * @returns { undefined | Promise<void> }
+   * @returns { undefined | Promise<void> } 返回值为空；或一个Promise对象，无返回结果。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @stagemodelonly
    * @since 23 static
@@ -112,10 +108,10 @@ declare class DriverExtensionAbility {
   onDisconnect(want: Want): undefined | Promise<void>;
 
   /**
-   * Dumps client information. It is recommended that developers don't DUMP sensitive information.
+   * 转储客户端信息时调用，建议不要转储敏感信息。
    *
-   * @param { Array<string> } params - Parameters in the form of a command.
-   * @returns { Array<string> } String array used to dump client information.
+   * @param { Array<string> } params - 表示命令形式的参数。
+   * @returns { Array<string> } 一个string类型的数组，用于转存客户端信息。
    * @syscap SystemCapability.Driver.ExternalDevice
    * @StageModelOnly
    * @since 10 dynamic
@@ -124,11 +120,4 @@ declare class DriverExtensionAbility {
   onDump(params: Array<string>): Array<string>;
 }
 
-/**
- * class of driver extension ability.
- * @syscap SystemCapability.Driver.ExternalDevice
- * @stagemodelonly
- * @since 10 dynamic
- * @since 23 static
- */
 export default DriverExtensionAbility;
