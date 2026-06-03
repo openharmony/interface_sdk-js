@@ -127,7 +127,7 @@ declare namespace hdrCapability {
      */
     IMAGE_HDR_ISO_SINGLE = 7,
     /**
-     * AIHDR format supported by video.
+     * Videos in AIHDR format.
      *
      * This API can be used in atomic services since API version 24.
      *
