@@ -184,9 +184,7 @@ declare namespace photoAccessHelper {
     /**
      * Timestamp of the first fully visible photo in the last selection interface.
      * The default value is 0.
-     *
-     * Unit: ms.
-     * Range: >= 0.
+     * Unit: ms, The value must be greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -272,9 +270,7 @@ declare namespace photoAccessHelper {
     /**
      * size of the first fully visible photo in the last selection interface.
      * the default value is 0.
-     *
-     * Unit: Byte.
-     * Range: >= 0.
+     * Unit: Byte, The value must be an integer greater than or equal to 0.
      *
      * @type { int }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -3712,9 +3708,6 @@ declare namespace photoAccessHelper {
     /**
      * change time of photo
      *
-     * Unit: second.
-     * Range: >= 0.
-     *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 23 dynamic&static
      */
@@ -3793,9 +3786,6 @@ declare namespace photoAccessHelper {
     HIDDEN_TIME = 'hidden_time',
     /**
      * Size of local asset, which well matched the content read by the application.
-     *
-     * Unit: Byte.
-     * Range: >= 0.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
@@ -4014,9 +4004,6 @@ declare namespace photoAccessHelper {
     UPLOAD_STATUS = 'upload_status',
     /**
      * change time of album
-     *
-     * Unit: second.
-     * Range: >= 0.
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 23 dynamic&static
@@ -5553,9 +5540,7 @@ declare namespace photoAccessHelper {
     readonly uploadStatus: boolean;
     /**
      * The change time of album
-     *
-     * Unit: second.
-     * Range: >= 0.
+     * Unit: second, The value must be greater than or equal to 0.
      *
      * @type { ?long }
      * @readonly
@@ -10292,9 +10277,6 @@ declare namespace photoAccessHelper {
       /**
        * Specifing the size of files to be filtered.
        *
-       * Unit: Byte.
-       * Range: >= 0.
-       *
        * @type { long }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
@@ -10305,9 +10287,6 @@ declare namespace photoAccessHelper {
 
       /**
        * Specifing the upper limit of file size to be filtered.
-       *
-       * Unit: Byte.
-       * Range: >= 0. Default -1 when optional; upper bound when FilterOperator is BETWEEN.
        *
        * @type { ?long }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -10341,9 +10320,6 @@ declare namespace photoAccessHelper {
       /**
        * Specifing the video duration of files to be filtered.
        *
-       * Unit: ms.
-       * Range: >= 0.
-       *
        * @type { int }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
        * @atomicservice
@@ -10354,9 +10330,6 @@ declare namespace photoAccessHelper {
 
       /**
        * Specifing the upper limit of video duration to be filtered.
-       *
-       * Unit: ms.
-       * Range: >= 0. Default -1 when optional; upper bound when FilterOperator is BETWEEN.
        *
        * @type { ?int }
        * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core

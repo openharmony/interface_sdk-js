@@ -1074,12 +1074,14 @@ declare namespace userFileManager {
      */
     readonly albumUri: string;
     /**
-     * Date (timestamp) when the album was last modified.
+     * Time when the album was modified.
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
-     * @type { number }
      * @syscap SystemCapability.FileManagement.UserFileManager.Core
      * @systemapi
      * @since 9 dynamiconly
+     * @deprecated since 26.0.0
+     * @useinstead @ohos.file.photoAccessHelper:photoAccessHelper.Album.dateModified
      */
     readonly dateModified: number;
     /**
