@@ -17,8 +17,5 @@
  * @file
  * @kit ArkUI
  */
-export {
-    LazyLayoutDirection, LazyLayoutHelper, LazyCustomLayoutAlgorithmOptions, LazyCustomLayoutAlgorithm
-  } from './arkui/LazyLayoutAlgorithm';
-  export type { LazyLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm'
-  
+export { LazyLayoutDirection, LazyLayoutHelper, LazyCustomLayoutAlgorithm } from './arkui/LazyLayoutAlgorithm';
+export type { LazyLayoutAlgorithm, LazyCustomLayoutAlgorithmOptions } from './arkui/LazyLayoutAlgorithm'
