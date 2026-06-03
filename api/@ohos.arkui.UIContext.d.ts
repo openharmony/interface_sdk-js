@@ -5513,53 +5513,49 @@ export class UIContext {
 
   /**
    * Registers a local input event monitor.
-   *
    * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
    * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   * > **NOTE**
+   * > Performance Warning: Do not perform time-consuming operations in the callback!
+   * > Monitor Object Notes:
+   * > - The returned Monitor object is a unique identifier created by the system.
+   * > - Developers cannot actively construct or forge this object.
+   * > - Must save the returned monitor object reference for subsequent cancellation.
+   * > - It is recommended to use a variable to save it to avoid losing the reference.
+   * > Usage Examples:
+   * > ```typescript
+   * > // Monitor a single event type
+   * > const monitor1 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent();
+   * > console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   * > return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   * > }
+   * > return { action: InputEventInterceptAction.BLOCK };  // Block event
+   * > }
+   * > );
+   * > // Monitor multiple event types (using bitwise operations)
+   * > const monitor2 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent()!;
+   * > console.log(`Mouse button: ${mouseEvent.button}`);
+   * > return { action: InputEventInterceptAction.BLOCK };
+   * > }
+   * > return { action: InputEventInterceptAction.CONTINUE };
+   * > }
+   * > );
+   * > // When unregistering the monitor, use the returned Monitor object
+   * > uiContext.removeLocalInputEventMonitor(monitor1);
+   * > uiContext.removeLocalInputEventMonitor(monitor2);
+   * > ```.
    *
-   * Performance Warning: Do not perform time-consuming operations in the callback!
-   *
-   * Monitor Object Notes:
-   * - The returned Monitor object is a unique identifier created by the system.
-   * - Developers cannot actively construct or forge this object.
-   * - Must save the returned monitor object reference for subsequent cancellation.
-   * - It is recommended to use a variable to save it to avoid losing the reference.
-   *
-   * Usage Examples:
-   * ```typescript
-   * // Monitor a single event type
-   * const monitor1 = uiContext.addLocalInputEventMonitor(
-   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN,
-   *   (wrapper: RawInputEventWrapper) => {
-   *     if (wrapper.isMouseEvent()) {
-   *       const mouseEvent = wrapper.asMouseEvent();
-   *       console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
-   *       return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
-   *     }
-   *     return { action: InputEventInterceptAction.BLOCK };  // Block event
-   *   }
-   * );
-   *
-   * // Monitor multiple event types (using bitwise operations)
-   * const monitor2 = uiContext.addLocalInputEventMonitor(
-   *   InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
-   *   (wrapper: RawInputEventWrapper) => {
-   *     if (wrapper.isMouseEvent()) {
-   *       const mouseEvent = wrapper.asMouseEvent()!;
-   *       console.log(`Mouse button: ${mouseEvent.button}`);
-   *       return { action: InputEventInterceptAction.BLOCK };
-   *     }
-   *     return { action: InputEventInterceptAction.CONTINUE };
-   *   }
-   * );
-   *
-   * // When unregistering the monitor, use the returned Monitor object
-   * uiContext.removeLocalInputEventMonitor(monitor1);
-   * uiContext.removeLocalInputEventMonitor(monitor2);
-   * ```
-   *
-   * @param { number } eventMask - Event type mask, specifying the types of events to monitor through
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
    *     bitwise operations.
+   *     The value should be an integer.
    * @param { InputEventListener } listener - Event listener callback function.
    * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
    *     cancellation of registration.
@@ -5569,7 +5565,7 @@ export class UIContext {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  addLocalInputEventMonitor(eventMask: number, listener: InputEventListener): InputEventMonitor;
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
 
   /**
    * Removes a local input event monitor.
