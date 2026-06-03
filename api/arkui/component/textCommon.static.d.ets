@@ -674,7 +674,7 @@ export interface PositionWithAffinity {
     /**
      * Affinity of the position.
      * @type { Affinity }
-     * @syscap SystemCapability.Graphics.Drawing
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     affinity: Affinity;
