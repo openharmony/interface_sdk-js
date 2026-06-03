@@ -151,7 +151,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
 /**
  * Defines LazyVWaterFlowLayout Component.
  *
- * @param { CustomBuilder } content_
+ * @param { CustomBuilder } [content_]
  * @returns { LazyVWaterFlowLayoutAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -160,7 +160,7 @@ export declare interface LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayo
  */
 @ComponentBuilder
 export declare function LazyVWaterFlowLayout (
-    content_: CustomBuilder,
+    content_?: CustomBuilder,
 ): LazyVWaterFlowLayoutAttribute;
 
 /**
