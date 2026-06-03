@@ -926,7 +926,11 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { boolean } The value **true** indicates the device is automatically unlocked after reboot, and the value
    *     **false** indicates the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -939,7 +943,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 20
    */
-  function getAutoUnlockAfterReboot(admin: Want): boolean;
+  function getAutoUnlockAfterReboot(admin: Want | null): boolean;
 
   /**
    * Adds a list of NearLink protocols that are not allowed to be used for a specified user. NearLink Kit provides a low
@@ -1119,7 +1123,11 @@ declare namespace systemManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SYSTEM
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 23 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<KeyEventPolicy> } List of currently configured key event policies.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1131,7 +1139,7 @@ declare namespace systemManager {
    * @stagemodelonly
    * @since 23
    */
-  function getKeyEventPolicies(admin: Want): Array<KeyEventPolicy>;
+  function getKeyEventPolicies(admin: Want | null): Array<KeyEventPolicy>;
 
   /**
    * Enables or disables the device activation lock. After the device activation lock is disabled, the Find Device

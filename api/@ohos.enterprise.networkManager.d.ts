@@ -954,7 +954,11 @@ declare namespace networkManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_NETWORK
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { string } networkInterface - Network port.
    * @returns { boolean } Returns **true** if the network port is disabled; returns **false** otherwise.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -967,7 +971,7 @@ declare namespace networkManager {
    * @stagemodelonly
    * @since 12
    */
-  function isNetworkInterfaceDisabledSync(admin: Want, networkInterface: string): boolean;
+  function isNetworkInterfaceDisabledSync(admin: Want | null, networkInterface: string): boolean;
 
   /**
    * Disables a network interface. This API uses an asynchronous callback to return the result.

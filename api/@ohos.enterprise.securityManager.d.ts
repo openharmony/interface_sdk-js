@@ -363,6 +363,7 @@ declare namespace securityManager {
    * @param { PasswordPolicy } policy - Device screen lock password policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -378,7 +379,11 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { PasswordPolicy } Device screen lock password policy.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -390,7 +395,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function getPasswordPolicy(admin: Want): PasswordPolicy;
+  function getPasswordPolicy(admin: Want | null): PasswordPolicy;
 
   /**
    * Obtains the device screen lock password policy.
@@ -431,7 +436,11 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { number } [tokenId] - Application token ID, which can be obtained using
    *     [bundleManager.getApplicationInfo]{@link ./bundleManager/ApplicationInfo}.
    * @returns { string } Device clipboard policy in JSON format.
@@ -445,7 +454,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAppClipboardPolicy(admin: Want, tokenId?: number): string;
+  function getAppClipboardPolicy(admin: Want | null, tokenId?: number): string;
 
   /**
    * Sets the device clipboard policy of a specified application for a specified user.
@@ -473,7 +482,11 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 18 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { string } bundleName - Bundle name of the application for which the device clipboard policy is set.
    * @param { number } accountId - Account ID, which must be greater than or equal to 0. You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
@@ -487,7 +500,7 @@ declare namespace securityManager {
    * @stagemodelonly
    * @since 18
    */
-  function getAppClipboardPolicy(admin: Want, bundleName: string, accountId: number): string;
+  function getAppClipboardPolicy(admin: Want | null, bundleName: string, accountId: number): string;
 
   /**
    * Sets a watermark policy for a specified application of a specified user. Currently, a maximum of 100 policies can
@@ -757,6 +770,8 @@ declare namespace securityManager {
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
@@ -768,17 +783,23 @@ declare namespace securityManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_SECURITY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 22 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { common.ManagedPolicy } Management policy obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 22
    */
-  function getExternalSourceExtensionsPolicy(admin: Want): common.ManagedPolicy;
+  function getExternalSourceExtensionsPolicy(admin: Want | null): common.ManagedPolicy;
 
   /**
    * Installs the enterprise re-signing certificate.

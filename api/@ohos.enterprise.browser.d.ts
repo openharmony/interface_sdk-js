@@ -152,7 +152,11 @@ declare namespace browser {
    * Obtains the browser policy by app ID.
    *
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { string } appId - Application ID, which is used to specify the browser.
    * @returns { string } Browser policy obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -162,7 +166,7 @@ declare namespace browser {
    * @stagemodelonly
    * @since 12
    */
-  function getPoliciesSync(admin: Want, appId: string): string;
+  function getPoliciesSync(admin: Want | null, appId: string): string;
 
   /**
    * Sets the browser policy. After the setting is successful, the system common event
