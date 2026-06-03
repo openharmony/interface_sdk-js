@@ -3900,15 +3900,6 @@ declare namespace call {
      * @since 23 static
      */
     extraParams?: Record<string, Object>;
-    /**
-     * Indicates the type of the xcall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    xCallType?: XCallType;
 
     /**
      * Indicates the rtt state.
@@ -5058,6 +5049,15 @@ declare namespace call {
      * @since 23 static
      */
     extraParams?: Record<string, Object>;
+    /**
+     * Indicates the type of the xcall.
+     *
+     * @syscap SystemCapability.Telephony.CallManager
+     * @systemapi Hide this for inner system use.
+     * @FaAndStageModel
+     * @since 26.0.0 dynamic&static
+     */
+    xCallType?: XCallType;
   }
 
   /**
