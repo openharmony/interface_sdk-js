@@ -1160,7 +1160,7 @@ function extractDynamicContent(message: string, extractors?: ContentExtractor[])
   for (const extractor of extractors) {
     const match = message.match(extractor.regex);
     if (match?.[1]) {
-      extractedValues[extractor.name] = match[1].trim().replace('.', '');
+      extractedValues[extractor.name] = match[1].trim();
     }
   }
   return extractedValues;
@@ -1188,7 +1188,7 @@ function findErrorMatchRule(message: string, runTimeOS: string): ErrorFormatRule
     const solutions = ERROR_CODE_INFO.get(templateKey)?.solutions || [];
     const cause = normalizedMessage;
     const extractedValues = extractDynamicContent(normalizedMessage, rule.extractors);
-    const description = buildDescription(rule.descriptionTemplate || '', extractedValues);
+    const description = buildDescription(ERROR_CODE_INFO.get(templateKey)?.description || '', extractedValues);
 
     return {
       errorCode: rule.errorCode,
