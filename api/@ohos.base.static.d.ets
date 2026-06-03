@@ -129,6 +129,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, message: string, data?: T);
 
   /**
+   * Common callback information. If this parameter is left empty, no related information is returned.
    *
    * @syscap SystemCapability.Base
    * @crossplatform
@@ -151,6 +152,6 @@ export declare class BusinessError<T = void> extends Error {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 staticOnly
+ * @since 23 staticonly
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

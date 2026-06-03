@@ -121,7 +121,8 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, message: string, data?: T);
 
   /**
-   *
+   * 接口调用时的公共回调信息。如果不填，则回调不返回相关信息。
+   * 
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
