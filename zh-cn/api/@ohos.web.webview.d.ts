@@ -10850,16 +10850,7 @@ declare namespace webview {
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 dynamic
      */
-    FORCE_DISPLAY_SCROLLBAR = 1,
-
-    /**
-     * 覆盖视觉视口滚动条。
-     *
-     * @syscap SystemCapability.Web.Webview.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic
-     */
-    OVERLAY_VISUAL_SCROLLBAR = 2
+    FORCE_DISPLAY_SCROLLBAR = 1
   }
 }
 
