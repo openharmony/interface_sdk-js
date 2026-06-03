@@ -166,8 +166,10 @@ export interface PictureOptions {
  */
 export interface VoiceContentOptions {
   /**
-   * 是否为订阅的通知启用语音播报内容生成。true表示启用，false表示禁用。
-   *
+   * 是否订阅通知语音播报内容。true表示订阅通知语音播报内容，false表示禁用。
+   * 默认值：false。
+   * 
+   * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
