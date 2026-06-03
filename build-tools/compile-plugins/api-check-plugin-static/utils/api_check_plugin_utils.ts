@@ -48,7 +48,12 @@ import {
   AVAILABLE_DECORATOR_WARNING,
   PermissionValidTokenState,
   STAGE_TAG_HUMP_CHECK_NAME,
-  STAGE_TAG_CHECK_NAME
+  STAGE_TAG_CHECK_NAME,
+  ERROR_CODE_INFO,
+  ERROR_MATCH_RULES,
+  ErrorMatchRule,
+  ContentExtractor,
+  ErrorFormatRule
 } from './api_check_plugin_define';
 import {
   CurrentAddress,
@@ -1056,35 +1061,146 @@ function printMessage(fileInfo: string, message: string, level: DiagnosticCatego
 }
 
 function diagnosticFormat(message: string, fileInfo: string): SdkHvigorLogInfo {
+  const runTimeOS: string = globalObject.projectConfig.runtimeOS;
+  
+  // 1. Use new keyword-based matching strategy
+  const matchResult: ErrorFormatRule | undefined = findErrorMatchRule(message, runTimeOS);
+  
+  // 2. Fallback to original logic if keyword matching fails
   let diagnosticInfo: SdkHvigorLogInfo = {
-      code: '',
-      description: '',
-      cause: message,
-      position: fileInfo
-  }
-  const availableVersionRegex: RegExp = /^The runtime OS for the current project is .+\. The OS version number .+ is invalid\./;
-  const availableNotSupportedRegex: RegExp = /^The runtime OS for the current project is .+\. @Available is not supported on the OS: .+\./;
-  if (availableVersionRegex.test(message)) {
-    const info = {
-      code: '117060016',
-      description: 'Invalid version format in @Available decorator.',
-      cause: message,
-      position: fileInfo
+    code: '',
+    description: '',
+    cause: '',
+    position: '',
+    solutions: []
+  };
+
+  let description: string = '';
+  
+  if (matchResult) {
+    diagnosticInfo = {
+      code: matchResult.errorCode,
+      description: matchResult.description || '',
+      cause: matchResult.cause,
+      position: fileInfo,
+      solutions: matchResult.solutions
     };
-    diagnosticInfo = info;
   }
-  if (availableNotSupportedRegex.test(message)) {
-    const info = {
-      code: '117060017',
-      description: 'Invalid version format in @Available decorator.',
-      cause: message,
-      position: fileInfo
-    };
-    diagnosticInfo = info;
+
+  if (!matchResult || !diagnosticInfo || !diagnosticInfo.code) {
+    return diagnosticInfo;
   }
+
+  // 3. Generate description with dynamic content replacement
+  if (matchResult?.extractedValues && Object.keys(matchResult.extractedValues).length > 0) {
+    description = diagnosticInfo.description;
+    for (const [key, value] of Object.entries(matchResult.extractedValues)) {
+      description = description.replaceAll(`$${key}`, value);
+    }
+    diagnosticInfo.description = description;
+  }
+  
   return diagnosticInfo;
 }
 
+/**
+ * Find matching error rule based on keyword identification strategy.
+ * 
+ * This method identifies error types by checking keyword combinations,
+ * which provides better flexibility than hardcoded regex patterns.
+ * 
+ * @param message - Error message to analyze
+ * @param runTimeOS - Runtime OS (used for OS-specific replacements)
+ * @returns Match result containing error code, template key, description and extracted values
+ */
+function matchesRuleKeywords(rule: ErrorMatchRule, message: string): boolean {
+  const hasAllKeywords = rule.keywords.every(keyword => message.includes(keyword));
+  if (!hasAllKeywords) {
+    return false;
+  }
+
+  if (rule.excludeKeywords?.length) {
+    const hasExcludedKeyword = rule.excludeKeywords.some(keyword => message.includes(keyword));
+    if (hasExcludedKeyword) {
+      return false;
+    }
+  }
+
+  if (rule.optionalKeywords?.length) {
+    const hasOptionalKeyword = rule.optionalKeywords.some(keyword => message.includes(keyword));
+    if (!hasOptionalKeyword) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+function generateTemplateKey(message: string, rule: ErrorMatchRule, runTimeOS: string): string {
+  let templateKey = message;
+  for (const pattern of rule.templatePattern.patterns) {
+    templateKey = templateKey.replace(pattern.regex, pattern.placeholder).trim();
+  }
+  templateKey = templateKey.replace(new RegExp(runTimeOS, 'g'), '$RUNTIMEOS');
+
+  for (const [key] of ERROR_CODE_INFO) {
+    if (key.includes(templateKey) || templateKey.includes(key)) {
+      return key;
+    }
+  }
+  return templateKey;
+}
+
+function extractDynamicContent(message: string, extractors?: ContentExtractor[]): Record<string, string> {
+  const extractedValues: Record<string, string> = {};
+  if (!extractors) {
+    return extractedValues;
+  }
+
+  for (const extractor of extractors) {
+    const match = message.match(extractor.regex);
+    if (match?.[1]) {
+      extractedValues[extractor.name] = match[1].trim();
+    }
+  }
+  return extractedValues;
+}
+
+function buildDescription(template: string, extractedValues: Record<string, string>): string {
+  let description = template;
+  if (description && Object.keys(extractedValues).length > 0) {
+    for (const [key, value] of Object.entries(extractedValues)) {
+      description = description.replaceAll(`$${key}`, value);
+    }
+  }
+  return description;
+}
+
+function findErrorMatchRule(message: string, runTimeOS: string): ErrorFormatRule | undefined {
+  const normalizedMessage = message.trim();
+
+  for (const rule of ERROR_MATCH_RULES) {
+    if (!matchesRuleKeywords(rule, normalizedMessage)) {
+      continue;
+    }
+
+    const templateKey = generateTemplateKey(normalizedMessage, rule, runTimeOS);
+    const solutions = ERROR_CODE_INFO.get(templateKey)?.solutions || [];
+    const cause = normalizedMessage;
+    const extractedValues = extractDynamicContent(normalizedMessage, rule.extractors);
+    const description = buildDescription(ERROR_CODE_INFO.get(templateKey)?.description || '', extractedValues);
+
+    return {
+      errorCode: rule.errorCode,
+      cause,
+      description,
+      solutions,
+      extractedValues
+    };
+  }
+
+  return undefined;
+}
 /**
  * 检测模块路径是否包含SO文件（.so后缀），并将对应的文件路径添加到项目配置的原生依赖列表中，避免重复添加。
  * 

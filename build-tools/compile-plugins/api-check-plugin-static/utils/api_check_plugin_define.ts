@@ -89,6 +89,14 @@ export const comparisonFunctions = {
   formatChecker: new Map<string, FormatCheckerFunction>()
 };
 
+export interface SdkHvigorLogInfo {
+  code: string;
+  description: string;
+  cause: string;
+  position: string;
+  solutions: string[];
+}
+
 export const CONSTANT_STEP_0: number = 0;
 export const CONSTANT_STEP_1: number = 1;
 export const CONSTANT_STEP_2: number = 2;
@@ -121,3 +129,91 @@ export const SUPPRESSWARNINGS_RULE_INFO: Map<string, string> = new Map([
   [SYSCAP_TAG_CHECK_NAME, 'SuppressWarnings'],
   [PERMISSION_TAG_CHECK_NAME, 'SuppressWarnings']
 ]);
+
+export const ERROR_CODE_INFO: Map<string, Omit<SdkHvigorLogInfo, 'cause' | 'position'>> = new Map([
+  [AVAILABLE_VERSION_FORMAT_ERROR_PREFIX, { code: '11706016', description: 'Invalid version format in @Available decorator.', solutions: ['Change the version number to an integer between 1 and 999, or use the standardized M.S.F format.'] }],
+  [AVAILABLE_OSNAME_ERROR, { code: '11706017', description: 'Invalid OS name in @Available decorator.', solutions: ['Use the correct OS name matching the project runtime OS.'] }]
+])
+
+/**
+ * Error message pattern replacement configuration
+ */
+interface PatternReplacement {
+  regex: RegExp;
+  placeholder: string;
+}
+
+/**
+ * Dynamic content extractor configuration
+ */
+export interface ContentExtractor {
+  name: string;
+  regex: RegExp;
+}
+
+/**
+ * Error message matching rule interface
+ * 
+ * Using keyword matching strategy to identify error types automatically
+ * Each rule contains:
+ * - keywords: Required keywords to identify error type
+ * - optionalKeywords: Optional keywords for further differentiation
+ * - excludeKeywords: Keywords that should NOT be present (for exclusion)
+ * - templatePattern: Patterns to replace dynamic content with placeholders
+ * - errorCode: Corresponding error code
+ * - descriptionTemplate: Description template supporting dynamic placeholder replacement
+ * - extractors: Dynamic content extractors
+ */
+export interface ErrorMatchRule {
+  keywords: string[];
+  optionalKeywords?: string[];
+  excludeKeywords?: string[];
+  templatePattern: {
+    patterns: PatternReplacement[];
+  };
+  errorCode: string;
+  descriptionTemplate?: string;
+  extractors?: ContentExtractor[];
+}
+
+export interface ErrorFormatRule {
+  errorCode: string;
+  cause: string;
+  description: string;
+  solutions: string[];
+  extractedValues?: Record<string, string>;
+}
+
+/**
+ * Error message matching rule library
+ * 
+ * Using keyword matching strategy, supports automatic error type identification
+ * New error types can be added by simply adding a rule configuration
+ * 
+ * Covers all error codes: 11706006 - 11706017
+ */
+export const ERROR_MATCH_RULES: ErrorMatchRule[] = [
+  {
+    keywords: ['runtime OS', 'version number', 'invalid'],
+    excludeKeywords: ['@Available', 'not supported on the OS'],
+    templatePattern: {
+      patterns: [{
+        regex: /number .+ is invalid\./g,
+        placeholder: 'number $VERSION is invalid.'
+      }]
+    },
+    errorCode: '11706016',
+    descriptionTemplate: 'Invalid version format in @Available decorator.'
+  },
+  {
+    keywords: ['runtime OS', '@Available', 'not supported on the OS'],
+    templatePattern: {
+      patterns: [{
+        regex: /the OS: .+\./g,
+        placeholder: 'the OS: $OSNAME.'
+      }]
+    },
+    errorCode: '11706017',
+    descriptionTemplate: 'Invalid OS name in @Available decorator.'
+  }
+];

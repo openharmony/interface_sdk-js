@@ -188,6 +188,7 @@ export interface SdkHvigorLogInfo {
   description: string;
   cause: string;
   position: string;
+  solutions: string[];
 }
 
 export interface Logger {
