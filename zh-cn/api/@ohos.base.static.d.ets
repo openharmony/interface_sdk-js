@@ -14,6 +14,12 @@
  */
 
 /**
+ * > **说明：**
+ * >
+ * > - 本模块首批接口从 API version 6 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > 
+ * > - 从API version 12开始，本模块接口支持在ArkTS卡片中使用。
+ * 
  * @file
  * @kit BasicServicesKit
  */
@@ -22,7 +28,7 @@
  * 通用回调函数。开发者在使用时，可自定义data的类型，回调将返回对应类型的信息。
  *
  * @syscap SystemCapability.Base
- * @param { T } data 接口调用时的公共回调信息。
+ * @param { T } data - 接口调用时的公共回调信息。
  * @crossplatform
  * @form
  * @atomicservice
@@ -34,7 +40,7 @@ export type Callback<T> = (data: T) => void;
  * 通用回调函数，携带错误参数。回调返回的信息为[BusinessError]{@link BusinessError}类型的信息。
  *
  * @syscap SystemCapability.Base
- * @param { T } err 接口调用失败的公共错误信息。
+ * @param { T } err - 接口调用失败的公共错误信息。
  * @crossplatform
  * @form
  * @atomicservice
@@ -43,11 +49,11 @@ export type Callback<T> = (data: T) => void;
 export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 
 /**
- * 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。
+ * 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
  *
  * @syscap SystemCapability.Base
- * @param { BusinessError<E> } err 接口调用失败的公共错误信息。
- * @param { T } data 接口调用时的公共回调信息。
+ * @param { BusinessError<E> } err - 接口调用失败的公共错误信息。
+ * @param { T } data - 接口调用时的公共回调信息。
  * @crossplatform
  * @form
  * @atomicservice
@@ -56,10 +62,10 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
 export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
 
 /**
+ * 错误参数。
  *
  * @syscap SystemCapability.Base
- * @param { number } code 接口调用失败返回的错误码信息。
- * @param { T } data 接口调用时的公共回调信息。如未填写，则回调不返回相关信息。
+ * @param { T } data - 接口调用时的公共回调信息。如未填写，则回调不返回相关信息。
  * @form
  * @atomicservice
  * @since 23 static
@@ -78,8 +84,8 @@ export declare class BusinessError<T = void> extends Error {
   /**
    * BusinessError的构造函数。
    *
-   * @param { int } code 接口调用失败返回的错误码信息。
-   * @param { Error } error 错误参数。
+   * @param { int } code - 接口调用失败返回的错误码信息。
+   * @param { Error } error - 错误参数。
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
@@ -90,9 +96,9 @@ export declare class BusinessError<T = void> extends Error {
   /**
    * BusinessError的构造函数。
    *
-   * @param { int } code 接口调用失败返回的错误码信息。
-   * @param { T } data 接口调用时的公共回调信息。
-   * @param { Error } error 错误参数。
+   * @param { int } code - 接口调用失败返回的错误码信息。
+   * @param { T } data - 接口调用时的公共回调信息。
+   * @param { Error } error - 错误参数。
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
@@ -103,9 +109,9 @@ export declare class BusinessError<T = void> extends Error {
   /**
    * BusinessError的构造函数。
    *
-   * @param { int } code 接口调用失败返回的错误码信息。
-   * @param { string } message 接口调用失败返回描述信息。
-   * @param { T } [data] 接口调用时的公共回调信息。
+   * @param { int } code - 接口调用失败返回的错误码信息。
+   * @param { string } message - 接口调用失败返回描述信息。
+   * @param { T } data - 接口调用时的公共回调信息。
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
@@ -115,7 +121,8 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, message: string, data?: T);
 
   /**
-   *
+   * 接口调用时的公共回调信息。如果不填，则回调不返回相关信息。
+   * 
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
@@ -137,6 +144,6 @@ export declare class BusinessError<T = void> extends Error {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 staticOnly
+ * @since 23 staticonly
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

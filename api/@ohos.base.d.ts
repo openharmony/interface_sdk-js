@@ -14,6 +14,15 @@
  */
 
 /**
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
+ * >   superscript to indicate their earliest API version.
+ * > 
+ * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
+ *
  * @file
  * @kit BasicServicesKit
  */
@@ -32,9 +41,8 @@
  */
 export interface Callback<T> {
   /**
-   * Common callback information.
    *
-   * @param { T } data
+   * @param { T } data - Common callback information.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -57,11 +65,8 @@ export interface Callback<T> {
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
   /**
-   * Common error information about the API invoking failure.The error parameter is of the
-   * [BusinessError]{@link BusinessError} type.
-   * The type of the asynchronous return value is defined by the developer.
    *
-   * @param { T } err
+   * @param { T } err - Common error information about the API invoking failure.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -71,7 +76,9 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 }
 
 /**
- * Defines a common callback that carries an error parameter and asynchronous return value.
+ * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
+ * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
+ * developer.
  *
  * @typedef AsyncCallback [since 6 - 11]
  * @typedef AsyncCallback<T, E = void> [since 12]
@@ -83,12 +90,9 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  */
 export interface AsyncCallback<T, E = void> {
   /**
-   * Defines a common callback that carries an error parameter and asynchronous return value.The error parameter is of
-   * the [BusinessError]{@link BusinessError} type. The type of the asynchronous return value is defined by the
-   * developer.
    *
-   * @param { BusinessError<E> } err Common error information about the API invoking failure.
-   * @param { T } data Common callback information.
+   * @param { BusinessError<E> } err - Common error information about the API invoking failure.
+   * @param { T } data - Common callback information.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]

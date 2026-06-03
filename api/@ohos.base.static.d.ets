@@ -14,6 +14,15 @@
  */
 
 /**
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
+ * >   superscript to indicate their earliest API version.
+ * > 
+ * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
+ *
  * @file
  * @kit BasicServicesKit
  */
@@ -50,7 +59,7 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
  * developer.
  *
  * @syscap SystemCapability.Base
- * @param { BusinessError<E> } err Common error information about the API invoking failure.
+ * @param { BusinessError } err Common error information about the API invoking failure.
  * @param { T } data Common callback information.
  * @crossplatform
  * @form
@@ -63,7 +72,6 @@ export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T 
  * Defines the error parameter.
  *
  * @syscap SystemCapability.Base
- * @param { number } code Common error information about the API invoking failure.
  * @param { T } data Common callback information. If this parameter is left empty, no related information is returned.
  * @crossplatform
  * @form
@@ -111,7 +119,7 @@ export declare class BusinessError<T = void> extends Error {
    *
    * @param { int } code - Common error information about the API invoking failure.
    * @param { string } message - Error message returned when the API call fails.
-   * @param { T } [data] - Common callback information.
+   * @param { T } data - Common callback information.
    * @syscap SystemCapability.Base
    * @crossplatform
    * @form
@@ -121,6 +129,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, message: string, data?: T);
 
   /**
+   * Common callback information. If this parameter is left empty, no related information is returned.
    *
    * @syscap SystemCapability.Base
    * @crossplatform
@@ -143,6 +152,6 @@ export declare class BusinessError<T = void> extends Error {
  * @crossplatform
  * @form
  * @atomicservice
- * @since 23 staticOnly
+ * @since 23 staticonly
  */
 export type RecordData = undefined | null | Object | Record<string, RecordData> | Array<RecordData>;

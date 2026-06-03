@@ -14,6 +14,14 @@
  */
 
 /**
+ * The **annotation** module defines the annotation types of OpenHarmony ArkTS APIs, such as the minimum available
+ * version of the lifecycle.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 22. Newly added APIs will be marked with
+ * a superscript to indicate their earliest API version.
+ *
  * @file Annotation
  * @kit BasicServicesKit
  */
@@ -30,7 +38,6 @@
  * @form
  * @atomicservice
  * @since 22 dynamic
- * @since 26.0.0 static
  */
 export @interface Available {
   /**
@@ -43,7 +50,6 @@ export @interface Available {
    * @form
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.0.0 static
    */
   minApiVersion: string = '';
 }
@@ -89,7 +95,7 @@ export const enum SuppressWarningsType {
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   PERMISSION = 'permission'
 }
