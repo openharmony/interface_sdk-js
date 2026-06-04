@@ -314,7 +314,7 @@ declare namespace backgroundTaskManager {
      * @permission ohos.permission.KEEP_BACKGROUND_RUNNING
      * @param { Context } context - App running context.
      * @param { Callback<UserAuthResult> } callback - The callback of the function.
-     * @throws { BusinessError } 201 - No permission.
+     * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 9800004 - System service operation failed.
      * @throws { BusinessError } 9800005 - Continuous task verification failed.
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
@@ -781,8 +781,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
+   * @since 23
    */
   export interface BackgroundTaskSubscriber {  
     /**
@@ -792,8 +791,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
+     * @since 23
      */
     onContinuousTaskStart(info: ContinuousTaskInfo): void;
 
@@ -804,8 +802,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
+     * @since 23
      */
     onContinuousTaskUpdate(info: ContinuousTaskInfo): void;
 
@@ -816,8 +813,7 @@ declare namespace backgroundTaskManager {
      * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
      * @systemapi
      * @stagemodelonly
-     * @since 23 dynamic
-     * @since 24 static
+     * @since 23
      */
     onContinuousTaskStop(info: ContinuousTaskInfo): void;
   }
@@ -1453,8 +1449,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
+   * @since 23
    */
   function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
@@ -1471,8 +1466,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
+   * @since 23
    */
   function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
