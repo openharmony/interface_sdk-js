@@ -2344,17 +2344,34 @@ export namespace typeNode {
    * Bind the controller of FrameNode.
    * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
    * This API does not support declaratively created nodes.
-   * 
+   *
    * @param { FrameNode } node - the target FrameNode.
    * @param { Scroller } controller - the controller which is bind to the target FrameNode.
    * @param { 'Scroll' } nodeType - node type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
-   * 2. the node is null or undefined.
+   *     2. the node is null or undefined.
    * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
+   */
+  /**
+   * Bind the controller of FrameNode.
+   * If the node is not created using ArkTS, cross-language access must be enabled; otherwise, an exception is returned.
+   * This API does not support declaratively created nodes.
+   *
+   * @param { FrameNode } node - the target FrameNode.
+   * @param { Scroller } controller - the controller which is bind to the target FrameNode.
+   * @param { 'Scroll' } nodeType - node type.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
+   *     2. the node is null or undefined.
+   * @throws { BusinessError } 100021 - The FrameNode is not modifiable.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
    */
   /**
    * Bind the controller of FrameNode.
@@ -2367,13 +2384,11 @@ export namespace typeNode {
    * @param { 'Scroll' } nodeType - node type.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. the type of the node is error.
    *     2. the node is null or undefined.
-   * @throws { BusinessError } 100021 - The FrameNode is not modifiable. Introduced in API version 15 and will not
-   *     be threw above API version 24. [since 15 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 23 dynamic
+   * @since 26.0.0 dynamic
    */
   function bindController(node: FrameNode, controller: Scroller, nodeType: 'Scroll'): void;
 
