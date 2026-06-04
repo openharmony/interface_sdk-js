@@ -150,8 +150,11 @@ export interface NotificationSubscribeInfo {
  */
 export interface VoiceContentOptions {
   /**
-   * Whether to enable voice content generation for subscribed notifications.
+   * Whether to enable voice content generation for subscribed notifications. The value **true** means enable
+   * the voice content generation, and **false** means the opposite.
+   * Default value: Default value: false.
    *
+   * @default false
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @stagemodelonly
