@@ -74,6 +74,8 @@ import { AvailableWarningSuppressor } from './validators/available_warning_suppr
 import {
   initComparisonFunctions,
 } from './api_check_base_utils';
+import { getGlobalMonitor } from './performance_monitor';
+import { PERF } from './perf_constants';
 
 function isVersionRangeIntersect(start1: string, end1: string, start2: number, end2: number): boolean {
   const numStart1 = parseVersion(start1);
@@ -117,6 +119,9 @@ function parseVersion(s: string): number {
 }
 
 export function checkSystemApiTag(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_SYSTEM_API_TAG);
+  monitor.end(PERF.CHECK_SYSTEM_API_TAG);
   return true;
 }
 
@@ -126,13 +131,17 @@ export function checkSinceValue(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_SINCE_VALUE);
   if (!jsDocTags || jsDocTags.length === 0 || !globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+    monitor.end(PERF.CHECK_SINCE_VALUE);
     return false;
   }
 
   const program = arkts.getProgramFromAstNode(node);
   const sourceFileName = program?.sourceFilePath || '';
   if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    monitor.end(PERF.CHECK_SINCE_VALUE);
     return false;
   }
 
@@ -142,6 +151,7 @@ export function checkSinceValue(
   const hasIncompatibility = checker.checkTargetVersion(declaration);
 
   if (!hasIncompatibility) {
+    monitor.end(PERF.CHECK_SINCE_VALUE);
     return false;
   }
 
@@ -152,6 +162,7 @@ export function checkSinceValue(
   );
 
   if (suppressor.isApiVersionHandled(node)) {
+    monitor.end(PERF.CHECK_SINCE_VALUE);
     return false;
   }
 
@@ -159,6 +170,7 @@ export function checkSinceValue(
     .replace('$SINCE1', checker.getMinApiVersion())
     .replace('$SINCE2', checker.getSdkVersion());
 
+  monitor.end(PERF.CHECK_SINCE_VALUE);
   return true;
 }
 
@@ -582,11 +594,15 @@ export function creatApiCheckConfig(): ApiCheckConfig {
 
 /**
  * 重新拆解组装permissions对象成新的permissionsArray数组
- * 
+ *
  * @param { ProjectConfig } projectConfig 配置信息
  */
 export function readPermissions(projectConfig: ProjectConfig): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.READ_PERM);
+
   if (!projectConfig) {
+    monitor.end(PERF.READ_PERM);
     return;
   }
   const permissions: ConfigPermission = projectConfig.permissions;
@@ -603,6 +619,8 @@ export function readPermissions(projectConfig: ProjectConfig): void {
     ...definePermissions
   ];
   projectConfig.permissionsArray = permissionsArray;
+
+  monitor.end(PERF.READ_PERM);
 }
 
 /**
@@ -619,10 +637,13 @@ function getPermissionFromConfig(array: Array<{ name: string }>): string[] {
 
 /**
  * 从aceModuleJsonPath中提取模块的extensionAbilities对象。
- * 
+ *
  * @param { ProjectConfig } projectConfig 配置信息
  */
 export function readCardPageSet(projectConfig: ProjectConfig): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.READ_CARD);
+
   if (projectConfig.aceModuleJsonPath && fs.existsSync(projectConfig.aceModuleJsonPath) && projectConfig.projectPath) {
     const moduleJson: ModuleJson = JSON.parse(fs.readFileSync(projectConfig.aceModuleJsonPath).toString());
     const extensionAbilities: ExtensionAbilities[] = moduleJson?.module?.extensionAbilities;
@@ -630,6 +651,8 @@ export function readCardPageSet(projectConfig: ProjectConfig): void {
       setCardPages(extensionAbilities, projectConfig);
     }
   }
+
+  monitor.end(PERF.READ_CARD);
 }
 
 /**
@@ -686,10 +709,13 @@ function readCardResource(resource: string, projectConfig: ProjectConfig): void 
 /**
  * 扫描系统模块目录（api、arkts、kits），收集模块路径信息
  * 将直接子模块名称添加到 systemModules，处理文件路径（过滤、替换、格式化）后添加到 allModulesPaths。
- * 
+ *
  * @param { ProjectConfig } projectConfig 配置信息
  */
 export function readSystemModules(projectConfig: ProjectConfig): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.READ_MODULE);
+
   const apiDirPath = path.resolve(projectConfig.buildSdkPath, './api');
   const arktsDirPath = path.resolve(projectConfig.buildSdkPath, './arkts');
   const kitsDirPath = path.resolve(projectConfig.buildSdkPath, './kits');
@@ -741,6 +767,7 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
     collectExternalModules(externalApiPaths, extendSdkConfigs, projectConfig);
     projectConfig.sdkConfigs = [...defaultSdkConfigs, ...extendSdkConfigs];
   }
+  monitor.end(PERF.READ_MODULE);
 }
 
 /**
@@ -839,10 +866,13 @@ function collectExternalModules(sdkPaths: string[], extendSdkConfigs: SdkConfig[
 /**
  * 收集指定设备类型的系统能力信息（包括OH和其他的Syscap），
  * 计算所有设备类型共有的系统能力（交集）和所有设备类型的系统能力总和（并集）
- * 
+ *
  * @param { ProjectConfig } projectConfig 配置对象
  */
 export function readSyscapInfo(projectConfig: ProjectConfig): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.READ_SYSCAP);
+
   projectConfig.deviceTypesMessage = projectConfig.deviceTypes.join(',');
   const deviceDir: string = path.resolve(__dirname, '../../../../../api/device-define/');
   const deviceInfoMap: Map<string, string[]> = new Map();
@@ -874,6 +904,8 @@ export function readSyscapInfo(projectConfig: ProjectConfig): void {
   }
   projectConfig.syscapIntersectionSet = new Set(syscapIntersection);
   projectConfig.syscapUnionSet = new Set(allSyscaps);
+
+  monitor.end(PERF.READ_SYSCAP);
 }
 
 /**
@@ -1220,12 +1252,16 @@ export function checkAvailableDecorator(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_AVAILABLE_DECORATOR);
   if (!globalObject.projectConfig.compatibleSdkVersion || !node || !declaration) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   }
 
   let key: string = getAvailableNodeKey(node);
   if (availableNodeCheckConfigCache.has(key)) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   } else {
     availableNodeCheckConfigCache.set(key, '');
@@ -1235,12 +1271,14 @@ export function checkAvailableDecorator(
   const program = arkts.getProgramFromAstNode(nodeDecl);
   const sourceFileName = program?.sourceFilePath || '';
   if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   }
 
   const declProgram = arkts.getProgramFromAstNode(declaration);
   const declFileName = declProgram?.sourceFilePath || '';
   if (!declFileName || !path.normalize(declFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   }
 
@@ -1248,6 +1286,7 @@ export function checkAvailableDecorator(
   const hasIncompatibility = checker.checkTargetVersion(declaration);
 
   if (!hasIncompatibility) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   }
 
@@ -1262,6 +1301,7 @@ export function checkAvailableDecorator(
   );
 
   if (suppressor.isApiVersionHandled(node)) {
+    monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
     return false;
   }
 
@@ -1269,6 +1309,7 @@ export function checkAvailableDecorator(
     .replace('$SINCE1', availableVersion?.version || checker.getSdkVersion())
     .replace('$SINCE2', checker.getSdkVersion());
 
+  monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
   return true;
 }
 
@@ -1278,6 +1319,9 @@ export function checkSyscapAbility(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_SYSCAP_ABILITY);
+  monitor.end(PERF.CHECK_SYSCAP_ABILITY);
   return false;
 }
 
@@ -1287,12 +1331,15 @@ export function checkPermissionValue(
   node?: arkts.AstNode,
   declaration?: arkts.AstNode
 ): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_PERMISSION_VALUE);
+  monitor.end(PERF.CHECK_PERMISSION_VALUE);
   return false;
 }
 
 /**
  * Checks whether the Stage module value is valid based on JSDoc tags and configuration.
- * 
+ *
  * @param {readonly ts.JSDocTag[]} jsDocTags - Array of JSDoc tags to be checked.
  * @param {ts.JsDocNodeCheckConfigItem} config - Configuration item for JSDoc node checking.
  * @param {ts.Node} [node] - Optional node related to the declaration.
@@ -1300,6 +1347,9 @@ export function checkPermissionValue(
  * @returns {boolean} - Returns true if the Stage module value is valid; otherwise, returns false.
  */
 export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_STAGE_MODULE_VALUE);
+  monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);
   return false;
 }
 

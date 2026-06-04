@@ -217,3 +217,7 @@ export const ERROR_MATCH_RULES: ErrorMatchRule[] = [
     descriptionTemplate: 'Invalid OS name in @Available decorator.'
   }
 ];
+export enum NodeTraverseMode {
+  TS_TRAVERSE,
+  CPP_TRAVERSE_FILTER,
+}
