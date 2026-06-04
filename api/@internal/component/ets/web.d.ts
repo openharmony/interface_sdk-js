@@ -10524,6 +10524,19 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
    * @since 26.0.0 dynamic
    */
   onInputmethodAttached(callback: OnInputmethodAttachedCallback): WebAttribute;
+
+  /**
+   * Enables or disables fullscreen video overlay in the WebView component.
+   *
+   * @param { boolean } enabled - {@code true} to enable the fullscreen video overlay,
+   *    {@code false} to disable it.
+   *    The default value is false.
+   * @returns { WebAttribute }
+   * @syscap SystemCapability.Web.Webview.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  enableFullscreenVideoOverlay(enabled: boolean): WebAttribute;
 }
 
 /**
