@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Serial port management.
+ * 串口管理
  *
  * @syscap SystemCapability.BusManager.Serial
  * @stagemodelonly
@@ -30,7 +30,7 @@ import { Callback } from './@ohos.base';
 declare namespace serial {
 
   /**
-   * Obtains the serial port list. This API returns the result asynchronously through a promise.
+   * 获取串口列表。使用Promise异步回调。
    *
    * @returns { Promise<SerialPort[]> } - Promise used to return the list of serial port devices.
    * @throws { BusinessError } 203 - This function is prohibited by enterprise management policies.
@@ -42,7 +42,7 @@ declare namespace serial {
   function getSerialPortList(): Promise<SerialPort[]>;
 
   /**
-   * Serial port object, which provides information and communication capabilities of the serial port device.
+   * 串口对象，提供串口设备信息和通信相关能力
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -51,7 +51,7 @@ declare namespace serial {
   interface SerialPort {
 
     /**
-     * Serial port information.
+     * 串口端口信息
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -60,12 +60,12 @@ declare namespace serial {
     readonly portInfo: SerialPortInfo;
 
     /**
-     * Enables the port. This API returns the result asynchronously through a promise.
+     * 打开端口。使用Promise异步回调。
      *
-     * @param { SerialConfigs } [config] - Serial port communication parameter.
-     *     <br>Default value: Refer to the default value of SerialConfigs.
-     *
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @param { SerialConfigs } [config] - 串口通信参数
+     *     <br>默认值:默认值：参考SerialConfigs的默认值。
+     *     <br>Default value: Refer to the default value of SerialConfigs..
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700002 - Invalid parameter.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
@@ -78,9 +78,9 @@ declare namespace serial {
     open(config?: SerialConfigs): Promise<void>;
 
     /**
-     * Closes the serial port device. This API returns the result asynchronously through a promise.
+     * 关闭串口。使用Promise异步回调。
      *
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700005 - Port not open.
      * @syscap SystemCapability.BusManager.Serial
@@ -90,14 +90,14 @@ declare namespace serial {
     close(): Promise<void>;
 
     /**
-     * Sends data. This API returns the result asynchronously through a promise.
+     * 发送数据。使用Promise异步回调。
      *
-     * @param { Uint8Array } data - Data to be sent.
-     *     <br>Length range: (0, 4096]
-     * @param { int } [timeout] - Timeout interval.
-     *     <br>Length range: [0, 300000]. The value must be an integer, in milliseconds. The default value is 0,
-     *     indicating that when data cannot be written to the port, the API does not wait and directly returns 0.
-     * @returns { Promise<int> } - Promise used to return the length of the data written.
+     * @param { Uint8Array } data - 要发送的数据
+     *     <br>长度范围:(0,4096]。
+     * @param { int } [timeout] - 超时时间
+     *     <br>长度范围:[0,300000]。取值限定为整数。单位:毫秒。默认值:0。
+     *     <br>表示端口无法写入数据时不等待，直接返回。
+     * @returns { Promise<int> } - Promise对象，返回成功写入的长度
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700002 - Invalid parameter.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
@@ -110,10 +110,10 @@ declare namespace serial {
     write(data: Uint8Array, timeout?: int): Promise<int>;
 
     /**
-     * Listens for data received by the serial port. This API uses an asynchronous callback to return the result.
-     * When {@link close} is called, all callbacks are cleared.
+     * 监听串口端口接收到的数据。使用Callback异步回调。
+     * 调用{@link close}接口时，会清理全部回调
      *
-     * @param { Callback<Uint8Array> } callback - Callback used to return the data received by the serial port.
+     * @param { Callback<Uint8Array> } callback - 回调函数，返回串口端口接收到的数据
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -124,10 +124,10 @@ declare namespace serial {
     onDataRead(callback: Callback<Uint8Array>): void;
 
     /**
-     * Cancels listening for data receiving events on the serial port.
+     * 取消监听串口端口接收数据事件。
      *
-     * @param { Callback<Uint8Array> } [callback] - Callback used to return the data received by the serial port.
-     *     <br>Default value: Clear all listeners for data receiving events on the serial port.
+     * @param { Callback<Uint8Array> } [callback] - 回调函数，返回串口端口接收到的数据
+     *     <br>默认值:缺省行为：清除串口端口接收数据事件的所有监听。
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700005 - Port not open.
      * @syscap SystemCapability.BusManager.Serial
@@ -137,9 +137,9 @@ declare namespace serial {
     offDataRead(callback?: Callback<Uint8Array>): void;
 
     /**
-     * Flushes the serial port buffer. This API returns the result asynchronously through a promise.
+     * flush串口缓冲区。使用Promise异步回调。
      *
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -150,9 +150,9 @@ declare namespace serial {
     flush(): Promise<void>;
 
     /**
-     * Waits until all write requests are complete. This API returns the result asynchronously through a promise.
+     * 等待所有写入请求完成。使用Promise异步回调。
      *
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -163,10 +163,10 @@ declare namespace serial {
     drain(): Promise<void>;
 
     /**
-     * Sets the RTS signal. This API returns the result asynchronously through a promise.
+     * 设置rts信号。使用Promise异步回调。
      *
-     * @param { boolean } enable - RTS signal status, indicating whether to request sending data.
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @param { boolean } enable - RTS信号状态，表示是否请求发送。
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -177,10 +177,9 @@ declare namespace serial {
     setRts(enable: boolean): Promise<void>;
 
     /**
-     * Obtains the CTS signal status. This API returns the result asynchronously through a promise.
+     * 获取cts信号状态。使用Promise异步回调。
      *
-     * @returns { Promise<boolean> } - Promise used to return the CTS signal status, indicating whether data can be
-     *     sent.
+     * @returns { Promise<boolean> } - Promise对象，返回CTS信号状态，表示是否允许发送数据
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -191,9 +190,9 @@ declare namespace serial {
     getCts(): Promise<boolean>;
 
     /**
-     * Sends a BRK signal. This API returns the result asynchronously through a promise.
+     * 发送brk信号。使用Promise异步回调。
      *
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @returns { Promise<void> } - Promise对象，无返回结果
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -204,11 +203,10 @@ declare namespace serial {
     sendBrk(): Promise<void>;
 
     /**
-     * This interface is used to listen to the disconnection event of the USB virtual serial port. Use Callback
-     * asynchronous callback.
-     * When the {@link close} interface is invoked, all callbacks are cleared.
+     * 监听USB虚拟串口断开事件。使用Callback异步回调。
+     * 调用{@link close}接口时，会清理全部回调
      *
-     * @param { Callback<void> } callback - Callback of the USB virtual serial port disconnection event.
+     * @param { Callback<void> } callback - USB虚拟串口断开事件的回调函数。
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700005 - Port not open.
      * @syscap SystemCapability.BusManager.Serial
@@ -218,10 +216,10 @@ declare namespace serial {
     onDisconnect(callback: Callback<void>): void;
 
     /**
-     * This command is used to cancel the monitoring of the USB virtual serial port disconnection event.
+     * 取消监听USB虚拟串口断开事件。
      *
-     * @param { Callback<void> } [callback] - Callback of the USB virtual serial port disconnection event.
-     *     <br>Default value: Clears all callbacks for USB virtual serial port disconnection events.
+     * @param { Callback<void> } [callback] - USB虚拟串口断开的回调函数。
+     *     <br>默认值：清除所有USB虚拟串口断开事件的回调函数。
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700005 - Port not open.
      * @syscap SystemCapability.BusManager.Serial
@@ -231,10 +229,10 @@ declare namespace serial {
     offDisconnect(callback?: Callback<void>): void;
 
     /**
-     * Sets the DTR signal status. Use Promise asynchronous callbacks.
+     * 设置DTR信号状态，使用Promise异步返回
      *
-     * @param { boolean } enable - DTR signal status, indicating whether the local end is ready.
-     * @returns { Promise<void> } - Promise that returns no value.
+     * @param { boolean } enable - DTR信号状态，表示本端是否就绪。
+     * @returns { Promise<void> } - 不返回任何值的Promise。
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -245,10 +243,9 @@ declare namespace serial {
     setDtr(enable: boolean): Promise<void>;
 
     /**
-     * Obtains the DSR signal status. This API returns the result asynchronously through a promise.
+     * 获取DSR信号状态，使用Promise异步返回
      *
-     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates the remote end
-     *     is ready, and **false** indicates the remote end is not ready.
+     * @returns { Promise<boolean> } DSR信号状态，true表示对端已就绪，false表示对端未就绪
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
      * @throws { BusinessError } 35700005 - Port not open.
@@ -260,7 +257,7 @@ declare namespace serial {
   }
 
   /**
-   * Serial port device information.
+   * 串口设备信息
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -269,7 +266,7 @@ declare namespace serial {
   interface SerialPortInfo {
 
     /**
-     * Port name.
+     * 端口名称
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -278,7 +275,7 @@ declare namespace serial {
     portName: string;
 
     /**
-     * Vendor ID of the USB virtual serial port.
+     * USB虚拟串口的vendorId
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -287,7 +284,7 @@ declare namespace serial {
     vendorId?: int;
 
     /**
-     * Product ID of the USB virtual serial port device.
+     * USB虚拟串口设备的productId
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -296,7 +293,7 @@ declare namespace serial {
     productId?: int;
 
     /**
-     * Manufacturer name of the USB virtual serial port device.
+     * USB虚拟串口设备的制造商名称。
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -306,7 +303,7 @@ declare namespace serial {
   }
 
   /**
-   * Data bits in serial port communication.
+   * 串口通信中的数据位
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -315,7 +312,7 @@ declare namespace serial {
   enum DataBits {
 
     /**
-     * Five data bits.
+     * 5位数据位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -324,7 +321,7 @@ declare namespace serial {
     FIVE = 5,
 
     /**
-     * Six data bits.
+     * 6位数据位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -333,7 +330,7 @@ declare namespace serial {
     SIX = 6,
 
     /**
-     * 7 data bits.
+     * 7位数据位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -342,7 +339,7 @@ declare namespace serial {
     SEVEN = 7,
 
     /**
-     * Eight data bits.
+     * 8位数据位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -352,7 +349,7 @@ declare namespace serial {
   }
 
   /**
-   * Stop bits in serial port communication.
+   * 串口通信中的停止位
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -361,7 +358,7 @@ declare namespace serial {
   enum StopBits {
 
     /**
-     * One stop bit.
+     * 1位停止位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -370,7 +367,7 @@ declare namespace serial {
     ONE = 1,
 
     /**
-     * 2 stop bits.
+     * 2位停止位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -380,7 +377,7 @@ declare namespace serial {
   }
 
   /**
-   * Parity bits in serial port communication.
+   * 串口通信中的校验位
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -389,7 +386,7 @@ declare namespace serial {
   enum Parity {
 
     /**
-     * No parity bit.
+     * 无校验位
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -398,7 +395,7 @@ declare namespace serial {
     NONE = 'none',
 
     /**
-     * Even parity.
+     * 偶校验
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -407,7 +404,7 @@ declare namespace serial {
     EVEN = 'even',
 
     /**
-     * Odd parity.
+     * 奇校验
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -416,7 +413,7 @@ declare namespace serial {
     ODD = 'odd',
 
     /**
-     * Mark parity. The parity bit is always 1.
+     * Mark校验，校验位始终为1
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -425,7 +422,7 @@ declare namespace serial {
     MARK = 'mark',
 
     /**
-     * Space parity. The parity bit is always 0.
+     * Space parity. 校验位始终为0
      *
      * @syscap SystemCapability.BusManager.Serial
      * @stagemodelonly
@@ -435,7 +432,7 @@ declare namespace serial {
   }
 
   /**
-   * Serial port communication configuration.
+   * 串口通信配置
    *
    * @syscap SystemCapability.BusManager.Serial
    * @stagemodelonly
@@ -444,11 +441,11 @@ declare namespace serial {
   interface SerialConfigs {
 
     /**
-     * Baud rate.
-     * The value must be an integer.
-     * Value constraint: standard baud rates.
-     * <br>Unit: bit/s
-     * <br>Default value: 115200
+     * 波特率
+     * 取值限定为整数。
+     * 取值约束:标准波特率。
+     * <br>单位:bps。
+     * <br>默认值:115200。
      *
      * @default 115200
      * @syscap SystemCapability.BusManager.Serial
@@ -458,8 +455,8 @@ declare namespace serial {
     baudRate?: int;
 
     /**
-     * Data bits.
-     * <br>Default value: EIGHT
+     * 数据位
+     * <br>默认值:EIGHT。
      *
      * @default EIGHT
      * @syscap SystemCapability.BusManager.Serial
@@ -469,9 +466,9 @@ declare namespace serial {
     dataBits?: DataBits;
 
     /**
-     * Stop bits.
+     * 停止位
      *
-     * Default value: ONE
+     * <br>默认值:ONE。
      *
      * @default ONE
      * @syscap SystemCapability.BusManager.Serial
@@ -481,8 +478,8 @@ declare namespace serial {
     stopBits?: StopBits;
 
     /**
-     * Parity bit.
-     * <br>Default value: NONE
+     * 校验位
+     * <br>默认值:NONE。
      *
      * @default NONE
      * @syscap SystemCapability.BusManager.Serial
@@ -492,8 +489,8 @@ declare namespace serial {
     parity?: Parity;
 
     /**
-     * Whether to enable hardware-based automatic flow control.
-     * <br>Default value: false.
+     * 是否开启硬件自动流控
+     * <br>默认值:false。
      *
      * @default false
      * @syscap SystemCapability.BusManager.Serial
@@ -503,8 +500,8 @@ declare namespace serial {
     rtscts?: boolean;
 
     /**
-     * Whether to enable XON to control the sending of flows.
-     * <br>Default value: false
+     * 是否启用XON软件流控发送
+     * <br>默认值:false。
      *
      * @default false
      * @syscap SystemCapability.BusManager.Serial
@@ -514,8 +511,8 @@ declare namespace serial {
     xon?: boolean;
 
     /**
-     * Whether to enable XOFF to control the reception of flows.
-     * <br>Default value: false
+     * 是否启用XOFF软件流控接收
+     * <br>默认值:false。
      *
      * @default false
      * @syscap SystemCapability.BusManager.Serial
@@ -525,8 +522,8 @@ declare namespace serial {
     xoff?: boolean;
 
     /**
-     * Whether to enable XANY to control the flow.
-     * <br>Default value: false
+     * 是否启用XANY软件流控
+     * <br>默认值:false。
      *
      * @default false
      * @syscap SystemCapability.BusManager.Serial
@@ -537,14 +534,13 @@ declare namespace serial {
   }
 
   /**
-   * Adds the permission for applications to access the serial port.
-   * This API is open only to system applications that display a pop-up window for serial port authorization.
+   * 添加应用访问串口端口的权限
+   * 仅面向串口授权弹窗系统应用开放
    *
-   * @param { string } tokenId - Token ID of the authorized application.
-   * @param { string } deviceId - Serial port device ID.
-   *     <br>For an onboard serial port, the value is portName. For a USB virtual serial port, the value is the
-   * combination of VID+PID+SN.
-   * @returns { Promise<void> } - Promise that returns no value.
+   * @param { string } tokenId - 被授权应用的tokenId
+   * @param { string } deviceId - 串口设备ID
+   *     <br>对于板载串口，取值为portName；对于USB虚拟串口，取值为vid+pid+SN拼接。
+   * @returns { Promise<void> } - Promise对象，无返回结果
    * @throws { BusinessError } 202 - Permission denied. Called by non-system application
    * @throws { BusinessError } 35700001 - Service error.
    * @throws { BusinessError } 35700002 - Invalid parameter.
