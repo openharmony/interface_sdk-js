@@ -5147,10 +5147,11 @@ declare namespace audio {
     declareDeviceTypesCompatibility(deviceTypes: DeviceTypeArray): void;
 
     /**
-     * Get active output device descriptors in current audio device situaion
-     * The activaion strategy is related to the audio device policy of system.
+     * Gets the active output device descriptors for the current audio device.
+     * The activation policy is related to the audio device policy of the system.
+     *
      * @returns { Promise<AudioDeviceDescriptors> } Promise used to get the output device descriptors.
-     * @throws { BusinessError } 202 - Not system application.
+     * @throws { BusinessError } 202 - Not a system application.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @systemapi
      * @stagemodelonly
