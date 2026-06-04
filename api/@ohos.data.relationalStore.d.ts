@@ -7405,7 +7405,6 @@ declare namespace relationalStore {
      * @returns { Promise<void> } : The promise returned by the function.
      * @throws { BusinessError } 801 - Capability not supported
      *     because the device does not support the cloud synchronization capability.
-     * @throws { BusinessError } 14800000 - Internal error.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @stagemodelonly
