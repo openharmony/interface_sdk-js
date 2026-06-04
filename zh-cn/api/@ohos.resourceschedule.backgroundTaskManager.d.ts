@@ -1334,8 +1334,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
+   * @since 23
    */
   function subscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
@@ -1351,8 +1350,7 @@ declare namespace backgroundTaskManager {
    * @syscap SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
-   * @since 24 static
+   * @since 23
    */
   function unsubscribeContinuousTaskState(subscriber: BackgroundTaskSubscriber): void;
 
