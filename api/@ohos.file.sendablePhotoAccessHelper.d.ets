@@ -367,7 +367,7 @@ declare namespace sendablePhotoAccessHelper {
      * Obtains the file thumbnail of the given size. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_IMAGEVIDEO
-     * @param { image.Size } [size] - Size of the thumbnail. Unit: px. Range: [0,+∞).
+     * @param { image.Size } [size] - Size of the thumbnail.
      * @returns { Promise<image.PixelMap> } Returns the thumbnail's pixelMap.
      * @throws { BusinessError } 201 - Permission denied
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -893,9 +893,7 @@ declare namespace sendablePhotoAccessHelper {
     displayName: string;
     /**
      * Size of photo asset
-     *
-     * Unit: Byte.
-     * Range: >= 0.
+     * Unit: Byte, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -905,9 +903,7 @@ declare namespace sendablePhotoAccessHelper {
     size: number;
     /**
      * Added date of photo asset
-     *
-     * Unit: second.
-     * Range: >= 0.
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -917,9 +913,7 @@ declare namespace sendablePhotoAccessHelper {
     dateAdded: number;
     /**
      * Modify date of photo asset
-     *
-     * Unit: second.
-     * Range: >= 0.
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -929,9 +923,7 @@ declare namespace sendablePhotoAccessHelper {
     dateModified: number;
     /**
      * Duration of video photo asset
-     *
-     * Unit: ms.
-     * Range: >= 0.
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -941,9 +933,7 @@ declare namespace sendablePhotoAccessHelper {
     duration: number;
     /**
      * Width of photo asset
-     *
-     * Unit: px.
-     * Range: >= 0.
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -953,9 +943,7 @@ declare namespace sendablePhotoAccessHelper {
     width: number;
     /**
      * Height of photo asset
-     *
-     * Unit: px.
-     * Range: >= 0.
+     * Unit: px, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -965,9 +953,7 @@ declare namespace sendablePhotoAccessHelper {
     height: number;
     /**
      * DateTaken of photo asset
-     *
-     * Unit: second.
-     * Range: >= 0.
+     * Unit: ms, The value must be an integer greater than or equal to 0.
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -977,9 +963,7 @@ declare namespace sendablePhotoAccessHelper {
     dateTaken: number;
     /**
      * Orientation of photo asset
-     *
-     * Unit: deg.
-     * Range: [0, 359].
+     * Unit: deg, The value must be an integer within [0,359].
      *
      * @type { number }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
