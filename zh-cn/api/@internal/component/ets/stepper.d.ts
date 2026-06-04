@@ -19,11 +19,13 @@
  */
 
 /**
- * The **Stepper** component provides a step navigator, suitable for guiding users through a step-by-step task
- * completion process.
- *
- * > **NOTE**
- *
+* 步骤导航器组件，适用于引导用户按照步骤完成任务的导航场景。
+*
+* > **说明：**
+*
+* > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。详细示例请参考
+* > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-stepper.md#示例2使用swiper替代stepper)。
+*
  * @interface StepperInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -36,15 +38,13 @@
 interface StepperInterface {
 
   /**
-   * Creates a **Stepper** component.
-   *
-   * > **NOTE**
+   * Called when the stepper component is used.
    *
    * @param { object } value - Index of the **StepperItem** that is currently displayed.<br>Default value: **0**<br>
    *     Since API version 10, this parameter supports two-way binding through
    *     [$$](docroot://ui/state-management/arkts-two-way-sync.md).
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -55,8 +55,8 @@ interface StepperInterface {
 }
 
 /**
- * Defines the stepper attribute functions
- *
+* 无
+*
  * @extends CommonMethod<StepperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -69,15 +69,12 @@ interface StepperInterface {
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 
   /**
-   * Triggered when [nextLabel]{@link StepperItemAttribute#nextLabel} of the last [StepperItem]{@link stepper_item} in
-   * the stepper is clicked and the [ItemState]{@link ItemState} attribute is **Normal**.
-   *
-   * > **NOTE**
+   * Callback when the finish label is clicked.
    *
    * @param { function } callback - Invoked when the **nextLabel** of the last **StepperItem** in the **Stepper** is
    *     clicked and the **ItemState** attribute is set to **Normal**.
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -87,15 +84,12 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   onFinish(callback: () => void): StepperAttribute;
 
   /**
-   * Triggered when [nextLabel]{@link StepperItemAttribute#nextLabel} is clicked and the
-   * [StepperItem]{@link stepper_item} status is **ItemState.Skip**.
-   *
-   * > **NOTE**
+   * Callback when the skip label is clicked.
    *
    * @param { function } callback - Invoked when the current **StepperItem** is **ItemState.Skip** and the **nextLabel**
    *     is clicked.
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -105,19 +99,14 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   onSkip(callback: () => void): StepperAttribute;
 
   /**
-   * Triggered when the step navigation switches by clicking [prevLabel]{@link StepperItemAttribute#prevLabel} of the
-   * **StepperItem** component; or when clicking [nextLabel]{@link StepperItemAttribute#nextLabel} of the current
-   * **StepperItem** component, provided that the current page is not the last **StepperItem** in the stepper and the
-   * [ItemState]{@link ItemState} attribute is **Normal**.
-   *
-   * > **NOTE**
+   * Callback when the change label is clicked.
    *
    * @param { function } callback - Callback triggered when the page is switched.<br/>prevIndex: Index of the step page
    *     before the switching.<br>Value range:
    *     [0, +∞).<br/>index: Index of the step page after the switching, that is, index of the previous or next page.
    *     <br>Value range: [0, +∞).
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -127,16 +116,12 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
   /**
-   * Triggered when switching to the next step by clicking [nextLabel]{@link StepperItemAttribute#nextLabel} of a
-   * **StepperItem**, provided that the current page is not the last **StepperItem** in the stepper and the
-   * [ItemState]{@link ItemState} attribute is **Normal**.
-   *
-   * > **NOTE**
+   * Callback when the next label is clicked.
    *
    * @param { function } callback - Callback triggered when the page is switched.<br/>index: Index of the current step
    *     page.<br/>pendingIndex: Index of the next step page.
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -146,15 +131,12 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
   /**
-   * Triggered when switching to the previous step by clicking [prevLabel]{@link StepperItemAttribute#prevLabel} of a
-   * **StepperItem**.
-   *
-   * > **NOTE**
+   * Callback when the previous label is clicked.
    *
    * @param { function } callback - Callback triggered when the page is switched.<br/>index: Index of the current step
    *     page.<br/>pendingIndex: Index of the next step page.
    * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -165,16 +147,17 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 }
 
 /**
- * The **Stepper** component provides a step navigator, suitable for guiding users through a step-by-step task
- * completion process.
- *
- * > **NOTE**
- *
- *
- * ###### Child Components
- *
- * Only the child component [StepperItem]{@link stepper_item} is supported.
- *
+* 步骤导航器组件，适用于引导用户按照步骤完成任务的导航场景。
+*
+* > **说明：**
+*
+* > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。详细示例请参考
+* > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-stepper.md#示例2使用swiper替代stepper)。
+*
+* ###### 子组件
+*
+* 仅能包含子组件[StepperItem]{@link stepper_item}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]

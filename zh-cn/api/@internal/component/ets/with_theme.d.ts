@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines a custom theme.
+ * 自定义配色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,7 +30,7 @@
 declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 
 /**
- * Defines the default theme and color mode for components within the **WithTheme** scope.
+ * 设置WithTheme作用域内组件缺省样式及深浅色模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -41,10 +41,9 @@ declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 declare interface WithThemeOptions {
 
   /**
-   * Default theme for components in the **WithTheme** scope.
-   *
-   * Default value: **undefined**. The default style follows the
-   * [default token style](docroot://ui/theme_skinning.md#system-default-token-color-values).
+   * 用于自定义WithTheme作用域内组件缺省配色。 
+   * 
+   * 默认值：undefined，缺省样式跟随系统[token默认样式](docroot://ui/theme_skinning.md#系统缺省token色值)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,9 +54,9 @@ declare interface WithThemeOptions {
   theme?: CustomTheme;
 
   /**
-   * Color mode for components in the **WithTheme** scope.
-   *
-   * Default value: **ThemeColorMode.SYSTEM**
+   * 用于指定WithTheme作用域内组件配色深浅色模式。
+   * 
+   * 默认值：ThemeColorMode.SYSTEM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -82,9 +81,9 @@ declare interface WithThemeOptions {
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;
 
 /**
- * The [universal attributes]{@link common} are not supported.
- *
- * The [universal events]{@link common} are not supported.
+ * 不支持[通用属性]{@link common}。
+ * 
+ * 不支持[通用事件]{@link common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

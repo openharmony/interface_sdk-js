@@ -21,11 +21,12 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides basic capabilities for obtaining system appearance configurations, including color mode (dark/
- * light) settings, font size scale factors, and font weight scale factors.
- *
- * > **NOTE**
- *
+* 用户界面外观提供获取系统外观的一些基础能力，包括获取深浅色模式、字体大小缩放比例、字体粗细缩放比例。
+*
+* > **说明：**
+*
+* > 从API version 20开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+*
  * @syscap SystemCapability.ArkUI.UiAppearance
  * @systemapi hide this for inner system use [since 10 - 19]
  * @publicapi [since 20]
@@ -34,8 +35,12 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace uiAppearance {
 
   /**
-   * Enumerates the color modes.
+   * 深色模式枚举。
    *
+   * | 名称 | 值 | 说明 |
+   * | -- | -- | -- |
+   * | ALWAYS_DARK | 0 | 系统始终为深色。  |
+   * | ALWAYS_LIGHT | 1 | 系统始终为浅色。 |
    *
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use [since 10 - 19]
@@ -66,9 +71,7 @@ declare namespace uiAppearance {
   }
 
   /**
-   * Sets the system color mode. This API uses an asynchronous callback to return the result.
-   *
-   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
+   * 设置系统深色模式。使用callback异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
@@ -86,13 +89,11 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the system color mode. This API uses a promise to return the result.
-   *
-   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
+   * 设置系统深色模式。使用Promise异步回调。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
@@ -106,15 +107,15 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode): Promise<void>;
 
   /**
-   * Obtains the current system dark mode configuration.
+   * 获取系统当前的深色模式配置。
    *
    * <!--Del-->
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > 该接口在API version 19及之前版本中为系统接口。开发者使用该接口时需要申请
    * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
-   * > permission.
+   * > 权限。
    *
    * <!--DelEnd-->
    *
@@ -130,9 +131,7 @@ declare namespace uiAppearance {
   function getDarkMode(): DarkMode;
 
   /**
-   * Sets the system font scale.
-   *
-   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
+   * 设置系统字体大小。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { number } fontScale - indicates the font-scale to set
@@ -151,15 +150,15 @@ declare namespace uiAppearance {
   function setFontScale(fontScale: number): Promise<void>;
 
   /**
-   * Obtains the current font size scale factor.
+   * 获取系统当前的字体大小缩放比例。
    *
    * <!--Del-->
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > 该接口在API version 19及之前版本中为系统接口。开发者使用该接口时需要申请
    * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
-   * > permission.
+   * > 权限。
    *
    * <!--DelEnd-->
    *
@@ -177,9 +176,7 @@ declare namespace uiAppearance {
   function getFontScale(): number;
 
   /**
-   * Sets the system font weight scale.
-   *
-   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
+   * 设置系统字体粗细。
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { number } fontWeightScale - indicates the font-weight-scale to set
@@ -194,15 +191,15 @@ declare namespace uiAppearance {
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
   /**
-   * Obtains the current font weight scale factor.
+   * 获取系统当前的字体粗细缩放比例。
    *
    * <!--Del-->
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > 该接口在API version 19及之前版本中为系统接口。开发者使用该接口时需要申请
    * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
-   * > permission.
+   * > 权限。
    *
    * <!--DelEnd-->
    *
