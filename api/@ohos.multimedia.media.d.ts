@@ -7837,24 +7837,6 @@ declare namespace media {
     setWatermark(watermark: image.PixelMap, config: WatermarkConfig): Promise<void>
 
     /**
-     * add a watermark for the AVRecorder. This API uses a promise to return the result.
-     * App can add up to 5 watermarks.
-     * This API can be called only before the prepared state.
-     *
-     * @param { image.PixelMap } watermark - : Watermark image.
-     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
-     * @returns { Promise<int> } Promise that returns the watermark id.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
-     * @throws { BusinessError } 5400105 - Service died. Return by promise.
-     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
-     * @syscap SystemCapability.Multimedia.Media.AVRecorder
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
-  
-    /**
      * Sets custom metadata for the recording file of AVRecorder.
      *
      * This API can be called only after the prepare() event is successfully triggered and
@@ -9072,53 +9054,6 @@ declare namespace media {
      * @since 23 static
      */
     left: int;
-  }
-
-  /**
-   * Set configuration of a watermark. The position starts at top left corner.
-   *
-   * @typedef WatermarkConfiguration
-   * @syscap SystemCapability.Multimedia.Media.Core
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  interface WatermarkConfiguration {  
-    /**
-     * Offset of the watermark to the top line of pixel
-     * The value range is all integers.
-     *
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    top: int;
-    /**
-     * Offset of the watermark to the left line of pixel
-     * The value range is all integers.
-     *
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    left: int;
-    /**
-     * target width of the watermark in pixel
-     * The value range is all integers.
-     *
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    width?: int;
-    /**
-     * target height of the watermark in pixel
-     * The value range is all integers.
-     *
-     * @syscap SystemCapability.Multimedia.Media.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    height?: int;
   }
 
   /**
@@ -12886,24 +12821,6 @@ declare namespace media {
     release(): Promise<void>;
 
     /**
-     * add a watermark for the AVScreenCaptureRecorder. This API uses a promise to return the result.
-     * App can add up to 5 watermarks.
-     * This API can be called only before calling startRecording().
-     *
-     * @param { image.PixelMap } watermark - : Watermark image.
-     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
-     * @returns { Promise<int> } Promise that returns the watermark id.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
-     * @throws { BusinessError } 5400105 - Service died. Return by promise.
-     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
-     * @syscap SystemCapability.Multimedia.Media.AVScreenCapture
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
-
-    /**
      * Subscribes to screen capture state changes. An application can subscribe to only one screen capture
      * state change event. When the application initiates multiple subscriptions to this event,
      * the last subscription is applied.
@@ -13662,24 +13579,6 @@ declare namespace media {
      * @since 23 static
      */
     offProgressUpdate(callback?: Callback<int>):void;
-
-    /**
-     * add a watermark for the AVTranscoder. This API uses a promise to return the result.
-     * App can add up to 5 watermarks.
-     * This API can be called only before the prepared state.
-     *
-     * @param { image.PixelMap } watermark - : Watermark image.
-     * @param { WatermarkConfiguration } config - : Configuration of the watermark.
-     * @returns { Promise<int> } Promise that returns the watermark id.
-     * @throws { BusinessError } 5400102 - Operation not allowed. Return by promise.
-     * @throws { BusinessError } 5400103 - IO error. Return by promise.
-     * @throws { BusinessError } 5400105 - Service died. Return by promise.
-     * @throws { BusinessError } 5400108 - The parameter check failed, parameter value out of range.
-     * @syscap SystemCapability.Multimedia.Media.AVTranscoder
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    addWatermark(watermark: image.PixelMap, config: WatermarkConfiguration): Promise<int>;
   }
 
   /**
