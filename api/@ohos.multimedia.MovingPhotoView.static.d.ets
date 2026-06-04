@@ -27,7 +27,7 @@ import { CommonMethod, ComponentBuilder, CustomBuilder, ImageFit, ImageAIOptions
  * @interface MovingPhotoViewOptions
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface MovingPhotoViewOptions {
     /**
@@ -36,7 +36,7 @@ export declare interface MovingPhotoViewOptions {
      * @type { photoAccessHelper.MovingPhoto }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     movingPhoto: photoAccessHelper.MovingPhoto;
     /**
@@ -45,7 +45,7 @@ export declare interface MovingPhotoViewOptions {
      * @type { ?MovingPhotoViewController }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     controller?: MovingPhotoViewController;
     /**
@@ -54,7 +54,7 @@ export declare interface MovingPhotoViewOptions {
      * @type { ?ImageAIOptions }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     imageAIOptions?: ImageAIOptions;
     /**
@@ -64,7 +64,7 @@ export declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     movingPhotoFormat?: PixelMapFormat;
     /**
@@ -74,7 +74,7 @@ export declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     dynamicRangeMode?: DynamicRangeMode;
     /**
@@ -84,7 +84,7 @@ export declare interface MovingPhotoViewOptions {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     playWithMask?: boolean;
 }
@@ -94,7 +94,7 @@ export declare interface MovingPhotoViewOptions {
  * @typedef { function }
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 declare type MovingPhotoViewEventCallback = () => void;
 /**
@@ -104,7 +104,7 @@ declare type MovingPhotoViewEventCallback = () => void;
  * @interface MovingPhotoViewAttribute
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface MovingPhotoViewAttribute extends CommonMethod {
     /**
@@ -114,7 +114,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     muted(isMuted: boolean): MovingPhotoViewAttribute;
 	/**
@@ -124,7 +124,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     objectFit(value: ImageFit): MovingPhotoViewAttribute;
     /**
@@ -134,7 +134,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onComplete(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -144,7 +144,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onStart(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -154,7 +154,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onStop(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -164,7 +164,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onPause(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -174,7 +174,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onFinish(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -184,7 +184,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onError(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -194,7 +194,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     onPrepared(callback: MovingPhotoViewEventCallback): MovingPhotoViewAttribute;
     /**
@@ -206,7 +206,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     autoPlayPeriod(startTime: double, endTime: double): MovingPhotoViewAttribute;
     /**
@@ -217,7 +217,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     autoPlay(isAutoPlay: boolean): MovingPhotoViewAttribute;
     /**
@@ -228,7 +228,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     repeatPlay(isRepeatPlay: boolean): MovingPhotoViewAttribute;
     /**
@@ -239,7 +239,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @returns { MovingPhotoViewAttribute }
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableAnalyzer(enabled: boolean): MovingPhotoViewAttribute;
     /**
@@ -251,7 +251,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     setPlaybackStrategy(strategy: media.PlaybackStrategy): MovingPhotoViewAttribute;
 }
@@ -260,7 +260,7 @@ export declare interface MovingPhotoViewAttribute extends CommonMethod {
  *
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare class MovingPhotoViewController {
     /**
@@ -268,7 +268,7 @@ export declare class MovingPhotoViewController {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     constructor();
     /**
@@ -276,7 +276,7 @@ export declare class MovingPhotoViewController {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     startPlayback(): void;
     /**
@@ -284,7 +284,7 @@ export declare class MovingPhotoViewController {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     stopPlayback(): void;
     /**
@@ -292,7 +292,7 @@ export declare class MovingPhotoViewController {
      *
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     refreshMovingPhoto(): void;
     /**
@@ -303,7 +303,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     pausePlayback(): void;
     /**
@@ -313,7 +313,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     reset(): void;
     /**
@@ -323,7 +323,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     restart(): void;
     /**
@@ -334,7 +334,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableTransition(enabled: boolean): void;
     /**
@@ -346,7 +346,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     setPlaybackPeriod(startTime: double, endTime: double): void;
     /**
@@ -358,7 +358,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableAutoPlay(enabled: boolean): void;
     /**
@@ -368,7 +368,7 @@ export declare class MovingPhotoViewController {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     notifyMovingPhotoTransition(): void;
 }
@@ -379,7 +379,7 @@ export declare class MovingPhotoViewController {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum DynamicRangeMode {
     /**
@@ -388,7 +388,7 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     STANDARD = 2,
     /**
@@ -397,7 +397,7 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     CONSTRAINT = 1,
     /**
@@ -406,7 +406,7 @@ export declare enum DynamicRangeMode {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     HIGH = 0
 }
@@ -417,7 +417,7 @@ export declare enum DynamicRangeMode {
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @systemapi
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum PixelMapFormat {
     /**
@@ -427,7 +427,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     NV21 = 2,
     /**
@@ -437,7 +437,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     YCBCR_P010 = 4,
     /**
@@ -447,7 +447,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     RGBA_1010102 = 3,
     /**
@@ -458,7 +458,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     RGBA_8888 = 1,
     /**
@@ -468,7 +468,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     YCRCB_P010 = 5,
     /**
@@ -477,7 +477,7 @@ export declare enum PixelMapFormat {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     UNKNOWN = 0
 }
@@ -489,7 +489,7 @@ export declare enum PixelMapFormat {
  * @returns { MovingPhotoViewAttribute } The attribute of the movingPhotoView.
  * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
  * @stagemodelonly
- * @since 24 staticonly
+ * @since 26.0.0 staticonly
  */
 @ComponentBuilder
 export declare function MovingPhotoView(
