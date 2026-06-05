@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import window from '../../@ohos.window';

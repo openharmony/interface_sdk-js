@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { Builder, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable, CustomBuilderT } from '@ohos.arkui.component';

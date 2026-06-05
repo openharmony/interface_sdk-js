@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { SwiperAnimationEvent } from '@ohos.arkui.component';

@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CommonMethod, BlurStyle, Bindable } from './common';

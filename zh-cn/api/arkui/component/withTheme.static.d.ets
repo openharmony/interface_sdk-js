@@ -16,7 +16,6 @@
 /**
  * @file Defines WithTheme component.
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { CustomTheme } from '../../@ohos.arkui.theme';
