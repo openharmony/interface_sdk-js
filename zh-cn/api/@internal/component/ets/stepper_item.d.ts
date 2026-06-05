@@ -18,9 +18,11 @@
  * @kit ArkUI
  */
 
+import { CommonMethod } from './common';
+
 /**
- * Display status of **nextLabel** in the stepper.
- *
+* 步骤导航器nextLabel的显示状态。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -31,12 +33,11 @@
 declare enum ItemState {
 
   /**
-   * The button on the right is clickable and can navigate users to the next **StepperItem** when it is clicked.
+   * 正常状态，右侧文本按钮正常显示，可点击进入下一个StepperItem。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
-   * [index]{@link SwiperAttribute#index} instead.
+   * 从API version 8开始支持，从API version 22开始废弃，建议使用[index]{@link SwiperAttribute#index}替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -48,12 +49,11 @@ declare enum ItemState {
   Normal = 0,
 
   /**
-   * The button on the right is disabled.
+   * 不可用状态，右侧文本按钮灰度显示，不可点击进入下一个StepperItem。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
-   * [indicatorInteractive]{@link SwiperAttribute#indicatorInteractive} instead.
+   * 从API version 8开始支持，从API version 22开始废弃，建议使用[indicatorInteractive]{@link SwiperAttribute#indicatorInteractive}替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -65,12 +65,11 @@ declare enum ItemState {
   Disabled = 1,
 
   /**
-   * The button on the right is not displayed, and a progress bar is displayed instead.
+   * 等待状态，右侧文本按钮不显示，显示等待进度条，不可点击进入下一个StepperItem。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
-   * [Swiper]{@link swiper} instead.
+   * 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -82,13 +81,11 @@ declare enum ItemState {
   Waiting = 2,
 
   /**
-   * The button on the right reads "Skip" by default. You can define the processing logic for this state in the
-   * **onSkip** callback of the stepper.
+   * 跳过状态，右侧文本按钮默认显示“跳过”，此时可在Stepper的onSkip回调中自定义相关逻辑。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This API is supported since API version 8 and deprecated since API version 22. You are advised to use
-   * [index]{@link SwiperAttribute#index} instead.
+   * 从API version 8开始支持，从API version 22开始废弃，建议使用[index]{@link SwiperAttribute#index}替代。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -101,15 +98,12 @@ declare enum ItemState {
 }
 
 /**
- * The **StepperItem** component represents a page component used within a [Stepper]{@link stepper} container.
- *
- * > **NOTE**
- *
- * > - This component is supported since API version 8 and deprecated since API version 22. You are advised to use
- * > [Swiper]{@link swiper} instead.
- *
- * > Updates will be marked with a superscript to indicate their
- *
+* 用作[Stepper]{@link stepper}组件的页面子组件。
+*
+* > **说明：**
+*
+* > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -121,12 +115,15 @@ declare enum ItemState {
 interface StepperItemInterface {
 
   /**
-   * Creates a page component for the [Stepper]{@link stepper} container.
+   * 创建[Stepper]{@link stepper}组件的页面子组件。
    *
-   * > **NOTE**
+   * > **说明：**
+   *
+   * > 从API version 8开始支持，从API version 22开始废弃，建议使用
+   * > [Swiper](docroot://reference/apis-arkui/arkui-ts/ts-container-swiper.md#属性)替代。
    *
    * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -137,8 +134,7 @@ interface StepperItemInterface {
 }
 
 /**
- * Defines StepperItem Component instance.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -150,15 +146,15 @@ interface StepperItemInterface {
 declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
 
   /**
-   * Sets the text label of the button on the left, which is not displayed on the first page. When the **Stepper**
-   * contains more than one page, the default value for all pages except the first page is **Back**.
+   * 设置左侧文本按钮内容，第一页没有左侧文本按钮，当步骤导航器大于一页时，除第一页外默认值都为“返回”。
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * @param { string } value - Text label of the button on the left. When the string is too long, it is scaled down,
-   *     wrapped in two lines, and then clipped.
+   * > 从API version 8开始支持，从API version 22开始废弃，建议使用[showPrevious]{@link SwiperController#showPrevious}替代。
+   *
+   * @param { string } value - 左侧文本按钮内容。字符串超长时，先缩小再换行（2行）最后截断。
    * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -168,15 +164,15 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   prevLabel(value: string): StepperItemAttribute;
 
   /**
-   * Sets the text label of the button on the right. The default value is **Start** for the last page and **Next** for
-   * the other pages.
+   * 设置右侧文本按钮内容，最后一页默认值为“开始”，其余页默认值为“下一步”。
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * @param { string } value - Text label of the button on the right. When the string is too long, it is scaled down,
-   *     wrapped in two lines, and then clipped.
+   * > 从API version 8开始支持，从API version 22开始废弃，建议使用[showNext]{@link SwiperController#showNext}替代。
+   *
+   * @param { string } value - 右侧文本按钮内容。字符串超长时，先缩小再换行（2行）最后截断。
    * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -186,13 +182,15 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
   nextLabel(value: string): StepperItemAttribute;
 
   /**
-   * Sets the display status of **nextLabel** in the stepper.
+   * 设置步骤导航器nextLabel的显示状态。
    *
-   * > **NOTE**
+   * > **说明：**
    *
-   * @param { ItemState } value - Display status of **nextLabel** in the stepper.<br>Default value: **ItemState.Normal**
+   * > 从API version 8开始支持，从API version 22开始废弃，建议使用[indicatorInteractive]{@link SwiperAttribute#indicatorInteractive}替代。
+   *
+   * @param { ItemState } value - 步骤导航器nextLabel的显示状态。<br/>默认值：ItemState.Normal
    * @returns { StepperItemAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 8 dynamiconly
@@ -203,8 +201,8 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
 }
 
 /**
- * Defines StepperItem Component instance.
- *
+* Defines StepperItem Component instance.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -216,19 +214,16 @@ declare class StepperItemAttribute extends CommonMethod<StepperItemAttribute> {
 declare const StepperItemInstance: StepperItemAttribute;
 
 /**
- * The **StepperItem** component represents a page component used within a [Stepper]{@link stepper} container.
- *
- * > **NOTE**
- *
- * > - This component is supported since API version 8 and deprecated since API version 22. You are advised to use
- * > [Swiper]{@link swiper} instead.
- *
- * > Updates will be marked with a superscript to indicate their
- *
- * ###### Child Components
- *
- * This component supports only one child component.
- *
+* 用作[Stepper]{@link stepper}组件的页面子组件。
+*
+* > **说明：**
+*
+* > - 从API version 8开始支持，从API version 22开始废弃，建议使用[Swiper]{@link swiper}替代。
+*
+* ###### 子组件
+*
+* 支持单个子组件。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]

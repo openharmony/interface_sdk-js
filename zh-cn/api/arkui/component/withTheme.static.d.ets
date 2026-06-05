@@ -26,7 +26,7 @@ import { ThemeColorMode, AttributeModifier, CommonMethod } from './common';
 import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 
 /**
- * Defines the struct of WithThemeOptions.
+ * 设置WithTheme作用域内组件缺省样式及深浅色模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -35,7 +35,9 @@ import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './buil
 export declare interface WithThemeOptions {
 
   /**
-   * Custom Theme.
+   * 用于自定义WithTheme作用域内组件缺省配色。 
+   * 
+   * 默认值：undefined，缺省样式跟随系统[token默认样式](docroot://ui/theme_skinning.md#系统缺省token色值)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +46,9 @@ export declare interface WithThemeOptions {
   theme?: CustomTheme;
 
   /**
-   * Theme Color Mode.
+   * 用于指定WithTheme作用域内组件配色深浅色模式。
+   * 
+   * 默认值：ThemeColorMode.SYSTEM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +58,7 @@ export declare interface WithThemeOptions {
 }
 
 /**
- * Defines the WithTheme attribute functions..
+ * 不支持[通用属性]{@link ./../../@internal/component/ets/common}和[通用事件]{@link ./../../@internal/component/ets/common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -63,22 +67,22 @@ export declare interface WithThemeOptions {
 export declare interface WithThemeAttribute {
 
   /**
-   * Set the component's source code redirection information.
+   * 设置组件的源码跳转信息。
    *
-   * @param { string } sourceLine - the source code line.
-   * @param { string } [moduleName] - module to which the component belongs.
+   * @param { string } sourceLine - 源代码行。
+   * @param { string } [moduleName] - 组件所属的模块。
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   default debugLine(sourceLine: string, moduleName?: string): this;
 
   /**
-   * Sets the WithTheme options.
+   * 设置WithTheme选项。
    *
-   * @param { WithThemeOptions | undefined } options - The options to create a WithTheme.
-   * @returns { WithThemeAttribute } Returns instance of WithThemeAttribute.
+   * @param { WithThemeOptions | undefined } options - 创建WithTheme的选项。
+   * @returns { WithThemeAttribute } 返回WithThemeAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -86,7 +90,7 @@ export declare interface WithThemeAttribute {
   default setWithThemeOptions(options: WithThemeOptions | undefined): this;
 
   /**
-   * Notify the component is finished setting up its attributes.
+   * 通知组件已完成设置其属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -96,10 +100,10 @@ export declare interface WithThemeAttribute {
 }
 
 /**
- * Defines WithTheme Component
+ * 设置应用局部页面自定义主题风格。
  *
- * @param { WithThemeOptions | undefined } options - options of WithTheme.
- * @param { CustomBuilder } [content_] - the content of the component
+ * @param { WithThemeOptions | undefined } options - 设置作用域内组件配色。
+ * @param { CustomBuilder } [content_] - 支持单个子组件。
  * @returns { WithThemeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -113,11 +117,11 @@ export declare function WithTheme(
 ): WithThemeAttribute;
 
 /**
- * Defines the WithTheme component
+ * 用于WithTheme定义
  *
- * @param { CustomBuilderT<WithThemeAttribute> } style_ - WithTheme attribute instance
- * @param { CustomBuilder } [content_] - container
- * @returns { WithThemeAttribute } WithThemeAttribute
+ * @param { CustomBuilderT<WithTheme属性> } style_ - WithTheme属性实例
+ * @param { CustomBuilder } [content_] - 容器
+ * @returns { WithTheme属性 } WithTheme属性
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
