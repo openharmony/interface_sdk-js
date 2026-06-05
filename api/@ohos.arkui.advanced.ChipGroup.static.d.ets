@@ -710,7 +710,7 @@ export declare struct ChipGroup {
      * @noninterop
      */
     @PropRef
-    selectedBackgroundMaterial?: uiMaterial.Material;
+    selectedBackgroundSystemMaterial?: uiMaterial.Material;
 
     /**
      * Chip group callback. when chip status is changed, this onChange is called.
