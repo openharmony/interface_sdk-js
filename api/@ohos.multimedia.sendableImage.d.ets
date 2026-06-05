@@ -25,11 +25,9 @@ import type resourceManager from './@ohos.resourceManager';
 import type rpc from './@ohos.rpc';
 import lang from '../arkts/@arkts.lang';
 import collections from '../arkts/@arkts.collections';
-/**
- * The module provides APIs for image processing based on the [Sendable](docroot://arkts-utils/arkts-sendable.md) 
- * object. You can use the APIs to create a PixelMap object with specified properties or read pixels of an image (or 
- * even in a region of an image).
- *
+ /**
+ * This module provides the capability of image codec and access
+ * @namespace sendableImage
  * @syscap SystemCapability.Multimedia.Image.Core
  * @crossplatform
  * @atomicservice
@@ -37,96 +35,99 @@ import collections from '../arkts/@arkts.collections';
  */
 declare namespace sendableImage {
 
-  /**
+ /**
    * Describes the size of an image.
-   * It inherits from [lang.ISendable](docroot://arkts-utils/arkts-sendable.md#isendable).
    *
+   * @typedef Size
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamiconly
    */
-  interface Size extends lang.ISendable {
-    /**
-     * Height of the output image, in px.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    height: number;
-
-    /**
-     * Width of the output image, in px.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    width: number;
-  }
-
+ interface Size extends lang.ISendable {
   /**
-   * Describes the region information.
-   * It inherits from [lang.ISendable](docroot://arkts-utils/arkts-sendable.md#isendable).
+   * Height
+   * <br>Unit:px.
    *
+   * @type { number }
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamiconly
    */
-  interface Region extends lang.ISendable {
-    /**
-     * Region size.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    size: Size;
-
-    /**
-     * X coordinate, in px.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    x: number;
-
-    /**
-     * Y coordinate, in px.
-     *
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamiconly
-     */
-    y: number;
-  }
+  height: number;
 
   /**
-   * Creates an ImageSource instance based on a given URI.
+   * Width
+   * <br>Unit:px.
    *
-   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
+   * @type { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamiconly
+   */
+  width: number;
+}
+
+/**
+ * Describes region information.
+ *
+ * @typedef Region
+ * @syscap SystemCapability.Multimedia.Image.Core
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12 dynamiconly
+ */
+interface Region extends lang.ISendable {
+  /**
+   * Image size.
    *
-   * @param { string } uri - Image path. Currently, only the application sandbox path is supported.
-   *     <br>The following formats are supported: .jpg, .png, .gif, .bmp, .webp, .dng
-   *     [SVG](docroot://reference/apis-image-kit/arkts-apis-image-f.md#svg-tags), and ico.
-   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
+   * @type { Size }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamiconly
+   */
+  size: Size;
+
+  /**
+   * x-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamiconly
+   */
+  x: number;
+
+  /**
+   * y-coordinate at the upper left corner of the image (px).
+   * <br>Unit:px.
+   *
+   * @type { number }
+   * @syscap SystemCapability.Multimedia.Image.Core
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamiconly
+   */
+  y: number;
+}
+
+  /**
+   * Creates an ImageSource instance based on the URI.
+   *
+   * @param { string } uri Image source URI.
+   * @returns { ImageSource } returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
@@ -135,14 +136,10 @@ declare namespace sendableImage {
   function createImageSource(uri: string): ImageSource;
 
   /**
-   * Creates an ImageSource instance based on a given file descriptor.
+   * Creates an ImageSource instance based on the file descriptor.
    *
-   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
-   *
-   * @param { number } fd - File descriptor.
-   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
+   * @param { number } fd ID of a file descriptor.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @atomicservice
@@ -151,16 +148,10 @@ declare namespace sendableImage {
   function createImageSource(fd: number): ImageSource;
 
   /**
-   * Creates an ImageSource instance based on buffers. The data passed by **buf** must be undecoded. Do not pass the 
-   * pixel buffer data such as RBGA and YUV. If you want to create a PixelMap based on the pixel buffer data, call 
-   * [sendableImage.createPixelMap]{@link sendableImage.createPixelMap}.
+   * Creates an ImageSource instance based on the buffer.
    *
-   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
-   *
-   * @param { ArrayBuffer } buf - Array of image buffers.
-   * @returns { ImageSource } ImageSource instance. If the operation fails, undefined is returned.
+   * @param { ArrayBuffer } buf The buffer of the image.
+   * @returns { ImageSource } Returns the ImageSource instance if the operation is successful; returns undefined otherwise.
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
@@ -170,32 +161,28 @@ declare namespace sendableImage {
   function createImageSource(buf: ArrayBuffer): ImageSource;
 
   /**
-   * Creates an ImageReceiver instance based on the specified image size, format, and capacity.
+   * Creates an ImageReceiver instance.
    *
-   * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
-   *
-   * @param { Size } size - Default size of the image.
-   * @param { ImageFormat } format - Image format, which is a constant of **image.ImageFormat**. (Currently, only
-   *     **ImageFormat:JPEG** is supported.)
-   * @param { number } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
-   *     only as an expected value. The actual capacity is determined by the device hardware.
-   * @returns { ImageReceiver } ImageReceiver instance.
+   * @param { Size } size - The default {@link Size} in pixels of the Images that this receiver will produce.
+   * @param { ImageFormat } format - The format of the Image that this receiver will produce. This must be one of the
+   *            {@link ImageFormat} constants.
+   * @param { number } capacity - The maximum number of images the user will want to access simultaneously.
+   * @returns { ImageReceiver } Returns the ImageReceiver instance if the operation is successful; returns null otherwise.
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 12 dynamiconly
    */
-  function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver;
+  function createImageReceiver(size: image.Size, format: image.ImageFormat, capacity: number): ImageReceiver; 
 
   /**
-   * ISendable is the parent type of all sendable types except null and undefined. It does not have any necessary 
-   * methods or properties.
+   * Redefines ISendable for convenience.
    *
+   * @typedef { lang.ISendable } ISendable
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform
    * @since 12 dynamiconly
    */
+
   type ISendable = lang.ISendable;
 
   /**
@@ -771,31 +758,22 @@ declare namespace sendableImage {
   }
 
   /**
-   * Provides APIs to obtain image information. Before calling any API in ImageSource, you must use 
-   * [sendableImage.createImageSource]{@link sendableImage.createImageSource(uri: string)} to create an ImageSource 
-   * instance.
+   * ImageSource instance.
    *
-   * Images occupy a large amount of memory. When you finish using an ImageSource instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
-   *
+   * @typedef ImageSource
    * @syscap SystemCapability.Multimedia.Image.ImageSource
    * @crossplatform
    * @form
    * @atomicservice
    * @since 12 dynamiconly
    */
-    interface ImageSource {
+  interface ImageSource {
     /**
-     * Creates a PixelMap object based on decoding options. This API uses a promise to return the result.
+     * Creates a PixelMap object based on image decoding parameters. This method uses a promise to
+     * return the object.
      *
-     * Images occupy a large amount of memory. When you finish using a PixelMap instance, call 
-     * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, 
-     * ensure that all asynchronous operations associated with the instance have finished and the instance is no longer 
-     * needed.
-     *
-     * @param { DecodingOptions } options - Decoding options.
-     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
+     * @param { DecodingOptions } options Image decoding parameters.
+     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @form
@@ -805,15 +783,9 @@ declare namespace sendableImage {
     createPixelMap(options?: image.DecodingOptions): Promise<PixelMap>;
 
     /**
-     * Releases this ImageSource instance. This API uses a promise to return the result.
+     * Releases an ImageSource instance and uses a promise to return the result.
      *
-     * Images occupy a large amount of memory. When you finish using an ImageSource instance, call this API to free the 
-     * memory promptly.
-     *
-     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
-     * and the instance is no longer needed.
-     *
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @crossplatform
      * @since 12 dynamiconly
@@ -822,23 +794,19 @@ declare namespace sendableImage {
   }
 
   /**
-   * Provides APIs for basic image operations, including obtaining image information and reading and writing image data.
+   * Provides basic image operations, including obtaining image information, and reading and writing image data.
    *
-   * An Image instance is returned when [readNextImage]{@link sendableImage.ImageReceiver.readNextImage} and 
-   * [readLatestImage]{@link sendableImage.ImageReceiver.readLatestImage} are called. This class inherits from 
-   * [ISendable](docroot://arkts-utils/arkts-sendable.md#isendable).
-   *
-   * Images occupy a large amount of memory. When you finish using an Image instance, call 
-   * [release]{@link sendableImage.PixelMap.release} to free the memory promptly. Before releasing the instance, ensure 
-   * that all asynchronous operations associated with the instance have finished and the instance is no longer needed.
-   *
+   * @typedef Image
    * @syscap SystemCapability.Multimedia.Image.Core
    * @since 12 dynamiconly
    */
   interface Image extends lang.ISendable {
     /**
-     * Image area to be cropped.
+     * Gets the image area, which always covers the entire image and can not be modified.
+     * clipRect.size equals to the size of the image.
+     * clipRect.x and clipRect.y are always 0, indicating the top-left corner of the image.
      *
+     * @type { Region }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
@@ -847,70 +815,44 @@ declare namespace sendableImage {
     /**
      * Image size.
      *
-     * If the Image object stores camera preview stream data (YUV image data), the width and height in **size**
-     * reflect the dimensions of the YUV image.
-     *
-     * If the Image object stores camera capture stream data (JPEG image data), given that it is an encoded file,
-     * the width in **size** is the size of the JPEG file, while the height is set to **1**.
-     *
-     * The type of data stored in the Image object depends on whether the application passes the surface ID in the
-     * receiver to a previewOutput or captureOutput object of the camera.
-     *
-     * For details about the best practices of camera preview and photo capture, see
-     * [Dual-Channel Preview (ArkTS)](docroot://media/camera/camera-dual-channel-preview.md) and
-     * [Photo Capture Sample (ArkTS)](docroot://media/camera/camera-shooting-case.md).
-     *
+     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
     readonly size: Size;
 
     /**
-     * Image format. For details, see 
-     * [OH_NativeBuffer_Format](docroot://reference/apis-arkgraphics2d/c-apis/capi-buffer-common-h.md#oh_nativebuffer_format).
+     * Image format.
      *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
     readonly format: number;
 
     /**
-     * Image timestamp. Timestamps, measured in nanoseconds, are usually monotonically increasing. The specific meaning 
-     * and baseline of these timestamps are determined by the image producer, which is the camera in the camera preview 
-     * and photo scenarios. As a result, images from different producers may carry timestamps with distinct meanings and
-     * baselines, making direct comparison between them infeasible. To obtain the generation time of a photo, you can 
-     * use 
-     * [getImageProperty]{@link @ohos.multimedia.image:image.ImageSource.getImageProperty(key: PropertyKey, options?: ImagePropertyOptions)}
-     * to read the related Exif information.
+     * Image timestamp.
      *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
     readonly timestamp: number;
 
     /**
-     * Obtains the component buffer from the Image instance based on the color component type. This API uses a promise 
-     * to return the result. The thread that runs **getComponent** is insecure.
+     * Get component buffer from image and uses a promise to return the result.
      *
-     * @param { ComponentType } componentType - Color component type of the image.
-     * @returns { Promise<image.Component> } Promise used to return the component buffer.
+     * @param { ComponentType } componentType The component type of image.
+     * @returns { Promise<Component> } A Promise instance used to return the component buffer.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
     getComponent(componentType: image.ComponentType): Promise<image.Component>;
 
     /**
-     * Releases this Image instance. This API uses a promise to return the result.
+     * Release current image to receive another and uses a promise to return the result.
      *
-     * The corresponding resources must be released before another image arrives.
-     *
-     * Images occupy a large amount of memory. When you finish using an Image instance, call this API to free the memory
-     * promptly.
-     *
-     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
-     * and the instance is no longer needed.
-     *
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 12 dynamiconly
      */
@@ -918,11 +860,9 @@ declare namespace sendableImage {
   }
 
   /**
-   * Image receiver class. You can use it to obtain the surface ID of a component, read the latest image and the next 
-   * image, and release **ImageReceiver** instances.
+   * Image receiver object.
    *
-   * Before calling any APIs in ImageReceiver, you must create an ImageReceiver instance.
-   *
+   * @typedef ImageReceiver
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 12 dynamiconly
    */
@@ -930,16 +870,16 @@ declare namespace sendableImage {
     /**
      * Image size.
      *
+     * @type { Size }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     readonly size: image.Size;
 
     /**
-     * Maximum number of images that can be accessed at the same time. This parameter is used only as an expected value.
+     * Image capacity.
      *
-     * The actual capacity is determined by the device hardware.
-     *
+     * @type { number }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
@@ -948,76 +888,60 @@ declare namespace sendableImage {
     /**
      * Image format.
      *
+     * @type { ImageFormat }
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     readonly format: image.ImageFormat;
 
     /**
-     * Obtains a surface ID for the camera or other components. This API uses a promise to return the result.
+     * Get an id which indicates a surface and can be used to set to Camera or other component can receive a surface
+     * and uses a promise to return the result.
      *
-     * @returns { Promise<string> } Asynchronously returns the surface ID.
+     * @returns { Promise<string> } A Promise instance used to return the surface id.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     getReceivingSurfaceId(): Promise<string>;
 
     /**
-     * Reads the latest image from the ImageReceiver instance. This API uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > This API can be called to receive data only after the [on]{@link sendableImage.ImageReceiver.on} callback is 
-     * > triggered. When the [Image]{@link sendableImage.ImageSource} object returned by this API is no longer needed, 
-     * > call [release]{@link sendableImage.PixelMap.release} to release the object. New data can be received only after
-     * > the release.
+     * Get lasted image from receiver and uses a promise to return the result.
      *
-     * @returns { Promise<Image> } Promise used to return the latest image.
+     * @returns { Promise<Image> } A Promise instance used to return the latest image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     readLatestImage(): Promise<Image>;
 
     /**
-     * Reads the next image from the ImageReceiver instance. This API uses a promise to return the result.
-     * 
-     * > **NOTE**
-     * >
-     * > This API can be called to receive data only after the [on]{@link sendableImage.ImageReceiver.on} callback is 
-     * > triggered. When the [Image]{@link sendableImage.ImageSource} object returned by this API is no longer needed, 
-     * > call [release]{@link sendableImage.PixelMap.release} to release the object. New data can be received only after
-     * > the release.
+     * Get next image from receiver and uses a promise to return the result.
      *
-     * @returns { Promise<Image> } Promise used to return the next image.
+     * @returns { Promise<Image> } A Promise instance used to return the next image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     readNextImage(): Promise<Image>;
 
     /**
-     * Listens for image arrival events. This API uses an asynchronous callback to return the result.
+     * Subscribe callback when receiving an image
      *
-     * @param { 'imageArrival' } type - Type of event to listen for. The value is fixed at **'imageArrival'**, which is
-     *     triggered when an image is received.
-     * @param { AsyncCallback<void> } callback - Callback invoked for the event.
+     * @param { 'imageArrival' } type Callback used to return the next image.
+     * @param { AsyncCallback<void> } callback Callback used to return image.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     on(type: 'imageArrival', callback: AsyncCallback<void>): void;
 
     /**
-     * Releases this ImageReceiver instance. This API uses a promise to return the result.
-     * Images occupy a large amount of memory. When you finish using an ImageReceiver instance, call this API to free 
-     * the memory promptly.
-     * Before releasing the instance, ensure that all asynchronous operations associated with the instance have finished
-     * and the instance is no longer needed.
+     * Release image receiver instance and uses a promise to return the result.
      *
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } A Promise instance used to return the operation result.
      * @syscap SystemCapability.Multimedia.Image.ImageReceiver
      * @since 12 dynamiconly
      */
     release(): Promise<void>;
   }
+
 }
 
 export default sendableImage;
