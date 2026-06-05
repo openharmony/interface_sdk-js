@@ -19,8 +19,7 @@
  */
 
 /**
- * Defines a custom marshalling object for styled strings, which you need to define marshalling and unmarshalling
- * methods.
+ * 属性字符串自定义序列化对象类型，需要开发者定义序列化和反序列化的方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -30,10 +29,10 @@
 declare type StyledStringMarshallingValue = UserDataSpan;
 
 /**
- * Defines a callback for marshalling [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+ * 属性字符串[StyledStringMarshallingValue]{@link StyledStringMarshallingValue}序列化回调类型。
  *
- * @param { StyledStringMarshallingValue } marshallableVal - Object to be marshaled.
- * @returns { ArrayBuffer } Marshaled data of [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+ * @param { StyledStringMarshallingValue } marshallableVal - 属性字符串序列化对象。
+ * @returns { ArrayBuffer } [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}序列化后的数据。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -42,12 +41,10 @@ declare type StyledStringMarshallingValue = UserDataSpan;
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
 /**
- * Defines a callback for unmarshalling an ArrayBuffer to obtain
- * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+ * 属性字符串反序列化ArrayBuffer得到[StyledStringMarshallingValue]{@link StyledStringMarshallingValue}回调类型。
  *
- * @param { ArrayBuffer } buf - Marshaled data of [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
- * @returns { StyledStringMarshallingValue } [StyledStringMarshallingValue]{@link StyledStringMarshallingValue} obtained
- *     after unmarshalling.
+ * @param { ArrayBuffer } buf - [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}序列化后的数据。
+ * @returns { StyledStringMarshallingValue } 反序列化得到的[StyledStringMarshallingValue]{@link StyledStringMarshallingValue} 。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -67,15 +64,12 @@ declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledString
 declare class StyledString {
 
   /**
-   * A constructor used to create a styled string.
+   * 属性字符串的构造函数。
    *
-   * @param { string | ImageAttachment | CustomSpan } value - Text of the styled string.<br>**NOTE**<br>If this
-   *     parameter is of the ImageAttachment or CustomSpan type, the **styles** parameter has no effect.<br>To set
-   *     **styles**, use methods such as [setStyle]{@link MutableStyledString#setStyle}.
-   * @param { Array<StyleOptions> } [styles] - Initialization options of the styled string.<br>**NOTE**<br>If **start**
-   *     is set to an invalid value, it uses the default value **0**.<br>If the **length** value is invalid, **length**
-   *     will default to the actual length of the styled string starting from the start position.<br>If
-   *     **StyledStringKey** does not match **StyledStringValue**, **styles** has no effect.
+   * @param { string | ImageAttachment | CustomSpan } value - 属性字符串文本内容。<br/>**说明：** <br/>当value的类型为ImageAttachment或
+   *     CustomSpan时，styles参数不生效。<br/>需要设置styles时，通过[setStyle]{@link MutableStyledString#setStyle}等方法实现。
+   * @param { Array<StyleOptions> } [styles] - 属性字符串初始化选项。<br/>**说明：** <br/>start为异常值时，按默认值0处理；<br/>当length为异常值时，length等
+   *     于属性字符串在start后的实际长度；<br/>当StyledStringKey与StyledStringValue不匹配时，styles不生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -85,11 +79,11 @@ declare class StyledString {
   constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
   /**
-   * Length of the styled string.
-   *
-   * **NOTE**
-   *
-   * Both **ImageAttachment** and **CustomSpan** in the styled string are counted as length 1.
+   * 属性字符串字符的长度。
+   * 
+   * **说明：** 
+   * 
+   * 属性字符串中的ImageAttachment和CustomSpan长度都计为1。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -100,12 +94,9 @@ declare class StyledString {
   readonly length: number;
 
   /**
-   * Obtains the text of this styled string.
+   * 获取字符串信息。
    *
-   * @returns { string } Text of the styled string.
-   *     <br>**NOTE**
-   *     <br>If the styled string contains an image or [CustomSpan]{@link CustomSpan} elements, they are represented as space
-   *     characters in the returned result.
+   * @returns { string } 属性字符串文本内容。<br/>**说明：** <br/>当属性字符串中包含图片或[CustomSpan]{@link CustomSpan}时，其返回的结果用空格表示。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -115,22 +106,17 @@ declare class StyledString {
   getString(): string;
 
   /**
-   * Obtains the styles in the specified range of a styled string. The specified range must not exceed the string's
-   * length.
+   * 获取指定范围属性字符串的样式集合。不能超出属性字符串的长度。
+   * 
+   * 该接口仅返回开发者设置的样式。
    *
-   * This API returns only styles explicitly set by the developer.
-   *
-   * @param { number } start - Subscript that corresponds to the target range in the styled string.
-   * @param { number } length - Length of the target range in the styled string.
-   * @param { StyledStringKey } [styledKey] - Style key of the styled string.
-   * @returns { Array<SpanStyle> } Array of styles.
-   *     <br>**NOTE**
-   *     <br>If no style is set for the specified range in the styled string, an empty array is returned.
-   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
-   *     passed as **undefined**, an exception is thrown.
-   *     <br>If **styledKey** is set to an invalid value or **undefined**, an exception is thrown.
-   *     <br>If **styledKey** is a **CustomSpan** object, the style returned is the one passed to create the object.
-   *     That is, modifying the style object also affects the actual display effect.
+   * @param { number } start - 指定范围属性字符串的下标。
+   * @param { number } length - 指定范围属性字符串的长度。
+   * @param { StyledStringKey } [styledKey] - 指定范围属性字符串样式的枚举值。<br/>**说明：** <br/>当不传入该参数时默认获取开发者设置的
+   *     [StyledStringKey]{@link StyledStringKey}所有枚举值样式。
+   * @returns { Array<SpanStyle> } 各样式对象的数组。<br/>**说明：** <br/>当指定范围属性字符串未设置任何样式，则返回空数组。<br/>当start和length越界或者必填传入
+   *     undefined时，会抛出异常；<br/>当styledKey传入异常值或undefined时，会抛出异常。<br/>当styledKey为CustomSpan时，返回的是创建CustomSpan时传入的样式对象，即修改
+   *     该样式对象也会影响实际的显示效果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -144,17 +130,12 @@ declare class StyledString {
   getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
 
   /**
-   * Checks whether this styled string the same as another styled string.
+   * 判断两个属性字符串是否相等。
    *
-   * @param { StyledString } other - **StyledString** object to compare.
-   * @returns { boolean } Whether two styled strings are equal.
-   *     <br>**true** if the two styled strings are equal; **false** otherwise.
-   *     <br>**NOTE**
-   *     <br>The two styled strings are the same if they have the same text and style.
-   *     <br>[GestureStyle]{@link GestureStyle} in styled strings is not compared. This means that, if two styled strings are
-   *     the same except for the event configured, they are treated as the same.
-   *     <br>In comparing [CustomSpan]{@link CustomSpan} or [LeadingMarginSpan]{@link LeadingMarginSpan} objects, addresses
-   *     are compared. The objects that have the same address are the same.
+   * @param { StyledString } other - StyledString类型的比较对象。
+   * @returns { boolean } 两个属性字符串是否相等。<br/>true表示相等，false表示不相等。<br/>**说明：** <br/>当属性字符串的文本及样式均一致，视为相等。<br/>不比较
+   *     [GestureStyle]{@link GestureStyle}，当属性字符串配置了不同事件，文本和其他样式相同时，亦视为相等。<br/>当比较[CustomSpan]{@link CustomSpan}或
+   *     [LeadingMarginSpan]{@link LeadingMarginSpan}时，比较的是地址，地址相等，视为相等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -164,16 +145,12 @@ declare class StyledString {
   equals(other: StyledString): boolean;
 
   /**
-   * Obtains a substring of this styled string. The specified range must not exceed the string's length.
+   * 获取属性字符串的子属性字符串。不能超出属性字符串的长度。
    *
-   * @param { number } start - Subscript that corresponds to the start position of the styled substring.
-   * @param { number } [length] - Length of the styled substring.
-   * @returns { StyledString } Styled substring.
-   *     <br>**NOTE**
-   *     <br>If the value of **start** is valid, the difference between the length of the styled string and the value of
-   *     **start** is used as the default value of **length**.
-   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
-   *     passed as **undefined**, an exception is thrown.
+   * @param { number } start - 子属性字符串开始位置的下标。
+   * @param { number } [length] - 子属性字符串的长度。
+   * @returns { StyledString } 子属性字符串。<br/>**说明：** <br/>当start为合法入参时，length的默认值是被查询属性字符串对象的长度与start的值的差。<br/>当start和
+   *     length越界或者必填传入undefined时，会抛出异常。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -187,36 +164,52 @@ declare class StyledString {
   subStyledString(start: number, length?: number): StyledString;
 
   /**
-   * Converts an HTML string into a styled string. Currently, the following HTML tags are supported for conversion: \<p>
-   * , \<span>, \<img>, \
-   *
-   * , \<strong>, \<b>, \<a>, \<i>, \<em>, \<s>, \<u>, \<del>, \<sup>, \<sub>. The **style** attribute within tags can
-   * be converted to the corresponding style in the styled string.
-   *
-   * For details about how to use this API, see
-   * [Example 12: Implementing Conversion Using fromHtml and toHtml]
-   * (docroot://reference/apis-arkui/arkui-ts/
-   * ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
-   *
-   * | Tag Name| Description                  |
+   * 将HTML格式字符串转换成属性字符串，当前支持转换的HTML标签范围：\<p>、\<span>、\<img>、\
+   * 
+   * 、\<strong>、\<b>、\<a>、\<i>、\<em>、\<s>、\<u>、\<del>、\<sup>、\<sub>、\<cite>、\<dfn>、\<small>、\<h1>、\<h2>、\<h3>、\<h4>、\<h5
+   * >、\<h6>。支持将标签中的style属性样式转换成对应的属性字符串样式。
+   * 
+   * 使用方法参考
+   * [示例12（fromHtml和toHtml互相转换）]
+   * (docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)
+   * 和[示例18（fromHtml转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例18fromhtml转换)。
+   * 
+   * | 标签名称 | 说明                   |
    * | ------------- | ---------------------------- |
-   * | \<p\>       | Paragraph tag, which separates text into paragraphs.        |
-   * | \<span\>    | Inline text supporting style configuration.    |
-   * | \<img\>     | Image tag, used to insert an image.                  |
-   * | \<strong\>  | Bold text tag.                  |
-   * | &lt;br&gt;<sup>20+</sup>      | Line break tag.                      |
-   * | \<b\><sup>20+</sup>       | Bold text tag.                  |
-   * | \<a\><sup>20+</sup>       | Hyperlink tag.                    |
-   * | \<i\><sup>20+</sup>       | Italic text tag.                  |
-   * | \<em\><sup>20+</sup>      | Italic text tag.                  |
-   * | \<s\><sup>20+</sup>       | Strikethrough tag, which adds a line through the text.          |
-   * | \<u\><sup>20+</sup>       | Underline tag, which adds a decorative underline to the text.                    |
-   * | \<del\><sup>20+</sup>     | Strikethrough tag, which adds a line through the text.          |
-   * | \<sup\><sup>20+</sup>     | Superscript tag.                  |
-   * | \<sub\><sup>20+</sup>     | Subscript tag.                  |
+   * | \<p\>       | 段落，分隔文本段落。       |
+   * | \<span\>    | 行内文本，支持样式设置。     |
+   * | \<img\>     | 插入图片。                   |
+   * | \<strong\>  | 加粗文本。                   |
+   * | &lt;br&gt;<sup>20+</sup>      | 换行。                       |
+   * | \<b\><sup>20+</sup>       | 加粗文本。                   |
+   * | \<a\><sup>20+</sup>       | 超链接。                     |
+   * | \<i\><sup>20+</sup>       | 斜体文本。                   |
+   * | \<em\><sup>20+</sup>      | 斜体文本。                   |
+   * | \<s\><sup>20+</sup>       | 删除线（中划线）。            |
+   * | \<u\><sup>20+</sup>       | 下划线。                     |
+   * | \<del\><sup>20+</sup>     | 删除线（中划线）。            |
+   * | \<sup\><sup>20+</sup>     | 上标文本。                   |
+   * | \<sub\><sup>20+</sup>     | 下标文本。                   |
+   * | \<cite\>    | 斜体文本。
+   * 
+   * | \<dfn\>     | 斜体文本。
+   * 
+   * | \<small\>   | 缩小字号标签。字号缩放为父容器字号属性的0.8倍，支持嵌套叠加。
+   * 
+   * | \<h1\>      | 一级标题。
+   * 
+   * | \<h2\>      | 二级标题。
+   * 
+   * | \<h3\>      | 三级标题。
+   * 
+   * | \<h4\>      | 四级标题。
+   * 
+   * | \<h5\>      | 五级标题。
+   * 
+   * | \<h6\>      | 六级标题。
    *
-   * @param { string } html - HTML-formatted string.
-   * @returns { Promise<StyledString> } Styled string.
+   * @param { string } html - html格式的字符串。
+   * @returns { Promise<StyledString> } 属性字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -231,16 +224,15 @@ declare class StyledString {
   static fromHtml(html: string): Promise<StyledString>;
 
   /**
-   * Converts a styled string into an HTML-formatted string. The supported styled string keys for conversion, as
-   * detailed in [StyledStringKey]{@link StyledStringKey}, include: **StyledStringKey.FONT**,
-   * **StyledStringKey.DECORATION**, **StyledStringKey.LETTER_SPACING**, **StyledStringKey.TEXT_SHADOW**,
-   * **StyledStringKey.LINE_HEIGHT**, and **StyledStringKey.IMAGE**.
+   * 将属性字符串转换成HTML格式字符串。支持转换的属性字符串[StyledStringKey]{@link StyledStringKey}包括：StyledStringKey.FONT、
+   * StyledStringKey.DECORATION、StyledStringKey.LETTER_SPACING、StyledStringKey.TEXT_SHADOW、StyledStringKey.LINE_HEIGHT、
+   * StyledStringKey.IMAGE。
+   * 
+   * 使用方法参考
+   * [示例12（fromHtml和toHtml互相转换）](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#示例12fromhtml和tohtml互相转换)。
    *
-   * For details about how to use this API, see
-   * [Example 12: Implementing Conversion Using fromHtml and toHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
-   *
-   * @param { StyledString } styledString - Styled string.
-   * @returns { string } HTML string.
+   * @param { StyledString } styledString - 属性字符串。
+   * @returns { string } HTML格式字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -254,15 +246,11 @@ declare class StyledString {
   static toHtml(styledString: StyledString): string;
 
   /**
-   * Marshals a styled string by defining a callback to marshal
-   * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+   * 序列化属性字符串，通过定义回调来序列化属性字符串的[StyledStringMarshallingValue]{@link StyledStringMarshallingValue}。
    *
-   * @param { StyledString } styledString - Styled string to marshal.
-   * @param { function } callback - Callback defining how to marshal
-   *     [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
-   * @returns { ArrayBuffer } Buffer information after marshalling.
-   *     <br>**NOTE**
-   *     <br>Currently, text and images are supported.
+   * @param { StyledString } styledString - 属性字符串参数。
+   * @param { function } callback - 如何序列化[StyledStringMarshallingValue]{@link StyledStringMarshallingValue}的回调。
+   * @returns { ArrayBuffer } 序列化后的buffer信息。<br/>**说明：** <br/>目前支持文本和图片。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -271,12 +259,11 @@ declare class StyledString {
   static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
 
   /**
-   * Unmarshals a styled string by defining a callback to
-   * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+   * 反序列化后得到属性字符串，通过定义回调来反序列化[StyledStringMarshallingValue]{@link StyledStringMarshallingValue}。
    *
-   * @param { ArrayBuffer } buffer - Data marshaled from a styled string.
-   * @param { function } callback - Callback defining how to marshal **ArrayBuffer**.
-   * @returns { Promise<StyledString> } Promise used to return the result.
+   * @param { ArrayBuffer } buffer - 属性字符串序列化后的数据。
+   * @param { function } callback - 如何反序列化ArrayBuffer的回调。
+   * @returns { Promise<StyledString> } Promise对象，返回属性字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -290,12 +277,10 @@ declare class StyledString {
   static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
   /**
-   * Marshals a styled string.
+   * 序列化属性字符串。
    *
-   * @param { StyledString } styledString - Styled string to marshal.
-   * @returns { ArrayBuffer } Buffer information after marshalling.
-   *     <br>**NOTE**
-   *     <br>Currently, text and images are supported.
+   * @param { StyledString } styledString - 属性字符串参数。
+   * @returns { ArrayBuffer } 序列化后的buffer信息。<br/>**说明：** <br/>目前支持文本和图片。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -304,10 +289,10 @@ declare class StyledString {
   static marshalling(styledString: StyledString): ArrayBuffer;
 
   /**
-   * Unmarshals a buffer to obtain a styled string.
+   * 反序列化后得到属性字符串。
    *
-   * @param { ArrayBuffer } buffer - Data marshaled from a styled string.
-   * @returns { Promise<StyledString> } Promise used to return the result.
+   * @param { ArrayBuffer } buffer - 属性字符串序列化后的数据。
+   * @returns { Promise<StyledString> } Promise对象，返回属性字符串。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -322,7 +307,7 @@ declare class StyledString {
 }
 
 /**
- * Describes the style options.
+ * StyleOptions
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -332,9 +317,9 @@ declare class StyledString {
  */
 declare interface StyleOptions {
   /**
-   * Start position of the styled string style.
-   *
-   * If the value is less than 0 or exceeds the string length, it is treated as **0**.
+   * 设置属性字符串样式的开始位置。
+   * 
+   * 当start的值小于0或超出字符串长度时，按0处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,10 +330,9 @@ declare interface StyleOptions {
   start?: number;
 
   /**
-   * Length of the styled string style.
-   *
-   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
-   * treated as the difference between the string length and the value of **start**.
+   * 设置属性字符串样式的长度。
+   * 
+   * 当length的值小于0或超出字符串长度与start的差值时，按字符串长度与start的差值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -359,7 +343,7 @@ declare interface StyleOptions {
   length?: number;
 
   /**
-   * Style key.
+   * 样式类型的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -370,7 +354,7 @@ declare interface StyleOptions {
   styledKey: StyledStringKey;
 
   /**
-   * Style object.
+   * 样式对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -382,7 +366,7 @@ declare interface StyleOptions {
 }
 
 /**
- * Describes the span style.
+ * SpanStyle
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -393,7 +377,7 @@ declare interface StyleOptions {
 declare interface SpanStyle {
 
   /**
-   * Start position of the styled string style.
+   * 匹配属性字符串样式的开始位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -404,10 +388,9 @@ declare interface SpanStyle {
   start: number;
 
   /**
-   * Length of the styled string style.
-   *
-   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
-   * treated as the difference between the string length and the value of **start**.
+   * 设置属性字符串样式的长度。
+   * 
+   * 当length的值小于0或超出字符串长度与start的差值时，按字符串长度与start的差值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,7 +401,7 @@ declare interface SpanStyle {
   length: number;
 
   /**
-   * Style key.
+   * 样式类型的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -429,7 +412,7 @@ declare interface SpanStyle {
   styledKey: StyledStringKey;
 
   /**
-   * Style object.
+   * 样式对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -441,7 +424,7 @@ declare interface SpanStyle {
 }
 
 /**
- * Describes the text style.
+ * 文本字体样式对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -452,9 +435,9 @@ declare interface SpanStyle {
 declare class TextStyle {
 
   /**
-   * A constructor used to create a text style.
+   * 文本字体样式的构造函数。
    *
-   * @param { TextStyleInterface } [value] - Font style options.
+   * @param { TextStyleInterface } [value] - 字体样式设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -464,7 +447,7 @@ declare class TextStyle {
   constructor(value?: TextStyleInterface);
 
   /**
-   * Text color of the styled string.
+   * 获取属性字符串的文本颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -475,9 +458,9 @@ declare class TextStyle {
   readonly fontColor?: ResourceColor;
 
   /**
-   * Font family of the styled string.
-   *
-   * Returns **undefined** by default.
+   * 获取属性字符串的文本字体。
+   * 
+   * 默认返回undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -488,9 +471,9 @@ declare class TextStyle {
   readonly fontFamily?: string;
 
   /**
-   * Font size of the styled string.
-   *
-   * Unit: [vp]{@link common}
+   * 获取属性字符串的文本字体大小。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,7 +484,11 @@ declare class TextStyle {
   readonly fontSize?: number;
 
   /**
-   * Font weight of the styled string.
+   * 获取属性字符串的文本字体粗细。
+   * 
+   * **说明：** 
+   * 
+   * 实际返回是字符串，具体返回值和设置值关系参见下方表格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -510,10 +497,9 @@ declare class TextStyle {
    * @since 12 dynamic
    */
   readonly fontWeight?: number;
-  
 
   /**
-   * Font style of the styled string.
+   * 获取属性字符串的文本字体样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -524,9 +510,9 @@ declare class TextStyle {
   readonly fontStyle?: FontStyle;
 
   /**
-   * Superscript or subscript for the styled string.
-   *
-   * Default value: **SuperscriptStyle.NORMAL**.
+   * 获取属性字符串的文本上下角标。
+   * 
+   * 默认值：SuperscriptStyle.NORMAL。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -537,9 +523,9 @@ declare class TextStyle {
   readonly superscript?: SuperscriptStyle;
 
   /**
-   * Text stroke width of the styled string.
-   *
-   * Default value: **0**, in [vp]{@link common}.
+   * 获取属性字符串的文本描边宽度。
+   * 
+   * 默认返回0，单位为[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -550,9 +536,9 @@ declare class TextStyle {
   readonly strokeWidth?: number;
 
   /**
-   * Text stroke color of the styled string.
-   *
-   * Default value: same as the text color.
+   * 获取属性字符串的文本描边颜色。
+   * 
+   * 默认返回字体颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -563,9 +549,9 @@ declare class TextStyle {
   readonly strokeColor?: ResourceColor;
 
   /**
-   * Font configuration of the styled string.
-   *
-   * Default value: **undefined**, indicating that fontConfigs is not set.
+   * 获取属性字符串的字体配置。
+   * 
+   * 默认返回undefined，表示未设置fontConfigs。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -576,11 +562,9 @@ declare class TextStyle {
   readonly fontConfigs?: FontConfigs;
 
   /**
-   * Array of variable font attributes.
-   *
-   * Default value: **undefined**, indicating that variable font attributes are not set.
-   *
-   * **Since**: 26.0.0
+   * 获取可变字体的属性数组。
+   * 
+   * 默认值：undefined，表示未设置可变字体的属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -591,11 +575,9 @@ declare class TextStyle {
   readonly fontVariations?: Array<FontVariation>;
 
   /**
-   * Text stroke join style of the styled string.
-   *
-   * Default value: **StrokeJoinStyle.MITER_JOIN**.
-   *
-   * **Since**: 26.0.0.
+   * 获取属性字符串的文本描边拐角样式。
+   * 
+   * 默认值：StrokeJoinStyle.MITER_JOIN。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -618,9 +600,9 @@ declare class TextStyle {
 declare interface TextStyleInterface {
 
   /**
-   * Font color.
-   *
-   * Default value: theme color.
+   * 字体颜色。
+   * 
+   * 默认为主题色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -631,9 +613,9 @@ declare interface TextStyleInterface {
   fontColor?: ResourceColor;
 
   /**
-   * Font family.
-   *
-   * Default value: theme font.
+   * 文本字体。
+   * 
+   * 默认为主题字体。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -644,13 +626,13 @@ declare interface TextStyleInterface {
   fontFamily?: ResourceStr;
 
   /**
-   * Font size.
-   *
-   * Default value: 16 fp.
-   *
-   * If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 16 fp is used instead.
-   *
-   * Unit: [fp]{@link common}
+   * 字体大小。
+   * 
+   * 默认字体大小为16fp。
+   * 
+   * 如果LengthMetrics的unit值是PERCENT，当前设置不生效，处理为16fp。
+   * 
+   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位) 
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -661,12 +643,10 @@ declare interface TextStyleInterface {
   fontSize?: LengthMetrics;
 
   /**
-   * Font weight.
-   *
-   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier
-   * font weight. The default value is **400**. For the string type, only strings that represent a number, for example,
-   * **400**, and the following enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**,
-   * **regular**, and **medium**.
+   * 字体粗细。
+   * 
+   * number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"lighter"、"
+   * regular"、"medium"，分别对应FontWeight中相应的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -677,9 +657,9 @@ declare interface TextStyleInterface {
   fontWeight?: number | FontWeight | string;
 
   /**
-   * Font style.
-   *
-   * Default value: **FontStyle.Normal**.
+   * 字体样式。
+   * 
+   * 默认值：FontStyle.Normal
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -690,38 +670,9 @@ declare interface TextStyleInterface {
   fontStyle?: FontStyle;
 
   /**
-   * Text stroke width. If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 0 is used
-   * instead.
-   *
-   * If the value is less than 0, the text is solid. If the value is greater than 0, the text is hollow.
-   *
-   * Default value: **0**.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  strokeWidth?: LengthMetrics;
-
-  /**
-   * Text stroke color.
-   *
-   * Default value: text color. If invalid values are provided, the text color is used.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  strokeColor?: ResourceColor;
-
-  /**
-   * Superscript or subscript for the text.
-   *
-   * Default value: **SuperscriptStyle.NORMAL**.
+   * 文本上下角标。
+   * 
+   * 默认值：SuperscriptStyle.NORMAL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -732,7 +683,35 @@ declare interface TextStyleInterface {
   superscript?: SuperscriptStyle;
 
   /**
-   * Font configuration. The default value is inherited from [FontConfigs]{@link FontConfigs}.
+   * 文本描边宽度。如果LengthMetrics的unit值是PERCENT，当前设置不生效，处理为0。
+   * 
+   * 设置值小于0时为实心字，大于0时为空心字。
+   * 
+   * 默认值为0。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeWidth?: LengthMetrics;
+
+  /**
+   * 文本描边颜色。
+   * 
+   * 默认值为字体颜色，设置异常值时取字体颜色。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeColor?: ResourceColor;
+
+  /**
+   * 字体配置。默认值继承[FontConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontconfigs24对象说明)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -743,13 +722,11 @@ declare interface TextStyleInterface {
   fontConfigs?: FontConfigs;
 
   /**
-   * Variable font attributes.
-   *
-   * Default value: **undefined**, indicating that variable font attributes are not set.
-   *
-   * The priority of **fontVariations** is higher than that of **fontWeight**.
-   *
-   * **Since**: 26.0.0
+   * 可变字体的属性。
+   * 
+   * 默认值：undefined，表示未设置可变字体的属性。
+   * 
+   * fontVariations属性的优先级高于fontWeight。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -760,11 +737,9 @@ declare interface TextStyleInterface {
   fontVariations?: Array<FontVariation>;
 
   /**
-   * Text stroke join style.
-   *
-   * Default value: **StrokeJoinStyle.MITER_JOIN**.
-   *
-   * **Since**: 26.0.0.
+   * 文本描边拐角样式。
+   * 
+   * 默认值：StrokeJoinStyle.MITER_JOIN。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -776,7 +751,7 @@ declare interface TextStyleInterface {
 }
 
 /**
- * Provides additional configuration options for the text decoration line style.
+ * 文本装饰线样式的额外配置选项对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -787,13 +762,11 @@ declare interface TextStyleInterface {
 declare interface DecorationOptions {
 
   /**
-   * Whether to enable the display of multiple decoration lines.
-   *
-   * Default value: **undefined**. **true**: Enable the display of multiple decoration lines. **false** or
-   * **undefined**: Disable the display of multiple decoration lines.
-   *
-   * To display all decoration lines, this option must be enabled. The overlapping area of multiple decoration lines
-   * will show a combined effect, with the style, color, and thickness consistent with the last decoration line.
+   * 是否开启多装饰线显示。
+   * 
+   * 默认值：undefined。设置为true开启，设置为false/undefined关闭。
+   * 
+   * 所有需要显示的装饰线都必须启用此选项，在这些装饰线的交集区域显示多装饰线效果，样式、颜色和粗细将采用最后设置的装饰线的效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -805,7 +778,7 @@ declare interface DecorationOptions {
 }
 
 /**
- * Describes the text decorative line style.
+ * 文本装饰线样式对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -816,10 +789,10 @@ declare interface DecorationOptions {
 declare class DecorationStyle {
 
   /**
-   * A constructor used to create a text decorative line style.
+   * 文本装饰线样式的构造函数。
    *
-   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}
+   * @param { DecorationStyleInterface } value - 文本装饰线设置项。<br/>默认值：<br/>{<br/> type: TextDecorationType.None,<br/> color
+   *     : Color.Black,<br/> style: TextDecorationStyle.SOLID <br/>}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -829,13 +802,11 @@ declare class DecorationStyle {
   constructor(value: DecorationStyleInterface);
 
   /**
-   * Constructor of a text decoration line style, including additional configuration options.
+   * 文本装饰线样式的构造函数，包含额外配置选项。
    *
-   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
-   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID, <br> thicknessScale: 1.0
-   *     <br>}
-   * @param { DecorationOptions } [options] - Additional configuration options for the text decoration line.<br>Default
-   *     value:<br>{<br> enableMultiType: undefined<br>}
+   * @param { DecorationStyleInterface } value - 文本装饰线设置项。<br/>默认值：<br/>{<br/> type: TextDecorationType.None,<br/> color
+   *     : Color.Black,<br/> style: TextDecorationStyle.SOLID, <br/> thicknessScale: 1.0<br/>}
+   * @param { DecorationOptions } [options] - 文本装饰线额外配置选项。<br/>默认值：<br/>{<br/> enableMultiType: undefined<br/>}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -845,7 +816,7 @@ declare class DecorationStyle {
   constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
   /**
-   * Type of the text decorative line.
+   * 获取属性字符串的文本装饰线类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -856,7 +827,7 @@ declare class DecorationStyle {
   readonly type: TextDecorationType;
 
   /**
-   * Color of the text decorative line.
+   * 获取属性字符串的文本装饰线颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -867,7 +838,7 @@ declare class DecorationStyle {
   readonly color?: ResourceColor;
 
   /**
-   * Style of the text decorative line.
+   * 获取属性字符串的文本装饰线样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -878,7 +849,7 @@ declare class DecorationStyle {
   readonly style?: TextDecorationStyle;
 
   /**
-   * Scale factor for the thickness of the text decoration line.
+   * 获取属性字符串的文本装饰线粗细缩放值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -889,7 +860,7 @@ declare class DecorationStyle {
   readonly thicknessScale?: number;
 
   /**
-   * Additional configuration options for the text decoration line style.
+   * 获取属性字符串的文本装饰线样式的额外配置选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -901,15 +872,13 @@ declare class DecorationStyle {
 }
 
 /**
- * Describes the API object for text decoration line styles.
- *
- * > **NOTE**
+ * 文本装饰线样式接口对象说明。
+ * 
+ * > **说明：**
  * >
- * > When the bottom contour of a character intersects with the decoration, underline avoidance is triggered, commonly
- * > affecting characters like "g", "j", "y", "q", and "p."
+ * > 当文字的下边缘轮廓与装饰线位置相交时，会触发下划线避让规则，下划线将在这些字符处避让文字。常见“gjyqp”等英文字符。
  * >
- * > If the decoration color is set to **Color.Transparent**, it inherits the text color of the first character in each
- * > line. If the decoration color is set to **"#00FFFFFF"**, the line becomes fully transparent.
+ * > 当文本装饰线的颜色设置为Color.Transparent时，装饰线颜色设置为跟随每行第一个字的字体颜色。当文本装饰线的颜色设置为透明色16进制对应值“#00FFFFFF”时，装饰线颜色设置为透明色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -920,9 +889,9 @@ declare class DecorationStyle {
 declare interface DecorationStyleInterface {
 
   /**
-   * Type of the text decorative line.
-   *
-   * Default value: **TextDecorationType.None**.
+   * 装饰线类型。
+   * 
+   * 默认值：TextDecorationType.None
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -933,9 +902,9 @@ declare interface DecorationStyleInterface {
   type: TextDecorationType;
 
   /**
-   * Color of the text decorative line.
-   *
-   * Default value: **Color.Black**.
+   * 装饰线颜色。
+   * 
+   * 默认值：Color.Black
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -946,9 +915,9 @@ declare interface DecorationStyleInterface {
   color?: ResourceColor;
 
   /**
-   * Style of the text decorative line.
-   *
-   * Default value: **TextDecorationStyle.SOLID**.
+   * 装饰线样式。
+   * 
+   * 默认值：TextDecorationStyle.SOLID
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -959,13 +928,13 @@ declare interface DecorationStyleInterface {
   style?: TextDecorationStyle;
 
   /**
-   * Scale factor for the decoration line thickness.
-   *
-   * Default value: **1.0**.
-   *
-   * Value range: [0, +∞).
-   *
-   * Note: Negative values are treated as the default value.
+   * 装饰线粗细缩放。
+   * 
+   * 默认值：1.0 
+   * 
+   * 取值范围：[0, +∞) 
+   * 
+   * **说明：** 负值按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -977,7 +946,7 @@ declare interface DecorationStyleInterface {
 }
 
 /**
- * Describes the text baseline offset style.
+ * 文本基线偏移量对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -988,10 +957,9 @@ declare interface DecorationStyleInterface {
 declare class BaselineOffsetStyle {
 
   /**
-   * A constructor used to create a text baseline offset style.
+   * 文本基线偏移的构造函数。
    *
-   * @param { LengthMetrics } value - Text baseline offset options. This API does not work if **unit** of
-   *     **LengthMetrics** is percent.
+   * @param { LengthMetrics } value - 文本基线偏移量设置项。如果LengthMetrics的unit值是PERCENT，该设置不生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1001,9 +969,9 @@ declare class BaselineOffsetStyle {
   constructor(value: LengthMetrics);
 
   /**
-   * Text baseline offset.
-   *
-   * Unit: [vp]{@link common}
+   * 获取属性字符串的文本基线偏移量。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1015,7 +983,7 @@ declare class BaselineOffsetStyle {
 }
 
 /**
- * Describes the letter spacing style.
+ * 文本字符间距对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1026,10 +994,9 @@ declare class BaselineOffsetStyle {
 declare class LetterSpacingStyle {
 
   /**
-   * A constructor used to create a text letter spacing style.
+   * 文本字符间距的构造函数。
    *
-   * @param { LengthMetrics } value - Letter spacing options. This API does not work if **unit** of **LengthMetrics** is
-   *     percent.
+   * @param { LengthMetrics } value - 文本字符间距设置项。如果LengthMetrics的unit值是PERCENT，该设置不生效。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1039,9 +1006,9 @@ declare class LetterSpacingStyle {
   constructor(value: LengthMetrics);
 
   /**
-   * Letter spacing.
-   *
-   * Unit: [vp]{@link common}
+   * 获取属性字符串的文本字符间距。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1053,7 +1020,7 @@ declare class LetterSpacingStyle {
 }
 
 /**
- * Describes the text shadow style.
+ * 文本阴影对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1064,11 +1031,11 @@ declare class LetterSpacingStyle {
 declare class TextShadowStyle {
 
   /**
-   * A constructor used to create a text shadow style.
+   * 文本阴影对象的构造函数。
+   * 
+   * ShadowOptions对象中不支持fill字段。
    *
-   * The **ShadowOptions** object does not support the **fill** field.
-   *
-   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow options.
+   * @param { ShadowOptions | Array<ShadowOptions> } value - 文本阴影设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1078,7 +1045,7 @@ declare class TextShadowStyle {
   constructor(value: ShadowOptions | Array<ShadowOptions>);
 
   /**
-   * Text shadow of the styled string.
+   * 获取属性字符串的文本阴影。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1090,7 +1057,7 @@ declare class TextShadowStyle {
 }
 
 /**
- * Describes the text background color style.
+ * 文本背景颜色对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1101,10 +1068,10 @@ declare class TextShadowStyle {
 declare class BackgroundColorStyle {
 
   /**
-   * A constructor used to create a text background style.
+   * 文本背景颜色的构造函数。
    *
-   * @param { TextBackgroundStyle } textBackgroundStyle - Options of the text background color.<br>Default value:<br>{<
-   *     br>  color: Color.Transparent,<br>  radius: 0<br>}
+   * @param { TextBackgroundStyle } textBackgroundStyle - 文本背景色设置项。<br />默认值：<br />{<br />  color: Color.Transparent,<br
+   *     />  radius: 0<br />}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1114,16 +1081,16 @@ declare class BackgroundColorStyle {
   constructor(textBackgroundStyle: TextBackgroundStyle);
 
   /**
-   * Text background color of the styled string.
-   *
-   * Default value:
-   *
+   * 获取属性字符串的文本背景颜色。
+   * 
+   * 默认值：
+   * 
    * {
-   *
+   * 
    * color: Color.Transparent,
-   *
+   * 
    * radius: 0
-   *
+   * 
    * }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1136,7 +1103,7 @@ declare class BackgroundColorStyle {
 }
 
 /**
- * Describes the event gesture style.
+ * 事件手势对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1147,9 +1114,9 @@ declare class BackgroundColorStyle {
 declare class GestureStyle {
 
   /**
-   * A constructor used to create a gesture style.
+   * 事件手势的构造函数。
    *
-   * @param { GestureStyleInterface } [value] - Event options.
+   * @param { GestureStyleInterface } [value] - 事件设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1160,7 +1127,7 @@ declare class GestureStyle {
 }
 
 /**
- * Defines the Gesture Events.
+ * 定义事件手势接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1171,7 +1138,7 @@ declare class GestureStyle {
 declare interface GestureStyleInterface {
 
   /**
-   * Callback for click events.
+   * 设置点击事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1182,7 +1149,7 @@ declare interface GestureStyleInterface {
   onClick?: Callback<ClickEvent>;
 
   /**
-   * Callback for long press events.
+   * 设置长按事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1193,7 +1160,7 @@ declare interface GestureStyleInterface {
   onLongPress?: Callback<GestureEvent>;
 
   /**
-   * Callback for touch events.
+   * 设置触摸事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1205,15 +1172,14 @@ declare interface GestureStyleInterface {
 }
 
 /**
- * Describes the text paragraph style.
- *
- * Except the first paragraph, all paragraphs are formed using the escape character '\n'.
- *
- * The style of a paragraph is the one (if any) set for the first element or the paragraph style of the bound component.
- *
- * Before API version 26.0.0, if the first placeholder in a paragraph of the styled string is a
- * [CustomSpan]{@link CustomSpan} or [ImageAttachment]{@link ImageAttachment}, the paragraph style set for that
- * paragraph does not take effect. From API version 26.0.0, the paragraph style takes effect.
+ * 文本段落样式对象说明。
+ * 
+ * 除首个段落外，后续段落按'\n'划分。
+ * 
+ * 每个段落的段落样式按首个占位设置的段落样式生效，未设置时，段落按被绑定组件的段落样式生效。
+ * 
+ * 在API版本26.0.0之前，如果属性字符串段落内首个占位为[CustomSpan]{@link CustomSpan}或[ImageAttachment]{@link ImageAttachment}时，设置在该段落上的段落样式不生
+ * 效。从API版本26.0.0开始，设置段落样式生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1224,9 +1190,9 @@ declare interface GestureStyleInterface {
 declare class ParagraphStyle {
 
   /**
-   * A constructor used to create a text paragraph style.
+   * 文本段落样式的构造函数。
    *
-   * @param { ParagraphStyleInterface } [value] - Paragraph style options.
+   * @param { ParagraphStyleInterface } [value] - 段落样式设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1236,7 +1202,7 @@ declare class ParagraphStyle {
   constructor(value?: ParagraphStyleInterface);
 
   /**
-   * Horizontal alignment mode of the text paragraph.
+   * 获取属性字符串文本段落在水平方向的对齐方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1247,13 +1213,11 @@ declare class ParagraphStyle {
   readonly textAlign?: TextAlign;
 
   /**
-   * Vertical alignment mode of the text paragraph.
-   *
-   * The effect of this attribute is noticeable only when the same font size is used in a paragraph and
-   * [lineHeight]{@link TextAttribute#lineHeight} is set, or when different font sizes are used in a paragraph and the
-   * font sizes are mixed. The **SuperscriptStyle** in [TextStyle]{@link TextStyle} takes effect only when the value of
-   * [TextVerticalAlign]{@link TextVerticalAlign} is set to **TextVerticalAlign.BASELINE**. In other vertical alignment
-   * modes, the superscript and subscript texts are displayed in the same way as the normal text.
+   * 获取属性字符串文本段落在垂直方向的对齐方式。
+   * 
+   * 一个段落下使用同一字号必须同时设置行高[lineHeight]{@link TextAttribute#lineHeight}或者同一个段落不同字号文本混排时才有效果差异，否则设置了该属性任意枚举值和未设置该属性都是一样的排版效
+   * 果。属性字符串[TextStyle]{@link TextStyle}中的SuperscriptStyle上下角标样式仅在[TextVerticalAlign]{@link TextVerticalAlign}属性值为
+   * TextVerticalAlign.BASELINE时生效，其余垂直对齐方式下上下角标文本和普通文本表现一致，无上下角标效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1264,9 +1228,7 @@ declare class ParagraphStyle {
   readonly textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * First line indent of the text paragraph.
-   *
-   * Unit: VP.
+   * 获取属性字符串文本段落的首行文本缩进。单位VP
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1277,7 +1239,7 @@ declare class ParagraphStyle {
   readonly textIndent?: number;
 
   /**
-   * Maximum number of lines in the text paragraph.
+   * 获取属性字符串文本段落的最大行数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1288,7 +1250,7 @@ declare class ParagraphStyle {
   readonly maxLines?: number;
 
   /**
-   * Display mode when the text is too long in the text paragraph.
+   * 获取属性字符串文本段落超长时的显示方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1299,7 +1261,7 @@ declare class ParagraphStyle {
   readonly overflow?: TextOverflow;
 
   /**
-   * Word break rule of the text paragraph.
+   * 获取属性字符串文本段落的断行规则。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1310,9 +1272,9 @@ declare class ParagraphStyle {
   readonly wordBreak?: WordBreak;
 
   /**
-   * Indent of the text paragraph.
-   *
-   * If the return value is of the number type, the unit is vp.
+   * 获取属性字符串文本段落的缩进。
+   * 
+   * 返回为number类型时，单位为vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1323,9 +1285,9 @@ declare class ParagraphStyle {
   readonly leadingMargin?: number | LeadingMarginPlaceholder;
 
   /**
-   * Paragraph spacing of the styled string text.
-   *
-   * Unit: vp
+   * 获取属性字符串文本段落的段落间距。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1336,7 +1298,7 @@ declare class ParagraphStyle {
   readonly paragraphSpacing?: number;
 
   /**
-   * Custom indentation information for text paragraphs in the styled string.
+   * 获取属性字符串文本段落的自定义缩进信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1347,7 +1309,7 @@ declare class ParagraphStyle {
   readonly leadingMarginSpan?: LeadingMarginSpan;
 
   /**
-   * Text direction.
+   * 获取文本方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1358,9 +1320,7 @@ declare class ParagraphStyle {
   readonly textDirection?: TextDirection;
 
   /**
-   * Text shader effect.
-   *
-   * **Since**: 26.0.0.
+   * 获取文本着色器效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1371,8 +1331,8 @@ declare class ParagraphStyle {
   readonly shaderStyle?: ShaderStyle;
 
   /**
-   * Get the tail indentation of the StyledString.
-   * The unit is vp.
+   * 获取StyledString的尾部缩进。
+   * 单位为vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1395,9 +1355,9 @@ declare class ParagraphStyle {
 declare interface ParagraphStyleInterface {
 
   /**
-   * Horizontal alignment of the text paragraph.
-   *
-   * Default value: **TextAlign.Start**.
+   * 设置文本段落在水平方向的对齐方式。
+   * 
+   * 默认值：TextAlign.Start
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1408,9 +1368,9 @@ declare interface ParagraphStyleInterface {
   textAlign?: TextAlign;
 
   /**
-   * Vertical alignment mode of text paragraphs.
-   *
-   * Default value: **TextVerticalAlign.BASELINE**.
+   * 设置文本段落在垂直方向的对齐方式。
+   * 
+   * 默认值：TextVerticalAlign.BASELINE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1421,9 +1381,9 @@ declare interface ParagraphStyleInterface {
   textVerticalAlign?: TextVerticalAlign;
 
   /**
-   * First line indent of the text paragraph. The value cannot be in percentage.
-   *
-   * Default value: **0**.
+   * 设置文本段落的首行文本缩进。不支持百分比。
+   * 
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1434,7 +1394,7 @@ declare interface ParagraphStyleInterface {
   textIndent?: LengthMetrics;
 
   /**
-   * Maximum number of lines in the text paragraph. By default, the number of lines is not limited.
+   * 设置文本段落的最大行数，默认不限制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1445,12 +1405,11 @@ declare interface ParagraphStyleInterface {
   maxLines?: number;
 
   /**
-   * Display mode when the text is too long in the text paragraph.
-   *
-   * Default value: **TextOverflow.None**.
-   *
-   * This parameter must be used with **maxLines** for the settings to take effect. **TextOverflow.MARQUEE** is not
-   * supported.
+   * 设置文本段落超长时的显示方式。
+   * 
+   * 默认值：TextOverflow.None
+   * 
+   * 需配合maxLines使用，单独设置不生效。不支持TextOverflow.MARQUEE。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1461,9 +1420,9 @@ declare interface ParagraphStyleInterface {
   overflow?: TextOverflow;
 
   /**
-   * Word break rule of the text paragraph.
-   *
-   * Default value: **WordBreak.NORMAL**.
+   * 设置文本段落的断行规则。
+   * 
+   * 默认值：WordBreak.NORMAL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1474,9 +1433,9 @@ declare interface ParagraphStyleInterface {
   wordBreak?: WordBreak;
 
   /**
-   * Indent of the text paragraph. The value cannot be in percentage.
-   *
-   * Default value: **0**.
+   * 设置文本段落的缩进。不支持百分比。
+   * 
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1487,9 +1446,9 @@ declare interface ParagraphStyleInterface {
   leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 
   /**
-   * Paragraph spacing of the styled string text.
-   *
-   * Default value: **0**. The value cannot be in percentage.
+   * 设置文本段落的段落间距。
+   * 
+   * 段落间距默认大小为0。不支持百分比。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1500,9 +1459,9 @@ declare interface ParagraphStyleInterface {
   paragraphSpacing?: LengthMetrics;
 
   /**
-   * Custom indentation information for text paragraphs. The value cannot be in percentage.
-   *
-   * Default value: **0**.
+   * 设置文本段落的自定义缩进。不支持百分比。
+   * 
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1513,9 +1472,9 @@ declare interface ParagraphStyleInterface {
   leadingMarginSpan?: LeadingMarginSpan;
 
   /**
-   * Text direction.
-   *
-   * Default value: **TextDirection.DEFAULT**
+   * 设置文本方向。
+   * 
+   * 默认值：TextDirection.DEFAULT
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1526,13 +1485,10 @@ declare interface ParagraphStyleInterface {
   textDirection?: TextDirection;
 
   /**
-   * Text shader effect.
-   *
-   * This API does not take effect when used together with [TextStyleInterface]{@link TextStyleInterface}
-   * **strokeWidth**. **shaderStyle** has a higher priority than [TextStyleInterface]{@link TextStyleInterface}
-   * **fontColor**.
-   *
-   * **Since**: 26.0.0.
+   * 设置文本着色器效果。
+   * 
+   * 该接口与[TextStyleInterface]{@link TextStyleInterface}的strokeWidth同时设置时，该接口不生效，shaderStyle的优先级高于
+   * [TextStyleInterface]{@link TextStyleInterface}中的fontColor。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1543,15 +1499,13 @@ declare interface ParagraphStyleInterface {
   shaderStyle?: ShaderStyle;
 
   /**
-   * Specify the tail indentation for each line in a paragraph.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
-   * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
-   * If the number of text lines exceeds the array length, the last element in the array is used
-   * for the remaining lines.
-   * <br>Negative values are treated as 0.
-   * </p>
+   * 指定段落中每行的尾部缩进。
+   * <p><strong>说明</strong>：
+   * 当提供单个LengthMetrics值时，所有行共享相同的尾部缩进
+   * 当提供数组时，第i个元素指定第i行的尾部缩进。
+   * 如果文本行数超过数组长度，则使用数组中的最后一个元素应用至其余的行。
+   * <br>负值被视为0。
+   * </p>。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1563,7 +1517,7 @@ declare interface ParagraphStyleInterface {
 }
 
 /**
- * Describes the text line height style.
+ * 文本行高对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1574,10 +1528,9 @@ declare interface ParagraphStyleInterface {
 declare class LineHeightStyle {
 
   /**
-   * A constructor used to create a text line height style.
+   * 文本行高的构造函数。
    *
-   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
-   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
+   * @param { LengthMetrics } lineHeight - 文本行高设置项。LengthMetrics的value值大于0时，文本行高设置生效，否则文本行高自适应字体大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1587,25 +1540,19 @@ declare class LineHeightStyle {
   constructor(lineHeight: LengthMetrics);
 
   /**
-   * A constructor used to create a text line height and multiple.
-   *
-   * > **NOTE**
+   * 文本行高及倍数的构造函数。
+   * 
+   * > **说明：**
    * >
-   * > - When **lineHeightMultiple** is set together with **lineHeight** or [LineSpacingStyle]{@link LineSpacingStyle},
-   * > only **lineHeightMultiple** takes effect. The line height is the product of the highest font height in the line
-   * > and the multiplier.
+   * > - lineHeightMultiple与lineHeight或[LineSpacingStyle]{@link LineSpacingStyle}同时设置时，仅lineHeightMultiple生效，行高为该行最高字体高度
+   * > 与倍数的乘积。
    * >
-   * > - When **lineHeightMultiple** is less than 0 or **undefined**, it does not take effect. Use **lineHeight** and
-   * > [LineSpacingStyle]{@link LineSpacingStyle} to set the line height and line spacing.
+   * > - lineHeightMultiple小于0或undefined时不生效，使用lineHeight和[LineSpacingStyle]{@link LineSpacingStyle}设置行高和行间距。
    * >
-   * > - When **lineHeightMultiple** is set to 0, it is equivalent to setting it to 1.
+   * > - lineHeightMultiple等于0时等效于设置为1。
    *
-   * **Since**: 26.0.0
-   *
-   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
-   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
-   * @param { number } [lineHeightMultiple] - Multiplier for the text line height.<br>Value range:
-   *     [0, +∞). Decimals are supported.
+   * @param { LengthMetrics } lineHeight - 文本行高设置项。LengthMetrics的value值大于0时，文本行高设置生效，否则文本行高自适应字体大小。
+   * @param { number } [lineHeightMultiple] - 文本行高的倍数值。<br/>取值范围：[0, +∞)，支持小数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1615,9 +1562,9 @@ declare class LineHeightStyle {
   constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
 
   /**
-   * Text line height of the styled string.
-   *
-   * Unit: [vp]{@link common}
+   * 获取属性字符串的文本行高。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1628,10 +1575,7 @@ declare class LineHeightStyle {
   readonly lineHeight: number;
 
   /**
-   * Multiplier for the text line height. The effective line height is the product of the highest font height in the
-   * line and the multiplier.
-   *
-   * **Since**: 26.0.0
+   * 文本行高的倍数值。实际生效的行高为该行最高的字体高度与倍数的乘积。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1643,7 +1587,7 @@ declare class LineHeightStyle {
 }
 
 /**
- * Describes the text line spacing style.
+ * 文本行间距对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1654,13 +1598,11 @@ declare class LineHeightStyle {
 declare class LineSpacingStyle {
 
   /**
-   * A constructor used to create a text line spacing style.
+   * 文本行间距的构造函数。
    *
-   * **Since**: 26.0.0
-   *
-   * @param { LengthMetrics } lineSpacing - Text line spacing.<br>Default value: **0.0**<br>Value range:
-   *     [0, +∞) <br>**NOTE** If **value** of **LengthMetrics** is less than 0, the default value **0.0** is used.
-   * @param { LineSpacingOptions } [options] - Line spacing options.<br>Default value: **{ onlyBetweenLines: false }**
+   * @param { LengthMetrics } lineSpacing - 文本的行间距。<br/>默认值：0.0<br/>取值范围：
+   *     [0, +∞) <br/>**说明：** LengthMetrics的value值小于0时，取默认值0.0。
+   * @param { LineSpacingOptions } [options] - 行间距的配置项。<br/>默认值：{ onlyBetweenLines: false }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1670,11 +1612,11 @@ declare class LineSpacingStyle {
   constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
 
   /**
-   * Text line spacing.
-   *
-   * Value range: [0, +∞)
-   *
-   * Unit: [vp]{@link common}
+   * 文本行间距。
+   * 
+   * 取值范围：[0, +∞)
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1685,7 +1627,7 @@ declare class LineSpacingStyle {
   readonly lineSpacing: number;
 
   /**
-   * Line spacing options.
+   * 行间距配置项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1697,10 +1639,9 @@ declare class LineSpacingStyle {
 }
 
 /**
- * Describes the hyperlink style.
- *
- * The default color, font size, and font weight are **'#ff0a59f7'**, **'16fp'**, and **'FontWeight.Regular'**,
- * respectively. If the styled string has **TextStyle** set, the **TextStyle** settings take precedence.
+ * 超链接对象说明。
+ * 
+ * 默认颜色、字号、字重分别是'#ff0a59f7'、'16fp'、'FontWeight.Regular'，若属性字符串设置TextStyle，则TextStyle优先级更高。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1711,9 +1652,9 @@ declare class LineSpacingStyle {
 declare class UrlStyle {
 
   /**
-   * A constructor used to create a URL object.
+   * 超链接对象的构造函数。
    *
-   * @param { string } url - Options of the hyperlink.
+   * @param { string } url - 超链接设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1723,7 +1664,7 @@ declare class UrlStyle {
   constructor(url: string);
 
   /**
-   * Hyperlink content of the styled string.
+   * 获取属性字符串的超链接内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1735,22 +1676,22 @@ declare class UrlStyle {
 }
 
 /**
- * Defines the style for a styled string.
+ * 样式对象类型，用于设置属性字符串的样式。
  *
- * @unionmember { TextStyle } Text style.
- * @unionmember { DecorationStyle } Text decorative line style.
- * @unionmember { BaselineOffsetStyle } Text baseline offset style.
- * @unionmember { LetterSpacingStyle } Text letter spacing style.
- * @unionmember { TextShadowStyle } Text shadow style.
- * @unionmember { GestureStyle } Gesture style.
- * @unionmember { ImageAttachment } Image style.
- * @unionmember { ParagraphStyle } Text paragraph style.
- * @unionmember { LineHeightStyle } Text line height style.
- * @unionmember { UrlStyle } URL style. [since 14]
- * @unionmember { CustomSpan } Custom span style.
- * @unionmember { UserDataSpan } User data span style.
- * @unionmember { BackgroundColorStyle } Text background color style. [since 14]
- * @unionmember { LineSpacingStyle } Text line spacing style. **Since**: 26.0.0 [since 26.0.0]
+ * @unionmember { TextStyle } 文本字体样式。
+ * @unionmember { DecorationStyle } 文本装饰线样式。
+ * @unionmember { BaselineOffsetStyle } 文本基线偏移量样式。
+ * @unionmember { LetterSpacingStyle } 文本字符间距样式。
+ * @unionmember { TextShadowStyle } 文本阴影样式。
+ * @unionmember { GestureStyle } 事件手势样式。
+ * @unionmember { ImageAttachment } 图片样式。
+ * @unionmember { ParagraphStyle } 文本段落样式。
+ * @unionmember { LineHeightStyle } 文本行高样式。
+ * @unionmember { UrlStyle } 超链接样式。 [since 14]
+ * @unionmember { CustomSpan } 自定义绘制Span样式。
+ * @unionmember { UserDataSpan } UserDataSpan样式。
+ * @unionmember { BackgroundColorStyle } 文本背景颜色样式。 [since 14]
+ * @unionmember { LineSpacingStyle } 文本行间距。 [since 26.0.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1762,14 +1703,13 @@ TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightSt
 UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 
 /**
- * Inherits from the [StyledString]{@link StyledString} class.
- *
- * > **An exception is thrown in the following cases:**
+ * 继承于[StyledString]{@link StyledString}类。
+ * 
+ * > **以下接口异常入参处理统一说明：**
  * >
- * > If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is passed
- * > as **undefined**, an exception is thrown.
+ * > 当start和length越界或者必填传入undefined时，会抛出异常；
  * >
- * > **styledKey** or **styledValue** is set to an invalid value or they do not match.
+ * > 当styledKey和styledValue传入异常值或者两者对应关系不匹配时，会抛出异常。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1780,12 +1720,11 @@ UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 declare class MutableStyledString extends StyledString {
 
   /**
-   * Replaces the string in the specified range of this styled string.
+   * 替换指定范围的字符串。
    *
-   * @param { number } start - Subscript of the target range.
-   * @param { number } length - Length of the target range.
-   * @param { string } other - String to replace the content in the target range.<br>**NOTE**<br>The string specified
-   *     here uses the style of the character at the **start** position.
+   * @param { number } start - 指定范围的下标。
+   * @param { number } length - 指定范围的长度。
+   * @param { string } other - 替换的新文本内容。<br/>**说明：** <br/>替换的字符串使用的是start位置字符的样式。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1799,12 +1738,10 @@ declare class MutableStyledString extends StyledString {
   replaceString(start: number, length: number, other: string): void;
 
   /**
-   * Inserts a string.
+   * 插入字符串。
    *
-   * @param { number } start - Subscript of the position where the string will be inserted.
-   * @param { string } other - String to insert.<br>**NOTE**<br>The string specified here uses the style of the
-   *     character at the **start** - 1 position or, if that character does not have style set, the style of the
-   *     character at the **start** position.
+   * @param { number } start - 插入位置的下标。
+   * @param { string } other - 插入的新文本内容。<br/>**说明：** <br/>插入的字符串使用的是start-1位置字符的样式。若start-1位置字符未设置样式，则使用start位置字符样式。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1818,12 +1755,12 @@ declare class MutableStyledString extends StyledString {
   insertString(start: number, other: string): void;
 
   /**
-   * Removes the string in the specified range of this styled string.
+   * 移除指定范围的字符串。
+   * 
+   * 当属性字符串中包含图片或[CustomSpan]{@link CustomSpan}时，同样生效。
    *
-   * This API equally works when the styled string contains an image or [CustomSpan]{@link CustomSpan}.
-   *
-   * @param { number } start - Subscript of the target range.
-   * @param { number } length - Length of the target range.
+   * @param { number } start - 指定范围的下标。
+   * @param { number } length - 指定范围的长度。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1837,11 +1774,10 @@ declare class MutableStyledString extends StyledString {
   removeString(start: number, length: number): void;
 
   /**
-   * Replaces the style in the specified range of this styled string.
+   * 替换指定范围内容为指定类型新样式。
    *
-   * @param { SpanStyle } spanStyle - Style object.<br>**NOTE**<br>By default, the original style is removed and
-   *     replaced with the new style.<br>If **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API
-   *     takes effect only when an image or custom span with the length of 1 is at the **start** position.
+   * @param { SpanStyle } spanStyle - 样式对象。<br/>**说明：** <br/>默认清空原有样式，替换为新样式。<br/>当SpanStyle的styledKey为IMAGE或CUSTOM_SPAN
+   *     时，只有当start的位置当前是image或CustomSpan且长度为1，才会生效，其余情况无效果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1855,12 +1791,10 @@ declare class MutableStyledString extends StyledString {
   replaceStyle(spanStyle: SpanStyle): void;
 
   /**
-   * Sets a new style for the specified range of this styled string.
+   * 为指定范围内容设置指定类型新样式。
    *
-   * @param { SpanStyle } spanStyle - Style object.<br>By default, the new style is applied without removing the
-   *     original style. If the **StyledStringValue** types are the same, the new style overwrites the old one.<br>If
-   *     **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API takes effect only when an image or
-   *     custom span with the length of 1 is at the **start** position.
+   * @param { SpanStyle } spanStyle - 样式对象。<br/>默认不清空原有样式，叠加新样式。如果StyledStringValue类型相同，则新样式将覆盖旧样式。<br/>当SpanStyle的
+   *     styledKey为IMAGE或CUSTOM_SPAN时，只有当start的位置当前是image或CustomSpan且长度为1，才会生效，其余情况无效果。
    * @throws { BusinessError } 401 - The parameter check failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1871,16 +1805,15 @@ declare class MutableStyledString extends StyledString {
   setStyle(spanStyle: SpanStyle): void;
 
   /**
-   * Removes the style for the specified range of this styled string.
+   * 清除指定范围内容的指定类型样式。
+   * 
+   * 被清空样式类型对象属性使用的是对应[Text]{@link text}组件属性的设置值，若Text组件未设置值，则使用对应Text组件属性的默认值。
+   * 
+   * 当属性字符串中包含图片时，同样生效。
    *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
-   * is used. If the value is not set, the default value is used.
-   *
-   * This API equally works when the styled string contains an image.
-   *
-   * @param { number } start - Subscript that corresponds to the start position of the target range.
-   * @param { number } length - Length of the target range.
-   * @param { StyledStringKey } styledKey - Styled key.
+   * @param { number } start - 指定范围开始位置的下标。
+   * @param { number } length - 指定范围的长度。
+   * @param { StyledStringKey } styledKey - 样式类型枚举值。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1894,15 +1827,14 @@ declare class MutableStyledString extends StyledString {
   removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
 
   /**
-   * Removes all styles for the specified range of this styled string.
+   * 清除指定范围内容的所有样式。
+   * 
+   * 被清空样式类型对象属性使用的是对应[Text]{@link text}组件属性的设置值，若Text组件未设置值，则使用对应Text组件属性的默认值。
+   * 
+   * 当属性字符串中包含图片时，同样生效。
    *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
-   * is used. If the value is not set, the default value is used.
-   *
-   * This API equally works when the styled string contains an image.
-   *
-   * @param { number } start - Subscript that corresponds to the start position of the target range.
-   * @param { number } length - Length of the target range.
+   * @param { number } start - 指定范围开始位置的下标。
+   * @param { number } length - 指定范围的长度。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1916,10 +1848,9 @@ declare class MutableStyledString extends StyledString {
   removeStyles(start: number, length: number): void;
 
   /**
-   * Removes all styles of this styled string.
-   *
-   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
-   * is used. If the value is not set, the default value is used.
+   * 清除属性字符串对象的所有样式。
+   * 
+   * 被清空样式类型对象属性使用的是对应[Text]{@link text}组件属性的设置值，若Text组件未设置值，则使用对应Text组件属性的默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1930,11 +1861,11 @@ declare class MutableStyledString extends StyledString {
   clearStyles(): void;
 
   /**
-   * Replaces the styled string in the specified range.
+   * 替换指定范围为新的属性字符串。
    *
-   * @param { number } start - Subscript that corresponds to the start position of the target range.
-   * @param { number } length - Length of the target range.
-   * @param { StyledString } other - New styled string.
+   * @param { number } start - 指定范围开始位置的下标。
+   * @param { number } length - 指定范围的长度。
+   * @param { StyledString } other - 新的属性字符串对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1948,10 +1879,10 @@ declare class MutableStyledString extends StyledString {
   replaceStyledString(start: number, length: number, other: StyledString): void;
 
   /**
-   * Inserts a new styled string at the specified position.
+   * 在指定位置插入新的属性字符串。
    *
-   * @param { number } start - Subscript of the position to insert the styled string.
-   * @param { StyledString } other - New styled string.
+   * @param { number } start - 开始插入位置的下标。
+   * @param { StyledString } other - 新的属性字符串对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -1965,9 +1896,9 @@ declare class MutableStyledString extends StyledString {
   insertStyledString(start: number, other: StyledString): void;
 
   /**
-   * Appends a styled string.
+   * 在末尾位置追加新的属性字符串。
    *
-   * @param { StyledString } other - New styled string.
+   * @param { StyledString } other - 新的属性字符串对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1978,7 +1909,7 @@ declare class MutableStyledString extends StyledString {
 }
 
 /**
- * Sets the style for a range styled string.
+ * 范围属性字符串样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1989,7 +1920,7 @@ declare class MutableStyledString extends StyledString {
 declare enum StyledStringKey {
 
   /**
-   * Font style key, applicable to [TextStyle]{@link TextStyle}.
+   * 字体样式键。[TextStyle]{@link TextStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2000,7 +1931,7 @@ declare enum StyledStringKey {
   FONT = 0,
 
   /**
-   * Text decorative line style key, applicable to [DecorationStyle]{@link DecorationStyle}.
+   * 文本装饰线样式键。[DecorationStyle]{@link DecorationStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2011,7 +1942,7 @@ declare enum StyledStringKey {
   DECORATION = 1,
 
   /**
-   * Text baseline offset style key, applicable to [BaselineOffsetStyle]{@link BaselineOffsetStyle}.
+   * 文本基线偏移量样式键。[BaselineOffsetStyle]{@link BaselineOffsetStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2022,7 +1953,7 @@ declare enum StyledStringKey {
   BASELINE_OFFSET = 2,
 
   /**
-   * Text letter spacing style key, applicable to [LetterSpacingStyle]{@link LetterSpacingStyle}.
+   * 文本字符间距样式键。[LetterSpacingStyle]{@link LetterSpacingStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2033,7 +1964,7 @@ declare enum StyledStringKey {
   LETTER_SPACING = 3,
 
   /**
-   * Text shadow style key, applicable to [TextShadowStyle]{@link TextShadowStyle}.
+   * 文本阴影样式键。[TextShadowStyle]{@link TextShadowStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2044,7 +1975,7 @@ declare enum StyledStringKey {
   TEXT_SHADOW = 4,
 
   /**
-   * Text line height style key, applicable to [LineHeightStyle]{@link LineHeightStyle}.
+   * 文本行高样式键。[LineHeightStyle]{@link LineHeightStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2055,7 +1986,7 @@ declare enum StyledStringKey {
   LINE_HEIGHT = 5,
 
   /**
-   * Text background color style key, applicable to [BackgroundColorStyle]{@link BackgroundColorStyle}.
+   * 文本背景色样式键。[BackgroundColorStyle]{@link BackgroundColorStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2066,7 +1997,7 @@ declare enum StyledStringKey {
   BACKGROUND_COLOR = 6,
 
   /**
-   * Hyperlink style key, applicable to [UrlStyle]{@link UrlStyle}.
+   * 超链接样式键。[UrlStyle]{@link UrlStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2077,9 +2008,7 @@ declare enum StyledStringKey {
   URL = 7,
 
   /**
-   * Text line spacing style key, applicable to [LineSpacingStyle]{@link LineSpacingStyle}.
-   *
-   * **Since**: 26.0.0
+   * 文本行间距样式键。[LineSpacingStyle]{@link LineSpacingStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2090,7 +2019,7 @@ declare enum StyledStringKey {
   LINE_SPACING = 8,
 
   /**
-   * Gesture key, applicable to [GestureStyle]{@link GestureStyle}.
+   * 事件手势键。[GestureStyle]{@link GestureStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2101,7 +2030,7 @@ declare enum StyledStringKey {
   GESTURE = 100,
 
   /**
-   * Paragraph style key, applicable to [ParagraphStyle]{@link ParagraphStyle}.
+   * 段落样式键。[ParagraphStyle]{@link ParagraphStyle}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2112,7 +2041,7 @@ declare enum StyledStringKey {
   PARAGRAPH_STYLE = 200,
 
   /**
-   * Image key, applicable to [ImageAttachment]{@link ImageAttachment}.
+   * 图片键。[ImageAttachment]{@link ImageAttachment}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2123,7 +2052,7 @@ declare enum StyledStringKey {
   IMAGE = 300,
 
   /**
-   * Custom span key, applicable to [CustomSpan]{@link CustomSpan}.
+   * 自定义绘制Span键。[CustomSpan]{@link CustomSpan}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2134,7 +2063,7 @@ declare enum StyledStringKey {
   CUSTOM_SPAN = 400,
 
   /**
-   * User data span key, applicable to [UserDataSpan]{@link UserDataSpan}.
+   * UserDataSpan键。[UserDataSpan]{@link UserDataSpan}所属键。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2142,11 +2071,11 @@ declare enum StyledStringKey {
    * @atomicservice
    * @since 12 dynamic
    */
-  USER_DATA = 500
+  USER_DATA = 500,
 }
 
 /**
- * Describes the image attachment.
+ * 图片对象说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2157,9 +2086,9 @@ declare enum StyledStringKey {
 declare class ImageAttachment {
 
   /**
-   * A constructor used to create an image object.
+   * 图片对象的构造函数。
    *
-   * @param { ImageAttachmentInterface } value - Image attachment options.
+   * @param { ImageAttachmentInterface } value - 图片设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2169,12 +2098,9 @@ declare class ImageAttachment {
   constructor(value: ImageAttachmentInterface);
 
   /**
-   * A constructor used to create an image object. Compared to the constructor with a **value** type parameter, this
-   * constructor with an **attachment** type parameter supports images of **undefined** and
-   * [ResourceStr]{@link ResourceStr} types.
+   * 图片对象的构造函数。与value类型入参构造函数相比，attachment参数增加了对undefined类型和[ResourceStr]{@link ResourceStr}类型图片的支持。
    *
-   * @param { Optional<AttachmentType> } attachment - Image attachment, which can be of type PixelMap or
-   *     [ResourceStr]{@link ResourceStr}.
+   * @param { Optional<AttachmentType> } attachment - PixelMap类型或[ResourceStr]{@link ResourceStr}类型图片设置项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2184,7 +2110,7 @@ declare class ImageAttachment {
   constructor(attachment: Optional<AttachmentType>);
 
   /**
-   * Image data source of the styled string.
+   * 获取属性字符串的图片数据源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2195,9 +2121,9 @@ declare class ImageAttachment {
   readonly value: PixelMap;
 
   /**
-   * Image size of the styled string.
-   *
-   * Number-type values use px as the unit.
+   * 获取属性字符串的图片尺寸。
+   * 
+   * 返回number类型值的单位为`px`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2208,11 +2134,11 @@ declare class ImageAttachment {
   readonly size?: SizeOptions;
 
   /**
-   * Image size of the styled string.
-   *
-   * Number-type values use vp as the unit.
-   *
-   * If **ImageAttachment** is set to a negative value or **undefined**, **undefined** is returned.
+   * 获取属性字符串的图片尺寸。
+   * 
+   * 返回number类型值的单位为`vp`。
+   * 
+   * 当ImageAttachment尺寸设置为负数值或undefined时，返回为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2223,7 +2149,7 @@ declare class ImageAttachment {
   readonly sizeInVp?: SizeOptions;
 
   /**
-   * Image alignment mode of the styled string.
+   * 获取属性字符串的图片对齐方式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2234,7 +2160,7 @@ declare class ImageAttachment {
   readonly verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Image scale type of the styled string.
+   * 获取属性字符串的图片缩放类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2245,7 +2171,7 @@ declare class ImageAttachment {
   readonly objectFit?: ImageFit;
 
   /**
-   * Image layout of the styled string.
+   * 获取属性字符串的图片布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2256,7 +2182,7 @@ declare class ImageAttachment {
   readonly layoutStyle?: ImageAttachmentLayoutStyle;
 
   /**
-   * Image color filter of the styled string.
+   * 获取属性字符串的图片颜色滤镜效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2267,12 +2193,11 @@ declare class ImageAttachment {
   readonly colorFilter?: ColorFilterType;
 
   /**
-   * Whether to enable
-   * [enhanced SVG tag parsing capabilities](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
-   *
-   * **true**: Enable enhanced SVG tag parsing. **false**: Use original SVG tag parsing.
-   *
-   * Default value: **false**
+   * 获取属性字符串是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 
+   * true：支持SVG解析新能力；false：保持原有SVG解析能力。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2284,7 +2209,7 @@ declare class ImageAttachment {
 }
 
 /**
- * Defines the settings for images of the ResourceStr type.
+ * ResourceStr类型图片设置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2295,7 +2220,7 @@ declare class ImageAttachment {
 declare interface ResourceImageAttachmentOptions {
 
   /**
-   * Image data source.
+   * 设置图片数据源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2306,7 +2231,7 @@ declare interface ResourceImageAttachmentOptions {
   resourceValue: Optional<ResourceStr>;
 
   /**
-   * Image size.
+   * 设置图片大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2317,9 +2242,9 @@ declare interface ResourceImageAttachmentOptions {
   size?: SizeOptions;
 
   /**
-   * Alignment mode of the image with the text.
-   *
-   * Default value: **ImageSpanAlignment.BOTTOM**
+   * 设置图片基于文本的对齐方式。
+   * 
+   * 默认值：ImageSpanAlignment.BOTTOM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2330,9 +2255,9 @@ declare interface ResourceImageAttachmentOptions {
   verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
-   *
-   * Default value: **ImageFit.Cover**
+   * 设置图片的缩放类型，当前枚举类型不支持ImageFit.MATRIX。
+   * 
+   * 默认值：ImageFit.Cover
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2343,7 +2268,7 @@ declare interface ResourceImageAttachmentOptions {
   objectFit?: ImageFit;
 
   /**
-   * Image layout.
+   * 设置图片布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2354,7 +2279,7 @@ declare interface ResourceImageAttachmentOptions {
   layoutStyle?: ImageAttachmentLayoutStyle;
 
   /**
-   * Image color filter of the styled string.
+   * 获取属性字符串的图片颜色滤镜效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2365,12 +2290,11 @@ declare interface ResourceImageAttachmentOptions {
   colorFilter?: ColorFilterType;
 
   /**
-   * Whether to load the image synchronously. By default, the image is loaded asynchronously. During synchronous
-   * loading, the UI thread is blocked and the placeholder image is not displayed.
-   *
-   * **true**: synchronous loading; **false**: asynchronous loading.
-   *
-   * Default value: **false**
+   * 是否同步加载图片，默认是异步加载。同步加载时阻塞UI线程，不会显示占位图。
+   * 
+   * true：同步加载；false：异步加载。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2381,12 +2305,11 @@ declare interface ResourceImageAttachmentOptions {
   syncLoad?: boolean;
 
   /**
-   * Whether to enable
-   * [enhanced SVG tag parsing capabilities](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
-   *
-   * **true**: Enable enhanced SVG tag parsing. **false**: Use original SVG tag parsing.
-   *
-   * Default value: **false**
+   * 获取属性字符串是否开启[SVG标签解析能力增强功能](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md)。
+   * 
+   * true：支持SVG解析新能力；false：保持原有SVG解析能力。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2398,7 +2321,7 @@ declare interface ResourceImageAttachmentOptions {
 }
 
 /**
- * Defines the ImageAttachmentInterface.
+ * 定义图片设置项接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2409,7 +2332,7 @@ declare interface ResourceImageAttachmentOptions {
 declare interface ImageAttachmentInterface {
 
   /**
-   * Image data source.
+   * 设置图片数据源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2420,11 +2343,9 @@ declare interface ImageAttachmentInterface {
   value: PixelMap;
 
   /**
-   * Image size, which does not support percentage values.
-   *
-   * The default value of **size** depends on the value of **objectFit**. For example, if the value of **objectFit** is
-   * **Cover**, the image height is the component height minus the top and bottom paddings, and the image width is the
-   * component width minus the left and right paddings.
+   * 设置图片大小，不支持百分比。
+   * 
+   * size的默认值与objectFit的值有关，不同的objectFit的值对应size的默认值不同。比如当objectFit的值为Cover时，图片高度为组件高度减去组件上下的内边距，图片宽度为组件宽度减去组件左右的内边距。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2435,9 +2356,9 @@ declare interface ImageAttachmentInterface {
   size?: SizeOptions;
 
   /**
-   * Alignment mode of the image with the text.
-   *
-   * Default value: **ImageSpanAlignment.BOTTOM**
+   * 设置图片基于文本的对齐方式。
+   * 
+   * 默认值：ImageSpanAlignment.BOTTOM
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2448,9 +2369,9 @@ declare interface ImageAttachmentInterface {
   verticalAlign?: ImageSpanAlignment;
 
   /**
-   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
-   *
-   * Default value: **ImageFit.Cover**
+   * 设置图片的缩放类型，当前枚举类型不支持ImageFit.MATRIX。
+   * 
+   * 默认值：ImageFit.Cover
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2461,7 +2382,7 @@ declare interface ImageAttachmentInterface {
   objectFit?: ImageFit;
 
   /**
-   * Image layout.
+   * 设置图片布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2472,7 +2393,7 @@ declare interface ImageAttachmentInterface {
   layoutStyle?: ImageAttachmentLayoutStyle;
 
   /**
-   * Image color filter of the styled string.
+   * 获取属性字符串的图片颜色滤镜效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2484,11 +2405,10 @@ declare interface ImageAttachmentInterface {
 }
 
 /**
- * Defines the image attachment type, which is used to set images of PixelMap or [ResourceStr]{@link ResourceStr} type
- * for styled strings.
+ * 图片设置项类型，用于设置属性字符串PixelMap类型或[ResourceStr]{@link ResourceStr}类型图片。
  *
- * @unionmember { ImageAttachmentInterface } Settings for images of the PixelMap type.
- * @unionmember { ResourceImageAttachmentOptions } Settings for images of the ResourceStr type.
+ * @unionmember { ImageAttachmentInterface } PixelMap类型图片设置项。
+ * @unionmember { ResourceImageAttachmentOptions } ResourceStr类型图片设置项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2498,10 +2418,10 @@ declare interface ImageAttachmentInterface {
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
 /**
- * Defines the type for image color filter settings.
+ * 图片颜色滤镜设置项类型。
  *
- * @unionmember { ColorFilter } Color filter settings of the ColorFilter type.
- * @unionmember { DrawingColorFilter } Color filter settings of the DrawingColorFilter type.
+ * @unionmember { ColorFilter } ColorFilter类型图片颜色滤镜设置项。
+ * @unionmember { DrawingColorFilter } DrawingColorFilter类型图片颜色滤镜设置项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2511,7 +2431,7 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
 /**
- * Defines the ImageAttachment Layout Style.
+ * 定义图片布局样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2522,11 +2442,11 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 declare interface ImageAttachmentLayoutStyle {
 
   /**
-   * Image margin.
-   *
-   * Default value: **0**.
-   *
-   * Unit: [vp]{@link common}
+   * 设置图片外边距。
+   * 
+   * 默认值：0
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2537,11 +2457,11 @@ declare interface ImageAttachmentLayoutStyle {
   margin?: LengthMetrics | Margin;
 
   /**
-   * Image padding.
-   *
-   * Default value: **0**.
-   *
-   * Unit: [vp]{@link common}
+   * 设置图片内边距。
+   * 
+   * 默认值：0
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2552,11 +2472,11 @@ declare interface ImageAttachmentLayoutStyle {
   padding?: LengthMetrics | Padding;
 
   /**
-   * Radius of the image border corners.
-   *
-   * Default value: **0**.
-   *
-   * Unit: [vp]{@link common}
+   * 设置圆角。
+   * 
+   * 默认值：0
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2568,7 +2488,7 @@ declare interface ImageAttachmentLayoutStyle {
 }
 
 /**
- * Defines the CustomSpanMetrics interface.
+ * 定义自定义绘制Span的尺寸信息接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2579,9 +2499,9 @@ declare interface ImageAttachmentLayoutStyle {
 declare interface CustomSpanMetrics {
 
   /**
-   * Width of the custom span.
-   *
-   * Unit: [vp]{@link common}
+   * 自定义绘制Span的宽。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2593,9 +2513,9 @@ declare interface CustomSpanMetrics {
   width: number;
 
   /**
-   * Height of the custom span.
-   *
-   * Unit: [vp]{@link common}
+   * 自定义绘制Span的高。
+   * 
+   * 单位：[vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2607,7 +2527,7 @@ declare interface CustomSpanMetrics {
 }
 
 /**
- * Defines the CustomSpanDrawInfo interface.
+ * 定义自定义绘制Span的绘制信息接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2618,9 +2538,9 @@ declare interface CustomSpanMetrics {
 declare interface CustomSpanDrawInfo {
 
   /**
-   * Offset of the custom span relative to the mounted component.
-   *
-   * Unit: [px]{@link common}
+   * 自定义绘制Span相对于挂载组件的偏移。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2631,9 +2551,9 @@ declare interface CustomSpanDrawInfo {
   x: number;
 
   /**
-   * Top margin of the custom span relative to the **Text** component.
-   *
-   * Unit: [px]{@link common}
+   * 自定义绘制Span相对于Text组件的上边距。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2644,9 +2564,9 @@ declare interface CustomSpanDrawInfo {
   lineTop: number;
 
   /**
-   * Bottom margin of the custom span relative to the **Text** component.
-   *
-   * Unit: [px]{@link common}
+   * 自定义绘制Span相对于Text组件的下边距。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2657,9 +2577,9 @@ declare interface CustomSpanDrawInfo {
   lineBottom: number;
 
   /**
-   * Baseline offset of the line where the custom span is located.
-   *
-   * Unit: [px]{@link common}
+   * 自定义绘制Span的所在行的基线偏移量。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2671,7 +2591,7 @@ declare interface CustomSpanDrawInfo {
 }
 
 /**
- * Defines the CustomSpanMeasureInfo interface.
+ * 定义自定义绘制Span的测量信息接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2682,9 +2602,9 @@ declare interface CustomSpanDrawInfo {
 declare interface CustomSpanMeasureInfo {
 
   /**
-   * Text font size.
-   *
-   * Unit: [fp]{@link common}
+   * 设置文本字体大小。
+   * 
+   * 单位：[fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2695,11 +2615,9 @@ declare interface CustomSpanMeasureInfo {
   fontSize: number;
 
   /**
-   * Maximum width constraint of the custom span within the parent component's content area.
-   *
-   * Unit: [px]{@link common}
-   *
-   * **Since**: 26.0.0
+   * 自定义span所在父组件的内容区的最大宽度约束。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2710,13 +2628,11 @@ declare interface CustomSpanMeasureInfo {
   maxWidth?: number;
 
   /**
-   * Width layout policy of the parent component of the custom span.
-   *
-   * **NOTE**
-   *
-   * When the value is **null** or **undefined**, the parent component does not have a width layout policy set.
-   *
-   * **Since**: 26.0.0
+   * 自定义span所在父组件的宽度布局策略。
+   * 
+   * **说明：** 
+   * 
+   * 当值为null或undefined时，表示父组件没有设置宽度布局策略。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2728,7 +2644,7 @@ declare interface CustomSpanMeasureInfo {
 }
 
 /**
- * Provides the custom drawing information.
+ * 自定义绘制信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2739,13 +2655,11 @@ declare interface CustomSpanMeasureInfo {
 declare interface LeadingMarginSpanDrawInfo {
 
   /**
-   * Horizontal offset of the current line relative to the component. For right-to-left (RTL) scripts (direction set to
-   * **RTL**), this value represents the distance between the right side of the current line and the component's right
-   * edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * 当前行相对于组件的水平偏移。direction为RTL时，返回当前行右侧与组件右边缘的距离。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2756,11 +2670,11 @@ declare interface LeadingMarginSpanDrawInfo {
   x: number;
 
   /**
-   * Distance from the top of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * 行顶与组件上边缘的距离。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2771,11 +2685,11 @@ declare interface LeadingMarginSpanDrawInfo {
   top: number;
 
   /**
-   * Distance from the bottom of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * 行底与组件上边缘的距离。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2786,11 +2700,11 @@ declare interface LeadingMarginSpanDrawInfo {
   bottom: number;
 
   /**
-   * Distance from the baseline of the current line to the component's upper edge.
-   *
-   * Unit: [px]{@link common}
-   *
-   * The value must be greater than or equal to 0.
+   * 当前行的基线与组件上边缘的距离。
+   * 
+   * 单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2801,7 +2715,7 @@ declare interface LeadingMarginSpanDrawInfo {
   baseline: number;
 
   /**
-   * Direction of the text content.
+   * 文本内容的方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2812,9 +2726,9 @@ declare interface LeadingMarginSpanDrawInfo {
   direction: TextDirection;
 
   /**
-   * Start index of the current line.
-   *
-   * The value must be greater than or equal to 0.
+   * 当前行的起始索引。
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2825,9 +2739,9 @@ declare interface LeadingMarginSpanDrawInfo {
   start: number;
 
   /**
-   * End index of the current line.
-   *
-   * The value must be greater than or equal to 0.
+   * 当前行的结束索引。
+   * 
+   * 取值范围：大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2838,9 +2752,9 @@ declare interface LeadingMarginSpanDrawInfo {
   end: number;
 
   /**
-   * Whether the current line is the first line of the paragraph.
-   *
-   * **true**: first line; **false**: non-first line.
+   * 当前行是否是段落的首行。
+   * 
+   * true：首行；false：非首行。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2852,9 +2766,9 @@ declare interface LeadingMarginSpanDrawInfo {
 }
 
 /**
- * Describes the custom span. Only the base class is provided. You need to define the specific implementation.
- *
- * The drag preview of a custom span is blank.
+ * 自定义绘制Span，仅提供基类，具体实现由开发者定义。
+ * 
+ * 自定义绘制Span拖拽显示的缩略图为空白。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2865,15 +2779,11 @@ declare interface LeadingMarginSpanDrawInfo {
 declare abstract class CustomSpan {
 
   /**
-   * Called to obtain the size of a custom span.
+   * 获取自定义绘制Span的尺寸大小。
    *
-   * @param { CustomSpanMeasureInfo } measureInfo - Font size of the text.
-   * @returns { CustomSpanMetrics } Size of the custom span.
-   *     <br>**NOTE**
-   *     <br>The final height of the custom span is subject to the line height of the **Text** component. If no value is
-   *     specified for **height**, the custom span takes the **fontSize** value of the **Text** component as its height.
-   *     If the value specified is greater than the height of other child components on the same line, the custom span
-   *     takes the line height of the **Text** component as its height.
+   * @param { CustomSpanMeasureInfo } measureInfo - 文本的字体大小。
+   * @returns { CustomSpanMetrics } 自定义绘制Span的尺寸信息。<br/>**说明：** <br/>最终的CustomSpan的高度是由当前Text组件的行高所决定的。当height不传值，则默认取
+   *     Text组件的fontSize的值作为CustomSpan的高度；当height大于当前行的其他子组件的高度时，此时height即为Text组件的行高。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2883,12 +2793,10 @@ declare abstract class CustomSpan {
   abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
 
   /**
-   * Called to draw a custom span.
+   * 绘制自定义绘制Span。
    *
-   * @param { DrawContext } context - Drawing context.<br>**NOTE**<br>The **canvas** method of **DrawContext** obtains
-   *     the canvas of the **Text** component. As such, the custom span does not extend beyond the area of the **Text**
-   *     component.
-   * @param { CustomSpanDrawInfo } drawInfo - Drawing information of the custom span.
+   * @param { DrawContext } context - 图形绘制上下文。<br/>**说明：** <br/>DrawContext的canvas方法获取的画布是Text组件的画布，绘制时不会超出Text组件的范围。
+   * @param { CustomSpanDrawInfo } drawInfo - 自定义绘制Span的绘制信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2898,7 +2806,7 @@ declare abstract class CustomSpan {
   abstract onDraw(context: DrawContext,  drawInfo: CustomSpanDrawInfo): void;
 
   /**
-   * Manually triggers a refresh of the **Text** component that uses this **CustomSpan**.
+   * 主动刷新使用CustomSpan的Text组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2910,10 +2818,9 @@ declare abstract class CustomSpan {
 }
 
 /**
- * Implements a **UserDataSpan** object for storing and obtaining user data. Only the base class is provided. You need
- * to define the specific implementation.
- *
- * The extended user data does not affect the display effect.
+ * 支持存储自定义扩展信息，用于存储和获取用户数据，仅提供基类，具体实现由开发者定义。
+ * 
+ * 扩展信息不影响实际显示效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2924,8 +2831,7 @@ declare abstract class CustomSpan {
 declare abstract class UserDataSpan {}
 
 /**
- * Defines custom indentation for text paragraphs. Only a base class is provided; the specific implementation is left to
- * developers.
+ * 文本段落的自定义缩进，仅提供基类，具体实现由开发者定义。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2936,11 +2842,10 @@ declare abstract class UserDataSpan {}
 declare abstract class LeadingMarginSpan {
 
   /**
-   * Draws a custom pattern. This API is triggered once for each line of text in a paragraph.
+   * 绘制自定义图案。段落中的每一行文本都会触发一次onDraw。
    *
-   * @param { DrawContext } context - Drawing context.<br>The **canvas** method of **DrawContext** obtains the canvas
-   *     of the component. As such, the custom span does not extend beyond the area of the component.
-   * @param { LeadingMarginSpanDrawInfo } drawInfo - Custom drawing information.
+   * @param { DrawContext } context - 图形绘制上下文。<br/>DrawContext的canvas方法获取的是组件的画布，绘制时不会超出组件的范围。
+   * @param { LeadingMarginSpanDrawInfo } drawInfo - 自定义绘制信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2950,11 +2855,9 @@ declare abstract class LeadingMarginSpan {
   abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
 
   /**
-   * Returns the indentation distance for a text paragraph.
+   * 返回文本段落的缩进距离。
    *
-   * @returns { LengthMetrics } Paragraph indentation distance. The value cannot be in percentage.
-   *     <br>Default value: **0**.
-   *     <br>
+   * @returns { LengthMetrics } 文本段落的缩进。不支持百分比。<br/>默认值：0<br/>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

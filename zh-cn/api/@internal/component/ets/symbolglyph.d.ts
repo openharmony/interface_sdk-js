@@ -19,7 +19,11 @@
  */
 
 /**
- * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
+ * 显示图标小符号的组件。<!--RP1--><!--RP1End-->
+ * 
+ * > **说明：**
+ * 
+ * > - 本模块接口仅可在Stage模型下使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,11 +36,11 @@
 interface SymbolGlyphInterface {
   /**
    *
-   * Defines the constructor of SymbolGlyph.
+   * 定义SymbolGlyph组件构造函数。
    *
-   * @param { Resource } value - Resource of the **SymbolGlyph** component, for example, **$r('sys.symbol.ohos_wifi')**.
+   * @param { Resource } value - SymbolGlyph组件的资源名，如 $r('sys.symbol.ohos_wifi')。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
    * @form [since 12]
@@ -47,7 +51,7 @@ interface SymbolGlyphInterface {
 }
 
 /**
- * The symbol rendering strategy.
+ * 渲染模式的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -59,11 +63,11 @@ interface SymbolGlyphInterface {
 declare enum SymbolRenderingStrategy {
 
   /**
-   * Single-color mode (default value).
-   *
-   * The default color is black.
-   *
-   * You can set one or multiple colors, but only the first color will be applied.
+   * 单色模式（默认值）。
+   * 
+   * 可以设置一个或者多个颜色，默认为黑色。
+   * 
+   * 当设置多个颜色时，仅生效第一个颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -75,15 +79,11 @@ declare enum SymbolRenderingStrategy {
   SINGLE = 0,
 
   /**
-   * Multi-color mode.
-   *
-   * A maximum of three colors can be set. If only one color is set, it updates the color of the first layer, leaving
-   * other colors at their default values.
-   *
-   * The sequence of color settings matches the layering order of the symbol; any colors beyond the number of symbol
-   * layers will not take effect.
-   *
-   * Only color values are accepted. Opacity settings do not take effect.
+   * 多色模式。
+   * 
+   * 最多可以设置三个颜色。当只设置一个颜色时，修改symbol图标的第一层颜色，其他颜色保持默认颜色。
+   * 
+   * 颜色设置顺序与图标分层顺序匹配，当颜色数量大于图标分层时，多余的颜色不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -95,12 +95,11 @@ declare enum SymbolRenderingStrategy {
   MULTIPLE_COLOR = 1,
 
   /**
-   * Layered mode.
-   *
-   * The default color is black. You can set one or multiple colors, but only the first color will be applied.
-   *
-   * Opacity is predefined for the layers: 100% for the first layer, 50% for the second layer, and 20% for the third
-   * layer.
+   * 分层模式。
+   * 
+   * 默认为黑色，可以设置一个或者多个颜色。当设置多个颜色时，仅生效第一个颜色。
+   * 
+   * 不透明度与图层相关，symbol通用图标的默认第一层透明度为100%、第二层透明度为50%、第三层透明度为20%。当设置的颜色包含透明度时，设置的透明度与每个图层的默认透明度进行叠加。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -113,8 +112,7 @@ declare enum SymbolRenderingStrategy {
 }
 
 /**
- * Enumerates symbol effect types. Once applied, the symbol effect becomes active instantly, eliminating the need for
- * triggering.
+ * 动效类型的枚举值。设置动效后，动效启动即生效，无需触发。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -126,7 +124,7 @@ declare enum SymbolRenderingStrategy {
 declare enum SymbolEffectStrategy {
 
   /**
-   * No effect (default value).
+   * 无动效（默认值）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -138,7 +136,7 @@ declare enum SymbolEffectStrategy {
   NONE = 0,
 
   /**
-   * Scale effect as a whole.
+   * 整体缩放动效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -150,7 +148,7 @@ declare enum SymbolEffectStrategy {
   SCALE = 1,
 
   /**
-   * Hierarchical effect.
+   * 层级动效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,11 +157,11 @@ declare enum SymbolEffectStrategy {
    * @atomicservice [since 12]
    * @since 11 dynamic
    */
-  HIERARCHICAL = 2,
+  HIERARCHICAL = 2
 }
 
 /**
- * The direction type of symbol effect.
+ * 符号动效方向的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -175,7 +173,7 @@ declare enum SymbolEffectStrategy {
 declare enum EffectDirection {
 
   /**
-   * The symbol scales down and then returns to its original size.
+   * 图标缩小再复原。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -187,7 +185,7 @@ declare enum EffectDirection {
   DOWN = 0,
 
   /**
-   * The symbol scales up and then returns to its original size.
+   * 图标放大再复原。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -200,7 +198,7 @@ declare enum EffectDirection {
 }
 
 /**
- * The scope type of the symbol effect.
+ * EffectScope的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -212,7 +210,7 @@ declare enum EffectDirection {
 declare enum EffectScope {
 
   /**
-   * Layered mode.
+   * 分层模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -224,7 +222,7 @@ declare enum EffectScope {
   LAYER = 0,
 
   /**
-   * Whole mode.
+   * 整体模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,7 +235,7 @@ declare enum EffectScope {
 }
 
 /**
- * The fill style of symbol effect.
+ * EffectFillStyle的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -249,7 +247,7 @@ declare enum EffectScope {
 declare enum EffectFillStyle {
 
   /**
-   * Cumulative style.
+   * 累加模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,7 +259,7 @@ declare enum EffectFillStyle {
   CUMULATIVE = 0,
 
   /**
-   * Iterative style.
+   * 迭代模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -274,7 +272,7 @@ declare enum EffectFillStyle {
 }
 
 /**
- * The replace effect type of symbol.
+ * 替换动效类型的枚举值。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -286,8 +284,7 @@ declare enum EffectFillStyle {
 declare enum ReplaceEffectType {
 
   /**
-   * Sequential replacement: The current symbol disappears before a new symbol appears. This is the default symbol
-   * replacement effect type.
+   * 默认替换动效：当前symbol完全消失后，新symbol出现。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -299,7 +296,7 @@ declare enum ReplaceEffectType {
   SEQUENTIAL = 0,
 
   /**
-   * Cross-fade transition effect: The current symbol fades out while a new symbol fades in simultaneously.
+   * 快速替换动效：当前symbol淡出的同时，新symbol淡入，产生更流畅、更快速的过渡效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,8 +308,7 @@ declare enum ReplaceEffectType {
   CROSS_FADE = 1,
 
   /**
-   * Slash overlay effect: The current symbol is replaced with a symbol featuring diagonal slash, typically indicating
-   * disabled state.
+   * 禁用动效：用带有斜杠遮罩层的symbol替换当前symbol，通常用于表示禁用或非活动状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -325,7 +321,7 @@ declare enum ReplaceEffectType {
 }
 
 /**
- * Defines the **SymbolEffect** class.
+ * 定义SymbolEffect类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -337,7 +333,7 @@ declare enum ReplaceEffectType {
 declare class SymbolEffect {}
 
 /**
- * Defines ScaleSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义ScaleSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -349,10 +345,10 @@ declare class SymbolEffect {}
 declare class ScaleSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
+   * ScaleSymbolEffect的构造函数，缩放动效。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
+   * @param { EffectDirection } [direction] - 动效方向。<br/>默认值：EffectDirection.DOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -363,9 +359,9 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
   /**
-   * Effect scope.
-   *
-   * Default value: **EffectScope.LAYER**
+   * 动效范围。
+   * 
+   * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -377,9 +373,9 @@ declare class ScaleSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Effect direction.
-   *
-   * Default value: **EffectDirection.DOWN**
+   * 动效方向。
+   * 
+   * 默认值：EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -392,7 +388,7 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines HierarchicalSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义HierarchicalSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -404,10 +400,9 @@ declare class ScaleSymbolEffect extends SymbolEffect {
 declare class HierarchicalSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create a **HierarchicalSymbolEffect** instance, which comes with a hierarchical animation
-   * effect.
+   * HierarchicalSymbolEffect的构造函数，层级动效。
    *
-   * @param { EffectFillStyle } [fillStyle] - Effect fill style.<br>Default value: **EffectFillStyle.CUMULATIVE**
+   * @param { EffectFillStyle } [fillStyle] - 动效模式。<br/>默认值：EffectFillStyle.CUMULATIVE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -418,9 +413,9 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
   constructor(fillStyle?: EffectFillStyle);
 
   /**
-   * Effect fill style.
-   *
-   * Default value: **EffectFillStyle.CUMULATIVE**
+   * 动效模式。
+   * 
+   * 默认值：EffectFillStyle.CUMULATIVE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -433,7 +428,7 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines AppearSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义AppearSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -445,9 +440,9 @@ declare class HierarchicalSymbolEffect extends SymbolEffect {
 declare class AppearSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
+   * AppearSymbolEffect的构造函数，出现动效。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -458,9 +453,9 @@ declare class AppearSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope);
 
   /**
-   * Effect scope.
-   *
-   * Default value: **EffectScope.LAYER**
+   * 动效范围。
+   * 
+   * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -473,7 +468,7 @@ declare class AppearSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines DisappearSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义DisappearSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -485,9 +480,9 @@ declare class AppearSymbolEffect extends SymbolEffect {
 declare class DisappearSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
+   * AppearSymbolEffect的构造函数，出现动效。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -498,9 +493,9 @@ declare class DisappearSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope);
 
   /**
-   * Effect scope.
-   *
-   * Default value: **EffectScope.LAYER**
+   * 动效范围。
+   * 
+   * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -513,7 +508,7 @@ declare class DisappearSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines BounceSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义BounceSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -525,10 +520,10 @@ declare class DisappearSymbolEffect extends SymbolEffect {
 declare class BounceSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create a **ScaleSymbolEffect** instance, which comes with a scaling animation effect.
+   * ScaleSymbolEffect的构造函数，缩放动效。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { EffectDirection } [direction] - Effect direction.<br>Default value: **EffectDirection.DOWN**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
+   * @param { EffectDirection } [direction] - 动效方向。<br/>默认值：EffectDirection.DOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -539,9 +534,9 @@ declare class BounceSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, direction?: EffectDirection);
 
   /**
-   * Effect scope.
-   *
-   * Default value: **EffectScope.LAYER**
+   * 动效范围。
+   * 
+   * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -553,9 +548,9 @@ declare class BounceSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Effect direction.
-   *
-   * Default value: **EffectDirection.DOWN**
+   * 动效方向。
+   * 
+   * 默认值：EffectDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -568,7 +563,7 @@ declare class BounceSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines ReplaceSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义ReplaceSymbolEffect类，继承自父类SymbolEffect。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -580,9 +575,9 @@ declare class BounceSymbolEffect extends SymbolEffect {
 declare class ReplaceSymbolEffect extends SymbolEffect {
 
   /**
-   * A constructor used to create an **AppearSymbolEffect** instance, which comes with an appear animation effect.
+   * AppearSymbolEffect的构造函数，出现动效。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
@@ -593,12 +588,10 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope);
 
   /**
-   * A constructor used to create a **ReplaceSymbolEffect** instance, which comes with a replace animation effect. The
-   * replace effect type can be specified.
+   * ReplaceSymbolEffect的构造函数，替换动效。支持指定具体的替换动效类型。
    *
-   * @param { EffectScope } [scope] - Effect scope.<br>Default value: **EffectScope.LAYER**
-   * @param { ReplaceEffectType } [replaceType] - Replacement effect type.<br>Default value:
-   *     **ReplaceEffectType.SEQUENTIAL**
+   * @param { EffectScope } [scope] - 动效范围。<br/>默认值：EffectScope.LAYER
+   * @param { ReplaceEffectType } [replaceType] - 替换动效类型。<br/>默认值：ReplaceEffectType.SEQUENTIAL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -609,9 +602,9 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   constructor(scope?: EffectScope, replaceType?: ReplaceEffectType);
 
   /**
-   * Effect scope.
-   *
-   * Default value: **EffectScope.LAYER**
+   * 动效范围。
+   * 
+   * 默认值：EffectScope.LAYER
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -623,9 +616,9 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
   scope?: EffectScope;
 
   /**
-   * Replacement effect type.
-   *
-   * Default value: **ReplaceEffectType.SEQUENTIAL**.
+   * 替换动效类型。
+   * 
+   * 默认值：ReplaceEffectType.SEQUENTIAL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -638,7 +631,7 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 }
 
 /**
- * Defines PulseSymbolEffect class, which inherits from **SymbolEffect**.
+ * 定义PulseSymbolEffect类，继承自父类SymbolEffect，脉冲动效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -650,10 +643,9 @@ declare class ReplaceSymbolEffect extends SymbolEffect {
 declare class PulseSymbolEffect extends SymbolEffect {}
 
 /**
- * The [universal attributes]{@link common} are supported. For text attributes, only the following attributes are
- * supported.
- *
- * The [universal events]{@link common} are supported.
+ * 支持[通用属性]{@link common}，不支持文本通用属性，仅支持以下特有属性：
+ * 
+ * 支持[通用事件]{@link common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -666,21 +658,18 @@ declare class PulseSymbolEffect extends SymbolEffect {}
 declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 
   /**
-   * Sets the size of the **SymbolGlyph** component. When using the string type, numeric string values with optional
-   * units, for example, **"10"** or **"10fp"**, are supported.
-   *
-   * The display size of the symbol glyph is controlled by the **fontSize** setting. Once **width** or **height** is
-   * specified, other universal attributes will only affect the size of the component's placeholder, not the symbol
-   * glyph itself.
-   *
-   * > **NOTE**
+   * 设置SymbolGlyph组件大小。设置string类型时，支持number类型取值的字符串形式，可以附带单位，例如"10"、"10fp"。
+   * 
+   * 组件的图标显示大小由fontSize控制，设置width或height后，其他通用属性仅对组件的占位大小生效。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { number | string | Resource } value - Size of the **SymbolGlyph** component.<br>Default value: **16fp**<br>
-   *     Unit: [fp]{@link common}<br>Percentage strings are not supported.
+   * @param { number | string | Resource } value - SymbolGlyph组件大小。<br/>默认值：16fp<br/>单位：
+   *     [fp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br/>不支持设置百分比字符串。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
    * @form [since 12]
@@ -690,14 +679,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontSize(value: number | string | Resource): SymbolGlyphAttribute;
 
   /**
-   * Sets the color of the **SymbolGlyph** component.
-   *
-   * > **NOTE**
+   * 设置SymbolGlyph组件颜色。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Array<ResourceColor> } value - Color of the **SymbolGlyph** component.<br> Default value: depending on the
-   *     rendering strategy
+   * @param { Array<ResourceColor> } value - SymbolGlyph组件颜色。<br/> 当value为undefined时，使用图标的默认颜色，默认颜色跟随主题。
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -709,7 +697,12 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor>): SymbolGlyphAttribute;
 
   /**
-   * Called when the SymbolGlyph color is set.
+   * 设置SymbolGlyph组件的颜色，相比[fontColor]{@link SymbolGlyphAttribute#fontColor(value: Array<ResourceColor>)}接口，本接口支持传入
+   * [ColorMetrics]{@link Graphics:ColorMetrics}类型参数。
+   * 
+   * > **说明：**
+   * >
+   * > 该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
    * @param { Array<ResourceColor | ColorMetrics> | undefined } value
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
@@ -723,25 +716,20 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontColor(value: Array<ResourceColor | ColorMetrics> | undefined): SymbolGlyphAttribute;
 
   /**
-   * Applies a gradient or solid color shader effect to the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件的渐变色效果。
+   * 
+   * 可以显示为径向渐变[RadialGradientStyle]{@link RadialGradientStyle}或线性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   * [ColorShaderStyle]{@link ColorShaderStyle}的效果，shaderStyle的优先级高于[fontColor]{@link SymbolSpanAttribute#fontColor}和AI识
+   * 别，纯色建议使用[fontColor]{@link SymbolSpanAttribute#fontColor}。
    *
-   * This API supports [RadialGradientStyle]{@link RadialGradientStyle},
-   * [LinearGradientStyle]{@link LinearGradientStyle}, and [ColorShaderStyle]{@link ColorShaderStyle}. When set,
-   * **shaderStyle** takes precedence over [fontColor]{@link SymbolSpanAttribute#fontColor} and any AI-based styling. To
-   * apply a simple solid color, using [fontColor]{@link SymbolSpanAttribute#fontColor} is recommended.
-   *
-   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - Shader effect.<br>Input types and behavior:<br>
-   *     Single **ShaderStyle** object: applies the specified effect to all layers. Array of **ShaderStyle** objects:
-   *     applies the specified effect to the corresponding layer. Array of **undefined**: applies the default
-   *     **SymbolGlyph** color to the corresponding layer. Layers unset retain their default color.<br> Based on the
-   *     input, the system applies a radial gradient ([RadialGradientStyle]{@link RadialGradientStyle}), linear gradient
-   *     ([LinearGradientStyle]{@link LinearGradientStyle}), or solid color ([ColorShaderStyle]{@link ColorShaderStyle})
-   *     to the **SymbolGlyph** component.<br>**NOTE**<br>Unit: [vp]{@link common}<br>Specify the center point and
-   *     radius using percentages. If a non-percentage value (e.g., **10px**) is provided, it will be interpreted as 100
-   *     0%.<br>You are advised to specify the radius using percentages.<br>Percentages are relative to the icon's size.
-   *     The recommended value range is [0, 1).
+   * @param { Array<ShaderStyle | undefined> | ShaderStyle } shader - 径向渐变或线性渐变或纯色。<br/>传入ShaderStyle时，覆盖所有层；传入数组时，数据项是
+   *     ShaderStyle，则应用该层；数组项是undefined，则该层使用SymbolGlyph默认颜色，未设置的层也应用默认颜色。根据传入的参数区分处理径向渐变
+   *     [RadialGradientStyle]{@link RadialGradientStyle}或线性渐变[LinearGradientStyle]{@link LinearGradientStyle}或纯色
+   *     [ColorShaderStyle]{@link ColorShaderStyle}，最终设置到SymbolGlyph组件上显示为渐变色效果。<br>**说明：** <br/>单位：
+   *     [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br>中心点请按百分比使用。如果使用的是非百分比（例如10PX），效果等同于设置
+   *     1000%。<br>半径建议使用百分比。<br>百分比是基于图标大小的百分比，建议取值范围[0, 1)。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
    * @atomicservice
@@ -750,21 +738,18 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   shaderStyle(shader: Array<ShaderStyle | undefined> | ShaderStyle): SymbolGlyphAttribute;
 
   /**
-   * Sets the font weight of the **SymbolGlyph** component. For the number type, the value ranges from 100 to 900, at an
-   * interval of 100. A larger value indicates a heavier font weight. The default value is **400**. For the string type,
-   * only strings of the number type are supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**,
-   * **"regular"**, and **"medium"**, which correspond to the enumerated values in **FontWeight**.
-   *
-   * The **sys.symbol.ohos_lungs** icon does not support font weight setting.
-   *
-   * > **NOTE**
+   * 设置SymbolGlyph组件粗细。number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“
+   * bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。
+   * 
+   * sys.symbol.ohos_lungs图标不支持设置fontWeight。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { number | FontWeight | string } value - Font weight of the **SymbolGlyph** component.<br>Default value:
-   *     **FontWeight.Normal**
+   * @param { number | FontWeight | string } value - SymbolGlyph组件粗细。<br/>默认值：FontWeight.Normal
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
    * @form [since 12]
@@ -774,12 +759,15 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | string): SymbolGlyphAttribute;
 
   /**
-   * Used to set the font weight of symbolGlyph.
+   * 设置SymbolGlyph组件图标小符号的粗细，支持通过FontWeightConfigs配置是否开启可变字重调节、是否开启随设备的字体粗细级别自动更新字重。
    *
-   * @param { number | FontWeight | ResourceStr } value - the symbolGlyph font weight.
-   * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
+   * @param { number | FontWeight | ResourceStr } value - SymbolGlyph组件图标小符号的粗细。<br/>number类型取值[100, 900]，取值间隔为100，默认为40
+   *     0，取值越大，字体越粗。<br/>ResourceStr类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”分别对应
+   *     FontWeight中相应的枚举值。<br/>默认值：FontWeight.Normal
+   * @param { FontWeightConfigs } [fontWeightConfigs] - 字体粗细配置。<br/>默认值继承
+   *     [FontWeightConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontweightconfigs24对象说明)。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
@@ -789,14 +777,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolGlyphAttribute;
 
   /**
-   * Sets the effect strategy of the **SymbolGlyph** component.
-   *
-   * > **NOTE**
+   * 设置SymbolGlyph组件动效策略。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { SymbolEffectStrategy } value - Effect strategy of the **SymbolGlyph** component.<br>Default value:
-   *     **SymbolEffectStrategy.NONE**
+   * @param { SymbolEffectStrategy } value - SymbolGlyph组件动效策略。<br/>默认值：SymbolEffectStrategy.NONE
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -808,14 +795,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   effectStrategy(value: SymbolEffectStrategy): SymbolGlyphAttribute;
 
   /**
-   * Sets the rendering strategy of the **SymbolGlyph** component.
-   *
-   * > **NOTE**
+   * 设置SymbolGlyph组件渲染策略。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { SymbolRenderingStrategy } value - Rendering strategy of the **SymbolGlyph** component.<br>Default value:
-   *     **SymbolRenderingStrategy.SINGLE**
+   * @param { SymbolRenderingStrategy } value - SymbolGlyph组件渲染策略。<br/>默认值：SymbolRenderingStrategy.SINGLE
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -827,12 +813,11 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   renderingStrategy(value: SymbolRenderingStrategy): SymbolGlyphAttribute;
 
   /**
-   * Sets the symbol effect and effect state for the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件动效策略及播放状态。
    *
-   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
+   * @param { SymbolEffect } [symbolEffect] - SymbolGlyph组件动效策略。<br/>默认值：
    *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
-   * @param { boolean } [isActive] - Whether the effect is active.<br>**true**: playing. **false**: not playing.<br>
-   *     Default value: **false**.
+   * @param { boolean } [isActive] - SymbolGlyph组件动效播放状态。<br/>true表示播放，false表示不播放。<br/>默认值：false
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -844,12 +829,11 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean): SymbolGlyphAttribute;
 
   /**
-   * Sets the symbol effect and effect trigger for the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件动效策略及播放触发器。
    *
-   * @param { SymbolEffect } [symbolEffect] - Symbol effect of the **SymbolGlyph** component.<br>Default value:
+   * @param { SymbolEffect } [symbolEffect] - SymbolGlyph组件动效策略。<br/>默认值：
    *     [SymbolEffect]{@link SymbolGlyphAttribute#symbolEffect(symbolEffect: SymbolEffect, isActive?: boolean)}
-   * @param { number } [triggerValue] - Value that, when changed, initiates the animation of the **SymbolGlyph**
-   *     component.<br>To prevent the motion effect from triggering initially, set it to **-1**.
+   * @param { number } [triggerValue] - SymbolGlyph组件动效播放触发器，在数值变更时触发动效。<br/>如果首次不希望触发动效，设置-1。
    * @returns { SymbolGlyphAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -861,13 +845,12 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   symbolEffect(symbolEffect: SymbolEffect, triggerValue?: number): SymbolGlyphAttribute;
 
   /**
-   * Sets the minimum font scale factor for the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件最小的字体缩放倍数。
    *
-   * @param { Optional<number|Resource> } scale - Minimum font scale factor for the **SymbolGlyph** component.<br>Value
-   *     range: [0, 1]<br>The value **0** results in the minimum scaling.<br>**NOTE**<br>A value less than 0 is handled
-   *     as 0. A value greater than 1 is handled as 1. Abnormal values are ineffective by default.
+   * @param { Optional<number|Resource> } scale - SymbolGlyph组件最小的字体缩放倍数。<br/>取值范围：[0, 1] <br/>设置为0，缩放最小。<br/>**说明：** <
+   *     br/>设置的值小于0时，按值为0处理。设置的值大于1，按值为1处理。异常值默认不生效。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
    * @atomicservice
@@ -876,13 +859,12 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   minFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Sets the maximum font scale factor for the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件最大的字体缩放倍数。
    *
-   * @param { Optional<number|Resource> } scale - Maximum font scale factor for the **SymbolGlyph** component.<br>Value
-   *     range:
-   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.
+   * @param { Optional<number|Resource> } scale - SymbolGlyph组件最大的字体缩放倍数。<br/>取值范围：
+   *     [1, +∞)<br/>**说明：** <br/>设置的值小于1时，按值为1处理，异常值默认不生效。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 20]
    * @atomicservice
@@ -891,14 +873,13 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
   maxFontScale(scale: Optional<number|Resource>): SymbolGlyphAttribute;
 
   /**
-   * Sets the shadow effect of the **SymbolGlyph** component.
+   * 设置SymbolGlyph组件的阴影效果。
    *
-   * @param { Optional<ShadowOptions> } shadow - Shadow effect of the **SymbolGlyph** component.<br>Unit:
-   *     [vp]{@link common}<br>Default value: {<br>radius: 0,<br>color: Color.Black<br>offsetX: 0,<br>offsetY: 0<br>} <
-   *     br>The **fill** and **type** attributes, as well as the enumerated values of **ColoringStrategy** within the
-   *     **color **attribute, are not supported.
+   * @param { Optional<ShadowOptions> } shadow - SymbolGlyph组件的阴影效果。<br>单位：
+   *     [vp](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)<br>默认值：{<br>radius：0,<br>color：
+   *     Color.Black,<br>offsetX：0,<br>offsetY：0<br>} <br>不支持fill、type属性和color中的ColoringStrategy枚举值。
    * @returns { SymbolGlyphAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
    * @form
@@ -909,13 +890,15 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 }
 
 /**
- * The **SymbolGlyph** component represents a symbol glyph.<!--RP1--><!--RP1End-->
- *
- * > **NOTE**
- *
- * ###### Child Components
- *
- * Not supported
+ * 显示图标小符号的组件。<!--RP1--><!--RP1End-->
+ * 
+ * > **说明：**
+ * 
+ * > - 本模块接口仅可在Stage模型下使用。
+ * 
+ * ###### 子组件
+ * 
+ * 不支持子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -928,7 +911,7 @@ declare class SymbolGlyphAttribute extends CommonMethod<SymbolGlyphAttribute> {
 declare const SymbolGlyph: SymbolGlyphInterface;
 
 /**
- * Defines SymbolGlyph Component instance.
+ * 定义SymbolGlyph组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
