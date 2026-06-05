@@ -283,7 +283,7 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup header style.
-   * @default ListItemGroupAttribute.NONE
+   * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -294,7 +294,7 @@ declare interface ListItemGroupOptions {
 
   /**
    * Describes the ListItemGroup footer style.
-   * @default ListItemGroupAttribute.NONE
+   * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
