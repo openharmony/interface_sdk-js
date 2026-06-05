@@ -32,7 +32,7 @@ import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
-    AccessibilityFocusScene } from '../@ohos.accessibility';
+    AccessibilityFocusScene, FocusRuleType } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -1273,7 +1273,7 @@ export declare interface AccessibilityElement {
   /**
    * Movement unit for traversing and reading text.
    * 
-   * Default value: **0**.
+   * Default value: **char**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1727,6 +1727,24 @@ export declare interface AccessibilityElement {
   findElementByFocusDirection(condition: FocusDirection): Promise<AccessibilityElement>;
 
   /**
+   * Finds elements based on the focus direction. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusDirection } condition - Focus direction.
+   * @param { FocusRuleType } type - Type for finding a focusable node.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  findElementByFocusDirection(condition: FocusDirection, type: FocusRuleType): Promise<AccessibilityElement>;
+
+  /**
    * Finds elements based on the hint text. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
@@ -1775,6 +1793,24 @@ export declare interface AccessibilityElement {
    * @since 23 dynamic&static
    */
   findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
+
+  /**
+   * Finds a focusable node by conditions. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusRule } rule - Rule for checking the current node and its descendants.
+   * @param { FocusCondition } condition - Condition for finding a focusable node.
+   * @param { FocusRuleType } type - Type for finding a focusable node.
+   * @returns { Promise<FocusMoveResult> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  findElementsByCondition(rule: FocusRule, condition: FocusCondition, type: FocusRuleType): Promise<FocusMoveResult>;
 }
 
 /**

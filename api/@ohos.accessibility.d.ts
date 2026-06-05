@@ -2874,3 +2874,41 @@ export enum AccessibilityFocusScene {
    */
   SCROLL_FOCUS = 3
 }
+
+/**
+ * Focus Rule Type Enumeration
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export enum FocusRuleType {
+  /**
+   * Default focus type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  DEFAULT = 1,
+  /**
+   * Focus by link type, for example, an element that can be clicked to jump on the web page.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_LINK = 2,
+  /**
+   * Focus by title type.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  FOCUS_BY_TITLE = 3
+}
