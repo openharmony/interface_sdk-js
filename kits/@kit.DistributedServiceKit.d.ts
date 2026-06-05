@@ -37,8 +37,9 @@ export {
 
 /*** if arkts static */
 import distributedDeviceManager from '@ohos.distributedDeviceManager';
+import abilityConnectionManager from '@ohos.distributedsched.abilityConnectionManager';
 
 export { 
-  distributedDeviceManager
+  distributedDeviceManager, abilityConnectionManager
 };
 /*** endif */
