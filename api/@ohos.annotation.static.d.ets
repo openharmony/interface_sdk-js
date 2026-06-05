@@ -35,9 +35,6 @@
  *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
  * @since 26.0.0 static
  */
 @Retention('SOURCE')
@@ -48,9 +45,6 @@ export @interface Available {
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
    * @since 26.0.0 static
    */
   minApiVersion: string = '';
