@@ -25,7 +25,6 @@
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 declare enum FailureCode {
   /**
@@ -35,7 +34,6 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -46,7 +44,6 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 
@@ -57,32 +54,9 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   FAILURE_CODE_USER_REFUSE = 2
 }
-
-/**
- * 打开原子化服务成功时的回调函数。
- *
- * @param { string } appId - 被拉起原子化服务的appId。
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @since 23 static
- */
-type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
-
-/**
- * 打开原子化服务失败时的回调函数。
- *
- * @param { string } appId - 被拉起原子化服务的appId。
- * @param { FailureCode } failureCode - 失败原因的错误码。
- * @param { string } failureMessage - 失败原因的描述。
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @since 23 static
- */
-type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
 
 /**
  * CompletionHandlerForAtomicService提供了
@@ -95,7 +69,6 @@ type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode,
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 declare class CompletionHandlerForAtomicService {
   /**
@@ -121,26 +94,6 @@ declare class CompletionHandlerForAtomicService {
    * @since 20 dynamic
    */
   onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void;
-
-  /*** if arkts static */
-  /**
-   * 打开原子化服务成功时的回调函数。
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onAtomicServiceRequestSuccess: OnAtomicServiceRequestSuccessFn;
-
-  /**
-   * 打开原子化服务失败时的回调函数。
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onAtomicServiceRequestFailure: OnAtomicServiceRequestFailureFn;
-  /*** endif */
 }
 
 export { FailureCode };
