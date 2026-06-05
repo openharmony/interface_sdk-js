@@ -54,7 +54,8 @@ import fastbuffer from '@ohos.fastbuffer';
 import worker, {
   DedicatedWorkerGlobalScope, ErrorEvent, Event, EventListener, EventTarget,
   MessageEvent, MessageEvents, PostMessageOptions, ThreadWorkerGlobalScope,
-  WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority
+  WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority,
+  Priority
 } from '@ohos.worker';
 import JSON from '@ohos.util.json';
 import lang, { Retention, RetentionPolicy } from '@arkts.lang';
@@ -65,7 +66,7 @@ export {
   MessageEvents, PlainArray, PostMessageOptions, Queue, Stack, ThreadWorkerGlobalScope, TreeMap,
   TreeSet, Vector, WorkerEventListener, WorkerEventTarget, WorkerOptions, ThreadWorkerPriority, buffer, process, taskpool,
   uri, url, util, worker, xml, JSON, lang, Retention, RetentionPolicy, ArkTSUtils, collections, stream, Decimal, fastbuffer,
-  ArrayListComparatorFn, ListComparatorFn
+  ArrayListComparatorFn, ListComparatorFn, Priority
 };
 
 /* 1.2 独有部分 */
