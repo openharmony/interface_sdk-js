@@ -12,20 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
- * # How to Use
- * 
- * You can obtain a **FaultLogExtensionContext** object through a **FaultLogExtensionAbility** child class instance.
- * 
- * ```ts
- * import { FaultLogExtensionAbility } from '@kit.PerformanceAnalysisKit';
- * export default class MyFaultLogExtension extends FaultLogExtensionAbility {
- *     onFaultReportReady() {
- *         let context = this.context; // Obtain FaultLogExtensionContext.
- *         console.info('cache dir is ' + context.cacheDir); // Access the members in the context.
- *     }
- * }
- * ```
+ * @file Delayed Fault Notification Context
+ * @kit PerformanceAnalysisKit
  */
 
 import ExtensionContext from './application/ExtensionContext';
@@ -63,4 +53,5 @@ import ExtensionContext from './application/ExtensionContext';
  * @since 21 dynamic
  * @since 23 static
  */
-export default class FaultLogExtensionContext extends ExtensionContext {}
+export default class FaultLogExtensionContext extends ExtensionContext {
+}
