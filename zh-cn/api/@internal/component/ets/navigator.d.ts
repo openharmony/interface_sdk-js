@@ -19,8 +19,8 @@
  */
 
 /**
- * Navigation type.
- *
+* 路由的跳转方式。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -31,12 +31,9 @@
 declare enum NavigationType {
 
   /**
-   * Navigates to the specified page in the application.
+   * 跳转到应用内的指定页面。
    *
-   * **NOTE**
-   *
-   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
-   * [pushPath]{@link NavPathStack#pushPath(info: NavPathInfo, animated?: boolean)} instead.
+   * **说明：**<br/
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -48,13 +45,7 @@ declare enum NavigationType {
   Push = 0,
 
   /**
-   * Returns to the specified page. If the specified page does not exist in the stack, no response is returned. If no
-   * page is specified, the previous page is returned to.
    *
-   * **NOTE**
-   *
-   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
-   * [pop]{@link NavPathStack#pop(animated?: boolean)} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -66,12 +57,7 @@ declare enum NavigationType {
   Back = 1,
 
   /**
-   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * **NOTE**
-   *
-   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
-   * [replacePath]{@link NavPathStack#replacePath(info: NavPathInfo, animated?: boolean)} instead.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -84,8 +70,10 @@ declare enum NavigationType {
 }
 
 /**
- * The **Navigator** component provides redirection.
- *
+* 路由容器组件，提供路由跳转能力。
+*
+*
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -97,12 +85,11 @@ declare enum NavigationType {
 interface NavigatorInterface {
 
   /**
-   * Called when the route jumps.
+   * 在路由跳转时调用。
    *
-   * @param { object } value - Information about the page to be redirected to.<br/>target: Path of the target page to be
-   *     redirected to. <br/>type: Navigation type.<br>Default value: **NavigationType.Push**
+   * @param { object } value - 跳转页面的信息。<br/>target：指定跳转目标页面的路径。<br/>type：指定路由方式。<br/>默认值：NavigationType.Push
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -112,10 +99,12 @@ interface NavigatorInterface {
   (value?: { target: string; type?: NavigationType }): NavigatorAttribute;
 
   /**
-   * Called when using the navigator.
+   * 在使用Navigator时调用。
+   *
+   * NavigationAttribute为Navigation组件的属性。
    *
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -126,8 +115,8 @@ interface NavigatorInterface {
 }
 
 /**
- * Declare navigator properties.
- *
+* Navigator的属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -139,13 +128,11 @@ interface NavigatorInterface {
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 
   /**
-   * Sets whether the **Navigator** component is activated. If the component is activated, the corresponding navigation
-   * takes effect.
+   * 设置当前路由组件是否处于激活状态，处于激活状态时，会生效相应的路由操作。
    *
-   * @param { boolean } value - Whether the **Navigator** component is activated. The value **true** means that the
-   *     component is activated, and **false** means the opposite.
+   * @param { boolean } value - 路由组件是否处于激活状态。设置为true时，组件处于激活态。设置为false时，组件不处于激活态。
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -155,12 +142,13 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   active(value: boolean): NavigatorAttribute;
 
   /**
-   * Sets the navigation type.
+   * 设置路由跳转方式。
    *
+   * > **说明：**
    *
-   * @param { NavigationType } value - Navigation type.<br>Default value: **NavigationType.Push**
+   * @param { NavigationType } value - 路由跳转方式。<br/>默认值：NavigationType.Push
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -170,13 +158,11 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   type(value: NavigationType): NavigatorAttribute;
 
   /**
-   * Sets the path of the target page to be redirected to. The target page must be added to the **main_pages.json**
-   * file.
+   * 设置跳转目标页面的路径。目标页面需加入main_pages.json文件中。
    *
-   *
-   * @param { string } value - Path of the target page to be redirected to.
+   * @param { string } value - 跳转目标页面的路径。
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -186,13 +172,13 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
   target(value: string): NavigatorAttribute;
 
   /**
-   * Sets the data that needs to be passed to the target page during redirection.
+   * 设置跳转时传递到目标页面的数据。
    *
+   * > **说明：**
    *
-   * @param { object } value - Data that needs to be passed to the target page during redirection. You can use
-   *     [router.getParams()]{@link @ohos.router:router.getParams} to obtain the data on the target page.
+   * @param { object } value - 跳转时要同时传递到目标页面的数据，可在目标页面使用[router.getParams()]{@link @ohos.router:router.getParams}获得。
    * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
    * @since 7 dynamiconly
@@ -203,13 +189,14 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 }
 
 /**
- * The **Navigator** component provides redirection.
- *
- *
- * ###### Child Components
- *
- * Supported
- *
+* 路由容器组件，提供路由跳转能力。
+*
+* > **说明：**
+*
+* ###### 子组件
+*
+* 可以包含子组件。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]
@@ -221,8 +208,8 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 declare const Navigator: NavigatorInterface;
 
 /**
- * Defines Navigator Component instance.
- *
+* Defines Navigator Component instance.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @atomicservice [since 11]

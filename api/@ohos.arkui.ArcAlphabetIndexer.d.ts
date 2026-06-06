@@ -1,16 +1,16 @@
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+  * Licensed under the Apache License, Version 2.0 (the "License"),
+  * you may not use this file except in compliance with the License.
+  * You may obtain a copy of the License at
+  *
+  *     http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
  */
 
 /**
@@ -19,29 +19,30 @@
  */
 
 /**
- * Define the initialization parameters of the arc alphabet index bar
+ * Initialization parameters for the **ArcAlphabetIndexer** component.
  *
- * @typedef ArcAlphabetIndexerInitInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
-declare interface ArcAlphabetIndexerInitInfo  {
+declare interface ArcAlphabetIndexerInitInfo {
+
   /**
-   * Array of alphabetic indexed strings, cannot be set to empty.
+   * Array of alphabet index strings. It cannot be set to empty.
    *
-   * @type { string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
   arrayValue: string[];
+
   /**
-   * The index value of the initial selected item.
+   * Index of the initial selected item. If the value is out of range, the default value **0** is used.
    *
-   * @type { number } - If it is out of the index range, the default value is 0
+   * This parameter supports two-way binding through [!!](docroot://ui/state-management/arkts-new-binding.md).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -51,34 +52,38 @@ declare interface ArcAlphabetIndexerInitInfo  {
 }
 
 /**
-  * Callback when index bar is selected.
-  *
-  * @typedef { function } OnSelectCallback
-  * @param { number } index - the selected index
-  * @syscap SystemCapability.ArkUI.ArkUI.Circle
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
-declare type OnSelectCallback =  (index: number) => void;
-
-/**
- * Arc Alphabet index bar.
+ * Defines the callback used in [onSelect]{@link ArcAlphabetIndexerAttribute#onSelect}.
  *
- * @interface ArcAlphabetIndexerInterface
+ * @param { number } index - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
+declare type OnSelectCallback =  (index: number) => void;
+
+/**
+ * The **ArcAlphabetIndexer** component is an arc-shaped component designed for quick navigation through alphabetically
+ * sorted items. It can be integrated with container components to quickly locate items within the visible area.
+ *
+ * > **NOTE**
+ *
+ * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
+ * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1
+ * > devices, tablets, and TVs, but the component can still run properly.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Circle
+ * @crossplatform
+ * @atomicservice
+ * @since 18 dynamic
+ * @noninterop
+ */
 export interface ArcAlphabetIndexerInterface {
+
   /**
-   * Create ArcAlphabetIndexer component
+   * Creates an instance of the **ArcAlphabetIndexer** component with initialization parameters.
    *
-   * ArrayValue: Alphabetical index string array.
-   * selected: ID of the selected item.
-   *
-   * @param { ArcAlphabetIndexerInitInfo } info
+   * @param { ArcAlphabetIndexerInitInfo } info - Initialization parameters for the **ArcAlphabetIndexer** component.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -89,19 +94,21 @@ export interface ArcAlphabetIndexerInterface {
 }
 
 /**
- * Defines the arc alphabet index bar attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<ArcAlphabetIndexerAttribute>
+ * In addition to the [universal events]{@link common}, the following events are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
  */
 declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexerAttribute> {
+
   /**
-   * Definitions text color.
+   * Sets the text color of the index items in the normal state.
    *
-   * @param { Optional<ColorMetrics> } color
+   * @param { Optional<ColorMetrics> } color - Text color.<br>Default value: **0xFFFFFF**, displayed as white
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -111,9 +118,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   color(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Selected text color.
+   * Sets the text color of the selected item.
    *
-   * @param { Optional<ColorMetrics> } color
+   * @param { Optional<ColorMetrics> } color - Text color of the selected item.<br>Default value: **0xFFFFFF**,
+   *     displayed as white
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -123,9 +131,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selectedColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Font color of the pop-up prompt text.
+   * Sets the text color for the pop-up window.
    *
-   * @param { Optional<ColorMetrics> } color
+   * @param { Optional<ColorMetrics> } color - Text color of the pop-up window.<br>Default value: **0xFFFFFF**,
+   *     displayed as white
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -135,9 +144,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   popupColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Select the text background color.
+   * Sets the background color of the selected item.
    *
-   * @param { Optional<ColorMetrics> } color
+   * @param { Optional<ColorMetrics> } color - Background color of the selected item.<br>Default value: **0x1F71FF**,
+   *     displayed as dark blue
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -147,9 +157,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selectedBackgroundColor(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Background color of the pop-up window.
+   * Sets the background color of the pop-up window.
    *
-   * @param { Optional<ColorMetrics> } color
+   * @param { Optional<ColorMetrics> } color - Background color of the pop-up window.<br>Default value: **0xD8404040**,
+   *     displayed as dark gray with slight transparency
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -159,9 +170,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   popupBackground(color: Optional<ColorMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Whether to use pop-up index hints.
+   * Sets whether to display the pop-up window.
    *
-   * @param { Optional<boolean> } enabled
+   * @param { Optional<boolean> } enabled - Whether to display the pop-up window.<br>**true**: yes; **false**: no<br>
+   *     Default value: **false**
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -171,9 +183,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   usePopup(enabled: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Selected text style.
+   * Sets the font style of the selected item, including size, weight, style, and font family.
    *
-   * @param { Optional<Font> } font
+   * @param { Optional<Font> } font - Font style of the selected item.<br>Default value: {<br>size:'13.0fp',<br> style:
+   *     FontStyle.Normal,<br> weight:500,<br> family:'HarmonyOS Sans'<br>}
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -183,9 +196,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selectedFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Popup text style.
+   * Sets the font style of the pop-up window.
    *
-   * @param { Optional<Font> } font
+   * @param { Optional<Font> } font - Font style of the pop-up window.<br>Default value:<br>{<br>size:'19.0fp',<br>
+   *     style:FontStyle.Normal,<br> weight:500,<br> family:'HarmonyOS Sans'<br>}
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -195,9 +209,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   popupFont(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Definitions fonts.
+   * Sets the default font style of the index items.
    *
-   * @param { Optional<Font> } font
+   * @param { Optional<Font> } font - Default font style of the index items.<br>Default value:<br>{<br>size:'13.0fp',<br
+   *     > style:FontStyle.Normal,<br> weight:500,<br> family:'HarmonyOS Sans'<br>}
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -207,9 +222,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   font(font: Optional<Font>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Size of the letter area on the letter index bar. The letter area is a circle. Set the diameter of the circle.
+   * Sets the size of the index item area.
    *
-   * @param { Optional<LengthMetrics> } size
+   * @param { Optional<LengthMetrics> } size - Size of the index item area. For the circular item area, this represents
+   *     the diameter of the circle. Percentage values are not supported.<br>Default value: **24.0**<br>Unit: vp
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -219,9 +235,10 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   itemSize(size: Optional<LengthMetrics>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Sets the selected index.
+   * Sets the index of the selected item.
    *
-   * @param { Optional<number> } index
+   * @param { Optional<number> } index - Index of the selected item.<br>Default value: **0**<br>This parameter supports
+   *     two-way binding through [!!](docroot://ui/state-management/arkts-new-binding.md).
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -231,9 +248,11 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   selected(index: Optional<number>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Automatically collapses the characters when the indexer bar not enough to display all characters.
+   * Sets whether to enable the adaptive collapse behavior for the indexer.
    *
-   * @param { Optional<boolean> } enable - A boolean value determines whether auto collapses is enabled for indexer bar.
+   * @param { Optional<boolean> } enable - Whether to enable the adaptive collapse behavior for the indexer.<br>Default
+   *     value: **true**.<br>**true**: Enable the adaptive collapse behavior.<br>**false**: Disable the adaptive
+   *     collapse behavior.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -243,9 +262,9 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   autoCollapse(enable: Optional<boolean>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Index bar selection callback.
+   * Triggered when an index item is selected. The return value is the index of the selected item.
    *
-   * @param { Optional<OnSelectCallback> } handler
+   * @param { Optional<OnSelectCallback> } handler - Callback used to return the result.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -255,9 +274,15 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
   onSelect(handler: Optional<OnSelectCallback>): ArcAlphabetIndexerAttribute;
 
   /**
-   * Set the background blurStyle of the pop-up window.
+   * Sets the background blur style of the pop-up window. If this API is not used, the blur is disabled by default. The
+   * corresponding value is **NONE** in **BlurStyle**.
    *
-   * @param { Optional<BlurStyle> } style
+   * > **NOTE**
+   *
+   * > After configuring the pop-up window background blur style with **popupBackgroundBlurStyle**, avoid applying
+   * > background colors via [popupBackground]{@link ArcAlphabetIndexerAttribute#popupBackground}.
+   *
+   * @param { Optional<BlurStyle> } style - Background blur style of the pop-up window.
    * @returns { ArcAlphabetIndexerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -268,21 +293,24 @@ declare class ArcAlphabetIndexerAttribute extends CommonMethod<ArcAlphabetIndexe
 }
 
 /**
- * Defines ArcAlphabetIndexer Component.
+ * The **ArcAlphabetIndexer** component is an arc-shaped component designed for quick navigation through alphabetically
+ * sorted items. It can be integrated with container components to quickly locate items within the visible area.
+ *
+ * > **NOTE**
+ *
+ * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and
+ * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1
+ * > devices, tablets, and TVs, but the component can still run properly.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
- * @since 18
- */
-/**
- * Defines ArcAlphabetIndexer Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Circle
- * @crossplatform
- * @atomicservice
- * @uicomponent
- * @since 19 dynamic
+ * @uicomponent [since 19]
+ * @since 18 dynamic
  * @noninterop
  */
 declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
@@ -294,5 +322,6 @@ declare const ArcAlphabetIndexer: ArcAlphabetIndexerInterface;
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
+ * @noninterop
  */
 declare const ArcAlphabetIndexerInstance: ArcAlphabetIndexerAttribute;

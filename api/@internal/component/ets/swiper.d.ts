@@ -196,6 +196,7 @@ declare class SwiperController {
    *
    * @param { number } offset - The drag distance to simulate the drag. <br/> A positive number indicates that the
    *     layout is dragged to the start point. A negative number indicates dragging towards the end point of the layout.
+   *     <br>Unit: vp.
    *     - Drag distance of drag simulation.<br>A positive number indicates dragging towards the
    *     start point of the layout, and a negative number indicates dragging towards the end point of the layout.
    * @returns { boolean } Whether to consume the passed drag distance.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -21,7 +21,6 @@
 /**
  * Import the Material type for Navigation.
  *
- * @typedef { import('../api/@ohos.arkui.uiMaterial').default.Material } Material
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -30,9 +29,8 @@
 declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material;
 
 /**
- * Import the SystemBarStyle type for Navigation.
+ * Describes the properties of the status bar. These properties are valid for the page-level status bar.
  *
- * @typedef { import('../api/@ohos.window').default.SystemBarStyle } SystemBarStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -41,276 +39,150 @@ declare type Material = import('../api/@ohos.arkui.uiMaterial').default.Material
 declare type SystemBarStyle = import('../api/@ohos.window').default.SystemBarStyle;
 
 /**
- * Defines the navigation common title.
+ * Defines a general title for the **Navigation** component.
  *
- * @interface NavigationCommonTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the navigation common title.
- *
- * @interface NavigationCommonTitle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the navigation common title.
- *
- * @interface NavigationCommonTitle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare interface NavigationCommonTitle {
+
   /**
-   * Sets the main title.
+   * Main title.
    *
-   * @type { string }
+   * @type { string } [since 9 - 13]
+   * @type { string | Resource } [since 14]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the main title.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the main title.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the main title.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   main: string | Resource;
 
   /**
-   * Sets the sub title.
+   * Subtitle.
    *
-   * @type { string }
+   * @type { string } [since 9 - 13]
+   * @type { string | Resource } [since 14]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the sub title.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the sub title.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the sub title.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   sub: string | Resource;
 }
 
 /**
- * Defines the navigation custom title.
+ * Defines a custom title for the **Navigation** component.
  *
- * @interface NavigationCustomTitle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the navigation custom title.
- *
- * @interface NavigationCustomTitle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the navigation custom title.
- *
- * @interface NavigationCustomTitle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare interface NavigationCustomTitle {
+
   /**
-   * Custom content of the title bar.
+   * Content of the title bar.
    *
-   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Custom content of the title bar.
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Custom content of the title bar.
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   builder: CustomBuilder;
 
   /**
    * Height of the title bar.
    *
-   * @type { TitleHeight | Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Height of the title bar.
-   *
-   * @type { TitleHeight | Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Height of the title bar.
-   *
-   * @type { TitleHeight | Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   height: TitleHeight | Length;
 }
 
-
 /**
- * Navigation mode
+ * Display mode of the navigation page. When **Navigation** is displayed in split-column mode, a divider is displayed
+ * between the navigation page and the content area.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Navigation mode
+ * > **NOTE**
+ * >
+ * > For simplicity, **calcNavBarWidth** is defined as follows: Component width �C minContentWidth �C Divider width (1 px)
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Navigation mode
+ * **Table 1** Relationship between actual navBarWidth and the developer-defined value
  *
- * @enum { number }
+ * | Developer-defined navBarWidth| calcNavBarWidth Value| Actual navBarWidth|
+ * | --- | --- | --- |
+ * | navBarWidth < minNavBarWidth | NA | minNavBarWidth |
+ * | navBarWidth > maxNavBarWidth | calcNavBarWidth > maxNavBarWidth | maxNavBarWidth |
+ * | navBarWidth > maxNavBarWidth | calcNavBarWidth < minNavBarWidth | minNavBarWidth |
+ * | navBarWidth > maxNavBarWidth | minNavBarWidth �� calcNavBarWidth �� maxNavBarWidth | calcNavBarWidth |
+ * | minNavBarWidth �� navBarWidth �� maxNavBarWidth | calcNavBarWidth �� minNavBarWidth | minNavBarWidth |
+ * | minNavBarWidth �� navBarWidth �� maxNavBarWidth | minNavBarWidth < calcNavBarWidth <= navBarWidth | calcNavBarWidth |
+ * | minNavBarWidth �� navBarWidth �� maxNavBarWidth | calcNavBarWidth > navBarWidth | navBarWidth |
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum NavigationMode {
-  /**
-   * The navigation bar and the content area are displayed in stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The navigation bar and the content area are displayed in stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The navigation bar and the content area are displayed in stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Stack,
 
   /**
-   * The navigation bar and the content area are displayed side by side.
+   * The navigation page and content area are displayed independently of each other, which are equivalent to two pages.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * The navigation bar and the content area are displayed side by side.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The navigation bar and the content area are displayed side by side.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Split,
+  Stack = 0,
 
   /**
-   * If the navigation width is greater than 520vp, the navigation component is displayed in split mode.
-   * Otherwise it's displayed in stack mode.
+   * The navigation page and content area are displayed in different columns.
+   *
+   * **1.** Table 1 describes the relationship between the actual resulting **navBarWidth** and the value set by you.
+   *
+   * **2.** When the component size is decreased, the content area is shrunk until its width reaches the value defined
+   * by **minContentWidth**, and then the navigation page is shrunk until its width reaches the value defined by
+   * **minNavBarWidth**. if the component size is further decreased, the content area is further shrunk until it
+   * disappears, and then navigation page is shrunk.
+   *
+   * **3.** When the navigation page is set to a fixed size and the component size is continuously decreased, the
+   * navigation page is shrunk.
+   *
+   * **4.** If only **navBarWidth** is set, the width of the navigation page is fixed at the value of **navBarWidth**,
+   * and the divider cannot be dragged.
+   *
+   * **5.** The touch target of the divider is 2 vp on each side (left and right). Therefore, it is recommended that you
+   * keep a minimum distance of 4 vp from this area to avoid unintended interactions.
+   *
+   * **6.** In Split mode, if there is only one page in the content area, the back button will not be displayed in the
+   * upper left corner of the page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
+  Split = 1,
+
   /**
-   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
-   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
+   * In API version 9 and earlier versions: If the window width is greater than or equal to 520 vp, the Split mode is
+   * used; otherwise, the Stack mode is used.
+   *
+   * In API version 10 and later versions: If the window width is greater than or equal to 600 vp, the Split mode is
+   * used; otherwise, the Stack mode is used. 600 vp = minNavBarWidth (240 vp) + minContentWidth (360 vp).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
-   * the navigation component is displayed in split mode. Otherwise it's displayed in stack mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Auto,
+  Auto = 2,
 
   /**
    * If the navigation width is greater than the sum of minNavBarWidth and minContentWidth,
@@ -323,348 +195,156 @@ declare enum NavigationMode {
    * @atomicservice
    * @since 24 dynamic
    */
-  AUTO_WITH_ASPECT_RATIO,
+  AUTO_WITH_ASPECT_RATIO = 3
 }
 
 /**
- * Navigation bar position
+ * Position of the navigation page.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Navigation bar position
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Navigation bar position
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum NavBarPosition {
-  /**
-   * In navigation split mode, the main column is at the start of the main axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * In navigation split mode, the main column is at the start of the main axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * In navigation split mode, the main column is at the start of the main axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Start,
 
   /**
-   * The navigation bar is on the End of the container
+   * When two columns are displayed, the main column is at the start of the main axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
+  Start = 0,
+
   /**
-   * The navigation bar is on the End of the container
+   * When two columns are displayed, the main column is at the end of the main axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * The navigation bar is on the End of the container
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  End,
+  End = 1
 }
 
 /**
- * Navigation title mode.
+ * Enumerates the display modes of the title bar.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Navigation title mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Navigation title mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum NavigationTitleMode {
+
   /**
-   * When the content is more than one screen in a scrollable component, the
-   * main title shrinks as the content scrolls down (the subtitle fades out
-   * with its size remaining unchanged) and restores as the content scrolls
-   * up to the top.
-   * <br>**NOTE**
-   * <br>The effect where the main title's size changes in response to content
-   * scrolling is effective only when **title** is set to **ResourceStr** or
-   * **NavigationCommonTitle**. If **title** is set to any other value type, the
-   * main title changes in mere location when pulled down.
-   * <br>For this effect to work when the content is less than one screen in a
-   * scrollable component, set the **options** parameter of the scrollable
-   * component's edgeEffect attribute to **true**. In the non-scrolling state, the
-   * height of the title bar is the same as in **Full** mode; in the scrolling state,
-   * the minimum height of the title bar is the same as in **Mini** mode.
+   * When the content is more than one screen in a scrollable component, the main title shrinks as the content scrolls
+   * down (the subtitle fades out with its size remaining unchanged) and restores as the content scrolls up to the top.
+   *
+   * **NOTE**
+   *
+   * The effect where the main title's size changes in response to content scrolling is effective only when **title** is
+   * set to **ResourceStr** or **NavigationCommonTitle**. If **title** is set to any other value type, the main title
+   * changes in mere location when pulled down.
+   *
+   * For this effect to work when the content is less than one screen in a scrollable component, set the **options**
+   * parameter of the scrollable component's [edgeEffect]{@link ListAttribute#edgeEffect} attribute to **true**. In the
+   * non-scrolling state, the height of the title bar is the same as in **Full** mode; in the scrolling state, the
+   * minimum height of the title bar is the same as in **Mini** mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * When the content is more than one screen in a scrollable component, the
-   * main title shrinks as the content scrolls down (the subtitle fades out
-   * with its size remaining unchanged) and restores as the content scrolls
-   * up to the top.
-   * <br>**NOTE**
-   * <br>The effect where the main title's size changes in response to content
-   * scrolling is effective only when **title** is set to **ResourceStr** or
-   * **NavigationCommonTitle**. If **title** is set to any other value type, the
-   * main title changes in mere location when pulled down.
-   * <br>For this effect to work when the content is less than one screen in a
-   * scrollable component, set the **options** parameter of the scrollable
-   * component's edgeEffect attribute to **true**. In the non-scrolling state, the
-   * height of the title bar is the same as in **Full** mode; in the scrolling state,
-   * the minimum height of the title bar is the same as in **Mini** mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * When the content is more than one screen in a scrollable component, the
-   * main title shrinks as the content scrolls down (the subtitle fades out
-   * with its size remaining unchanged) and restores as the content scrolls
-   * up to the top.
-   * <br>**NOTE**
-   * <br>The effect where the main title's size changes in response to content
-   * scrolling is effective only when **title** is set to **ResourceStr** or
-   * **NavigationCommonTitle**. If **title** is set to any other value type, the
-   * main title changes in mere location when pulled down.
-   * <br>For this effect to work when the content is less than one screen in a
-   * scrollable component, set the **options** parameter of the scrollable
-   * component's edgeEffect attribute to **true**. In the non-scrolling state, the
-   * height of the title bar is the same as in **Full** mode; in the scrolling state,
-   * the minimum height of the title bar is the same as in **Mini** mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Free = 0,
 
   /**
-   * The title is fixed at full mode.<br>Default value: If there is only a main
-   * title, the title bar height is 112 vp; if there is both a main title and a
+   * The title is fixed at full mode.
+   *
+   * Default value: If there is only a main title, the title bar height is 112 vp; if there is both a main title and a
    * subtitle, the title bar height is 138 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * The title is fixed at full mode.<br>Default value: If there is only a main
-   * title, the title bar height is 112 vp; if there is both a main title and a
-   * subtitle, the title bar height is 138 vp.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The title is fixed at full mode.<br>Default value: If there is only a main
-   * title, the title bar height is 112 vp; if there is both a main title and a
-   * subtitle, the title bar height is 138 vp.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Full,
+  Full = 1,
 
   /**
    * The title is fixed at mini mode.
-   * Default value:if there is only a main title, The title bar height is 56 vp.
-   * If there are both a main title and a subtitle, the title bar height is 82 vp.
+   *
+   * Default value:
+   *
+   * In versions earlier than API version 12, if there is only a main title, the title bar height is 56 vp; if there is
+   * both a main title and a subtitle, the title bar height is 82 vp.
+   *
+   * Since API version 12, the title bar height is 56 vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * The title is fixed at mini mode. Default value: In versions earlier than API version 12,
-   * If there is only a main title, the title bar height is 56 vp; if there are both a main title and a subtitle,
-   * The title bar height is 82 vp. Since API version 12, the title bar height is 56 vp.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The title is fixed at mini mode. Default value: In versions earlier than API version 12,
-   * If there is only a main title, the title bar height is 56 vp; if there are both a main title and a subtitle,
-   * The title bar height is 82 vp. Since API version 12, the title bar height is 56 vp.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Mini,
+  Mini = 2
 }
 
 /**
- * Navigation menu item, include menu icon and menu info
+ * Defines the navigation menu item, including the menu icon and menu information.
  *
- * @interface NavigationMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Navigation menu item, include menu icon and menu info
- *
- * @interface NavigationMenuItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Navigation menu item, include menu icon and menu info
- *
- * @interface NavigationMenuItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare interface NavigationMenuItem {
+
   /**
-   * The value of navigation menu item.
+   * Text of the menu item. Its visibility varies by the API version.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The value of navigation menu item.
+   * API version 9: visible.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The value of navigation menu item.
+   * Since API version 10: invisible.
    *
-   * @type { string }
+   * @type { string } [since 8 - 13]
+   * @type { string | Resource } [since 14]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The value of navigation menu item.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   value: string | Resource;
 
   /**
-   * The icon of navigation menu item.
+   * Icon path of the menu item.
    *
-   * @type { ?string }
+   * @type { ?string } [since 8 - 13]
+   * @type { ?(string | Resource) } [since 14]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The icon of navigation menu item.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The icon of navigation menu item.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The icon of navigation menu item.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   icon?: string | Resource;
 
   /**
-   * The symbol of navigation menu item.
+   * Symbol icon for a single option on the menu bar. It has higher priority than **icon**.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The symbol of navigation menu item.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
-   * Whether to enable this menu item.
+   * Enabled status. **true** (default): enabled. **false**: disabled.
    *
-   * @type { ?boolean }
-   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -674,222 +354,156 @@ declare interface NavigationMenuItem {
   isEnabled?: boolean;
 
   /**
-   * Trigger by navigation menu item click.
+   * Callback invoked when the menu item is selected.
    *
-   * @type { ?(() => void) }
+   * @type { ?(() => void) } [since 8 - 9]
+   * @type { ?function } [since 10]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Trigger by navigation menu item click.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger by navigation menu item click.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   action?: () => void;
 }
 
 /**
- * Indicates the information of the popped page.
+ * Provides the callback information returned when a page is popped out of the routing stack.
  *
- * @interface PopInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Indicates the information of the popped page.
- *
- * @interface PopInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface PopInfo {
+
   /**
-   * The info of the popped page.
+   * Information about the current page when a back action is performed. The value is automatically obtained by the
+   * system.
    *
-   * @type { NavPathInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The info of the popped page.
-   *
-   * @type { NavPathInfo }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   info: NavPathInfo;
 
   /**
-   * The result of the popped page.
+   * Result returned when a back action is performed. You must customize the object.
    *
-   * @type { Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The result of the popped page.
-   *
-   * @type { Object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   result: Object;
 }
 
 /**
- * Indicates the information of NavDestination.
+ * Provides the navigation page information.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Indicates the information of NavDestination.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare class NavPathInfo {
+
   /**
-   * Creates an instance of NavPathInfo.
+   * Creates a **NavPathInfo** object.
    *
-   * @param { string } name - The name of NavDestination.
-   * @param { unknown } param - The detailed parameter of the NavDestination.
+   * @param { string } name - Name of the navigation destination page. The name matches the name in the following route
+   *     tables:<br>1. Custom route table, which is passed via the
+   *     [navDestination]{@link NavigationAttribute#navDestination} method.<br>2. System route table, which is set by
+   *     **name** in **routerMap**. For details, please refer to
+   *     [Example 2: Using NavPathStack APIs](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#example-2-using-navpathstack-apis).
+   * @param { unknown } param - Detailed parameters for the custom **NavDestination** page. The **unknown** type can be
+   *     replaced with a user-defined type.
+   * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - Callback returned when
+   *     [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   *     [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   *     [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)} is called on the
+   *     navigation destination page. It is triggered only when the **result** parameter is set in
+   *     [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   *     [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   *     [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)}. [since 11]
+   * @param { ?boolean } isEntry - Whether the navigation destination page is the entry page.<br>**true**: yes;
+   *     **false**: no<br>Default value: **false**<br>The value of this parameter is reviewed or reset under the
+   *     following conditions:<br>1. A global return event is triggered on the current navigation destination page.<br>
+   *     2. The application is switched to the background.<br>**NOTE**<br>The navigation destination page serving as an
+   *     entry does not respond to the in-app global back events; instead, it directly triggers the global back event
+   *     between applications. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an instance of NavPathInfo.
-   *
-   * @param { string } name - The name of NavDestination.
-   * @param { unknown } param - The detailed parameter of the NavDestination.
-   * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Creates an instance of NavPathInfo.
-   *
-   * @param { string } name - The name of NavDestination.
-   * @param { unknown } param - The detailed parameter of the NavDestination.
-   * @param { ?import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { ?boolean } isEntry - Indicates whether it is an entry destination.
-   *                               Default value: **false**.
-   *                               **true**: The navigation destination page is the entry page.
-   *                               **false**: The navigation destination page is not the entry page.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   constructor(name: string, param: unknown, onPop?: import('../api/@ohos.base').Callback<PopInfo>, isEntry?: boolean);
 
   /**
-   * Name of the navigation destination page.
+   * Name of the navigation destination page. The name matches the name in the following route tables:
    *
-   * @type { string }
+   * 1. Custom route table, which is passed via the [navDestination]{@link NavigationAttribute#navDestination} method.
+   * 2. System route table, which is set by **name** in **routerMap**. For details, please refer to [Example 2: Using NavPathStack APIs](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#example-2-using-navpathstack-apis).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Name of the navigation destination page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   name: string;
 
   /**
-   * Detailed parameters of the navigation destination page.
+   * Detailed parameters for the custom **NavDestination** page. The **unknown** type can be replaced with a user-
+   * defined type.
    *
-   * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Detailed parameters of the navigation destination page.
-   *
-   * @type { ?unknown }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   param?: unknown;
 
   /**
-   * Callback returned when pop is called on the navigation destination page.
-   * It is invoked only after the **result** parameter is set in pop.
+   * Callback returned when [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   * [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   * [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)} is called on the
+   * navigation destination page. It is triggered only when the **result** parameter is set in
+   * [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   * [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   * [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)}.
    *
-   * @type { ?import('../api/@ohos.base').Callback<PopInfo> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Callback returned when pop is called on the navigation destination page.
-   * It is invoked only after the **result** parameter is set in pop.
-   *
-   * @type { ?import('../api/@ohos.base').Callback<PopInfo> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onPop?: import('../api/@ohos.base').Callback<PopInfo>;
 
   /**
-   * Indicates whether it is an entry destination.
+   * Whether the navigation destination page is the entry page.
    *
-   * @type { ?boolean }
+   * **true**: yes; **false**: no
+   *
+   * Default value: **false**
+   *
+   * The value of this parameter is reviewed or reset under the following conditions:
+   *
+   * 1. A global back event is triggered on the current navigation destination page.
+   * 2. The application is switched to the background.
+   *
+   * **NOTE**
+   *
+   * The navigation destination page serving as an entry does not respond to the in-app global back events; instead, it
+   * directly triggers the global back event between applications.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -899,9 +513,9 @@ declare class NavPathInfo {
   isEntry?: boolean;
 
   /**
-   * The unique id of NavDestination.
+   * Unique ID of the navigation destination page. This ID is system-generated and globally unique. It can be obtained
+   * using the [getPathStack]{@link NavPathStack#getPathStack} API and should not be manually reassigned.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -912,9 +526,8 @@ declare class NavPathInfo {
 }
 
 /**
- * Defines the mode of stack operation.
+ * Enumerates the operation modes for the routing stack.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -922,10 +535,12 @@ declare class NavPathInfo {
  * @since 12 dynamic
  */
 declare enum LaunchMode {
+
   /**
-   * Default navigation stack operation mode.<br>In this mode,
-   * push operations add the specified **NavDestination**page to
-   * the stack; replace operations replace the current top **NavDestination** page.
+   * Default routing stack operation mode.
+   *
+   * In this mode, push operations add the specified **NavDestination** page to the stack; replace operations replace
+   * the current top **NavDestination** page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -936,8 +551,9 @@ declare enum LaunchMode {
   STANDARD = 0,
 
   /**
-   * When the NavDestination with a specified name exists, it will be moved to top of stack,
-   * otherwise, the behavior will be consistent with the STANDARD mode.
+   * This mode searches from the bottom to the top of the routing stack. If a **NavDestination** page with the specified
+   * name exists, it moves that page to the top of the stack (for a replace operation, it replaces the last top
+   * **NavDestination** page with the specified one); otherwise, it behaves like **STANDARD**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -948,8 +564,9 @@ declare enum LaunchMode {
   MOVE_TO_TOP_SINGLETON = 1,
 
   /**
-   * When the NavDestination with a specified name exists, the stack will pop until that NavDestination,
-   * otherwise, the behavior will be consistent with the STANDARD mode.
+   * This mode searches from the bottom to the top of the routing stack. If a **NavDestination** page with the specified
+   * name exists, it removes all **NavDestination** pages above it(for a replace operation, it replaces the last top
+   * **NavDestination** page with the specified one); otherwise, it behaves like **STANDARD**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -958,10 +575,11 @@ declare enum LaunchMode {
    * @since 12 dynamic
    */
   POP_TO_SINGLETON = 2,
-  
+
   /**
-   * This mode creates an instance of **NavDestination**. Compared with
-   * **STANDARD**, this mode does not reuse the instance with the same name in the stack.
+   * This mode creates an instance of **NavDestination**. Compared with **STANDARD**, this mode does not reuse the
+   * instance with the same name in the stack. When this mode is specified, the newly created page will execute the push
+   * animation effect by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -969,13 +587,12 @@ declare enum LaunchMode {
    * @atomicservice
    * @since 12 dynamic
    */
-  NEW_INSTANCE = 3,
+  NEW_INSTANCE = 3
 }
 
 /**
- * Indicates the options of stack operation.
+ * Defines the routing stack operation options.
  *
- * @interface NavigationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -983,11 +600,12 @@ declare enum LaunchMode {
  * @since 12 dynamic
  */
 declare interface NavigationOptions {
+
   /**
-   * Navigation stack operation mode.
-   * <br>Default value: **LaunchMode.STANDARD**.
+   * Operation mode of the routing stack.
    *
-   * @type { ?LaunchMode }
+   * Default value: **LaunchMode.STANDARD**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -997,12 +615,12 @@ declare interface NavigationOptions {
   launchMode?: LaunchMode;
 
   /**
-   * Whether to support transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
+   * Whether to enable the transition animation.
    *
-   * @type { ?boolean }
+   * **true**: yes; **false**: no
+   *
+   * Default value: **true**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1013,72 +631,67 @@ declare interface NavigationOptions {
 }
 
 /**
- * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
+ * A navigation controller that manages all child pages in the **Navigation** component with a stack data structure and
+ * provides stack operation methods for controlling page transitions.
+ *
+ * Starting from API version 12, **NavPathStack** is inheritable. Objects of a derived class can replace those of the
+ * base class. For details, see
+ * [Example 10](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#example-10-defining-a-derived-class-of-navpathstack).
+ *
+ *
+ * > **NOTE**
+ * >
+ * > 1. When multiple navigation controller operations are triggered in succession, the intermediate states are
+ * > bypassed, and only the final result of the operations is rendered.
+ *
+ * > For example, if a Page1 is popped and then immediately pushed back, the system considers that the states before and
+ * > after these operations are identical, leading to no actual change in the stack. To ensure that a new instance of
+ * > Page1 is pushed onto the stack despite the consecutive operations, use the **NEW_INSTANCE** mode.
+ * >
+ * > 2. Avoid relying on lifecycle event listeners as a means to manage the navigation controller.
+ * >
+ * > 3. When the application is in the background, calling stack operation APIs of **NavPathStack** will trigger a
+ * > refresh upon the application's return to the foreground.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Indicates the information of NavDestinations. Providers methods for controlling destination page in the stack
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare class NavPathStack {
+
   /**
-   * Creates an instance of NavPathStack.
+   * Creates a **NavPathStack** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Creates an instance of NavPathStack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   constructor();
 
   /**
-   * Pushes the navigation destination page specified by **info** onto the navigation stack.
+   * Pushes the navigation destination page specified by **info** onto the routing stack.
    *
-   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
+   * @param { NavPathInfo } info - Information about the navigation destination page.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>If
+   *     the input parameter is invalid, the value **true** is used. [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pushes the navigation destination page specified by **info** onto the navigation stack.
-   *
-   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
-   * @param { boolean } [animated] - Whether to support the transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   pushPath(info: NavPathInfo, animated?: boolean): void;
 
   /**
-   * Pushes the navigation destination page specified by **info** onto the navigation stack.
-   * Depending on the launchMode specified in the **options** parameter, different behaviors will be triggered.
+   * Pushes the navigation destination page specified by **info** onto the routing stack. Depending on the
+   * [LaunchMode]{@link LaunchMode} specified in the **options** parameter, different behaviors will be implemented.
    *
-   * @param { NavPathInfo } info - Indicates the NavDestination to be pushed.
-   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @param { NavPathInfo } info - Information about the navigation destination page.
+   * @param { NavigationOptions } [options] - Routing stack operation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1088,16 +701,20 @@ declare class NavPathStack {
   pushPath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
-   * Pushes the navigation destination page specified by **info** onto
-   * the navigation stack. This API uses a promise to return the result.
+   * Pushes the navigation destination page specified by **info** onto the routing stack. This API uses a promise to
+   * return the result.
+   *
+   * > **NOTE**
+   * >
+   * > You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+   * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+   * > failures.
    *
    * @param { NavPathInfo } info - Information about the navigation destination page.
-   * @param { boolean } [animated] - Whether to support the transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameters types.
    *     3. Parameter verification failed.
@@ -1107,42 +724,26 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pushes the navigation destination page specified by **info** onto
-   * the navigation stack. This API uses a promise to return the result.
-   *
-   * @param { NavPathInfo } info - Information about the navigation destination page.
-   * @param { boolean } [animated] - Whether to support the transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100005 - Builder function not registered.
-   * @throws { BusinessError } 100006 - NavDestination not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   pushDestination(info: NavPathInfo, animated?: boolean): Promise<void>;
 
   /**
-   * Pushes the navigation destination page specified by **info** onto the navigation stack.
-   * This API uses a promise to return the result. Depending on the LaunchMode
-   * specified in the **options** parameter, different behaviors will be triggered.
+   * Pushes the navigation destination page specified by **info** onto the routing stack. This API uses a promise to
+   * return the result. Depending on the [LaunchMode]{@link LaunchMode} specified in the **options** parameter,
+   * different behaviors will be implemented.
+   *
+   * > **NOTE**
+   * >
+   * > You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+   * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+   * > failures.
    *
    * @param { NavPathInfo } info - Information about the navigation destination page.
-   * @param { NavigationOptions } [options] - Navigation options.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @param { NavigationOptions } [options] - Routing stack operation options.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameters types.
    *     3. Parameter verification failed.
@@ -1158,72 +759,60 @@ declare class NavPathStack {
   pushDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
   /**
-   * Pushes the specified NavDestination into the stack.
+   * Pushes the navigation destination page specified by **name**, with the data specified by **param**, to the routing
+   * stack.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
+   * @param { string } name - Name of the navigation destination page.
+   * @param { unknown } param - Detailed parameters for the custom **NavDestination** page. The **unknown** type can be
+   *     replaced with a user-defined type.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { unknown } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   pushPathByName(name: string, param: unknown, animated?: boolean): void;
 
   /**
-   * Pushes the specified NavDestination into the stack.
+   * Pushes the navigation destination page specified by **name**, with the data specified by **param**, to the routing
+   * stack. This API uses the **onPop** callback to receive the result returned when the page is popped out of the
+   * stack.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
+   * @param { string } name - Name of the navigation destination page.
+   * @param { Object } param - Detailed parameters for the custom **NavDestination** page.
+   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - Callback used to receive the result. It is
+   *     triggered only when the **result** parameter is set in
+   *     [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   *     [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   *     [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)}.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   pushPathByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): void;
 
   /**
-   * Pushes the specified NavDestination into the stack.
+   * Pushes the navigation destination page specified by **name**, with the data specified by **param**, to the routing
+   * stack. This API uses a promise to return the result.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * > **NOTE**
+   * >
+   * > You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+   * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+   * > failures.
+   *
+   * @param { string } name - Name of the navigation destination page.
+   * @param { Object } param - Detailed parameters for the custom **NavDestination** page.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameters types.
    *     3. Parameter verification failed.
@@ -1233,43 +822,33 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100005 - Builder function not registered.
-   * @throws { BusinessError } 100006 - NavDestination not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   pushDestinationByName(name: string, param: Object, animated?: boolean): Promise<void>;
 
   /**
-   * Pushes the specified NavDestination into the stack.
+   * Pushes the navigation destination page specified by **name**, with the data specified by **param**, to the routing
+   * stack. This API uses the **onPop** callback to handle the result returned when the page is popped out of the stack.
+   * It uses a promise to return the result.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * > **NOTE**
+   * >
+   * > You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+   * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+   * > failures.
+   *
+   * @param { string } name - Name of the navigation destination page.
+   * @param { Object } param - Detailed parameters for the custom **NavDestination** page.
+   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - Callback used to handle the result returned when
+   *     the page is popped out of the stack. It is triggered only when the **result** parameter is set in
+   *     [pop]{@link NavPathStack#pop(result: Object, animated?: boolean)},
+   *     [popToName]{@link NavPathStack#popToName(name: string, result: Object, animated?: boolean)}, or
+   *     [popToIndex]{@link NavPathStack#popToIndex(index: number, result: Object, animated?: boolean)}.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameters types.
    *     3. Parameter verification failed.
@@ -1279,67 +858,31 @@ declare class NavPathStack {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pushes the specified NavDestination into the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be pushed.
-   * @param { Object } param - Indicates the detailed parameter of the NavDestination to be pushed.
-   * @param { import('../api/@ohos.base').Callback<PopInfo> } onPop - The callback when next page returns.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameters types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100005 - Builder function not registered.
-   * @throws { BusinessError } 100006 - NavDestination not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   pushDestinationByName(name: string, param: Object, onPop: import('../api/@ohos.base').Callback<PopInfo>, animated?: boolean): Promise<void>;
 
   /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
+   * Replaces the top of the routing stack with the navigation destination page specified by **info**.
    *
-   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
+   * @param { NavPathInfo } info - Parameters for the new top page of the routing stack.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
-   *
-   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   *                                 Default value: **true**.
-   *                                 **true**: The transition animation is supported.
-   *                                 **false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   replacePath(info: NavPathInfo, animated?: boolean): void;
 
   /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
+   * Replaces the top page on the routing stack. Depending on the [LaunchMode]{@link LaunchMode} specified in the
+   * **options** parameter, different behaviors will be implemented.
    *
-   * @param { NavPathInfo } info - Indicates the new NavDestination in top of the stack.
-   * @param { NavigationOptions } [options] - Indicates options of stack operation.
+   * @param { NavPathInfo } info - Parameters for the new top page of the routing stack.
+   * @param { NavigationOptions } [options] - Routing stack operation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1349,12 +892,13 @@ declare class NavPathStack {
   replacePath(info: NavPathInfo, options?: NavigationOptions): void;
 
   /**
-   * Replace the NavDestination into the stack.
+   * Performs a replacement operation on the routing stack. This API uses a promise to return the result. Its behavior
+   * varies depending on the value of [LaunchMode]{@link LaunchMode} specified in **options**.
    *
-   * @param { NavPathInfo } info - Indicates the NavDestination to replace in stack.
-   * @param { NavigationOptions } [options] - Indicates options of stack operation.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
+   * @param { NavPathInfo } info - Information about the navigation destination page.
+   * @param { NavigationOptions } [options] - Routing stack operation options.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameters types.
    *     3. Parameter verification failed.
@@ -1370,87 +914,56 @@ declare class NavPathStack {
   replaceDestination(info: NavPathInfo, options?: NavigationOptions): Promise<void>;
 
   /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
+   * Replaces the top of the routing stack with the page specified by **name**.
    *
-   * @param { string } name - Indicates name of the new NavDestination in top of stack.
-   * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
+   * @param { string } name - Name of the navigation destination page.
+   * @param { Object } param - Detailed parameters for the custom **NavDestination** page.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Replace the current NavDestination with the specific one.The current NavDestination will be destroyed.
-   *
-   * @param { string } name - Indicates name of the new NavDestination in top of stack.
-   * @param { Object } param - Indicates the detailed parameter of the new NavDestination in top of the stack.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   replacePathByName(name: string, param: Object, animated?: boolean): void;
 
   /**
-   * Remove the specified NavDestinations by indexes.
+   * Removes the navigation destination pages specified by **indexes** from the routing stack.
    *
-   * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
-   * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
+   * @param { Array<number> } indexes - Array of indexes of the navigation destination pages to remove. The index is
+   *     zero-based.
+   * @returns { number } Number of the navigation destination pages removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Remove the specified NavDestinations by indexes.
-   *
-   * @param { Array<number> } indexes - Indicates the indexes of the NavDestinations to be removed.
-   * @returns { number } Returns the number of removed pages. Invalid indexes will be ignored.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   removeByIndexes(indexes: Array<number>): number;
 
   /**
-   * Removes the navigation destination page specified by **name** from the navigation stack.
+   * Removes the navigation destination page specified by **name** from the routing stack.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be removed.
-   * @returns { number } Returns the number of removed NavDestinations.
+   * @param { string } name - Name of the navigation destination page to remove.
+   * @returns { number } Number of the navigation destination pages removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Removes the navigation destination page specified by **name** from the navigation stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be removed.
-   * @returns { number } Returns the number of removed NavDestinations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   removeByName(name: string): number;
 
   /**
-   * Removes the navigation destination page specified by **navDestinationId** from
-   * the navigation stack. **navDestinationId** can be obtained from the onReady callback
-   * of **NavDestination** or from NavDestinationInfo.
+   * Removes the navigation destination page specified by **navDestinationId** from the routing stack.
+   * **navDestinationId** can be obtained from the [onReady]{@link NavDestinationAttribute#onReady} callback of
+   * **NavDestination** or from [NavDestinationInfo]{@link @ohos.arkui.observer:uiObserver.NavDestinationInfo}.
    *
    * @param { string } navDestinationId - Unique ID of the navigation destination page to remove.
-   * @returns { boolean } Returns true if remove successfully, otherwise returns false.
+   * @returns { boolean } Whether the page is removed successfully.
+   *     <br>**true**: Removal succeeded.
+   *     <br>**false**: Removal failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1460,151 +973,140 @@ declare class NavPathStack {
   removeByNavDestinationId(navDestinationId: string): boolean;
 
   /**
-   * Pops the top NavDestination out of the stack.
+   * Pops the top element out of the routing stack.
    *
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
+   * > **NOTE**
+   * >
+   * > When multiple navigation controller methods are called consecutively, any pages popped during the sequence are
+   * > cached. If a page with the same name is later pushed, the system reuses the cached instance instead of
+   * > instantiating a new page.
+   *
+   * > Example:
+   *
+   * > pathStack: NavPathStack = new NavPathStack()
+   *
+   * > //The initial page stack is [A].
+   *
+   * > pathStack.pop()
+   *
+   * > pathStack.pushPath(A)
+   *
+   * > pathStack.pushPath(B)
+   *
+   * > // The page stack after the operation is [A B].
+   *
+   * > In this case, page A is reused, and the new creation process is not performed.
+   *
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
+   * @returns { NavPathInfo | undefined } **NavPathInfo**: information about the navigation destination page at the top
+   *     of the stack.
+   *     <br>**undefined**: the routing stack is empty.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pops the top NavDestination out of the stack.
-   *
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   pop(animated?: boolean): NavPathInfo | undefined;
 
   /**
-   * Pops the top NavDestination out of the stack. Invokes the **onPop** callback to pass the page processing result.
+   * Pops the top element out of the routing stack and invokes the **onPop** callback to pass the page processing
+   * result.
    *
-   * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
+   * > **NOTE**
+   * >
+   * > When multiple navigation controller methods are called consecutively, any pages popped during the sequence are
+   * > cached. If a page with the same name is later pushed, the system reuses the cached instance instead of
+   * > instantiating a new page.
+   *
+   * > Example:
+   *
+   * > pathStack: NavPathStack = new NavPathStack()
+   *
+   * > //The initial page stack is [A].
+   *
+   * > pathStack.pop()
+   *
+   * > pathStack.pushPath(A)
+   *
+   * > pathStack.pushPath(B)
+   *
+   * > // The page stack after the operation is [A B].
+   *
+   * > In this case, page A is reused, and the new creation process is not performed.
+   *
+   * @param { Object } result - Custom processing result on the page. The boolean type is not supported.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
+   * @returns { NavPathInfo | undefined } **NavPathInfo**: information about the navigation destination page at the top
+   *     of the stack.
+   *     <br>**undefined**: the routing stack is empty.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pops the top NavDestination out of the stack. Invokes the **onPop** callback to pass the page processing result.
-   *
-   * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported. 
-   * @returns { NavPathInfo | undefined } Returns the top NavPathInfo if the stack is not empty, otherwise returns undefined.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   pop(result: Object, animated?: boolean): NavPathInfo | undefined;
 
   /**
-   * Pops the specified NavDestination out of the stack.
+   * Pops pages until the first navigation destination page that matches **name** from the bottom of the routing stack
+   * is at the top of the stack.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be popped.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+   * @param { string } name - Name of the navigation destination page.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
+   * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
+   *     bottom of the routing stack; returns **-1** if such a page does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pops the specified NavDestination out of the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be popped.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popToName(name: string, animated?: boolean): number;
 
   /**
-   * Pops pages until the first navigation destination page.
-   * That matches **name** from the bottom of the navigation stack is at the top of the stack.
-   * This API uses the **onPop** callback to pass in the page processing result.
+   * Pops pages until the first navigation destination page that matches **name** from the bottom of the routing stack
+   * is at the top of the stack. This API uses the **onPop** callback to pass in the page processing result.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be popped.
-   * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+   * @param { string } name - Name of the navigation destination page.
+   * @param { Object } result - Custom processing result on the page. The boolean type is not supported.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
+   * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
+   *     bottom of the routing stack; returns **-1** if such a page does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pops pages until the first navigation destination page.
-   * That matches **name** from the bottom of the navigation stack is at the top of the stack.
-   * This API uses the **onPop** callback to pass in the page processing result.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be popped.
-   * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   popToName(name: string, result: Object, animated?: boolean): number;
 
   /**
-   * Pops the specified NavDestination out of the stack.
+   * Returns the routing stack to the page specified by **index**.
    *
-   * @param { number } index - Indicates the index of the NavDestination to be popped.
+   * @param { number } index - Index of the navigation destination page. The index is zero-based.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pops the specified NavDestination out of the stack.
-   *
-   * @param { number } index - Indicates the index of the NavDestination to be popped.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   popToIndex(index: number, animated?: boolean): void;
 
   /**
-   * Pops the specified NavDestination out of the stack.
+   * Returns the routing stack to the page specified by **index** and invokes the **onPop** callback to pass the page
+   * processing result.
    *
-   * @param { number } index - Indicates the index of the NavDestination to be popped.
-   * @param { Object } result - The result of the NavDestination.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.<br>**false**: The transition animation is not supported.
+   * @param { number } index - Index of the navigation destination page. The index is zero-based.
+   * @param { Object } result - Custom processing result on the page. The boolean type is not supported.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1614,99 +1116,58 @@ declare class NavPathStack {
   popToIndex(index: number, result: Object, animated?: boolean): void;
 
   /**
-   * Moves the first navigation destination page of this name to the top of stack.
-   * That matches **name** from the bottom of the navigation stack to the top of the stack.
+   * Moves the first navigation destination page that matches **name** from the bottom of the routing stack to the top
+   * of the stack.
    *
-   * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
+   * @param { string } name - Name of the navigation destination page.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
+   * @returns { number } Returns the index of the first navigation destination page that matches **name** from the
+   *     bottom of the routing stack; returns **-1** if such a page does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Moves the first navigation destination page of this name to the top of stack.
-   * That matches **name** from the bottom of the navigation stack to the top of the stack.
-   *
-   * @param { string } name - Indicates the name of the NavDestination to be moved to the top.
-   * @param { boolean } [animated] - Indicates whether the transition is animated.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
-   * @returns { number } Returns the index of the NavDestination if it exists in the stack, otherwise returns -1;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   moveToTop(name: string, animated?: boolean): number;
 
   /**
-   * Moves to the top of the navigation stack the navigation destination page specified by **index**.
+   * Moves to the top of the routing stack the navigation destination page specified by **index**.
    *
    * @param { number } index - Index of the navigation destination page. The index is zero-based.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Moves to the top of the navigation stack the navigation destination page specified by **index**.
-   *
-   * @param { number } index - Index of the navigation destination page. The index is zero-based.
-   * @param { boolean } [animated] - Whether to support the transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   moveIndexToTop(index: number, animated?: boolean): void;
 
   /**
-   * Clears the navigation stack.
+   * Clears the routing stack.
    *
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true** [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Clears the navigation stack.
-   *
-   * @param { boolean } [animated] - Whether to support the transition animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported.
-   * <br>**false**: The transition animation is not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   clear(animated?: boolean): void;
 
   /**
-   * Obtains the names of all navigation destination pages in the navigation stack.
+   * Obtains the names of all navigation destination pages in the routing stack.
    *
-   * @returns { Array<string> } Returns all the NavDestination name in the stack;
+   * @returns { Array<string> } Names of all navigation destination pages in the routing stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the names of all navigation destination pages in the navigation stack.
-   *
-   * @returns { Array<string> } Returns all the NavDestination name in the stack;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getAllPathName(): Array<string>;
 
@@ -1714,79 +1175,54 @@ declare class NavPathStack {
    * Obtains the parameter information of the navigation destination page specified by **index**.
    *
    * @param { number } index - Index of the navigation destination page. The index is zero-based.
-   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination.
-   * <br>If it exists in the stack, otherwise returns undefined;
+   * @returns { unknown | undefined } **unknown**: parameter information of the corresponding navigation destination
+   *     page. **unknown** can represent a user-defined type.
+   *     <br>**undefined**: an invalid index is provided.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the parameter information of the navigation destination page specified by **index**.
-   *
-   * @param { number } index - Index of the navigation destination page. The index is zero-based.
-   * @returns { unknown | undefined } Returns the detailed parameter of the NavDestination.
-   * <br>If it exists in the stack, otherwise returns undefined;
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getParamByIndex(index: number): unknown | undefined;
 
   /**
-   * Obtains the param of the specified NavDestination.
+   * Obtains the parameter information of all **NavDestination** pages with the specified name, and sorts the
+   * information in ascending order by page index.
    *
-   * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
+   * @param { string } name - Name of the navigation destination page.
+   * @returns { Array<unknown> } Parameter information of all **NavDestination** pages with the specified name.
+   *     **unknown** can represent a user-defined type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the param of the specified NavDestination.
-   *
-   * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<unknown> } Returns the detailed parameter of all the NavDestinations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getParamByName(name: string): Array<unknown>;
 
   /**
    * Obtains the indexes of all the navigation destination pages that match **name**.
    *
-   * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<number> } Returns the index of all the NavDestinations.
+   * @param { string } name - Name of the navigation destination page.
+   * @returns { Array<number> } Indexes of all the matching navigation destination pages. If no pages with the specified
+   *     name exist in the routing stack, an empty array is returned. The index range is [0, routing stack size - 1].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the indexes of all the navigation destination pages that match **name**.
-   *
-   * @param { string } name - Indicates the name of the NavDestination.
-   * @returns { Array<number> } Returns the index of all the NavDestinations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getIndexByName(name: string): Array<number>;
 
   /**
    * Obtains the parent navigation path stack.
-   * When a **Navigation** component is nested (directly or indirectly) insider another **Navigation** component,
-   * The internal one can obtain the navigation path stack of the external one.
    *
-   * @returns { NavPathStack | null } Returns the parent of the current stack. If no parent, it returns null.
+   * When a **Navigation** component is nested (directly or indirectly) inside another **Navigation** component, the
+   * **NavPathStack** of the inner component can obtain the **NavPathStack** of the outer component.
+   *
+   * @returns { NavPathStack | null } Navigation path stack of the outer **Navigation** component in which the current
+   *     **Navigation** component is nested. If there is no outer **Navigation** component., **null** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1799,49 +1235,25 @@ declare class NavPathStack {
    * Obtains the stack size.
    *
    * @returns { number } Stack size.
-   * <br>Value range: [0, +∞)
+   *     <br>Value range: [0, +��)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the stack size.
-   *
-   * @returns { number } Stack size.
-   * <br>Value range: [0, +∞)
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   size(): number;
 
   /**
    * Disables or enables the transition animation in the **Navigation** component.
    *
-   * @param { boolean } value - Whether to disable the transition animation.
-   * <br>Default value: **false**.
-   * <br>**true**:The transition animation is disabled.
-   * <br>**false**: The transition animation is not disabled.
+   * @param { boolean } value - Whether to disable the transition animation.<br>Default value: **false**<br>**true**:
+   *     Disable the transition animation.<br>**false**: Enable the transition animation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Disables or enables the transition animation in the **Navigation** component.
-   *
-   * @param { boolean } value - Whether to disable the transition animation.
-   * <br>Default value: **false**.
-   * <br>**true**:The transition animation is disabled.
-   * <br>**false**: The transition animation is not disabled.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   disableAnimation(value: boolean): void;
 
@@ -1858,9 +1270,9 @@ declare class NavPathStack {
   setInterception(interception: NavigationInterception): void;
 
   /**
-   * Get the NavPathInfo array.
+   * Obtains the array of route page information from this routing stack.
    *
-   * @returns { Array<NavPathInfo> } The NavPathInfo array.
+   * @returns { Array<NavPathInfo> } Array of route page information in the current routing stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1870,12 +1282,29 @@ declare class NavPathStack {
   getPathStack(): Array<NavPathInfo>;
 
   /**
-   * Set the NavPathInfo array.
+   * Updates the array of route page information in this routing stack to the specified content and performs route
+   * transitions.
    *
-   * @param { Array<NavPathInfo> } pathStack - The NavPathInfo array.
-   * @param { boolean } [animated] - Indicate whether the operation has animation.
-   * <br>Default value: **true**.
-   * <br>**true**: The transition animation is supported. **false**: The transition animation is not supported.
+   * > **NOTE**
+   * >
+   * > 1. You can add or remove pages in batches based on the existing stack. Among the pages added in batches, only the
+   * > visible pages will trigger creation; other pages, although added to the stack, will not be created immediately.
+   * > They will only be created when they become visible.
+   * >
+   * > 2. For routing stacks updated through the batch push functionality, the lifecycle events of each page are
+   * > triggered from the top to the bottom of the stack. This differs from the triggering order of other push APIs,
+   * > which are triggered from the bottom to the top of the stack.
+   * >
+   * > 3. You can operate existing pages using **navDestinationId** (unique ID) in [NavPathInfo]{@link NavPathInfo}.
+   * > This ID is system-generated and globally unique (it can be obtained using the
+   * > [getPathStack]{@link NavPathStack#getPathStack} API and should not be manually reassigned). If the specified ID
+   * > does not exist in the current routing stack, it indicates a new page. If it exists and the corresponding name is
+   * > the same, it indicates reuse of an existing page.
+   *
+   * @param { Array<NavPathInfo> } pathStack - Array of route page information in the current routing stack.<br>**NOTE**
+   *     <br>The array length is not limited.
+   * @param { boolean } [animated] - Whether to enable the transition animation.<br>**true**: yes; **false**: no<br>
+   *     Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1888,23 +1317,24 @@ declare class NavPathStack {
 /**
  * Defines the name of the navigation home page.
  *
- * @typedef { 'navBar' } NavBar
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
-declare type NavBar = 'navBar'
+declare type NavBar = 'navBar';
 
 /**
- * navigation interception callback using in willShow and didShow
+ * Represents the interception callback invoked before and after page redirection.
  *
- * @typedef { function } InterceptionShowCallback
- * @param { NavDestinationContext | NavBar } from - Indicates the starting NavDestination or NavBar.
- * @param { NavDestinationContext | NavBar } to - Indicates the destination NavDestination or NavBar.
- * @param { NavigationOperation } operation - Indicates the type of stack operation.
- * @param { boolean } isAnimated - Indicates whether the transition is animated.
+ * @param { NavDestinationContext | NavBar } from - Information about the top page in the routing stack after
+ *     page redirection. The value **navBar** indicates that the top page is the home page.
+ * @param { NavDestinationContext | NavBar } to - Information about the top page in the routing stack after
+ *     page redirection. The value **navBar** indicates that the top page is the home page.
+ * @param { NavigationOperation } operation - Current page redirection type.
+ * @param { boolean } isAnimated - Whether to enable the transition animation.
+ *     <br>**true**: Enable the transition animation.<br>**false**: Disable the transition animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1914,14 +1344,16 @@ declare type NavBar = 'navBar'
 declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to: NavDestinationContext|NavBar, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
- * navigation interception callback.
+ * Defines the callback triggered before a navigation page is redirected.
  *
- * @typedef { function } InterceptionCallback
- * @param { NavPathInfo | NavBar } from - Indicates the info of NavDestination or NavBar.
- * @param { NavPathInfo | NavBar } to - Indicates the info of NavDestination or NavBar.
- * @param { NavPathStack } pathStack - The NavPathStack of current Navigation.
- * @param { NavigationOperation } operation - Indicates the type of navigation operation.
- * @param { boolean } isAnimated - Indicates whether the transition is animated.
+ * @param { NavPathInfo | NavBar } from - Information about the exit page.
+ *     The value **navBar** indicates that the top page is the home page.
+ * @param { NavPathInfo | NavBar } to - Information about the enter page.
+ *     The value **navBar** indicates that the top page is the home page.
+ * @param { NavPathStack } pathStack - Page stack.
+ * @param { NavigationOperation } operation - Current page redirection type.
+ * @param { boolean } isAnimated - Whether to enable the transition animation.
+ *     <br>**true**: Enable the transition animation.<br>**false**: Disable the transition animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1931,10 +1363,10 @@ declare type InterceptionShowCallback = (from: NavDestinationContext|NavBar, to:
 declare type InterceptionCallback = (from: NavPathInfo|NavBar, to: NavPathInfo|NavBar, pathStack: NavPathStack, operation: NavigationOperation, isAnimated: boolean) => void;
 
 /**
- * navigation interception callback using in navigation mode change
+ * Implements an interception callback invoked when the display mode of the **Navigation** component switches between
+ * single-column and split-column.
  *
- * @typedef { function } InterceptionModeCallback
- * @param { NavigationMode } mode - Indicates the mode of Navigation.
+ * @param { NavigationMode } mode - Display mode of the navigation page.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1944,9 +1376,9 @@ declare type InterceptionCallback = (from: NavPathInfo|NavBar, to: NavPathInfo|N
 declare type InterceptionModeCallback = (mode: NavigationMode) => void;
 
 /**
- * Provide navigation transition interception
+ * Describes the object to be intercepted during navigation redirection.
  *
- * @interface NavigationInterception
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1954,11 +1386,11 @@ declare type InterceptionModeCallback = (mode: NavigationMode) => void;
  * @since 12 dynamic
  */
 declare interface NavigationInterception {
+
   /**
-   * Interception before page redirection, allowing for stack operations.
-   * The setting takes effect in the current redirection.
+   * Callback invoked before a page transition, allowing for stack operations, which take effect immediately for the
+   * current transition. The intercepted page will be created.
    *
-   * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1968,9 +1400,8 @@ declare interface NavigationInterception {
   willShow?: InterceptionShowCallback;
 
   /**
-   * Called after destination transition.For details, see { @Link InterceptionShowCallback}.
+   * Callback after page redirection. The setting takes effect in the next redirection.
    *
-   * @type { ?InterceptionShowCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1980,9 +1411,9 @@ declare interface NavigationInterception {
   didShow?: InterceptionShowCallback;
 
   /**
-   * Called when navigation mode changed.For details, see { @Link InterceptionModeCallback}.
+   * Callback invoked when the display mode of the **Navigation** component switches between single-column and split-
+   * column.
    *
-   * @type { ?InterceptionModeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1992,9 +1423,9 @@ declare interface NavigationInterception {
   modeChange?: InterceptionModeCallback;
 
   /**
-   * Called before destination is created.For details, see { @Link InterceptionCallback}.
+   * Callback invoked before a page transition, allowing for stack operations, which take effect immediately for the
+   * current transition. The intercepted page will not be created.
    *
-   * @type { ?InterceptionCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2005,9 +1436,8 @@ declare interface NavigationInterception {
 }
 
 /**
- * Indicates the information of home destination.
+ * Defines the home page **NavDestination** information.
  *
- * @interface HomePathInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2015,10 +1445,10 @@ declare interface NavigationInterception {
  * @since 20 dynamic
  */
 declare interface HomePathInfo {
+
   /**
-   * Name of the home destination.
+   * Name of the home page **NavDestination**.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2028,9 +1458,8 @@ declare interface HomePathInfo {
   name: string;
 
   /**
-   * Detailed parameters of the home destination.
+   * Detailed parameters of the home page **NavDestination**.
    *
-   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2041,84 +1470,76 @@ declare interface HomePathInfo {
 }
 
 /**
- * Provide navigation view interface
+ * The **Navigation** component is the root view container for navigation. It typically functions as the root container
+ * of a page and includes a title bar, content area, and toolbar. The content area switches between the home page
+ * content (child components of **Navigation**) and non-home page content (child components of
+ * [NavDestination]{@link nav_destination}) through routing.
  *
- * @interface NavigationInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provide navigation view interface
+ * > **NOTE**
  *
- * @interface NavigationInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provide navigation view interface
+ * > - Since API version 11, this component supports the safe area attribute by default, with the default attribute
+ * > value being
+ * > **expandSafeArea([SafeAreaType.SYSTEM, SafeAreaType.KEYBOARD, SafeAreaType.CUTOUT],
+ *     [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM])**.
+ * > You can override this attribute to change the default behavior. In earlier versions, you need to use the
+ * > [expandSafeArea]{@link CommonMethod#expandSafeArea} attribute to implement the safe area feature.
+ * >
+ * > - When [NavBar]{@link NavBar} is nested within a **Navigation** component, the lifecycle of the inner
+ * > **NavDestination** component does not synchronize with the outer **NavDestination** component or the lifecycle of a
+ * > [modal]{@link common}.
+ * >
+ * > - If the [title]{@link NavigationAttribute#title} and [subTitle]{@link NavigationAttribute#subTitle} are not set
+ * > and [hideBackButton]{@link NavigationAttribute#hideBackButton} is set to **true**, the title bar is not displayed.
+ * >
+ * > - During subpage navigation within **Navigation**, the new page actively requests focus.
+ * >
+ * > - You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+ * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+ * > failures.
  *
- * @interface NavigationInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 interface NavigationInterface {
+
   /**
-   * Called when the navigation view interface is used.
+   * Creates a root view container for route navigation, suitable for page routing using the
+   * [NavRouter]{@link nav_router} component.
    *
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the navigation view interface is used.
-   *
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the navigation view interface is used.
-   *
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (): NavigationAttribute;
 
   /**
-   * Called when the navigation view interface is used, with route table provided.
+   * Binds a navigation controller to the **Navigation** component, suitable for page routing using
+   * [NavPathStack]{@link NavPathStack} with the [navDestination]{@link NavigationAttribute#navDestination} attribute.
    *
-   * @param { NavPathStack } pathInfos - The stack of the route table.
+   * @param { NavPathStack } pathInfos - Navigation controller object.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the navigation view interface is used, with route table provided.
-   *
-   * @param { NavPathStack } pathInfos - The stack of the route table.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   (pathInfos: NavPathStack): NavigationAttribute;
 
   /**
-   * Called when the navigation view interface is used, with route table and homeDestination are provided.
+   * Binds a routing stack to the **Navigation** component and specifies a **NavDestination** component as the
+   * navigation page (home page) for **Navigation**. This is suitable for page routing using
+   * [NavPathStack]{@link NavPathStack} with the [navDestination]{@link NavigationAttribute#navDestination} attribute or
+   * the system routing table. For the usage example, see
+   * [Example 16: Using NavDestination as a Navigation Page in Navigation](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#example-16-using-navdestination-as-a-navigation-page-in-navigation).
    *
-   * @param { NavPathStack } pathInfos - The stack of the route table.
-   * @param { HomePathInfo } homeDestination - The custom home destination info.
+   * @param { NavPathStack } pathInfos - Information about the routing stack.
+   * @param { HomePathInfo } homeDestination - Home page **NavDestination** information.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2130,140 +1551,82 @@ interface NavigationInterface {
 }
 
 /**
- * Defines the status of toolbar item and it is used in the ToolbarItem interface.
+ * Enumerates the toolbar item states.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the status of toolbar item and it is used in the ToolbarItem interface.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ToolbarItemStatus {
+
   /**
-   * Normal state. In this state, the toolbar item takes on the default style and
-   * can switch to another state-specific style by responding to the hover, press,
-   * and focus events.
+   * Normal state. In this state, the toolbar item takes on the default style and can switch to another state-specific
+   * style by responding to the hover, press, and focus events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Normal state. In this state, the toolbar item takes on the default style and
-   * can switch to another state-specific style by responding to the hover, press,
-   * and focus events.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   NORMAL = 0,
 
   /**
-   * Disable state of toolbar item.
+   * Disabled state. In this state, the toolbar item is disabled and does not allow for user interactions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Disable state of toolbar item.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DISABLED = 1,
 
   /**
-   * Active state. In this state, the toolbar item can update its icon
-   * to the one specified by **activeIcon** by responding to a click event.
+   * Active state. In this state, the toolbar item can update its icon to the one specified by **activeIcon** by
+   * responding to a click event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  /**
-   * Active state. In this state, the toolbar item can update its icon
-   * to the one specified by **activeIcon** by responding to a click event.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  ACTIVE = 2,
+  ACTIVE = 2
 }
 
 /**
- * Defines the operation of current navigation transition.
+ * Enumerates the page redirection types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the operation of current navigation transition.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum NavigationOperation {
+
   /**
-   * Push operation of navigation transition.
+   * The transition is enter transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Push operation of navigation transition.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   PUSH = 1,
 
   /**
-   * Pop operation of navigation transition.
+   * The transition is exit transition.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Pop operation of navigation transition.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   POP = 2,
 
@@ -2273,194 +1636,101 @@ declare enum NavigationOperation {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * The transition is page replacement.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  REPLACE = 3,
+  REPLACE = 3
 }
 
 /**
- * Defines configurable parameters for toolbar item.
+ * Provides customizable parameters of the toolbar.
  *
- * @interface ToolbarItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines configurable parameters for toolbar item.
- *
- * @interface ToolbarItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Defines configurable parameters for toolbar item.
- *
- * @interface ToolbarItem
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
+ * @noninterop
  */
 declare interface ToolbarItem {
+
   /**
-   * The value of navigation toolbar item.
+   * Text of the toolbar item.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The value of navigation toolbar item.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   value: ResourceStr;
 
   /**
-   * The icon of navigation toolbar item.
+   * Icon path of the toolbar item.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The icon of navigation toolbar item.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   icon?: ResourceStr;
 
   /**
-   * The symbol of navigation toolbar item.
+   * Symbol icon for a single option on the toolbar. It has higher priority than **icon**.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The symbol of navigation toolbar item.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
-   * Trigger by navigation toolbar item click.
+   * Callback invoked when the menu item is selected.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger by navigation toolbar item click.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action?: () => void;
 
   /**
-   * The state of navigation toolbar item.
+   * Status of a toolbar item.
    *
-   * @type { ?ToolbarItemStatus }
-   * @default ToolbarItemStatus.NORMAL
+   * Default value: **ToolbarItemStatus.NORMAL**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The state of navigation toolbar item.
-   *
-   * @type { ?ToolbarItemStatus }
-   * @default ToolbarItemStatus.NORMAL
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   status?: ToolbarItemStatus;
 
   /**
-   * The icon of navigation toolbar item in active state.
+   * Icon path of the toolbar item in the active state.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The icon of navigation toolbar item in active state.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   activeIcon?: ResourceStr;
 
   /**
-   * The symbol of navigation toolbar item in active state.
+   * Symbol icon for a single option on the menu bar when it is in active state. It has higher priority than
+   * **activeIcon**.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * The symbol of navigation toolbar item in active state.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   activeSymbolIcon?: SymbolGlyphModifier;
 }
@@ -2468,7 +1738,6 @@ declare interface ToolbarItem {
 /**
  * Enumerates the scroll effect types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2476,6 +1745,7 @@ declare interface ToolbarItem {
  * @since 26.0.0 dynamic
  */
 declare enum ScrollEffectType {
+
   /**
    * Common blur style. It applies uniform blur to the background.
    * The blurred background appear/disappear with transparent gradient.
@@ -2499,13 +1769,12 @@ declare enum ScrollEffectType {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  GRADUAL_BLUR = 1,
+  GRADUAL_BLUR = 1
 }
 
 /**
  * Defines the scroll effect options for the title bar.
  *
- * @interface ScrollEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2513,11 +1782,11 @@ declare enum ScrollEffectType {
  * @since 26.0.0 dynamic
  */
 declare interface ScrollEffectOptions {
+
   /**
    * Title bar scroll blur style.
-   * Default value: ScrollEffectType.COMMON_BLUR
+   * Default value: ScrollEffectType.COMMON_BLUR.
    *
-   * @type { ?ScrollEffectType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2530,7 +1799,6 @@ declare interface ScrollEffectOptions {
    * The minimum sliding distance of the content area to enable the title bar sliding blur effect.
    * Default value: 0vp.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2543,7 +1811,6 @@ declare interface ScrollEffectOptions {
    * The maximum sliding distance of the content area to enable the final blur style of the title bar.
    * Default value: 8vp.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2554,20 +1821,20 @@ declare interface ScrollEffectOptions {
 }
 
 /**
- * Indicates the options of Navigation's Titlebar.
+ * Defines the title bar options.
  *
- * @interface NavigationTitleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare interface NavigationTitleOptions {
+
   /**
    * Background color of the title bar. If this parameter is not set, the default color is used.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2577,10 +1844,8 @@ declare interface NavigationTitleOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the title bar. If this parameter is not set, the background
-   * blur effect is disabled.
+   * Background blur style of the title bar. If this parameter is not set, the background blur effect is disabled.
    *
-   * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2590,9 +1855,14 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options.
+   * Options for the title bar background blur style.
    *
-   * @type { ?BackgroundBlurStyleOptions }
+   * **NOTE**
+   *
+   * This parameter is only effective when **backgroundBlurStyle** is set.
+   *
+   * Avoid using this API in conjunction with **backgroundEffect**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2602,9 +1872,12 @@ declare interface NavigationTitleOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background effect options.
+   * Title bar background properties, including blur radius, brightness, saturation, and color.
    *
-   * @type { ?BackgroundEffectOptions }
+   * **NOTE**
+   *
+   * Avoid using this API in conjunction with **backgroundBlurStyleOptions**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2615,9 +1888,9 @@ declare interface NavigationTitleOptions {
 
   /**
    * Layout style of the title bar.
-   * <br>Default value: **BarStyle.STANDARD**.
    *
-   * @type { ?BarStyle }
+   * Default value: **BarStyle.STANDARD**
+   *
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2628,9 +1901,17 @@ declare interface NavigationTitleOptions {
   barStyle?: BarStyle;
 
   /**
-   * Set title bar start padding.
+   * Padding at the start of the title bar.
    *
-   * @type { ?LengthMetrics }
+   * Only supported in one of the following scenarios:
+   *
+   * 1. Displaying the back icon, that is, [hideBackButton]{@link NavigationAttribute#hideBackButton} is **false**
+   * 2. Using a non-custom title, that is, the [title value]{@link NavigationAttribute#title} type is **ResourceStr** or **NavigationCommonTitle**
+   *
+   * Default value:
+   *
+   * LengthMetrics.resource(**$r('sys.float.margin_left')**)
+   *
    * @default LengthMetrics.resource($r('sys.float.margin_left'))
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2641,9 +1922,20 @@ declare interface NavigationTitleOptions {
   paddingStart?: LengthMetrics;
 
   /**
-   * Set title bar end padding.
+   * Padding at the end of the title bar.
    *
-   * @type { ?LengthMetrics }
+   * Only supported in one of the following scenarios:
+   *
+   * 1. Using a non-custom menu, that is, the
+   *     [menu value]{@link NavigationAttribute#menus(value: Array<NavigationMenuItem> | CustomBuilder)}
+   *     is Array<NavigationMenuItem>
+   * 2. Using a non-custom menu without a menu in the upper right corner, that is,
+   *     the [title value]{@link NavigationAttribute#title} type is **ResourceStr** or **NavigationCommonTitle**
+   *
+   * Default value:
+   *
+   * LengthMetrics.resource(`$r('sys.float.margin_right')`)
+   *
    * @default LengthMetrics.resource($r('sys.float.margin_right'))
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2654,9 +1946,16 @@ declare interface NavigationTitleOptions {
   paddingEnd?: LengthMetrics;
 
   /**
-   * Text modifier for main title.
+   * Main title attribute modifier.
    *
-   * @type { ?TextModifier }
+   * 1. Attribute settings configured by this modifier will override the system's default attribute settings.
+   *     For example, if the modifier is used to set font size attributes, such as **fontSize**, **maxFontSize**,
+   *     and **minFontSize**, the settings will take precedence over the system's default settings for
+   *     size-related attributes.
+   * 2. If no modifier is used or an invalid value is set, the system reverts to its default settings.
+   * 3. In [Free]{@link NavigationTitleMode} mode, setting the font size will disable the effect where the main title's
+   *     size changes in response to content scrolling.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2666,9 +1965,14 @@ declare interface NavigationTitleOptions {
   mainTitleModifier?: TextModifier;
 
   /**
-   * Text modifier for sub title.
+   * Subtitle attribute modifier.
    *
-   * @type { ?TextModifier }
+   * 1. Attribute settings configured by this modifier will override the system's default attribute settings.
+   *     For example, if the modifier is used to set font size attributes, such as **fontSize**, **maxFontSize**,
+   *     and **minFontSize**, the settings will take precedence over the system's default settings
+   *     for size-related attributes.
+   * 2. If no modifier is used or an invalid value is set, the system reverts to its default settings.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2676,14 +1980,21 @@ declare interface NavigationTitleOptions {
    * @since 13 dynamic
    */
   subTitleModifier?: TextModifier;
-  
+
   /**
-   * Defines whether to respond to the hover mode.
+   * Whether to respond when the device is in semi-folded mode.
    *
-   * @type { ?boolean }
+   * Observe the following when using this API:
+   *
+   * 1. Make sure the **Navigation** component is in full screen.
+   * 2. When the title bar is in [Free]{@link NavigationTitleMode} display mode or in [STANDARD]{@link BarStyle} layout
+   *     style, this API has no effect.
+   *
+   * **true**: yes; **false**: no
+   *
+   * Default value: **false**
+   *
    * @default false
-   * <br>**true**: Enable hover effects.
-   * <br>**false**: Disable hover effects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2695,7 +2006,6 @@ declare interface NavigationTitleOptions {
   /**
    * Title scroll blur style.
    *
-   * @type { ?ScrollEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2707,7 +2017,6 @@ declare interface NavigationTitleOptions {
   /**
    * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
-   *
    * Device Behavior Differences:The effect of the same material may vary across different devices depending on
    * their computing power.
    *
@@ -2720,9 +2029,9 @@ declare interface NavigationTitleOptions {
 }
 
 /**
- * Declare BarStyle enum.
+ * Enumerates the layout styles of the title bar and toolbar. Note that this API is not supported for the toolbar in
+ * **NavDestination**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2730,6 +2039,7 @@ declare interface NavigationTitleOptions {
  * @since 12 dynamic
  */
 declare enum BarStyle {
+
   /**
    * In this mode, the title bar or toolbar is laid out above the content area.
    *
@@ -2753,7 +2063,8 @@ declare enum BarStyle {
   STACK = 1,
 
   /**
-   * SafeAreaPadding style means the bar height will be taken as content's safeAreaPadding.
+   * In this mode, the title bar or toolbar is configured to respect the
+   * [component-level safe area]{@link CommonMethod#safeAreaPadding}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2761,13 +2072,12 @@ declare enum BarStyle {
    * @atomicservice
    * @since 14 dynamic
    */
-  SAFE_AREA_PADDING = 2,
+  SAFE_AREA_PADDING = 2
 }
 
 /**
- * Indicates the options of Navigation's Toolbar.
+ * Defines the toolbar options.
  *
- * @interface NavigationToolbarOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2775,10 +2085,10 @@ declare enum BarStyle {
  * @since 11 dynamic
  */
 declare interface NavigationToolbarOptions {
+
   /**
-   * Background color of the toolbar. If this parameter is not set, the default color is used.
+   * Background color of the title bar. If this parameter is not set, the default color is used.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2788,10 +2098,8 @@ declare interface NavigationToolbarOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the toolbar. If this parameter is not set, the background blur
-   * effect is disabled.
+   * Background blur style of the title bar. If this parameter is not set, the background blur effect is disabled.
    *
-   * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2801,9 +2109,14 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options.
+   * Options for the title bar background blur style.
    *
-   * @type { ?BackgroundBlurStyleOptions }
+   * **NOTE**
+   *
+   * This parameter is only effective when **backgroundBlurStyle** is set.
+   *
+   * Avoid using this API in conjunction with **backgroundEffect**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2813,9 +2126,12 @@ declare interface NavigationToolbarOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background effect options.
+   * Title bar background properties, including blur radius, brightness, saturation, and color.
    *
-   * @type { ?BackgroundEffectOptions }
+   * **NOTE**
+   *
+   * Avoid using this API in conjunction with **backgroundBlurStyleOptions**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2825,9 +2141,8 @@ declare interface NavigationToolbarOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * More button options.
+   * Options for the toolbar's more button menu.
    *
-   * @type { ?MoreButtonOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2837,9 +2152,10 @@ declare interface NavigationToolbarOptions {
   moreButtonOptions?: MoreButtonOptions;
 
   /**
-   * Set tool bar style.
+   * Layout style of the toolbar.
    *
-   * @type { ?BarStyle }
+   * Default value: **BarStyle.STANDARD**
+   *
    * @default BarStyle.STANDARD
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2850,25 +2166,27 @@ declare interface NavigationToolbarOptions {
   barStyle?: BarStyle;
 
   /**
-   * Set whether toolbar displays text.
+   * Whether to hide the toolbar text.
    *
-   * @type { ?boolean }
+   * Default value: **false**
+   *
+   * **true**: yes; **false**: no
+   *
+   * Default value: **false**
+   *
    * @default false
-   * <br>**true**: Hide the toolbar text.
-   * <br>**false**: Show the toolbar text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 19 dynamic
    */
-  hideItemValue?: boolean
+  hideItemValue?: boolean;
 }
 
 /**
- * Indicates the options of Navigation's Menu.
+ * Defines options for menu items in the upper right corner of the page.
  *
- * @interface NavigationMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2876,23 +2194,22 @@ declare interface NavigationToolbarOptions {
  * @since 19 dynamic
  */
 declare interface NavigationMenuOptions {
-/**
- * More button options.
- *
- * @type { ?MoreButtonOptions }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 19 dynamic
- */
+
+  /**
+   * Options for the toolbar's more button menu.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 19 dynamic
+   */
   moreButtonOptions?: MoreButtonOptions;
 }
 
 /**
- * The more button options of Navigation's menu or toolbar.
+ * Defines the options for the more button menu.
  *
- * @interface MoreButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2900,10 +2217,10 @@ declare interface NavigationMenuOptions {
  * @since 19 dynamic
  */
 declare interface MoreButtonOptions {
+
   /**
-   * Background blur style.
+   * Background blur style of the more button menu. If this parameter is not set, background blur is disabled.
    *
-   * @type { ?BlurStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2911,11 +2228,16 @@ declare interface MoreButtonOptions {
    * @since 19 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
-  
+
   /**
-   * Background blur style options.
+   * Options for the title bar background blur style.
    *
-   * @type { ?BackgroundBlurStyleOptions }
+   * **NOTE**
+   *
+   * This parameter is only effective when **backgroundBlurStyle** is set.
+   *
+   * Avoid using this API in conjunction with **backgroundEffect**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2925,9 +2247,12 @@ declare interface MoreButtonOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background effect options.
+   * Title bar background properties, including blur radius, brightness, saturation, and color.
    *
-   * @type { ?BackgroundEffectOptions }
+   * **NOTE**
+   *
+   * Avoid using this API in conjunction with **backgroundBlurStyleOptions**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2940,7 +2265,6 @@ declare interface MoreButtonOptions {
 /**
  * Navigation configuration options.
  *
- * @interface NavigationConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2948,9 +2272,10 @@ declare interface MoreButtonOptions {
  * @since 26.0.0 dynamic
  */
 declare interface NavigationConfiguration {
+
   /**
    * Navigation page stack size limit.
-   * 
+   *
    * Description:
    * - Limits to maximum number of active page nodes in Navigation page stack.
    * - When limit is exceeded, oldest page nodes are automatically destroyed
@@ -2970,245 +2295,139 @@ declare interface NavigationConfiguration {
 }
 
 /**
- * Declare Navigation view properties.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<NavigationAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Declare Navigation view properties.
- *
- * @extends CommonMethod<NavigationAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Declare Navigation view properties.
- *
- * @extends CommonMethod<NavigationAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
+
   /**
-   * Sets the width of the navigation bar.
-   * This attribute takes effect only when the **Navigation** component is in split mode.
+   * Set the width of the navigation page. It takes effect only when [mode]{@link NavigationAttribute#mode} is set to
+   * **NavigationMode.Auto** or **NavigationMode.Split**.
    *
-   * @param { Length } value - Width of the navigation bar.
-   * <br>Default value: **240**. Unit: vp.
-   * <br>**undefined**: No action is taken, and the navigation bar width remains consistent with the default value.
+   * Since API version 18, this attribute supports two-way binding through
+   * [!!](docroot://ui/state-management/arkts-new-binding.md).
+   *
+   * @param { Length } value - Width of the navigation page.<br>Default value: **240**<br>Unit: vp<br>**undefined**: No
+   *     action is taken, and the navigation page width remains consistent with the default value.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the width of the navigation bar.
-   * This attribute takes effect only when the **Navigation** component is in split mode.
-   *
-   * @param { Length } value - Width of the navigation bar.
-   * <br>Default value: **240**. Unit: vp.
-   * <br>**undefined**: No action is taken, and the navigation bar width remains consistent with the default value.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the width of the navigation bar.
-   * This attribute takes effect only when the **Navigation** component is in split mode.
-   *
-   * @param { Length } value - Width of the navigation bar.
-   * <br>Default value: **240**. Unit: vp.
-   * <br>**undefined**: No action is taken, and the navigation bar width remains consistent with the default value.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   navBarWidth(value: Length): NavigationAttribute;
 
   /**
-   * Sets the position of the navigation bar. This attribute takes effect
-   * only when the **Navigation** component is split.
+   * Sets the position of the navigation page. It takes effect only when [mode]{@link NavigationAttribute#mode} is set
+   * to **NavigationMode.Auto** or **NavigationMode.Split**.
    *
-   * @param { NavBarPosition } value - Position of the navigation bar.
-   * <br>Default value: **NavBarPosition.Start**.
+   * @param { NavBarPosition } value - Position of the navigation page.<br>Default value: **NavBarPosition.Start**
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the position of the navigation bar. This attribute takes effect
-   * only when the **Navigation** component is split.
-   *
-   * @param { NavBarPosition } value - Position of the navigation bar.
-   * <br>Default value: **NavBarPosition.Start**.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the position of the navigation bar. This attribute takes effect
-   * only when the **Navigation** component is split.
-   *
-   * @param { NavBarPosition } value - Position of the navigation bar.
-   * <br>Default value: **NavBarPosition.Start**.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   navBarPosition(value: NavBarPosition): NavigationAttribute;
 
   /**
-   * Sets the minimum and maximum widths of the navigation bar (effective in split mode).
+   * Sets the minimum and maximum widths of the navigation page (effective in split-column mode). When this API is not
+   * used, the minimum width defaults to 240 vp, and the maximum width defaults to 40% of the component width (not
+   * exceeding 432 vp). When dragging the divider changes the navigation page width, the content area will be
+   * compressed.
    *
-   * @param { [Dimension, Dimension] } value - Minimum and maximum widths of the navigation bar.
-   * <br>Default value: 240 for the minimum value; 40% of the component width (not greater than 432)
-   * for the maximum value; if either of the widths is not set, the default value is used for that width.
-   * <br>Unit: vp.
+   * Divider dragging range:
+   *
+   * | Condition| Dragging Range |
+   * | ----| ----------- |
+   * |Both **navBarWidthRange** and **minContentWidth** are set.| Range set by **navBarWidthRange**
+   *     if the value set by **minContentWidth** is satisfied|
+   * |Neither **navBarWidthRange** nor **minContentWidth** is set.| Default minimum and maximum ranges
+   *     of **navBarWidthRange**|
+   * |Only the **navBarWidthRange** attribute is set.| Range set by **navBarWidthRange**,
+   *     where the maximum dragging range cannot exceed the default value of **minContentWidth**|
+   * |Only the **minContentWidth** attribute is set.| Default minimum and maximum ranges of **navBarWidthRange**|
+   * |Only the **navBarWidth** attribute is set.| Dragging not supported|
+   *
+   * @param { [Dimension, Dimension] } value - Minimum and maximum widths of the navigation page. If an invalid value is
+   *     set, the default value is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the minimum and maximum widths of the navigation bar (effective in split mode).
-   *
-   * @param { [Dimension, Dimension] } value - Minimum and maximum widths of the navigation bar.
-   * <br>Default value: 240 for the minimum value; 40% of the component width (not greater than 432)
-   * for the maximum value; if either of the widths is not set, the default value is used for that width.
-   * <br>Unit: vp.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   navBarWidthRange(value: [Dimension, Dimension]): NavigationAttribute;
 
   /**
-   * Sets the minimum width of the navigation bar content area (effective in split mode).
+   * Minimum width of the navigation bar content area (effective in split-column mode).
    *
-   * @param { Dimension } value - Minimum width of the navigation bar content area.
-   * <br>Default value: **360**.
-   * <br>Unit: vp.
-   * <br>**undefined**: No action is taken, and the minimum width of the navigation bar remains
-   * consistent with the default value.<br>Breakpoint calculation in Auto mode: default 600 vp =
-   * minNavBarWidth (240 vp) + minContentWidth (360 vp).
+   * @param { Dimension } value - Minimum width of the content area on the navigation page.<br>Default value: **360**<br
+   *     >Unit: vp<br>**undefined**: No action is taken, and the minimum width of the navigation page remains consistent
+   *     with the default value.<br>Breakpoint calculation in Auto mode: default 600 vp = minNavBarWidth (240 vp) +
+   *     minContentWidth (360 vp)
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the minimum width of the navigation bar content area (effective in split mode).
-   *
-   * @param { Dimension } value - Minimum width of the navigation bar content area.
-   * <br>Default value: **360**.
-   * <br>Unit: vp.
-   * <br>**undefined**: No action is taken, and the minimum width of the navigation bar remains
-   * consistent with the default value.<br>Breakpoint calculation in Auto mode: default 600 vp =
-   * minNavBarWidth (240 vp) + minContentWidth (360 vp).
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   minContentWidth(value: Dimension): NavigationAttribute;
 
   /**
-   * Sets the mode of navigation.
+   * Sets the display mode of the navigation page.
    *
-   * @param { NavigationMode } value - Display mode of the navigation.
-   * <br>Default value: **NavigationMode.Auto**.
-   * <br>At the default settings, the navigation adapts to stack or split mode based on the component width.
+   * @param { NavigationMode } value - Display mode of the navigation page.<br>Default value: **NavigationMode.Auto**<br
+   *     >At the default settings, the component adapts to a single column or two columns based on the component width.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the mode of navigation.
-   *
-   * @param { NavigationMode } value - Display mode of the navigation.
-   * <br>Default value: **NavigationMode.Auto**.
-   * <br>At the default settings, the navigation adapts to stack or split mode based on the component width.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the mode of navigation.
-   *
-   * @param { NavigationMode } value - Display mode of the navigation.
-   * <br>Default value: **NavigationMode.Auto**.
-   * <br>At the default settings, the navigation adapts to stack or split mode based on the component width.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   mode(value: NavigationMode): NavigationAttribute;
 
   /**
    * Sets the icon of the back button in the title bar.
    *
-   * @param { string | PixelMap | Resource } value - Icon of the back button in the title bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Sets the icon of the back button in the title bar.
+   * > **NOTE**
+   * >
+   * > The following are not allowed: modify the icon size through the **fontSize** attribute of the
+   * > **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute, or change
+   * > the type of animation effects through the **symbolEffect** attribute.
    *
-   * @param { string | PixelMap | Resource } value - Icon of the back button in the title bar.
+   * @param { string | PixelMap | Resource } value - Icon of the back button in the title bar. [since 9 - 11]
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value - Icon of the back button in the title
+   *     bar. [since 12]
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the icon of the back button in the title bar.
-   *
-   * @param { string | PixelMap | Resource } value - Icon of the back button in the title bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the icon of the back button in the title bar.
-   *
-   * @param { string | PixelMap | Resource | SymbolGlyphModifier } value - Icon of the back button in the title bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   backButtonIcon(value: string | PixelMap | Resource | SymbolGlyphModifier): NavigationAttribute;
 
   /**
-   * Sets the back button icon and accessibility broadcast content.
+   * Sets the icon and accessibility text for the back button on the title bar.
    *
-   * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Indicates icon of back button
-   * @param { ResourceStr } [accessibilityText] - Indicates content needs to broadcast.
-   *                                            Default value: **back** when the system language is English.
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * >
+   * > The following are not allowed: modify the icon size through the **fontSize** attribute of the
+   * > **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute, or change
+   * > the type of animation effects through the **symbolEffect** attribute.
+   *
+   * @param { string | PixelMap | Resource | SymbolGlyphModifier } icon - Icon of the back button in the title bar.
+   * @param { ResourceStr } [accessibilityText] - Accessibility text for the back button.<br>Default value: **back**
+   *     when the system language is English.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3219,92 +2438,62 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   backButtonIcon(icon: string | PixelMap | Resource | SymbolGlyphModifier, accessibilityText?: ResourceStr): NavigationAttribute;
 
   /**
-   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
+   * Sets whether to hide the navigation page. If the value is set to **true**, the navigation bar, including the title
+   * bar, content area, and toolbar, will be hidden. In this case, if the navigation destination page is in the routing
+   * stack, it is moved to the top of the stack and displayed. Otherwise, a blank page is displayed.
    *
-   * @param { boolean } value - Whether to hide the navigation bar.
-   * <br>Default value: **false**. **true**: Hide the navigation bar. **false**: Show the navigation bar.
+   * From API version 9 to API version 10, this attribute takes effect only in split-column mode. Since API version 11,
+   * this attribute takes effect in all display modes.
+   *
+   * @param { boolean } value - Whether to hide the navigation page.<br>**true**: yes<br>**false**: no<br>If the input
+   *     parameter is invalid, the value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in split mode.
-   *
-   * @param { boolean } value - Whether to hide the navigation bar.
-   * <br>Default value: **false**. **true**: Hide the navigation bar. **false**: Show the navigation bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Hide the NavBar, which includes title bar, the child of Navigation and tool bar. Supported in all mode. 
-   * It will show top page in the NavPathStack directly or empty if there is no page in the NavPathStack.
-   *
-   * @param { boolean } value - Whether to hide the navigation bar.
-   * <br>Default value: **false**. **true**: Hide the navigation bar. **false**: Show the navigation bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   hideNavBar(value: boolean): NavigationAttribute;
 
   /**
-   * Navigation title
+   * Sets the page title.
    *
-   * @param { string | CustomBuilder } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { string | CustomBuilder } value - Page title. When the NavigationCustomTitle type is used to set the
+   *     height, [titleMode]{@link NavigationAttribute#titleMode} does not take effect.<br>When the title string is too
+   *     long:<br>- If no subtitle is set, the string is scaled down, wrapped in two lines, and then clipped.<br> - If a
+   *     subtitle is set, the subtitle is scaled down and then clipped. [since 8 - 8]
+   * @param { string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value - Page title. When the
+   *     NavigationCustomTitle type is used to set the height, [titleMode]{@link NavigationAttribute#titleMode} does not
+   *     take effect.<br>When the title string is too long:<br>- If no subtitle is set, the string is scaled down,
+   *     wrapped in two lines, and then clipped.<br> - If a subtitle is set, the subtitle is scaled down and then
+   *     clipped. [since 9 - 9]
+   * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value - Page title. When the
+   *     NavigationCustomTitle type is used to set the height, [titleMode]{@link NavigationAttribute#titleMode} does not
+   *     take effect.<br>When the title string is too long:<br>- If no subtitle is set, the string is scaled down,
+   *     wrapped in two lines, and then clipped.<br> - If a subtitle is set, the subtitle is scaled down and then
+   *     clipped. [since 10]
+   * @param { NavigationTitleOptions } [options] - Defines the title bar options. Title bar options include the
+   *     background color, background blur style, blur options, background properties, layout style, and padding at the
+   *     start and end of the title bar, as well as main title attribute modifier, subtitle attribute modifier, and
+   *     whether to respond when the device is in semi-folded mode.. [since 11]
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Navigation title
-   *
-   * @param { string | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value - Navigation title.
-   * <br>When the NavigationCustomTitle type is used to set the height, titleMode does not take effect.
-   * <br>When the title string is too long:
-   * <br>If no subtitle is set, the string is scaled down, wrapped in two lines, and then clipped.
-   * <br>If a subtitle is set, the subtitle is scaled down and then clipped.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Navigation title
-   *
-   * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value - Navigation title.
-   * <br>When the NavigationCustomTitle type is used to set the height, titleMode does not take effect.
-   * <br>When the title string is too long:
-   * <br>If no subtitle is set, the string is scaled down, wrapped in two lines, and then clipped.
-   * <br>If a subtitle is set, the subtitle is scaled down and then clipped.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigation title
-   *
-   * @param { ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle } value - Navigation title.
-   * <br>When the NavigationCustomTitle type is used to set the height, titleMode does not take effect.
-   * <br>When the title string is too long:
-   * <br>If no subtitle is set, the string is scaled down, wrapped in two lines, and then clipped.
-   * <br>If a subtitle is set, the subtitle is scaled down and then clipped.
-   * @param { NavigationTitleOptions } [options] - Indicates the options of titlebar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   title(value: ResourceStr | CustomBuilder | NavigationCommonTitle | NavigationCustomTitle, options?: NavigationTitleOptions): NavigationAttribute;
 
   /**
-   * Sets the subtitle of the navigation.
+   * Sets the page subtitle.
    *
-   * @param { string } value - Content of subtitle.
+   * > **NOTE**
+   *
+   * @param { string } value - Page subtitle.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
@@ -3314,45 +2503,27 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   subTitle(value: string): NavigationAttribute;
 
   /**
-   * Hide navigation title bar
+   * Specifies whether to hide the title bar.
    *
-   * @param { boolean } value - Whether to hide the title bar.
-   * <br>Default value is **false**. **true**: Hide the title bar. **false**: Show the title bar.
+   * @param { boolean } value - Whether to hide the title bar.<br>**true**: yes<br>**false**: no<br>If the input
+   *     parameter is invalid, the value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Hide navigation title bar
-   *
-   * @param { boolean } value - Whether to hide the title bar.
-   * <br>Default value is **false**. **true**: Hide the title bar. **false**: Show the title bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Hide navigation title bar
-   *
-   * @param { boolean } value - Whether to hide the title bar.
-   * <br>Default value is **false**. **true**: Hide the title bar. **false**: Show the title bar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   hideTitleBar(value: boolean): NavigationAttribute;
 
   /**
-   * Sets whether to hide the title bar and whether to animate the visibility change.
+   * Specifies whether to hide the title bar. Compared with
+   * [hideTitleBar]{@link NavigationAttribute#hideTitleBar(value: boolean)}, this API adds the capability to control
+   * whether to animate the visibility change of the title bar.
    *
-   * @param { boolean } hide - Whether to hide the title bar.
-   * <br>Default value is **false**. **true**: Hide the title bar. **false**: Show the title bar.
-   * @param { boolean } animated - Whether to animate the visibility change.
-   * <br>Default value is **false**.
-   * <br>**true**: Animate the visibility change. **false**: Do not animate the visibility change.
+   * @param { boolean } hide - Whether to hide the title bar.<br>**true**: yes<br>**false**: no<br>If the input
+   *     parameter is invalid, the value **false** is used.
+   * @param { boolean } animated - Whether to animate the visibility change.<br>**true**: yes<br> **false**: no<br>If
+   *     the input parameter is invalid, the value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3363,118 +2534,72 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideTitleBar(hide: boolean, animated: boolean): NavigationAttribute;
 
   /**
-   * Sets whether to hide the back button in the title bar.
-   * The back button is available only when titleMode is set to **NavigationTitleMode.Mini**.
+   * Sets whether to hide the back button in the title bar. The back button takes effect only when
+   * [titleMode]{@link NavigationAttribute#titleMode} is set to **NavigationTitleMode.Mini**.
    *
-   * @param { boolean } value - Whether to hide the back button in the title bar.
-   * <br>Default value: **false**. **true**: Hide the back button. **false**: Show the back button.
+   * @param { boolean } value - Whether to hide the back button in the title bar.<br>**true**: Hide the back button in
+   *     the title bar.<br>**false**: Show the back button in the title bar.<br>If the input parameter is invalid, the
+   *     value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets whether to hide the back button in the title bar.
-   * The back button is available only when titleMode is set to **NavigationTitleMode.Mini**.
-   *
-   * @param { boolean } value - Whether to hide the back button in the title bar.
-   * <br>Default value: **false**. **true**: Hide the back button. **false**: Show the back button.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether to hide the back button in the title bar.
-   * The back button is available only when titleMode is set to **NavigationTitleMode.Mini**.
-   *
-   * @param { boolean } value - Whether to hide the back button in the title bar.
-   * <br>Default value: **false**. **true**: Hide the back button. **false**: Show the back button.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   hideBackButton(value: boolean): NavigationAttribute;
 
   /**
-   * Sets the display mode of the navigation title mode.
+   * Sets the display mode of the page title bar.
    *
-   * @param { NavigationTitleMode } value - Display mode of the page title bar.
-   * <br>Default value: **NavigationTitleMode.Free**
+   * @param { NavigationTitleMode } value - Display mode of the page title bar.<br>Default value:
+   *     **NavigationTitleMode.Free**
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the display mode of the navigation title mode.
-   *
-   * @param { NavigationTitleMode } value - Display mode of the page title bar.
-   * <br>Default value: **NavigationTitleMode.Free**
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the display mode of the navigation title mode.
-   *
-   * @param { NavigationTitleMode } value - Display mode of the page title bar.
-   * <br>Default value: **NavigationTitleMode.Free**
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   titleMode(value: NavigationTitleMode): NavigationAttribute;
 
   /**
-   * Sets the menu items in the upper right corner of the navigation.
-   * If this attribute is not set, no menu item is displayed. When the value type is NavigationMenuItem,
-   * The menu shows a maximum of three icons in portrait mode and a maximum of five icons in landscape mode,
-   * With excess icons (if any) placed under the automatically generated **More** icon.
+   * Sets the menu items in the upper right corner of the page. If this attribute is not set, no menu item is displayed.
+   * When the value type is Array<[NavigationMenuItem]{@link NavigationMenuItem}&gt;, the menu shows a maximum of three
+   * icons in portrait mode and a maximum of five icons in landscape mode, with excess icons (if any) placed under the
+   * automatically generated **More** icon.
    *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } value -
-   * <br>Menu items in the upper right corner of the navigation.
+   * > **NOTE**
+   * >
+   * > The following are not allowed: modify the icon size through the **fontSize** attribute of the
+   * > **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute, or change
+   * > the type of animation effects through the **symbolEffect** attribute.
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } value - Menu items in the upper right corner of the page.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the menu items in the upper right corner of the navigation.
-   * If this attribute is not set, no menu item is displayed. When the value type is NavigationMenuItem,
-   * The menu shows a maximum of three icons in portrait mode and a maximum of five icons in landscape mode,
-   * With excess icons (if any) placed under the automatically generated **More** icon.
-   *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } value -
-   * <br>Menu items in the upper right corner of the navigation.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the menu items in the upper right corner of the navigation.
-   * If this attribute is not set, no menu item is displayed. When the value type is NavigationMenuItem,
-   * The menu shows a maximum of three icons in portrait mode and a maximum of five icons in landscape mode,
-   * With excess icons (if any) placed under the automatically generated **More** icon.
-   *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } value -
-   * <br>Menu items in the upper right corner of the navigation.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   menus(value: Array<NavigationMenuItem> | CustomBuilder): NavigationAttribute;
 
   /**
-   * Navigation title bar's menus
+   * Sets the menu items in the upper right corner of the page. If this attribute is not set, no menu item is displayed.
+   * Compared with [menus]{@link NavigationAttribute#menus(value: Array<NavigationMenuItem> | CustomBuilder)}, this API
+   * adds menu options. When the value type is Array<[NavigationMenuItem]{@link NavigationMenuItem}&gt;, the menu shows
+   * a maximum of three icons in portrait mode and a maximum of five icons in landscape mode, with excess icons (if any)
+   * placed under the automatically generated **More** icon.
    *
-   * @param { Array<NavigationMenuItem> | CustomBuilder } items
-   * @param { NavigationMenuOptions } [options] - Indicates the options of menu.
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * >
+   * > The following are not allowed: modify the icon size through the **fontSize** attribute of the
+   * > **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute, or change
+   * > the type of animation effects through the **symbolEffect** attribute.
+   *
+   * @param { Array<NavigationMenuItem> | CustomBuilder } items - Menu items in the upper right corner of the page.
+   * @param { NavigationMenuOptions } [options] - Configuration options for menu items in the upper right corner of the
+   *     page.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3485,11 +2610,13 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   menus(items: Array<NavigationMenuItem> | CustomBuilder, options?: NavigationMenuOptions): NavigationAttribute;
 
   /**
-   * Sets the content of the toolbar. If this attribute is not set, no toolbar is displayed.
-   * Toolbar items are evenly distributed on the bottom toolbar, with text and icons evenly
-   * spaced in each content area. If any item contains overlong text and there are fewer than
-   * five items, the toolbar will reduce the text size progressively, wrap the text over two
-   * lines if necessary, and then clip the text to fit.
+   * Sets the content of the toolbar. If this attribute is not set, no toolbar is displayed. Toolbar items are evenly
+   * distributed on the bottom toolbar, with text and icons evenly spaced in each content area. If any item contains
+   * overlong text and there are fewer than five items, the toolbar will reduce the text size progressively, wrap the
+   * text over two lines if necessary, and then clip the text to fit.
+   *
+   * **object**
+   *
    *
    * @param { object | CustomBuilder } value - Content of the toolbar.
    * @returns { NavigationAttribute }
@@ -3501,69 +2628,62 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   toolBar(value: object | CustomBuilder): NavigationAttribute;
 
   /**
-    * Sets the content of the toolbar. If this attribute is not set, no toolbar is displayed.
-    *
-    * @param { Array<ToolbarItem> | CustomBuilder } value - Toolbar configuration parameters.
-    * @returns { NavigationAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @since 10
-    */
-  /**
-    * Sets the content of the toolbar. If this attribute is not set, no toolbar is displayed.
-    *
-    * @param { Array<ToolbarItem> | CustomBuilder } value - Toolbar configuration parameters.
-    * @param { NavigationToolbarOptions } [options] - Indicates the options of toolbar.
-    * @returns { NavigationAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 11 dynamic
-    */
+   * Sets the content of the toolbar. If this attribute is not set, no toolbar is displayed.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   * >
+   * > The following are not allowed: modify the icon size through the **fontSize** attribute of the
+   * > **SymbolGlyphModifier** object, change the animation effects through the **effectStrategy** attribute, or change
+   * > the type of animation effects through the **symbolEffect** attribute.
+   *
+   * @param { Array<ToolbarItem> | CustomBuilder } value - Content of the toolbar. When configured with Array<
+   *     [ToolbarItem]{@link ToolbarItem}>, the toolbar follows the rules below:<br>Toolbar items are evenly distributed
+   *     on the bottom toolbar, with text and icons evenly spaced in each content area.<br>In portrait mode, the toolbar
+   *     shows a maximum of five icons, with any additional icons placed into an automatically generated **More** icon.
+   *     In landscape mode, toolbar behavior depends on the display mode: <br>- If the display mode is
+   *     [Split]{@link NavigationMode}, the toolbar maintains the portrait mode. <br>- If the display mode is
+   *     [Stack]{@link NavigationMode}, the toolbar must be used together with Array<
+   *     [NavigationMenuItem]{@link NavigationMenuItem}> of the **menus** attribute; in this configuration, the bottom
+   *     toolbar is automatically hidden, and all items on the toolbar are relocated to the menu in the upper right
+   *     corner of the screen.<br>When configured with
+   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8), the toolbar does not
+   *     follow the above rules.
+   * @param { NavigationToolbarOptions } [options] - Toolbar options. Toolbar options include the background color,
+   *     background blur style and blur option, background properties, and layout mode of the toolbar, as well as
+   *     whether to hide the toolbar text, and options for the toolbar's more button menu.. [since 11]
+   * @returns { NavigationAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   toolbarConfiguration(value: Array<ToolbarItem> | CustomBuilder, options?: NavigationToolbarOptions): NavigationAttribute;
 
   /**
-   * Hide tool bar
+   * Specifies whether to hide the toolbar.
    *
-   * @param { boolean } value - Whether to hide the toolbar.
-   * <br>Default value: **false**. **true**: Hide the toolbar. **false**: Show the toolbar.
+   * @param { boolean } value - Whether to hide the toolbar.<br>**true**: Hide the toolbar. <br>**false**: Display the
+   *     toolbar.<br>If the input parameter is invalid, the value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Hide tool bar
-   *
-   * @param { boolean } value - Whether to hide the toolbar.
-   * <br>Default value: **false**. **true**: Hide the toolbar. **false**: Show the toolbar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Hide tool bar
-   *
-   * @param { boolean } value - Whether to hide the toolbar.
-   * <br>Default value: **false**. **true**: Hide the toolbar. **false**: Show the toolbar.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   hideToolBar(value: boolean): NavigationAttribute;
 
   /**
-   * Sets whether to hide the toolbar and whether to animate the visibility change.
+   * Specifies whether to hide the toolbar. Compared with
+   * [hideToolBar]{@link NavigationAttribute#hideToolBar(value: boolean)}, this API adds the capability to control
+   * whether to animate the visibility change of the toolbar.
    *
-   * @param { boolean } hide - Whether to hide the toolbar.
-   * <br>Default value: **false**. **true**: Hide the toolbar. **false**: Show the toolbar.
-   * @param { boolean } animated - Whether to animate the visibility change.
-   * <br>Default value: **false**.
-   * <br>**true**: Animate the visibility change. **false**: Do not animate the visibility change.
+   * @param { boolean } hide - Whether to hide the toolbar.<br>**true**: Hide the toolbar. <br>**false**: Display the
+   *     toolbar.<br>If the input parameter is invalid, the value **false** is used.
+   * @param { boolean } animated - Whether to animate the visibility change.<br>**true**: yes<br>**false**: no<br>If the
+   *     input parameter is invalid, the value **false** is used.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3574,12 +2694,15 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   hideToolBar(hide: boolean, animated: boolean): NavigationAttribute;
 
   /**
-   * Enable tool bar adaptation
+   * Sets whether to enable toolbar adaptation ([toolbarConfiguration]{@link NavigationAttribute#toolbarConfiguration})
+   * for the **Navigation** and **NavDestination** components. If this feature is disabled, the bottom toolbar (
+   * [toolbarConfiguration]{@link NavigationAttribute#toolbarConfiguration}) will no longer be moved into the menu in
+   * the upper right corner of the page. This API does not apply to custom menus; using it requires defining the
+   * [menu]{@link NavigationAttribute#menus(value: Array<NavigationMenuItem> | CustomBuilder)} via the
+   * [NavigationMenuItem]{@link NavigationMenuItem} API.
    *
-   * @param { Optional<boolean> } enable - Enable or disable tool bar adaptation.
-   *                                       Default value: **true**.
-   *                                       **true**: Enable toolbar adaptation.
-   *                                       **false**: Disable toolbar adaptation.
+   * @param { Optional<boolean> } enable - Whether to enable toolbar adaptation.<br>Default value: **true**<br>**true**:
+   *     Enable toolbar adaptation.<br>**false**: Disable toolbar adaptation.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3590,76 +2713,43 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   enableToolBarAdaptation(enable: Optional<boolean>): NavigationAttribute;
 
   /**
-   * Triggered when titleMode is set to **NavigationTitleMode.Free**
-   * and the title bar mode changes as content scrolls.
+   * Triggered when [titleMode]{@link NavigationAttribute#titleMode} is set to **NavigationTitleMode.Free** and the
+   * title bar mode changes as content scrolls.
    *
-   * @param { (titleMode: NavigationTitleMode) => void } callback
+   * @param { (titleMode: NavigationTitleMode) => void } callback - Title mode. [since 8 - 9]
+   * @param { function } callback - Title mode. [since 10]
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Triggered when titleMode is set to **NavigationTitleMode.Free**
-   * and the title bar mode changes as content scrolls.
-   *
-   * @param { function } callback
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when titleMode is set to **NavigationTitleMode.Free**
-   * and the title bar mode changes as content scrolls.
-   *
-   * @param { function } callback
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onTitleModeChange(callback: (titleMode: NavigationTitleMode) => void): NavigationAttribute;
 
   /**
-   * Trigger callback when the visibility of navigation bar change.
+   * Callback invoked when the navigation page visibility status changes.
    *
-   * @param { (isVisible: boolean) => void } callback - Whether the navigation bar is visible.
-   * <br>The value **true** means that the navigation bar is visible, and **false** means the opposite.
+   * @param { (isVisible: boolean) => void } callback - Whether the navigation bar is visible. The value **true** means
+   *     that the navigation bar is visible, and **false** means the opposite. [since 9 - 9]
+   * @param { function } callback - Whether the navigation bar is visible. The value **true** means that the navigation
+   *     bar is visible, and **false** means the opposite. [since 10]
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Trigger callback when the visibility of navigation bar change.
-   *
-   * @param { function } callback - Whether the navigation bar is visible.
-   * <br>The value **true** means that the navigation bar is visible, and **false** means the opposite.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger callback when the visibility of navigation bar change.
-   *
-   * @param { function } callback - Whether the navigation bar is visible.
-   * <br>The value **true** means that the navigation bar is visible, and **false** means the opposite.
-   * @returns { NavigationAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onNavBarStateChange(callback: (isVisible: boolean) => void): NavigationAttribute;
 
   /**
-   * Triggered when the **Navigation** component is displayed for the first time or
-   * its display mode switches between Stack and Split.
+   * Triggered when the **Navigation** component is displayed for the first time or its display mode switches between
+   * single-column and split-column.
    *
-   * @param { function } callback
+   * @param { function } callback - **NavigationMode.Split**: The component is displayed in split-column mode.<br>
+   *     **NavigationMode.Stack**: The component is displayed in single-column mode.
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -3667,62 +2757,64 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   onNavigationModeChange(callback: (mode: NavigationMode) => void): NavigationAttribute;
 
   /**
-   * Set builder for user-defined NavDestination component.
+   * Creates a **NavDestination** component. The builder receives the **name** and **param** parameters for constructing
+   * the **NavDestination** component. The builder must return a single root node. The builder can have only one root
+   * node. In the builder, a layer of custom components can wrap the **NavDestination** component. However, no
+   * attributes or events can be set for these custom components. Otherwise, only blank content is displayed.
    *
-   * @param { function } builder - The builder function of NavDestination component.
-   * <br>**name**: name of the navigation destination page.
-   * <br>**param**: detailed parameters of the navigation destination page.
+   * @param { function } builder - Builder for a **NavDestination** component. **name**: name of the **NavDestination**
+   *     page. **param**: detailed parameters for the custom **NavDestination** page. The **unknown** type can be
+   *     replaced with a user-defined type.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set builder for user-defined NavDestination component.
-   *
-   * @param { function } builder - The builder function of NavDestination component.
-   * <br>**name**: name of the navigation destination page.
-   * <br>**param**: detailed parameters of the navigation destination page.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   navDestination(builder: (name: string, param: unknown) => void): NavigationAttribute;
 
   /**
-   * Set custom navigation content transition animation.
+   * Defines the callback of the custom transition animation.
    *
-   * @param { function } delegate - Custom transition delegate.
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { function } delegate - Defines the callback of the custom transition animation.<br/>from: Destination page
+   *     to exit.<br/>to: Destination page to enter.<br/>operation: Transition type.<br/>
+   *     **NavigationAnimatedTransition**: protocol object for custom transition animations.<br>**undefined**:
+   *     undefined, executing the default transition animation effect.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Set custom navigation content transition animation.
-   *
-   * @param { function } delegate - Custom transition delegate.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation) => NavigationAnimatedTransition | undefined): NavigationAttribute;
+  customNavContentTransition(delegate: (from: NavContentInfo, to: NavContentInfo, operation: NavigationOperation)
+    => NavigationAnimatedTransition | undefined): NavigationAttribute;
 
   /**
    * Ignores the layout safe area by allowing the component to extend into the non-safe areas of the screen.
    *
-   * @param { Array<LayoutSafeAreaType> } [types] - Types of non-safe areas to extend into.
-   * <br>Default value:<br>[LayoutSafeAreaType.SYSTEM].
-   * @param { Array<LayoutSafeAreaEdge> } [edges] - Edges for expanding the safe area.
-   * <br> Default value:<br>[LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM].
+   * > **NOTE**
+   * >
+   * > - Prerequisites for the **ignoreLayoutSafeArea** attribute to take effect:
+   * > > When **LayoutSafeAreaType.SYSTEM** is set, the component can extend into the non-safe area if its boundaries
+   * > overlap with it.
+   * >
+   * > - If the component extends into the non-safe area, events triggered within that area (such as click events) might
+   * > be intercepted by the system. This allows the system to prioritize responses to system components such as the
+   * > status bar.
+   * >
+   * > - To allow a component to extend into non-safe areas, the title bar and toolbar must be hidden or set to
+   * > [STACK]{@link BarStyle} mode.
+   *
+   * @param { Array<LayoutSafeAreaType> } [types] - Types of non-safe areas to extend into.<br>Default value:<br>
+   *     [LayoutSafeAreaType.SYSTEM]
+   * @param { Array<LayoutSafeAreaEdge> } [edges] - Edges for expanding the safe area.<br> Default value:<br>
+   *     [LayoutSafeAreaEdge.TOP, LayoutSafeAreaEdge.BOTTOM]
    * @returns { NavigationAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3733,7 +2825,39 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): NavigationAttribute;
 
   /**
-   * Sets the style of the system status bar when the navbar of the **Navigation** component is displayed.
+   * Sets the style of the system status bar when the home page of the **Navigation** component is displayed.
+   *
+   * > **NOTE**
+   * >
+   * > 1. Avoid using the **systemBarStyle** attribute in conjunction with the status bar style APIs in the **Window**
+   * > module, such as
+   * > [setWindowSystemBarProperties](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowsystembarproperties9).
+   * >
+   * >
+   * > 2. When you first set the **systemBarStyle** attribute for a **Navigation** or **NavDestination** component, the
+   * > current status bar style is saved for potential future restoration.
+   * >
+   * > 3. **Navigation** always uses the status bar style defined by the home page (when no **NavDestination** exists in
+   * > the routing stack) or the top **NavDestination** in the stack.
+   * >
+   * > 4. If the home page or any top **NavDestination** page has a valid **systemBarStyle** set, that style will be
+   * > used. If no style is set, and there is a previously saved style available, the saved style will be used. If no
+   * > style has been set or saved, no changes will be made.
+   * >
+   * > 5. In [Split]{@link NavigationMode} mode, if there is no **NavDestination** in the content area, the settings of
+   * > the **Navigation** home page will apply. Otherwise, the settings of the top **NavDestination** page on the
+   * > routing stack will apply.
+   * >
+   * > 6. The **systemBarStyle** attribute is effective only for the main page of the main window.
+   * >
+   * > 7. The set style will only take effect if the **Navigation** component spans the entire page. If it does not, and
+   * > there is a previously saved style available, the saved style will be used instead.
+   * >
+   * > 8. When different styles are set for pages, the new style takes effect at the start of the page transition.
+   * >
+   * > 9. The status bar style set by **Navigation** or **NavDestination** does not apply in non-fullscreen windows.
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
    * @param { Optional<SystemBarStyle> } style - Style of the system status bar.
    * @returns { NavigationAttribute }
@@ -3743,15 +2867,33 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 12 dynamic
    */
   systemBarStyle(style: Optional<SystemBarStyle>): NavigationAttribute;
-  
+
   /**
-   * Set the Navigation can be restored after the application is terminated.
-   * To enable this attribute, a navigation id must be set.
-   * 
-   * @param { boolean } recoverable - navigation can be recovered.
-   *                                  Default value: **false**.
-   *                                  **true**: The **Navigation** component is recoverable.
-   *                                  **false**: The **Navigation** component is not recoverable.
+   * Sets whether the **Navigation** component is recoverable. If set to recoverable, when the application process exits
+   * unexpectedly and restarts, the **Navigation** component can be automatically re-created and its routing stack
+   * restored to the state at the time of the unexpected exit.
+   *
+   * > **NOTE**
+   * >
+   * > 1. For this API to work properly, you must first set the universal attribute [id]{@link CommonMethod#id} of the
+   * > **Navigation** component.
+   * >
+   * > 2. This API must be used together with the [recoverable]{@link NavDestinationAttribute#recoverable} API of
+   * > **NavDestination**.
+   * >
+   * > 3. Non-serializable information, such as non-serializable parameters and custom **onPop**, is discarded and
+   * > cannot be restored during the recovery process.
+   * >
+   * > 4. If an application is terminated due to insufficient system resources after it is switched to the background,
+   * > any page configured as recoverable will be automatically restored when the application is revived to the
+   * > foreground. For details, see
+   * > [UIAbility Backup and Restore](docroot://application-models/ability-recover-guideline.md). For the usage example,
+   * > see
+   * > [Example 18: Setting Navigation as Recoverable](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-navigation.md#example-18-setting-navigation-as-recoverable).
+   *
+   * @param { boolean } recoverable - Whether the **Navigation** component is recoverable. By default, it is not
+   *     recoverable.<br>**true**: yes<br>**false**: no<br>If the input parameter is invalid, the value **false** is
+   *     used.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3760,13 +2902,11 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   recoverable(recoverable: Optional<boolean>): NavigationAttribute;
 
   /**
-   * Enable dragbar
-   * 
-   * @param { Optional<boolean> } isEnabled - enable dragbar or disable dragbar.
-   *                                          Default value: **false**.
-   *                                          **true**: Enable the drag bar.
-   *                                          **false**: Disable the drag bar.
-   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.            
+   * Sets whether to display a drag bar in split-column scenarios. This attribute has no effect on PCs/2-in-1 devices.
+   *
+   * @param { Optional<boolean> } isEnabled - Whether to enable the drag bar. By default, there is no drag bar.<br>
+   *     **true**: yes; **false**: no<br>If the input parameter is invalid, the value **false** is used.
+   * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3774,12 +2914,12 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
    * @since 14 dynamic
    */
   enableDragBar(isEnabled: Optional<boolean>): NavigationAttribute;
-  
+
   /**
-   * Set the navigation divider style in split mode.
+   * Sets the divider style in the split-column mode of the **Navigation** component.
    *
-   * @param { NavigationDividerStyle | null } style - navigation divider style in split mode.
-   *      null indicates that the divider is hidden.
+   * @param { NavigationDividerStyle | null } style - Sets the divider style of the split-column layout.<br> - null: The
+   *     divider is hidden.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3790,12 +2930,10 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   divider(style: NavigationDividerStyle | null): NavigationAttribute;
 
   /**
-   * whether to enable modeChangeAnimation
-   * 
-   * @param { Optional<boolean> } isEnabled - enableModeChangeAnimation.
-   *                                          Default value: **true**.
-   *                                          **true**: Enable the animation for switching between stack and split mode.
-   *                                          **false**: Disable the animation for switching between stack and split mode.
+   * Sets whether to enable the animation for switching between single- and split-column modes.
+   *
+   * @param { Optional<boolean> } isEnabled - Whether to enable the animation for switching between single- and split-
+   *     column modes.<br>**true**: yes; **false**: no<br>If the input parameter is invalid, the value **true** is used.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3806,9 +2944,11 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   enableModeChangeAnimation(isEnabled: Optional<boolean>): NavigationAttribute;
 
   /**
-   * Set placeholder in split mode.
+   * Sets a default placeholder page for the right column in the **Navigation** component's split-column mode. The
+   * placeholder page is for UI display only and cannot receive focus or respond to events.
    *
-   * @param { ComponentContent } placeholder - Set placeholder in split mode.
+   * @param { ComponentContent } placeholder - Default placeholder page for the right column in the **Navigation**
+   *     component's split-column mode.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3819,13 +2959,15 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
   splitPlaceholder(placeholder: ComponentContent): NavigationAttribute;
 
   /**
-   * Whether to enable the show or hide lifecycle with bindContentCover.
-   * The true means that bindContentCover can affect the show or hide lifecycle of Navigation, and the false not.
+   * Sets whether to enable the linkage between the [onShown]{@link NavDestinationAttribute#onShown} and
+   * [onHidden]{@link NavDestinationAttribute#onHidden} lifecycle callbacks of the
+   * [NavDestination]{@link nav_destination} page and the full-modal triggering.
    *
-   * @param { Optional<boolean> } isEnabled - enable the show or hide lifecycle with bindContentCover.
-   *                                          Default value: **true**.
-   *                                          **true**: The bindContentCover can affect the show or hide lifecycle of Navigation.
-   *                                          **false**: The bindContentCover can not affect the show or hide lifecycle of Navigation.
+   * @param { Optional<boolean> } isEnabled - Whether to enable the linkage between the **onShown** and **onHidden**
+   *     lifecycle callbacks of the NavDestination page and the full-modal triggering.<br>Default value: **true**<br>
+   *     **true**: When a full-modal page is shown, the current **NavDestination** page triggers **onHidden**. When the
+   *     full-modal pages is dismissed, the page triggers **onShown**.<br>**false**: The **onShown** and **onHidden**
+   *     callbacks of the **NavDestination** page are not triggered by the showing or dismissing of a full-modal page.
    * @returns { NavigationAttribute } Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3850,71 +2992,54 @@ declare class NavigationAttribute extends CommonMethod<NavigationAttribute> {
 }
 
 /**
-* Navigation transition animation protocol.
-*
-* @interface NavigationAnimatedTransition
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @since 11
-*/
-/**
-* Navigation transition animation protocol.
-*
-* @interface NavigationAnimatedTransition
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Defines the custom transition animation protocol. You need to implement this protocol to define the redirection
+ * animation of the navigation route.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ */
 declare interface NavigationAnimatedTransition {
-  /**
-   * This method is called after the transition ends to notify whether the transition was successful.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * This method is called after the transition ends to notify whether the transition was successful.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  onTransitionEnd?: (success: boolean) => void
 
   /**
-   * Define the limit duration of the transition animation.
+   * Callback invoked when the transition is complete.
    *
-   * @type { ?number }
+   * **success**: whether the transition is successful.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
+  onTransitionEnd?: (success: boolean) => void;
+
   /**
-   * Define the limit duration of the transition animation.
+   * Animation timeout time.
    *
-   * @type { ?number }
+   * Unit: ms
+   *
+   * Value range: [0, +��)
+   *
+   * Default value: no default value for interactive animations; 1000 ms for non-interactive animations.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   timeout?: number;
 
   /**
-   * Indicates whether it is an interactive transition.
+   * Whether the transition animation is interactive.
    *
-   * @type { ?boolean }
+   * **true**: yes; **false**: no
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3925,93 +3050,59 @@ declare interface NavigationAnimatedTransition {
   isInteractive?: boolean;
 
   /**
-   * Configure the animations associated with custom transition.
+   * Callback for executing the custom transition animation.
    *
-   * @type { function }
+   * **transitionProxy**: proxy for the custom transition animation.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Configure the animations associated with custom transition.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  transition: (transitionProxy: NavigationTransitionProxy) => void
+  transition: (transitionProxy: NavigationTransitionProxy) => void;
 }
 
 /**
- * Navigation transition proxy.
+ * Implements a custom transition animation proxy.
  *
- * @interface NavigationTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Navigation transition proxy.
- *
- * @interface NavigationTransitionProxy
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface NavigationTransitionProxy {
+
   /**
-   * From navigation content info.
+   * Information about the exit page.
    *
-   * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * From navigation content info.
-   *
-   * @type { NavContentInfo }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   from: NavContentInfo;
 
   /**
-   * To navigation content info.
+   * Information about the enter page.
    *
-   * @type { NavContentInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * To navigation content info.
-   *
-   * @type { NavContentInfo }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   to: NavContentInfo;
 
   /**
-   * Indicates whether it is an interactive transition.
+   * Whether the transition animation is interactive.
    *
-   * @type { ?boolean }
+   * **true**: yes; **false**: no
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4022,28 +3113,20 @@ declare interface NavigationTransitionProxy {
   isInteractive?: boolean;
 
   /**
-   * Notification system transition animation completed.
+   * Finishes this custom transition animation. This API must be manually called to end the animation. Otherwise, the
+   * system ends the animation when the timeout expires.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Notification system transition animation completed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   finishTransition(): void;
 
   /**
-   * Cancels this interactive transition animation, restoring the navigation
-   * stack to its state before page redirection. (Non-interactive transition
-   * animations cannot be canceled.)
+   * Cancels this interactive transition animation, restoring the routing stack to its state before page redirection. (
+   * Non-interactive transition animations cannot be canceled.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4054,10 +3137,16 @@ declare interface NavigationTransitionProxy {
   cancelTransition?(): void;
 
   /**
-   * Updates the progress of this interactive transition animation. (Non-interactive
-   * animations do not support setting the animation progress).
+   * Updates the progress of this interactive transition animation. (Non-interactive animations do not support setting
+   * the animation progress).
    *
-   * @param { number } progress - The progress of transition animation.
+   * > **NOTE**
+   * >
+   * > You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+   * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+   * > failures.
+   *
+   * @param { number } progress - Progress percentage of the interactive transition animation. Value range: [0, 1].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4068,92 +3157,55 @@ declare interface NavigationTransitionProxy {
 }
 
 /**
- * Navigation content info.
+ * Provides the destination information.
  *
- * @interface NavContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Navigation content info.
- *
- * @interface NavContentInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface NavContentInfo {
+
   /**
-   * Navigation content name.
+   * Name of the navigation destination. If the view is a root view (**NavBar**), the return value is **undefined**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Navigation content name.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   name?: string;
 
   /**
-   * Navigation content index.
+   * Index of the navigation destination in the routing stack. If the view is a root view (**NavBar**), the return value
+   * is **-1**.
    *
-   * @type { number }
+   * Value range: [-1, +��)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Navigation content index.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   index: number;
 
   /**
-   * Navigation content mode.
+   * Mode of the navigation destination. If the view is a root view (**NavBar**), the return value is **undefined**.
    *
-   * @type { ?NavDestinationMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Navigation content mode.
-   *
-   * @type { ?NavDestinationMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   mode?: NavDestinationMode;
 
   /**
-   * Navigation content param.
+   * Parameters loaded on the navigation destination page.
    *
-   * @type { ?Object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4163,9 +3215,8 @@ declare interface NavContentInfo {
   param?: Object;
 
   /**
-   * The unique id of NavDestination.
+   * Unique identifier of the navigation destination page.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4176,20 +3227,21 @@ declare interface NavContentInfo {
 }
 
 /**
-* Define the style of the Navigation divider.
-*
-* @interface NavigationDividerStyle
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 23 dynamic
-*/
+ * Color of the navigation divider and the upper and lower margins of the **Navigation** component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare interface NavigationDividerStyle {
+
   /**
-   * Define the color of the navigation divider.
+   * Color of the divider.
    *
-   * @type { ?ResourceColor }
+   * Default value: **#33000000**, indicating gray
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4199,9 +3251,14 @@ declare interface NavigationDividerStyle {
   color?: ResourceColor;
 
   /**
-   * Define the start margin of the navigation divider.
+   * Distance between the divider and the top of the sidebar.
    *
-   * @type { ?Length }
+   * Default value: **0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +��)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4211,9 +3268,14 @@ declare interface NavigationDividerStyle {
   startMargin?: Length;
 
   /**
-   * Define the end margin of the navigation divider.
+   * Distance between the divider and the bottom of the sidebar.
    *
-   * @type { ?Length }
+   * Default value: **0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +��)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4224,25 +3286,49 @@ declare interface NavigationDividerStyle {
 }
 
 /**
- * Defines Navigation Component.
+ * The **Navigation** component is the root view container for navigation. It typically functions as the root container
+ * of a page and includes a title bar, content area, and toolbar. The content area switches between the home page
+ * content (child components of **Navigation**) and non-home page content (child components of
+ * [NavDestination]{@link nav_destination}) through routing.
+ *
+ * > **NOTE**
+ *
+ * > - Since API version 11, this component supports the safe area attribute by default, with the default attribute
+ * > value being
+ * > **expandSafeArea([SafeAreaType.SYSTEM, SafeAreaType.KEYBOARD, SafeAreaType.CUTOUT], [SafeAreaEdge.TOP,
+ *    SafeAreaEdge.BOTTOM])**.
+ * > You can override this attribute to change the default behavior. In earlier versions, you need to use the
+ * > [expandSafeArea]{@link CommonMethod#expandSafeArea} attribute to implement the safe area feature.
+ * >
+ * > - When [NavBar]{@link NavBar} is nested within a **Navigation** component, the lifecycle of the inner
+ * > **NavDestination** component does not synchronize with the outer **NavDestination** component or the lifecycle of a
+ * > [modal]{@link common}.
+ * >
+ * > - If the [title]{@link NavigationAttribute#title} and [subTitle]{@link NavigationAttribute#subTitle} are not set
+ * > and [hideBackButton]{@link NavigationAttribute#hideBackButton} is set to **true**, the title bar is not displayed.
+ * >
+ * > - During subpage navigation within **Navigation**, the new page actively requests focus.
+ * >
+ * > - You are not advised to use stack operations in [aboutToAppear]{@link BaseCustomComponent#aboutToAppear}, as the
+ * > page has not yet finished building at this stage, which may lead to issues such as white screens or navigation
+ * > failures.
+ *
+ * ###### Child Components
+ *
+ * Supported
+ *
+ * Since API version 9, it is recommended that this component be used together with the [NavRouter]{@link nav_router}
+ * component.
+ *
+ * Since API version 10, it is recommended that this component be used together with the
+ * [NavPathStack]{@link NavPathStack} component and [navDestination]{@link NavigationAttribute#navDestination} attribute
+ * for page routing.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Navigation Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Navigation Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const Navigation: NavigationInterface;
 
@@ -4250,21 +3336,9 @@ declare const Navigation: NavigationInterface;
  * Defines Navigation Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Navigation Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Navigation Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const NavigationInstance: NavigationAttribute;
