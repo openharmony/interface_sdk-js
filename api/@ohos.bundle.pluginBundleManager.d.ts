@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
+
 /**
  * This module is used to manage plugins for applications.
  *
@@ -64,6 +66,36 @@ declare namespace pluginBundleManager {
    * @since 26.0.0 dynamic&static
    */
   function uninstallLocalPlugin(pluginBundleName: string): Promise<void>;
+  
+  /**
+   * Obtains information about all local plugins installed on the current application.
+   *
+   * @permission ohos.permission.kernel.SUPPORT_LOCAL_PLUGIN
+   * @returns { Promise<Array<PluginBundleInfo>> } Promise used to return the list of PluginBundleInfos object.
+   * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.kernel.SUPPORT_LOCAL_PLUGIN'.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllLocalPluginInfoForSelf(): Promise<Array<PluginBundleInfo>>;
+
+  /**
+   * Indicates the information about a plugin.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type PluginBundleInfo = _PluginBundleInfo;
+
+  /**
+   * Indicates the plugin module info.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type PluginModuleInfo = _PluginModuleInfo;
 }
 
 export default pluginBundleManager;
