@@ -3153,7 +3153,7 @@ declare namespace relationalStore {
      * @since 20 dynamic
      * @since 23 static
      */
-    having(conditions:string, args?: Array<ValueType>): RdbPredicates;
+    having(conditions: string, args?: Array<ValueType>): RdbPredicates;
   }
 
   /**
