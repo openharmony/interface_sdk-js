@@ -25,7 +25,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier } from "./common";
 
 /**
- * Defines Gauge constructor options.
+ * 数据量规图表选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,8 +33,13 @@ import { AttributeModifier } from "./common";
  */
 export interface GaugeOptions {
     /**
-     * Set current data value.
-     * Anonymous Object Rectification.
+     * 量规图的当前数据值，即图中指针指向位置。用于组件创建时量规图初始值的预置。
+     *
+     * 默认值：0
+     *
+     * **说明：**
+     *
+     * value不在min和max范围内时使用min作为默认值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -42,9 +47,8 @@ export interface GaugeOptions {
      */
     value: double | undefined;
     /**
-     * Set current segment minimum value.
-     * Anonymous Object Rectification.
-     * Default value: 0.
+     * 当前数据段最小值。
+     * 默认值：0。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -52,11 +56,10 @@ export interface GaugeOptions {
      */
     min?: double;
     /**
-     * Set current segment maximum value.
-     * Anonymous Object Rectification.
-     * Default value: 100.
-     * <br>**Note: * *
-     * If max is less than min, the default values 0 and 100 are used.
+     * 当前数据段最大值。
+     * 默认值：100。
+     * <br>**说明：**
+     * max小于min时使用默认值0和100。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -65,7 +68,7 @@ export interface GaugeOptions {
     max?: double;
 }
 /**
- * Defines the options of gauge track shadow.
+ * GaugeShadowOptions继承自[MultiShadowOptions]{@link MultiShadowOptions}，具有MultiShadowOptions的全部属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -73,7 +76,7 @@ export interface GaugeOptions {
  */
 export declare interface GaugeShadowOptions extends MultiShadowOptions {}
 /**
- * Defines the options of gauge indicator.
+ * 数据量规图表指针选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -81,7 +84,13 @@ export declare interface GaugeShadowOptions extends MultiShadowOptions {}
  */
 export declare interface GaugeIndicatorOptions {
     /**
-     * Current indicator icon path.
+     * 图标资源路径。
+     *
+     * **说明：**
+     *
+     * 不配置则使用系统默认样式，系统默认样式为三角形指针。
+     *
+     * 仅支持使用svg格式的图标，若使用其他格式，则使用默认的三角形样式指针。
      *
      * @default system style.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -90,11 +99,10 @@ export declare interface GaugeIndicatorOptions {
      */
     icon?: ResourceStr;
     /**
-     * Current indicator space.
-     * Default value: 8vp.
-     * <br>**Note: * *
-     * For the default triangle style pointer, the spacing is the distance from the black triangle to the outer edge of
-     * the ring.
+     * 指针距离圆环外边的间距。(不支持百分比)。
+     * 默认值：8vp。
+     * <br>**说明：**
+     * 对于默认的三角形样式指针，间距为黑色三角形到圆环外边的间距。
      *
      * @default 8vp
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -103,16 +111,17 @@ export declare interface GaugeIndicatorOptions {
      */
     space?: Dimension;
 }
+
 /**
- * GaugeConfiguration used by content modifier
- *
+* 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfiguration> {
     /**
-     * Current data value.
+     * 当前数据值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -120,7 +129,7 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
      */
     value: double;
     /**
-     * Current Segment Minimum Value.
+     * 当前数据段最小值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -128,7 +137,7 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
      */
     min: double;
     /**
-     * Current Segment Maximum Value.
+     * 当前数据段最大值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -137,7 +146,9 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
     max: double;
 }
 /**
- * Defines the Gauge component attributes.
+ * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ *
+ * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -146,7 +157,7 @@ export declare interface GaugeConfiguration extends CommonConfiguration<GaugeCon
  */
 export declare interface GaugeAttribute extends CommonMethod {
     /**
-     * Sets the value for the current profile.
+     * 设置量规图的数据值。
      *
      * @param { double | undefined } value
      * @returns { GaugeAttribute }
@@ -156,7 +167,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default value(value: double | undefined): this;
     /**
-     * Set the start angle. Clock 0 is 0 degrees and clockwise is positive.
+     * 设置起始角度位置。
      *
      * @param { double | undefined } angle
      * @returns { GaugeAttribute }
@@ -166,7 +177,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default startAngle(angle: double | undefined): this;
     /**
-     * Sets the end angle position. Clock 0 is 0 degrees and clockwise is positive.
+     * 设置终止角度位置。起始角度和终止角度的差值过小时，会绘制出异常图像，请取合理的起始角度和终止角度。建议使用单色环改变Gauge的value参数实现数据值的调节，可通过定时器setTimeout进行数值的延迟加载。
      *
      * @param { double | undefined } angle
      * @returns { GaugeAttribute }
@@ -176,18 +187,18 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default endAngle(angle: double | undefined): this;
     /**
-     * Set the color of the chart. You can set the solid color and segmented gradient color.
+     * 设置仪表的颜色。可以设置纯色和分段的渐变色。
      *
      * @param { ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, double]> | undefined } colors -
-     *     section colors of gauge drawing.
-     * @returns { GaugeAttribute } returns the instance of the GaugeAttribute.
+     仪表组件的剖面颜色。
+     * @returns { GaugeAttribute } 返回GaugeAttribute的实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     default colors(colors: ResourceColor | LinearGradient | Array<[ResourceColor | LinearGradient, double]> | undefined): this;
     /**
-     * Sets the thickness of the ring chart.
+     * 设置环形量规图的环形厚度。
      *
      * @param { Length | undefined } length
      * @returns { GaugeAttribute }
@@ -196,10 +207,14 @@ export declare interface GaugeAttribute extends CommonMethod {
      * @since 23 static
      */
     default strokeWidth(length: Length | undefined): this;
+  
     /**
-     * Sets description content of the ring chart.
+     * 设置说明内容。
      *
-     * @param { CustomBuilder | undefined | null } value - description content builder of the gauge drawing.
+     * @param { CustomBuilder | undefined | null } value - 说明内容。<br/>**说明：** <br/>@Builder中的内容由开发者自定义，建议使用文本或者图片。<br/>若自
+     *     定义部分的宽高为百分比形式，则基准范围为圆环直径的44.4%*25.4%的矩形（图片为28.6%*28.6%），距离圆环底部0vp，左右居中。<br/>设置null则不显示内容。<br/>设置undefined等同于不
+     *     设置。<br/>不设置则依赖是否设置数据最大最小值。<br/>若设置最大最小值或者只设置其中一个，则显示最大最小值。<br/>若未设置最大最小值，则不显示内容。<br/>最大最小值显示在圆环底部，位置不可移动，若圆环开
+     *     口角度设置不恰当，存在圆环遮挡文字的情况。
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -207,9 +222,10 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default description(value: CustomBuilder | undefined | null): this;
     /**
-     * Sets track shadow of the ring chart.
+     * 设置阴影样式。
      *
-     * @param { GaugeShadowOptions | undefined | null } value - track shadow options of the gauge drawing.
+     * @param { GaugeShadowOptions | undefined | null } value - 添加阴影效果，可以指定模糊半径、X轴和Y轴的偏移量。<br/>**说明：** <br/>阴影颜色与圆环颜色一致。
+     *     <br/>设置null为不开启投影。<br/>设置undefined时恢复默认阴影效果。
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -217,29 +233,33 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default trackShadow(value: GaugeShadowOptions | undefined | null): this;
     /**
-     * Sets indicator options of the ring chart.
+     * 设置指针样式。
      *
-     * @param { GaugeIndicatorOptions | undefined | null } value - indicator options of the gauge drawing.
-     * @returns { GaugeAttribute }  returns the instance of the GaugeAttribute.
+     * @param { GaugeIndicatorOptions | undefined | null } value - 指针样式。<br/>**说明：** <br/>设置null则不显示指针。<br/>设置undefined则
+     *     显示默认指针样式。
+     * @returns { GaugeAttribute }  返回GaugeAttribute的实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     default indicator(value: GaugeIndicatorOptions | undefined | null): this;
     /**
-     * Sets if mark to privacy sensitive.
+     * 设置隐私敏感。
      *
-     * @param { boolean | undefined } isPrivacySensitiveMode - indicates if mark to  privacy sensitive .
-     * @returns { GaugeAttribute }  returns the instance of the GaugeAttribute.
+     * @param { boolean | undefined } isPrivacySensitiveMode - 设置隐私敏感。在隐私模式下，Gauge指针指向0位置，最大值最小值文本将被遮罩，量程显示灰色或底色。true表示打
+     *     开隐私敏感，false表示关闭隐私敏感。<!--Del--><br/>需要在卡片中使用Gauge，并用[FormComponent]{@link form_component}组件设置
+     *     [隐私遮罩](@link CommonMethod#obscured)属性，显示卡片时才有隐私遮罩效果。<!--DelEnd-->。
+     * @returns { GaugeAttribute }  返回GaugeAttribute的实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     default privacySensitive(isPrivacySensitiveMode: boolean | undefined): this;
     /**
-     * Set the content modifier of gauge.
+     * 定制Gauge内容区的方法。
      *
-     * @param { ContentModifier<GaugeConfiguration> | undefined } modifier - The content modifier of gauge.
+     * @param { ContentModifier<GaugeConfiguration> | undefined } modifier - 在Gauge组件上定制内容区的方法。<br/>modifier：内容修改器，开发者需要
+     *     自定义class实现ContentModifier接口。<br/>设置undefined时显示为默认内容。
      * @returns { GaugeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -247,7 +267,7 @@ export declare interface GaugeAttribute extends CommonMethod {
      */
     default contentModifier(modifier: ContentModifier<GaugeConfiguration> | undefined): this;
     /**
-     * Set the attribute modifier
+     * 设置组件的动态属性。
      *
      * @param { AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { GaugeAttribute }
@@ -258,10 +278,10 @@ export declare interface GaugeAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<GaugeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set Gauge options.
+     * 设置Gauge选项。
      *
-     * @param { GaugeOptions } options - Gauge constructor options
-     * @returns { GaugeAttribute } Returns the instance of the GaugeAttribute.
+     * @param { GaugeOptions } options - 构建Gauge的选项。
+     * @returns { GaugeAttribute } 返回Gauge属性的实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -269,9 +289,9 @@ export declare interface GaugeAttribute extends CommonMethod {
     default setGaugeOptions(options: GaugeOptions): this;
 }
 /**
- * Defines the Gauge component.
+ * 创建数据量规图表组件。
  *
- * @param { GaugeOptions } options - gauge options.
+ * @param { GaugeOptions } options - 数据量规图表组件参数。
  * @param { CustomBuilder } [content_]
  * @returns { GaugeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -286,10 +306,10 @@ export declare function Gauge(
 ): GaugeAttribute;
 
 /**
- * Defines Gauge Component.
+ * 定义Gauge组件。
  *
- * @param { CustomBuilderT<GaugeAttribute> } style - Gauge attribute instance
- * @param { CustomBuilder } [content_] - Child component
+ * @param { CustomBuilderT<GaugeAttribute> } style - Gauge属性的实例。
+ * @param { CustomBuilder } [content_] - 子组件。
  * @returns { GaugeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

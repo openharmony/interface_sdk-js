@@ -25,7 +25,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier } from "./common";
 
 /**
- * The challenge result based on input pattern for control pattern lock component.
+ * 图案密码状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,7 +33,7 @@ import { AttributeModifier } from "./common";
  */
 export declare enum PatternLockChallengeResult {
     /**
-     * The challenge result is correct.
+     * 图案密码正确。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -41,7 +41,7 @@ export declare enum PatternLockChallengeResult {
      */
     CORRECT = 1,
     /**
-     * The challenge result is wrong.
+     * 图案密码错误。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -50,7 +50,7 @@ export declare enum PatternLockChallengeResult {
     WRONG = 2
 }
 /**
- * Defines the options of active circle style.
+ * 圆环样式的参数说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -58,8 +58,8 @@ export declare enum PatternLockChallengeResult {
  */
 export declare interface CircleStyleOptions {
     /**
-     * The circle color when cell is active state.
-     * Default value: '#33182431'.
+     * 背景圆环颜色。
+     * 默认值：'# 33182431'。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -67,8 +67,8 @@ export declare interface CircleStyleOptions {
      */
     color?: ResourceColor;
     /**
-     * The circle radius when cell is active state.
-     * Default value: 1.833 (11/6) times of circleRadius.
+     * 背景圆环的半径。
+     * 默认值：circleRadius的1.833（即11/6）倍。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -76,8 +76,9 @@ export declare interface CircleStyleOptions {
      */
     radius?: LengthMetrics;
     /**
-     * Enable the wave effect when cell is active.
-     * Default value: true.
+     * 选中宫格圆点后的波浪效果开关。
+     * true：显示波浪效果；false：不显示波浪效果。
+     * 默认值：true。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -85,8 +86,9 @@ export declare interface CircleStyleOptions {
      */
     enableWaveEffect?: boolean;
     /**
-     * Enable the activity circle style displayed in the foreground.
-     * Default value: false.
+     * 背景圆环是否显示在宫格圆点上层。
+     * true：背景圆环显示在宫格圆点上层，遮盖宫格圆点；false：背景圆环显示在宫格圆点下层，不遮盖宫格圆点。
+     * 默认值：false。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -95,7 +97,7 @@ export declare interface CircleStyleOptions {
     enableForeground?: boolean;
 }
 /**
- * Provides methods for control pattern lock component.
+ * PatternLock组件的控制器，用于重置组件状态和设置图案密码的正确或错误状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -103,7 +105,7 @@ export declare interface CircleStyleOptions {
  */
 export declare class PatternLockController {
     /**
-     * A constructor used to create a PatternLockController instance.
+     * PatternLockController的构造函数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -111,7 +113,7 @@ export declare class PatternLockController {
      */
     constructor();
     /**
-     * Reset pattern lock.
+     * 重置组件状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -119,9 +121,9 @@ export declare class PatternLockController {
      */
     reset(): void;
     /**
-     * Sets the authentication challenge result for the pattern password.
+     * 设置图案密码的正确或错误状态。
      *
-     * @param { PatternLockChallengeResult } result - Authentication challenge result of the pattern password.
+     * @param { PatternLockChallengeResult } result - 图案密码状态。包括正确和错误状态。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -129,7 +131,9 @@ export declare class PatternLockController {
     setChallengeResult(result: PatternLockChallengeResult): void;
 }
 /**
- * Defines the PatternLock component attributes.
+ * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ *
+ * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -138,13 +142,13 @@ export declare class PatternLockController {
  */
 export declare interface PatternLockAttribute extends CommonMethod {
     /**
-     * Sets the width and height (same value) of the component.
+     * 设置组件的宽度和高度（宽高相同）。当设置为0或负数时，组件不显示。
      *
-     * <p><strong>NOTE</strong>:
-     * <br>If this attribute is set to 0 or a negative number, the component is not displayed.
-     * </p>
+     * > **说明：**
+     * >
+     * > PatternLock组件设置了通用属性宽高比[aspectRatio]{@link CommonMethod#aspectRatio}，且不等于1时（组件尺寸被设定为长方形），九宫格依然绘制为正方形（超出组件范围）。
      *
-     * @param { Length | undefined } value - Width and height of the component, Default value is 288vp.
+     * @param { Length | undefined } value - 组件的宽度和高度。默认值：288vp<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -152,13 +156,10 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default sideLength(value: Length | undefined): this;
     /**
-     * Sets the radius of the dots in a grid.
+     * 设置宫格中圆点的半径。设置为0或负数时，取默认值。
      *
-     * <p><strong>NOTE</strong>:
-     * <br>If this attribute is set to 0 or a negative value, the default value is used.
-     * </p>
-     *
-     * @param { Length | undefined } value - Radius of the dots in a grid, Default value is 6vp.
+     * @param { Length | undefined } value - 宫格中圆点的半径。<br/>默认值：6vp<br/>取值范围：(0, sideLength/11]。设置小于等于0的值时，按默认值处理；超过最大值时，
+     *     按最大值处理。<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -166,9 +167,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default circleRadius(value: Length | undefined): this;
     /**
-     * Sets the background color.
+     * 设置背景颜色。
      *
-     * @param { ResourceColor | undefined } value - Background color.
+     * @param { ResourceColor | undefined } value - 背景颜色，默认为透明色。<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -176,10 +177,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the fill color of the grid dot in the unselected state.
+     * 设置宫格圆点在“未选中”状态的填充颜色。
      *
-     * @param { ResourceColor | undefined } value - Fill color of the grid
-     *     dot in the unselected state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - 宫格圆点在“未选中”状态的填充颜色。<br/>默认值：'#ff182431'<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -187,10 +187,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default regularColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the fill color of the grid dot in the selected state.
+     * 设置宫格圆点在“选中”状态的填充颜色。
      *
-     * @param { ResourceColor | undefined } value - Fill color of the
-     *     grid dot in the selected state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - 宫格圆点在“选中”状态的填充颜色。<br/>默认值：'#ff182431'<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -198,11 +197,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default selectedColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the fill color of the grid dot in the activated state,
-     * which is when the dot is highlighted but not selected.
+     * 设置宫格圆点在“激活”状态的填充颜色，“激活”状态为手指经过圆点但还未选中的状态。
      *
-     * @param { ResourceColor | undefined } value - Fill color of the grid dot
-     *     in the activated state, Default value is '#ff182431'.
+     * @param { ResourceColor | undefined } value - 宫格圆点在“激活”状态的填充颜色。<br/>默认值：'#ff182431'<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -210,9 +207,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default activeColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the path color.
+     * 设置连线的颜色。
      *
-     * @param { ResourceColor | undefined } value - Path color, Default value is '#33182431'.
+     * @param { ResourceColor | undefined } value - 连线的颜色。<br/>默认值：'#33182431'<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -220,13 +217,10 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default pathColor(value: ResourceColor | undefined): this;
     /**
-     * Sets the width of the path stroke.
+     * 设置连线的宽度。设置为0或负数时连线不显示。
      *
-     * <p><strong>NOTE</strong>:
-     * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
-     * </p>
-     *
-     * @param { double | string | undefined } value - Width of the path stroke, Default value is 12vp.
+     * @param { double | string | undefined } value - 连线的宽度。<br/>默认值：12vp<br/>取值范围：(0, sideLength/3]，设置为0或负数时连线不显示，超过最大值
+     *     按最大值处理。<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -234,7 +228,7 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default pathStrokeWidth(value: double | string | undefined): this;
     /**
-     * Invoked when the pattern password input is complete.
+     * 密码输入结束时触发该回调。
      *
      * @param { Callback<Array<int>> | undefined } callback
      * @returns { PatternLockAttribute }
@@ -244,12 +238,10 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default onPatternComplete(callback: Callback<Array<int>> | undefined): this;
     /**
-     * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
-     * again after the input is complete.
+     * 设置在完成密码输入后再次在组件区域按下时是否重置组件状态。
      *
-     * @param { boolean | undefined } value - Whether to allow the user to reset
-     *     the component status (that is, clear the input) by
-     *     touching the component again after the input is complete, Default value is true.
+     * @param { boolean | undefined } value - 在完成密码输入后再次在组件区域按下时是否重置组件状态。<br/>true：完成密码输入后再次在组件区域按下时重置组件状态（即清除之前输入的密码）；
+     *     false：完成密码输入后再次在组件区域按下时不重置组件状态。<br/>默认值：true<br/>设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -257,9 +249,11 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default autoReset(value: boolean | undefined): this;
     /**
-     * Called when connecting to a grid dot.
+     * 密码输入选中宫格圆点时触发该回调。
      *
-     * @param {  Callback<int> | undefined } callback - A callback instance used when connection to a grid dot.
+     * 回调参数为选中宫格圆点顺序的数字，数字为选中宫格圆点的索引值（第一行圆点从左往右依次为0、1、2，第二行圆点从左往右依次为3、4、5，第三行圆点从左往右依次为6、7、8）。
+     *
+     * @param {  Callback<int> | undefined } callback - 密码输入选中宫格圆点时触发该回调。<br/>设置为undefined时不会执行回调。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -267,9 +261,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default onDotConnect(callback: Callback<int> | undefined): this;
     /**
-     * Sets the background circle style for the dots in a grid when they are in the activated state.
+     * 设置宫格圆点在“激活”状态下的背景圆环样式。
      *
-     * @param { CircleStyleOptions | undefined } options - Background circle style of the dots in the activated state.
+     * @param { CircleStyleOptions | undefined } options - 宫格圆点在“激活”状态的背景圆环样式。设置undefined时按默认样式处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -277,10 +271,10 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default activateCircleStyle(options: CircleStyleOptions | undefined): this;
     /**
-     * Sets whether unselected dots in the grid are automatically selected when the password path passes over them.
+     * 设置未选中的宫格圆点在密码路径经过时是否自动选中。
      *
-     * @param { boolean } skipped - Whether unselected dots in the grid are automatically selected when the password
-     *     path passes over them, Default value is false.
+     * @param { boolean } skipped - 未选中的宫格圆点在密码路径经过时是否自动选中。<br/>true：跳过选中密码路径经过的宫格圆点；false：自动选中密码路径经过的宫格圆点。默认值：false。<br
+     *     />设置undefined时按默认值处理。
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -288,7 +282,7 @@ export declare interface PatternLockAttribute extends CommonMethod {
      */
     default skipUnselectedPoint(skipped: boolean | undefined): this;
     /**
-     * Set the attribute modifier
+     * 设置组件的动态属性。
      *
      * @param { AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { PatternLockAttribute }
@@ -299,10 +293,10 @@ export declare interface PatternLockAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<PatternLockAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set PatternLock options.
+     * 设置PatternLock组件选项。
      *
-     * @param { PatternLockController } [controller] - pattern lock controller.
-     * @returns { PatternLockAttribute } Returns the instance of the PatternLockAttribute.
+     * @param { PatternLockController } [controller] - PatternLock组件控制器。
+     * @returns { PatternLockAttribute } 返回PatternLock属性实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -310,9 +304,9 @@ export declare interface PatternLockAttribute extends CommonMethod {
     default setPatternLockOptions(controller?: PatternLockController): this;
 }
 /**
- * Defines the PatternLock component.
+ * 创建图案密码锁组件。
  *
- * @param { PatternLockController } [controller] - pattern lock controller.
+ * @param { PatternLockController } [controller] - 设置PatternLock组件控制器，可用于重置组件状态和设置图案密码的正确或错误状态。
  * @returns { PatternLockAttribute } The attribute of the PatternLock.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -325,9 +319,9 @@ export declare function PatternLock(
 ): PatternLockAttribute;
 
 /**
- * Defines PatternLock Component.
+ * 定义PatternLock组件。
  *
- * @param { CustomBuilderT<PatternLockAttribute> } style - PatternLock attribute instance
+ * @param { CustomBuilderT<PatternLockAttribute> } style - PatternLock属性实例。
  * @returns { PatternLockAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

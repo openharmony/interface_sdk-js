@@ -24,7 +24,6 @@ import { CounterAttribute } from '@ohos.arkui.component';
 /**
  * Defines Counter Modifier
  *
- * @implements { CounterAttribute, AttributeModifier<CounterAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

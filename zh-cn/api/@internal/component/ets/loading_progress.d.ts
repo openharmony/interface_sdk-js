@@ -19,8 +19,8 @@
  */
 
 /**
- * Enumerates style types of **LoadingProgress**. This API is not recommended for use.
- *
+* 表示LoadingProgress的样式类型，不推荐使用。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -30,7 +30,7 @@
 declare enum LoadingProgressStyle {
 
   /**
-   * Default loading style.
+   * Default style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -41,7 +41,7 @@ declare enum LoadingProgressStyle {
   Default,
 
   /**
-   * Circular loading style.
+   * Announcement style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -52,7 +52,7 @@ declare enum LoadingProgressStyle {
   Circular,
 
   /**
-   * Comet-shaped loading style.
+   * The style of the track.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -64,17 +64,16 @@ declare enum LoadingProgressStyle {
 }
 
 /**
- * The **LoadingProgress** component is used to create a loading progress animation.
- *
- * The loading progress animation stops when the component is invisible. The component's visibility is determined by the
- * value of **ratios** in the
- * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
- * event callback: If the value is greater than 0, the component is visible.
- *
- * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
- *
+* 用于显示加载动效的组件。
+*
+* 加载动效在组件不可见时停止，组件的可见状态基于
+* [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+* 处理，可见阈值ratios大于0即视为可见状态。
+*
+* > **说明：**
+*
+* > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -85,10 +84,10 @@ declare enum LoadingProgressStyle {
 interface LoadingProgressInterface {
 
   /**
-   * Creates a loading progress component.
+   * 创建加载进度组件。
    *
    * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
@@ -98,10 +97,10 @@ interface LoadingProgressInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
- *
- * The [universal events]{@link common} are supported.
- *
+* 除支持[通用属性]{@link common}外，还支持以下属性。
+*
+* 支持[通用事件]{@link common}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -112,12 +111,12 @@ interface LoadingProgressInterface {
 declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttribute> {
 
   /**
-   * Sets the foreground color for the **LoadingProgress** component.
+   * 设置加载进度条前景色。
    *
-   * @param { ResourceColor } value - Foreground color of the **LoadingProgress** component.<br>Default value:<br>API
-   *     version 10 or earlier: **'#99666666'**<br>API version 11 or later: **'#ff666666'**
+   * @param { ResourceColor } value - 加载进度条的前景色。<br/>默认值：<br/>API version 10及以下：'#99666666'<br/>API version 11及以上：'#ff66
+   *     6666'
    * @returns { LoadingProgressAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @form [since 9]
    * @atomicservice [since 11]
@@ -126,14 +125,12 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
   color(value: ResourceColor): LoadingProgressAttribute;
 
   /**
-   * Sets whether to display the LoadingProgress animation. The component still takes up space in the layout when the
-   * loading animation is not shown. The universal attribute [Visibility]{@link Visibility}.Hidden hides the entire
-   * component area, including the regions specified by [border]{@link CommonMethod#border} and
-   * [padding]{@link CommonMethod#padding}. In contrast, when the value of **enableLoading** is set to **false**, only
-   * the loading animation itself is hidden without affecting the borders or other elements.
+   * 设置LoadingProgress动画是否显示。LoadingProgress动画不显示时，该组件依旧占位。通用属性[Visibility]{@link Visibility}.Hidden隐藏的是包括
+   * [border]{@link CommonMethod#border}、[padding]{@link CommonMethod#padding}等整个组件范围，而enableLoading=false只隐藏
+   * LoadingProgress本身动画内容，不包括border等。
    *
-   * @param { boolean } value - Whether to show the loading animation.<br>Default value: **true**. **true**: Show the
-   *     loading animation. **false**: Do not show the loading animation.
+   * @param { boolean } value - LoadingProgress动画是否显示。<br/>默认值：true，true表示显示LoadingProgress动画，false表示不显示LoadingProgress动
+   *     画。
    * @returns { LoadingProgressAttribute } the attribute of the LoadingProgress.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -144,10 +141,10 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
   enableLoading(value: boolean): LoadingProgressAttribute;
 
   /**
-   * Creates a content modifier.
+   * 定制LoadingProgress内容区的方法。
    *
-   * @param { ContentModifier<LoadingProgressConfiguration> } modifier - Content modifier to apply to the current
-   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
+   * @param { ContentModifier<LoadingProgressConfiguration> } modifier - 在LoadingProgress组件上，定制内容区的方法。<br/>modifier： 内容修
+   *     改器，开发者需要自定义class实现ContentModifier接口。
    * @returns { LoadingProgressAttribute} the attribute of the loading progress
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,9 +156,8 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 }
 
 /**
- * You need a custom class to implement the **ContentModifier** API. Inherits from
- * [CommonConfiguration]{@link CommonConfiguration}.
- *
+* 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -171,9 +167,9 @@ declare class LoadingProgressAttribute extends CommonMethod<LoadingProgressAttri
 declare interface LoadingProgressConfiguration extends CommonConfiguration<LoadingProgressConfiguration> {
 
   /**
-   * Whether to show the loading animation.
+   * LoadingProgress动画是否显示。
    *
-   * Default value: **true**. **true**: Show the loading animation. **false**: Do not show the loading animation.
+   * 默认值：true，true表示显示LoadingProgress动画，false表示不显示LoadingProgress动画。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,21 +181,20 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
 }
 
 /**
- * The **LoadingProgress** component is used to create a loading progress animation.
- *
- * The loading progress animation stops when the component is invisible. The component's visibility is determined by the
- * value of **ratios** in the
- * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
- * event callback: If the value is greater than 0, the component is visible.
- *
- * > **NOTE**
- *
- * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
- *
- * ###### Child Components
- *
- * Not supported
- *
+* 用于显示加载动效的组件。
+*
+* 加载动效在组件不可见时停止，组件的可见状态基于
+* [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+* 处理，可见阈值ratios大于0即视为可见状态。
+*
+* > **说明：**
+*
+* > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
+*
+* ###### 子组件
+*
+* 无
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
@@ -210,8 +205,8 @@ declare interface LoadingProgressConfiguration extends CommonConfiguration<Loadi
 declare const LoadingProgress: LoadingProgressInterface;
 
 /**
- * Loading Progress Extensions on Declarative Classes
- *
+* 定义Loading Progress组件实例。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
  * @form [since 9]
