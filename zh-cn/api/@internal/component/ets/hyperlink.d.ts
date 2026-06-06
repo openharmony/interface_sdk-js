@@ -19,11 +19,11 @@
  */
 
 /**
- * The **Hyperlink** component implements a link from a location in the component to another location.
- *
- * > **NOTE**
+ * 超链接组件，组件宽高范围内点击实现跳转。
+ * 
+ * > **说明：**
  * >
- * > - This component must be used with the system browser.
+ * > - 该组件仅支持与系统浏览器配合使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
@@ -35,14 +35,12 @@ interface HyperlinkInterface {
 
   /**
    *
-   * Defines the constructor of Hyperlink.
-   * @param { string | Resource } address - Web page to which the hyperlink is redirected.
-   * @param { string | Resource } content - Text displayed in the hyperlink.<br>Default value: **''**. If this parameter
-   *     is not passed and the component does not have child components, the value of the **address** parameter is
-   *     displayed by default.<br>**NOTE**<br>If this component has child components, the hyperlink text is not
-   *     displayed.
+   * 定义超链接组件构造函数。
+   * @param { string | Resource } address - Hyperlink组件跳转的网页。
+   * @param { string | Resource } content - Hyperlink组件中超链接显示文本。<br/>默认值：''。若不传该参数且组件内无子组件时，默认显示address参数值链接地址。<br/>
+   *     **说明：** <br/>组件内有子组件时，不显示超链接文本。
    * @returns { HyperlinkAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 20]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -51,7 +49,7 @@ interface HyperlinkInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
@@ -62,12 +60,11 @@ interface HyperlinkInterface {
 declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
 
   /**
-   * Sets the color of the hyperlink text.
+   * 设置超链接文本的颜色。
    *
-   * @param { Color | number | string | Resource } value - Color of the hyperlink text<br><!--RP1-->Default value: '#ff0
-   *     07dff', indicating blue.<!--RP1End-->
+   * @param { Color | number | string | Resource } value - 超链接文本的颜色。<br/><!--RP1-->默认值：'#ff007dff'，显示为蓝色。<!--RP1End-->
    * @returns { HyperlinkAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 20]
    * @atomicservice [since 11]
    * @since 7 dynamic
@@ -76,22 +73,21 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
 }
 
 /**
- * The **Hyperlink** component implements a link from a location in the component to another location.
- *
- * > **NOTE**
+ * 超链接组件，组件宽高范围内点击实现跳转。
+ * 
+ * > **说明：**
  * >
- * > -
+ * > - 该组件从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
  * >
- * > - This component must be used with the system browser.
- *
- * ###### Required Permissions
- *
- * If Internet access is required, you must apply for the **ohos.permission.INTERNET** permission. For details about how
- * to apply for a permission, see [Declaring Permissions](docroot://security/AccessToken/declare-permissions.md).
- *
- * ###### Child Components
- *
- * This component can contain the [Image]{@link image} child component.
+ * > - 该组件仅支持与系统浏览器配合使用。
+ * 
+ * ###### 需要权限
+ * 
+ * 跳转的目标应用使用网络时，需要申请权限ohos.permission.INTERNET。具体申请方式请参考[声明权限](docroot://security/AccessToken/declare-permissions.md)。
+ * 
+ * ###### 子组件
+ * 
+ * 可以包含[Image]{@link image}子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
@@ -102,7 +98,7 @@ declare class HyperlinkAttribute extends CommonMethod<HyperlinkAttribute> {
 declare const Hyperlink: HyperlinkInterface;
 
 /**
- * Defines Hyperlink Component instance.
+ * 定义超链接组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 20]
