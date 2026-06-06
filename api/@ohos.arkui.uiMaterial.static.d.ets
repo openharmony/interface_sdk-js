@@ -200,8 +200,125 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    ULTRA_THICK = 4
+    ULTRA_THICK = 4,
+
+    /**
+     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect,
+     * set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ULTRA_THIN_EC = 5,
+    /**
+     * Thin style. The material layer is thin, with a strong transparency effect, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    THIN_EC = 6,
+    /**
+     * Regular style. The material layer is regular, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    REGULAR_EC = 7,
+    /**
+     * Thick style. The blur effect is strong, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    THICK_EC = 8,
+    /**
+     * Ultra thick style, set on EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ULTRA_THICK_EC = 9,
+    /**
+     * Ultra thin style. The material layer is ultra thin, with a very strong transparency effect,
+     * set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ULTRA_THIN_EC_SUB = 10,
+    /**
+     * Thin style. The material layer is thin, with a strong transparency effect,
+     * set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    THIN_EC_SUB = 11,
+    /**
+     * Regular style. The material layer is regular, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    REGULAR_EC_SUB = 12,
+    /**
+     * Thick style. The blur effect is strong, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    THICK_EC_SUB = 13,
+    /**
+     * Ultra thick style, set on sub component of EffectComponent.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ULTRA_THICK_EC_SUB = 14
   }
+ 
+  /**
+   * Convert from ImmersiveMaterial to another ImmersiveMaterial set on EffectComponent.
+   *
+   * @param { uiMaterial.ImmersiveMaterial } material - The ImmersiveMaterial.
+   * @returns { uiMaterial.ImmersiveMaterial } The ImmersiveMaterial set on EffectComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export function convertToECMaterial(material: uiMaterial.ImmersiveMaterial) : uiMaterial.ImmersiveMaterial;
+  /**
+   * Convert from ImmersiveMaterial to another ImmersiveMaterial set on sub component of EffectComponent.
+   *
+   * @param { uiMaterial.ImmersiveMaterial } material - The ImmersiveMaterial.
+   * @returns { uiMaterial.ImmersiveMaterial } The ImmersiveMaterial set on sub component of EffectComponent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export function convertToECSubMaterial(material: uiMaterial.ImmersiveMaterial) : uiMaterial.ImmersiveMaterial;
 
   /**
    * The parameters of immersive material.
