@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { BuilderParam, Callback, Component, NavPathInfo, NavPathStack, NavigationMode, NavigationOptions, PopInfo, Builder, PageMapBuilder } from '@ohos.arkui.component';
