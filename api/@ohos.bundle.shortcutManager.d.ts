@@ -78,6 +78,29 @@ declare namespace shortcutManager {
   function deleteDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
 
   /**
+   * Updates a shortcut for the given user. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MANAGE_SHORTCUTS or
+   *     (ohos.permission.MANAGE_SHORTCUTS and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS)
+   * @param { ShortcutInfo } shortcutInfo - Shortcut information.
+   * @param { int } userId - User ID, which can be obtained by calling
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Verify permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundle name is not found.
+   * @throws { BusinessError } 17700004 - The specified user ID is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 18100002 - The specified shortcut to be updated is not found.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function updateDesktopShortcutInfo(shortcutInfo: ShortcutInfo, userId: int): Promise<void>;
+
+  /**
    * Obtains the information about all shortcuts of the given user.
    *
    * @permission ohos.permission.MANAGE_SHORTCUTS
