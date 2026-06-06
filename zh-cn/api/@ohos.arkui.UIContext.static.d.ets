@@ -18,7 +18,6 @@
 /**
  * @file
  * @kit ArkUI
- * @arkts 1.2
  */
 
 import { TextPickerDialogOptions, TextPickerDialogOptionsExt } from '@ohos.arkui.component';
