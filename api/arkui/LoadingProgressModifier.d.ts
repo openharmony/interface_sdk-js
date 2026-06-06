@@ -18,35 +18,21 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines LoadingProgress Modifier
  *
- * @extends LoadingProgressAttribute
- * @implements AttributeModifier<LoadingProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines LoadingProgress Modifier
- *
- * @extends LoadingProgressAttribute
- * @implements AttributeModifier<LoadingProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class LoadingProgressModifier extends LoadingProgressAttribute implements AttributeModifier<LoadingProgressAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { LoadingProgressAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

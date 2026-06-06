@@ -1,17 +1,17 @@
 /*
-  * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
+ * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * @file
@@ -19,61 +19,42 @@
  */
 
 /**
- * The challenge result based on input pattern for control pattern lock component.
- * @enum { number }
+ * Authentication challenge result of the pattern password.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * The challenge result based on input pattern for control pattern lock component.
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum PatternLockChallengeResult {
+
   /**
-   * The challenge result is correct.
+   * The pattern password is correct.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The challenge result is correct.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CORRECT = 1,
+
   /**
-   * The challenge result is wrong.
+   * The pattern password is incorrect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The challenge result is wrong.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   WRONG = 2
 }
 
 /**
- * Defines the options of active circle style.
+ * Describes the parameters of the ring style.
  *
- * @interface CircleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -81,10 +62,12 @@ declare enum PatternLockChallengeResult {
  * @since 12 dynamic
  */
 declare interface CircleStyleOptions {
+
   /**
-   * The circle color when cell is active state.
+   * Color of the background circle.
    *
-   * @type { ?ResourceColor }
+   * Default value: **'#33182431'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -94,9 +77,10 @@ declare interface CircleStyleOptions {
   color?: ResourceColor;
 
   /**
-   * The circle radius when cell is active state.
+   * Radius of the background circle.
    *
-   * @type { ?LengthMetrics }
+   * Default value: 1.833 times (that is, 11/6) of the value of [circleRadius]{@link PatternLockAttribute#circleRadius}
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -106,9 +90,12 @@ declare interface CircleStyleOptions {
   radius?: LengthMetrics;
 
   /**
-   * Enable the wave effect when cell is active.
+   * Whether to enable the wave effect after a grid dot is selected.
    *
-   * @type { ?boolean }
+   * **true** to enable; **false** otherwise.
+   *
+   * Default value: **true**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -118,9 +105,13 @@ declare interface CircleStyleOptions {
   enableWaveEffect?: boolean;
 
   /**
-   * Enable the activity circle style displayed in the foreground.
+   * Whether the background circle is displayed above the grid dot.
    *
-   * @type { ?boolean }
+   * **true**: The background ring is displayed above the grid dot to cover the grid dot. **false**: The background ring
+   * is displayed below the grid dot and does not cover the grid dot.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -131,496 +122,268 @@ declare interface CircleStyleOptions {
 }
 
 /**
- * Provides methods for control pattern lock component.
+ * Controller of the **PatternLock** component, which is used to reset the component status and challenge result of the
+ * pattern password.
+ *
+ * ###### Objects to Import
+ *
+ * ```ts
+ * patternLockController: PatternLockController = new PatternLockController()
+ * ```
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Provides methods for control pattern lock component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides methods for control pattern lock component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  */
 declare class PatternLockController {
+
   /**
-   * constructor.
+   * A constructor used to create a **PatternLockController** instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * A constructor used to create a PatternLockController instance.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   constructor();
 
   /**
-   * Reset pattern lock.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Reset pattern lock.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Resets the component status.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   reset();
 
   /**
-   * Set challenge result.
-   * @param { PatternLockChallengeResult } result - The challenge result based on input pattern.
+   * Challenge result of the pattern password.
+   *
+   * @param { PatternLockChallengeResult } result - Authentication challenge result of the pattern password. The status
+   *     can be correct or incorrect.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the authentication challenge result for the pattern password.
-   * @param { PatternLockChallengeResult } result - Authentication challenge result of the pattern password.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   setChallengeResult(result: PatternLockChallengeResult): void;
 }
 
 /**
- * Provides an interface for generating PatternLock.
+ * The **PatternLock** component allows users to use a pattern password for authentication. It enters the input state
+ * once a finger is pressed against it, and exits the input state and completes the input once the finger leaves the
+ * screen.
  *
- * @interface PatternLockInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Provides an interface for generating PatternLock.
+ * > **NOTE**
  *
- * @interface PatternLockInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides an interface for generating PatternLock.
+ * > - If you require additional features, use
+ * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
+ * > component<!--RP1-->
+ * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
+ * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link canvas} component. You can extend its
+ * > functionality as required.
  *
- * @interface PatternLockInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @noninterop
  */
 interface PatternLockInterface {
+
   /**
-   * Constructor.
+   * Creates a pattern lock component.
    *
-   * @param { PatternLockController } [controller] - controller
+   * @param { PatternLockController } [controller] - Controller of a component to reset the component status.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @param { PatternLockController } [controller]  controller
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @param { PatternLockController } [controller]  controller
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   (controller?: PatternLockController): PatternLockAttribute;
 }
 
 /**
- * Provides methods for attribute pattern lock component.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<PatternLockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Provides methods for attribute pattern lock component.
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<PatternLockAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides methods for attribute pattern lock component.
- *
- * @extends CommonMethod<PatternLockAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
+
   /**
-   * The square side length of pattern lock component.
+   * Sets the width and height (same value) of the component. If this attribute is set to **0** or a negative number,
+   * the component is not displayed.
    *
-   * @param { Length } value
+   * > **NOTE**
+   * >
+   * > When the **PatternLock** component has the universal attribute [aspectRatio]{@link CommonMethod#aspectRatio} set
+   * > and the ratio is not equal to 1 (the component is constrained to a rectangle), the nine‑grid pattern is still
+   * > drawn as a square, which exceeds the component's bounds.
+   *
+   * @param { Length } value - Width and height of the component. Default value: **288vp**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The square side length of pattern lock component.
-   *
-   * @param { Length } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the width and height (same value) of the component.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is set to 0 or a negative number, the component is not displayed.
-   * </p>
-   *
-   * @param { Length } value - Width and height of the component, Default value is 288vp.
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   sideLength(value: Length): PatternLockAttribute;
 
   /**
-   * Circle radius.
+   * Sets the radius of the dots in a grid. If this attribute is set to **0** or a negative value, the default value is
+   * used.
    *
-   * @param { Length } value
+   * @param { Length } value - Radius of the dots in a grid.<br>Default value: **6vp**<br>Value range: (0, sideLength/11
+   *     ]. If the value is less than or equal to **0**, the default value is used. If the value exceeds the maximum
+   *     value, the maximum value is used.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Circle radius.
-   *
-   * @param { Length } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the radius of the dots in a grid.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is set to 0 or a negative value, the default value is used.
-   * </p>
-   *
-   * @param { Length } value - Radius of the dots in a grid, Default value is 6vp.
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   circleRadius(value: Length): PatternLockAttribute;
 
   /**
-   * The background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The background color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the background color.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
    *
    * @param { ResourceColor } value - Background color.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   backgroundColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * Regular color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Regular color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the fill color of the grid dot in the unselected state.
    *
-   * @param { ResourceColor } value - Fill color of the grid dot in the unselected state, Default value is '#ff182431'.
+   * @param { ResourceColor } value - Fill color of the grid dot in the unselected state.<br>Default value:
+   *     **'#ff182431'**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   regularColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * The color when cell is selected.
+   * Fill color of the grid dot in the selected state.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Fill color of the grid dot in the selected state.<br>Default value:
+   *     **'#ff182431'**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The color when cell is selected.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the fill color of the grid dot in the selected state.
-   *
-   * @param { ResourceColor } value - Fill color of the grid dot in the selected state, Default value is '#ff182431'.
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   selectedColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * The color when cell is active state.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The color when cell is active state.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the fill color of the grid dot in the activated state, which is when the dot is highlighted but not selected.
    *
-   * @param { ResourceColor } value - Fill color of the grid dot in the activated state, Default value is '#ff182431'.
+   * @param { ResourceColor } value - Fill color of the grid dot in the activated state.<br>Default value:
+   *     **'#ff182431'**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   activeColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * The path line color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The path line color.
-   *
-   * @param { ResourceColor } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the path color.
    *
-   * @param { ResourceColor } value - Path color, Default value is '#33182431'.
+   * @param { ResourceColor } value - Path color.<br>Default value: **'#33182431'**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   pathColor(value: ResourceColor): PatternLockAttribute;
 
   /**
-   * The path line stroke width.
+   * Sets the width of the path stroke. If this attribute is set to **0** or a negative value, the path stroke is not
+   * displayed.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Width of the path stroke.<br>Default value: **12vp**<br>Value range: (0,
+   *     sideLength/3]. If the value is set to **0** or a negative number, the line is not displayed. If the value
+   *     exceeds the maximum value, the maximum value is used.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The path line stroke width.
-   *
-   * @param { number | string } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the width of the path stroke.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
-   * </p>
-   *
-   * @param { number | string } value - Width of the path stroke, Default value is 12vp.
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   pathStrokeWidth(value: number | string): PatternLockAttribute;
 
   /**
-   * Called when the pattern input completed.
-   *
-   * @param { function } callback
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the pattern input completed.
-   *
-   * @param { function } callback
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Invoked when the pattern password input is complete.
    *
-   * @param { function } callback
+   * @param { function } callback - Array of digits representing the indices of the selected grid dots, in the order
+   *     they were connected. Grid dots are indexed row-wise from top to bottom, left to right: The first row contains
+   *     indices 0, 1, 2; the second row 3, 4, 5; and the third row 6, 7, 8.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   onPatternComplete(callback: (input: Array<number>) => void): PatternLockAttribute;
 
-  /**
-   * Called when judging whether the input state can be reset by touch pattern lock.
-   *
-   * @param { boolean } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when judging whether the input state can be reset by touch pattern lock.
-   *
-   * @param { boolean } value
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Sets whether to allow the user to reset the component status (that is, clear the input) by touching the component
    * again after the input is complete.
    *
    * @param { boolean } value - Whether to allow the user to reset the component status (that is, clear the input) by
-   * touching the component again after the input is complete, Default value is true.
+   *     touching the component again after the input is complete.<br>**true**: yes; **false**: no<br>Default value:
+   *     **true**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   autoReset(value: boolean): PatternLockAttribute;
 
   /**
-   * Called when connecting to a grid dot.
-   * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
-   * @returns { PatternLockAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Invoked when a grid dot is connected during pattern password input.
    *
-   * @param { import('../api/@ohos.base').Callback<number> } callback - A callback instance used when connection to a grid dot.
+   * The callback parameter is an array of digits, where each digit represents the index of a selected grid dot, listed
+   * in the order they were connected. Grid dots are indexed row-wise from top to bottom, left to right: The first row
+   * contains indices 0, 1, 2; the second row 3, 4, 5; and the third row 6, 7, 8.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { import('../api/@ohos.base').Callback<number> } callback - Invoked when a grid dot is connected during
+   *     pattern password input.
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onDotConnect(callback: import('../api/@ohos.base').Callback<number>): PatternLockAttribute;
 
@@ -638,10 +401,11 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
   activateCircleStyle(options: Optional<CircleStyleOptions>): PatternLockAttribute;
 
   /**
-   * Sets whether unselected dots in the grid are automatically selected when the password path passes over them.
+   * Sets whether unselected dots in the grid are automatically skipped when the password path passes over them.
    *
-   * @param { boolean } skipped - Whether unselected dots in the grid are automatically selected when the password
-   * path passes over them, Default value is false.
+   * @param { boolean } skipped - Whether unselected dots in the grid are automatically skipped when the password path
+   *     passes over them.<br>**true** to skip the unselected dots when the password path passes over them; **false**
+   *     otherwise. Default value: **false**
    * @returns { PatternLockAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -653,25 +417,28 @@ declare class PatternLockAttribute extends CommonMethod<PatternLockAttribute> {
 }
 
 /**
- * Defines PatternLock Component.
+ * The **PatternLock** component allows users to use a pattern password for authentication. It enters the input state
+ * once a finger is pressed against it, and exits the input state and completes the input once the finger leaves the
+ * screen.
+ *
+ * > **NOTE**
+ *
+ * > - If you require additional features, use
+ * > [custom components](docroot://ui/state-management/arkts-create-custom-components.md). For example, the custom
+ * > component<!--RP1-->
+ * > [CustomPatternLock](https://gitcode.com/openharmony/applications_app_samples/tree/master/code/UI/CustomPatternLock)
+ * > <!--RP1End--> implements the pattern lock function using the [Canvas]{@link canvas} component. You can extend its
+ * > functionality as required.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines PatternLock Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines PatternLock Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const PatternLock: PatternLockInterface;
 
@@ -679,21 +446,9 @@ declare const PatternLock: PatternLockInterface;
  * Defines PatternLock Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines PatternLock Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines PatternLock Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
+ * @noninterop
  */
 declare const PatternLockInstance: PatternLockAttribute;

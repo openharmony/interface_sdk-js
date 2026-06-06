@@ -18,25 +18,20 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines QRCode Modifier
  *
- * @extends QRCodeAttribute
- * @implements AttributeModifier<QRCodeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
-*/
+ */
 export declare class QRCodeModifier extends QRCodeAttribute implements AttributeModifier<QRCodeAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { QRCodeAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

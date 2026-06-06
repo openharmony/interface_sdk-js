@@ -24,7 +24,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier } from "./common";
 
 /**
- * DataPanelType enum
+ * 数据面板的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -49,7 +49,7 @@ export declare enum DataPanelType {
     Circle
 }
 /**
- * ColorStop type
+ * 颜色断点类型，用于描述渐进色颜色断点。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -57,7 +57,7 @@ export declare enum DataPanelType {
  */
 export declare interface ColorStop {
     /**
-     * Color property.
+     * 渐变色断点处的颜色值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -65,7 +65,13 @@ export declare interface ColorStop {
      */
     color: ResourceColor;
     /**
-     * Offset property.
+     * 渐变色断点（0~1之间的比例值，若数据值小于0则置为0，若数据值大于1则置为1）。
+     *
+     * **说明：**
+     *
+     * 若传入字符串类型且内容为数字，则转换为对应的数值。
+     *
+     * 例如'10vp'转换为10，'10%'转换为0.1。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -74,7 +80,7 @@ export declare interface ColorStop {
     offset: Length;
 }
 /**
- * LinearGradient class
+ * 线性渐变颜色类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -82,17 +88,18 @@ export declare interface ColorStop {
  */
 export declare class LinearGradient {
     /**
-     * Constructor.
+     * 创建线性渐变颜色对象。
      *
-     * @param { ColorStop[] } colorStops - the LinearGradient constructor parameter.
+     * @param { ColorStop[] } colorStops - 渐变颜色和渐变点。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     constructor(colorStops: ColorStop[]);
 }
+
 /**
- * Defines the options of Shadow.
+ * DataPanelShadowOptions继承自[MultiShadowOptions]{@link MultiShadowOptions}，具有MultiShadowOptions的全部属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -100,7 +107,10 @@ export declare class LinearGradient {
  */
 export declare interface DataPanelShadowOptions extends MultiShadowOptions {
     /**
-     * Current shadow colors.
+     * 各数据段投影的颜色。
+     * 默认值：与valueColors值相同
+     * **说明：**
+     * 若设置的投影颜色的个数少于数据段个数时，则显示的投影颜色的个数和设置的投影颜色个数一致。
      *
      * @default Consistent with valueColors
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -110,7 +120,7 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
     colors?: Array<ResourceColor | LinearGradient>;
 }
 /**
- * Defines the options of DataPanel.
+ * 数据面板选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -118,7 +128,7 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
  */
 export declare interface DataPanelOptions {
     /**
-     * Current data value. the max length is 9.
+     * 数据值列表，最多包含9个数据，大于9个数据则取前9个数据。若数据值小于0则置为0。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -126,8 +136,9 @@ export declare interface DataPanelOptions {
      */
     values: double[];
     /**
-     * Maximum value of the current data.
-     * Default value: 100.
+     * max大于0时，表示数据的最大值。
+     * - max小于等于0时，max等于value数组各项的和，按比例显示。
+     * 默认值：100。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -135,8 +146,8 @@ export declare interface DataPanelOptions {
      */
     max?: double;
     /**
-     * DataPanel Type.
-     * Default value: DataPanelType.Circle.
+     * 数据面板的类型（不支持动态修改）。
+     * 默认值：DataPanelType.Circle。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -144,16 +155,17 @@ export declare interface DataPanelOptions {
      */
     type?: DataPanelType;
 }
+
 /**
- * DataPanelConfiguration used by dataPanel content modifier
- *
+* 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface DataPanelConfiguration extends CommonConfiguration<DataPanelConfiguration> {
     /**
-     * Current data value. the max length is 9.
+     * 数据值列表，最多包含9个数据，大于9个数据则取前9个数据。若数据值小于0则置为0。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -161,7 +173,13 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
      */
     values: double[];
     /**
-     * Maximum value of the current data.
+     * DataPanel显示的最大值。
+     *
+     * 默认值：100。
+     *
+     * **说明：**
+     *
+     * 如果小于或等于0，maxValue将被设为values数组中所有项的总和，并按比例显示。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -170,7 +188,9 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
     maxValue: double;
 }
 /**
- * Defines the Button component attributes.
+ * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ *
+ * 支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -179,7 +199,8 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
  */
 export declare interface DataPanelAttribute extends CommonMethod {
     /**
-     * Disable the special effect of the data ratio chart.
+     * 设置是否关闭数据占比图表旋转动效和投影效果。若未设置[trackShadow]{@link trackShadow}属性，则由该属性控制投影效果的开关，开启投影的效果为投影的默认效果。若设置了trackShadow属性，则由
+     * trackShadow属性值控制投影效果的开关。
      *
      * @param { boolean | undefined } value
      * @returns { DataPanelAttribute }
@@ -189,9 +210,18 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default closeEffect(value: boolean | undefined): this;
     /**
-     * Set the value colors of the data ratio chart.
+     * 设置各数据段颜色。
      *
-     * @param { Array<ResourceColor | LinearGradient> | undefined } value - the value colors of the data ratio chart.
+     * @param { Array<ResourceColor | LinearGradient> | undefined } value - 各数据段颜色，ResourceColor为纯色，LinearGradient为渐变色。默
+     *     认渐变色，其九段数据段默认颜色：[{ color: '#F7CE00', offset: 0 }, { color: '#F99B11', offset: 1 }]、
+     *     [{ color: '#F76223', offset: 0 }, { color: '#F2400A', offset: 1 }]、
+     *     [{ color: '#F772AC', offset: 0 }, { color: '#E65392', offset: 1 }]、
+     *     [{ color: '#A575EB', offset: 0 }, { color: '#A12DF7', offset: 1 }]、
+     *     [{ color: '#7B79F7', offset: 0 }, { color: '#4B48F7', offset: 1 }]、
+     *     [{ color: '#4B8AF3', offset: 0 }, { color: '#007DFF', offset: 1 }]、
+     *     [{ color: '#73C1E6', offset: 0 }, { color: '#4FB4E3', offset: 1 }]、
+     *     [{ color: '#A5D61D', offset: 0 }, { color: '#69D14F', offset: 1 }]、
+     *     [{ color: '#A2A2B0', offset: 0 }, { color: '#8E8E93', offset: 1 }]<br/>设置undefined时恢复默认值。
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -199,9 +229,9 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default valueColors(value: Array<ResourceColor | LinearGradient> | undefined): this;
     /**
-     * Set track background color of the data ratio chart.
+     * 设置底板颜色。
      *
-     * @param { ResourceColor | undefined } value - track background color of the data ratio chart.
+     * @param { ResourceColor | undefined } value - 底板颜色。<br/>默认值：'#08182431'，格式为十六进制ARGB值，前两位代表透明度。设置undefined时恢复默认值。
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -209,9 +239,11 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default trackBackgroundColor(value: ResourceColor | undefined): this;
     /**
-     * Set the stroke width of the data ratio chart.
+     * 设置圆环粗细。数据面板的类型为DataPanelType.Line时该属性不生效。
      *
-     * @param { Length | undefined } value - the stroke width of the data ratio chart.
+     * @param { Length | undefined } value - 圆环粗细。<br/>默认值：24<br/>单位：vp<br/>设置字符串类型参数时，如果不指定单位，默认单位为px，例如'10'，等同于'10px'。
+     *     <br/>**说明：**<br/>设置小于0的值时，按默认值显示。<br/>设置undefined时恢复默认值。<br/>请合理设置圆环粗细，当value大于圆环半径时，圆环粗细会自动设置为圆环半径的12%。如果
+     *     value过大，圆环可能会消失。
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -219,9 +251,10 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default strokeWidth(value: Length | undefined): this;
     /**
-     * Set the shadow width of the data ratio chart.
+     * 设置投影样式。
      *
-     * @param { DataPanelShadowOptions | undefined | null } value - the track shadow width of the data ratio chart.
+     * @param { DataPanelShadowOptions | undefined | null } value - 投影样式。<br/>**说明：** <br/>设置为null时，不开启投影。<br/>设置
+     *     undefined时恢复默认投影样式。
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -229,9 +262,10 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default trackShadow(value: DataPanelShadowOptions | undefined | null): this;
     /**
-     * Set the content modifier of data panel.
+     * 定制DataPanel内容区的方法。
      *
-     * @param { ContentModifier<DataPanelConfiguration> | undefined } modifier - The content modifier of data panel.
+     * @param { ContentModifier<DataPanelConfiguration> | undefined } modifier - 在DataPanel组件上，定制内容区的方法。<br/>modifier： 内
+     *     容修改器，开发者需要自定义class实现ContentModifier接口。<br/>设置undefined时显示为默认内容。
      * @returns { DataPanelAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -239,7 +273,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
      */
     default contentModifier(modifier: ContentModifier<DataPanelConfiguration> | undefined): this;
     /**
-     * Set the attribute modifier
+     * 设置组件的动态属性。
      *
      * @param { AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
@@ -250,10 +284,10 @@ export declare interface DataPanelAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<DataPanelAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set DataPanel options.
+     * 设置DataPanel选项。
      *
-     * @param { DataPanelOptions } options - DataPanel constructor options
-     * @returns { DataPanelAttribute } Returns the instance of the DataPanelAttribute.
+     * @param { DataPanelOptions } options - 创建DataPanel的选项。
+     * @returns { DataPanelAttribute } 返回DataPanel属性的实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -261,9 +295,9 @@ export declare interface DataPanelAttribute extends CommonMethod {
     default setDataPanelOptions(options: DataPanelOptions): this;
 }
 /**
- * Defines the DataPanel component.
+ * 创建数据面板组件。
  *
- * @param { DataPanelOptions } options - data panel options.
+ * @param { DataPanelOptions } options - 数据面板组件参数。
  * @returns { DataPanelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -276,9 +310,9 @@ export declare function DataPanel(
 ): DataPanelAttribute;
 
 /**
- * Defines DataPanel Component.
+ * 定义DataPanel组件。
  *
- * @param { CustomBuilderT<DataPanelAttribute> } style - DataPanel attribute instance
+ * @param { CustomBuilderT<DataPanelAttribute> } style - DataPanel属性实例。
  * @returns { DataPanelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -18,13 +18,16 @@
  * @file
  * @kit ArkUI
  */
+
 import { CommonMethod } from './common';
 import { VoidCallback } from "./units";
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
- * Defines the Counter component attributes.
+ * 除支持[通用属性](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md)外，还支持以下属性。
+ *
+ * 除支持[通用事件](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md)外，还支持以下事件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,8 +36,7 @@ import { AttributeModifier } from "./common";
  */
 export declare interface CounterAttribute extends CommonMethod {
     /**
-     * Listen to the event that the value increases.
-     * Anonymous Object Rectification.
+     * 监听数值增加事件。
      *
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
@@ -44,8 +46,7 @@ export declare interface CounterAttribute extends CommonMethod {
      */
     default onInc(event: VoidCallback | undefined): this;
     /**
-     * Listens to the number decrease event.
-     * Anonymous Object Rectification.
+     * 监听数值减少事件。
      *
      * @param { VoidCallback | undefined } event
      * @returns { CounterAttribute }
@@ -55,10 +56,10 @@ export declare interface CounterAttribute extends CommonMethod {
      */
     default onDec(event: VoidCallback | undefined): this;
     /**
-     * Indicates whether the decrease button of counter component is available or not.
+     * 设置“减少”按钮的禁用或使能。
      *
-     * @param { boolean | undefined } value - If true, the decrease button is available and can respond to
-     *     operations such as clicking. If false, click operations are not responded.
+     * @param { boolean | undefined } value - “减少”按钮禁用或使能。<br/>默认值：true，true表示使能“减少”按钮，false表示禁用“减少”按钮。<br/>设置undefined时
+     *     恢复默认值。
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -66,10 +67,10 @@ export declare interface CounterAttribute extends CommonMethod {
      */
     default enableDec(value: boolean | undefined): this;
     /**
-     * Indicates whether the increase button of counter component is available or not.
+     * 设置“增加”按钮的禁用或使能。
      *
-     * @param { boolean | undefined } value - If true, the increase button is available and can respond to
-     *     operations such as clicking. If false, click operations are not responded.
+     * @param { boolean | undefined } value - “增加”按钮禁用或使能。<br/>默认值：true，true表示使能“增加”按钮，false表示禁用“增加”按钮。<br/>设置undefined时
+     *     恢复默认值。
      * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -77,7 +78,7 @@ export declare interface CounterAttribute extends CommonMethod {
      */
     default enableInc(value: boolean | undefined): this;
     /**
-     * Set the attribute modifier
+     * 设置组件的动态属性。
      *
      * @param { AttributeModifier<BadgeAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
      * @returns { BadgeAttribute }
@@ -88,9 +89,9 @@ export declare interface CounterAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<CounterAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set Counter options.
+     * 设置Counter选项。
      *
-     * @returns { CounterAttribute } Returns the instance of the CounterAttribute.
+     * @returns { CounterAttribute } 返回Counter属性实例。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 staticonly
@@ -98,7 +99,7 @@ export declare interface CounterAttribute extends CommonMethod {
     default setCounterOptions(): this;
 }
 /**
- * Defines the Counter component.
+ * 创建计数器组件。
  *
  * @param { CustomBuilder } [content_]
  * @returns { CounterAttribute } The attribute of the Counter.
@@ -113,10 +114,10 @@ export declare function Counter(
 ): CounterAttribute;
 
 /**
- * Defines Counter Component.
+ * 定义Counter组件。
  *
- * @param { CustomBuilderT<CounterAttribute> } style - Counter attribute instance
- * @param { CustomBuilder } [content_] - Child component
+ * @param { CustomBuilderT<CounterAttribute> } style - Counter属性实例。
+ * @param { CustomBuilder } [content_] - 子组件。
  * @returns { CounterAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
