@@ -5329,7 +5329,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { int } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
    *     only as an expected value. The actual capacity is determined by the device hardware.
    * @returns { ImageReceiver } ImageReceiver instance.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageReceiver
    * @since 11 dynamic
    */
@@ -5392,7 +5393,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
    * @param { int } capacity - Maximum number of images that can be accessed at the same time. This parameter is used
    *     only as an expected value. The actual capacity is determined by the device hardware.
    * @returns { ImageCreator } ImageCreator instance.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types;
    * @syscap SystemCapability.Multimedia.Image.ImageCreator
    * @since 11 dynamic
    * @since 23 static
@@ -7566,8 +7568,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Sets the auxiliary picture information.
      *
      * @param { AuxiliaryPictureInfo } info - Auxiliary picture information.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types.
-     *     2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 13 dynamic
      * @since 23 static
@@ -14668,11 +14670,11 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *
      * @param { DecodingOptionsForPicture } options - Decoding options.
      * @returns { Promise<Picture> } Promise used to return the Picture object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Incorrect parameter types;
-     *     2.Parameter verification failed.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
-     *     a failure in converting an image into the desired pixel format. [since 24]
+     *     a failure in converting an image into the desired pixel format.
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
      */
