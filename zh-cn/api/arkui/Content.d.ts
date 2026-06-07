@@ -14,14 +14,14 @@
  */
 
 /**
- * Defines the base class for ComponentContent and NodeContent.
+ * 定义ComponentContent和NodeContent的基类。
  *
  * @file
  * @kit ArkUI
  */
 
 /**
- * Defines the base class for {@link ComponentContent} and {@link NodeContent}.
+ * 定义{@link ComponentContent}和{@link NodeContent}的基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

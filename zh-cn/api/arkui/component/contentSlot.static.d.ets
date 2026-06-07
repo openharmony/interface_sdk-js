@@ -1,3 +1,4 @@
+
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
@@ -26,7 +27,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
- * Define ContentSlot attribute, to prevent improper recursive usage of ContentSlot
+ * 定义ContentSlot属性，防止不当递归使用ContentSlot
  *
  * @interface ContentSlotAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -35,23 +36,24 @@ import { AttributeModifier, CommonMethod } from './common';
  * @noninterop
  */
 export declare interface ContentSlotAttribute {
+
   /**
-   * Set the component's source code redirection information.
+   * 设置组件源码重定向信息。
    *
-   * @param { string } sourceLine - the source code line.
-   * @param { string } [moduleName] - module to which the component belongs.
+   * @param { string } sourceLine - 源码行号。
+   * @param { string } [moduleName] - 组件所属模块名。
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   default debugLine(sourceLine: string, moduleName?: string): this;
 
   /**
-   * Sets content slot options.
+   * 设置ContentSlot选项。
    *
-   * @param { Content } content - Content to display.
-   * @returns { this } ContentSlotAttribute instance
+   * @param { Content } content - 要显示的内容。
+   * @returns { this } ContentSlotAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -59,8 +61,8 @@ export declare interface ContentSlotAttribute {
   setContentSlotOptions(content: Content): this;
 
   /**
-   * Notify ContentSlot has finished setting up its attributes.
-   *
+     * 通知ContentSlot已经完成属性设置。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -69,10 +71,10 @@ export declare interface ContentSlotAttribute {
 }
 
 /**
- * ContentSlot is returned when the parameter is transferred.
+ * 当内容添加到占位符组件时调用。
  *
- * @param { Content } content - Indicates the class object of NodeContent.
- * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
+ * @param { Content } content - Content作为ContentSlot的管理器，通过Native侧提供的接口，可以注册并触发ContentSlot的上下树事件回调以及管理ContentSlot的子组件。
+ * @returns { ContentSlotAttribute } * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -84,11 +86,10 @@ export declare function ContentSlot(
 ): ContentSlotAttribute;
 
 /**
- * Defines ContentSlot Component.It requires call setContentSlotOptions at start of the component attribute set-up,
- * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ * 定义ContentSlot组件。需要在组件属性设置开始时调用setContentSlotOptions，并在组件属性设置结束时调用applyAttributeFinish。
  *
- * @param { CustomBuilderT<ContentSlotAttribute> } style - the callback to set up ContentSlot's attributes.
- * @returns { ContentSlotAttribute } The attribute of the ContentSlot.
+ * @param { CustomBuilderT<ContentSlotAttribute> } style - 用于设置ContentSlot属性的回调。
+ * @returns { ContentSlotAttribute } ContentSlot属性对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly

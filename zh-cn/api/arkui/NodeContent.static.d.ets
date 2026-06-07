@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,66 +15,50 @@
  */
 
 /**
- * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link content_slot}.
- *
- * > **NOTE**
- * >
- * > - **NodeContent** objects do not support JSON serialization.
- *
  * @file
  * @kit ArkUI
  */
 
-import { Content } from './Content';
-
-import { FrameNode } from './FrameNode';
+import { Content } from 'arkui.Content';
+import { FrameNode } from 'arkui.FrameNode';
 
 /**
- * NodeContent is the entity encapsulation of the node content.
- *
+* NodeContent是节点内容的实体封装。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @since 23 static
  */
-export class NodeContent extends Content {
+export declare class NodeContent extends Content {
 
   /**
-   * A constructor used to create a **NodeContent** object.
+   * 构造函数
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 23 static
    */
   constructor();
 
   /**
-   * Adds a FrameNode to this **NodeContent** object.
+   * 根据参数将 FrameNode 添加到 NodeContent 中。
    *
-   * @param { FrameNode } node - FrameNode to add.
+   * @param { FrameNode } node - 待添加的 FrameNode。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
-   *     are included in the error message.
-   *     For example: "The parameter 'node' is invalid: it cannot be adopted." [since 22]
+   *     are included in the error message. For example: "The parameter 'node' is invalid: it cannot be adopted."
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 23 static
    */
   addFrameNode(node: FrameNode): void;
 
   /**
-   * Removes a FrameNode from this **NodeContent** object.
+   * 移除目标FrameNode。
    *
-   * @param { FrameNode } node - FrameNode to remove.
+   * @param { FrameNode } node - 被移除的FrameNode。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 23 static
    */
   removeFrameNode(node: FrameNode): void;
 }

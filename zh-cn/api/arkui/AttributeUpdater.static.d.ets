@@ -15,7 +15,7 @@
  */
 
 /**
- * @file Defines a modifier which can update attributes to native side.
+ * @file 将属性直接设置为组件，无需标记为状态变量即可直接触发UI刷新。
  * @kit ArkUI
  */
 
@@ -24,19 +24,21 @@ import { AttributeModifier } from '@ohos.arkui.component';
 import { RecordData } from '../@ohos.base';
 
 /**
- * function that returns by the function updateConstructorParams.
- *
+* 可以将属性更新到本地的修饰器。
+*
  * @param { FixedArray<RecordData> } params
  * @returns { T }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 返回当前组件。
  * @stagemodelonly
  * @since 23 static
  */
 export type Initializer<T> = (...params: FixedArray<RecordData>) => T;
 
 /**
- * Defines a modifier which can update attributes to native side.
- *
+* 为[AttributeModifier]{@link AttributeModifier}的实现类，开发者需要自定义class继承AttributeUpdater。
+*
+* 其中C代表组件的构造函数类型，比如Text组件的TextInterface，Image组件的ImageInterface等，仅在使用updateConstructorParams时才需要传递C类型。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -45,7 +47,7 @@ export type Initializer<T> = (...params: FixedArray<RecordData>) => T;
 export declare class AttributeUpdater<T> implements AttributeModifier<T> {
 
   /**
-   * Get attribute of the modifier.
+   * 获取AttributeUpdater中组件对应的属性类实例，通过该实例实现属性直通更新的功能。
    *
    * @returns { T | undefined } The attribute of the modifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -55,7 +57,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
   get attribute(): T | undefined;
 
   /**
-   * Defines a function for initialization.
+   * AttributeUpdater首次设置给组件时提供的样式。
    *
    * @param { T } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -65,7 +67,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
   initializeModifier(instance: T): void;
 
   /**
-   * Used to update constructor params.
+   * 用于更改组件的构造函数入参。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,7 +76,7 @@ export declare class AttributeUpdater<T> implements AttributeModifier<T> {
   get updateConstructorParams(): Initializer<T>;
 
   /**
-   * Defines a function executed when component changed.
+   * 绑定相同的自定义的Modifier对象，组件发生切换时，通过该接口通知到应用。
    *
    * @param { T } component
    * @syscap SystemCapability.ArkUI.ArkUI.Full

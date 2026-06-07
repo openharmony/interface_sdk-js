@@ -20,24 +20,31 @@
  */
 
 import { UIContext } from '@ohos.arkui.UIContext';
+
 import { FrameNode } from 'arkui.FrameNode';
+
 import { Size } from 'arkui.Graphics';
+
 import { TouchEvent, MouseEvent, AxisEvent } from '@ohos.arkui.component';
+
 import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
+
 import { RecordData } from '@ohos.base';
+
 import { CompetitionStrategy } from '@ohos.arkui.component';
+
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 /**
  * Render type of the node used for indicating that
  * if the node will be shown on the display or rendered to a texture
  *
- * @enum { number } Render type
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum NodeRenderType {
+
   /**
    * Display type. The node will be shown on the display.
    *
@@ -60,15 +67,15 @@ export declare enum NodeRenderType {
 /**
  * RenderOptions info.
  *
- * @interface RenderOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface RenderOptions {
+
   /**
    * The ideal size of the node.
-   * @type { ?Size } selfIdealSize - The ideal size of the node
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -77,7 +84,7 @@ export interface RenderOptions {
 
   /**
    * Render type of the node.
-   * @type { ?NodeRenderType } type - Render type of the node
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -85,8 +92,8 @@ export interface RenderOptions {
   type?: NodeRenderType;
 
   /**
-   * The surfaceId of a texture consumer
-   * @type { ?string } surfaceId - surfaceId of a consumer who can receive the texture of the Node
+   * The surfaceId of a texture consumer.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -99,7 +106,6 @@ export interface RenderOptions {
    * is a minimized FrameNode, which provide the smallest set of capabilities.
    * Default value: false.
    *
-   * @type { ?boolean } The default value is false. Indicates whether minimized mode is enabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -107,19 +113,18 @@ export interface RenderOptions {
   enableMinimized?: boolean;
 }
 
-
 /**
  * BuildOptions info.
  *
- * @interface BuildOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface BuildOptions {
+
   /**
    * Whether support the BuilderNode parallel creation.
-   * @type { ?boolean } useParallel - Indicates whether use parallel.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -130,7 +135,6 @@ export interface BuildOptions {
   /**
    * The LocalStorage of the Builder.
    *
-   * @type { ?LocalStorage } localStorage - The LocalStorage of the Builder.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -146,6 +150,7 @@ export interface BuildOptions {
  * @since 23 static
  */
 export declare class BuilderNode<T = undefined> {
+
   /**
    * Constructor.
    *
@@ -156,6 +161,7 @@ export declare class BuilderNode<T = undefined> {
    * @since 23 static
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
+
   /**
    * Build the BuilderNode with the builder.
    *
@@ -165,6 +171,7 @@ export declare class BuilderNode<T = undefined> {
    * @since 23 static
    */
   build(builder: WrappedBuilder<CustomBuilder>): void;
+
   /**
    * Build the BuilderNode with the builder.
    *
@@ -211,11 +218,24 @@ export declare class BuilderNode<T = undefined> {
   getFrameNode(): FrameNode | null;
 
   /**
-   * Dispatch touchEvent to targetNode.
-   *
-   * @param { TouchEvent } event - The touchEvent which will be sent to the targetNode.
-   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted to the targetNode, false
-   * otherwise.
+   * Dispatch the touchEvent to the FrameNode in the current BuilderNode.
+   * postTouchEvent dispatches the event from a middle node in the component tree downwards. To ensure the event is
+   * dispatched correctly, it needs to be transformed into the coordinate system of the parent component.
+   * <p><strong>Note:</strong>
+   * <br>The coordinates you pass in need to be converted to pixel values (px). If the BuilderNode has any
+   * <br>affine transformations applied to it, they must be taken into account and combined with the touch event
+   * <br>coordinates. In Webview, coordinate system transformations are already handled internally, so you can
+   * <br>directly dispatch the touch event without additional adjustments.
+   * <br>The postTouchEvent API can be called only once for the same timestamp.
+   * <br>UIExtensionComponent is not supported.
+   * </p>
+   * @param { TouchEvent } event - The touchEvent which will be sent.
+   * @returns { boolean } - Returns true if the TouchEvent has been successfully posted,
+   *     false otherwise.
+   *     If the event does not hit the expected component, ensure the following:
+   *     1. The coordinate system has been correctly transformed
+   *     2. The component is in an interactive state.
+   *     3. The event has been bound to the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -234,7 +254,12 @@ export declare class BuilderNode<T = undefined> {
   /**
    * Reuse the BuilderNode based on the provided parameters.
    *
-   * @param { RecordData } [param] - Parameters for reusing BuilderNode.
+   * @param { RecordData } [param] - Parameters for reusing BuilderNode. These parameters will be directly applied
+   *     to the reuse of all top-level custom components in the BuilderNode. They should include the content
+   *     required for the constructor parameters of each custom component; otherwise, undefined behavior may occur.
+   *     Calling this method will synchronously trigger the aboutToReuse lifecycle callback of the internal custom
+   *     components, with these parameters passed as the callback's input. The default value is undefined, in which
+   *     case the custom components in the BuilderNode will directly use the data source from the construction phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -289,6 +314,7 @@ export declare class BuilderNode<T = undefined> {
    * directly. The postInputEvent interface requires providing gesture coordinates relative to the window
    * coordinates within the input event peer. It is not recommended to forward the same event multiple times.
    * The postInputEvent parameter does not support UIExtensionComponent.
+   *
    * @param { InputEventType } event - The event which will be sent.
    * @returns { boolean } - Returns true if the event has been successfully posted, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -299,11 +325,29 @@ export declare class BuilderNode<T = undefined> {
 
   /**
    * Dispatch event to targetNode with competition strategy.
+   * postInputEventWithStrategy dispatches the event from a middle node in the component tree downwards. To ensure the
+   * event is dispatched correctly, the event coordinates need to be transformed into the coordinate system of the
+   * parent component.
    *
-   * @param { InputEventType  } event - The event which will be sent to the targetNode.
-   * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
+   * Notes:
+   * The input coordinate values need to be converted to pixels (px). Left mouse click events will be converted to
+   * touch events. When forwarding, note that if touch events and mouse events are bound to outer layers, it may
+   * cause coordinate offset. When injecting axis events, since axis events lack rotation axis information,
+   * injected events cannot trigger rotate gestures Forwarded events will undergo touch testing in the subtree of
+   * the target component where they are dispatched and trigger corresponding gestures. Original events will also
+   * trigger gestures in the current component's component tree. The competition outcome between these two types
+   * of gestures is not guaranteed. For developer-constructed events, required fields must be assigned values,
+   * such as the touches field for touch events and the scrollStep field for axis events. Also, ensure event
+   * completeness - for example, both DOWN and UP fields in TouchType for touch events must be present to prevent
+   * undefined behavior. Webview has already handled coordinate system transformations, so events can be dispatched
+   * directly. The postInputEvent interface requires providing gesture coordinates relative to the window
+   * coordinates within the input event peer. It is not recommended to forward the same event multiple times.
+   * The postInputEvent parameter does not support UIExtensionComponent.
+   *
+   * @param { InputEventType } event - The event which will be sent to the targetNode.
+   * @param { CompetitionStrategy } [competitionStrategy] - The competition strategy.
    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
-   *    false otherwise.
+   *     false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -311,11 +355,11 @@ export declare class BuilderNode<T = undefined> {
   postInputEventWithStrategy(event: InputEventType, competitionStrategy?: CompetitionStrategy): boolean;
 
   /**
-   * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, ComponentContent,
-   * or BuilderNode.
-   *
+   * Set if the BuilderNode inherits the freezing policy of the parent CustomComponent, BuilderNode, ComponentContent,
+   * ReactiveBuilderNode or ReactiveComponentContent.
    * @param { boolean } enabled - If the BuilderNode inherits the freezing policy of the parent CustomComponent,
-   *     ComponentContent, or BuilderNode.
+   *     BuilderNode, ComponentContent, ReactiveBuilderNode or ReactiveComponentContent. True to inherit, false not
+   *     to inherit.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -326,7 +370,9 @@ export declare class BuilderNode<T = undefined> {
 /**
  * Defines the event type used for posting.
  *
- * @typedef { TouchEvent | MouseEvent | AxisEvent } InputEventType
+ * @unionmember { TouchEvent }
+ * @unionmember { MouseEvent }
+ * @unionmember { AxisEvent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
@@ -341,6 +387,7 @@ export declare type InputEventType = TouchEvent | MouseEvent | AxisEvent;
  * @since 26.0.0 static
  */
 export declare class ReactiveBuilderNode {
+
   /**
    * Constructor.
    *
@@ -351,6 +398,7 @@ export declare class ReactiveBuilderNode {
    * @since 26.0.0 static
    */
   constructor(uiContext: UIContext, options?: RenderOptions);
+
   /**
    * Build the ReactiveBuilderNode with the builder.
    *
@@ -361,6 +409,7 @@ export declare class ReactiveBuilderNode {
    * @since 26.0.0 static
    */
   build(builder: CustomBuilder, options?: BuildOptions): void;
+
   /**
    * Get the FrameNode in ReactiveBuilderNode.
    *
@@ -375,6 +424,7 @@ export declare class ReactiveBuilderNode {
    * Dispatch the touchEvent to the FrameNode in the current ReactiveBuilderNode.
    * postTouchEvent dispatches the event from a middle node in the component tree downwards. To ensure the event is
    * dispatched correctly, it needs to be transformed into the coordinate system of the parent component.
+   *
    * <p><strong>Note:</strong>
    * <br>The coordinates you pass in need to be converted to pixel values (px). If the ReactiveBuilderNode has any
    * <br>affine transformations applied to it, they must be taken into account and combined with the touch event
@@ -491,11 +541,29 @@ export declare class ReactiveBuilderNode {
 
   /**
    * Dispatch event to targetNode with competition strategy.
+   * postInputEventWithStrategy dispatches the event from a middle node in the component tree downwards. To ensure the
+   * event is dispatched correctly, the event coordinates need to be transformed into the coordinate system of the
+   * parent component.
+   *
+   * Notes:
+   * The input coordinate values need to be converted to pixels (px). Left mouse click events will be converted to
+   * touch events. When forwarding, note that if touch events and mouse events are bound to outer layers, it may
+   * cause coordinate offset. When injecting axis events, since axis events lack rotation axis information,
+   * injected events cannot trigger rotate gestures Forwarded events will undergo touch testing in the subtree of
+   * the target component where they are dispatched and trigger corresponding gestures. Original events will also
+   * trigger gestures in the current component's component tree. The competition outcome between these two types
+   * of gestures is not guaranteed. For developer-constructed events, required fields must be assigned values,
+   * such as the touches field for touch events and the scrollStep field for axis events. Also, ensure event
+   * completeness - for example, both DOWN and UP fields in TouchType for touch events must be present to prevent
+   * undefined behavior. Webview has already handled coordinate system transformations, so events can be dispatched
+   * directly. The postInputEvent interface requires providing gesture coordinates relative to the window
+   * coordinates within the input event peer. It is not recommended to forward the same event multiple times.
+   * The postInputEvent parameter does not support UIExtensionComponent.
    *
    * @param { InputEventType  } event - The event which will be sent to the targetNode.
    * @param { CompetitionStrategy  } competitionStrategy - The competition strategy.
    * @returns { boolean } - Returns true if the event has been successfully posted to the targetNode,
-   *    false otherwise.
+   *     false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static

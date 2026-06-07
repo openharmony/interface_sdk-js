@@ -36,10 +36,9 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 export declare interface NodeContainerAttribute extends CommonMethod {
 
   /**
-   * Sets the attribute modifier.
+   * 设置属性修饰符。
    *
-   * @param { AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier -
-   *     instance of NodeController.
+   * @param { AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier - NodeController的实例。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -49,10 +48,10 @@ export declare interface NodeContainerAttribute extends CommonMethod {
         modifier: AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
   /**
-   * Sets NodeContainer options.
+   * 设置NodeContainer选项。
    *
-   * @param { NodeController } controller - Instance of controller of NodeContainer.
-   * @returns { this } NodeContainerAttribute instance
+   * @param { NodeController } controller - NodeContainer的控制器实例。
+   * @returns { this } NodeContainerAttribute实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -61,9 +60,9 @@ export declare interface NodeContainerAttribute extends CommonMethod {
 }
 
 /**
- * Defines NodeContainer Component
+ * 创建NodeContainer组件。
  *
- * @param { NodeController } controller - instance of NodeController.
+ * @param { NodeController } controller - 一个NodeController对象，其用于控制NodeContainer中的节点的上树和下树，反映NodeContainer容器的生命周期。
  * @returns { NodeContainerAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -76,11 +75,10 @@ export declare function NodeContainer(
 ): NodeContainerAttribute;
 
 /**
- * Defines NodeContainer Component. It requires call setNodeContainerOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * 定义NodeContainer组件。需要在组件属性设置开始时调用setNodeContainerOptions，并在组件属性设置结束时调用applyAttributeFinish。
  *
- * @param { CustomBuilderT<NodeContainerAttribute> } style - callback to set up NodeContainer's attributes.
- * @returns { NodeContainerAttribute } The attribute of NodeContainer.
+ * @param { CustomBuilderT<NodeContainerAttribute> } style - 用于设置NodeContainer属性的回调。
+ * @returns { NodeContainerAttribute } NodeContainer属性实例。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly

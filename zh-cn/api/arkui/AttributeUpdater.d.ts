@@ -14,15 +14,14 @@
  */
 
 /**
- * AttributeUpdater directly set attributes to a component to trigger UI re-renders, without marking them as
- * state variables.
+ * 将属性直接设置给组件，无需标记为状态变量即可直接触发UI更新。
  *
  * @file
  * @kit ArkUI
  */
 
 /**
- * Defines a decorator for updating attributes.
+ * 可以将属性更新到本地的修饰器。
  *
  * @returns { T } Current component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -34,10 +33,8 @@
 declare type Initializer<T> = () => T;
 
 /**
- * Represents the implementation class of AttributeModifier. You need to customize a class to inherit
- * AttributeUpdater.
- * C indicates the constructor type of the component, for example, TextInterface of the Text component and
- * ImageInterface of the Image component. It is required only when updateConstructorParams is used.
+ * 为[AttributeModifier]{@link AttributeModifier}的实现类，开发者需要自定义class继承AttributeUpdater。
+ * 其中C代表组件的构造函数类型，比如Text组件的TextInterface，Image组件的ImageInterface等，仅在使用updateConstructorParams时才需要传递C类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -49,11 +46,9 @@ declare type Initializer<T> = () => T;
 export declare class AttributeUpdater<T, C = Initializer<T>> implements AttributeModifier<T> {
 
   /**
-   * Defines the function for updating attributes in normal state.
+   * 定义正常态更新属性函数。
    *
-   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如Button组件的ButtonAttribute，Text组件的TextAttribute等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -63,11 +58,9 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   applyNormalAttribute?(instance: T): void;
 
   /**
-   * Initializes the component's attributes to the default values defined in this AttributeUpdater.
+   * AttributeUpdater首次设置给组件时提供的样式。
    *
-   * @param { T } instance - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } instance - 组件的属性类，用来标识进行属性设置的组件的类型，比如Button组件的ButtonAttribute，Text组件的TextAttribute等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -77,8 +70,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   initializeModifier(instance: T): void;
 
   /**
-   * Obtains the attribute class instance corresponding to the component in AttributeUpdater.
-   * The instance can then be used to directly update attributes.
+   * 获取AttributeUpdater中组件对应的属性类实例，通过该实例实现属性直通更新的功能。
    *
    * @returns { T | undefined } Returns the attribute class instance of the component in AttributeUpdater
    *     if it exists; returns undefined otherwise.
@@ -91,9 +83,7 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   get attribute(): T | undefined;
 
   /**
-   * The type is used to change the constructor input parameters of the
-   * component.C indicates the constructor type of the component, for example, TextInterface of the Text component and
-   * ImageInterface of the Image component.
+   * 用于更改组件的构造函数入参。C代表组件的构造函数类型，比如Text组件的TextInterface，Image组件的ImageInterface等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,11 +94,9 @@ export declare class AttributeUpdater<T, C = Initializer<T>> implements Attribut
   updateConstructorParams: C;
 
   /**
-   * Invoked to notify the application that the component bound to the same custom Modifier object changes.
+   * 绑定相同的自定义的Modifier对象，组件发生切换时，通过该接口通知到应用。
    *
-   * @param { T } component - Component attribute class, which identifies the type of component to which attributes
-   *     will be applied, for example, ButtonAttribute for the Button component and TextAttribute for the Text
-   *     component.
+   * @param { T } component - 组件的属性类，用来标识进行属性设置的组件的类型，比如Button组件的ButtonAttribute，Text组件的TextAttribute等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

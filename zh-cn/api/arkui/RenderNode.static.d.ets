@@ -1,3 +1,4 @@
+
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
@@ -24,7 +25,11 @@ import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation,
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
- * Defines RenderNode. Contains node tree operations and render property operations on node.
+ * Node将自定义节点的二级模块API组织在一起，方便开发者进行导出使用。
+ *
+ * > **说明：**
+ *
+ * > - 当前不支持在预览器中使用自定义节点。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,9 +47,9 @@ export declare class RenderNode {
   constructor();
 
   /**
-   * Add child to the end of the RenderNode's children.
+   * 向渲染节点的子节点列表末尾追加子节点。
    *
-   * @param { RenderNode } node - The node will be added.
+   * @param { RenderNode } node - 待添加的节点。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: its corresponding FrameNode
    *     cannot be adopted."
@@ -55,11 +60,10 @@ export declare class RenderNode {
   appendChild(node: RenderNode): void;
 
   /**
-   * Add child to the current RenderNode.
+   * 向当前渲染节点添加子节点。
    *
-   * @param { RenderNode } child - The node will be added.
-   * @param { RenderNode | null } sibling - The new node is added after this node. When sibling is null,
-   *     insert node as the first children of the node.
+   * @param { RenderNode } child - 待添加的子节点。
+   * @param { RenderNode | null } sibling - 新节点将在此节点之后添加。当sibling为null时，将节点插入为该节点的第一个子节点。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
    *     cannot be adopted."
@@ -352,9 +356,10 @@ export declare class RenderNode {
   get transform(): Matrix4;
 
   /**
-   * Set shadow color of the RenderNode.
+   * 设置RenderNode的阴影颜色。
    *
-   * @param { int } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
+   * @param { int } color - RenderNode的阴影颜色。颜色定义为数字表示的ARGB格式。
+   *     <br>取值限定为整数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -373,9 +378,9 @@ export declare class RenderNode {
   get shadowColor(): int;
 
   /**
-   * Set shadow offset of the RenderNode.
    *
-   * @param { NodeOffset } offset - the shadow offset of the RenderNode.
+   *
+   * @param { NodeOffset } offset - 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -503,7 +508,7 @@ export declare class RenderNode {
   set borderWidth(width: NodeEdges<double>);
 
   /**
-   * Get border width of the RenderNode.
+   * 获取RenderNode的边框宽度。
    *
    * @returns { NodeEdges<double> | undefined } - Returns the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -523,7 +528,7 @@ export declare class RenderNode {
   set borderColor(color: NodeEdges<int>);
 
   /**
-   * Get border color of the RenderNode.
+   * 获取RenderNode的边框颜色。
    *
    * @returns { NodeEdges<int> | undefined } - Returns the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -543,7 +548,7 @@ export declare class RenderNode {
   set borderRadius(radius: NodeBorderRadiuses);
 
   /**
-   * Get border radius of the RenderNode.
+   * 获取RenderNode的边界半径。
    *
    * @returns { NodeBorderRadiuses | undefined } - Returns the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -583,9 +588,9 @@ export declare class RenderNode {
   set shapeClip(shapeClip: ShapeClip);
 
   /**
-   * Get shape clip of the RenderNode.
+   * 获取RenderNode的形状裁剪属性
    *
-   * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
+   * @returns { ShapeClip } - 返回RenderNode的形状裁剪属性
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -642,9 +647,9 @@ export declare class RenderNode {
   dispose(): void;
 
   /**
-   * Get if the RenderNode is disposed.
+   * 获取RenderNode是否已解绑。
    *
-   * @returns { boolean } - Returns true if the RenderNode is disposed, false otherwise.
+   * @returns { boolean } - 如果RenderNode已解绑，返回true，否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -673,10 +678,9 @@ export declare class RenderNode {
   get lengthMetricsUnit(): LengthMetricsUnit;
 
   /**
-   * Set the background blur effect.
+   * 设置背景模糊效果。当参数为undefined时，移除背景模糊效果。
    *
-   * @param { BackgroundBlur | undefined } blurValue - The background blur effect.
-   *     If undefined, the background blur effect will be removed.
+   * @param { BackgroundBlur | undefined } blurValue - 背景模糊效果。undefined表示移除效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -684,9 +688,9 @@ export declare class RenderNode {
   set backgroundBlur(blurValue: BackgroundBlur | undefined);
 
   /**
-   * Get the background blur effect.
+   * 获取背景模糊效果。
    *
-   * @returns { BackgroundBlur } - Returns the background blur effect.
+   * @returns { BackgroundBlur } - 返回背景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -694,10 +698,9 @@ export declare class RenderNode {
   get backgroundBlur(): BackgroundBlur;
 
   /**
-   * Set the content blur effect.
+   * 设置内容模糊效果。当参数为undefined时，移除内容模糊效果。
    *
-   * @param { ContentBlur | undefined } blurValue - The content blur effect.
-   *     If undefined, the content blur effect will be removed.
+   * @param { ContentBlur | undefined } blurValue - 内容模糊效果。undefined表示移除效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -705,9 +708,9 @@ export declare class RenderNode {
   set contentBlur(blurValue: ContentBlur | undefined);
 
   /**
-   * Get the content blur effect.
+   * 获取内容模糊效果。
    *
-   * @returns { ContentBlur } - Returns the content blur effect.
+   * @returns { ContentBlur } - 返回内容模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -715,10 +718,9 @@ export declare class RenderNode {
   get contentBlur(): ContentBlur;
 
   /**
-   * Set the foreground blur effect.
+   * 设置前景模糊效果。当参数为undefined时，移除前景模糊效果。
    *
-   * @param { ForegroundBlur | undefined } blurValue - The foreground blur effect.
-   *     If undefined, the foreground blur effect will be removed.
+   * @param { ForegroundBlur | undefined } blurValue - 前景模糊效果。undefined表示移除效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -726,9 +728,9 @@ export declare class RenderNode {
   set foregroundBlur(blurValue: ForegroundBlur | undefined);
 
   /**
-   * Get the foreground blur effect.
+   * 获取前景模糊效果。
    *
-   * @returns { ForegroundBlur } - Returns the foreground blur effect.
+   * @returns { ForegroundBlur } - 返回前景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
