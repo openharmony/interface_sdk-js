@@ -31,6 +31,7 @@ import { AttributeModifier } from "./common";
  *
  * @interface TextPickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextPickerRangeContent {
@@ -40,6 +41,7 @@ export declare interface TextPickerRangeContent {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   icon: string | Resource;
@@ -53,6 +55,7 @@ export declare interface TextPickerRangeContent {
    * @type { ?(string | Resource) }
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   text?: string | Resource;
@@ -62,6 +65,7 @@ export declare interface TextPickerRangeContent {
  *
  * @interface TextCascadePickerRangeContent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare interface TextCascadePickerRangeContent {
@@ -74,6 +78,7 @@ export declare interface TextCascadePickerRangeContent {
    *
    * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   text: string | Resource;
@@ -82,6 +87,7 @@ export declare interface TextCascadePickerRangeContent {
    *
    * @type { ?TextCascadePickerRangeContent[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   children?: TextCascadePickerRangeContent[];
