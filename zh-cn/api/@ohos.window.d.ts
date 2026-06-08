@@ -11964,6 +11964,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error;
      *     3. The subWindow has been created and can not be created again.
+     *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported.
