@@ -12145,8 +12145,10 @@ declare namespace window {
      * [abilities](docroot://quick-start/module-configuration-file.md#abilities) tag in the **module.json5** file.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -12298,8 +12300,10 @@ declare namespace window {
      * [abilities](docroot://quick-start/module-configuration-file.md#abilities) tag in the **module.json5** file.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic

@@ -11410,17 +11410,17 @@ declare namespace window {
 
     /**
      * 应用部分界面支持横向布局时，在进入该界面时使能，使能后可支持进入横向多窗。不建议竖向布局界面使用。
-     * 
+     *
      * 此接口只对应用主窗口生效，且需要在module.json5配置文件中[abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中配
      * 置preferMultiWindowOrientation属性为"landscape_auto"。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002  - 该窗口状态异常。可能原因：窗口未创建或已销毁。
+     * @throws { BusinessError } 1300003  - 窗口管理器服务运行异常。可能原因：内部错误。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableLandscapeMultiWindow(): Promise<void>;
 
@@ -11524,17 +11524,17 @@ declare namespace window {
 
     /**
      * 应用部分界面支持横向布局时，在退出该界面时去使能，去使能后不支持进入横向多窗。
-     * 
+     *
      * 此接口只对应用主窗口生效，且需要在module.json5配置文件中[abilities](docroot://quick-start/module-configuration-file.md#abilities标签)标签中配
      * 置preferMultiWindowOrientation属性为"landscape_auto"。
      *
      * @returns { Promise<void> } 无返回结果的Promise对象。
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002  - 该窗口状态异常。可能原因：窗口未创建或已销毁。
+     * @throws { BusinessError } 1300003  - 窗口管理器服务运行异常。可能原因：内部错误。
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
-     * @since 24 static
+     * @since 26.0.0 static
      */
     disableLandscapeMultiWindow(): Promise<void>;
 
