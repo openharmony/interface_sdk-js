@@ -11699,7 +11699,7 @@ declare namespace window {
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
-     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: The window type is not system window or subwindows.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Only float windows, subwindows, dialog windows, or window type as system windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
