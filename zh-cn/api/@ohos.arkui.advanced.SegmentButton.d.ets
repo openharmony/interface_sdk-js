@@ -21,8 +21,8 @@
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Text button information.
- *
+* 文本按钮信息。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33,7 +33,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 interface SegmentButtonTextItem {
 
   /**
-   * Button text.
+   * 按钮文本。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,23 +44,21 @@ interface SegmentButtonTextItem {
   text: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility
-   * services.
+   * 无障碍重要性，控制当前组件是否可被无障碍辅助服务识别。
    *
-   * The options are as follows:
+   * 支持的值为:
    *
-   * **"auto"**: The component can be recognized by accessibility services.
+   * "auto"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -72,13 +70,11 @@ interface SegmentButtonTextItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility
-   * description, the text is read first, and then the accessibility description is read.
+   * 无障碍说明，为用户解释组件操作，设置详细解释文本，帮助用户理解操作后果。若组件有文本和无障碍说明，选中时先播报文本，再播报无障碍说明。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -91,12 +87,12 @@ interface SegmentButtonTextItem {
 }
 
 /**
- * Icon button information.
- *
- * > **NOTE**
- * >
- * > Both the **icon** and **selectedIcon** attributes must be set. Setting only one of them is invalid.
- *
+* 图标按钮信息。
+*
+* > **说明：**
+* >
+* > 未选中态的图标`icon`和选中态的图标`selectedIcon`都需设置，单独设置无效。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -107,9 +103,9 @@ interface SegmentButtonTextItem {
 interface SegmentButtonIconItem {
 
   /**
-   * Icon of the unselected item.
+   * 未选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -120,11 +116,11 @@ interface SegmentButtonIconItem {
   icon: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * 未选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -136,9 +132,9 @@ interface SegmentButtonIconItem {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * 选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -149,11 +145,11 @@ interface SegmentButtonIconItem {
   selectedIcon: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * 选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -165,23 +161,21 @@ interface SegmentButtonIconItem {
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility
-   * services.
+   * 无障碍重要性，控制当前组件是否可被无障碍辅助服务识别。
    *
-   * The options are as follows:
+   * 支持的值为:
    *
-   * **"auto"**: The component can be recognized by accessibility services.
+   * "auto"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -193,13 +187,11 @@ interface SegmentButtonIconItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility
-   * description, the text is read first, and then the accessibility description is read.
+   * 无障碍说明，为用户解释组件操作，设置详细解释文本，帮助用户理解操作后果。若组件有文本和无障碍说明，选中时先播报文本，再播报无障碍说明。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -212,12 +204,12 @@ interface SegmentButtonIconItem {
 }
 
 /**
- * Icon and text button information.
- *
- * > **NOTE**
- * >
- * > Both the **icon** and **selectedIcon** attributes must be set. Setting only one of them is invalid.
- *
+* 图标与文本按钮信息。
+*
+* > **说明：**
+* >
+* > 未选中态的图标`icon`和选中态的图标`selectedIcon`都需设置，单独设置无效。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -228,9 +220,9 @@ interface SegmentButtonIconItem {
 interface SegmentButtonIconTextItem {
 
   /**
-   * Icon of the unselected item.
+   * 未选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -241,11 +233,11 @@ interface SegmentButtonIconTextItem {
   icon: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * 未选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -257,9 +249,9 @@ interface SegmentButtonIconTextItem {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * 选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -270,11 +262,11 @@ interface SegmentButtonIconTextItem {
   selectedIcon: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * 选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -286,9 +278,9 @@ interface SegmentButtonIconTextItem {
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-   * Button text.
+   * 按钮文本。
    *
-   * If the value is undefined, no text is displayed.
+   * 值为undefined时，不显示文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -299,23 +291,21 @@ interface SegmentButtonIconTextItem {
   text: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility
-   * services.
+   * 无障碍重要性，控制当前组件是否可被无障碍辅助服务识别。
    *
-   * The options are as follows:
+   * 支持的值为:
    *
-   * **"auto"**: The component can be recognized by accessibility services.
+   * "auto"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -327,13 +317,11 @@ interface SegmentButtonIconTextItem {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility
-   * description, the text is read first, and then the accessibility description is read.
+   * 无障碍说明，为用户解释组件操作，设置详细解释文本，帮助用户理解操作后果。若组件有文本和无障碍说明，选中时先播报文本，再播报无障碍说明。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -346,13 +334,13 @@ interface SegmentButtonIconTextItem {
 }
 
 /**
- * The percentage length union type is not supported.
- *
- * @unionmember { PX } Length in px.
- * @unionmember { VP } Length in vp.
- * @unionmember { FP } Length in fp.
- * @unionmember { LPX } Length in lpx.
- * @unionmember { Resource } Resource reference type, which is used to set the value of a component attribute.
+* 不支持百分比类型的长度联合类型。
+*
+ * @unionmember { PX } Length  Length Length 长度类型，用于描述以px为单位的长度。
+ * @unionmember { VP } Length  Length Length 长度类型，用于描述以vp为单位的长度。
+ * @unionmember { FP } Length  Length Length 长度类型，用于描述以fp为单位的长度。
+ * @unionmember { LPX } Length  Length Length 长度类型，用于描述以lpx为单位的长度。
+ * @unionmember { Resource } Resource  Resource Resource 资源引用类型，用于设置组件属性的值。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -362,9 +350,8 @@ interface SegmentButtonIconTextItem {
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
- * Enumerates the border radius modes for the **SegmentButton** component, which are used to control the border radius
- * calculation method.
- *
+* 边框圆角模式枚举，用于控制分段按钮的圆角计算方式。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -374,7 +361,7 @@ declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 declare enum BorderRadiusMode {
 
   /**
-   * Default mode, where the framework automatically calculates the border radius.
+   * 默认模式，框架自动计算边框圆角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -385,7 +372,7 @@ declare enum BorderRadiusMode {
   DEFAULT = 0,
 
   /**
-   * Custom mode, where the border radius is set by the developer.
+   * 自定义模式，开发者设置边框圆角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -397,8 +384,8 @@ declare enum BorderRadiusMode {
 }
 
 /**
- * Defines the customizable attributes of a segment button component.
- *
+* 定义分段按钮组件的可自定义的属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -409,9 +396,9 @@ declare enum BorderRadiusMode {
 interface CommonSegmentButtonOptions {
 
   /**
-   * Text color of the unselected button.
+   * 分段按钮组件的按钮未选中态的文本颜色。
    *
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_secondary').
+   * 值为undefined时，颜色为$r('sys.color.ohos_id_color_text_secondary')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -422,12 +409,11 @@ interface CommonSegmentButtonOptions {
   fontColor?: ResourceColor;
 
   /**
-   * Text color of the selected button.
+   * 分段按钮组件的按钮选中态的文本颜色。
    *
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_primary') when type is set to
-   * **"tab"**.
+   * 值为undefined时，type为"tab"时，颜色为`$r('sys.color.ohos_id_color_text_primary')`。
    *
-   * When type is set to **"capsule"**, the color is $r('sys.color.ohos_id_color_foreground_contrary').
+   * type为"capsule"时，颜色为`$r('sys.color.ohos_id_color_foreground_contrary')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -438,11 +424,11 @@ interface CommonSegmentButtonOptions {
   selectedFontColor?: ResourceColor;
 
   /**
-   * Font size of the unselected item. It cannot be set in percentage.
+   * 按钮未选中态的字体大小（不支持百分比设置）。
    *
-   * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 默认值：$r('sys.float.ohos_id_text_size_body2')
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -454,11 +440,11 @@ interface CommonSegmentButtonOptions {
   fontSize?: DimensionNoPercentage;
 
   /**
-   * Font size of the selected item. It cannot be set in percentage.
+   * 按钮选中态的字体大小（不支持百分比设置）。
    *
-   * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 默认值：$r('sys.float.ohos_id_text_size_body2')
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default $r('sys.float.ohos_id_text_size_body2')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -470,11 +456,11 @@ interface CommonSegmentButtonOptions {
   selectedFontSize?: DimensionNoPercentage;
 
   /**
-   * Font weight of the unselected item.
+   * 按钮未选中态的字体粗细。
    *
-   * Default value: **FontWeight.Regular**
+   * 默认值：FontWeight.Regular
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default FontWeight.Regular
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -486,11 +472,11 @@ interface CommonSegmentButtonOptions {
   fontWeight?: FontWeight;
 
   /**
-   * Font weight of the selected item.
+   * 按钮选中态的字体粗细。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default FontWeight.Medium
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -502,11 +488,11 @@ interface CommonSegmentButtonOptions {
   selectedFontWeight?: FontWeight;
 
   /**
-   * Background color.
+   * 背景板颜色。
    *
-   * Default value: **$r('sys.color.ohos_id_color_button_normal')**
+   * 默认值：$r('sys.color.ohos_id_color_button_normal')
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default $r('sys.color.ohos_id_color_button_normal')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -518,12 +504,11 @@ interface CommonSegmentButtonOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background color of the selected button.
+   * 分段按钮组件的按钮选中态背景板颜色。
    *
-   * When the value is **undefined** and **type** is **"tab"**, the background color is
-   * **$r('sys.color.segment_button_checked_foreground_color')**.
+   * 值为undefined时，type为"tab"时，背景板颜色为`$r('sys.color.segment_button_checked_foreground_color')`。
    *
-   * When **type** is **"capsule"**, the background color is **$r('sys.color.ohos_id_color_emphasize')**.
+   * type为"capsule"时，背景板颜色为`$r('sys.color.ohos_id_color_emphasize')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -534,17 +519,17 @@ interface CommonSegmentButtonOptions {
   selectedBackgroundColor?: ResourceColor;
 
   /**
-   * Defines the image size.
+   * 图片尺寸。
    *
-   * Default value: { width: 24, height: 24 }
+   * 默认值：{ width: 24, height: 24 }
    *
-   * Unit: vp
+   * 单位：vp
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * The **imageSize** property takes effect only for icon-only and icon-with-text buttons.
+   * `imageSize`属性仅对图标按钮和图标+文本按钮生效，对纯文本按钮无效果。
    *
    * @default SizeOptions { width: 24, height: 24 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -556,17 +541,17 @@ interface CommonSegmentButtonOptions {
   imageSize?: SizeOptions;
 
   /**
-   * Button padding.
+   * 按钮内边距。
    *
-   * Default value:
+   * 默认值：
    *
-   * For icon buttons and text buttons: { top: 4, right: 8, bottom: 4, left: 8 }
+   * 仅图标按钮和仅文字按钮默认值：`{ top: 4, right: 8, bottom: 4, left: 8 }`
    *
-   * For icon+text buttons: { top: 6, right: 8, bottom: 6, left: 8 }
+   * 图标+文本按钮默认值：`{ top: 6, right: 8, bottom: 6, left: 8 }`
    *
-   * Unit: vp
+   * 单位：vp
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default For text only / icon only buttons Padding { top: 4, right: 8, bottom: 4, left: 8 }.
    *     For text & icon buttons Padding { top: 6, right: 8, bottom: 6, left: 8 }.
@@ -579,18 +564,17 @@ interface CommonSegmentButtonOptions {
   buttonPadding?: Padding | Dimension;
 
   /**
-   * Button padding.
+   * 按钮内边距。
    *
-   * Default value:
+   * 默认值：
    *
-   * Icon button and text button:
-   * **{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }**.
+   * 仅图标按钮和仅文字按钮默认值：
+   * `{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }`
    *
-   * Icon + text button:
-   * **{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) **}
-   * .
+   * 图标+文本按钮默认值：
+   * `{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default For text only / icon only buttons LocalizedPadding
    *     { top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }
@@ -607,13 +591,13 @@ interface CommonSegmentButtonOptions {
   localizedButtonPadding?: LocalizedPadding;
 
   /**
-   * Text padding.
+   * 文本内边距。
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * Unit: vp
+   * 单位：vp
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -625,11 +609,11 @@ interface CommonSegmentButtonOptions {
   textPadding?: Padding | Dimension;
 
   /**
-   * Text padding.
+   * 文本内边距。
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -640,9 +624,9 @@ interface CommonSegmentButtonOptions {
   localizedTextPadding?: LocalizedPadding;
 
   /**
-   * Background blur style of the component.
+   * 分段按钮组件的背景模糊材质。
    *
-   * If the value is **undefined**, it defaults to **BlurStyle.NONE**.
+   * 值为undefined时，背景模糊材质为BlurStyle.NONE。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -653,11 +637,11 @@ interface CommonSegmentButtonOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Layout direction of the component.
+   * 分段按钮组件的布局方向。
    *
-   * Default value: **Direction.Auto**
+   * 默认值：Direction.Auto
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -668,11 +652,11 @@ interface CommonSegmentButtonOptions {
   direction?: Direction;
 
   /**
-   * Border radius mode, used to control the border radius calculation method.
+   * 边框圆角模式，用于控制圆角计算方式。
    *
-   * Default value: **BorderRadiusMode.DEFAULT**
+   * 默认值：BorderRadiusMode.DEFAULT
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default BorderRadiusMode.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -684,21 +668,19 @@ interface CommonSegmentButtonOptions {
   borderRadiusMode?: BorderRadiusMode;
 
   /**
-   * Container border radius.
+   * 分段按钮整体容器的边框圆角半径。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * 此属性仅在borderRadiusMode为BorderRadiusMode.CUSTOM时生效。
    *
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being
-   * **true**), this attribute does not take effect and **itemBorderRadius** must be used to set the border radius.
+   * 对于胶囊类多选按钮(type为"capsule"且multiply为true)，此属性不生效，需要用itemBorderRadius配置圆角。
    *
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not
-   * supported.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，不支持百分比设置。
    *
-   * Default value: **$r('sys.float.segmentbutton_container_shape')**
+   * 默认值：`$r('sys.float.segmentbutton_container_shape')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -709,21 +691,19 @@ interface CommonSegmentButtonOptions {
   backgroundBorderRadius?: LengthMetrics;
 
   /**
-   * Individual button border radius.
+   * 分段按钮中按钮项的边框圆角半径。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * 此属性仅在borderRadiusMode为BorderRadiusMode.CUSTOM时生效。
    *
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being
-   * **true**), this attribute only affects end items.
+   * 对于胶囊类多选按钮(type为"capsule"且multiply为true)，只能控制两端的选项圆角。
    *
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not
-   * supported.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，不支持百分比设置。
    *
-   * Default value: **$r('sys.float.segmentbutton_selected_background_shape')**
+   * 默认值：`$r('sys.float.segmentbutton_selected_background_shape')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -734,8 +714,9 @@ interface CommonSegmentButtonOptions {
   itemBorderRadius?: LengthMetrics;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButton的动效发生改变。
+   * 对于胶囊类多选按钮（即type为"capsule"且multiply为true），该属性不生效。
+   * 默认值：无材质效果。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -750,12 +731,12 @@ interface CommonSegmentButtonOptions {
 }
 
 /**
- * Tuple type that stores button information.
- *
- * > **NOTE**
- * >
- * > A **SegmentButton** component supports two to five buttons.
- *
+* 保存按钮信息的元组类型。
+*
+* > **说明：**
+* >
+* > 分段按钮组件仅支持2到5个按钮。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -765,11 +746,11 @@ interface CommonSegmentButtonOptions {
 declare type ItemRestriction<T> = [T, T, T?, T?, T?];
 
 /**
- * Represents the tuple union type used to store button information.
- *
- * @unionmember { ItemRestriction<SegmentButtonTextItem> } A tuple of text-only button information.
- * @unionmember { ItemRestriction<SegmentButtonIconItem> } A tuple of icon-only button information.
- * @unionmember { ItemRestriction<SegmentButtonIconTextItem> } A tuple of icon and text button information.
+* 用于保存按钮信息的元组的联合类型。
+*
+ * @unionmember { ItemRestriction<SegmentButtonTextItem> } A  A A 仅文本按钮信息的元组。
+ * @unionmember { ItemRestriction<SegmentButtonIconItem> } A  A A 仅图标按钮信息的元组。
+ * @unionmember { ItemRestriction<SegmentButtonIconTextItem> } A  A A 图标+文本按钮信息的元组。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -779,11 +760,11 @@ declare type ItemRestriction<T> = [T, T, T?, T?, T?];
 declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | ItemRestriction<SegmentButtonIconItem> | ItemRestriction<SegmentButtonIconTextItem>;
 
 /**
- * Represents the array union type used to store button information.
- *
- * @unionmember { Array<SegmentButtonTextItem> } An array of text-only button information.
- * @unionmember { Array<SegmentButtonIconItem> } An array of icon-only button information.
- * @unionmember { Array<SegmentButtonIconTextItem> } An array of icon and text button information.
+* 用于保存按钮信息的数组的联合类型。
+*
+ * @unionmember { Array<SegmentButtonTextItem> } An  An An An An An 仅文本按钮信息的数组。
+ * @unionmember { Array<SegmentButtonIconItem> } An  An An An An An 仅图标按钮信息的数组。
+ * @unionmember { Array<SegmentButtonIconTextItem> } An  An An An An An 图标+文本按钮信息的数组。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -794,10 +775,10 @@ declare type SegmentButtonItemTuple = ItemRestriction<SegmentButtonTextItem> | I
 declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<SegmentButtonIconItem> | Array<SegmentButtonIconTextItem>;
 
 /**
- * Creates a SegmentButtonOptions object of the tab type.
- *
- * Inherits from [CommonSegmentButtonOptions]{@link CommonSegmentButtonOptions}.
- *
+* 构建页签类的SegmentButtonOptions对象。
+*
+* 继承[CommonSegmentButtonOptions]{@link CommonSegmentButtonOptions}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -808,7 +789,7 @@ declare type SegmentButtonItemArray = Array<SegmentButtonTextItem> | Array<Segme
 interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
 
   /**
-   * Button information.
+   * 按钮信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -820,11 +801,10 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
 }
 
 /**
- * Represents configuration options for creating a **SegmentButton** component consisting of capsule-style segmented
- * buttons.
- *
- * Inherits from [CommonSegmentButtonOptions]{@link CommonSegmentButtonOptions}.
- *
+* 用于构建胶囊类的SegmentButtonOptions对象。
+*
+* 继承[CommonSegmentButtonOptions]{@link CommonSegmentButtonOptions}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -835,7 +815,7 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
 interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOptions {
 
   /**
-   * Button information.
+   * 按钮信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -846,15 +826,13 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
   buttons: SegmentButtonItemTuple;
 
   /**
-   * Whether multiple items can be selected.
+   * 是否可以多选。
    *
-   * Default value: **false**
+   * 默认值：false
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **true**: Multi-selection is allowed.
-   *
-   * **false**: Multi-selection is not allowed.
+   * true表示可以多选，false表示不可以多选。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -867,9 +845,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
 }
 
 /**
- * Provides configuration options for tab-style segmented buttons. Inherits from
- * [TabSegmentButtonConstructionOptions]{@link TabSegmentButtonConstructionOptions}.
- *
+* 页签类分段按钮选项。继承自[TabSegmentButtonConstructionOptions]{@link TabSegmentButtonConstructionOptions}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -880,13 +857,13 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
 interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 
   /**
-   * Type of the **SegmentButton** component.
+   * 分段按钮组件的类型。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
+   * "tab"：页签类分段按钮，适用于页面或内容区域的切换场景。
    *
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * "capsule"：胶囊类分段按钮，适用于单选或多选的选择场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -898,9 +875,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 }
 
 /**
- * Provides configuration options for capsule-style segmented buttons. Inherits from
- * [CapsuleSegmentButtonConstructionOptions]{@link CapsuleSegmentButtonConstructionOptions}.
- *
+* 胶囊类分段按钮选项。继承自[CapsuleSegmentButtonConstructionOptions]{@link CapsuleSegmentButtonConstructionOptions}。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -911,13 +887,13 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOptions {
 
   /**
-   * Type of the **SegmentButton** component.
+   * 分段按钮组件的类型。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
+   * "tab"：页签类分段按钮，适用于页面或内容区域的切换场景。
    *
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * "capsule"：胶囊类分段按钮，适用于单选或多选的选择场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -929,8 +905,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
 }
 
 /**
- * Construct parameters for SegmentButtonItemOptions.
- *
+* 构造参数用于SegmentButtonItemOptions。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -941,9 +917,9 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
 interface SegmentButtonItemOptionsConstructorOptions {
 
   /**
-   * Icon of the unselected item.
+   * 未选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -954,11 +930,11 @@ interface SegmentButtonItemOptionsConstructorOptions {
   icon?: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * 未选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -970,9 +946,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * 选中态的按钮图标。
    *
-   * If the value is undefined, no icon is displayed.
+   * 值为undefined时，不显示图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -983,11 +959,11 @@ interface SegmentButtonItemOptionsConstructorOptions {
   selectedIcon?: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * 选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -999,9 +975,9 @@ interface SegmentButtonItemOptionsConstructorOptions {
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-   * Button text.
+   * 按钮文本。
    *
-   * If the value is undefined, no text is displayed.
+   * 值为undefined时，不显示文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1012,23 +988,21 @@ interface SegmentButtonItemOptionsConstructorOptions {
   text?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility
-   * services.
+   * 无障碍重要性，控制当前组件是否可被无障碍辅助服务识别。
    *
-   * The options are as follows:
+   * 支持的值为:
    *
-   * **"auto"**: The component can be recognized by accessibility services.
+   * "auto"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1040,13 +1014,11 @@ interface SegmentButtonItemOptionsConstructorOptions {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility
-   * description, the text is read first, and then the accessibility description is read.
+   * 无障碍说明，为用户解释组件操作，设置详细解释文本，帮助用户理解操作后果。若组件有文本和无障碍说明，选中时先播报文本，再播报无障碍说明。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1059,8 +1031,8 @@ interface SegmentButtonItemOptionsConstructorOptions {
 }
 
 /**
- * Button options in a segmented button.
- *
+* 分段按钮中的按钮选项。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1072,11 +1044,11 @@ interface SegmentButtonItemOptionsConstructorOptions {
 declare class SegmentButtonItemOptions {
 
   /**
-   * Icon of the unselected item.
+   * 未选中态的按钮图标。
    *
-   * Default value: The icon of the button in the unselected state is not displayed.
+   * 默认值：不显示未选中态的按钮图标。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1087,11 +1059,11 @@ declare class SegmentButtonItemOptions {
   icon?: ResourceStr;
 
   /**
-   * Accessibility text of the unselected item.
+   * 未选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1103,11 +1075,11 @@ declare class SegmentButtonItemOptions {
   iconAccessibilityText?: ResourceStr;
 
   /**
-   * Icon of the selected item.
+   * 选中态的按钮图标。
    *
-   * Default value: no button icon in the selected state
+   * 默认值：不显示选中态按钮图标。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1118,11 +1090,11 @@ declare class SegmentButtonItemOptions {
   selectedIcon?: ResourceStr;
 
   /**
-   * Accessibility text of the selected item.
+   * 选中态按钮图标的无障碍文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1134,11 +1106,11 @@ declare class SegmentButtonItemOptions {
   selectedIconAccessibilityText?: ResourceStr;
 
   /**
-   * Button text.
+   * 按钮文本。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1149,23 +1121,21 @@ declare class SegmentButtonItemOptions {
   text?: ResourceStr;
 
   /**
-   * Accessibility level, which is used to set whether the current component can be recognized by accessibility
-   * services.
+   * 无障碍重要性，控制当前组件是否可被无障碍辅助服务识别。
    *
-   * The options are as follows:
+   * 支持的值为:
    *
-   * **"auto"**: The component can be recognized by accessibility services.
+   * "auto"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"yes"**: The component can be recognized by accessibility services.
+   * "yes"：当前组件可被无障碍辅助服务所识别。
    *
-   * **"no"**: The component cannot be recognized by accessibility services.
+   * "no"：当前组件不可被无障碍辅助服务所识别。
    *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1177,13 +1147,11 @@ declare class SegmentButtonItemOptions {
   accessibilityLevel?: string;
 
   /**
-   * Accessibility description, which is used to explain component operations to users. You can set detailed description
-   * text to help users understand the operation consequences. If a component has both text and accessibility
-   * description, the text is read first, and then the accessibility description is read.
+   * 无障碍说明，为用户解释组件操作，设置详细解释文本，帮助用户理解操作后果。若组件有文本和无障碍说明，选中时先播报文本，再播报无障碍说明。
    *
-   * The default value is an empty string.
+   * 默认值：空字符串。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default ""
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1195,10 +1163,9 @@ declare class SegmentButtonItemOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Constructor.
+   * 构造函数。
    *
-   * @param { SegmentButtonItemOptionsConstructorOptions } options - Configuration options for a single segmented
-   *     button, including the icon, text, and accessibility attributes.
+   * @param { SegmentButtonItemOptionsConstructorOptions } options - 单个分段按钮的配置选项，包含图标、文本、无障碍属性等配置信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1209,12 +1176,12 @@ declare class SegmentButtonItemOptions {
 }
 
 /**
- * Represents an array for storing button information.
- *
- * > **NOTE**
- * >
- * > The SegmentButtonItemOptionsArray can save only two to five button information elements.
- *
+* 用于保存按钮信息的数组。
+*
+* > **说明：**
+* >
+* > SegmentButtonItemOptionsArray仅支持保存2到5个按钮信息元素。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1226,9 +1193,9 @@ declare class SegmentButtonItemOptions {
 declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptions> {
 
   /**
-   * Constructor.
+   * 构造函数。
    *
-   * @param { SegmentButtonItemTuple } elements - Button information.
+   * @param { SegmentButtonItemTuple } elements - 按钮信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1238,11 +1205,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   constructor(elements: SegmentButtonItemTuple);
 
   /**
-   * Adds the specified elements to the end of this array and returns the new length of the array.
+   * 在数组末尾添加新的元素，返回添加元素后数组的长度。
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the end of the array.<br>Default value: array with 0
-   *     new button information items
-   * @returns { number } Length of the array after the elements are added.
+   * @param { SegmentButtonItemArray } items - 被添加的按钮信息数组。<br>默认值：0个被添加的按钮信息数组。
+   * @returns { number } 添加元素后数组的长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1252,7 +1218,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   push(...items: SegmentButtonItemArray): number;
 
   /**
-   * Removes the last element from this array and returns that element.
+   * 移除数组末尾最后一个元素，返回被移除的元素。
    *
    * @returns { SegmentButtonItemOptions | undefined } Element removed from the array.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1264,7 +1230,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   pop(): SegmentButtonItemOptions | undefined;
 
   /**
-   * Removes the first element from this array and returns that element.
+   * 移除数组开头第一个元素，返回被移除的元素。
    *
    * @returns { SegmentButtonItemOptions | undefined } Element removed from the array.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1276,11 +1242,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   shift(): SegmentButtonItemOptions | undefined;
 
   /**
-   * Adds an element to the beginning of this array and returns the new length of the array.
+   * 在数组开头添加一个新的元素，返回添加元素后数组的长度。
    *
-   * @param { SegmentButtonItemArray } items - Elements to add to the beginning of the array.<br>Default value: array
-   *     with 0 new button information items
-   * @returns { number } Length of the array after the elements are added.
+   * @param { SegmentButtonItemArray } items - 添加的按钮信息数组。<br>默认值：0个被添加的按钮信息数组。
+   * @returns { number } 添加元素后数组的长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1290,13 +1255,11 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   unshift(...items: SegmentButtonItemArray): number;
 
   /**
-   * Changes the contents of this array by removing the specified number of elements from the specified position and
-   * adding new elements in place. This API returns an array containing the removed elements.
+   * 在数组中，删除从start位置开始的deleteCount数量的元素，并插入items中的元素，返回一个包含了被删除的元素的数组。
    *
-   * @param { number } start - Index of the position starting from which elements are to be removed.
-   * @param { number } deleteCount - Number of elements to remove.
-   * @param { SegmentButtonItemOptions[] } items - Element to be added to the array from start.<br>Default value: If no
-   *     element is specified, the element is deleted from the array.
+   * @param { number } start - 删除元素的起始位置。
+   * @param { number } deleteCount - 删除元素的数量。
+   * @param { SegmentButtonItemOptions[] } items - 从start开始要加入到数组中的元素。<br>默认值：不指定任何元素，将从数组中删除元素。
    * @returns { SegmentButtonItemOptions[] } An array containing the removed elements.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1307,10 +1270,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   splice(start: number, deleteCount: number, ...items: SegmentButtonItemOptions[]): SegmentButtonItemOptions[];
 
   /**
-   * Creates a **SegmentButtonItemOptionsArray** object.
+   * 创建一个SegmentButtonItemOptionsArray对象。
    *
-   * @param { SegmentButtonItemTuple } elements - Button information.
-   * @returns { SegmentButtonItemOptionsArray } Created SegmentButtonItemOptionsArray object.
+   * @param { SegmentButtonItemTuple } elements - 按钮信息。
+   * @returns { SegmentButtonItemOptionsArray } 返回创建的SegmentButtonItemOptionsArray对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1321,12 +1284,12 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
 }
 
 /**
- * > **NOTE**
- * >
- * > The component does not support custom font type settings.
- *
- * Provides initial data and custom properties for the **SegmentButton** component.
- *
+* > **说明：**
+* >
+* > 不支持设置字体类型。
+*
+* 分段按钮选项类用于提供初始数据和自定义属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1338,13 +1301,13 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
 declare class SegmentButtonOptions {
 
   /**
-   * Type of the **SegmentButton** component.
+   * 分段按钮组件的类型。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * **"tab"**: tab-style segmented buttons, designed for page or content section switching.
+   * "tab"：页签类分段按钮，适用于页面或内容区域的切换场景。
    *
-   * **"capsule"**: capsule-style segmented buttons, suitable for single or multiple selection scenarios.
+   * "capsule"：胶囊类分段按钮，适用于单选或多选的选择场景。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1355,14 +1318,11 @@ declare class SegmentButtonOptions {
   type: "tab" | "capsule";
 
   /**
-   * Whether multiple items can be selected.
+   * 分段按钮组件是否可以多选。
    *
-   * **true**: Multiple items can be selected.
+   * true: 可多选；false: 不可多选。页签类分段按钮只支持单选，设置`multiply`为`true`不生效。
    *
-   * **false**: Multiple items cannot be selected. For the **SegmentButton** component consisting of tab-style buttons,
-   * only one item can be selected. In this case, setting **multiply** to **true** does not take effect.
-   *
-   * If the value is **undefined**, the component does not support selection of multiple items.
+   * 值为undefined时，分段按钮不支持多选。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1373,7 +1333,7 @@ declare class SegmentButtonOptions {
   multiply: boolean;
 
   /**
-   * Button information of the component, including the icon and text.
+   * 分段按钮组件的按钮信息，包括图标和文本信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1384,9 +1344,9 @@ declare class SegmentButtonOptions {
   buttons: SegmentButtonItemOptionsArray;
 
   /**
-   * Text color of the unselected button.
+   * 分段按钮组件的按钮未选中态的文本颜色。
    *
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_secondary').
+   * 值为undefined时，颜色为$r('sys.color.ohos_id_color_text_secondary')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1397,12 +1357,11 @@ declare class SegmentButtonOptions {
   fontColor: ResourceColor;
 
   /**
-   * Text color of the selected button.
+   * 分段按钮组件的按钮选中态的文本颜色。
    *
-   * If the value is **undefined**, the color is $r('sys.color.ohos_id_color_text_primary') when type is set to
-   * **"tab"**.
+   * 值为undefined时，type为"tab"时，颜色为`$r('sys.color.ohos_id_color_text_primary')`。
    *
-   * When type is set to **"capsule"**, the color is $r('sys.color.ohos_id_color_foreground_contrary').
+   * type为"capsule"时，颜色为`$r('sys.color.ohos_id_color_foreground_contrary')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1413,9 +1372,9 @@ declare class SegmentButtonOptions {
   selectedFontColor: ResourceColor;
 
   /**
-   * Font size of the unselected button. The value cannot be set in percentage.
+   * 分段按钮组件的按钮未选中态的字体大小，不支持百分比设置。
    *
-   * If the value is **undefined**, the font size is $r('sys.float.ohos_id_text_size_body2').
+   * 值为undefined时，字体大小为$r('sys.float.ohos_id_text_size_body2')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1426,9 +1385,9 @@ declare class SegmentButtonOptions {
   fontSize: DimensionNoPercentage;
 
   /**
-   * Font size of the selected button. The value cannot be set in percentage.
+   * 分段按钮组件的按钮选中态的字体大小，不支持百分比设置。
    *
-   * If the value is **undefined**, the font size is $r('sys.float.ohos_id_text_size_body2').
+   * 值为undefined时，字体大小为$r('sys.float.ohos_id_text_size_body2')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1439,9 +1398,9 @@ declare class SegmentButtonOptions {
   selectedFontSize: DimensionNoPercentage;
 
   /**
-   * Font weight of the unselected button.
+   * 分段按钮组件的按钮未选中态的字体粗细。
    *
-   * If the value is **undefined**, the font weight is **FontWeight.Regular**.
+   * 值为undefined时，字体粗细为FontWeight.Regular。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1452,9 +1411,9 @@ declare class SegmentButtonOptions {
   fontWeight: FontWeight;
 
   /**
-   * Font weight of the selected button.
+   * 分段按钮组件的按钮选中态的字体粗细。
    *
-   * If the value is **undefined**, the font weight is **FontWeight.Medium**.
+   * 值为undefined时，字体粗细为FontWeight.Medium。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1465,9 +1424,9 @@ declare class SegmentButtonOptions {
   selectedFontWeight: FontWeight;
 
   /**
-   * Background color of the component.
+   * 分段按钮组件的背景板颜色。
    *
-   * If the value is **undefined**, the background color is $r('sys.color.ohos_id_color_button_normal').
+   * 值为undefined时，背景板颜色为$r('sys.color.ohos_id_color_button_normal')。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1478,12 +1437,11 @@ declare class SegmentButtonOptions {
   backgroundColor: ResourceColor;
 
   /**
-   * Background color of the selected button.
+   * 分段按钮组件的按钮选中态背景板颜色。
    *
-   * When the value is **undefined** and **type** is **"tab"**, the background color is
-   * **$r('sys.color.segment_button_checked_foreground_color')**.
+   * 值为undefined时，type为"tab"时，背景板颜色为`$r('sys.color.segment_button_checked_foreground_color')`。
    *
-   * When **type** is **"capsule"**, the background color is **$r('sys.color.ohos_id_color_emphasize')**.
+   * type为"capsule"时，背景板颜色为`$r('sys.color.ohos_id_color_emphasize')`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1494,15 +1452,15 @@ declare class SegmentButtonOptions {
   selectedBackgroundColor: ResourceColor;
 
   /**
-   * Image size of the component.
+   * 分段按钮组件的图片尺寸。
    *
-   * When the value is **undefined**, the image size is { width: 24, height: 24 }.
+   * 值为undefined时，图片尺寸为{ width: 24, height: 24 }。
    *
-   * Unit: vp
+   * 单位：vp
    *
-   * **NOTE**
+   * **说明：**
    *
-   * The **imageSize** property takes effect only for icon-only and icon-with-text buttons.
+   * `imageSize`属性对仅图标按钮和图标+文本按钮生效，对仅文字按钮无效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1513,15 +1471,13 @@ declare class SegmentButtonOptions {
   imageSize: SizeOptions;
 
   /**
-   * Button padding of the component.
+   * 分段按钮组件的按钮内边距。
    *
-   * When the value is **undefined**, the button padding settings are as follows:
+   * 值为undefined时，仅图标按钮和仅文字按钮内边距：`{ top: 4, right: 8, bottom: 4, left: 8 }`
    *
-   * Icon button and text button: **{ top: 4, right: 8, bottom: 4, left: 8 }**.
+   * 图标+文本按钮内边距：`{ top: 6, right: 8, bottom: 6, left: 8 }`
    *
-   * Icon + text button: **{ top: 6, right: 8, bottom: 6, left: 8 }**.
-   *
-   * Unit: vp
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1532,18 +1488,17 @@ declare class SegmentButtonOptions {
   buttonPadding: Padding | Dimension;
 
   /**
-   * Button padding of the component.
+   * 分段按钮组件的按钮内边距。
    *
-   * Default value:
+   * 默认值：
    *
-   * Icon button and text button:
-   * **{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }**.
+   * 仅图标按钮和仅文字按钮默认值：
+   * `{ top: LengthMetrics.vp(4), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(4), start: LengthMetrics.vp(8) }`
    *
-   * Icon + text button:
-   * **{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) **}
-   * .
+   * 图标+文本按钮默认值：
+   * `{ top: LengthMetrics.vp(6), end: LengthMetrics.vp(8), bottom: LengthMetrics.vp(6), start: LengthMetrics.vp(8) }`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1554,11 +1509,11 @@ declare class SegmentButtonOptions {
   localizedButtonPadding?: LocalizedPadding;
 
   /**
-   * Text padding of the component.
+   * 分段按钮组件的文本内边距。
    *
-   * When the value is **undefined**, the text padding is 0.
+   * 值为undefined时，文本内边距为0。
    *
-   * Unit: vp
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1569,11 +1524,11 @@ declare class SegmentButtonOptions {
   textPadding: Padding | Dimension;
 
   /**
-   * Text padding.
+   * 文本内边距。
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1584,9 +1539,9 @@ declare class SegmentButtonOptions {
   localizedTextPadding?: LocalizedPadding;
 
   /**
-   * Background blur style of the component.
+   * 分段按钮组件的背景模糊材质。
    *
-   * If the value is **undefined**, it defaults to **BlurStyle.NONE**.
+   * 值为undefined时，背景模糊材质为BlurStyle.NONE。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1597,8 +1552,9 @@ declare class SegmentButtonOptions {
   backgroundBlurStyle: BlurStyle;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButton的动效发生改变。
+   * 对于胶囊类多选按钮（即type为"capsule"且multiply为true），该属性不生效。
+   * 默认值：无材质效果。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1612,10 +1568,9 @@ declare class SegmentButtonOptions {
   backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Constructor.
+   * 构造函数。
    *
-   * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - Configuration options for tab-style or
-   *     capsule-style segmented buttons.
+   * @param { TabSegmentButtonOptions | CapsuleSegmentButtonOptions } options - 页签类或者胶囊类分段按钮信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1625,10 +1580,10 @@ declare class SegmentButtonOptions {
   constructor(options: TabSegmentButtonOptions | CapsuleSegmentButtonOptions);
 
   /**
-   * Creates a SegmentButtonOptions class to define tabs.
+   * 创建SegmentButtonOptions类，用于定义页签。
    *
-   * @param { TabSegmentButtonConstructionOptions } options - Configuration options for tab-style segmented buttons.
-   * @returns { SegmentButtonOptions } Options of the **SegmentButton** component.
+   * @param { TabSegmentButtonConstructionOptions } options - 页签类分段按钮信息。
+   * @returns { SegmentButtonOptions } 分段按钮选项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1638,11 +1593,10 @@ declare class SegmentButtonOptions {
   static tab(options: TabSegmentButtonConstructionOptions): SegmentButtonOptions;
 
   /**
-   * Creates a **SegmentButtonOptions** object specifically for capsule-style segmented buttons.
+   * 创建胶囊类的SegmentButtonOptions。
    *
-   * @param { CapsuleSegmentButtonConstructionOptions } options - Configuration options for capsule-style segmented
-   *     buttons.
-   * @returns { SegmentButtonOptions } Options of the **SegmentButton** component.
+   * @param { CapsuleSegmentButtonConstructionOptions } options - 胶囊类分段按钮信息。
+   * @returns { SegmentButtonOptions } 分段按钮选项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1652,11 +1606,11 @@ declare class SegmentButtonOptions {
   static capsule(options: CapsuleSegmentButtonConstructionOptions): SegmentButtonOptions;
 
   /**
-   * Layout direction of the component.
+   * 分段按钮组件的布局方向。
    *
-   * Default value: **Direction.Auto**
+   * 默认值：Direction.Auto
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1667,11 +1621,11 @@ declare class SegmentButtonOptions {
   direction?: Direction;
 
   /**
-   * Border radius mode, used to control the border radius calculation method.
+   * 边框圆角模式，用于控制圆角计算方式。
    *
-   * Default value: **BorderRadiusMode.DEFAULT**
+   * 默认值：BorderRadiusMode.DEFAULT
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @default BorderRadiusMode.Default
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1683,21 +1637,19 @@ declare class SegmentButtonOptions {
   borderRadiusMode?: BorderRadiusMode;
 
   /**
-   * Container border radius.
+   * 分段按钮整体容器的边框圆角半径。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * 此属性仅在borderRadiusMode为BorderRadiusMode.CUSTOM时生效。
    *
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being
-   * **true**), this attribute does not take effect and **itemBorderRadius** must be used to set the border radius.
+   * 对于胶囊类多选按钮(type为"capsule"且multiply为true)，此属性不生效，需要用itemBorderRadius配置圆角。
    *
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not
-   * supported.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，不支持百分比设置。
    *
-   * Default value: **$r('sys.float.segmentbutton_container_shape')**
+   * 默认值：`$r('sys.float.segmentbutton_container_shape')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1708,21 +1660,19 @@ declare class SegmentButtonOptions {
   backgroundBorderRadius?: LengthMetrics;
 
   /**
-   * Individual button border radius.
+   * 分段按钮中按钮项的边框圆角半径。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * This attribute takes effect only when **borderRadiusMode** is set to **BorderRadiusMode.CUSTOM**.
+   * 此属性仅在borderRadiusMode为BorderRadiusMode.CUSTOM时生效。
    *
-   * For capsule-style multi-selection segmented buttons (with **type** being **"capsule"** and **multiply** being
-   * **true**), this attribute only affects end items.
+   * 对于胶囊类多选按钮(type为"capsule"且multiply为true)，只能控制两端的选项圆角。
    *
-   * The maximum value for the border radius is half of the component's width or height, and percentage values are not
-   * supported.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，不支持百分比设置。
    *
-   * Default value: **$r('sys.float.segmentbutton_selected_background_shape')**
+   * 默认值：`$r('sys.float.segmentbutton_selected_background_shape')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1734,18 +1684,14 @@ declare class SegmentButtonOptions {
 }
 
 /**
- * **SegmentButton** is a versatile component that organizes related options into visually grouped buttons. It supports
- * three variants: tab-style, capsule-style single-select, and capsule-style multi-select.
- *
- * >**NOTE**
- * >
- * > - The **SegmentButton** component does not support [universal attributes](ts-component-general-attributes.md).
- * The component occupies the maximum available width within its content area and distributes this width evenly among
- * its items. It adapts its height automatically to the content (text and images), the minimum height being 28 vp.
- * >
- * > - Properties decorated with @Prop are optional. They are required during construction only when used together with
- * the @Require decorator.
- *
+* 分段按钮组件包含页签类分段按钮、胶囊类单选分段按钮和胶囊类多选分段按钮。
+*
+* > **说明：**
+* >
+* > - 分段按钮不支持[通用属性](ts-component-general-attributes.md)。分段按钮使用当前区域可使用的最大宽度作为组件宽度，并且根据按钮个数平均分配每个按钮宽度；分段按钮高度根据按钮内容（文本及图片）自动适应，其最小高度为28vp。
+* >
+* > - @Prop装饰的属性为可选参数，仅当与@Require装饰器联合使用时，才必须在构造时传入对应参数。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1756,7 +1702,7 @@ declare class SegmentButtonOptions {
 declare struct SegmentButton {
 
   /**
-   * Options of the **SegmentButton** component.
+   * 分段按钮选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1768,12 +1714,12 @@ declare struct SegmentButton {
   options: SegmentButtonOptions;
 
   /**
-   * Indexes of selected items of the **SegmentButton**. The index is zero-based and increments by 1.
+   * 分段按钮的选中项编号，第一项的编号为0，之后顺序增加。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * **selectedIndexes** is decorated with [@Link](docroot://ui/state-management/arkts-link.md) to implement parent-
-   * child two-way synchronization. If no items are selected, an empty array **[]** can be passed in.
+   * `selectedIndexes`使用[@Link装饰器：父子双向同步](docroot://ui/state-management/arkts-link.md)，仅支持有效的按钮编号（第一个按钮编号为0，之后按顺序累加），如没有
+   * 选中项可传入空数组`[]`。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1785,11 +1731,11 @@ declare struct SegmentButton {
   selectedIndexes: number[];
 
   /**
-   * Maximum font scale for the text in the **SegmentButton**.
+   * 分段按钮选项文字的最大字体放大倍数。
    *
-   * Value range: [1, 2]
+   * 取值范围：[1, 2]
    *
-   * Values less than 1 are treated as 1, and values greater than 2 are treated as 2.
+   * 当设置的值小于1时，按值为1处理，设置的值大于2时，按值为2处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1801,8 +1747,7 @@ declare struct SegmentButton {
   maxFontScale: number | Resource;
 
   /**
-   * Callback function triggered when a segment button option is tapped. The subscript of the tapped option is passed as
-   * a parameter. If this parameter is not passed, no callback is triggered when the option is tapped.
+   * 当分段按钮选项被点击时，触发的回调函数接收被点击的选项下标作为参数。若不传入此参数，则点击时不触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1813,13 +1758,11 @@ declare struct SegmentButton {
   onItemClicked?: Callback<number>;
 
   /**
-   * Whether to enable property animation for the segment button when the **selectedIndex** value is modified via a
-   * variable.
+   * 设置当通过变量修改selectedIndex值时，是否开启分段按钮的属性动画。
    *
-   * **true**: Property animation is enabled. **false**: Property animation is disabled and the original animation is
-   * used.
+   * true表示开启分段按钮的属性动画；false表示不开启分段按钮的属性动画，使用原有动画。
    *
-   * Default value: **false**
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full

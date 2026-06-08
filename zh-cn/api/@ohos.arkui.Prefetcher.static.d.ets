@@ -25,8 +25,8 @@ import { IDataSource } from '@ohos.arkui.component';
 import { IDataSource } from './arkui/component/lazyForEach';
 
 /**
- * Implement this interface to provide data prefetching for the LazyForEach component.
- *
+* 用于实现具有预加载能力的LazyForEach数据源。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -34,10 +34,10 @@ import { IDataSource } from './arkui/component/lazyForEach';
 export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
 
   /**
-   * Prefetches data for the specified element in the data collection.
-   * This method can be either synchronous or asynchronous.
+   * 预加载数据源中的指定项。
+   * 该方法可以为同步，也可以为异步。
    *
-   * @param { int } index - Index of the item in the collection.
+   * @param { int } index - 指定项的序号。
    * @returns { Promise<void> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -46,10 +46,10 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
   prefetch(index: int): Promise<void> | undefined;
 
   /**
-   * Cancels prefetching data for the specified element in the data collection.
-   * This method can be either synchronous or asynchronous.
+   * 取消指定数据项的预加载。
+   * 该方法可以为同步，也可以为异步。
    *
-   * @param { int } index - Index of the item in the collection.
+   * @param { int } index - 指定项的序号。
    * @returns { Promise<void> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -59,8 +59,8 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
 }
 
 /**
- * Implement this interface to provide prefetcher logic.
- *
+* 该接口用于提供预加载操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -68,9 +68,9 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
 export interface IPrefetcher<T> {
 
   /**
-   * Sets the data source to bind to this prefetcher.
+   * 设置prefetcher对象的数据源。
    *
-   * @param { IDataSourcePrefetching<T> } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching<T> } dataSource - 支持预加载的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -78,10 +78,10 @@ export interface IPrefetcher<T> {
   setDataSource(dataSource: IDataSourcePrefetching<T>): void;
 
   /**
-   * Call this method when the visible area boundaries were changed.
+   * 通知prefetcher屏幕显示范围发生变化。
    *
-   * @param { int } minVisible - Index of the first visible data item.
-   * @param { int } maxVisible - Index of the last visible data item.
+   * @param { int } minVisible - 显示范围内第一个元素的序号。
+   * @param { int } maxVisible - 显示范围内最后一个元素的序号。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -90,12 +90,9 @@ export interface IPrefetcher<T> {
 }
 
 /**
- * Basic implementation of {@link IPrefetcher}.
- * It provides an intelligent data prefetching algorithm to make decisions about which data
- * items should be prefetched in response to the real-time changes of visible on-screen area
- * and changes in the duration of the prefetching. It also determines which prefetch requests
- * should be canceled based on user scrolling actions.
- *
+* 一种IPrefetcher的基础实现。
+* 此prefetcher提供了一种智能预加载算法，可以根据显示区域的实时变化以及预加载耗时的变化来确定预加载范围并加载数据项，并且可以根据用户的滚动操作来取消相应数据项的预加载请求。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -103,9 +100,9 @@ export interface IPrefetcher<T> {
 export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
 
   /**
-   * Constructs a basic prefetcher instance and optionally sets the data source.
+   * 构建一个基础的prefetcher，并在构建时可以按需设置数据源。
    *
-   * @param { IDataSourcePrefetching<T> } [dataSource] - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching<T> } [dataSource] - 支持预加载的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -113,9 +110,9 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
   constructor(dataSource?: IDataSourcePrefetching<T>);
 
   /**
-   * Sets the data source to bind to this prefetcher.
+   * 设置prefetcher对象的数据源。
    *
-   * @param { IDataSourcePrefetching<T> } dataSource - Data source that supports prefetching.
+   * @param { IDataSourcePrefetching<T> } dataSource - 支持预加载的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -123,10 +120,10 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
   setDataSource(dataSource: IDataSourcePrefetching<T>): void;
 
   /**
-   * Call this method when the visible area changed.
+   * 通知prefetcher屏幕显示范围发生变化。
    *
-   * @param { int } minVisible - Index of the first visible data item.
-   * @param { int } maxVisible - Index of the last visible data item.
+   * @param { int } minVisible - 显示范围内第一个元素的序号。
+   * @param { int } maxVisible - 显示范围内最后一个元素的序号。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static

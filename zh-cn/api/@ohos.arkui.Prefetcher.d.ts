@@ -33,8 +33,8 @@
  */
 
 /**
- * Extends the [IDataSource]{@link IDataSource} API to add data prefetching capability to your data source.
- *
+* Implement this interface to provide data prefetching for the LazyForEach component.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -44,7 +44,6 @@
 export interface IDataSourcePrefetching extends IDataSource {
 
   /**
-   * Prefetches a specified data item from the dataset. This API can be either synchronous or asynchronous.
    *
    * @param { number } index - Index of the data item to prefetch.
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
@@ -59,8 +58,6 @@ export interface IDataSourcePrefetching extends IDataSource {
   prefetch(index: number): Promise<void> | void;
 
   /**
-   * Cancels the prefetching of a specified data item from the dataset. This API can be either synchronous or
-   * asynchronous.
    *
    * @param { number } index - Index of the data item to cancel prefetching for.
    * @returns { Promise<void> | void } Promise when this API is executed asynchronously; no return value when this API
@@ -76,8 +73,8 @@ export interface IDataSourcePrefetching extends IDataSource {
 }
 
 /**
- * Provides prefetching capabilities.
- *
+* Implement this interface to provide prefetcher logic.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -87,7 +84,7 @@ export interface IDataSourcePrefetching extends IDataSource {
 export interface IPrefetcher {
 
   /**
-   * Sets the prefetching-capable data source to bind to the **Prefetcher**.
+   * Sets the data source to bind to this prefetcher.
    *
    * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -99,8 +96,7 @@ export interface IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
-   * and **Swiper** components.
+   * Call this method when the visible area boundaries were changed.
    *
    * @param { number } minVisible - Upper bound of the visible area.
    * @param { number } maxVisible - Lower bound of the visible area.
@@ -114,13 +110,12 @@ export interface IPrefetcher {
 }
 
 /**
- * **BasicPrefetcher** is a fundamental implementation of **IPrefetcher**. It offers an intelligent data prefetching
- * algorithm that decides the data items to prefetch based on real-time changes in the visible area on the screen and
- * variations in the prefetch duration. It can also determine the prefetch requests to be canceled based on the user's
- * scrolling actions.
- *
- * **BasicPrefetcher** objects do not support JSON serialization.
- *
+* Basic implementation of {@link IPrefetcher}.
+* It provides an intelligent data prefetching algorithm to make decisions about which data
+* items should be prefetched in response to the real-time changes of visible on-screen area
+* and changes in the duration of the prefetching. It also determines which prefetch requests
+* should be canceled based on user scrolling actions.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -130,7 +125,7 @@ export interface IPrefetcher {
 export class BasicPrefetcher implements IPrefetcher {
 
   /**
-   * A constructor used to create a prefetching-capable data source to bind to the **Prefetcher**.
+   * Constructs a basic prefetcher instance and optionally sets the data source.
    *
    * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -142,7 +137,7 @@ export class BasicPrefetcher implements IPrefetcher {
   constructor(dataSource?: IDataSourcePrefetching);
 
   /**
-   * Sets the prefetching-capable data source to bind to the **Prefetcher**.
+   * Sets the data source to bind to this prefetcher.
    *
    * @param { IDataSourcePrefetching } dataSource - Prefetching-capable data source.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -154,8 +149,7 @@ export class BasicPrefetcher implements IPrefetcher {
   setDataSource(dataSource: IDataSourcePrefetching): void;
 
   /**
-   * Called when the boundaries of the visible area change. This API works with the **List**, **Grid**, **WaterFlow**,
-   * and **Swiper** components.
+   * Call this method when the visible area boundaries were changed.
    *
    * @param { number } minVisible - Upper bound of the visible area.
    * @param { number } maxVisible - Lower bound of the visible area.
