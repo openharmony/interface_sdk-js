@@ -19,8 +19,7 @@
  */
 
 /**
- * Defines a base class for **ComponentContent** and **NodeContent**.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30,8 +29,8 @@
 declare type Content = import('../api/@ohos.arkui.node').Content;
 
 /**
- * Define ContentSlot attribute, to prevent improper recursive usage of ContentSlot.
- *
+* 定义ContentSlot属性，以防止不当的递归使用ContentSlot。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -42,12 +41,10 @@ declare type Content = import('../api/@ohos.arkui.node').Content;
 declare class ContentSlotAttribute {}
 
 /**
- * The **ContentSlot** component is a component designed to render and manage components created on the native layer
- * using C APIs.
- *
- * With support for hybrid development, the **ContentSlot** component is recommended when the container is an ArkTS
- * component and the child component is created on the native side.
- *
+* 用于渲染并管理Native层使用C-API创建的组件。
+*
+* 支持混合模式开发，当容器是ArkTS组件，子组件在Native侧创建时，推荐使用ContentSlot占位组件。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -58,13 +55,11 @@ declare class ContentSlotAttribute {}
 interface ContentSlotInterface {
 
   /**
-   * Called when content is added to a placeholder component
+   * 当内容添加到占位符组件时调用。
    *
-   * @param { Content } content - Manager of the **ContentSlot** component. Through the APIs provided by the native
-   *     side, it can register and trigger the attach and detach event callbacks for **ContentSlot**, as well as manage
-   *     the child components of **ContentSlot**.
+   * @param { Content } content - Content作为ContentSlot的管理器，通过Native侧提供的接口，可以注册并触发ContentSlot的上下树事件回调以及管理ContentSlot的子组件。
    * @returns { ContentSlotAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -74,12 +69,10 @@ interface ContentSlotInterface {
 }
 
 /**
- * The **ContentSlot** component is a component designed to render and manage components created on the native layer
- * using C APIs.
- *
- * With support for hybrid development, the **ContentSlot** component is recommended when the container is an ArkTS
- * component and the child component is created on the native side.
- *
+* 用于渲染并管理Native层使用C-API创建的组件。
+*
+* 支持混合模式开发，当容器是ArkTS组件，子组件在Native侧创建时，推荐使用ContentSlot占位组件。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

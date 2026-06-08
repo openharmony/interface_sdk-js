@@ -14,16 +14,15 @@
  */
 
 /**
- * The **RenderNode** module provides APIs for creating a RenderNode in custom drawing settings with C APIs.
+ * 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - Avoid modifying RenderNodes in [BuilderNode]{@link BuilderNode}. The [FrameNode]{@link FrameNode} associated with
- * > BuilderNode is designed solely for mounting the BuilderNode as a child component. Modifying attributes or 
- * > operations on the FrameNode's child nodes or their corresponding RenderNodes may lead to undefined behavior, 
- * > including display, event handling, and stability issues.
+ * > - 不建议对[BuilderNode]{@link BuilderNode}中的RenderNode进行修改操作。
+ * > BuilderNode中持有的[FrameNode]{@link FrameNode}仅用于将该BuilderNode作为子节点挂载到其他FrameNode上，
+ * > 对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。
  * >
- * > - RenderNode objects do not support JSON serialization.
+ * > - RenderNode对象不支持使用JSON序列化。
  *
  * @file
  * @kit ArkUI
@@ -34,7 +33,14 @@ import { BusinessError } from '../@ohos.base';
 import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4, Rotation, Frame, BorderRadiuses, ShapeMask, ShapeClip, Edges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from './Graphics';
 
 /**
- * The **RenderNode** module provides APIs for creating a RenderNode in custom drawing settings with C APIs.
+ * 提供自绘制渲染节点RenderNode，支持开发者通过C API进行开发，完成自定义绘制需求。
+ *
+ * > **说明：**
+ *
+ * > - 不建议对[BuilderNode]{@link BuilderNode}中的RenderNode进行修改操作。BuilderNode中持有的[FrameNode]{@link FrameNode}仅用于将该
+ * > BuilderNode作为子节点挂载到其他FrameNode上，对该FrameNode或对应的RenderNode进行属性设置与子节点操作可能会产生未定义行为，包括但不限于显示异常、事件异常、稳定性问题等。
+ * >
+ * > - RenderNode对象不支持使用JSON序列化。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -44,7 +50,7 @@ import { DrawContext, Size, Offset, Position, Pivot, Scale, Translation, Matrix4
  */
 export class RenderNode {
   /**
-   * Constructor used to create a RenderNode.
+   * RenderNode的构造函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,9 +61,9 @@ export class RenderNode {
   constructor();
 
   /**
-   * Appends a child node to this RenderNode.
+   * 在RenderNode最后一个子节点后添加新的子节点。
    *
-   * @param { RenderNode } node - Child node to append.
+   * @param { RenderNode } node - 需要添加的RenderNode。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'node' is invalid: its corresponding FrameNode
    *     cannot be adopted." [since 22]
@@ -70,11 +76,10 @@ export class RenderNode {
   appendChild(node: RenderNode): void;
 
   /**
-   * Inserts a child node after the specified child node of this RenderNode.
+   * 在RenderNode指定子节点之后添加新的子节点。
    *
-   * @param { RenderNode } child - Child node to add.
-   * @param { RenderNode | null } sibling - Node after which the new child node will be inserted. If this parameter is
-   *     left empty, the new node is inserted before the first subnode.
+   * @param { RenderNode } child - 需要添加的子节点。
+   * @param { RenderNode | null } sibling - 需要添加的子节点。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message. For example: "The parameter 'child' is invalid: its corresponding FrameNode
    *     cannot be adopted." [since 22]
@@ -87,9 +92,9 @@ export class RenderNode {
   insertChildAfter(child: RenderNode, sibling: RenderNode | null): void;
 
   /**
-   * Deletes the specified child node from this RenderNode.
+   * 从RenderNode中删除指定的子节点。
    *
-   * @param { RenderNode } node - Child node to delete.
+   * @param { RenderNode } node - 需要删除的子节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -99,7 +104,7 @@ export class RenderNode {
   removeChild(node: RenderNode): void;
 
   /**
-   * Clears all child nodes of this RenderNode.
+   * 清除当前RenderNode的所有子节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,9 +115,9 @@ export class RenderNode {
   clearChildren(): void;
 
   /**
-   * Obtains the child node in the specified position of this RenderNode.
+   * 获取当前RenderNode指定位置的子节点。
    *
-   * @param { number } index - Index of the child node to obtain.
+   * @param { number } index - 需要查询的子节点的序列号。
    * @returns { RenderNode | null } Child node obtained. If the RenderNode does not contain the specified child node,
    *     null is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -124,7 +129,7 @@ export class RenderNode {
   getChild(index: number): RenderNode | null;
 
   /**
-   * Obtains the first child node of this RenderNode.
+   * 获取当前RenderNode的第一个子节点。
    *
    * @returns {  RenderNode | null } First child node. If the RenderNode does not contain any child node, null is
    *     returned.
@@ -137,7 +142,7 @@ export class RenderNode {
   getFirstChild(): RenderNode | null;
 
   /**
-   * Obtains the next sibling node of this RenderNode.
+   * 获取当前RenderNode的下一个同级节点。
    *
    * @returns { RenderNode | null } Next sibling node of the current RenderNode. If the RenderNode does not have the
    *     next sibling node, null is returned.
@@ -150,7 +155,7 @@ export class RenderNode {
   getNextSibling(): RenderNode | null;
 
   /**
-   * Obtains the previous sibling node of this RenderNode.
+   * 获取当前RenderNode的上一个同级节点。
    *
    * @returns { RenderNode | null } Previous sibling node of the current RenderNode. If the RenderNode does not have the
    *     previous sibling node, null is returned.
@@ -163,9 +168,9 @@ export class RenderNode {
   getPreviousSibling(): RenderNode | null;
 
   /**
-   * Sets the background color for this RenderNode.
+   * 设置当前RenderNode的背景颜色。
    *
-   * @param { number } color - Background color value, in ARGB format, for example, **0xE5E5E5**.
+   * @param { number } color - 背景颜色值，ARGB格式，示例：0xE5E5E5。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -188,10 +193,9 @@ export class RenderNode {
   get backgroundColor(): number;
 
   /**
-   * Sets whether to clip this RenderNode. The value **true** means to clip the RenderNode to its set size.
+   * 设置是否对当前RenderNode剪裁。若设置为true，则超出该RenderNode大小的部分将会被截断。
    *
-   * @param { boolean } useClip - Whether to clip the RenderNode.<br>The value **true** means to clip the RenderNode,
-   *     and **false** means the opposite.
+   * @param { boolean } useClip - 设置是否进行剪裁。<br/>true表示对当前RenderNode剪裁，false表示不对当前RenderNode剪裁。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -214,10 +218,9 @@ export class RenderNode {
   get clipToFrame(): boolean;
 
   /**
-   * Sets the opacity for this RenderNode. If the value passed in is less than **0**, the opacity is set to **0**. If
-   * the value passed in is greater than **1**, the opacity is set to **1**.
+   * 设置当前RenderNode的不透明度。若输入的数值小于0，会被视为0。若输入的数值大于1，会被视为1。
    *
-   * @param { number } value - Opacity to set.<br>Value range: [0, 1]. A larger value indicates lower transparency.
+   * @param { number } value - 将要设置的不透明度，数据范围为[0, 1]，值越大透明度越低。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -240,9 +243,9 @@ export class RenderNode {
   get opacity(): number;
 
   /**
-   * Sets the size for this RenderNode.
+   * 设置当前RenderNode的大小。
    *
-   * @param { Size } size - Size to set.
+   * @param { Size } size - 将要设置的RenderNode的大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -265,9 +268,9 @@ export class RenderNode {
   get size(): Size;
 
   /**
-   * Sets the position for this RenderNode.
+   * 设置当前RenderNode的位置。
    *
-   * @param { Position } position - Position to set.
+   * @param { Position } position - 将要设置的RenderNode的位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -290,11 +293,10 @@ export class RenderNode {
   get position(): Position;
 
   /**
-   * Sets the size and position for this RenderNode. When this parameter is used together with
-   * [position]{@link RenderNode#set position(position: Position)} and [size]{@link RenderNode#set size(size: Size)},
-   * the one that is set later in time is prioritized.
+   * 设置当前RenderNode的大小和位置。当和[position]{@link RenderNode#set position(position: Position)}、
+   * [size]{@link RenderNode#set size(size: Size)}同时使用时，以后设置的为准。
    *
-   * @param { Frame } frame - Size and position to set.
+   * @param { Frame } frame - 将要设置的RenderNode的大小和位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -317,9 +319,9 @@ export class RenderNode {
   get frame(): Frame;
 
   /**
-   * Sets the pivot for this RenderNode, which affects the scaling and rotation effects of the RenderNode.
+   * 设置当前RenderNode的轴心，影响RenderNode的缩放和旋转效果。
    *
-   * @param { Pivot } pivot - Pivot to set.
+   * @param { Pivot } pivot - 将要设置的RenderNode的轴心。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -342,9 +344,9 @@ export class RenderNode {
   get pivot(): Pivot;
 
   /**
-   * Sets the scale factor for this RenderNode.
+   * 设置当前RenderNode的比例。
    *
-   * @param { Scale } scale - Scale factor to set.
+   * @param { Scale } scale - 将要设置的RenderNode的缩放比例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -367,9 +369,9 @@ export class RenderNode {
   get scale(): Scale;
 
   /**
-   * Sets the translation amount for this RenderNode.
+   * 设置当前RenderNode的平移量。
    *
-   * @param { Translation } translation - Translation amount to set.
+   * @param { Translation } translation - 将要设置的RenderNode的平移量。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -392,9 +394,9 @@ export class RenderNode {
   get translation(): Translation;
 
   /**
-   * Sets the rotation angle for this RenderNode.
+   * 设置当前RenderNode的旋转角度。
    *
-   * @param { Rotation } rotation - Rotation angle to set.
+   * @param { Rotation } rotation - 将要设置的RenderNode的旋转角度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -417,9 +419,9 @@ export class RenderNode {
   get rotation(): Rotation;
 
   /**
-   * Sets the transformation matrix for this RenderNode.
+   * 设置当前RenderNode的变换矩阵。
    *
-   * @param { Matrix4 } transform - Transformation matrix to set.
+   * @param { Matrix4 } transform - 将要设置的RenderNode的变换矩阵。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -442,10 +444,9 @@ export class RenderNode {
   get transform(): Matrix4;
 
   /**
-   * Sets the shadow color for this RenderNode, in ARGB format. If
-   * [shadowAlpha]{@link RenderNode#set shadowAlpha(alpha: number)} is set, the opacity is subject to **shadowAlpha**.
+   * 设置当前RenderNode的阴影颜色，ARGB格式。若设置了[shadowAlpha]{@link RenderNode#set shadowAlpha(alpha: number)}，则不透明度以shadowAlpha为准。
    *
-   * @param { number } color - Shadow color to set, in ARGB format.<br>The value must be a valid ARGB color.
+   * @param { number } color - 将要设置的RenderNode的阴影颜色，ARGB格式。<br/>取值范围是符合ARGB格式的颜色。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -469,9 +470,9 @@ export class RenderNode {
   get shadowColor(): number;
 
   /**
-   * Sets the shadow offset for this RenderNode.
+   * 设置当前RenderNode的阴影偏移。
    *
-   * @param { Offset } offset - Shadow offset to set.
+   * @param { Offset } offset - 将要设置的RenderNode的阴影偏移。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -494,10 +495,9 @@ export class RenderNode {
   get shadowOffset(): Offset;
 
   /**
-   * Sets the label for this RenderNode. If the RenderNode was created with **new**, the set label will appear in the
-   * node Inspector information.
+   * 设置当前RenderNode的标签。若当前节点是通过new创建的RenderNode，则设置的标签信息会在节点Inspector信息的属性中。
    *
-   * @param { string } label - Label of the RenderNode to set.
+   * @param { string } label - 将要设置的RenderNode的标签。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -507,9 +507,9 @@ export class RenderNode {
   set label(label: string);
 
   /**
-   * Get label of the RenderNode.
+   * 获取当前RenderNode的标签。
    *
-   * @returns { string } - Returns the label of the RenderNode.
+   * @returns { string } - 返回当前RenderNode的标签。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -519,9 +519,9 @@ export class RenderNode {
   get label(): string;
 
   /**
-   * Sets the alpha value of the shadow color for this RenderNode.
+   * 设置当前RenderNode的阴影颜色的Alpha值。
    *
-   * @param { number } alpha - Alpha value of the shadow color to set.<br> The value must be a valid alpha value.
+   * @param { number } alpha - 将要设置的RenderNode的阴影颜色的Alpha值。<br/> 取值范围是alpha值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -544,9 +544,9 @@ export class RenderNode {
   get shadowAlpha(): number;
 
   /**
-   * Sets the shadow elevation for this RenderNode.
+   * 设置当前RenderNode的阴影的光照高度。
    *
-   * @param { number } elevation - Shadow elevation to set.<br> Value range: [0, +∞).
+   * @param { number } elevation - 将要设置的RenderNode的光照高度。<br/> 取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -569,9 +569,9 @@ export class RenderNode {
   get shadowElevation(): number;
 
   /**
-   * Sets the shadow blur radius for this RenderNode.
+   * 设置当前RenderNode的阴影模糊半径。
    *
-   * @param { number } radius - Shadow blur radius to set.<br> Value range: [0, +∞).
+   * @param { number } radius - 将要设置的RenderNode的阴影模糊半径。<br/> 取值范围：[0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -594,9 +594,9 @@ export class RenderNode {
   get shadowRadius(): number;
 
   /**
-   * Sets the border style for this RenderNode.
+   * 设置当前RenderNode的边框样式。
    *
-   * @param { Edges<BorderStyle> } style - Border style of the RenderNode.
+   * @param { Edges<BorderStyle> } style - RenderNode的边框样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -606,9 +606,9 @@ export class RenderNode {
   set borderStyle(style: Edges<BorderStyle>);
 
   /**
-   * Get border style of the RenderNode.
+   * 获取当前RenderNode的边框样式。
    *
-   * @returns { Edges<BorderStyle> } - Returns the border style of the RenderNode.
+   * @returns { Edges<BorderStyle> } - 返回当前RenderNode的边框样式。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -618,9 +618,9 @@ export class RenderNode {
   get borderStyle(): Edges<BorderStyle>;
 
   /**
-   * Sets the border width for this RenderNode.
+   * 设置当前RenderNode的边框宽度。
    *
-   * @param { Edges<number> } width - Border width of the RenderNode, in vp.
+   * @param { Edges<number> } width - RenderNode的边框宽度，单位为vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -643,9 +643,9 @@ export class RenderNode {
   get borderWidth(): Edges<number>;
 
   /**
-   * Sets the border color for this RenderNode.
+   * 设置当前RenderNode的边框颜色。
    *
-   * @param { Edges<number> } color - Border color of the RenderNode.
+   * @param { Edges<number> } color - RenderNode的边框颜色。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -668,9 +668,9 @@ export class RenderNode {
   get borderColor(): Edges<number>;
 
   /**
-   * Sets the border corner radius for this RenderNode.
+   * 设置当前RenderNode的边框圆角。
    *
-   * @param { BorderRadiuses } radius - Border corner radius of the RenderNode, in vp.
+   * @param { BorderRadiuses } radius - RenderNode的边框圆角，单位为vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -693,9 +693,9 @@ export class RenderNode {
   get borderRadius(): BorderRadiuses;
 
   /**
-   * Sets the mask for this RenderNode.
+   * 设置当前RenderNode的遮罩。
    *
-   * @param { ShapeMask } shapeMask - Shape mask of the RenderNode.
+   * @param { ShapeMask } shapeMask - RenderNode的遮罩。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -705,9 +705,9 @@ export class RenderNode {
   set shapeMask(shapeMask: ShapeMask);
 
   /**
-   * Get shape mask of the RenderNode.
+   * 获取当前RenderNode的遮罩。
    *
-   * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
+   * @returns { ShapeMask } - 返回当前RenderNode的遮罩。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -717,9 +717,9 @@ export class RenderNode {
   get shapeMask(): ShapeMask;
 
   /**
-   * Sets the clipping shape for this RenderNode.
+   * 设置当前RenderNode的裁剪形状。
    *
-   * @param { ShapeClip } shapeClip - Clipping shape of the RenderNode.
+   * @param { ShapeClip } shapeClip - RenderNode的裁剪形状。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -729,9 +729,9 @@ export class RenderNode {
   set shapeClip(shapeClip: ShapeClip);
 
   /**
-   * Get shape clip of the RenderNode.
+   * 获取目标RenderNode的形状裁剪属性
    *
-   * @returns { ShapeClip } - Returns the shape clip of the RenderNode.
+   * @returns { ShapeClip } - 返回目标RenderNode的形状裁剪属性
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -741,14 +741,11 @@ export class RenderNode {
   get shapeClip(): ShapeClip;
 
   /**
-   * Sets whether to enable drawing priority for this node and its child nodes. When this feature is enabled, visual
-   * attributes like opacity are applied during composition after drawing completes. The configuration result is as
-   * follows.
+   * 标记是否优先绘制节点及其子节点。若设置为true，则透明度等属性将在节点绘制完毕后再进行合成。设置效果如下：
    *
    * ![markNodeGroup](docroot://reference/apis-arkui/figures/renderNode-markNodeGroup.png)
    *
-   * @param { boolean } isNodeGroup - Whether to enable drawing priority for this node and its child nodes.<br>**true**:
-   *     Enable drawing priority. **false**: Disable drawing priority.
+   * @param { boolean } isNodeGroup - 设置是否优先绘制节点及其子节点。<br/>true表示优先绘制节点及其子节点，false表示不是优先绘制节点及其子节点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -771,19 +768,16 @@ export class RenderNode {
   get markNodeGroup(): boolean;
 
   /**
-   * Performs drawing. You need to implement this API. It is called when the RenderNode performs drawing.
+   * 绘制方法，需要开发者进行实现。该方法会在RenderNode进行绘制时被调用。
    *
-   * Note: The Canvas provided in the [DrawContext]{@link Graphics:DrawContext} parameter is a temporary command-
-   * recording canvas, not the actual rendering canvas of the node. For usage instructions, see
-   * [Adjusting the Transformation Matrix of the Custom Drawing Canvas](docroot://ui/arkts-user-defined-arktsNode-renderNode.md#adjusting-the-transformation-matrix-of-the-custom-drawing-canvas).
+   * 该接口的[DrawContext]{@link Graphics:DrawContext}中的Canvas是用于记录指令的临时Canvas，并非节点的真实Canvas。使用请参见
+   * [调整自定义绘制Canvas的变换矩阵](docroot://ui/arkts-user-defined-arktsNode-renderNode.md#调整自定义绘制canvas的变换矩阵)。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > During RenderNode initialization, the **draw** method is invoked twice. The first call occurs when the FrameNode
-   * > is initially created, triggering the rendering process. The second call occurs when the modifier is initially
-   * > set, which triggers drawing. All subsequent drawing processes are triggered by the modifier.
+   * > RenderNode初始化时，会调用两次draw方法。第一次调用是在首次创建FrameNode时触发Render流程，第二次调用是在首次设置modifier时触发绘制。后续绘制流程皆由modifier触发。
    *
-   * @param { DrawContext } context - Graphics drawing context.
+   * @param { DrawContext } context - 图形绘制上下文。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -793,7 +787,7 @@ export class RenderNode {
   draw(context: DrawContext): void;
 
   /**
-   * Triggers the re-rendering of this RenderNode.
+   * 该方法会触发RenderNode的重新渲染。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -804,7 +798,7 @@ export class RenderNode {
   invalidate(): void;
 
   /**
-   * Releases this RenderNode immediately.
+   * 立即释放当前RenderNode。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -815,9 +809,9 @@ export class RenderNode {
   dispose(): void;
 
   /**
-   * Sets the metric unit used by attributes of this RenderNode.
+   * 设置RenderNode各个属性使用的单位。
    *
-   * @param { LengthMetricsUnit } unit - Metric unit used by attributes of the current RenderNode.
+   * @param { LengthMetricsUnit } unit - 设置RenderNode各个属性使用的单位。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -840,13 +834,10 @@ export class RenderNode {
   get lengthMetricsUnit(): LengthMetricsUnit;
 
   /**
-   * Checks whether this RenderNode object has released its reference to its backend entity node. Frontend nodes
-   * maintain references to corresponding backend entity nodes. After a node calls the **dispose** API to release this
-   * reference, subsequent API calls may cause crashes or return default values. This API facilitates validation of node
-   * validity prior to operations, thereby mitigating risks in scenarios where calls after disposal are required.
+   * 查询当前RenderNode对象是否已解除与后端实体节点的引用关系。前端节点均绑定有相应的后端实体节点，当节点调用dispose接口解除绑定后，再次调用接口可能会出现crash、返回默认值的情况。由于业务需求，可能存在节点在
+   * dispose后仍被调用接口的情况。为此，提供此接口以供开发者在操作节点前检查其有效性，避免潜在风险。
    *
-   * @returns { boolean } Whether the reference to the backend node is released. The value **true** means that the
-   *     reference to backend node is released, and **false** means the opposite.
+   * @returns { boolean } 后端实体节点是否解除引用。true为节点已与后端实体节点解除引用，false为节点未与后端实体节点解除引用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -856,10 +847,9 @@ export class RenderNode {
   isDisposed(): boolean;
 
   /**
-   * Set the background blur effect.
+   * 设置背景模糊效果。
    *
-   * @param { BackgroundBlur | undefined } blurValue - The background blur effect.
-   *     If undefined, the background blur effect will be removed.
+   * @param { BackgroundBlur | undefined } blurValue - 背景模糊效果。undefined表示无背景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -869,9 +859,9 @@ export class RenderNode {
   set backgroundBlur(blurValue: BackgroundBlur | undefined);
 
   /**
-   * Get the background blur effect.
+   * 获取背景模糊效果。
    *
-   * @returns { BackgroundBlur } - Returns the background blur effect.
+   * @returns { BackgroundBlur } - 返回背景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -881,10 +871,9 @@ export class RenderNode {
   get backgroundBlur(): BackgroundBlur;
 
   /**
-   * Set the content blur effect.
+   * 设置内容模糊效果。
    *
-   * @param { ContentBlur | undefined } blurValue - The content blur effect.
-   *     If undefined, the content blur effect will be removed.
+   * @param { ContentBlur | undefined } blurValue - 内容模糊效果。undefined表示无内容模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -894,9 +883,9 @@ export class RenderNode {
   set contentBlur(blurValue: ContentBlur | undefined);
 
   /**
-   * Get the content blur effect.
+   * 获取内容模糊效果。
    *
-   * @returns { ContentBlur } - Returns the content blur effect.
+   * @returns { ContentBlur } - 返回内容模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -906,10 +895,9 @@ export class RenderNode {
   get contentBlur(): ContentBlur;
 
   /**
-   * Set the foreground blur effect.
+   * 设置前景模糊效果。
    *
-   * @param { ForegroundBlur | undefined } blurValue - The foreground blur effect.
-   *     If undefined, the foreground blur effect will be removed.
+   * @param { ForegroundBlur | undefined } blurValue - 前景模糊效果。undefined表示无前景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -919,9 +907,9 @@ export class RenderNode {
   set foregroundBlur(blurValue: ForegroundBlur | undefined);
 
   /**
-   * Get the foreground blur effect.
+   * 获取前景模糊效果。
    *
-   * @returns { ForegroundBlur } - Returns the foreground blur effect.
+   * @returns { ForegroundBlur } - 返回前景模糊效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

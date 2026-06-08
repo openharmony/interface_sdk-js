@@ -14,11 +14,11 @@
  */
 
 /**
- * **NodeContent** is the ArkUI-provided manager for [ContentSlot]{@link content_slot}.
+ * NodeContent是ArkUI提供的[ContentSlot]{@link content_slot}的管理器。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - **NodeContent** objects do not support JSON serialization.
+ * > - NodeContent对象不支持使用JSON序列化。
  *
  * @file
  * @kit ArkUI
@@ -29,7 +29,7 @@ import { Content } from './Content';
 import { FrameNode } from './FrameNode';
 
 /**
- * NodeContent is the entity encapsulation of the node content.
+ * NodeContent是节点内容的实体封装。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -40,7 +40,7 @@ import { FrameNode } from './FrameNode';
 export class NodeContent extends Content {
 
   /**
-   * A constructor used to create a **NodeContent** object.
+   * 节点内容的实体封装。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,9 +51,9 @@ export class NodeContent extends Content {
   constructor();
 
   /**
-   * Adds a FrameNode to this **NodeContent** object.
+   * 根据参数将FrameNode添加到NodeContent中。
    *
-   * @param { FrameNode } node - FrameNode to add.
+   * @param { FrameNode } node - 需要添加的FrameNode。
    * @throws { BusinessError } 100025 - The parameter is invalid. Details about the invalid parameter and the reason
    *     are included in the error message.
    *     For example: "The parameter 'node' is invalid: it cannot be adopted." [since 22]
@@ -66,9 +66,9 @@ export class NodeContent extends Content {
   addFrameNode(node: FrameNode): void;
 
   /**
-   * Removes a FrameNode from this **NodeContent** object.
+   * 根据参数将FrameNode从NodeContent中删除。
    *
-   * @param { FrameNode } node - FrameNode to remove.
+   * @param { FrameNode } node - 需要删除的FrameNode。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

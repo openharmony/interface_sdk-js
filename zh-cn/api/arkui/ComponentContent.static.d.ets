@@ -1,3 +1,4 @@
+
 'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
@@ -17,6 +18,7 @@
 /**
  * @file
  * @kit ArkUI
+ * @arkts 1.2
  */
 
 import { BuildOptions } from 'arkui.BuilderNode';
@@ -30,7 +32,7 @@ import { WrappedBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.compo
 import { RecordData } from '@ohos.base';
 
 /**
- * Defines the base class for ComponentContent.
+ * 定义ComponentContent的基类.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -99,15 +101,9 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   update(args: T): void;
 
   /**
-   * Reuse the ComponentContent based on the provided parameters.
+   * 基于提供的参数复用ComponentContent。
    *
-   * @param { RecordData } [param] - Parameters for reusing ComponentContent. These parameters will be directly
-   *     applied to the reuse of all top-level custom components in the ComponentContent. They should include the
-   *     content required for the constructor parameters of each custom component; otherwise, undefined behavior may
-   *     occur. Calling this method will synchronously trigger the aboutToReuse lifecycle callback of the internal
-   *     custom components, with these parameters passed as the callback's input. The default value is undefined,
-   *     in which case the custom components in the ComponentContent will directly use the data source from the
-   *     construction phase.
+   * @param { RecordData } [param] - 用于复用ComponentContent的参数。该参数将直接用于ComponentContent中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则，会导致未定义行为。调用此方法将同步触发内部自定义组件的aboutToReuse生命周期回调，并将该参数作为回调的入参。默认值为undefined，此时ComponentContent中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -133,9 +129,9 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   dispose(): void;
 
   /**
-   * Get if the ComponentContent is disposed.
+   * 获取 ComponentContent 是否已被解绑。
    *
-   * @returns { boolean } - Returns true if the ComponentContent is disposed, false otherwise.
+   * @returns { boolean } - 如果 ComponentContent 已被解绑则返回 true，否则返回 false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -152,11 +148,11 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
   updateConfiguration(): void;
 
   /**
-   * Returns a flag indicating whether the current ComponentContent was obtained through dynamic-static conversion,
-   * includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   * 返回一个标志位，表示当前 ComponentContent 是否通过动态-静态转换获取。
+   * 该转换包含两个方向：从动态转换为静态，以及从静态转换为动态。
    *
-   * @returns { boolean } - Returns true if the ComponentContent was converted between dynamic and static states,
-   *     otherwise returns false.
+   * @returns { boolean } - 如果ComponentContent在动态和静态状态之间转换，则返回true。
+   *     否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -165,7 +161,7 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
 }
 
 /**
- * Defines ReactiveComponentContent.
+ * 定义 ReactiveComponentContent
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -174,11 +170,11 @@ export declare class ComponentContent<T = undefined> extends ComponentContentBas
 export declare class ReactiveComponentContent extends ComponentContentBase {
 
   /**
-   * Constructor.
+   * 构造函数。
    *
-   * @param { UIContext } uiContext - uiContext used to create the ReactiveComponentContent
-   * @param { CustomBuilder } builder - Defines the builder that will be called to build ReactiveComponentContent.
-   * @param { BuildOptions } [options] - Defines the options that will be used when building.
+   * @param { UIContext } uiContext - 用于创建 ReactiveComponentContent 的 UIContext对象
+   * @param { CustomBuilder } builder - 将被调用来构建 ReactiveComponentContent 的builder。
+   * @param { BuildOptions } [options] - 构建时要使用的选项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -186,15 +182,9 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   constructor(uiContext: UIContext, builder: CustomBuilder, options?: BuildOptions);
 
   /**
-   * Reuse the ReactiveComponentContent based on the provided parameters.
+   * 基于提供的参数重用ReactiveComponentContent
    *
-   * @param { RecordData } [param] - Parameters for reusing ReactiveComponentContent. These parameters will be
-   *     directly applied to the reuse of all top-level custom components in the ReactiveComponentContent. They
-   *     should include the content required for the constructor parameters of each custom component; otherwise,
-   *     undefined behavior may occur. Calling this method will synchronously trigger the aboutToReuse lifecycle
-   *     callback of the internal custom components, with these parameters passed as the callback's input. The
-   *     default value is undefined, in which case the custom components in the ReactiveComponentContent will
-   *     directly use the data source from the construction phase.
+   * @param { RecordData } [param] - 用于复用ReactiveComponentContent的参数。该参数将直接用于ReactiveComponentContent中所有顶层自定义组件的复用，应该包含每个自定义组件的构造函数参数所需内容，否则，会导致未定义行为。调用此方法将同步触发内部自定义组件的aboutToReuse生命周期回调，并将该参数作为回调的入参。默认值为undefined，此时ReactiveComponentContent中的自定义组件将直接使用构造时的数据源。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -202,7 +192,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   reuse(param?: RecordData): void;
 
   /**
-   * Recycle the ReactiveComponentContent.
+   * 回收 ReactiveComponentContent。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -211,7 +201,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   recycle(): void;
 
   /**
-   * Dispose the ReactiveComponentContent immediately.
+   * 立即解绑 ReactiveComponentContent。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -220,9 +210,9 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   dispose(): void;
 
   /**
-   * Get if the ReactiveComponentContent is disposed.
+   * 获取 ReactiveComponentContent 是否已被解绑。
    *
-   * @returns { boolean } - Returns true if the ReactiveComponentContent is disposed, false otherwise.
+   * @returns { boolean } - 如果 ReactiveComponentContent 已被解绑则返回 true，否则返回 false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -230,7 +220,7 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   isDisposed(): boolean;
 
   /**
-   * Notify ReactiveComponentContent to update the configuration to trigger a reload of the ReactiveComponentContent.
+   * 通知 ReactiveComponentContent 更新配置以触发重新加载。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -239,8 +229,8 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   updateConfiguration(): void;
 
   /**
-   * Flushes the current state changes to update the ReactiveComponentContent immediately.
-   * This forces a synchronous update of the component with the latest state values.
+   * 立即刷新当前状态变更以更新ReactiveComponentContent。
+   * 这会强制组件使用最新的状态值进行同步更新。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -249,11 +239,10 @@ export declare class ReactiveComponentContent extends ComponentContentBase {
   flushState(): void;
 
   /**
-   * Returns a flag indicating whether the current ReactiveComponentContent was obtained through dynamic-static
-   * conversion, includes conversions in both directions: dynamic-to-static and static-to-dynamic.
+   * 返回一个标志位，表示当前ReactiveComponentContent是否通过动态-静态转换获取。
+   * 该转换包含两个方向：从动态转换为静态，以及从静态转换为动态。
    *
-   * @returns { boolean } - Returns true if the ReactiveComponentContent was converted between dynamic and static
-   *     states, otherwise, returns false.
+   * @returns { boolean } - 如果 ReactiveComponentContent 是经过动态和静态状态之间转换得到的，则返回 true，否则返回 false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static

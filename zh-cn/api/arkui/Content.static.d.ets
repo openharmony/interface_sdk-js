@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,19 +14,15 @@
  */
 
 /**
- * Defines the base class for ComponentContent and NodeContent.
- *
  * @file
  * @kit ArkUI
  */
 
 /**
- * Defines the base class for {@link ComponentContent} and {@link NodeContent}.
+ * 定义ComponentContent和NodeContent基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @since 23 static
  */
 export abstract class Content {}
