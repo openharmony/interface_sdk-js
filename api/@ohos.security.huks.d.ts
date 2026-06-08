@@ -1955,6 +1955,7 @@ declare namespace huks {
    *     If the application manages the key itself, this parameter is ignored.
    * @returns { Promise<HuksReturnResult> } The promise returned by the function.
    * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000001 - Algorithm mode is not supported
    * @throws { BusinessError } 12000002 - Algorithm parameters are missing, please check the algorithm parameters.
    * @throws { BusinessError } 12000003 - The algorithm parameters are invalid, please check the algorithm parameters.
    * @throws { BusinessError } 12000004 - File operation failed.
@@ -1962,6 +1963,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - The algorithm engine reported an error, please check the input parameters.
    * @throws { BusinessError } 12000011 - The queried key does not exist, please check the key-related parameters.
    * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
+   * @throws { BusinessError } 12000013 - Queried credential does not exist
    * @throws { BusinessError } 12000014 - Memory is insufficient.
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM.
    * @throws { BusinessError } 12000016 - The screen lock password is not set.
@@ -1989,19 +1991,21 @@ declare namespace huks {
    *     This parameter must be specified if HUKS is used for key management.
    *     If the app manages the key by itself, ignore this parameter.
    * @returns { Promise<HuksReturnResult> } Promise used to return the result.
-   * @throws { BusinessError } 801  - API is not supported.
-   * @throws { BusinessError } 12000002  - The algorithm parameter is missing. Check the algorithm parameter.
-   * @throws { BusinessError } 12000003  - The algorithm parameter is invalid. Check the algorithm parameter.
-   * @throws { BusinessError } 12000004  - The file operation failed.
-   * @throws { BusinessError } 12000005  - IPC communication failed.
-   * @throws { BusinessError } 12000006  - The algorithm engine reports an error. Check the input parameters.
-   * @throws { BusinessError } 12000011  - The queried key does not exist. Check the key-related parameters.
-   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
-   * @throws { BusinessError } 12000014  - Insufficient memory.
-   * @throws { BusinessError } 12000015  - Failed to obtain the security information using UserIAM.
-   * @throws { BusinessError } 12000016  - The lock screen password is not set.
-   * @throws { BusinessError } 12000017  - A key with the same alias already exists.
-   * @throws { BusinessError } 12000018  - Invalid input parameter.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000001 - Algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - The algorithm parameter is missing. Check the algorithm parameter.
+   * @throws { BusinessError } 12000003 - The algorithm parameter is invalid. Check the algorithm parameter.
+   * @throws { BusinessError } 12000004 - The file operation failed.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
+   * @throws { BusinessError } 12000006 - The algorithm engine reports an error. Check the input parameters.
+   * @throws { BusinessError } 12000011 - The queried key does not exist. Check the key-related parameters.
+   * @throws { BusinessError } 12000012 - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000013 - Queried credential does not exist
+   * @throws { BusinessError } 12000014 - Insufficient memory.
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information using UserIAM.
+   * @throws { BusinessError } 12000016 - The lock screen password is not set.
+   * @throws { BusinessError } 12000017 - A key with the same alias already exists.
+   * @throws { BusinessError } 12000018 - Invalid input parameter.
    * @syscap SystemCapability.Security.Huks.Core
    * @stagemodelonly
    * @since 26.0.0
