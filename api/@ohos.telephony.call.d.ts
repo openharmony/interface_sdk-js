@@ -3165,24 +3165,6 @@ declare namespace call {
   function unloadCallUI(): Promise<boolean>;
 
   /**
-   * Send ussd response.
-   *
-   * @permission ohos.permission.SET_TELEPHONY_STATE
-   * @param { int } slotId - Indicates the slotId to send response.
-   * @param { string } content - Indicates the response content.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Non-system applications use system APIs.
-   * @throws { BusinessError } 8400001 - Invalid parameter value.
-   * @throws { BusinessError } 8400002 - Operation failed. Cannot connect to service.
-   * @throws { BusinessError } 8400003 - System internal error, system database write fail.
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @FaAndStageModel
-   * @since 26.0.0 dynamic&static
-   */
-  function sendUssdResponse(slotId: int, content: string): void;
-
-  /**
    * Indicates the mode of the ims call.
    *
    * @enum { int }
@@ -3901,16 +3883,6 @@ declare namespace call {
      * @since 23 static
      */
     rttState?: RttState;
-
-    /**
-     * Indicates the xcall type.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    xCallType?: XCallType;
   }
 
   /**
@@ -4132,17 +4104,7 @@ declare namespace call {
      * @since 11 dynamic
      * @since 23 static
      */
-    TYPE_VOIP = 4,
-
-    /**
-     * Indicates the call type is XCALL.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    TYPE_XCALL = 5
+    TYPE_VOIP = 4
   }
 
   /**
@@ -5038,15 +5000,6 @@ declare namespace call {
      * @since 23 static
      */
     extraParams?: Record<string, Object>;
-    /**
-     * Indicates the type of the xcall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    xCallType?: XCallType;
   }
 
   /**
@@ -5128,17 +5081,7 @@ declare namespace call {
      * @since 8 dynamic
      * @since 23 static
      */
-    DIAL_OTT_TYPE = 2,
-
-    /**
-     * Indicates this is a xcall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    DIAL_XCALL_TYPE = 3
+    DIAL_OTT_TYPE = 2
   }
 
   /**
@@ -6907,44 +6850,6 @@ declare namespace call {
      */
     REMOTE_REQUEST_UPGRADE_LOCAL_REJECT = 3
      }
-
-  /**
-   * Indicates the type of the XCall.
-   *
-   * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
-   * @FaAndStageModel
-   * @since 26.0.0 dynamic&static
-   */
-  export enum XCallType {  
-    /**
-     * Indicates the xcall is Ecall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    XCALL_ECALL_TYPE = 0,
-    /**
-     * Indicates the xcall is Bcall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    XCALL_BCALL_TYPE = 1,
-    /**
-     * Indicates the xcall is Icall.
-     *
-     * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
-     * @FaAndStageModel
-     * @since 26.0.0 dynamic&static
-     */
-    XCALL_ICALL_TYPE = 2
-    }
 }
 
 export default call;
