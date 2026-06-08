@@ -47,6 +47,7 @@ export * from './arkui/component/customComponent';
 export * from './arkui/component/customDialogController';
 export * from './arkui/component/dataPanel';
 export * from './arkui/component/datePicker';
+export * from './arkui/component/depthComponent';
 export * from './arkui/component/divider';
 export * from './arkui/component/effectComponent';
 export * from './arkui/component/ellipse';
