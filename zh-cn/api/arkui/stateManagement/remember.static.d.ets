@@ -23,8 +23,8 @@
 import { Builder } from '../component/builder';
 
 /**
- * Mutable state variable declared with rememberVariable.
- *
+* rememberVariable创建的状态变量类型。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -32,7 +32,7 @@ import { Builder } from '../component/builder';
 export declare interface MutableVariable<T> {
 
   /**
-   * Mutable variable value.
+   * 状态变量的值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -42,8 +42,9 @@ export declare interface MutableVariable<T> {
 }
 
 /**
- * Type of initial value for rememberVariable.
- *
+* 状态变量初始值入参类型。基础类型使用类型T直接传入；
+* 复杂类型（interface、class和包含Array、Map、Set和Date的内置类型）使用回调（() => T）初始化能避免重复创建实例，性能更高。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -51,12 +52,10 @@ export declare interface MutableVariable<T> {
 type RememberInitialType<T> = (() => T) | T;
 
 /**
- * Create variable within @Builder functions or build().
- *
- * @param { RememberInitialType<T> } initialValue - directly pass primitives
- *     or use callback to pass class, interface and builtins.
- *     The callback is only executed once.
- * @returns { MutableVariable<T> } mutable state variable.
+* 创建状态变量。
+*
+ * @param { RememberInitialType<T> } initialValue - 状态变量的初始值。
+ * @returns { MutableVariable<T> } 返回状态变量。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

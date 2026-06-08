@@ -50,8 +50,8 @@ export declare class LocalStorage {
   public constructor(initializingProperties?: RecordData);
 
   /**
-   * Obtain a handler or an alias to LocalStorage property with given name.
-   *
+     * Obtain a handler or an alias to LocalStorage property with given name.
+     *
    * @param { string } propName LocalStorage property name
    * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
    *     return undefined otherwise.
@@ -62,10 +62,10 @@ export declare class LocalStorage {
   public ref<T>(propName: string): AbstractProperty<T> | undefined;
 
   /**
-   * Obtain a handler or an alias to LocalStorage property with given name.
-   *
-   * If property does not exist in LocalStorage, create it with given default value.
-   *
+     * Obtain a handler or an alias to LocalStorage property with given name.
+     *
+     * If property does not exist in LocalStorage, create it with given default value.
+     *
    * @param { string } propName LocalStorage property name
    * @param { T } defaultValue If property does not exist in LocalStorage, create it with given default value.
    * @returns { AbstractProperty<T> } AbstractProperty object
@@ -76,8 +76,8 @@ export declare class LocalStorage {
   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
 
   /**
-   * Create and return a two-way sync "(link") to named property
-   *
+     * Create and return a two-way sync "(link") to named property
+     *
    * @param { string } propName - name of source property in LocalStorage
    * @returns { SubscribedAbstractProperty<T> | undefined } instance of
    *     SubscribedAbstractProperty<T>, return undefined if named property does not already exist in LocalStorage.
@@ -88,13 +88,13 @@ export declare class LocalStorage {
   public link<T>(propName: string): SubscribedAbstractProperty<T> | undefined;
 
   /**
-   * Like see link(), but will create and initialize a new source property in LocalStorage if missing
-   *
+     * Like see link(), but will create and initialize a new source property in LocalStorage if missing
+     *
    * @param { string } propName - name of source property in LocalStorage
    * @param { T } defaultValue - value to be used for initializing new property in LocalStorage
-   *     default value must be of type T, can be undefined or null.
+     *     default value must be of type T, can be undefined or null.
    * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<T>
-   *     Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+     *     Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -102,10 +102,10 @@ export declare class LocalStorage {
   public setAndLink<T>(propName: string, defaultValue: T): SubscribedAbstractProperty<T>;
 
   /**
-   * Check if LocalStorage has a property with given name
-   * return true if property with given name exists
-   * same as ES6 Map.prototype.has()
-   *
+     * Check if LocalStorage has a property with given name
+     * return true if property with given name exists
+     * same as ES6 Map.prototype.has()
+     *
    * @param { string } propName - searched property
    * @returns { boolean } true if property with such name exists in LocalStorage
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -115,9 +115,9 @@ export declare class LocalStorage {
   public has(propName: string): boolean;
 
   /**
-   * Returns value of given property
-   * return undefined if no property with this name
-   *
+     * Returns value of given property
+     * return undefined if no property with this name
+     *
    * @param { string } propName - property name
    * @returns { T | undefined } property value if found or undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -127,10 +127,10 @@ export declare class LocalStorage {
   public get<T>(propName: string): T | undefined;
 
   /**
-   * Set value of given property in LocalStorage
-   * Method sets nothing and returns false if property with this name does not exist in LocalStorage
-   * newValue can be undefined or null from API 20.
-   *
+     * Set value of given property in LocalStorage
+     * Method sets nothing and returns false if property with this name does not exist in LocalStorage
+     * newValue can be undefined or null from API 20.
+     *
    * @param { string } propName
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
@@ -141,10 +141,10 @@ export declare class LocalStorage {
   public set<T>(propName: string, newValue: T): boolean;
 
   /**
-   * Set value of given property, if it exists, see set() .
-   * Add property if no property with given name and initialize with given value.
-   * newValue can be undefined or null from API 12
-   *
+     * Set value of given property, if it exists, see set() .
+     * Add property if no property with given name and initialize with given value.
+     * newValue can be undefined or null from API 12
+     *
    * @param { string } propName
    * @param { T } newValue - must be of type T, can be undefined or null
    * @returns { boolean } true on success, i.e. when above conditions are satisfied, otherwise false
@@ -155,9 +155,9 @@ export declare class LocalStorage {
   public setOrCreate<T>(propName: string, newValue: T): boolean;
 
   /**
-   * Provide names of all properties in LocalStorage
-   * same as ES6 Map.prototype.keys()
-   *
+     * Provide names of all properties in LocalStorage
+     * same as ES6 Map.prototype.keys()
+     *
    * @returns { IterableIterator<string> } return a Map Iterator
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -166,9 +166,9 @@ export declare class LocalStorage {
   public keys(): IterableIterator<string>;
 
   /**
-   * Returns number of properties in LocalStorage
-   * same as Map.prototype.size()
-   *
+     * Returns number of properties in LocalStorage
+     * same as Map.prototype.size()
+     *
    * @returns { int } return number of properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -177,19 +177,19 @@ export declare class LocalStorage {
   public size(): int;
 
   /**
-   * Delete property from StorageBase
-   * Use with caution:
-   * Before deleting a prop from LocalStorage all its subscribers need to
-   * unsubscribe from the property.
-   * This method fails and returns false if given property still has subscribers
-   * Another reason for failing is unknown property.
-   * Developer advise:
-   * Subscribers are created with see link(), see prop()
-   * and also via @LocalStorageLink and @LocalStorageProp state variable decorators.
-   * That means as long as their is a @Component instance that uses such decorated variable
-   * or a sync relationship with a SubscribedAbstractProperty variable the property can nit
-   * (and also should not!) be deleted from LocalStorage.
-   *
+     * Delete property from StorageBase
+     * Use with caution:
+     * Before deleting a prop from LocalStorage all its subscribers need to
+     * unsubscribe from the property.
+     * This method fails and returns false if given property still has subscribers
+     * Another reason for failing is unknown property.
+     * Developer advise:
+     * Subscribers are created with see link(), see prop()
+     * and also via @LocalStorageLink and @LocalStorageProp state variable decorators.
+     * That means as long as their is a @Component instance that uses such decorated variable
+     * or a sync relationship with a SubscribedAbstractProperty variable the property can nit
+     * (and also should not!) be deleted from LocalStorage.
+     *
    * @param { string } propName
    * @returns { boolean } false if method failed
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -199,13 +199,13 @@ export declare class LocalStorage {
   public delete(propName: string): boolean;
 
   /**
-   * Delete all properties from the LocalStorage instance
-   * Precondition is that there are no subscribers.
-   * method returns false and deletes no properties if there is any property
-   * that still has subscribers
-   *
+     * Delete all properties from the LocalStorage instance
+     * Precondition is that there are no subscribers.
+     * method returns false and deletes no properties if there is any property
+     * that still has subscribers
+     *
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */

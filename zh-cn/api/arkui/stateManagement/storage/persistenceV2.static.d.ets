@@ -24,9 +24,9 @@ import contextConstant from '@ohos.app.ability.contextConstant';
 import { ToJSONType, FromJSONType } from './persistentStorage';
 
 /**
- * Function that returns the default creator.
+ * 返回默认构造器的函数。
  *
- * @returns { T } default instance.
+ * @returns { T } 返回默认构造器的函数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -34,9 +34,7 @@ import { ToJSONType, FromJSONType } from './persistentStorage';
 export declare type StorageDefaultCreator<T> = () => T;
 
 /**
- * Map that contains Class and its default creator.
- * The key is the Class type.
- * The value is function that returns the default creator.
+ * 保存对象类型及其默认构造器的Map。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -45,7 +43,7 @@ export declare type StorageDefaultCreator<T> = () => T;
 export declare type StorageDefaultSubCreators = Map<Class, StorageDefaultCreator<object>>;
 
 /**
- * Define ConnectOptions class.
+ * globalConnect参数类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -54,7 +52,7 @@ export declare type StorageDefaultSubCreators = Map<Class, StorageDefaultCreator
 export declare interface ConnectOptions<T extends object> {
 
   /**
-   * Define class constructor
+   * 指定的类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -63,9 +61,7 @@ export declare interface ConnectOptions<T extends object> {
   type: Class;
 
   /**
-   * Defines alias name for the key.
-   * If key is not set, type will be used to find matching data.
-   * key should not be more than 1024 characters, or undefined will be returned.
+   * 传入的key，不传则使用type的名字作为key。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,8 +70,7 @@ export declare interface ConnectOptions<T extends object> {
   key?: string;
 
   /**
-   * Define the function generating the default value.
-   * If defaultCreator is not set, then existing data will be retrieved, or return undefined.
+   * 默认数据的构造器，默认值为undefined，建议传递，如果globalConnect是第一次连接key，不传会报错。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -84,8 +79,8 @@ export declare interface ConnectOptions<T extends object> {
   defaultCreator?: StorageDefaultCreator<T>;
 
   /**
-   * Define encrypted partition for data storage.
-   * if not passed in, the default value is El2.
+   * 加密级别：EL1-EL5，详见[加密级别](docroot://application-models/application-context-stage.md#获取和修改加密分区)，不传时默认为EL2，不同加密级别对应不同的加密分
+   * 区，即不同的存储路径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -94,8 +89,7 @@ export declare interface ConnectOptions<T extends object> {
   areaMode?: contextConstant.AreaMode;
 
   /**
-   * Customize serialize callback.
-   * If toJson is not set, then default serialization method will be used.
+   * 转换存储对象到JSON格式对象的函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,8 +98,7 @@ export declare interface ConnectOptions<T extends object> {
   toJson?: ToJSONType<T>;
 
   /**
-   * Customize deserialize callback.
-   * If fromJson is not set, then default deserialization method will be used.
+   * 转换JSON格式对象到存储对象的函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,7 +107,7 @@ export declare interface ConnectOptions<T extends object> {
   fromJson?: FromJSONType<T>;
 
   /**
-   * Enable autosave feature. Default value is true.
+   * 是否自动持久化存储数据，默认值为true。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -123,9 +116,7 @@ export declare interface ConnectOptions<T extends object> {
   enableAutoSave?: boolean;
 
   /**
-   * Map that contains Class and its default creator.
-   * It is used to restore inner object.
-   * The default value is undefined.
+   * 保存对象类型及其默认构造器的Map。用于恢复内层对象数据。默认值为undefined。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,12 +126,12 @@ export declare interface ConnectOptions<T extends object> {
 }
 
 /**
- * Function that returns the reason type when an error occurs.
+ * 持久化失败时返回错误原因的回调。
  *
- * @param { string } key - persisted key when an error occurs
- * @param { string } reason - reason type when an error occurs, possible values are 'quota', 'serialization', 'unknown'
- * @param { string } message - Additional message when an error occurs.
- * @param { string } [oldValue] - value in storage that cannot be deserialized.
+ * @param { string } key - 出错的键值。
+ * @param { string } reason - 出错的原因类型。
+ * @param { string } message - 出错的更多消息。
+ * @param { string } [oldValue] - 反序列化失败时返回原始序列化数据。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -149,8 +140,8 @@ export declare type PersistenceErrorCallback = (key: string, reason: string, mes
     oldValue?: string) => void;
 
 /**
- * PersistenceV2 is for UI state of app-wide access, available on app re-start,
- * and saves database content in disk.
+ * PersistenceV2具体UI使用说明，详见
+ * [PersistenceV2(持久化存储UI状态)](docroot://ui/state-management-static/arkts-static-new-persistencev2.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -159,12 +150,10 @@ export declare type PersistenceErrorCallback = (key: string, reason: string, mes
 export declare class PersistenceV2 {
 
   /**
-   * When used by PersistenceV2, module-level storage path, different modules will have their own storage paths.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
+   * 将键值对数据储存在应用磁盘中。如果给定的key已经存在于PersistenceV2中，返回对应的值；否则，会通过获取默认值的构造器构造默认值，并返回。
    *
    * @param { Class } ttype - class type of the stored value.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value.
+   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value
    * @param { BaseConnectOptions<T> } [connectOptions] - additional connect options.
    * @returns { T | undefined } the value of the existing key or the default value.
    *     returns undefined when defaultCreator is not set and there is no data with matching type.
@@ -179,14 +168,11 @@ export declare class PersistenceV2 {
   ): T | undefined;
 
   /**
-   * If used by persistenceV2, module-level storage path, different modules will have their own storage paths.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
+   * 将键值对数据储存在应用磁盘中。如果给定的key已经存在于PersistenceV2中，返回对应的值；否则，会通过获取默认值的构造器构造默认值，并返回。
    *
    * @param { Class } ttype - class type of the stored value.
    * @param { string } key - alias name of the key.
-   *     key should be no more than 1024 characters, or undefined will be returned.
-   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value.
+   * @param { StorageDefaultCreator<T> } [defaultCreator] - the function generating the default value
    * @param { BaseConnectOptions<T> } [connectOptions] - additional connect options.
    * @returns { T | undefined } the value of the existed key or the default value.
    *     returns undefined when defaultCreator is not set and there is no data with matching type and key.
@@ -203,9 +189,8 @@ export declare class PersistenceV2 {
   ): T | undefined;
 
   /**
-   * Application-level storage path, sharing a storage path for all modules under the application.
-   * If the value for the given key is already available, return the value.
-   * If not, add the key with value generated by calling defaultFunc and return it to caller.
+   * 将键值对数据储存在应用磁盘中。如果给定的key已经存在于[PersistenceV2](docroot://ui/state-management-static/arkts-static-new-persistencev2.md)
+   * 中，返回对应的值；否则，会通过获取默认值的构造器构造默认值，并返回。
    *
    * @param { ConnectOptions<T> } params - application-level storage parameters.
    * @returns { T | undefined } the value of the existed key or the default value
@@ -216,9 +201,9 @@ export declare class PersistenceV2 {
   static globalConnect<T extends object>(params: ConnectOptions<T>): T | undefined;
 
   /**
-   * Used to manually persist data changes to disk.
+   * 手动持久化指定的键值对数据。
    *
-   * @param { string | Class } keyOrType - key or class type that needs to be persisted.
+   * @param { string | Class } keyOrType - 需要持久化的key；如果指定的是Class类型，持久化的key为Class的name。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -226,9 +211,9 @@ export declare class PersistenceV2 {
   static save(keyOrType: string | Class): void;
 
   /**
-   * Called when persisting encounters an error.
+   * 在持久化失败时调用。
    *
-   * @param { PersistenceErrorCallback | undefined } callback - called when error
+   * @param { PersistenceErrorCallback | undefined } callback - 持久化失败时调用。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -236,9 +221,13 @@ export declare class PersistenceV2 {
   static notifyOnError(callback: PersistenceErrorCallback | undefined): void;
 
   /**
-   * Removes data with the given key or given class type.
+   * 将指定的键值对数据从PersistenceV2里面删除。如果指定的键值不存在于PersistenceV2中，将删除失败。
+   * 
+   * > **说明：**
+   * >
+   * > 删除PersistenceV2中不存在的key会打印warn日志警告。
    *
-   * @param { string | Class } keyOrType - key or class type to remove
+   * @param { string | Class } keyOrType - 需要删除的key。如果传入的是Class类型，则删除的key为Class类型入参的name。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -246,7 +235,11 @@ export declare class PersistenceV2 {
   static remove(keyOrType: string | Class): void;
 
   /**
-   * Returns the array of all keys.
+   * 获取PersistenceV2中所有的key。
+   * 
+   * > **说明：**
+   * >
+   * > key在Array中的顺序是无序的，与key插入到PersistenceV2中的顺序无关。
    *
    * @returns { string[] } the array of all keys.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -257,7 +250,7 @@ export declare class PersistenceV2 {
 }
 
 /**
- * Additional connect options for PersistenceV2.connect API.
+ * connect参数类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -266,8 +259,7 @@ export declare class PersistenceV2 {
 export declare interface BaseConnectOptions<T extends object> {
 
   /**
-   * Customize serialize callback.
-   * If toJson is not set, then default serialization method will be used.
+   * 转换存储对象到JSON格式对象的函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -276,8 +268,7 @@ export declare interface BaseConnectOptions<T extends object> {
   toJson?: ToJSONType<T>;
 
   /**
-   * Customize deserialize callback.
-   * If fromJson is not set, then default deserialization method will be used.
+   * 转换JSON格式对象到存储对象的函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -286,7 +277,7 @@ export declare interface BaseConnectOptions<T extends object> {
   fromJson?: FromJSONType<T>;
 
   /**
-   * Enable autosave feature. Default value is true.
+   * 是否自动持久化存储数据，默认值为true。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

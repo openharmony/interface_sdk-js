@@ -26,7 +26,7 @@ import { ReusePoolOwnership } from '../component/customComponent';
 import window from '../../@ohos.window';
 
 /**
- * Define a custom component API that provides variables-related functionality.
+ * 定义一个提供变量相关功能的自定义组件API。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -35,9 +35,6 @@ import window from '../../@ohos.window';
 export declare interface IVariableOwner {}
 
 /**
- * Defining State annotation
- * State variable that holds the state property and is used to render the owning custom component.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -46,12 +43,6 @@ export declare interface IVariableOwner {}
 export declare @interface State {}
 
 /**
- * Defining PropRef annotation
- * PropRef is an annotation which is mutable.
- * Any object property modifications made through PropRef are visible in the
- * parent component, which is different from Prop.
- * In order to prevent this, need to take a deep copy of the parent data.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -60,9 +51,6 @@ export declare @interface State {}
 export declare @interface PropRef {}
 
 /**
- * Defining Link annotation
- * Link decorated variable creates two-way synchronization with a variable of its parent component.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -71,9 +59,6 @@ export declare @interface PropRef {}
 export declare @interface Link {}
 
 /**
- * Defining Observed annotation
- * Observed is used to decorate a class.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -82,11 +67,6 @@ export declare @interface Link {}
 export declare @interface Observed {}
 
 /**
- * Defining Track annotation
- * Track is a decorator used to decorate properties of class objects.
- * Any changes to the properties decorated by Track will trigger only updates to the UI associated with those
- * properties.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -95,9 +75,6 @@ export declare @interface Observed {}
 export declare @interface Track {}
 
 /**
- * Defining ObjectLink annotation
- * ObjectLink is used to observe property changes in nested class objects.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -120,8 +97,8 @@ export declare @interface ObjectLink {}
 export declare @interface StoragePropRef {
 
   /**
-   * The give property in AppStorage.
-   *
+     * 用于标识AppStorage的属性。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -142,8 +119,8 @@ export declare @interface StoragePropRef {
 export declare @interface StorageLink {
 
   /**
-   * The give property in AppStorage.
-   *
+     * 用于标识AppStorage的属性。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -166,8 +143,8 @@ export declare @interface StorageLink {
 export declare @interface LocalStoragePropRef {
 
   /**
-   * The give property in LocalStorage.
-   *
+     * 用于标识LocalStorage的属性。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -188,8 +165,8 @@ export declare @interface LocalStoragePropRef {
 export declare @interface LocalStorageLink {
 
   /**
-   * The give property in LocalStorage.
-   *
+     * 用于标识LocalStorage的属性。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -211,8 +188,8 @@ export declare @interface LocalStorageLink {
 export declare @interface Provide {
 
   /**
-   * The alias name.
-   *
+     * 用于设置别名，默认值为属性名。 
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -220,8 +197,8 @@ export declare @interface Provide {
   alias: string = "";
 
   /**
-   * allowOverride is used to override an existing @Provide decorated variable.
-   *
+     * 用于设置是否允许重载，默认值为false即不允许。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -241,8 +218,8 @@ export declare @interface Provide {
 export declare @interface Consume {
 
   /**
-   * The alias name.
-   *
+     * 用于设置别名，默认值为属性名。 
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -262,8 +239,8 @@ export declare @interface Consume {
 export declare @interface Watch {
 
   /**
-   * The callback function name.
-   *
+     * 用于监听的回调函数名，内容由开发者指定。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -272,9 +249,6 @@ export declare @interface Watch {
 }
 
 /**
- * Defining Require annotation
- * Require is a decorator for declaring that parameters – regular variables.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -283,10 +257,6 @@ export declare @interface Watch {
 export declare @interface Require {}
 
 /**
- * Defining Local annotation
- * Local is the internal state of a component, which enables the variables in the
- * custom component to observe changes.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -295,10 +265,6 @@ export declare @interface Require {}
 export declare @interface Local {}
 
 /**
- * Defining Param annotation
- * Param indicates the state passed in from the external, ensuring that
- * data can be synchronized between the parent and child components.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -307,9 +273,6 @@ export declare @interface Local {}
 export declare @interface Param {}
 
 /**
- * Defining Once annotation
- * Once annotation accepts values passed in only during variable initialization
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -318,10 +281,6 @@ export declare @interface Param {}
 export declare @interface Once {}
 
 /**
- * Defining Event annotation
- * Event is used to decorate the callback method is a standard, indicating that the
- * child component needs to pass in the callback for updating the data source.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -343,8 +302,8 @@ export declare @interface Event {}
 export declare @interface Provider {
 
   /**
-   * The alias name.
-   *
+     * 用于设置别名，默认值为属性名。 
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -364,8 +323,8 @@ export declare @interface Provider {
 export declare @interface Consumer {
 
   /**
-   * The alias name.
-   *
+     * 用于设置别名，默认值为属性名。 
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -374,9 +333,6 @@ export declare @interface Consumer {
 }
 
 /**
- * Defining ObservedV2 annotation
- * ObservedV2 is used to decorate with class.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -385,9 +341,6 @@ export declare @interface Consumer {
 export declare @interface ObservedV2 {}
 
 /**
- * Defining Trace annotation
- * Trace is used to directly observe the property changes of nested objects
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -396,9 +349,6 @@ export declare @interface ObservedV2 {}
 export declare @interface Trace {}
 
 /**
- * Defining Computed annotation
- * Computed is a method decorator that decorates the getter method.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -418,8 +368,8 @@ export declare @interface Computed {}
 export declare @interface Monitor {
 
   /**
-   * Listened property name.
-   *
+     * 用于设置对象属性名，可同时监听多个对象属性。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -438,11 +388,6 @@ export declare @interface Monitor {
 export declare @interface Env {
 
   /**
-   * Key value input by the user.
-   * On API 26.0.0 and above, it can also support a string literal in the
-   * format "ReadonlyEnvKey.<keyName>" or "WritableEnvKey.<keyName>".
-   * The key name must be one declared in {@link ReadonlyEnvKey} or
-   * {@link WritableEnvKey}. Arbitrary strings are not supported.
    *
    * @type { SystemProperties } key - key value input by the user. [since 22 - 24]
    * @type { string } key - key value input by the user, only support . [since 26.0.0]
@@ -469,8 +414,9 @@ export declare @interface Env {
 export declare @interface SyncMonitor {
 
   /**
-   * Listened property name.
-   *
+     * 监听V2状态变量变量名
+     *
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -479,7 +425,7 @@ export declare @interface SyncMonitor {
 }
 
 /**
- * Define IMonitor interface
+ * 当监听的变量变化时，状态管理框架侧将回调开发者注册的函数，并传入变化信息。变化信息的类型即为IMonitor类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -488,8 +434,8 @@ export declare @interface SyncMonitor {
 export declare interface IMonitor {
 
   /**
-   * Array of changed paths(keys)
-   *
+    * 变化路径的数组。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -497,11 +443,9 @@ export declare interface IMonitor {
   dirty: Array<string>;
 
   /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair
-   * corresponding to the first path in dirty.
-   *
-   * @param { string } [path] Listened property name
+    * 获取指定path的变化信息。
+    *
+   * @param { string } [path] 可选，被监听变量的路径。未指定时默认使用变化路径数组dirty中的第一个路径。
    * @returns { IMonitorValue<T> | undefined }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,8 +455,6 @@ export declare interface IMonitor {
 }
 
 /**
- * Define IMonitorValue interface
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -520,8 +462,8 @@ export declare interface IMonitor {
 export declare interface IMonitorValue<T> {
 
   /**
-   * Get the previous value.
-   *
+    * 变量变化前的值。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -529,8 +471,8 @@ export declare interface IMonitorValue<T> {
   before: T;
 
   /**
-   * Get current value.
-   *
+    * 变量当前的值。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -538,8 +480,8 @@ export declare interface IMonitorValue<T> {
   now: T;
 
   /**
-   * Monitored path input by the user.
-   *
+    * 变量的路径。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -548,7 +490,7 @@ export declare interface IMonitorValue<T> {
 }
 
 /**
- * Define ComponentInit Method Decorator.
+ * 定义ComponentInit方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -558,7 +500,7 @@ export declare interface IMonitorValue<T> {
 export declare @interface ComponentInit {}
 
 /**
- * Define ComponentAppear Method Decorator.
+ * 定义ComponentAppear方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -568,7 +510,7 @@ export declare @interface ComponentInit {}
 export declare @interface ComponentAppear {}
 
 /**
- * Define ComponentBuilt Method Decorator.
+ * 定义ComponentBuilt方法装饰器
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -578,7 +520,7 @@ export declare @interface ComponentAppear {}
 export declare @interface ComponentBuilt {}
 
 /**
- * Define ComponentReuse Method Decorator.
+ * 定义ComponentReuse方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -588,7 +530,7 @@ export declare @interface ComponentBuilt {}
 export declare @interface ComponentReuse {}
 
 /**
- * Define ComponentRecycle Method Decorator.
+ * 定义ComponentRecycle方法装饰器
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -598,7 +540,7 @@ export declare @interface ComponentReuse {}
 export declare @interface ComponentRecycle {}
 
 /**
- * Define ComponentDisappear Method Decorator.
+ * 定义ComponentDisappear方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -608,7 +550,7 @@ export declare @interface ComponentRecycle {}
 export declare @interface ComponentDisappear {}
 
 /**
- * Define ComponentActive Method Decorator.
+ * 定义ComponentActive方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -618,7 +560,7 @@ export declare @interface ComponentDisappear {}
 export declare @interface ComponentActive {}
 
 /**
- * Define ComponentInactive Method Decorator.
+ * 定义组件非活动方法装饰器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -628,7 +570,7 @@ export declare @interface ComponentActive {}
 export declare @interface ComponentInactive {}
 
 /**
- * Define decorated variable interface.
+ * 定义状态变量接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -637,8 +579,8 @@ export declare @interface ComponentInactive {}
 export declare interface IDecoratedVariable {
 
   /**
-   * Decorated variable name.
-   *
+     * Decorated variable name.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -656,8 +598,8 @@ export declare interface IDecoratedVariable {
 export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
 
   /**
-   * Registers the watch callback function with the data source.
-   *
+     * Registers the watch callback function with the data source.
+     *
    * @param { IDecoratedV1Variable<T> } decoratedVar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -667,7 +609,7 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
 }
 
 /**
- * Define decorated variable interface.
+ * 定义状态变量接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -676,9 +618,9 @@ export declare interface IDecoratedV1Variable<T> extends IDecoratedVariable {
 export declare interface IDecoratedReadableVariable<T> {
 
   /**
-   * Get the state variable.
+   * 获取变量的值
    *
-   * @returns { T } value of this variable
+   * @returns { T } 变量的值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -687,7 +629,7 @@ export declare interface IDecoratedReadableVariable<T> {
 }
 
 /**
- * Define decorated immutable variable interface.
+ * 定义只读状态变量接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -697,7 +639,7 @@ export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadab
 }
 
 /**
- * Define decorated mutable variable interface.
+ * 定义可读写状态变量接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -706,8 +648,8 @@ export declare interface IDecoratedImmutableVariable<T> extends IDecoratedReadab
 export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadableVariable<T> {
 
   /**
-   * Set the state variable with a new Value.
-   *
+     * Set the state variable with a new Value.
+     *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -726,8 +668,8 @@ export declare interface IDecoratedMutableVariable<T> extends IDecoratedReadable
 export declare interface IDecoratedUpdatableVariable<T> {
 
   /**
-   * Update the state variable with a new Value.
-   *
+     * Update the state variable with a new Value.
+     *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -746,9 +688,9 @@ export declare interface IDecoratedUpdatableVariable<T> {
 export declare interface IStateDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset State variable when the @Reusable Component instance is reused.
+   * 当组件被复用时，重置状态变量。
    *
-   * @param { T } newValue - default value
+   * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -767,9 +709,9 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
     IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset State variable when the @Reusable Component instance is reused.
+   * 当组件被复用时，重置状态变量。
    *
-   * @param { T } newValue - default value
+   * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -787,7 +729,7 @@ export declare interface IPropRefDecoratedVariable<T> extends IDecoratedMutableV
 export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset source for this @StoragePropRef variable
+   * 重置@StoragePropRef变量的源
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -806,9 +748,9 @@ export declare interface ILocalStoragePropRefDecoratedVariable<T> extends IDecor
 export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset Link variable when the @Reusable Component instance is reused.
+   * 在重用@可重用组件实例时重置链接变量。
    *
-   * @param { LinkSourceType<T> } newValue - default value
+   * @param { LinkSourceType<T> } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -826,9 +768,9 @@ export declare interface ILinkDecoratedVariable<T> extends IDecoratedMutableVari
 export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Provide Link variable when the @Reusable Component instance is reused.
+   * 在重用@Reusable Component实例时提供Link变量。
    *
-   * @param { T } newValue - default value
+   * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -846,11 +788,11 @@ export declare interface IProvideDecoratedVariable<T> extends IDecoratedMutableV
 export declare interface IConsumeDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset Consume variable when the @Reusable Component instance is reused.
+   * 当@Reusable Component实例被重用时，重置Consume变量。
    *
-   * @param { string } provideAlias - alias
-   * @param { WatchFuncType } [watchFunc] - watch function type
-   * @param { ConsumeOptions<T> } [consumeOptions] - options with default value
+   * @param { string } provideAlias - 同名
+   * @param { WatchFuncType } [watchFunc] - watch函数类型
+   * @param { ConsumeOptions<T> } [consumeOptions] - 具有默认值的选项
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -869,9 +811,9 @@ export declare interface IObjectLinkDecoratedVariable<T> extends IDecoratedImmut
     IDecoratedUpdatableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset ObjectLink variable when the @Reusable Component instance is reused.
+   * 当@可重用组件实例时，重置ObjectLink变量。
    *
-   * @param { T } newValue - default value
+   * @param { T } newValue - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -898,7 +840,7 @@ export declare interface IStorageLinkDecoratedVariable<T> extends IDecoratedMuta
 export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {
 
   /**
-   * Reset source for this @StoragePropRef variable
+   * 重置@StoragePropRef变量的源
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -917,7 +859,7 @@ export declare interface IStoragePropRefDecoratedVariable<T> extends IDecoratedM
 export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV1Variable<T> {}
 
 /**
- * Define Local decoration variable interface.
+ * Local装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -926,7 +868,7 @@ export declare interface ILocalStorageLinkDecoratedVariable<T> extends IDecorate
 export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
- * Define Param decoration variable interface.
+ * Param装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -935,7 +877,7 @@ export declare interface ILocalDecoratedVariable<T> extends IDecoratedMutableVar
 export declare interface IParamDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedUpdatableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
- * Define Param Once decoration variable interface.
+ * Param和Once装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -962,8 +904,8 @@ export type LinkSourceType<T> = IDecoratedV1Variable<T>;
 export declare interface IMutableStateMeta {
 
   /**
-   * Collect the dependancy for UI component with state variable
-   *
+     * Collect the dependancy for UI component with state variable
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -971,8 +913,8 @@ export declare interface IMutableStateMeta {
   addRef(): void;
 
   /**
-   * Notify UI component to update when state variable is changed
-   *
+     * Notify UI component to update when state variable is changed
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -990,8 +932,8 @@ export declare interface IMutableStateMeta {
 export declare interface IMutableKeyedStateMeta {
 
   /**
-   * Collect the dependancy for UI component with state variable based on given key
-   *
+     * Collect the dependancy for UI component with state variable based on given key
+     *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1000,8 +942,8 @@ export declare interface IMutableKeyedStateMeta {
   addRef(key: string): void;
 
   /**
-   * Collect the dependancy for UI component with state variable based on given key
-   *
+     * Collect the dependancy for UI component with state variable based on given key
+     *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1010,8 +952,8 @@ export declare interface IMutableKeyedStateMeta {
   addRef(index: int): void;
 
   /**
-   * Notify UI component with given key to update when state variable is changed
-   *
+     * Notify UI component with given key to update when state variable is changed
+     *
    * @param { string } key
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1020,8 +962,8 @@ export declare interface IMutableKeyedStateMeta {
   fireChange(key: string): void;
 
   /**
-   * Notify UI component with given key to update when state variable is changed
-   *
+     * Notify UI component with given key to update when state variable is changed
+     *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1040,8 +982,8 @@ export declare interface IMutableKeyedStateMeta {
 export declare interface IObserve {
 
   /**
-   * Rendering component.
-   *
+     * Rendering component.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1049,8 +991,8 @@ export declare interface IObserve {
   readonly renderingComponent: int;
 
   /**
-   * Rendering component id.
-   *
+     * Rendering component id.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1058,11 +1000,11 @@ export declare interface IObserve {
   readonly renderingId: RenderIdType;
 
   /**
-   * Collect the dependancy for UI component with state variable
-   *
+     * Collect the dependancy for UI component with state variable
+     *
    * @param { RenderIdType } iObjectsRenderId
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1097,8 +1039,8 @@ export type RenderIdType = int;
 export declare interface IObservedObject extends IWatchSubscriberRegister {
 
   /**
-   * Set V1 renderId
-   *
+     * Set V1 renderId
+     *
    * @param { RenderIdType } renderId
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1108,7 +1050,7 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
 }
 
 /**
- * Define ConsumeOptions interface.
+ * ConsumeOptions类
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1117,7 +1059,10 @@ export declare interface IObservedObject extends IWatchSubscriberRegister {
 export declare interface ConsumeOptions<T> {
 
   /**
-   * Default value set by developer.
+   * 开发者设置的初始值
+   *
+   *
+   *
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1145,22 +1090,21 @@ export declare const STATE_MGMT_FACTORY: IStateMgmtFactory;
 export declare interface IStateMgmtFactory {
 
   /**
-   * get mutable state meta
    *
    * @returns { IMutableStateMeta }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   makeMutableStateMeta(): IMutableStateMeta;
 
   /**
-   * get mutable state meta
+   * 获取可变状态元
    *
-   * @param { IObservedObject | undefined } observedObject - owner of this meta.
-   * @param { string } propertyName - meta name.
+   * @param { IObservedObject | undefined } observedObject - 此元的所有者。
+   * @param { string } propertyName - 元名称。
    * @returns { IMutableStateMeta }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
@@ -1170,20 +1114,20 @@ export declare interface IStateMgmtFactory {
    * get subscribed watches
    *
    * @returns { ISubscribedWatches }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   makeSubscribedWatches(): ISubscribedWatches;
 
   /**
-   * Create a State variable instance.
+   * 创建@State状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - state variable initValue.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IStateDecoratedVariable<T> } State instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IStateDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1192,13 +1136,13 @@ export declare interface IStateMgmtFactory {
     watchFunc?: WatchFuncType): IStateDecoratedVariable<T>;
 
   /**
-   * Create a PropRef variable instance.
+   * 创建@PropRef状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - state variable initValue.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IPropRefDecoratedVariable<T> } PropRef instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IPropRefDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1207,13 +1151,13 @@ export declare interface IStateMgmtFactory {
     watchFunc?: WatchFuncType): IPropRefDecoratedVariable<T>;
 
   /**
-   * Create a Link variable instance.
+   * 创建@Link状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { LinkSourceType<T> } source - state variable sync source.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { ILinkDecoratedVariable<T> } PropRef instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { LinkSourceType<T> } source - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { ILinkDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1222,15 +1166,15 @@ export declare interface IStateMgmtFactory {
     watchFunc?: WatchFuncType): ILinkDecoratedVariable<T>;
 
   /**
-   * Create a Provide variable instance.
+   * 创建@Provide状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { string } provideAlias - provide alias.
-   * @param { T } initValue - init value.
-   * @param { boolean } allowOverride - Override the @Provide of any parent
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IProvideDecoratedVariable<T> } Provide instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { string } provideAlias - 变量别名
+   * @param { T } initValue - 状态变量的初始值
+   * @param { boolean } allowOverride - 是否覆盖父组件上的同名@Provide状态变量
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IProvideDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1239,13 +1183,13 @@ export declare interface IStateMgmtFactory {
       allowOverride: boolean, watchFunc?: WatchFuncType): IProvideDecoratedVariable<T>;
 
   /**
-   * Create a Consume variable instance.
+   * 创建@Consume状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { string } provideAlias - provide alias.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IConsumeDecoratedVariable<T> } Consume instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { string } provideAlias - 变量别名
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IConsumeDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1254,14 +1198,14 @@ export declare interface IStateMgmtFactory {
     provideAlias: string, watchFunc?: WatchFuncType): IConsumeDecoratedVariable<T>;
 
   /**
-   * Create a Consume variable instance. It is used to establish two-way data binding with @Provide.
+   * 创建@Consume状态变量实例
    *
-   * @param { IVariableOwner } owner - instance of the custom component where this state variable is located.
-   * @param { string } varName - state variable name.
-   * @param { string } provideAlias - provide alias.
-   * @param { WatchFuncType } [watchFunc] - watch callback function type.
-   * @param { ConsumeOptions<T> } [consumeOptions] - interface containing default value set by developer.
-   * @returns { IConsumeDecoratedVariable<T> } Consume instance.
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { string } provideAlias - 变量别名
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @param { ConsumeOptions<T> } [consumeOptions] - 包含开发者设置的初始值的接口
+   * @returns { IConsumeDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1270,13 +1214,13 @@ export declare interface IStateMgmtFactory {
     provideAlias: string, watchFunc?: WatchFuncType, consumeOptions?: ConsumeOptions<T>): IConsumeDecoratedVariable<T>;
 
   /**
-   * Create a ObjectLink variable instance.
+   * 创建@ObjectLink状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - init value.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IObjectLinkDecoratedVariable<T> } ObjectLink instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IObjectLinkDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1285,14 +1229,14 @@ export declare interface IStateMgmtFactory {
     initValue: T, watchFunc?: WatchFuncType): IObjectLinkDecoratedVariable<T>;
 
   /**
-   * Create a StorageLink variable instance.
+   * 创建@StorageLink状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } propName - property name.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - init value.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IStorageLinkDecoratedVariable<T> } StorageLink instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } propName - 属性名字
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IStorageLinkDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1301,14 +1245,14 @@ export declare interface IStateMgmtFactory {
     varName: string, initValue: T, watchFunc?: WatchFuncType): IStorageLinkDecoratedVariable<T>;
 
   /**
-   * Create a StoragePropRef variable instance.
+   * 创建@Storage PropRef状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } propName - property name.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - init value.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { IStoragePropRefDecoratedVariable<T> } StoragePropRef instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } propName - 属性名字
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { IStoragePropRefDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1332,14 +1276,14 @@ export declare interface IStateMgmtFactory {
   makeLocalStoragePropRef<T>(owner: IVariableOwner, propName: string, varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStoragePropRefDecoratedVariable<T>;
 
   /**
-   * Create a LocalStorageLink variable instance.
+   * 创建@LocalStorageLink状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } propName - property name.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - init value.
-   * @param { WatchFuncType } [watchFunc] - watch type
-   * @returns { ILocalStorageLinkDecoratedVariable<T> } LocalStorageLink instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } propName - 属性名字
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @param { WatchFuncType } [watchFunc] - 监听函数
+   * @returns { ILocalStorageLinkDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1348,7 +1292,6 @@ export declare interface IStateMgmtFactory {
         varName: string, initValue: T, watchFunc?: WatchFuncType): ILocalStorageLinkDecoratedVariable<T>;
 
   /**
-   * Create a Local variable instance.
    *
    * @param { IVariableOwner } owner - owner of this variable.
    * @param { string } varName - state variable name.
@@ -1373,12 +1316,12 @@ export declare interface IStateMgmtFactory {
   makeStaticLocal<T>(varName: string, localInitValue: T): ILocalDecoratedVariable<T>;
 
   /**
-   * Create a Param variable instance.
+   * 创建@Param状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - param variable initValue.
-   * @returns { IParamDecoratedVariable<T> } Param instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @returns { IParamDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1386,12 +1329,12 @@ export declare interface IStateMgmtFactory {
   makeParam<T>(owner: IVariableOwner, varName: string, initValue: T): IParamDecoratedVariable<T>;
 
   /**
-   * Create a param once variable instance.
+   * 创建@Once @Param状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - state variable name.
-   * @param { T } initValue - param once variable initValue.
-   * @returns { IParamOnceDecoratedVariable<T> } Param Once instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { T } initValue - 状态变量的初始值
+   * @returns { IParamOnceDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1399,13 +1342,13 @@ export declare interface IStateMgmtFactory {
   makeParamOnce<T>(owner: IVariableOwner, varName: string, initValue: T): IParamOnceDecoratedVariable<T>;
 
   /**
-   * Create a provider variable instance.
+   * 创建@Provider 状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - provider variable name.
-   * @param { string } providerAlias - provider alias.
-   * @param { T } localInitValue - provider local variable value.
-   * @returns { IProviderDecoratedVariable<T> } Provider instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { string } providerAlias - 变量别名
+   * @param { T } localInitValue - 状态变量的初始值
+   * @returns { IProviderDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1414,13 +1357,13 @@ export declare interface IStateMgmtFactory {
                   localInitValue: T): IProviderDecoratedVariable<T>;
 
   /**
-   * Create a consumer variable instance.
+   * 创建@Consumer状态变量实例
    *
-   * @param { IVariableOwner } owner - owner of this variable.
-   * @param { string } varName - consumer variable name.
-   * @param { string } providerAlias - consumer alias.
-   * @param { T } defaultValue - consumer default value.
-   * @returns { IConsumerDecoratedVariable<T> } Consumer instance
+   * @param { IVariableOwner } owner - 状态变量的所有者
+   * @param { string } varName - 状态变量的名字
+   * @param { string } providerAlias - 变量别名
+   * @param { T } defaultValue - 状态变量的初始值
+   * @returns { IConsumerDecoratedVariable<T> } 状态变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1430,8 +1373,8 @@ export declare interface IStateMgmtFactory {
   ): IConsumerDecoratedVariable<T>;
 
   /**
-   * Create a computed variable instance.
-   *
+  * Create a computed variable instance.
+  *
    * @param { ComputedCallback<T> } computedCallback - computed callback function
    * @param { string } computeName - name of the computed function
    * @returns { IComputedDecoratedVariable<T> } Computed instance
@@ -1442,8 +1385,8 @@ export declare interface IStateMgmtFactory {
   makeComputed<T>(computedCallback: ComputedCallback<T>, computeName: string): IComputedDecoratedVariable<T>;
 
   /**
-   * Create a monitored variable instance.
-   *
+  * Create a monitored variable instance.
+  *
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when then monitor triggers
    * @param { IVariableOwner } [owner] - owner of this monitor
@@ -1455,7 +1398,6 @@ export declare interface IStateMgmtFactory {
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, owner?: IVariableOwner): IMonitorDecoratedVariable;
 
   /**
-   * Create a monitored variable instance.
    *
    * @param { Array<IMonitorPathInfo> } pathInfos - monitor path to its accessor
    * @param { MonitorCallback } monitorCallback - callback when the monitor triggers
@@ -1468,15 +1410,15 @@ export declare interface IStateMgmtFactory {
   makeMonitor(pathInfos: Array<IMonitorPathInfo>, monitorCallback: MonitorCallback, options?: MakeMonitorOptions): IMonitorDecoratedVariable;
 
   /**
-   * Create a Env variable instance.
-   * On API 26.0.0 and above, it can also support SystemEnvKey type for envValue.
+   * 创建一个Env变量实例。
+   * 在API 26.0.0及更高版本上，envValue参数支持SystemEnvKey类型。
    *
-   * @param { IVariableOwner } owner - custom component owner
+   * @param { IVariableOwner } owner - 自定义组件。
    * @param { string } envValue - type of environment value to obtain [since 22 - 24]
-   * @param { string | SystemEnvKey<T> } envValue - system environment key [since 26.0.0]
-   * @param { string } varName - variable name that is decorated by @Env
-   * @param { EnvOptions<T> } [envOptions] - additional options for makeEnv
-   * @returns { IEnvDecoratedVariable<T> } Env variable instance
+   * @param { string | SystemEnvKey<T> } envValue - 支持的环境变量类型 [APi22 - API24]
+   * @param { string } varName - @Env装饰的变量名。
+   * @param { EnvOptions<T> } [envOptions] - makeEnv的其他选项。
+   * @returns { IEnvDecoratedVariable<T> } Env变量实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -1484,13 +1426,13 @@ export declare interface IStateMgmtFactory {
   makeEnv<T>(owner: IVariableOwner, envValue: string | SystemEnvKey<T>, varName: string, envOptions?: EnvOptions<T>): IEnvDecoratedVariable<T>;
 
   /**
-   * Create a CustomEnv variable instance.
+   * 创建一个CustomEnv变量实例。
    *
-   * @param { IVariableOwner } owner - custom component owner
-   * @param { CustomEnvKey<T> } envKey - custom env key
-   * @param { string } varName - variable name that is decorated by @CustomEnv
-   * @param { T } localInitValue - custom env variable initValue.
-   * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv variable instance
+   * @param { IVariableOwner } owner - 该变量的自定义组件所有者。
+   * @param { CustomEnvKey<T> } envKey - 自定义环境变量键。
+   * @param { string } varName - 被@CustomEnv装饰的变量名。
+   * @param { T } localInitValue - @CustomEnv本地初始值。
+   * @returns { ICustomEnvDecoratedVariable<T> } CustomEnv变量实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1498,12 +1440,12 @@ export declare interface IStateMgmtFactory {
   makeCustomEnv<T>(owner: IVariableOwner, envKey: CustomEnvKey<T>, varName: string, localInitValue: T): ICustomEnvDecoratedVariable<T>;
 
   /**
-   * Create a synchronous monitored variable instance.
+   * 创建同步监控变量实例。
    *
-   * @param { IMonitorPathInfo[] } pathInfos - monitor path to its accessor.
-   * @param { MonitorCallback } monitorCallback - callback when the monitor triggers.
-   * @param { MakeMonitorOptions } [options] - options of this monitor.
-   * @returns { IMonitorDecoratedVariable } Monitor variable instance
+   * @param { IMonitorPathInfo[] } pathInfos - 到其访问器的监视器路径。
+   * @param { MonitorCallback } monitorCallback - 监视器触发时的回调。
+   * @param { MakeMonitorOptions } [options] - 此监视器的选项。
+   * @returns { IMonitorDecoratedVariable } 监控变量实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1512,12 +1454,12 @@ export declare interface IStateMgmtFactory {
     options?: MakeMonitorOptions): IMonitorDecoratedVariable;
 
   /**
-   * Create global reuse pool on a custom component.
+   * 在自定义组件上创建全局重用池。
    *
-   * @param { ReusePoolOwnership } reusePool - reuse pool type.
-   * @param { Class[] } poolAccepts - custom components that reuse pool accepts.
-   * @param { IVariableOwner } owningView - custom component that owns the global pool.
-   * @returns { IGlobalReusePoolVariable } global reuse pool handle.
+   * @param { ReusePoolOwnership } reusePool - 复用池类型
+   * @param { Class[] } poolAccepts - 重用池接受的自定义组件
+   * @param { IVariableOwner } owningView - 拥有全局池的自定义组件
+   * @returns { IGlobalReusePoolVariable } 全局重用池句柄。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1527,7 +1469,7 @@ export declare interface IStateMgmtFactory {
 }
 
 /**
- * Define V2 decorated variable interface.
+ * V2装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1536,7 +1478,7 @@ export declare interface IStateMgmtFactory {
 export interface IDecoratedV2Variable<T> extends IDecoratedVariable {
 
   /**
-   * Reset V2 decorated variable when the ComponentV2 instance is reused.
+   * 当ComponentV2被重用时重置V2装饰变量。
    *
    * @param { T } newValue
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1547,7 +1489,7 @@ export interface IDecoratedV2Variable<T> extends IDecoratedVariable {
 }
 
 /**
- * Define Provider decoration variable interface.
+ * Provider装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1565,7 +1507,7 @@ export declare interface IProviderDecoratedVariable<T>  extends IDecoratedMutabl
 export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
- * Define CustomEnv decoration variable interface.
+ * 定义CustomEnv装饰变量接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1574,7 +1516,7 @@ export declare interface IEnvDecoratedVariable<T> extends IDecoratedImmutableVar
 export declare interface ICustomEnvDecoratedVariable<T> extends IDecoratedImmutableVariable<T>, IDecoratedV2Variable<T> {}
 
 /**
- * Define Consumer decoration variable interface.
+ * Consumer装饰的变量。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1584,7 +1526,6 @@ export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutable
 
 /**
  * Defines computed callback funciton
- *
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1593,9 +1534,9 @@ export declare interface IConsumerDecoratedVariable<T> extends IDecoratedMutable
 type ComputedCallback<T> = () => T;
 
 /**
- * Defines IMonitor callback function.
+ * 触发监听时被调用的回调函数。
  *
- * @param { IMonitor } iMonitor Monitor value
+ * @param { IMonitor } iMonitor 保存触发监听前后的值以及路径。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1603,10 +1544,10 @@ type ComputedCallback<T> = () => T;
 export type MonitorCallback = (iMonitor: IMonitor) => void;
 
 /**
- * Defines IMonitor value callback function.
+ * 监听状态变量的回调类型。
  *
  * @returns { Any }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 被监听状态变量。
  * @stagemodelonly
  * @since 23 static
  */
@@ -1614,7 +1555,6 @@ export type MonitorValueCallback = () => Any;
 
 /**
  * Defines the callback that is called when state variable is change
- *
  * @param {string} propertyName - property name
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1655,7 +1595,7 @@ export declare interface IWatchSubscriberRegister {
    *
    * @param { WatchIdType } watchId - the watch function id
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -1683,7 +1623,7 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
 }
 
 /**
- * Defines computed decoration variable interface.
+ * 定义@Computed状态变量的接口
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1692,9 +1632,9 @@ export declare interface ISubscribedWatches extends IWatchSubscriberRegister {
 export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadableVariable<T> {
 
   /**
-   * Set owner for the computed variable. Used to detect component freezing.
+   * 设置状态变量的所有者，用于检测所在自定义组件是否冻结
    *
-   * @param { IVariableOwner } owner - owner of this variable
+   * @param { IVariableOwner } owner - 状态变量的所有者
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1702,7 +1642,7 @@ export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadabl
   setOwner(owner: IVariableOwner): void;
 
   /**
-   * Reset Computed when the ComponentV2 instance is reused.
+   * ComponentV2被重用时重置Computed变量。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1721,7 +1661,7 @@ export declare interface IComputedDecoratedVariable<T> extends IDecoratedReadabl
 export declare interface IMonitorDecoratedVariable {
 
   /**
-   * Path for generated monitors, either generated or set by addMonitor parameters.
+   * 获取所有被监听的状态变量的路径。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1730,7 +1670,7 @@ export declare interface IMonitorDecoratedVariable {
   readonly path: string[];
 
   /**
-   * Reset Monitor when the ComponentV2 instance is reused.
+   * ComponentV2被重用时重置Monitor。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1767,9 +1707,9 @@ export declare interface IMonitorPathInfo {
   valueCallback: MonitorValueCallback;
 
   /**
-   * Enables the wildcard feature.
-   * Set to true to enable wildcard feature, and set to false to disable it.
-   * The default value is false.
+   * 启用通配符功能。
+   * 设置为true可启用通配符功能，设置为false可禁用通配符功能。
+   * 默认值为false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1779,7 +1719,7 @@ export declare interface IMonitorPathInfo {
 }
 
 /**
- * Defines Env options to create Env variables.
+ * Env创建可选参数
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1788,7 +1728,17 @@ export declare interface IMonitorPathInfo {
 export declare interface EnvOptions<T> {
 
   /**
-   * Init value for user defined Env.
+   * 用户定义初始值，预留参数。
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
+   *
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1798,7 +1748,7 @@ export declare interface EnvOptions<T> {
 }
 
 /**
- * Defines makeMonitor options to create Monitor variables.
+ * 定义makeMonitor可选配置
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1807,7 +1757,7 @@ export declare interface EnvOptions<T> {
 export declare interface MakeMonitorOptions {
 
   /**
-   * Owner of this monitor.
+   * Monitor变量的父struct节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1816,7 +1766,7 @@ export declare interface MakeMonitorOptions {
   owner?: IVariableOwner;
 
   /**
-   * Name of this monitor.
+   * Monitor回调函数的名称
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1826,7 +1776,7 @@ export declare interface MakeMonitorOptions {
 }
 
 /**
- * Defines IObservedAnyProp type.
+ * 定义IObservableAnyProp类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1835,7 +1785,7 @@ export declare interface MakeMonitorOptions {
 export declare interface IObservedAnyProp {
 
   /**
-   * Add reference to any one-level property change.
+   * 添加对任何一级属性更改的引用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1845,7 +1795,7 @@ export declare interface IObservedAnyProp {
 }
 
 /**
- * Global reuse pool handle.
+ * 全局复用池句柄。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1854,7 +1804,7 @@ export declare interface IObservedAnyProp {
 export declare interface IGlobalReusePoolVariable {}
 
 /**
- * Defines the custom environment Key.
+ * 自定义环境变量的Key的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1863,7 +1813,7 @@ export declare interface IGlobalReusePoolVariable {}
 export declare class CustomEnvKey<S> {
 
   /**
-   * create CustomEnvKey
+   * 创建一个自定义环境变量Key，作为@CustomEnv装饰器的参数。
    *
    * @returns { CustomEnvKey<T> } CustomEnvKey
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1873,8 +1823,8 @@ export declare class CustomEnvKey<S> {
   static create<T>(): CustomEnvKey<T>;
 
   /**
-   * constructor.
-   *
+    * 用于创建该类的实例对象。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1883,7 +1833,7 @@ export declare class CustomEnvKey<S> {
 }
 
 /**
- * Defines the class of System Env Key.
+ * 系统环境变量Key的基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1892,8 +1842,8 @@ export declare class CustomEnvKey<S> {
 export declare class SystemEnvKey<T> {
 
   /**
-   * constructor.
-   *
+    * 用于创建该类的实例对象。
+    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1902,7 +1852,7 @@ export declare class SystemEnvKey<T> {
 }
 
 /**
- * Defines writable system environment variable keys.
+ * 可写系统环境变量Key，继承自[SystemEnvKey]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1911,7 +1861,7 @@ export declare class SystemEnvKey<T> {
 export declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * Define read-only system environment variable keys.
+ * 只读系统环境变量Key，继承自[SystemEnvKey]{@link SystemEnvKey}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1920,7 +1870,7 @@ export declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
 export declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 
 /**
- * Defines the writable system environment key.
+ * 可写系统环境变量Key类，用于@Env装饰器的字符串参数格式`'WritableEnvKey.<keyName>'`中的key声明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1929,7 +1879,7 @@ export declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
 export declare class WritableEnvKey {}
 
 /**
- * Defines the readonly system environment key.
+ * 只读系统环境变量Key类，用于@Env装饰器的字符串参数格式`'ReadonlyEnvKey.<keyName>'`中的key声明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1938,7 +1888,7 @@ export declare class WritableEnvKey {}
 export declare class ReadonlyEnvKey {
 
   /**
-   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   * 系统环境变量避让区域键，用于获取窗口的避让区域，单位为vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1947,7 +1897,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_AVOID_AREA: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoVP>;
 
   /**
-   * System environment avoidarea key that is used to obtain the avoid area of the window, measured in px.
+   * 系统环境变量避让区域键，用于获取窗口的避让区域，单位px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1956,7 +1906,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_AVOID_AREA_PX: ReadonlySystemEnvKey<window.UIEnvWindowAvoidAreaInfoPX>;
 
   /**
-   * System environment windowsize key that is used to obtain the size of the window, measured in vp.
+   * 系统环境变量窗口尺寸键，用于获取窗口的大小，单位为vp。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1965,7 +1915,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_SIZE: ReadonlySystemEnvKey<window.SizeInVP>;
 
   /**
-   * System environment windowsize key that is used to obtain the size of the window, measured in px.
+   * 系统环境变量窗口尺寸键，用于获取窗口大小，单位px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1974,7 +1924,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_SIZE_PX: ReadonlySystemEnvKey<window.Size>;
 
   /**
-   * System environmental displayid key that is used to obtain the display id of the window.
+   * 系统环境变量屏幕ID键，用于获取窗口所在的屏幕ID。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1983,8 +1933,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_DISPLAY_ID: ReadonlySystemEnvKey<long>;
 
   /**
-   * System environmental system density key that is used to obtain the system density of the display
-   *     where the window is located.
+   * 系统环境变量系统DPI键，用于获取窗口所在屏幕的DPI。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1993,7 +1942,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_SYSTEM_DENSITY: ReadonlySystemEnvKey<double>;
 
   /**
-   * System environment window focused key that is used to obtain whether the window is focused or not.
+   * 系统环境变量窗口焦点键，用于获取窗口是否获焦。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2002,7 +1951,7 @@ export declare class ReadonlyEnvKey {
   static readonly WINDOW_IS_FOCUSED: ReadonlySystemEnvKey<boolean>;
 
   /**
-   * System environment window highlighted key that is used to obtain whether the window is highlighted or not.
+   * 系统环境变量窗口激活键，用于获取窗口是否被激活。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2022,7 +1971,7 @@ export declare class ReadonlyEnvKey {
 export declare @interface CustomEnv {
 
   /**
-   * Key value input by the user.
+   * 自定义环境变量装饰器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

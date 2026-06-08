@@ -36,8 +36,8 @@ import { CustomDialogController } from './customDialogController';
 import { RecordData } from '@ohos.base';
 
 /**
- * Define ReuseObject for aboutToReuse method.
- *
+  * Define ReuseObject for aboutToReuse method.
+  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -45,8 +45,8 @@ import { RecordData } from '@ohos.base';
 export declare class ReuseObject {
 
   /**
-   * Get the raw data of ReuseObject to get values.
-   *
+     * Get the raw data of ReuseObject to get values.
+     *
    * @returns { RecordData } - Returns the raw data of ReuseObject.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,8 +55,8 @@ export declare class ReuseObject {
   get raw(): RecordData;
 
   /**
-   * Get value from the ReuseObject by key.
-   *
+     * Get value from the ReuseObject by key.
+     *
    * @param { string } key - the key of target value.
    * @returns { RecordData } - the target value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -66,8 +66,8 @@ export declare class ReuseObject {
   $_get(key: string): RecordData;
 
   /**
-   * Returns if the key is in the ReuseObject.
-   *
+    * Returns if the key is in the ReuseObject.
+    *
    * @param { string } key - the key of target value.
    * @returns { boolean } - if the key is in the ReuseObject.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -77,8 +77,8 @@ export declare class ReuseObject {
   has(key: string): boolean;
 
   /**
-   * Returns the keys array of the ReuseObject.
-   *
+    * Returns the keys array of the ReuseObject.
+    *
    * @returns { string[] } - the keys array of the ReuseObject.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -100,8 +100,8 @@ export declare class ReuseObject {
 export @interface Entry {
 
   /**
-   * Named route name.
-   *
+     * Named route name.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -109,8 +109,8 @@ export @interface Entry {
   routeName: string = "";
 
   /**
-   * Name of the function which returns LocalStorage instance.
-   *
+     * Name of the function which returns LocalStorage instance.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -118,9 +118,8 @@ export @interface Entry {
   storage: string = "";
 
   /**
-   * Determines whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage()
-   * interface.
-   *
+     * Determines whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -129,7 +128,7 @@ export @interface Entry {
 }
 
 /**
- * Enum for reuse pool ownership
+ * 重用池所有权的枚举
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -138,7 +137,7 @@ export @interface Entry {
 export declare enum ReusePoolOwnership {
 
   /**
-   * Shared ownership.
+   * 共享所有权。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -147,7 +146,8 @@ export declare enum ReusePoolOwnership {
   SHARED = 'shared',
 
   /**
-   * Reuse pool is owned per instance and not shared.
+   * 重用池是每个实例拥有的，而不是共享的。
+   * 这是自定义组件复用池的默认模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -156,8 +156,8 @@ export declare enum ReusePoolOwnership {
   PER_INSTANCE = 'perInstance',
 
   /**
-   * Reuse pool is turned off.
-   * This is the default mode for custom component reuse pool.
+   * 复用池关闭。
+   * 这是自定义组件复用池的默认模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -179,7 +179,7 @@ export declare enum ReusePoolOwnership {
 export @interface Component {
 
   /**
-   * the reuse type of a custom component. Default value is OFF.
+   * 自定义组件的重用类型。默认值为OFF。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -188,7 +188,7 @@ export @interface Component {
   reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
 
   /**
-   * Collection of custom components to be reused.
+   * 要重用的自定义组件的集合。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -210,7 +210,7 @@ export @interface Component {
 export @interface ComponentV2 {
 
   /**
-   * the reuse type of a custom component. Default value is OFF.
+   * 自定义组件的重用类型。默认值为OFF。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -219,7 +219,7 @@ export @interface ComponentV2 {
   reusePool: ReusePoolOwnership = ReusePoolOwnership.OFF;
 
   /**
-   * Collection of custom components to be reused.
+   * 要重用的自定义组件的集合。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,8 +268,8 @@ export @interface CustomLayout {}
 export declare abstract class EntryPoint {
 
   /**
-   * Define entry function of page
-   *
+     * Define entry function of page
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -301,10 +301,8 @@ export @interface CustomDialog {
 export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_Options>, T_Options> extends ExtendableComponent {
 
   /**
-   * Constructor to use to create a custom dialog instance.
-   *
-   * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by
-   *     UIContext.getSharedLocalStorage() interface.
+    * Constructor to use to create a custom dialog instance.
+   * @param {boolean} [useSharedStorage] - determine whether to use the LocalStorage instance object returned by UIContext.getSharedLocalStorage() interface.
    * @param {LocalStorage} [storage] - localStorage instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -313,11 +311,10 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
   constructor(useSharedStorage?: boolean, storage?: LocalStorage);
 
   /**
-   * Implementation for creating a custom dialog
-   *
-   * @param { function } factory - factory to create instance of custom dialog
-   * @param { function } [initializers] - initial data for all the fields in custom dialog
-   * @param { CustomBuilder } [content] - tail closure for custom dialog
+   * 创建自定义对话框的实现
+   * @param { function } factory - 用于创建自定义对话框实例的工厂
+   * @param { function } [initializers] - 自定义对话框中所有字段的初始数据
+   * @param { CustomBuilder } [content] - 自定义对话框的尾随闭包
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -331,8 +328,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
 }
 
 /**
- * Definition of base custom component, which is base class of custom component.
- *
+ * 基础自定义组件的定义，它是所有自定义组件的基类。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -340,7 +336,7 @@ export declare abstract class BaseCustomDialog<T extends BaseCustomDialog<T, T_O
 export declare abstract class BaseCustomComponent<T_Options> extends ExtendableComponent implements CommonAttribute {
 
   /**
-   * aboutToRecycle Method.
+   * 组件复用在放入复用驰时，会触发回调
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -350,8 +346,7 @@ export declare abstract class BaseCustomComponent<T_Options> extends ExtendableC
 }
 
 /**
- * Definition of custom component class.
- *
+ * 定义自定义组件类
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -361,7 +356,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
   /**
    * Constructor to use to create a customComponent instance.
    *
-   * @param { boolean } [useSharedStorage] - determine whether to use the LocalStorage instance object returned by
+   * @param { boolean } [useSharedStorage] - determine whether to use the LocalStorage instance object returned by 
    *     UIContext.getSharedLocalStorage() interface.
    * @param { LocalStorage } [storage] - localStorage instance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -392,8 +387,8 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
     ): void;
 
   /**
-   * aboutToReuse Method
-   *
+    * aboutToReuse Method
+    *
    * @param { ReuseObject } params - Custom component init params.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -402,11 +397,11 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
   aboutToReuse(params: ReuseObject): void;
 
   /**
-   * ReInitialize @Consume variable.
+   * 重新初始化@消费变量。
    *
-   * @param { string } alias - @Consume alias.
-   * @param { string } varName - variable name.
-   * @param { T } [defaultValue] - default value.
+   * @param { string } alias - @Consume别名
+   * @param { string } varName - 变量名
+   * @param { T } [defaultValue] - 默认值
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -415,8 +410,7 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
 }
 
 /**
- * Definition of V2 custom component class.
- *
+ * V2自定义组件类的定义。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -468,7 +462,7 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
     ): void;
 
   /**
-   * aboutToReuse Method
+   * 组件复用时，触发回调
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -477,9 +471,9 @@ export declare abstract class CustomComponentV2<T extends CustomComponentV2<T, T
   aboutToReuse(): void;
 
   /**
-   * Reset state variable
+   * 重置状态变量
    *
-   * @param { T_Options } [params] - data for all the fields in custom component
+   * @param { T_Options } [params] - 自定义组件成员变量的数据
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -611,7 +605,8 @@ export interface CustomComponentInvokeOptions {
 }
 
 /**
- * CustomComponent Lifecycle. It is used to monitor changes in the lifecycle of the custom component.
+ * CustomComponentLifecycle用于监控自定义组件生命周期的变化，开发者可以通过
+ * [UIUtils.getLifecycle]{@link @ohos.arkui.StateManagement:UIUtils#getLifecycle}获取CustomComponentLifecycle实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -620,9 +615,9 @@ export interface CustomComponentInvokeOptions {
 export declare interface CustomComponentLifecycle {
 
   /**
-   * Get the current lifecycle state.
+   * getCurrentState函数用于获得自定义组件当前的生命周期状态。
    *
-   * @returns { CustomComponentLifecycleState } - lifecycle state
+   * @returns { CustomComponentLifecycleState } - 自定义组件当前的生命周期状态。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -630,10 +625,9 @@ export declare interface CustomComponentLifecycle {
   getCurrentState(): CustomComponentLifecycleState;
 
   /**
-   * Register a lifecycle listener. When the lifecycle state of a custom component changes, the corresponding
-   * lifecycle callback will be triggered.
+   * addObserver函数用于注册自定义组件生命周期监听器。当自定义组件的生命周期发生变化时，会触发监听器中相应的生命周期回调函数。
    *
-   * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer
+   * @param { CustomComponentLifecycleObserver } observer - 监听自定义组件的监听器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -641,10 +635,9 @@ export declare interface CustomComponentLifecycle {
   addObserver(observer: CustomComponentLifecycleObserver): void;
 
   /**
-   * Remove custom component lifecycle callbacks. Even if the custom component's lifecycle
-   * state changes, the lifecycle callback will not be triggered.
+   * removeObserver函数用于移除自定义组件生命周期监听器。解除注册后，即使自定义组件的生命周期状态发生变化，也不会触发监听器中相应的生命周期回调函数。
    *
-   * @param { CustomComponentLifecycleObserver } observer - Custom component lifecycle observer.
+   * @param { CustomComponentLifecycleObserver } observer - 监听自定义组件的监听器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -653,8 +646,7 @@ export declare interface CustomComponentLifecycle {
 }
 
 /**
- * CustomComponent LifecycleObserver. When a user registers a custom component lifecycle callback,
- * the corresponding lifecycle callback will be triggered when the lifecycle changes.
+ * 用户注册自定义组件生命周期回调后，当该自定义组件的生命周期发生变化时，将触发监听器中相应的生命周期回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -663,8 +655,9 @@ export declare interface CustomComponentLifecycle {
 export declare interface CustomComponentLifecycleObserver {
 
   /**
-   * The aboutToAppear function is extecuted after a new instance of the custom component is created,
-   * before its build() function is executed. Developers can modify state variables at this stage.
+   * aboutToAppear函数在创建自定义组件的新实例后，执行其build()函数之前执行。开发者可以在此阶段修改状态变量。其功能与
+   * [aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)类似，但是在自定义组件状
+   * 态机的约束下触发的。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -673,9 +666,7 @@ export declare interface CustomComponentLifecycleObserver {
   default aboutToAppear(): void;
 
   /**
-   * The onDidBuild function is executed after a new instance of the custom component is built,
-   * after its build() function is executed. Developers can implement functions that
-   * do not affect the actual UI, such as event data reporting, at this stage.
+   * onDidBuild函数在自定义组件的新实例构建完成后，执行其build()函数之后执行。开发者可以在此阶段实现一些不影响实际UI的功能，例如事件数据上报。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -684,8 +675,10 @@ export declare interface CustomComponentLifecycleObserver {
   default onDidBuild(): void;
 
   /**
-   * The aboutToDisappear function executes before a custom component is destroyed.
-   * It is not allowed to change state variables in aboutToDisappear.
+   * aboutToDisappear函数在自定义组件被销毁之前执行。不建议在aboutToDisappear函数中修改状态变量，特别是@Link变量的修改可能会导致应用程序行为不稳定。其功能与
+   * [aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)类似，不同的
+   * 是，CustomComponentLifecycleObserver中的aboutToDisappear函数受状态机约束，只有被监听的自定义组件状态向
+   * CustomComponentLifecycleState.DISAPPEARED转变前触发回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -694,12 +687,9 @@ export declare interface CustomComponentLifecycleObserver {
   default aboutToDisappear(): void;
 
   /**
-   * Invoked when a reusable custom component is re-added to the node tree from the reuse cache
-   * to receive construction parameters of the component.
-   * When params is defined, it is the callback for reusing the V1 component.
-   * When params is undefined, it is the callback for reusing the V2 compoennt.
+   * 当可复用的自定义组件从缓存中重新添加到节点树时调用aboutToReuse函数，以接收组件的构造参数。当params存在时，表示V1组件的复用回调。
    *
-   * @param { ReuseObject } [params] - V1 component reuse data.
+   * @param { ReuseObject } [params] - 当params存在时，表示V1组件的复用回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -707,7 +697,8 @@ export declare interface CustomComponentLifecycleObserver {
   default aboutToReuse(params?: ReuseObject): void;
 
   /**
-   * Callback function invoked when the component is about to be recycled.
+   * 当组件被回收后触发，先执行应用程序中定义的必要回收操作，完成回收后调用aboutToRecycle函数。随后该组件被冻结，以避免该组件处于回收池时进行UI更新。最后，aboutToRecycle函数会递归遍历所有子组件，对每个完成
+   * 回收的组件调用aboutToRecycle函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -717,7 +708,7 @@ export declare interface CustomComponentLifecycleObserver {
 }
 
 /**
- * Enum for Lifecycle State type
+ * 自定义组件当前的生命周期状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -726,8 +717,7 @@ export declare interface CustomComponentLifecycleObserver {
 export declare enum CustomComponentLifecycleState {
 
   /**
-   * Lifecycle init state. Custom components are in this state when they are created.
-   * The next state after the init state is the appear state, which will trigger aboutToAppear.
+   * 初始化状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -736,8 +726,7 @@ export declare enum CustomComponentLifecycleState {
   INIT = 0,
 
   /**
-   * Lifecycle appeared state. Custom components are in this stage when they are about to be built.
-   * The next state after the appeared state is the built state, which will trigger onDidBuild.
+   * 准备展开状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -746,7 +735,7 @@ export declare enum CustomComponentLifecycleState {
   APPEARED = 1,
 
   /**
-   * Lifecycle built state. The next state after the built state could be the recycled state or disappeared state.
+   * 已展开状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -755,8 +744,7 @@ export declare enum CustomComponentLifecycleState {
   BUILT = 2,
 
   /**
-   * Lifecycle recycled state. Custom components are in the state of being recycled or reused.
-   * The next state after the recycle state could be the built state or the disappeared state.
+   * 回收状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -765,8 +753,7 @@ export declare enum CustomComponentLifecycleState {
   RECYCLED = 3,
 
   /**
-   * Lifecycle disappeared state. The disappeared state is the end state of a custom component's lifecycle.
-   * The init, built and recycled states could transfer to the disappeared state.
+   * 删除状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
