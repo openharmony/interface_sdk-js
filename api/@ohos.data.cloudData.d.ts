@@ -81,9 +81,18 @@ declare namespace cloudData {
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
    * @systemapi
    * @since 11 dynamic
-   * @since 23 static
    */
   const DATA_CHANGE_EVENT_ID = 'cloud_data_change';
+
+  /**
+   * ID of the event, which indicates the change of the data in the cloud.
+   *
+   * @syscap SystemCapability.DistributedDataManager.CloudSync.Config
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const DATA_CHANGE_EVENT_ID: string;
 
   /**
    * Represents the transparently transmitted data, which contains information required for a data change notification.
