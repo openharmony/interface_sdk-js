@@ -59,7 +59,7 @@ export declare enum SecurityComponentLayoutDirection {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-declare enum SecurityComponentRoleType {
+export declare enum SecurityComponentRoleType {
   /**
    * None role type: The screen reader will not broadcast the component type.
    *
