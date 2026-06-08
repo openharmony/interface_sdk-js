@@ -6018,6 +6018,16 @@ declare namespace osAccount {
      * @since 23 static
      */
     remoteAuthOptions?: RemoteAuthOptions;
+
+    /**
+     * Indicates the additional information about the authentication options.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
   /**
@@ -6717,6 +6727,16 @@ declare namespace osAccount {
      * @since 23 dynamic&static
      */
     COMPANION_DEVICE = 64,
+
+    /**
+     * Custom authentication.
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CUSTOM = 128,
 
     /**
      * Domain authentication.
