@@ -999,10 +999,88 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
     /**
+     * Indicates an OS account sub-profile is created.
+     *
+     * After an OS account sub-profile is created, the common event service is triggered to publish this event carrying
+     * the OS account local ID and the sub-profile ID.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_CREATED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_CREATED',
+
+    /**
+     * Indicates an OS account sub-profile is deleted.
+     *
+     * After an OS account sub-profile is deleted, the common event service is triggered to publish this event carrying
+     * the OS account local ID and the sub-profile ID.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_DELETED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_DELETED',
+
+    /**
+     * Indicates an OS account sub-profile is switching.
+     *
+     * After an OS account sub-profile is switching, the common event service is triggered to publish this event
+     * carrying the OS account local ID, the sub-profile ID switching to and the previous sub-profile ID switching from.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_SWITCHING = 'usual.event.OS_ACCOUNT_SUB_PROFILE_SWITCHING',
+
+    /**
+     * Indicates an OS account sub-profile is switched.
+     *
+     * After an OS account sub-profile is switched, the common event service is triggered to publish this event
+     * carrying the OS account local ID, the sub-profile ID switched to and the previous sub-profile ID switched from.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_SWITCHED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_SWITCHED',
+
+    /**
+     * Indicates a distributed account is bound.
+     *
+     * After a distributed account is bound, the common event service is triggered to publish this event carrying
+     * the OS account local ID and the sub-profile ID.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_BOUND = 'usual.event.DISTRIBUTED_ACCOUNT_BOUND',
+
+    /**
+     * Indicates a distributed account is unbound.
+     *
+     * After a distributed account is unbound, the common event service is triggered to publish this event carrying
+     * the OS account local ID and the sub-profile ID.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_UNBOUND = 'usual.event.DISTRIBUTED_ACCOUNT_UNBOUND',
+
+    /**
      * Indicates a successful login from a distributed account.
      *
      * When a distributed account is successfully logged in, the event notification service is triggered to publish this
-     * event carrying the system account ID.
+     * event carrying the OS account ID and the sub-profile ID.
      *
      * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
      * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
@@ -1021,7 +1099,7 @@ declare namespace commonEventManager {
      * Indicates a successful logout from a distributed account.
      *
      * When a distributed account is successfully logged out, the event notification service is triggered to publish 
-     * this event carrying the system account ID.
+     * this event carrying the OS account ID and the sub-profile ID.
      *
      * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
      * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
@@ -1040,7 +1118,7 @@ declare namespace commonEventManager {
      * Indicates that the token of a distributed account is invalid.
      *
      * When the token of a distributed account is invalid, the event notification service is triggered to publish this 
-     * event carrying the system account ID.
+     * event carrying the OS account ID and the sub-profile ID.
      *
      * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
      * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
@@ -1059,7 +1137,7 @@ declare namespace commonEventManager {
      * Indicates that a distributed account is deregistered.
      *
      * When a distributed account is deregistered, the event notification service is triggered to publish this event 
-     * carrying the system account ID.
+     * carrying the OS account ID and the sub-profile ID.
      *
      * APIs related to this event: **setOsAccountDistributedInfo** and **updateOsAccountDistributedInfo** (discarded), 
      * and **setOsAccountDistributedInfoByLocalId**. The first two are public APIs, and the last one is a system API. 
