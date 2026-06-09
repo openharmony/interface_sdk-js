@@ -40,6 +40,7 @@
  * @since 22 dynamic
  */
 export @interface Available {
+
   /**
    * Minimum available version, which consists of two parts: system type and version number. The system type can be
    * omitted only when it is OpenHarmony, for example, **'OpenHarmony 20'** or **'20'**.
@@ -65,6 +66,7 @@ export @interface Available {
  * @since 23 dynamic
  */
 export const enum SuppressWarningsType {
+
   /**
    * Compatibility warning.
    *
@@ -76,6 +78,7 @@ export const enum SuppressWarningsType {
    * @since 23 dynamic
    */
   COMPATIBILITY = 'compatibility',
+
   /**
    * Multi-device warning.
    *
@@ -87,6 +90,7 @@ export const enum SuppressWarningsType {
    * @since 23 dynamic
    */
   SYSCAP = 'syscap',
+
   /**
    * Permission warning.
    *
@@ -113,6 +117,7 @@ export const enum SuppressWarningsType {
  * @since 23 dynamic
  */
 export @interface SuppressWarnings {
+
   /**
    * Rules that support warning suppression.
    *

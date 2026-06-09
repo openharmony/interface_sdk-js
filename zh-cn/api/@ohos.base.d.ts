@@ -14,19 +14,22 @@
  */
 
 /**
- * > **说明：**
+ * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ *
+ * > **NOTE**
  * >
- * > - 本模块首批接口从 API version 6 开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+ * > - The initial APIs of this module are supported since API version 6. Newly added APIs will be marked with a
+ * >   superscript to indicate their earliest API version.
  * > 
- * > - 从API version 12开始，本模块接口支持在ArkTS卡片中使用。
- * 
+ * > - Since API version 12, the APIs of this module are supported in ArkTS widgets.
+ *
  * @file
  * @kit BasicServicesKit
  */
 
 /**
- * 通用回调函数。开发者在使用时，可自定义data的类型，回调将返回对应类型的信息。
- *
+* 通用回调函数。开发者在使用时，可自定义data的类型，回调将返回对应类型的信息。
+*
  * @typedef { Callback } [since 6 - 11]
  * @typedef { Callback<T> } [since 12]
  * @syscap SystemCapability.Base
@@ -36,15 +39,8 @@
  * @since 6 dynamic
  */
 export interface Callback<T> {
-  /**
-   *
-   * @param { T } data - 接口调用时的公共回调信息。
-   * @syscap SystemCapability.Base
-   * @crossplatform [since 10]
-   * @form [since 12]
-   * @atomicservice [since 11]
-   * @since 6 dynamic
-   */
+
+  /** @param { T } data - 接口调用时的公共回调信息。 @syscap SystemCapability.Base @crossplatform [since 10] @form [since 12] @atomicservice [since 11] @since 6 dynamic/
   (data: T): void;
 }
 
@@ -59,20 +55,14 @@ export interface Callback<T> {
  * @since 6 dynamic
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
-  /**
-   *
-   * @param { T } err - 接口调用失败的公共错误信息。
-   * @syscap SystemCapability.Base
-   * @crossplatform [since 10]
-   * @atomicservice [since 11]
-   * @since 6 dynamic
-   */
+
+  /** @param { T } err - 接口调用失败的公共错误信息。 @syscap SystemCapability.Base @crossplatform [since 10] @atomicservice [since 11] @since 6 dynamic/
   (err: T): void;
 }
 
 /**
- * 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
- *
+* 通用回调函数，携带错误参数和异步返回值。错误参数为[BusinessError]{@link BusinessError}类型的信息。异步返回值的类型由开发者自定义，回调将返回对应类型的信息。
+*
  * @typedef AsyncCallback [since 6 - 11]
  * @typedef AsyncCallback<T, E = void> [since 12]
  * @syscap SystemCapability.Base
@@ -82,16 +72,8 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  * @since 6 dynamic
  */
 export interface AsyncCallback<T, E = void> {
-  /**
-   *
-   * @param { BusinessError<E> } err - 接口调用失败的公共错误信息。
-   * @param { T } data - 接口调用时的公共回调信息。
-   * @syscap SystemCapability.Base
-   * @crossplatform [since 10]
-   * @form [since 12]
-   * @atomicservice [since 11]
-   * @since 6 dynamic
-   */
+
+  /** @param { BusinessError<E> } err - 接口调用失败的公共错误信息。 @param { T } data - 接口调用时的公共回调信息。 @syscap SystemCapability.Base @crossplatform [since 10] @form [since 12] @atomicservice [since 11] @since 6 dynamic/
   (err: BusinessError<E>, data: T): void;
 }
 
@@ -107,6 +89,7 @@ export interface AsyncCallback<T, E = void> {
  * @since 6 dynamic
  */
 export interface BusinessError<T = void> extends Error {
+
   /**
    * 接口调用失败返回的错误码信息。
    *
@@ -117,6 +100,7 @@ export interface BusinessError<T = void> extends Error {
    * @since 6 dynamic
    */
   code: number;
+
   /**
    * 接口调用时的公共回调信息。如果不填，则回调不返回相关信息。
    *

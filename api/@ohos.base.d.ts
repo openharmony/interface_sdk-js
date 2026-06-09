@@ -40,6 +40,7 @@
  * @since 6 dynamic
  */
 export interface Callback<T> {
+
   /**
    *
    * @param { T } data - Common callback information.
@@ -64,6 +65,7 @@ export interface Callback<T> {
  * @since 6 dynamic
  */
 export interface ErrorCallback<T extends Error = BusinessError> {
+
   /**
    *
    * @param { T } err - Common error information about the API invoking failure.
@@ -89,6 +91,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
  * @since 6 dynamic
  */
 export interface AsyncCallback<T, E = void> {
+
   /**
    *
    * @param { BusinessError<E> } err - Common error information about the API invoking failure.
@@ -114,6 +117,7 @@ export interface AsyncCallback<T, E = void> {
  * @since 6 dynamic
  */
 export interface BusinessError<T = void> extends Error {
+
   /**
    * Common error information about the API invoking failure.
    *
@@ -124,6 +128,7 @@ export interface BusinessError<T = void> extends Error {
    * @since 6 dynamic
    */
   code: number;
+
   /**
    * Common callback information. If this parameter is left empty, no related information is returned.
    *
