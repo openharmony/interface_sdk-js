@@ -241,7 +241,7 @@ declare namespace calendarManager {
     /**
      * Edits an event on the event creation page, with no event ID specified in **Event**. The **instanceStartTime**, **instanceEndTime**,
      * **identifier**, **attendee**, **service**, **isLunar**, and **timeZone** attributes cannot be set. Important events cannot be added either.
-	   * This API uses a promise to return the result.   
+     * This API uses a promise to return the result.   
      * 
      * Events created using this API can be obtained and modified by the system calendar. 
      * Third-party applications can obtain and modify the events after they requested the **READ_WHOLE_CALENDAR** 
