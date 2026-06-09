@@ -35886,6 +35886,22 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * @since 15 dynamic
    */
   backToTop(backToTop: boolean): T;
+
+  /**
+   * Sets the scrollbar track height.
+   *
+   * @param { LengthMetrics | undefined } height - Scrollbar track height.
+   *     <br>The value must be greater than or equal to 0, If set to undefined or a value less than 0, the default value
+   *     is used. If set to 0, the scrollbar is not displayed.
+   *     <br> Default value: adaptive to the height of the scrollable component. 
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  scrollBarHeight(height: LengthMetrics | undefined): T;
 }
 
 /**
