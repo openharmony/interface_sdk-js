@@ -19,7 +19,7 @@
  */
 
 /**
- * Enumerates the sticky effects for list items.
+ * ListItem吸顶效果枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -30,7 +30,7 @@
 declare enum Sticky {
 
   /**
-   * No sticky.
+   * 不吸顶。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -40,7 +40,7 @@ declare enum Sticky {
   None,
 
   /**
-   * The list item is sticky with no special effects.
+   * Normal mode
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -50,7 +50,7 @@ declare enum Sticky {
   Normal,
 
   /**
-   * The list item is sticky with opacity changes.
+   * Set opacity.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -61,7 +61,7 @@ declare enum Sticky {
 }
 
 /**
- * Enumerates the edit modes of list items.
+ * ListItem元素编辑模式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -71,7 +71,7 @@ declare enum Sticky {
 declare enum EditMode {
 
   /**
-   * Unrestricted operations.
+   * 无操作限制。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -81,7 +81,7 @@ declare enum EditMode {
   None,
 
   /**
-   * The list item can be deleted.
+   * Deletable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -91,7 +91,7 @@ declare enum EditMode {
   Deletable,
 
   /**
-   * The list item can be moved.
+   * Movable.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -102,7 +102,7 @@ declare enum EditMode {
 }
 
 /**
- * Enumerates the edge effects.
+ * 滑动效果枚举
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -113,8 +113,7 @@ declare enum EditMode {
 declare enum SwipeEdgeEffect {
 
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
-   * touch event, and spring back when released.
+   * 弹性物理动效，滑动到边缘后按初始速度或触摸事件继续滑动一段距离，释放后回弹。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -125,7 +124,7 @@ declare enum SwipeEdgeEffect {
   Spring,
 
   /**
-   * Sliding to the edge has no effect.
+   * 滑动到边缘后无效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -137,7 +136,7 @@ declare enum SwipeEdgeEffect {
 }
 
 /**
- * Enumerates swipe states of list items.
+ * 列表项滑动状态枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -148,7 +147,7 @@ declare enum SwipeEdgeEffect {
 declare enum SwipeActionState {
 
   /**
-   * Collapsed state.
+   * 折叠状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,7 +158,7 @@ declare enum SwipeActionState {
   COLLAPSED,
 
   /**
-   * Expanded state.
+   * 展开状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,7 +169,7 @@ declare enum SwipeActionState {
   EXPANDED,
 
   /**
-   * Acting state.
+   * 操作中状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -182,7 +181,7 @@ declare enum SwipeActionState {
 }
 
 /**
- * Enumerates the swipe action menu display directions for ListItem components.
+ * ListItem划出菜单的展开方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -193,8 +192,7 @@ declare enum SwipeActionState {
 declare enum ListItemSwipeActionDirection {
 
   /**
-   * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
-   * When the List direction is horizontal, it indicates the top.
+   * 当列表方向是垂直方向时，LTR模式下表示ListItem的左边，RTL模式下表示ListItem的右边。当列表是水平方向时，表示ListItem的上边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -205,8 +203,7 @@ declare enum ListItemSwipeActionDirection {
   START = 0,
 
   /**
-   * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
-   * When the List direction is horizontal, it indicates the bottom.
+   * 当列表方向是垂直方向时，LTR模式下表示ListItem的右边，RTL模式下表示ListItem的左边。当列表是水平方向时，表示ListItem的下边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,7 +215,7 @@ declare enum ListItemSwipeActionDirection {
 }
 
 /**
- * Implements the swipe action menu manager for list items.
+ * ListItem划出菜单的管理器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -229,10 +226,10 @@ declare enum ListItemSwipeActionDirection {
 declare class ListItemSwipeActionManager {
 
   /**
-   * Expands the swipe action menu for the specified list item.
+   * 展开指定ListItem的划出菜单。
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
-   * @param { ListItemSwipeActionDirection } direction - The direction to expand.
+   * @param { FrameNode } node - ListItem节点对象。
+   * @param { ListItemSwipeActionDirection } direction - ListItem划出菜单的展开方向。
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -244,9 +241,9 @@ declare class ListItemSwipeActionManager {
   static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
   /**
-   * Collapses the swipe action menu for the specified list item.
+   * 收起指定ListItem的划出菜单。
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
+   * @param { FrameNode } node - ListItem节点对象。
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -259,12 +256,8 @@ declare class ListItemSwipeActionManager {
 }
 
 /**
- * Describes the swipe action item.
- * For a list in vertical layout, it refers to the delete option displayed on the left (or right) of the list item
- * when the list item is swiped right (or left).
- *
- * For a list in horizontal layout, it refers to the delete option displayed below (or above) the list item
- * when the list item is swiped up (or down).
+ * List垂直布局，ListItem向右滑动时，item左边的长距离滑动删除选项。向左滑动时，item右边的长距离滑动删除选项。
+ * List水平布局，ListItem向上滑动时，item下边的长距离滑动删除选项。向下滑动时，item上边的长距离滑动删除选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -275,8 +268,7 @@ declare class ListItemSwipeActionManager {
 declare interface SwipeActionItem {
 
   /**
-   * Swipe action item displayed when the list item is swiped left or right (in vertical list layout)
-   * or up or down (in horizontal list layout).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）时显示的操作项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -287,8 +279,9 @@ declare interface SwipeActionItem {
   builder?: CustomBuilder;
 
   /**
-   * Swipe action item displayed when the list item is swiped left or right (in vertical list layout)
-   * or up or down (in horizontal list layout).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）时显示的操作项。
+   * 该参数的优先级高于参数builder。即同时设置builder和builderComponent时，以builderComponent设置的值为准。
+   * 同一个builderComponent不推荐同时给不同的start/end使用，否则会导致显示问题。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -299,8 +292,9 @@ declare interface SwipeActionItem {
   builderComponent?: ComponentContent;
 
   /**
-   * Swipe distance threshold for deleting the list item. This threshold applies after the swipe action component
-   * is fully swiped into view and triggers the deletion action.
+   * 设置组件长距离滑动删除距离阈值。即划出组件被完全滑进视窗后，继续滑动触发删除的距离阈值。
+   * 不支持设置百分比。
+   * 删除距离阈值大于item宽度减去划出组件宽度，或删除距离阈值小于等于0就不会设置删除区域。
    *
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -312,7 +306,8 @@ declare interface SwipeActionItem {
   actionAreaDistance?: Length;
 
   /**
-   * Callback invoked when the list item is released while in the delete area.
+   * 组件进入长距删除区后抬手时触发。
+   * 滑动后松手的位置超过或等于设置的距离阈值，并且设置的距离阈值有效时才会触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -323,7 +318,7 @@ declare interface SwipeActionItem {
   onAction?: () => void;
 
   /**
-   * Callback invoked each time the list item enters the delete area.
+   * 在滑动条目进入删除区域时调用，只触发一次，当再次进入时仍触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -334,7 +329,7 @@ declare interface SwipeActionItem {
   onEnterActionArea?: () => void;
 
   /**
-   * Callback invoked each time the list item exits the delete area.
+   * 当滑动条目退出删除区域时调用，只触发一次，当再次退出时仍触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,7 +340,7 @@ declare interface SwipeActionItem {
   onExitActionArea?: () => void;
 
   /**
-   * Callback invoked when the swipe state of the list item changes.
+   * 当列表项滑动状态变化时候触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -357,12 +352,11 @@ declare interface SwipeActionItem {
 }
 
 /**
- * The top layer of the @builder function corresponding to start and end must be a single component.
- * Otherwise, undefined behavior occurs. If the top layer of the @builder function is a statement such as
- * if/else or ForEach, ensure that these statements can generate a single component.
+ * start和end对应的@builder函数中顶层必须是单个组件，否则会引发未定义行为。
+ * 如果@builder函数中顶层是if/else、ForEach等语句，那么需要保证if/else、ForEach等语句必须能生成单个组件。
  *
- * The swipe gesture works only in the list item area. If a swipe causes a child component to extend beyond
- * the list item area, the portion outside the area does not respond to the swipe.
+ * 滑动手势只在listItem区域上，如果子组件划出ListItem区域外，在ListItem以外部分不会响应划动手势。
+ * 所以在多列模式下，建议不要将划出组件设置太宽。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -373,8 +367,7 @@ declare interface SwipeActionItem {
 declare interface SwipeActionOptions {
 
   /**
-   * Swipe action item displayed on the left of the list item when the item is swiped right
-   * (in vertical list layout) or above the list item when the item is swiped down (in horizontal list layout).
+   * ListItem向右划动时item左边的组件（List垂直布局时）或ListItem向下划动时item上方的组件（List水平布局时）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -385,8 +378,7 @@ declare interface SwipeActionOptions {
   start?: CustomBuilder | SwipeActionItem;
 
   /**
-   * Swipe action item displayed on the right of the list item when the item is swiped left
-   * (in vertical list layout) or below the list item when the item is swiped up (in horizontal list layout).
+   * ListItem向左划动时item右边的组件（List垂直布局时）或ListItem向上划动时item下方的组件（List水平布局时）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -397,7 +389,7 @@ declare interface SwipeActionOptions {
   end?: CustomBuilder | SwipeActionItem;
 
   /**
-   * Scroll effect.
+   * 滑动效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -408,8 +400,7 @@ declare interface SwipeActionOptions {
   edgeEffect?: SwipeEdgeEffect;
 
   /**
-   * Callback invoked when the location of the list item changes, in vp, when it is swiped left or right
-   * (in vertical list layout) or up or down (in horizontal list layout).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）位置发生变化触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -421,7 +412,7 @@ declare interface SwipeActionOptions {
 }
 
 /**
- * Enumerates the card styles of the List component.
+ * List组件卡片样式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -432,7 +423,7 @@ declare interface SwipeActionOptions {
 declare enum ListItemStyle {
 
   /**
-   * No style.
+   * 无样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -443,7 +434,7 @@ declare enum ListItemStyle {
   NONE = 0,
 
   /**
-   * Show default style.
+   * 显示默认样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -455,7 +446,7 @@ declare enum ListItemStyle {
 }
 
 /**
- * Defines ListItem component configuration options.
+ * ListItem组件参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -466,7 +457,14 @@ declare enum ListItemStyle {
 declare interface ListItemOptions {
 
   /**
-   * Style of the list item.
+   * 设置List组件卡片样式。
+   * 默认值：ListItemStyle.NONE
+   * 设置为ListItemStyle.NONE时无样式。
+   * 设置为ListItemStyle.CARD时，建议配合ListItemGroup的ListItemGroupStyle.CARD同时使用，显示默认卡片样式。
+   * 卡片样式下，ListItem默认规格：高度48vp，宽度100%，左右内边距8vp。如果需要实现ListItem高度自适应，可以把height设置为undefined。
+   * 卡片样式下，为卡片内的列表选项提供了默认的focus、hover、press、selected和disable样式。
+   * 当设置为ListItemStyle.CARD时，List的listDirection属性值须为Axis.Vertical，如果设置为Axis.Horizontal，会导致显示混乱；
+   * List属性alignListItem默认为ListItemAlign.Center，居中对齐显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -478,18 +476,15 @@ declare interface ListItemOptions {
 }
 
 /**
- * The ListItem component displays specific items in the list. It must be used together with List.
+ * 用来展示列表具体item，必须配合[List]{@link list}来使用。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component is supported since API version 7. Updates will be marked with a superscript to indicate
- * > their earliest API version.
+ * > *
  * >
- * > - The parent of this component can only be List or ListItemGroup.
+ * > * 该组件的父组件只能是[List]{@link list}或者[ListItemGroup]{@link list_item_group}。
  * >
- * > - When this component is used with LazyForEach, its child components are created when it is created.
- * > When this component is used with if/else or ForEach, or when the parent component is List or ListItemGroup,
- * > its child components are created when it is laid out.
+ * > * 当ListItem配合LazyForEach使用时，ListItem子组件在ListItem创建时创建。配合if/else、ForEach使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -502,7 +497,7 @@ declare interface ListItemOptions {
 interface ListItemInterface {
 
   /**
-   * Creates a ListItem component.
+   * 创建ListItem组件。
    *
    * @param { ListItemOptions } value
    * @returns { ListItemAttribute }
@@ -516,7 +511,7 @@ interface ListItemInterface {
   (value?: ListItemOptions): ListItemAttribute;
 
   /**
-   * Creates a ListItem component.
+   * 创建ListItem组件。
    *
    * @param { string } value
    * @returns { ListItemAttribute }
@@ -531,7 +526,7 @@ interface ListItemInterface {
 }
 
 /**
- * In addition to the universal attributes, the following attributes are supported.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -544,7 +539,7 @@ interface ListItemInterface {
 declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 
   /**
-   * Sets the sticky effect of the list item.
+   * 设置ListItem吸顶效果。
    *
    * @param { Sticky } value
    * @returns { ListItemAttribute }
@@ -557,7 +552,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   sticky(value: Sticky): ListItemAttribute;
 
   /**
-   * Sets whether to enable edit mode, where the list item can be deleted or moved.
+   * 设置当前ListItem元素是否可编辑，进入编辑模式后可删除或移动列表项。
    *
    * @param { boolean | EditMode } value
    * @returns { ListItemAttribute }
@@ -569,8 +564,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   editable(value: boolean | EditMode): ListItemAttribute;
 
   /**
-   * Sets whether the list item is selectable for multiselect.
-   * This attribute takes effect only when mouse frame selection is enabled for the parent List container.
+   * 设置当前ListItem元素是否可以被鼠标框选。外层List容器的鼠标框选开启时，ListItem的框选才生效。
    *
    * @param { boolean } value
    * @returns { ListItemAttribute }
@@ -584,11 +578,10 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selectable(value: boolean): ListItemAttribute;
 
   /**
-   * Sets whether the list item is selected. This attribute supports two-way binding through $$.
-   * This attribute must be used before the polymorphic style is set.
-   * Otherwise, the style settings will not take effect.
+   * 设置当前ListItem选中状态。该属性支持$$双向绑定变量。
+   * 该属性需要在设置多态样式前使用才能生效选中态样式。
    *
-   * @param { boolean } value - Whether the list item is selected.
+   * @param { boolean } value - 当前ListItem选中状态。设置为true时为选中状态，设置为false时为默认状态。默认值：false
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -600,10 +593,9 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   selected(value: boolean): ListItemAttribute;
 
   /**
-   * Sets the swipe action item displayed when the list item is swiped out from the screen edge.
+   * 用于设置ListItem的划出组件。
    *
-   * @param { SwipeActionOptions } value - Swipe action item displayed when the list item is swiped out from
-   *     the screen edge.
+   * @param { SwipeActionOptions } value - ListItem的划出组件。
    * @returns { ListItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -614,7 +606,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
   swipeAction(value: SwipeActionOptions): ListItemAttribute;
 
   /**
-   * Triggered when the selected state of the list item for multiselect changes.
+   * ListItem元素被鼠标框选的状态改变时触发回调。
    *
    * @param { function } event
    * @returns { ListItemAttribute }
@@ -629,7 +621,7 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 }
 
 /**
- * Defines ListItem Component instance.
+ * ListItem组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -642,22 +634,19 @@ declare class ListItemAttribute extends CommonMethod<ListItemAttribute> {
 declare const ListItemInstance: ListItemAttribute;
 
 /**
- * The ListItem component displays specific items in the list. It must be used together with List.
+ * 用来展示列表具体item，必须配合[List]{@link list}来使用。
  *
- * > **NOTE**
+ * > **说明：**
  * >
- * > - This component is supported since API version 7. Updates will be marked with a superscript to indicate
- * > their earliest API version.
+ * > *
  * >
- * > - The parent of this component can only be List or ListItemGroup.
+ * > * 该组件的父组件只能是[List]{@link list}或者[ListItemGroup]{@link list_item_group}。
  * >
- * > - When this component is used with LazyForEach, its child components are created when it is created.
- * > When this component is used with if/else or ForEach, or when the parent component is List or ListItemGroup,
- * > its child components are created when it is laid out.
+ * > * 当ListItem配合LazyForEach使用时，ListItem子组件在ListItem创建时创建。配合if/else、ForEach使用时，或父组件为List/ListItemGroup时，ListItem子组件在ListItem布局时创建。
  *
- * ###### Child Components
+ * ###### 子组件
  *
- * This component can contain a single child component.
+ * 可以包含单个子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
