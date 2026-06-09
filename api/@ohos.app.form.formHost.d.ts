@@ -1644,5 +1644,65 @@ declare namespace formHost {
    * @since 26.0.0 dynamic&static
    */
   function offGetWantParamsCallback(callback?: formInfo.GetWantParamsCallback): void;
+
+  /**
+   * Register the callback for updating form config.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.UpdateFormsConfigCallback } callback - Identifies the callback for updating form config.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onUpdateFormsConfigCallback(callback: formInfo.UpdateFormsConfigCallback): void;
+
+  /**
+   * Unregister the callback for updating form config.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.UpdateFormsConfigCallback } [callback] - Identifies the callback for updating form config.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offUpdateFormsConfigCallback(callback?: formInfo.UpdateFormsConfigCallback): void;
+
+  /**
+   * Register the callback for deleting forms.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.DeleteFormsCallback } callback - Identifies the callback for deleting forms.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onDeleteFormsCallback(callback: formInfo.DeleteFormsCallback): void;
+  
+  /**
+   * Unregister the callback for deleting forms.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.DeleteFormsCallback } [callback] - Identifies the callback for deleting forms.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offDeleteFormsCallback(callback?: formInfo.DeleteFormsCallback): void;
 }
 export default formHost;
