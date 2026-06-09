@@ -42,7 +42,8 @@ import { Callback } from '@ohos.base';
 export declare @interface Builder {}
 
 /**
- * Defines BuilderParam Annotation.
+ * \@BuilderParam用于装饰指向[@Builder](./ts-universal-builder-static.md)方法的变量。
+ * 开发指南见[\@BuilderParam装饰器：引用\@Builder函数](docroot://ui/state-management/arkts-builderparam.md)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -82,11 +83,11 @@ export type CustomBuilderT<T> = @Builder ((t: T) => void);
 export type PageMapBuilder = @Builder ((name: string, param: Object | null | undefined) => void);
 
 /**
- * Defining wrapBuilder function.
+ * wrapBuilder是一个模板函数，返回一个`WrappedBuilder`对象。模板参数`T`是@Builder的函数类型。
  *
  * @param { T } builder
  * @returns { WrappedBuilder<T> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ WrappedBuilder对象。
  * @stagemodelonly
  * @since 23 static
  * @noninterop
@@ -94,8 +95,6 @@ export type PageMapBuilder = @Builder ((name: string, param: Object | null | und
 export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 
 /**
- * Defines the WrappedBuilder class.
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -104,8 +103,6 @@ export declare function wrapBuilder<T>(builder: T): WrappedBuilder<T>;
 export declare class WrappedBuilder<T> {
 
   /**
-   * Builder function.
-   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -114,7 +111,7 @@ export declare class WrappedBuilder<T> {
   public builder: T;
 
   /**
-   * Initialize builder.
+   * WrappedBuilder的构造函数。
    *
    * @param { T } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -162,7 +159,7 @@ export declare function makeBuilderParameterProxy<T>(
 export @interface ComponentBuilder {}
 
 /**
- * Defines the object constructor type.
+ * 定义对象构造器类型
  *
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full

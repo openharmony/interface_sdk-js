@@ -19,7 +19,8 @@
  */
 
 /**
- * Defines the callback that is called when state variable with value is change
+ * 注册[AppStorage](docroot://ui/state-management-static/arkts-static-appstorage.md)/
+ * [LocalStorage](docroot://ui/state-management-static/arkts-static-localstorage.md)中所引用属性变化事件的回调函数类型。
  *
  * @param { string } propertyName - property name
  * @param { T } newValue - the new value of state variable
@@ -32,10 +33,10 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
 /**
  * Define AbstractProperty<T> interface.
  *
- * AbstractProperty can be understood as a handler or an alias
- * to a property inside LocalStorage / AppStorage singleton
- * allows to read the value with @see get and to change the
- * value with @see set.
+ *  AbstractProperty can be understood as a handler or an alias
+ *  to a property inside LocalStorage / AppStorage singleton
+ *  allows to read the value with @see get and to change the
+ *  value with @see set.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -44,9 +45,10 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
 export declare interface AbstractProperty<T> {
 
   /**
-   * Returns the name of the referenced property
+   * 读取[AppStorage](docroot://ui/state-management-static/arkts-static-appstorage.md)/
+   * [LocalStorage](docroot://ui/state-management-static/arkts-static-localstorage.md)中所引用属性的属性名。
    *
-   * @returns { string } name of the referenced property
+   * @returns { string } AppStorage/LocalStorage中所引用属性的属性名。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -54,9 +56,10 @@ export declare interface AbstractProperty<T> {
   default info(): string;
 
   /**
-   * Reads value of the referenced AppStorage/LocalStorage property.
-   *
-   * @returns { T } value of the referenced AppStorage/LocalStorage property.
+    * 读取[AppStorage](docroot://ui/state-management-static/arkts-static-appstorage.md)/
+    * [LocalStorage](docroot://ui/state-management-static/arkts-static-localstorage.md)中所引用属性的数据。
+    *
+   * @returns { T } AppStorage/LocalStorage中所引用属性的数据。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -64,9 +67,11 @@ export declare interface AbstractProperty<T> {
   get(): T;
 
   /**
-   * Assign a new value to the referenced property
+   * 更新[AppStorage](docroot://ui/state-management-static/arkts-static-appstorage.md)/
+   * [LocalStorage](docroot://ui/state-management-static/arkts-static-localstorage.md)中所引用属性的数据，newValue必须是T类型，可以为null或
+   * undefined。
    *
-   * @param {T} newValue - a new value of the referenced property
+   * @param {T} newValue - 要更新的数据，可以为null或undefined。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -74,10 +79,11 @@ export declare interface AbstractProperty<T> {
   default set(newValue: T): void;
 
   /**
-   * Register callback function to be called on value change of the referenced property
-   * calling with value undefined clear the callback.
+   * 注册[AppStorage](docroot://ui/state-management-static/arkts-static-appstorage.md)/
+   * [LocalStorage](docroot://ui/state-management-static/arkts-static-localstorage.md)中所引用属性变化的事件。
    *
-   * @param {OnChangeType<T> | undefined} onChangeFunc - register callback function
+   * @param {OnChangeType<T> | undefined} onChangeFunc - 属性变化回调函数。</br>如果传入有效值，则添加到监听属性变化的函数列表中。</br>如果传入undefined，则清除所有
+   *     监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -86,17 +92,7 @@ export declare interface AbstractProperty<T> {
 }
 
 /**
- * SubscribedAbstractProperty<T> is the return value of
- *
- * - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
- * - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
- * 'T' can be boolean, string, number or custom class.
- * Main functions
- * see get() reads the linked AppStorage/LocalStorage property value,
- * see set(newValue) write a new value to the synched AppStorage/LocalStorage property
- * see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
- * The app must call this function before the SubscribedAbstractProperty<T> object
- * goes out of scope.
+ * 继承自[AbstractProperty<T>]{@link AbstractProperty}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -105,10 +101,9 @@ export declare interface AbstractProperty<T> {
 export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
 
   /**
-   * An app needs to call this function before the instance of SubscribedAbstractProperty
-   * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
-   * variable from the two-way/one-way sync relationship that AppStorage/LocalStorage.link()/prop()
-   * and related functions create.
+   * > **说明：**
+   * >
+   * > 仅为了和动态Arkts接口保持一致，无实际功能。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -118,7 +113,7 @@ export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<
 }
 
 /**
- * Defines the ColorMode of device.
+ * 系统当前深浅色模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -127,7 +122,7 @@ export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<
 export declare enum ColorMode {
 
   /**
-   * Light mode.
+   * 浅色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -136,7 +131,7 @@ export declare enum ColorMode {
   LIGHT = 0,
 
   /**
-   * Dark mode.
+   * 深色模式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -146,7 +141,7 @@ export declare enum ColorMode {
 }
 
 /**
- * Defines the LayoutDirection of device.
+ * 系统的布局方向类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -155,7 +150,7 @@ export declare enum ColorMode {
 export declare enum LayoutDirection {
 
   /**
-   * Elements are laid out from right to left.
+   * 从右向左布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -164,7 +159,7 @@ export declare enum LayoutDirection {
   RTL = 0,
 
   /**
-   * Elements are laid out from left to right.
+   * 从左向右布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -173,7 +168,7 @@ export declare enum LayoutDirection {
   LTR = 1,
 
   /**
-   * Elements are laid out from auto.
+   * 自动布局，跟随系统。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

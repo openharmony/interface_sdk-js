@@ -22,9 +22,8 @@
 import { LocalStorage } from './localStorage';
 
 /**
- * AppStorage singleton is sub-class of see LocalStorage for
- * UI state of app-wide access and same life cycle as the app.
- *
+  * AppStorage具体UI使用说明，详见[AppStorage(应用全局的UI状态存储)](docroot://ui/state-management-static/arkts-static-appstorage.md)
+  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
