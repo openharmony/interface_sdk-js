@@ -476,7 +476,7 @@ declare class UIExtensionContext extends ExtensionContext {
    * @throws { BusinessError } 16000012 - The application is controlled.
    * @throws { BusinessError } 16000013 - The application is controlled by EDM.
    * @throws { BusinessError } 16000050 - Internal error. Possible causes: 1. Connect to system service failed;
-   *     2.Send restart message to system service failed; 3.System service failed to commnicate with dependency module.
+   *     2.Send restart message to system service failed; 3.System service failed to communicate with dependency module.
    * @throws { BusinessError } 16000053 - The ability is not on the top of the UI.
    * @throws { BusinessError } 16000070 - The extension cannot start the service.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
