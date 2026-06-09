@@ -1,3 +1,4 @@
+
 'use static';
 /*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
@@ -21,7 +22,7 @@
 
 import image from './@ohos.multimedia.image';
 import drawing from './@ohos.graphics.drawing';
-import { AnimationStatus, ResourceStr, ScaleOptions, Rectangle } from '@ohos.arkui.component';
+import { AnimationStatus, ResourceStr, Rectangle } from '@ohos.arkui.component';
 
 /**
  * The result of loading image.
@@ -41,6 +42,7 @@ export interface DrawableDescriptorLoadedResult {
    * @since 23 static
    */
   imageWidth: int;
+
   /**
    * The height of the image, in px.
    *
@@ -51,6 +53,7 @@ export interface DrawableDescriptorLoadedResult {
    */
   imageHeight: int;
 }
+
 /**
  * Use the DrawableDescriptor class to get drawable image.
  *
@@ -81,7 +84,7 @@ export declare class DrawableDescriptor {
 
   /**
    * Synchronously loads the image and returns the loading result.
-   * 
+   *
    * @returns { DrawableDescriptorLoadedResult } - loading outcome.
    * @throws { BusinessError } 111001 - resource loading failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -110,6 +113,7 @@ export declare class DrawableDescriptor {
    * @since 26.0.0 static
    */
   release(): void;
+
   /**
    * Releases the DrawableDescriptor object. After release, any method call that
    *     accesses the object's internal data wll fail.
@@ -120,6 +124,7 @@ export declare class DrawableDescriptor {
    * @since 26.0.0 static
    */
   isReleased(): boolean;
+
   /**
    * Redraw the DrawableDescriptor. Does nothing if the DrawableDescriptor is not bound to any component.
    *
@@ -141,7 +146,7 @@ export declare class DrawableDescriptor {
 export declare class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
    * Creates a new LayeredDrawableDescriptor.
-   * 
+   *
    * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
    * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
@@ -237,7 +242,7 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
 
 /**
  * Animation stop mode.
- * 
+ *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -246,15 +251,16 @@ export declare class PixelMapDrawableDescriptor extends DrawableDescriptor {
 export enum AnimationStopMode {
   /**
    * First frame.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
   FIRST_FRAME = 0,
+
   /**
    * Last frame.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -280,6 +286,7 @@ export interface AnimationOptions {
    * @since 23 static
    */
   duration?: int;
+
   /**
    * Animation playback times.
    *
@@ -289,7 +296,8 @@ export interface AnimationOptions {
    * @since 23 static
    */
   iterations?: int;
- /**
+
+  /**
    * Animation frames duration of playback once.
    *
    * @type { ?Array<int> }
@@ -298,6 +306,7 @@ export interface AnimationOptions {
    * @since 23 static
    */
   frameDurations?: Array<int>;
+
   /**
    * Auto play animated images, default value is true.
    *
@@ -307,9 +316,10 @@ export interface AnimationOptions {
    * @since 23 static
    */
   autoPlay?: boolean;
+
   /**
    * Mode in which animation stops
-   * 
+   *
    * @type { ?AnimationStopMode }
    * @default AnimationStopMode.FIRST_FRAME
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -427,11 +437,11 @@ export declare class AnimatedDrawableDescriptor extends DrawableDescriptor {
  */
 export interface HdrCompositionConfig {
   /**
-  * Rectangle area for HDR composition.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 26.0.0 static
-  */
+   * Rectangle area for HDR composition.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   rect: Rectangle;
 }
 
@@ -443,23 +453,24 @@ export interface HdrCompositionConfig {
  * @since 26.0.0 static
  */
 export declare class PictureDrawableDescriptor extends DrawableDescriptor {
+
   /**
-  * Creates a new PictureDrawableDescriptor.
-  *
-  * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 26.0.0 static
-  */
+   * Creates a new PictureDrawableDescriptor.
+   *
+   * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   constructor(src: image.Picture);
 
   /**
-  * Set HDR composition config.
-  *
-  * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 26.0.0 static
-  */
+   * Set HDR composition config.
+   *
+   * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
   setHdrComposition(config: HdrCompositionConfig): void;
 }
