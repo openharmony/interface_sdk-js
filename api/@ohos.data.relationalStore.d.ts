@@ -7406,6 +7406,7 @@ declare namespace relationalStore {
      * @throws { BusinessError } 801 - Capability not supported
      *     because the device does not support the cloud synchronization capability.
      * @throws { BusinessError } 14800014 - The target instance is already closed.
+     * @throws { BusinessError } 14800000 - Internal error.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
