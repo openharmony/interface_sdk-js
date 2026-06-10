@@ -26,7 +26,6 @@ import type systemSoundManager from '../@ohos.multimedia.systemSoundManager';
  * [createSystemSoundPlayer]{@link #systemSoundManager.createSystemSoundPlayer} to create a
  * SystemSoundPlayer instance first.
  *
- * @typedef SystemSoundPlayer
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @stagemodelonly
  * @since 23 dynamic&static
