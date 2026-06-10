@@ -2023,6 +2023,20 @@ declare namespace commonEventManager {
     COMMON_EVENT_DISK_UNMOUNTABLE = 'usual.event.data.DISK_UNMOUNTABLE',
 
     /**
+     * 表示系统数据盘卷状态发生变化的公共事件。
+     *
+     * 当系统数据盘卷在格式化或修复等操作过程中状态发生变化（如操作开始、成功或失败）时，会发送此公共事件。
+     *
+     * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISK_VOLUME_STATE_CHANGE = 'usual.event.data.DISK_VOLUME_STATE_CHANGE',
+
+    /**
      * （预留事件，暂未支持）用户已表示希望删除外部存储介质时发送此公共事件。
      *
      * 要订阅此事件，您的应用必须具备ohos.permission.STORAGE_MANAGER权限（该权限仅系统应用可申请）。
