@@ -239,6 +239,7 @@ import agentConstant from '@ohos.app.agent.agentConstant';
 import agentManager from '@ohos.app.agent.agentManager';
 import hyperSnapManager from '@ohos.app.ability.hyperSnapManager';
 import pluginBundleManager from '@ohos.bundle.pluginBundleManager';
+import errorManager from '@ohos.app.ability.errorManager';
 
 export {
   appControl, bundleManager, bundleMonitor, bundleResourceManager, defaultAppManager, distributedBundleManager,
@@ -259,6 +260,6 @@ export {
   StartupTask, startupManager, systemConfiguration, PhotoEditorExtensionAbility, AgentExtensionAbility, 
   AgentUIExtensionAbility, agentConstant, agentManager, InsightIntentLink, InsightIntentPage, InsightIntentFunctionMethod, InsightIntentFunction, 
   InsightIntentEntry, LinkParamCategory, LinkIntentParamMapping, InsightIntentEntity, InsightIntentEntryExecutor, InsightIntentForm, hyperSnapManager, 
-  pluginBundleManager
+  pluginBundleManager, errorManager
 };
 /*** endif */
