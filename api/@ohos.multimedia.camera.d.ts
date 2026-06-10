@@ -12720,6 +12720,16 @@ declare namespace camera {
      * @since 23 static
      */
     mirror?: boolean;
+
+    /**
+     * Photo image compression quality.
+     *
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     */
+    compressionQuality?: int;
   }
 
   /**
