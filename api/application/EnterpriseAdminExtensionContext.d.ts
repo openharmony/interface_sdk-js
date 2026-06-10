@@ -19,24 +19,57 @@
  */
 
 import ExtensionContext from './ExtensionContext';
+
 import Want from '../@ohos.app.ability.Want';
 
 /**
- * The context of enterpriseAdmin extension. It allows access to enterpriseAdminExtension-specific resources.
+ * **EnterpriseAdminExtensionContext** is the context of
+ * [EnterpriseAdminExtensionAbility]{@link ./../@ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
+ * and inherits from [ExtensionContext]{@link ExtensionContext:ExtensionContext}.
  *
- * @extends ExtensionContext
+ * When an **EnterpriseAdminExtensionAbility** component is instantiated, the system automatically creates the
+ * corresponding **EnterpriseAdminExtensionContext**. You can use this **EnterpriseAdminExtensionContext** to obtain the
+ * sandbox path of the app and start other components. This context can only be used within the current
+ * **EnterpriseAdminExtensionAbility** and cannot be transferred to other components.
+ *
+ * > **NOTE**
+ * >
+ * > - The APIs of this module can be used only in the stage model.
+ * >
+ * > - The APIs of this module can be called only by a device administrator application that is enabled. For details,
+ * > see [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @stagemodelonly
  * @since 23
  */
 declare class EnterpriseAdminExtensionContext extends ExtensionContext {
+
   /**
-   * Starts an ability by enterprise administrator. Only supports start UIAbility or AppServiceExtensionAbility.
+   * Directly starts another component within the
+   * [EnterpriseAdminExtensionAbility]{@link ./../@ohos.enterprise.EnterpriseAdminExtensionAbility:EnterpriseAdminExtensionAbility}
+   * component (without pop-up prompts on the page). Currently, [UIAbility]{@link ./../@ohos.app.ability.UIAbility} and
+   * [AppServiceExtensionAbility]{@link ./../@ohos.app.ability.AppServiceExtensionAbility:AppServiceExtensionAbility}
+   * are supported. This API uses a promise to return the result.
+   *
+   * > **NOTE**
+   * >
+   * > - Only third-party app components are supported; system app components are not supported.
+   * >
+   * > - The component to start must be visible to external parties, that is, the **exported** field in the
+   * > **module.json5** file must be set to **true**.
+   * >
+   * > - [Implicit Want launch](docroot://application-models/ability-terminology.md) is not supported.
+   * >
+   * > - If the **UIAbility** to start has permission protection, you need to apply for the corresponding permission.
    *
    * @permission ohos.permission.ENTERPRISE_START_ABILITIES
-   * @param { Want } admin - Indicates the enterprise admin extension ability information.
-   * @param { Want } want - Includes ability name, parameters and relative info sending to an ability.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of
+   *     **EnterpriseAdminExtensionAbility** and the app bundle name.
+   * @param { Want } want - Mandatory information for starting a component. The **Want** must contain the ability name
+   *     of the component to be started and the bundle name of the app where the component is located.
+   * @returns { Promise<void> } Promise that returns no value. If the component fails to be started, an error object is
+   *     thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200014 - Failed to start the ability.
    * @throws { BusinessError } 9200015 - The ability does not exist.
