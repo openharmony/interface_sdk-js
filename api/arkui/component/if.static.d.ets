@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,70 +25,70 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 /**
  * The IfAttribute.
  *
- * @interface IfAttribute
- *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export declare interface IfAttribute {
-    /**
-     * Defines 'ElseIf' branch.
-     *
-     * @param { boolean } condition - condition of the branch.
-     * @param { CustomBuilder } content_ - code for the branch
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    ElseIf(
+
+  /**
+   * Defines 'ElseIf' branch.
+   *
+   * @param { boolean } condition - condition of the branch.
+   * @param { CustomBuilder } content_ - code for the branch
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ElseIf(
         condition: boolean,
         content_: CustomBuilder
     ): this;
 
-    /**
-     * Defines 'Else' branch.
-     *
-     * @param { CustomBuilder } content_ - code for the branch
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    Else(
+  /**
+   * Defines 'Else' branch.
+   *
+   * @param { CustomBuilder } content_ - code for the branch
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  Else(
         content_: CustomBuilder
     ): void;
 
-    /**
-     * Set the component's source code redirection information. 
-     * @param { string } sourceLine - the source code line.
-     * @param { string } [moduleName] - module to which the component belongs.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    debugLine(sourceLine: string, moduleName?: string): this;
+  /**
+   * Set the component's source code redirection information.
+   *
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  debugLine(sourceLine: string, moduleName?: string): this;
 
-    /**
-     * Sets If options.
-     *
-     * @param { boolean } condition - condition of the branch.
-     * @returns { this } IfAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setIfOptions(condition: boolean): this;
+  /**
+   * Sets If options.
+   *
+   * @param { boolean } condition - condition of the branch.
+   * @returns { this } IfAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setIfOptions(condition: boolean): this;
 
-    /**
-     * Notify If has finished setting up its attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    applyAttributesFinish(): void;
+  /**
+   * Notify If has finished setting up its attributes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  applyAttributesFinish(): void;
 }
 
 /**
@@ -102,8 +103,8 @@ export declare interface IfAttribute {
  */
 @ComponentBuilder
 export declare function If(
-    condition: boolean,
-    content_: CustomBuilder
+  condition: boolean,
+  content_: CustomBuilder
 ): IfAttribute;
 
 /**

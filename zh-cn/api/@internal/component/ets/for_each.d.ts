@@ -19,8 +19,8 @@
  */
 
 /**
- * The [drag-and-drop sorting]{@link common} attribute is supported.
- *
+* declare ForEachAttribute
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32,13 +32,8 @@
 declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {}
 
 /**
- * **ForEach** enables rendering of repeated content based on array type data.
- *
- * > **NOTE**
- *
- * For details about the development, see
- * [ForEach: Rendering Repeated Content](docroot://ui/rendering-control/arkts-rendering-control-foreach.md).
- *
+* looping function.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -50,10 +45,6 @@ declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {}
 interface ForEachInterface {
 
   /**
-   * **ForEach** enables rendering of repeated content based on array type data. It must be used in a container
-   * component, and the component it returns must be one allowed inside the container component. For example, a
-   * **ListItem** component is allowed only when the parent container component of **ForEach** is [List]{@link list} or
-   * [ListItemGroup]{@link list_item_group}.
    *
    * @param { Array<any> } arr - Data source, which is an array.<br>If this parameter is set to **undefined**, the
    *     **ForEach** API does not take effect.<br>**NOTE**<br>- You can set this parameter to an empty array. In this
@@ -72,7 +63,7 @@ interface ForEachInterface {
    *     array.<br>**NOTE**<br>- If this function is not specified, the default key generator of the framework is used:
    *     **(item: T, index: number) => { return index + '__' + JSON.stringify(item); }**.<br>- The key generator should
    *     not change any component state.
-   * @returns { ForEachInterface } [since 7 - 11]
+   * @returns { ForEachInterface }    * @returns { ForEachAttribute }
    * @returns { ForEachAttribute } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -90,13 +81,8 @@ interface ForEachInterface {
 }
 
 /**
- * **ForEach** enables rendering of repeated content based on array type data.
- *
- * > **NOTE**
- *
- * For details about the development, see
- * [ForEach: Rendering Repeated Content](docroot://ui/rendering-control/arkts-rendering-control-foreach.md).
- *
+* Defines ForEach Component.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]

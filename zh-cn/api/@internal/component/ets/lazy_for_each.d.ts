@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines a type for memory optimization strategy.
- *
+* LazyForEach内存优化策略枚举。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30,7 +30,7 @@
 declare enum LazyForEachMemOptStrategy {
 
   /**
-   * No memory optimization.
+   * 无内存优化策略。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +41,16 @@ declare enum LazyForEachMemOptStrategy {
   DEFAULT = 0,
 
   /**
-   * LazyForEach handle the memory optimization.
+   * 自动内存优化策略，当LazyForEach子节点内存占用较高时，建议使用此策略以降低内存使用量。
+   *
+   * 当应用退后台时、LazyForEach所在组件不可见时（[visibility]{@link CommonMethod#visibility}属性设置为[Visible]{@link Visibility}以外的值，或组件面积为
+   * 0，不考虑遮挡）、整机低内存时（[MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}达到
+   * MEMORY_LEVEL_LOW或MEMORY_LEVEL_CRITICAL），释放
+   * [预加载区域](docroot://ui/rendering-control/arkts-rendering-control-overview.md#基本概念)内的部分节点，直至上下预加载区域内的节点数量均不超过2。
+   *
+   * 当应用恢复前台时、LazyForEach所在组件恢复显示时，LazyForEach发生滑动时，恢复预加载区域内的节点。
+   *
+   * 在释放和恢复节点时，会触发[自定义组件生命周期](docroot://ui/state-management/arkts-page-custom-components-lifecycle.md)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -53,8 +62,8 @@ declare enum LazyForEachMemOptStrategy {
 }
 
 /**
- * Enumerates the data operation types.
- *
+* 枚举类型，数据操作说明。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -64,7 +73,7 @@ declare enum LazyForEachMemOptStrategy {
 declare enum DataOperationType {
 
   /**
-   * Data addition.
+   * 数据添加。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -75,7 +84,7 @@ declare enum DataOperationType {
   ADD = 'add',
 
   /**
-   * Data deletion.
+   * 数据删除。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -86,7 +95,7 @@ declare enum DataOperationType {
   DELETE = 'delete',
 
   /**
-   * Data exchange.
+   * 数据交换。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -97,7 +106,7 @@ declare enum DataOperationType {
   EXCHANGE = 'exchange',
 
   /**
-   * Data movement.
+   * 数据移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -108,7 +117,7 @@ declare enum DataOperationType {
   MOVE = 'move',
 
   /**
-   * Data change.
+   * 数据改变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -119,7 +128,7 @@ declare enum DataOperationType {
   CHANGE = 'change',
 
   /**
-   * Data reloading.
+   * 全部数据重载。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -131,7 +140,7 @@ declare enum DataOperationType {
 }
 
 /**
- * Enumerates the release strategies for LazyForEach discarded nodes.
+ * 资源释放策略枚举，用于配置LazyForEach待销毁节点的资源释放策略。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -142,7 +151,7 @@ declare enum DataOperationType {
 declare enum LazyForEachReleaseStrategy {
 
   /**
-   * Release all discarded nodes during the next idle period.
+   * 在下一次空闲时段内释放所有被丢弃的节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -153,9 +162,7 @@ declare enum LazyForEachReleaseStrategy {
   BATCH = 0,
 
   /**
-   * Release discarded nodes one by one during the next idle period based on the
-   * remaining time of the current frame. Unreleased nodes will continue to be
-   * released in subsequent idle periods based on the available idle time.
+   * 在下一次空闲时段内，根据当前帧剩余时间逐个释放被丢弃的节点。未释放的节点将在后续空闲时段根据可用空闲时间继续释放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -167,8 +174,7 @@ declare enum LazyForEachReleaseStrategy {
 }
 
 /**
- * Enumerates the freeze modes for cached custom nodes that have been removed
- * from the component tree in LazyForEach.
+ * 冻结模式枚举，用于配置LazyForEach中已移出组件树的缓存自定义节点的冻结行为。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -179,8 +185,7 @@ declare enum LazyForEachReleaseStrategy {
 declare enum LazyForEachCustomComponentFreezeMode {
 
   /**
-   * Follow the enableCustomComponentFreeze field in Metadata to determine
-   * whether freezing takes effect.
+   * 遵循Metadata中enableCustomComponentFreeze字段的配置来决定是否启用冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -191,7 +196,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
   AUTO = 0,
 
   /**
-   * Freezing is disabled for cached custom nodes removed from the component tree.
+   * 禁用已移出组件树的缓存自定义节点的冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -202,8 +207,7 @@ declare enum LazyForEachCustomComponentFreezeMode {
   DISABLED = 1,
 
   /**
-   * Freezing is enabled for cached custom nodes removed from the component tree.
-   * State updates of cached custom components will be frozen.
+   * 启用已移出组件树的缓存自定义节点的冻结。开启后，缓存自定义组件的状态更新将被冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -215,8 +219,8 @@ declare enum LazyForEachCustomComponentFreezeMode {
 }
 
 /**
- * Defines the options for LazyForEach.
- *
+* 配置LazyForEach的参数。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -226,7 +230,8 @@ declare enum LazyForEachCustomComponentFreezeMode {
 declare interface LazyForEachOptions {
 
   /**
-   * Memory optimization strategy for LazyForEach.
+   * LazyForEach的内存优化策略。该参数在创建LazyForEach时设定，不支持动态修改。
+   * 默认值：[DEFAULT]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,8 +242,7 @@ declare interface LazyForEachOptions {
   memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
 
   /**
-   * Freeze mode for cached custom nodes that have been removed from the
-   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+   * 已移出组件树的缓存自定义节点的冻结模式。默认值：LazyForEachCustomComponentFreezeMode.AUTO。
    *
    * @default LazyForEachCustomComponentFreezeMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -250,8 +254,8 @@ declare interface LazyForEachOptions {
   customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
 
   /**
-   * Resource release strategy for LazyForEach discarded nodes.
-   * Default value: LazyForEachReleaseStrategy.BATCH.
+   * LazyForEach缓存节点的资源释放策略。默认值：LazyForEachReleaseStrategy.BATCH。
+   * <br>默认值:默认值：LazyForEachReleaseStrategy.BATCH。
    *
    * @default LazyForEachReleaseStrategy.BATCH
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -264,8 +268,8 @@ declare interface LazyForEachOptions {
 }
 
 /**
- * Represents an operation for adding data.
- *
+* 添加数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -275,7 +279,7 @@ declare interface LazyForEachOptions {
 interface DataAddOperation {
 
   /**
-   * Type of data addition.
+   * 数据添加类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -286,7 +290,7 @@ interface DataAddOperation {
   type: DataOperationType.ADD;
 
   /**
-   * Index at which to insert the data record. The value range is [0, data source length - 1].
+   * 插入数据索引值。取值范围是[0, 数据源长度]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,9 +301,7 @@ interface DataAddOperation {
   index: number;
 
   /**
-   * Number of data records to insert.
-   *
-   * Default value: **1**.
+   * 插入数量，默认为1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -311,7 +313,7 @@ interface DataAddOperation {
   count?: number;
 
   /**
-   * Keys to assign to the inserted data records. The original keys are used by default.
+   * 为插入的数据分配键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -323,8 +325,8 @@ interface DataAddOperation {
 }
 
 /**
- * Represents an operation for deleting data.
- *
+* 删除数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -334,7 +336,7 @@ interface DataAddOperation {
 interface DataDeleteOperation {
 
   /**
-   * Type of data deletion.
+   * 数据删除类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,7 +347,7 @@ interface DataDeleteOperation {
   type: DataOperationType.DELETE;
 
   /**
-   * Index at which to start deleting data. The value range is [0, data source length - 1].
+   * 起始删除位置索引值。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -356,9 +358,7 @@ interface DataDeleteOperation {
   index: number;
 
   /**
-   * Number of data records to delete.
-   *
-   * Default value: **1**.
+   * 删除数据数量，默认为1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -371,8 +371,8 @@ interface DataDeleteOperation {
 }
 
 /**
- * Represents an operation for changing data.
- *
+* 改变数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -382,7 +382,7 @@ interface DataDeleteOperation {
 interface DataChangeOperation {
 
   /**
-   * Type of data change.
+   * 数据改变类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -393,7 +393,7 @@ interface DataChangeOperation {
   type: DataOperationType.CHANGE;
 
   /**
-   * Index of the data to be changed. The value range is [0, data source length - 1].
+   * 改变的数据的索引值。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -404,7 +404,7 @@ interface DataChangeOperation {
   index: number;
 
   /**
-   * New key to assign to the changed data. The original key is used by default.
+   * 为改变的数据分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -416,8 +416,8 @@ interface DataChangeOperation {
 }
 
 /**
- * Defines position of moved data.
- *
+* 定义移动数据的位置。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -427,7 +427,7 @@ interface DataChangeOperation {
 interface MoveIndex {
 
   /**
-   * Start position for the movement. The value range is [0, data source length - 1].
+   * 起始移动位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -438,7 +438,7 @@ interface MoveIndex {
   from: number;
 
   /**
-   * End position for the movement. The value range is [0, data source length - 1].
+   * 目的移动位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -450,8 +450,8 @@ interface MoveIndex {
 }
 
 /**
- * Defines position of exchange data.
- *
+* 定义交换数据的位置。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -461,7 +461,7 @@ interface MoveIndex {
 interface ExchangeIndex {
 
   /**
-   * First position for the exchange. The value range is [0, data source length - 1].
+   * 第一个交换位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -472,7 +472,7 @@ interface ExchangeIndex {
   start: number;
 
   /**
-   * Second position for the exchange. The value range is [0, data source length - 1].
+   * 第二个交换位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -484,8 +484,8 @@ interface ExchangeIndex {
 }
 
 /**
- * Defines new key of exchange data.
- *
+* 定义交换数据的新键值。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -495,7 +495,7 @@ interface ExchangeIndex {
 interface ExchangeKey {
 
   /**
-   * New key to assign to the first position in the exchange. The original key is used by default.
+   * 为第一个交换的位置分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -506,7 +506,7 @@ interface ExchangeKey {
   start: string;
 
   /**
-   * New key to assign to the second position in the exchange. The original key is used by default.
+   * 为第二个交换的位置分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -518,8 +518,8 @@ interface ExchangeKey {
 }
 
 /**
- * Represents an operation for moving data.
- *
+* 移动数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -529,7 +529,7 @@ interface ExchangeKey {
 interface DataMoveOperation {
 
   /**
-   * Type of data movement.
+   * 数据移动类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -540,7 +540,7 @@ interface DataMoveOperation {
   type: DataOperationType.MOVE;
 
   /**
-   * Positions for the movement. The value range is [0, data source length - 1].
+   * 移动位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -551,7 +551,7 @@ interface DataMoveOperation {
   index: MoveIndex;
 
   /**
-   * New key to assign to the moved data. The original key is used by default.
+   * 为被移动的数据分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -563,8 +563,8 @@ interface DataMoveOperation {
 }
 
 /**
- * Represents an operation for exchanging data.
- *
+* 交换数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -574,7 +574,7 @@ interface DataMoveOperation {
 interface DataExchangeOperation {
 
   /**
-   * Type of data exchange.
+   * 数据交换类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -585,7 +585,7 @@ interface DataExchangeOperation {
   type: DataOperationType.EXCHANGE;
 
   /**
-   * Positions for the exchange. The value range is [0, data source length - 1].
+   * 交换位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -596,7 +596,7 @@ interface DataExchangeOperation {
   index: ExchangeIndex;
 
   /**
-   * New keys to assign to the exchanged data. The original keys are used by default.
+   * 分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -608,10 +608,8 @@ interface DataExchangeOperation {
 }
 
 /**
- * Represents an operation for reloading data. If the **onDatasetChange** event contains a **DataOperationType.RELOAD**
- * operation, all other operations in the event are ineffective. In such cases, the framework will call **keyGenerator**
- * to perform a comparison of keys with their corresponding values.
- *
+* 重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -621,7 +619,7 @@ interface DataExchangeOperation {
 interface DataReloadOperation {
 
   /**
-   * Type of data reloading.
+   * 数据全部重载类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -633,16 +631,16 @@ interface DataReloadOperation {
 }
 
 /**
- * All data operation types.
- *
- * > **NOTE**
- *
- * @unionmember { DataAddOperation } Represents an operation for adding data.
- * @unionmember { DataDeleteOperation } Represents an operation for deleting data.
- * @unionmember { DataChangeOperation } Represents an operation for changing data.
- * @unionmember { DataMoveOperation } Represents an operation for moving data.
- * @unionmember { DataExchangeOperation } Represents an operation for exchanging data.
- * @unionmember { DataReloadOperation } Represents an operation for reloading data.
+* 定义数据操作类型。
+*
+* > **说明**
+*
+ * @unionmember { DataAddOperation } Represents  Represents Represents Represents Represents Represents Represents 添加单个数据。
+ * @unionmember { DataDeleteOperation } Represents  Represents Represents Represents Represents Represents Represents 删除单个数据。
+ * @unionmember { DataChangeOperation } Represents  Represents Represents Represents Represents Represents Represents 执行单个数据的插入、更新或删除。
+ * @unionmember { DataMoveOperation } Represents  Represents Represents Represents Represents Represents Represents 移动单个数据。
+ * @unionmember { DataExchangeOperation } Represents  Represents Represents Represents Represents Represents Represents 交换单个数据。
+ * @unionmember { DataReloadOperation } Represents  Represents Represents Represents Represents Represents Represents 重载所有数据。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -653,15 +651,13 @@ declare type DataOperation =
   DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation | DataReloadOperation;
 
 /**
- * Listener for data changes.
- *
- * > **NOTE**
- * >
- * > In APIs of **DataChangeListener** other than **onDatasetChange**, if the value of **index** is negative, the value
- * > is treated as **0** by default. In **onDatasetChange**, if the specified index in a **DataOperation** is outside
- * > the data source index range, the corresponding **DataOperation** does not take effect. (In **DataAddOperation**,
- * > the value of **index** can equal the data source length.)
- *
+* 数据变化监听器。
+*
+* > **说明：**
+* >
+* > DataChangeListener除onDatasetChange以外的方法中，当参数包含index且值为负数时，会默认用0来替换。onDatasetChange中，当单个DataOperation参数包含index且值在数据源
+* > 索引范围之外（DataAddOperation中index可以等于数据源长度），则对应DataOperation不会生效。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -671,8 +667,7 @@ declare type DataOperation =
 declare interface DataChangeListener {
 
   /**
-   * Invoked when all data is reloaded. For data items whose key remains unchanged, the original child component is
-   * used. For data items whose key changes, a new child component is created.
+   * 通知组件重新加载所有数据。键值没有变化的数据项会使用原先的子组件，键值发生变化的会重建子组件。重新加载数据完成后调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -683,14 +678,11 @@ declare interface DataChangeListener {
   onDataReloaded(): void;
 
   /**
-   * Invoked when data is added to the position indicated by the specified index.
+   * 通知组件index的位置有数据添加。添加数据完成后调用。
    *
-   * > This API is deprecated since API version 8. You are advised to use
-   * > [onDataAdd]{@link DataChangeListener.onDataAdd} instead.
+   * > **说明：**
    *
-   * @param { number } index - Index of the position where data is added. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   * @param { number } index - 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -700,11 +692,9 @@ declare interface DataChangeListener {
   onDataAdded(index: number): void;
 
   /**
-   * Invoked when data is added to the position indicated by the specified index.
+   * 通知组件index的位置有数据添加。添加数据完成后调用。
    *
-   * @param { number } index - Index of the position where data is added. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   * @param { number } index - 数据添加位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -714,22 +704,16 @@ declare interface DataChangeListener {
   onDataAdd(index: number): void;
 
   /**
-   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
+   * 通知组件数据有移动。将from和to位置的数据进行交换。
    *
-   * > This API is deprecated since API version 8. You are advised to use
-   * > [onDataMove]{@link DataChangeListener.onDataMove} instead.
-   *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
-   * > must be called.
+   * > -
+   * >
+   * > - 数据移动前后键值要保持不变，如果键值有变化，应使用删除数据和新增数据接口。数据移动起始位置与数据移动目标位置交换完成后调用。
    *
-   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
-   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
-   *     treated as the data source length minus 1.
-   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
-   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
-   *     as the data source length minus 1.
+   * @param { number } from - 数据移动起始位置。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
+   * @param { number } to - 数据移动目标位置。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -739,19 +723,14 @@ declare interface DataChangeListener {
   onDataMoved(from: number, to: number): void;
 
   /**
-   * Invoked when data is moved, that is, when data is swapped between the **from** and **to** positions.
+   * 通知组件数据有移动。将from和to位置的数据进行交换。数据移动起始位置与数据移动目标位置交换完成后调用。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > The ID must remain unchanged before and after data movement. If the ID changes, APIs for deleting and adding data
-   * > must be called.
+   * > 数据移动前后键值要保持不变，如果键值有变化，应使用删除数据和新增数据接口。
    *
-   * @param { number } from - Original position of data. The value range is [0, data source length - 1].<br>If the value
-   *     is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is
-   *     treated as the data source length minus 1.
-   * @param { number } to - Target position of data. The value range is [0, data source length - 1].<br>If the value is
-   *     less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it is treated
-   *     as the data source length minus 1.
+   * @param { number } from - 数据移动起始位置。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
+   * @param { number } to - 数据移动目标位置。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -761,15 +740,11 @@ declare interface DataChangeListener {
   onDataMove(from: number, to: number): void;
 
   /**
-   * Invoked when data is deleted from the position indicated by the specified index. LazyForEach will update the
-   * displayed content accordingly.
+   * 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
    *
-   * > This API is deprecated since API version 8. You are advised to use
-   * > [onDataDelete]{@link DataChangeListener.onDataDelete} instead.
+   * > **说明：**
    *
-   * @param { number } index - Index of the position where data is deleted. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   * @param { number } index - 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -779,17 +754,13 @@ declare interface DataChangeListener {
   onDataDeleted(index: number): void;
 
   /**
-   * Invoked when data is deleted from the position indicated by the specified index. LazyForEach will update the
-   * displayed content accordingly.
+   * 通知组件删除index位置的数据并刷新LazyForEach的展示内容。删除数据完成后调用。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > Before **onDataDelete** is called, ensure that the corresponding data in **dataSource** has been deleted.
-   * > Otherwise, undefined behavior will occur during page rendering.
+   * > 需要保证dataSource中的对应数据已经在调用onDataDelete前删除，否则页面渲染将出现未定义的行为。
    *
-   * @param { number } index - Index of the position where data is deleted. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   * @param { number } index - 数据删除位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -799,14 +770,11 @@ declare interface DataChangeListener {
   onDataDelete(index: number): void;
 
   /**
-   * Invoked when data in the position indicated by the specified index is changed.
+   * 通知组件index的位置有数据变化。改变数据完成后调用。
    *
-   * > This API is deprecated since API version 8. You are advised to use
-   * > [onDataChange]{@link DataChangeListener.onDataChange} instead.
+   * > **说明：**
    *
-   * @param { number } index - Listener for data changes. The value range is [0, data source length - 1].<br>If the
-   *     value is less than 0, it is treated as **0**. If the value is greater than the data source length minus 1, it
-   *     is treated as the data source length minus 1.
+   * @param { number } index - 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @since 7 dynamiconly
@@ -816,11 +784,9 @@ declare interface DataChangeListener {
   onDataChanged(index: number): void;
 
   /**
-   * Invoked when data in the position indicated by the specified index is changed.
+   * 通知组件index的位置有数据有变化。改变数据完成后调用。
    *
-   * @param { number } index - Index of the position where data is changed. The value range is
-   *     [0, data source length - 1].<br>If the value is less than 0, it is treated as **0**. If the value is greater
-   *     than the data source length minus 1, it is treated as the data source length minus 1.
+   * @param { number } index - 数据变化位置的索引值。取值范围是[0, 数据源长度-1]。<br/>小于0时取值为0，大于数据源长度-1时取值为数据源长度-1。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -830,18 +796,15 @@ declare interface DataChangeListener {
   onDataChange(index: number): void;
 
   /**
-   * Invoked when data is processed in batches to notify the component of refreshing.
+   * 进行批量的数据处理后，调用onDatasetChange接口通知组件按照dataOperations刷新组件。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API cannot be used together with other data operation APIs of **DataChangeListener**. For example, in the
-   * > same **LazyForEach**, if you have called **onDataAdd**, do not call **onDatasetChange**; if you have called
-   * > **onDatasetChange**, do not call **onDataAdd** or other data operation APIs. Different **LazyForEach** instances
-   * > on the page do not affect each other. When data is processed in batches within the same **onDatasetChange**
-   * > callback, if multiple **DataOperation** instances target the same index, only the first **DataOperation** will
-   * > take effect.
+   * > onDatasetChange接口不能与其他DataChangeListener的更新接口混用。例如，在同一个LazyForEach中，调用过onDataAdd接口后，不能再调用onDatasetChange接口；反之，调用过
+   * > onDatasetChange接口后，也不能调用onDataAdd等其他更新接口。页面中不同LazyForEach之间互不影响。在同一个onDatasetChange批量处理数据时，如果多个DataOperation操作同一个
+   * > index，只有第一个DataOperation生效。
    *
-   * @param { DataOperation[] } dataOperations - Array of data operations performed.
+   * @param { DataOperation[] } dataOperations - 一次处理数据的操作。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -852,8 +815,8 @@ declare interface DataChangeListener {
 }
 
 /**
- * Data source of **LazyForEach**.
- *
+* LazyForEach的数据源。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -863,9 +826,9 @@ declare interface DataChangeListener {
 declare interface IDataSource {
 
   /**
-   * Obtains the total number of data items.
+   * 获得数据总数。
    *
-   * @returns { number } Total number of data items, which is subject to the data source.
+   * @returns { number } 获得数据总数，由数据源决定实际大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -875,11 +838,10 @@ declare interface IDataSource {
   totalCount(): number;
 
   /**
-   * Obtains the data item that matches the specified index.
+   * 获取索引值index对应的数据。
    *
-   * @param { number } index - Index of the data record to obtain. The value range is [0, data source length - 1].
-   * @returns { any } Data item that matches the specified index. The actual type is determined by the data source
-   *     implementation.
+   * @param { number } index - 获取数据对应的索引值。取值范围是[0, 数据源长度-1]。
+   * @returns { any } 获取索引值index对应的数据，由数据源决定具体类型。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -889,9 +851,9 @@ declare interface IDataSource {
   getData(index: number): any;
 
   /**
-   * Registers a listener for data changes.
+   * 注册数据改变的监听器。
    *
-   * @param { DataChangeListener } listener - Listener for data changes.
+   * @param { DataChangeListener } listener - 数据变化监听器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -901,9 +863,9 @@ declare interface IDataSource {
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
-   * Unregisters the listener for data changes.
+   * 注销数据改变的监听器。
    *
-   * @param { DataChangeListener } listener - Listener for data changes.
+   * @param { DataChangeListener } listener - 数据变化监听器。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -914,8 +876,8 @@ declare interface IDataSource {
 }
 
 /**
- * The [drag-and-drop sorting]{@link common} attribute is supported.
- *
+* 支持[拖拽排序]{@link common}属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -926,16 +888,13 @@ declare interface IDataSource {
 declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
 
 /**
- * > **NOTE**
- *
- * For details about the development, see
- * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
- *
- * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
- * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
- * memory usage. For best practices, see
- * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
- *
+* > **说明：**
+*
+* 开发者指南见：[LazyForEach开发者指南](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)。
+*
+* 在大量子组件的场景下，LazyForEach与缓存列表项、动态预加载、组件复用等方法配合使用，可以进一步提升滑动帧率并降低应用内存占用。最佳实践请参考
+* [优化长列表加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list)。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -946,30 +905,21 @@ declare class LazyForEachAttribute extends DynamicNode<LazyForEachAttribute> {}
 interface LazyForEachInterface {
 
   /**
-   * **LazyForEach** iterates over provided data sources and creates corresponding components during each iteration.
-   * When **LazyForEach** is used in a scrolling container, the framework creates components as required within the
-   * visible area of the scrolling container. When a component is out of the visible area, the framework destroys and
-   * reclaims the component to reduce memory usage.
+   * LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程中创建相应的组件。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会进行组件销毁回收以降低内存占
+   * 用。
    *
-   * @param { IDataSource } dataSource - **LazyForEach** data source. You need to implement related APIs.
-   * @param { function } itemGenerator - Child component generation function, which generates a child component for each
-   *     data item in the array.<br>**NOTE**<br>- (Optional) **item**: data item.<br>(Optional) **index**: index of the
-   *     data item.<br>- The function body of **itemGenerator** must be included in braces {...}.<br>- **itemGenerator**
-   *     can and must generate only one child component for each iteration.<br>- The **if** statement is allowed in
-   *     **itemGenerator**, but you must ensure that each branch of the **if** statement creates a child component of
-   *     the same type.
-   * @param { function } keyGenerator - ID generation function, which generates a unique and fixed ID for each data item
-   *     in the data source. Components are updated only when their generated key changes. The **keyGenerator**
-   *     parameter is optional, but you are advised to provide it so that the development framework can better identify
-   *     array changes and update components correctly.<br>The default value is an empty callback.<br>**NOTE**<br>- (
-   *     Optional) **item**: data item.<br>(Optional) **index**: index of the data item.<br>- When **keyGenerator** is
-   *     omitted, the default function **(item: Object, index: number) => { return viewId + '-' + index.toString(); }**
-   *     is used, where key generation is affected by the index value only (**viewId** is compiler-generated and
-   *     consistent within the same **LazyForEach** component).<br>- To ensure correct and efficient child component
-   *     updates, avoiding rendering anomalies or performance degradation, keys must meet the following requirements:<br
-   *     >1. Uniqueness: Each data item must have a distinct key.<br>2. Consistency: Keys must remain unchanged for
-   *     unmodified data items.
-   * @returns { LazyForEachInterface } [since 7 - 11]
+   * @param { IDataSource } dataSource - LazyForEach数据源，需要开发者实现相关接口。<br>**原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支
+   *     持在原子化服务中使用。
+   * @param { function } itemGenerator - 子组件生成函数，为数组中的每一个数据项创建一个子组件。<br/>**说明：**<br/>- item是当前数据项（可选），index是数据项索引值（可选）。<
+   *     br/>- itemGenerator的函数体必须使用大括号{...}。<br />- itemGenerator每次迭代只能并且必须生成一个子组件。<br />- itemGenerator中可以使用if语句，但是必须保
+   *     证if语句每个分支都会创建一个相同类型的子组件。<br>**原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
+   * @param { function } keyGenerator - 键值生成函数，用于给数据源中的每一个数据项生成唯一且固定的键值。修改数据源中的一个数据项若不影响其生成的键值，则对应组件不会被更新，否则此处组件就会被重建更新。
+   *     `keyGenerator`参数是可选的，但是，为了使开发框架能够更好地识别数组更改并正确更新组件，建议提供。<br/>默认值为空回调函数。<br/>**说明：**<br/>- item是当前数据项（可选），index是数
+   *     据项索引值（可选）。<br/>- `keyGenerator`缺省时，使用默认的键值生成函数，即
+   *     `(item: Object, index: number) => { return viewId + '-' + index.toString(); }`，生成键值仅受索引值index影响（viewId在编译器转换过程中
+   *     生成，同一个LazyForEach组件内的viewId一致）。<br/>- 为保证`LazyForEach`正确、高效地更新子组件，避免渲染结果异常、渲染效率降低等问题，键值应满足以下条件。<br/>1. 键值具有唯一性，
+   *     每个数据项对应的键值互不相同。<br/>2. 键值具有一致性，数据项不变时对应的键值也不变。<br>**原子化服务API（仅ArkTS-Dyn）：** 从API version 11开始，该接口支持在原子化服务中使用。
+   * @returns { LazyForEachInterface }    * @returns { LazyForEachAttribute }
    * @returns { LazyForEachAttribute } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -984,14 +934,15 @@ interface LazyForEachInterface {
   ): LazyForEachAttribute;
 
   /**
-   * Enter the value to obtain the LazyForEach.
+   * LazyForEach从提供的数据源中按需迭代数据，并在每次迭代过程中创建相应的组件。当在滚动容器中使用了LazyForEach，框架会根据滚动容器可视区域按需创建组件，当组件滑出可视区域外时，框架会进行组件销毁回收以降低内存占
+   * 用。
    *
    * @param { IDataSource } dataSource
    * @param { function } itemGenerator
    * @param { function } [keyGenerator]
    * @param { LazyForEachOptions } [options]
    * @returns { LazyForEachAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -1006,16 +957,13 @@ interface LazyForEachInterface {
 }
 
 /**
- * > **NOTE**
- *
- * For details about the development, see
- * [LazyForEach: Lazy Data Loading](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md).
- *
- * In scenarios involving a large number of child components, LazyForEach, when combined with techniques such as cached
- * list items, dynamic preloading, and component reuse, can significantly improve scrolling frame rates while reducing
- * memory usage. For best practices, see
- * [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
- *
+* > **说明：**
+*
+* 开发者指南见：[LazyForEach开发者指南](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)。
+*
+* 在大量子组件的场景下，LazyForEach与缓存列表项、动态预加载、组件复用等方法配合使用，可以进一步提升滑动帧率并降低应用内存占用。最佳实践请参考
+* [优化长列表加载慢丢帧问题](https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-best-practices-long-list)。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]

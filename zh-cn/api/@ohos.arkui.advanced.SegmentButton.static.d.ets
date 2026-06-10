@@ -53,8 +53,8 @@ import {
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Defines text only item of SegmentButton.
- *
+* Defines text only item of SegmentButton.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -96,8 +96,8 @@ interface SegmentButtonTextItem {
 }
 
 /**
- * Defines icon only item of SegmentButton.
- *
+* Defines icon only item of SegmentButton.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -171,8 +171,8 @@ interface SegmentButtonIconItem {
 }
 
 /**
- * Defines icon and text item of SegmentButton.
- *
+* Defines icon and text item of SegmentButton.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -256,8 +256,8 @@ interface SegmentButtonIconTextItem {
 }
 
 /**
- * Defines the DimensionNoPercentage type.
- *
+* Defines the DimensionNoPercentage type.
+*
  * @unionmember { PX }
  * @unionmember { VP }
  * @unionmember { FP }
@@ -271,8 +271,8 @@ interface SegmentButtonIconTextItem {
 declare type DimensionNoPercentage = PX | VP | FP | LPX | Resource;
 
 /**
- * Defines the BorderRadiusMode type.
- *
+* Defines the BorderRadiusMode type.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -302,8 +302,8 @@ declare enum BorderRadiusMode {
 }
 
 /**
- * Defines SegmentButton common options.
- *
+* Defines SegmentButton common options.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -510,8 +510,9 @@ interface CommonSegmentButtonOptions {
   itemBorderRadius?: LengthMetrics;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 设置组件的系统材质，不同的材质有不同的效果，会影响背景颜色，边框，阴影和组件的其它视觉属性
+   *
+   * 设备行为差异：根据计算能力的不同，相同材质在不同设备上的效果可能不同。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
@@ -524,7 +525,7 @@ interface CommonSegmentButtonOptions {
 }
 
 /**
- * Defines the ItemRestriction type.
+ * 定义 ItemRestiction 类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -534,8 +535,8 @@ interface CommonSegmentButtonOptions {
 declare type ItemRestriction<T> = Array<T>;
 
 /**
- * Defines the SegmentButtonItemTuple type.
- *
+* 定义SegmentButtonItemTuple类型。
+*
  * @unionmember { ItemRestriction<SegmentButtonTextItem> }
  * @unionmember { ItemRestriction<SegmentButtonIconItem> }
  * @unionmember { ItemRestriction<SegmentButtonIconTextItem> }
@@ -550,8 +551,8 @@ declare type SegmentButtonItemTuple =
   ItemRestriction<SegmentButtonIconTextItem>;
 
 /**
- * Defines SegmentButton tab options.
- *
+* Defines SegmentButton tab options.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -571,8 +572,8 @@ interface TabSegmentButtonConstructionOptions extends CommonSegmentButtonOptions
 }
 
 /**
- * Defines SegmentButton capsule options.
- *
+* Defines SegmentButton capsule options.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -603,8 +604,8 @@ interface CapsuleSegmentButtonConstructionOptions extends CommonSegmentButtonOpt
 }
 
 /**
- * Defines the type of SegmentButton options of tab type.
- *
+* Defines the type of SegmentButton options of tab type.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -624,8 +625,8 @@ interface TabSegmentButtonOptions extends TabSegmentButtonConstructionOptions {
 }
 
 /**
- * Defines the type of SegmentButton options of capsule type.
- *
+* Defines the type of SegmentButton options of capsule type.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -645,8 +646,8 @@ interface CapsuleSegmentButtonOptions extends CapsuleSegmentButtonConstructionOp
 }
 
 /**
- * Construct parameter types for SegmentButtonItemOptions.
- *
+* Construct parameter types for SegmentButtonItemOptions.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -827,8 +828,8 @@ declare class SegmentButtonItemOptions {
 }
 
 /**
- * The class for SegmentButton item options array.
- *
+* The class for SegmentButton item options array.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -849,11 +850,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   constructor(elements: SegmentButtonItemTuple);
 
   /**
-   * Appends new elements to the end of SegmentButtonItemOptionsArray.
+   * 添加新元素到数组的末尾。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - 待添加的新元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -862,13 +862,11 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   push(item: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
 
   /**
-   * Appends new elements to the end of SegmentButtonItemOptionsArray.
+   * 添加新元素到数组的末尾。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - 待添加到数组中的元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - 待添加到数组中的元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -880,15 +878,12 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   ): int;
 
   /**
-   * Appends new elements to the end of SegmentButtonItemOptionsArray.
+   * 添加元素到数组的末尾。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - 待添加到数组中的元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - 待添加到数组中的元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - 待添加到数组中的元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -923,11 +918,10 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   shift(): SegmentButtonItemOptions | undefined;
 
   /**
-   * Appends new elements to the start of SegmentButtonItemOptionsArray.
+   * 添加新元素到数组的起始位置。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item - 待添加到数组中的元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -936,13 +930,11 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   unshift(item: SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem): int;
 
   /**
-   * Appends new elements to the start of SegmentButtonItemOptionsArray.
+   * 添加新元素到数组的起始位置。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - 待添加到数组中的元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - 待添加到数组中的元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -955,15 +947,12 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   ): int;
 
   /**
-   * Appends new elements to the start of SegmentButtonItemOptionsArray.
+   * 添加新元素到数组的起始位置。
    *
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - New element to add to
-   *     SegmentButtonItemOptionsArray.
-   * @returns { int } Returns the new length of SegmentButtonItemOptionsArray.
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item1 - 待添加到数组中的新元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item2 - 待添加到数组中的新元素。
+   * @param { SegmentButtonTextItem | SegmentButtonIconItem | SegmentButtonIconTextItem } item3 - 待添加到数组中的新元素。
+   * @returns { int } 返回更新后的数组长度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -976,8 +965,7 @@ declare class SegmentButtonItemOptionsArray extends Array<SegmentButtonItemOptio
   ): int;
 
   /**
-   * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new
-   * elements in place.
+   * Changes the elements of SegmentButtonItemOptionsArray by removing or replacing existing elements and/or adding new elements in place.
    *
    * @param { int } start - The zero-based location in the array from which to start removing elements.
    *     <br>The value should be an integer.
@@ -1187,8 +1175,9 @@ declare class SegmentButtonOptions {
   backgroundBlurStyle: BlurStyle;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 设置组件的系统材质，不同的材质有不同的效果，会影响背景颜色，边框，阴影和组件的其它视觉属性
+   *
+   * 设备行为差异：根据计算能力的不同，相同材质在不同设备上的效果可能不同。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
@@ -1279,8 +1268,8 @@ declare class SegmentButtonOptions {
 }
 
 /**
- * Declare Component SegmentButton
- *
+* Declare Component SegmentButton
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1333,7 +1322,7 @@ declare struct SegmentButton {
   onItemClicked?: Callback<int>;
 
   /**
-   * The method to build component.
+   * 组件创建方法。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1343,7 +1332,7 @@ declare struct SegmentButton {
   build(): void;
 
   /**
-   * Enable animation when selectedIndexes change.
+   * 当selectedIndexes 绑定的状态变量发生改变时，是否使能动画？默认值：false。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1373,3 +1362,4 @@ export {
   SegmentButtonItemOptions,
   BorderRadiusMode
 }
+

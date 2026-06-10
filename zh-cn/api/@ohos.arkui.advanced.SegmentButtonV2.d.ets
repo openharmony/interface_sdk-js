@@ -27,15 +27,14 @@ import { SizeT } from '@ohos.arkui.node';
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Defines segmented button item options.
- *
- * > **Description**
- * >
- * > 1. If both **symbol** and **icon** are configured, **symbol** takes precedence.
- * >
- * > 2. If both **symbol** and **symbolModifier** are configured with HM Symbol resources, the resources specified by
- * > **symbolModifier** take precedence.
- *
+* 配置分段按钮选项参数。
+*
+* > **说明**
+* >
+* > 1. 当配置`symbol`和`icon`时，`symbol`的显示优先级更高。
+* >
+* > 2. 当`symbol`和`symbolModifier`同时设置HM Symbol资源时，`symbolModifier`设置的资源具有更高的显示优先级。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -46,11 +45,11 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 export interface SegmentButtonV2ItemOptions {
 
   /**
-   * Text of the segmented button item.
+   * 分段按钮选项文本。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -61,11 +60,11 @@ export interface SegmentButtonV2ItemOptions {
   text?: ResourceStr;
 
   /**
-   * Image icon of the segmented button item.
+   * 分段按钮选项图片类型图标。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -76,11 +75,11 @@ export interface SegmentButtonV2ItemOptions {
   icon?: ResourceStr;
 
   /**
-   * HM Symbol icon of the segmented button item.
+   * 分段按钮选项的HM Symbol类型图标。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,15 +90,15 @@ export interface SegmentButtonV2ItemOptions {
   symbol?: Resource;
 
   /**
-   * Whether the segmented button item is enabled.
+   * 分段按钮选项是否可用。
    *
-   * Default value: **true**
+   * 默认值：true
    *
-   * **true**: enabled. **false**: disabled.
+   * true：可用；false：不可用。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,11 +109,11 @@ export interface SegmentButtonV2ItemOptions {
   enabled?: boolean;
 
   /**
-   * Text modifier for the segmented button item.
+   * 分段按钮选项文本属性样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,11 +124,11 @@ export interface SegmentButtonV2ItemOptions {
   textModifier?: TextModifier;
 
   /**
-   * Image icon modifier for the segmented button item.
+   * 分段按钮选项图片类型图标属性的样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -140,11 +139,11 @@ export interface SegmentButtonV2ItemOptions {
   iconModifier?: ImageModifier;
 
   /**
-   * HM Symbol icon modifier for the segmented button item.
+   * 分段按钮选项HM Symbol类型图标属性样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -155,13 +154,13 @@ export interface SegmentButtonV2ItemOptions {
   symbolModifier?: SymbolGlyphModifier;
 
   /**
-   * [Accessibility text]{@link CommonMethod#accessibilityText(value: string)} of the segmented button item.
+   * 分段按钮选项的无障碍文本[accessibilityText]{@link CommonMethod#accessibilityText(value: string)}。
    *
-   * Default value: **""**
+   * 默认值：""
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -172,14 +171,13 @@ export interface SegmentButtonV2ItemOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * [Accessibility description]{@link CommonMethod#accessibilityDescription(value: string)} of the segmented button
-   * item.
+   * 分段按钮选项的无障碍说明[accessibilityDescription]{@link CommonMethod#accessibilityDescription(value: string)}。
    *
-   * Default value: **""**
+   * 默认值：""
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,13 +188,13 @@ export interface SegmentButtonV2ItemOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * [Accessibility level]{@link CommonMethod#accessibilityLevel} of the segmented button item.
+   * 分段按钮选项的无障碍重要性[accessibilityLevel]{@link CommonMethod#accessibilityLevel}。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -208,9 +206,9 @@ export interface SegmentButtonV2ItemOptions {
 }
 
 /**
- * Defines a callback invoked when the selected segmented button item changes.
- *
- * @param { number } selectedIndex - Index of the selected segmented button item.
+* 单选分段按钮选中项变更时调用的回调函数类型。
+*
+ * @param { number } selectedIndex - 分段按钮选项下标。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -221,9 +219,9 @@ export interface SegmentButtonV2ItemOptions {
 export type OnSelectedIndexChange = (selectedIndex: number) => void;
 
 /**
- * Defines a callback invoked when the selected segmented button items change.
- *
- * @param { number[] } selectedIndexes - Indexes of selected segmented button items.
+* 多选分段按钮选中项变更时调用的回调函数类型。
+*
+ * @param { number[] } selectedIndexes - 分段按钮选项下标集合。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -234,8 +232,7 @@ export type OnSelectedIndexChange = (selectedIndex: number) => void;
 export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 
 /**
- * Defines segmented button item.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -247,11 +244,11 @@ export type OnSelectedIndexesChange = (selectedIndexes: number[]) => void;
 export declare class SegmentButtonV2Item {
 
   /**
-   * Text of the segmented button item.
+   * 分段按钮选项文本。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -263,11 +260,11 @@ export declare class SegmentButtonV2Item {
   text?: ResourceStr;
 
   /**
-   * Image icon of the segmented button item.
+   * 分段按钮选项图片类型图标。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,11 +276,11 @@ export declare class SegmentButtonV2Item {
   icon?: ResourceStr;
 
   /**
-   * HM Symbol icon of the segmented button item.
+   * 分段按钮选项的HM Symbol类型图标。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -295,15 +292,15 @@ export declare class SegmentButtonV2Item {
   symbol?: Resource;
 
   /**
-   * Whether the segmented button item is enabled.
+   * 分段按钮选项是否可用。
    *
-   * Default value: **true**
+   * 默认值：true
    *
-   * **true**: enabled. **false**: disabled.
+   * true：可用；false：不可用。
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -315,11 +312,11 @@ export declare class SegmentButtonV2Item {
   enabled: boolean;
 
   /**
-   * Text modifier for the segmented button item.
+   * 分段按钮选项文本属性样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -331,11 +328,11 @@ export declare class SegmentButtonV2Item {
   textModifier?: TextModifier;
 
   /**
-   * Image icon modifier for the segmented button item.
+   * 分段按钮选项图片类型图标属性的样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -347,11 +344,11 @@ export declare class SegmentButtonV2Item {
   iconModifier?: ImageModifier;
 
   /**
-   * HM Symbol icon modifier for the segmented button item.
+   * 分段按钮选项HM Symbol类型图标属性样式修改器。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -363,13 +360,13 @@ export declare class SegmentButtonV2Item {
   symbolModifier?: SymbolGlyphModifier;
 
   /**
-   * [Accessibility text]{@link CommonMethod#accessibilityText(value: string)} of the segmented button item.
+   * 分段按钮选项的无障碍文本[accessibilityText]{@link CommonMethod#accessibilityText(value: string)}。
    *
-   * Default value: **""**
+   * 默认值：""
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,14 +378,13 @@ export declare class SegmentButtonV2Item {
   accessibilityText?: ResourceStr;
 
   /**
-   * [Accessibility description]{@link CommonMethod#accessibilityDescription(value: string)} of the segmented button
-   * item.
+   * 分段按钮选项的无障碍说明[accessibilityDescription]{@link CommonMethod#accessibilityDescription(value: string)}。
    *
-   * Default value: **""**
+   * 默认值：""
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -400,13 +396,13 @@ export declare class SegmentButtonV2Item {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * [Accessibility level]{@link CommonMethod#accessibilityLevel} of the segmented button item.
+   * 分段按钮选项的无障碍重要性[accessibilityLevel]{@link CommonMethod#accessibilityLevel}。
    *
-   * Default value: **"auto"**
+   * 默认值："auto"
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * Decorator type: @Trace
+   * 装饰器类型：@Trace
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -418,9 +414,9 @@ export declare class SegmentButtonV2Item {
   accessibilityLevel?: string;
 
   /**
-   * Constructs a **SegmentButtonV2ItemOptions** instance.
+   * 构造函数。
    *
-   * @param { SegmentButtonV2ItemOptions } options - Options of the item of the **SegmentButtonV2** component.
+   * @param { SegmentButtonV2ItemOptions } options - 分段按钮选项配置参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -430,7 +426,7 @@ export declare class SegmentButtonV2Item {
   constructor(options: SegmentButtonV2ItemOptions);
 
   /**
-   * Checks whether the segmented button item contains both text and icon configurations.
+   * 检查分段按钮选项是否已配置文本和图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -442,10 +438,10 @@ export declare class SegmentButtonV2Item {
 }
 
 /**
- * Represents items of the **SegmentButtonV2** component.
- *
- * This parameter is inherited from Array\<[SegmentButtonV2Item]{@link SegmentButtonV2Items}>.
- *
+* 分段按钮选项集合。
+*
+* 继承自 Array\<[SegmentButtonV2Item]{@link SegmentButtonV2Items}>
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -457,9 +453,9 @@ export declare class SegmentButtonV2Item {
 export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 
   /**
-   * Constructs a **SegmentButtonV2ItemOptions** instance.
+   * 构造函数。
    *
-   * @param { SegmentButtonV2ItemOptions[] } items - Options of the item of the **SegmentButtonV2** component.
+   * @param { SegmentButtonV2ItemOptions[] } items - 分段按钮选项配置参数集合。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -469,7 +465,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
   constructor(items: SegmentButtonV2ItemOptions[]);
 
   /**
-   * Checks whether the component supports mixed icon and text items.
+   * 是否支持图文混合选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -481,8 +477,7 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 }
 
 /**
- * Defines segmented button with tab style.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -494,11 +489,11 @@ export declare class SegmentButtonV2Items extends Array<SegmentButtonV2Item> {
 export declare struct TabSegmentButtonV2 {
 
   /**
-   * Items of the segmented button.
+   * 配置分段按钮的选项集合信息。
    *
-   * If the value is **undefined**, the option information is not displayed.
+   * 值为undefined时，不显示选项信息。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,12 +506,11 @@ export declare struct TabSegmentButtonV2 {
   readonly items: SegmentButtonV2Items;
 
   /**
-   * Index of the selected segmented button item. The index is zero-based and increments by 1.
+   * 配置分段按钮被选中的选项下标，第一项的编号为0，之后顺序增加。
    *
-   * If the value is undefined, no item is selected. If the value is a non-positive value, the default value **0** is
-   * used.
+   * 值为undefined时，不选中任何选项，其他非正数值，默认选项下标为0。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -529,7 +523,7 @@ export declare struct TabSegmentButtonV2 {
   readonly selectedIndex: number;
 
   /**
-   * Callback invoked when the selected item changes.
+   * 配置分段按钮选中项变更时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -541,7 +535,7 @@ export declare struct TabSegmentButtonV2 {
   $selectedIndex?: OnSelectedIndexChange;
 
   /**
-   * Callback invoked when a segmented button item is clicked.
+   * 配置分段按钮选项被单击时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -553,18 +547,17 @@ export declare struct TabSegmentButtonV2 {
   onItemClicked?: Callback<number>;
 
   /**
-   * Minimum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最小字体缩放倍数。
    *
-   * Value range: [0, 1]
+   * 取值范围：[0, 1]
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 0 时，按值为 0 处理，设置的值大于 1，按值为 1 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -576,18 +569,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemMinFontScale?: number | Resource;
 
   /**
-   * Maximum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最大放大倍数。
    *
-   * Value range: [1, 2]
+   * 取值范围：[1, 2]
    *
-   * Default value: **1**
+   * 默认值：1
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 1 时，按值为 1 处理，设置的值大于 2，按值为 2 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -599,17 +591,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemMaxFontScale?: number | Resource;
 
   /**
-   * Space between segmented button items.
+   * 配置分段按钮选项之间的间隔。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **LengthMetrics.vp(0)**
+   * 默认值：`LengthMetrics.vp(0)`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -621,19 +613,19 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSpace?: LengthMetrics;
 
   /**
-   * Font size of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -645,19 +637,19 @@ export declare struct TabSegmentButtonV2 {
   readonly itemFontSize?: LengthMetrics;
 
   /**
-   * Font size of the selected segmented button item.
+   * 配置分段按钮选中项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemSelectedFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -669,17 +661,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedFontSize?: LengthMetrics;
 
   /**
-   * Font color of the selected segmented button item.
+   * 配置分段按钮选中项的字体颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**.
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemSelectedFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -691,17 +683,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemFontColor?: ColorMetrics;
 
   /**
-   * Font color of the selected segmented button item.
+   * 配置分段按钮选中项的字体颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**.
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemSelectedFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -713,17 +705,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedFontColor?: ColorMetrics;
 
   /**
-   * Font weight of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -735,17 +727,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemFontWeight?: FontWeight;
 
   /**
-   * Font weight of the selected segmented button item.
+   * 配置分段按钮选中项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemSelectedFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -757,15 +749,15 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedFontWeight?: FontWeight;
 
   /**
-   * Border radius of segmented button items.
+   * 配置分段按钮选项的圆角大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+   * 默认值：`$r('sys.float.segment_button_v2_selected_corner_radius')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -777,13 +769,13 @@ export declare struct TabSegmentButtonV2 {
   readonly itemBorderRadius?: LengthMetrics;
 
   /**
-   * Background color of the selected segmented button item.
+   * 配置分段按钮选中的选项背景颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_tab_selected_item_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -795,19 +787,19 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedBackgroundColor?: ColorMetrics;
 
   /**
-   * Image-type icon size of segmented button items.
+   * 配置分段按钮选项中Image类型的图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+   * 默认值：`{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+   * items设置iconModifier的width、height属性值时，itemIconSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -819,17 +811,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemIconSize?: SizeT<LengthMetrics>;
 
   /**
-   * Icon color of unselected segmented button items.
+   * 配置分段按钮非选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -841,17 +833,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemIconFillColor?: ColorMetrics;
 
   /**
-   * Icon color of the selected segmented button item.
+   * 配置分段按钮选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemSelectedIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -863,19 +855,19 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedIconFillColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon size of segmented button items.
+   * 配置分段按钮选项中HM Symbol类型图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **20fp**
+   * 默认值：`20fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+   * items设置symbolModifier的fontSize属性值时，itemSymbolFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -887,17 +879,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSymbolFontSize?: LengthMetrics;
 
   /**
-   * HM Symbol icon color of unselected segmented button items.
+   * 配置分段按钮非选中选项HM Symbol类型图标的颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -909,17 +901,17 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSymbolFontColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon color of the selected segmented button item.
+   * 配置分段按钮选中选项的HM Symbol类型图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSelectedSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -931,18 +923,18 @@ export declare struct TabSegmentButtonV2 {
   readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
   /**
-   * Minimum height of the segmented button item.
+   * 配置分段按钮选项最小高度。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value:
+   * 默认值：
    *
-   * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
-   * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+   * 只有纯文本或者纯图标选项时：`$r('sys.float.segment_button_v2_singleline_selected_height')`；有图文混合的选项时：
+   * `$r('sys.float.segment_button_v2_doubleline_selected_height')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -954,16 +946,14 @@ export declare struct TabSegmentButtonV2 {
   readonly itemMinHeight?: LengthMetrics;
 
   /**
-   * Padding of the segmented button item.
+   * 配置分段按钮选项内边距。
    *
-   * Default value:
-   * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
-   * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
-   * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+   * 默认值：
+   * `{ top: LengthMetrics.resource($r('sys.float.padding_level2')), bottom: LengthMetrics.resource($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')), end: LengthMetrics.resource($r('sys.float.padding_level4')) }`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -975,13 +965,13 @@ export declare struct TabSegmentButtonV2 {
   readonly itemPadding?: LocalizedPadding;
 
   /**
-   * Shadow of the segmented button item.
+   * 配置分段按钮选项阴影。
    *
-   * Default value: **ShadowStyle.OUTER_DEFAULT_XS**
+   * 默认值：ShadowStyle.OUTER_DEFAULT_XS
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -993,13 +983,13 @@ export declare struct TabSegmentButtonV2 {
   readonly itemShadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Background color of the segmented button.
+   * 配置分段按钮背板颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_tab_button_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_tab_button_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1011,11 +1001,11 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonBackgroundColor?: ColorMetrics;
 
   /**
-   * Background blur style of the segmented button.
+   * 配置分段按钮背板模糊材质。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1027,11 +1017,11 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonBackgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options of the segmented button.
+   * 配置分段按钮背板模糊材质配置参数。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1043,11 +1033,11 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background blur effect options of the segmented button.
+   * 配置分段按钮背板模糊配置参数。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1059,15 +1049,15 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonBackgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Background border radius of the segmented button.
+   * 配置分段按钮背板的圆角大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_background_corner_radius')**
+   * 默认值：`$r('sys.float.segment_button_v2_background_corner_radius')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1079,17 +1069,16 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonBorderRadius?: LengthMetrics;
 
   /**
-   * Minimum height of the segmented button.
+   * 配置分段按钮最小高度。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_singleline_background_height')** for text-only buttons and icon-
-   * only buttons, and **$r('sys.float.segment_button_v2_doubleline_background_height')** for buttons with both an
-   * icon and text.
+   * 默认值：只有纯文本或者纯图标选项时：`$r('sys.float.segment_button_v2_singleline_background_height')`；有图文混合的选项时：
+   * `$r('sys.float.segment_button_v2_doubleline_background_height')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1101,15 +1090,15 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonMinHeight?: LengthMetrics;
 
   /**
-   * Padding of the segmented button.
+   * 配置分段按钮内边距。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.padding_level1')**
+   * 默认值：`$r('sys.float.padding_level1')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1121,13 +1110,13 @@ export declare struct TabSegmentButtonV2 {
   readonly buttonPadding?: LengthMetrics;
 
   /**
-   * Language direction of the segmented button.
+   * 配置分段按钮的布局方向。
    *
-   * Default value: **Direction.Auto**
+   * 默认值：Direction.Auto
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1139,8 +1128,11 @@ export declare struct TabSegmentButtonV2 {
   readonly languageDirection?: Direction;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButtonV2的动效发生改变。
+   *
+   * 默认值：无材质效果。
+   *
+   * 该成员只读，不支持更改。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1155,7 +1147,10 @@ export declare struct TabSegmentButtonV2 {
   readonly backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Enable animation when selectedIndexes change.
+   * 设置当通过变量修改selectedIndex值时，是否开启分段按钮的属性动画。
+   * true表示开启分段按钮的属性动画；未配置该属性或值为false时表示不开启分段按钮的属性动画，使用原有动画。
+   * 默认值：false
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1179,8 +1174,7 @@ export declare struct TabSegmentButtonV2 {
 }
 
 /**
- * Defines the segmented button with capsule style.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1192,11 +1186,11 @@ export declare struct TabSegmentButtonV2 {
 export declare struct CapsuleSegmentButtonV2 {
 
   /**
-   * Items of the segmented button.
+   * 配置分段按钮的选项集合信息。
    *
-   * If the value is **undefined**, the option information is not displayed.
+   * 值为undefined时，不显示选项信息。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1209,12 +1203,11 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly items: SegmentButtonV2Items;
 
   /**
-   * Index of the selected segmented button item. The index is zero-based and increments by 1.
+   * 配置分段按钮被选中的选项下标，第一项的编号为0，之后顺序增加。
    *
-   * If the value is undefined, no item is selected. If the value is a non-positive value, the default value **0** is
-   * used.
+   * 值为undefined时，不选中任何选项，其他非正数值，默认选项下标为0。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1227,7 +1220,7 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly selectedIndex: number;
 
   /**
-   * Callback invoked when the selected item changes.
+   * 配置分段按钮选中项变更时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1239,7 +1232,7 @@ export declare struct CapsuleSegmentButtonV2 {
   $selectedIndex?: OnSelectedIndexChange;
 
   /**
-   * Callback invoked when a segmented button item is clicked.
+   * 配置分段按钮选项被单击时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1251,18 +1244,17 @@ export declare struct CapsuleSegmentButtonV2 {
   onItemClicked?: Callback<number>;
 
   /**
-   * Minimum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最小字体缩放倍数。
    *
-   * Value range: [0, 1]
+   * 取值范围：[0, 1]
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 0 时，按值为 0 处理，设置的值大于 1，按值为 1 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1274,18 +1266,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemMinFontScale?: number | Resource;
 
   /**
-   * Maximum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最大放大倍数。
    *
-   * Value range: [1, 2]
+   * 取值范围：[1, 2]
    *
-   * Default value: **1**
+   * 默认值：1
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 1 时，按值为 1 处理，设置的值大于 2，按值为 2 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1297,17 +1288,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemMaxFontScale?: number | Resource;
 
   /**
-   * Space between segmented button items.
+   * 配置分段按钮选项之间的间隔。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **LengthMetrics.vp(0)**
+   * 默认值：`LengthMetrics.vp(0)`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1319,17 +1310,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSpace?: LengthMetrics;
 
   /**
-   * Font color of the selected segmented button item.
+   * 配置分段按钮选中项的字体颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**.
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemSelectedFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1341,17 +1332,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemFontColor?: ColorMetrics;
 
   /**
-   * Font color of the selected segmented button item.
+   * 配置分段按钮选中项的字体颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**.
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemSelectedFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1363,19 +1354,19 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedFontColor?: ColorMetrics;
 
   /**
-   * Font size of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1387,19 +1378,19 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemFontSize?: LengthMetrics;
 
   /**
-   * Font size of the selected segmented button item.
+   * 配置分段按钮选中项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemSelectedFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1411,17 +1402,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedFontSize?: LengthMetrics;
 
   /**
-   * Font weight of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1433,17 +1424,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemFontWeight?: FontWeight;
 
   /**
-   * Font weight of the selected segmented button item.
+   * 配置分段按钮选中项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemSelectedFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1455,15 +1446,15 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedFontWeight?: FontWeight;
 
   /**
-   * Border radius of segmented button items.
+   * 配置分段按钮选项的圆角大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+   * 默认值：`$r('sys.float.segment_button_v2_selected_corner_radius')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1475,13 +1466,13 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemBorderRadius?: LengthMetrics;
 
   /**
-   * Background color of the selected segmented button item.
+   * 配置分段按钮选中的选项背景颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_tab_selected_item_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1493,19 +1484,19 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedBackgroundColor?: ColorMetrics;
 
   /**
-   * Image-type icon size of segmented button items.
+   * 配置分段按钮选项中Image类型的图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+   * 默认值：`{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+   * items设置iconModifier的width、height属性值时，itemIconSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1517,17 +1508,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemIconSize?: SizeT<LengthMetrics>;
 
   /**
-   * Icon color of unselected segmented button items.
+   * 配置分段按钮非选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1539,17 +1530,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemIconFillColor?: ColorMetrics;
 
   /**
-   * Icon color of the selected segmented button item.
+   * 配置分段按钮选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemSelectedIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1561,19 +1552,19 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedIconFillColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon size of segmented button items.
+   * 配置分段按钮选项中HM Symbol类型图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **20fp**
+   * 默认值：`20fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+   * items设置symbolModifier的fontSize属性值时，itemSymbolFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1585,17 +1576,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSymbolFontSize?: LengthMetrics;
 
   /**
-   * HM Symbol icon color of unselected segmented button items.
+   * 配置分段按钮非选中选项HM Symbol类型图标的颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1607,17 +1598,17 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSymbolFontColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon color of the selected segmented button item.
+   * 配置分段按钮选中选项的HM Symbol类型图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSelectedSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1629,18 +1620,18 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
   /**
-   * Minimum height of the segmented button item.
+   * 配置分段按钮选项最小高度。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value:
+   * 默认值：
    *
-   * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
-   * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+   * 只有纯文本或者纯图标选项时：`$r('sys.float.segment_button_v2_singleline_selected_height')`；有图文混合的选项时：
+   * `$r('sys.float.segment_button_v2_doubleline_selected_height')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1652,16 +1643,14 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemMinHeight?: LengthMetrics;
 
   /**
-   * Padding of the segmented button item.
+   * 配置分段按钮选项内边距。
    *
-   * Default value:
-   * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
-   * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
-   * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+   * 默认值：
+   * `{ top: LengthMetrics.resource($r('sys.float.padding_level2')), bottom: LengthMetrics.resource($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')), end: LengthMetrics.resource($r('sys.float.padding_level4')) }`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1673,13 +1662,13 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemPadding?: LocalizedPadding;
 
   /**
-   * Shadow of the segmented button item.
+   * 配置分段按钮选项阴影。
    *
-   * Default value: **ShadowStyle.OUTER_DEFAULT_XS**
+   * 默认值：ShadowStyle.OUTER_DEFAULT_XS
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1691,13 +1680,13 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly itemShadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Background color of the segmented button.
+   * 配置分段按钮背板颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_tab_button_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_tab_button_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1709,11 +1698,11 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonBackgroundColor?: ColorMetrics;
 
   /**
-   * Background blur style of the segmented button.
+   * 配置分段按钮背板模糊材质。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1725,11 +1714,11 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonBackgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options of the segmented button.
+   * 配置分段按钮背板模糊材质配置参数。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1741,11 +1730,11 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background blur effect options of the segmented button.
+   * 配置分段按钮背板模糊配置参数。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1757,15 +1746,15 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonBackgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Background border radius of the segmented button.
+   * 配置分段按钮背板的圆角大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_background_corner_radius')**
+   * 默认值：`$r('sys.float.segment_button_v2_background_corner_radius')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1777,17 +1766,16 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonBorderRadius?: LengthMetrics;
 
   /**
-   * Minimum height of the segmented button.
+   * 配置分段按钮最小高度。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_singleline_background_height')** for text-only buttons and icon-
-   * only buttons, and **$r('sys.float.segment_button_v2_doubleline_background_height')** for buttons with both an
-   * icon and text.
+   * 默认值：只有纯文本或者纯图标选项时：`$r('sys.float.segment_button_v2_singleline_background_height')`；有图文混合的选项时：
+   * `$r('sys.float.segment_button_v2_doubleline_background_height')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1799,15 +1787,15 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonMinHeight?: LengthMetrics;
 
   /**
-   * Padding of the segmented button.
+   * 配置分段按钮内边距。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.padding_level1')**
+   * 默认值：`$r('sys.float.padding_level1')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1819,13 +1807,13 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly buttonPadding?: LengthMetrics;
 
   /**
-   * Language direction of the segmented button.
+   * 配置分段按钮的布局方向。
    *
-   * Default value: **Direction.Auto**
+   * 默认值：Direction.Auto
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1837,8 +1825,11 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly languageDirection?: Direction;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   * 分段按钮组件的背景板的系统材质。不同系统材质包含不同的属性影响效果。传入材质后，SegmentButtonV2的动效发生改变。
+   *
+   * 默认值：无材质效果。
+   *
+   * 该成员只读，不支持更改。
    *
    * @type { ?uiMaterial.Material } material - System-styled material. [since 23 - 24]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1853,7 +1844,10 @@ export declare struct CapsuleSegmentButtonV2 {
   readonly backgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Enable animation when selectedIndexes change.
+   * 设置当通过变量修改selectedIndex值时，是否开启分段按钮的属性动画。
+   * true表示开启分段按钮的属性动画；未配置该属性或值为false时表示不开启分段按钮的属性动画，使用原有动画。
+   * 默认值：false
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1877,8 +1871,7 @@ export declare struct CapsuleSegmentButtonV2 {
 }
 
 /**
- * Defines the segmented button with multi capsule style.
- *
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1890,11 +1883,11 @@ export declare struct CapsuleSegmentButtonV2 {
 export declare struct MultiCapsuleSegmentButtonV2 {
 
   /**
-   * Items of the segmented button.
+   * 配置分段按钮的选项集合信息。
    *
-   * If the value is **undefined**, the option information is not displayed.
+   * 值为undefined时，不显示选项信息。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1907,15 +1900,15 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly items: SegmentButtonV2Items;
 
   /**
-   * Array of indexes of the selected segmented button items. The index is zero-based and increments by 1.
+   * 配置分段按钮被选中的选项下标集合，第一项的编号为0，之后顺序增加。
    *
-   * If the value is **undefined**, no item is selected.
+   * 值为undefined时，不选中任何选项。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Only valid button indexes are supported. An empty array [] indicates no selection.
+   * 仅支持有效的按钮编号（第一个按钮编号为0，之后按顺序累加），如没有选中项可传入空数组`[]`。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1928,7 +1921,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly selectedIndexes: number[];
 
   /**
-   * Callback invoked when the selected item changes.
+   * 配置分段按钮选中项变更时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1940,7 +1933,7 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   $selectedIndexes: OnSelectedIndexesChange;
 
   /**
-   * Callback invoked when a segmented button item is clicked.
+   * 配置分段按钮选项被单击时触发的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1952,18 +1945,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   onItemClicked?: Callback<number>;
 
   /**
-   * Minimum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最小字体缩放倍数。
    *
-   * Value range: [0, 1]
+   * 取值范围：[0, 1]
    *
-   * Default value: **0**
+   * 默认值：0
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 0 is treated as **0**. A value greater than 1 is treated as **1**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 0 时，按值为 0 处理，设置的值大于 1，按值为 1 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1975,18 +1967,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemMinFontScale?: number | Resource;
 
   /**
-   * Maximum font scale factor of the segmented button item text.
+   * 配置分段按钮选项文字大小的最大放大倍数。
    *
-   * Value range: [1, 2]
+   * 取值范围：[1, 2]
    *
-   * Default value: **1**
+   * 默认值：1
    *
-   * **NOTE**
+   * **说明：**
    *
-   * A value less than 1 is treated as **1**. A value greater than 2 is treated as **2**. Abnormal values are
-   * ineffective by default.
+   * 设置的值小于 1 时，按值为 1 处理，设置的值大于 2，按值为 2 处理，异常值默认不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1998,17 +1989,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemMaxFontScale?: number | Resource;
 
   /**
-   * Space between segmented button items.
+   * 配置分段按钮选项之间的间隔。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **LengthMetrics.vp(1)**
+   * 默认值：`LengthMetrics.vp(1)`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2020,17 +2011,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSpace?: LengthMetrics;
 
   /**
-   * Font color of unselected segmented button items.
+   * 配置分段按钮非选中的选项字体颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2042,17 +2033,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemFontColor?: ColorMetrics;
 
   /**
-   * Font color of the selected segmented button item.
+   * 配置分段按钮选中项的字体颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**.
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **textModifier** is set for **items**, **itemSelectedFontColor** has no effect.
+   * items设置textModifier的fontColor属性值时，itemSelectedFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2064,19 +2055,19 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedFontColor?: ColorMetrics;
 
   /**
-   * Font size of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2088,19 +2079,19 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemFontSize?: LengthMetrics;
 
   /**
-   * Font size of the selected segmented button item.
+   * 配置分段按钮选中项的字体大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **14fp**
+   * 默认值：`14fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **textModifier** is set for **items**, **itemSelectedFontSize** has no effect.
+   * items设置textModifier的fontSize属性值时，itemSelectedFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2112,17 +2103,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedFontSize?: LengthMetrics;
 
   /**
-   * Font weight of unselected segmented button items.
+   * 配置分段按钮非选中选项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2134,17 +2125,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemFontWeight?: FontWeight;
 
   /**
-   * Font weight of the selected segmented button item.
+   * 配置分段按钮选中项的字体字重。
    *
-   * Default value: **FontWeight.Medium**
+   * 默认值：FontWeight.Medium
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontWeight** of **textModifier** is set for **items**, **itemSelectedFontWeight** has no effect.
+   * items设置textModifier的fontWeight属性值时，itemSelectedFontWeight不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2156,15 +2147,15 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedFontWeight?: FontWeight;
 
   /**
-   * Border radius of segmented button items.
+   * 配置分段按钮选项的圆角大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **$r('sys.float.segment_button_v2_selected_corner_radius')**.
+   * 默认值：`$r('sys.float.segment_button_v2_selected_corner_radius')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2176,13 +2167,13 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemBorderRadius?: LengthMetrics;
 
   /**
-   * Background color of unselected segmented button items.
+   * 配置分段按钮非选中的选项背板颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_multi_capsule_button_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_multi_capsule_button_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2194,11 +2185,11 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemBackgroundColor?: ColorMetrics;
 
   /**
-   * Background effect of segmented button items.
+   * 配置分段按钮选项的背板效果。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2210,11 +2201,11 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemBackgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Background blur style of segmented button items.
+   * 配置分段按钮选项的模糊材质。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2226,11 +2217,11 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemBackgroundBlurStyle?: BlurStyle;
 
   /**
-   * Background blur style options of segmented button items.
+   * 配置分段按钮选项的模糊材质配置参数。
    *
-   * Default value: **undefined**
+   * 默认值：undefined
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2242,13 +2233,13 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemBackgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Background color of the selected segmented button item.
+   * 配置分段按钮选中的选项背景颜色。
    *
-   * Default value: **$r('sys.color.segment_button_v2_tab_selected_item_background')**
+   * 默认值：`$r('sys.color.segment_button_v2_tab_selected_item_background')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2260,19 +2251,19 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedBackgroundColor?: ColorMetrics;
 
   /**
-   * Image-type icon size of segmented button items.
+   * 配置分段按钮选项中Image类型的图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }**.
+   * 默认值：`{ width: LengthMetrics.vp(24), height: LengthMetrics.vp(24) }`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **width** and **height** of **iconModifier** are set for **items**, **itemIconSize** has no effect.
+   * items设置iconModifier的width、height属性值时，itemIconSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2284,17 +2275,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemIconSize?: SizeT<LengthMetrics>;
 
   /**
-   * Icon color of unselected segmented button items.
+   * 配置分段按钮非选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2306,17 +2297,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemIconFillColor?: ColorMetrics;
 
   /**
-   * Icon color of the selected segmented button item.
+   * 配置分段按钮选中的选项图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fillColor** of **iconModifier** is set for **items**, **itemSelectedIconFillColor** has no effect.
+   * items设置iconModifier的fillColor属性值时，itemSelectedIconFillColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2328,19 +2319,19 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedIconFillColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon size of segmented button items.
+   * 配置分段按钮选项中HM Symbol类型图标大小。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value: **20fp**
+   * 默认值：`20fp`
    *
-   * **NOTE**
+   * **说明：**
    *
-   * Percentage values are not supported. If an invalid value is set, the default value is used.
+   * 不支持设置百分比类型，异常值按默认值处理。
    *
-   * When **fontSize** of **symbolModifier** is set for **items**, **itemSymbolFontSize** has no effect.
+   * items设置symbolModifier的fontSize属性值时，itemSymbolFontSize不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2352,17 +2343,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSymbolFontSize?: LengthMetrics;
 
   /**
-   * HM Symbol icon color of unselected segmented button items.
+   * 配置分段按钮非选中选项HM Symbol类型图标的颜色。
    *
-   * Default value: **$r('sys.color.font_secondary')**
+   * 默认值：`$r('sys.color.font_secondary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2374,17 +2365,17 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSymbolFontColor?: ColorMetrics;
 
   /**
-   * HM Symbol icon color of the selected segmented button item.
+   * 配置分段按钮选中选项的HM Symbol类型图标颜色。
    *
-   * Default value: **$r('sys.color.font_primary')**
+   * 默认值：`$r('sys.color.font_primary')`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * **NOTE**
+   * **说明：**
    *
-   * When **fontColor** of **symbolModifier** is set for **items**, **itemSelectedSymbolFontColor** has no effect.
+   * items设置symbolModifier的fontColor属性值时，itemSelectedSymbolFontColor不生效。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2396,18 +2387,18 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemSelectedSymbolFontColor?: ColorMetrics;
 
   /**
-   * Minimum height of the segmented button item.
+   * 配置分段按钮选项最小高度。
    *
-   * Value range: [0, +∞)
+   * 取值范围：[0, +∞)
    *
-   * Default value:
+   * 默认值：
    *
-   * **$r('sys.float.segment_button_v2_singleline_selected_height')** for text-only buttons and icon-only buttons, and
-   * **$r('sys.float.segment_button_v2_doubleline_selected_height')** for buttons with both an icon and text.
+   * 只有纯文本或者纯图标选项时：`$r('sys.float.segment_button_v2_singleline_selected_height')`；有图文混合的选项时：
+   * `$r('sys.float.segment_button_v2_doubleline_selected_height')`
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2419,16 +2410,14 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemMinHeight?: LengthMetrics;
 
   /**
-   * Padding of the segmented button item.
+   * 配置分段按钮选项内边距。
    *
-   * Default value:
-   * **{top: LengthMetrics.resource ($r('sys.float.padding_level2')), bottom: LengthMetrics.
-   * resource ($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')),
-   * end: LengthMetrics.resource($r('sys.float.padding_level4'))}**
+   * 默认值：
+   * `{ top: LengthMetrics.resource($r('sys.float.padding_level2')), bottom: LengthMetrics.resource($r('sys.float.padding_level2')), start: LengthMetrics.resource($r('sys.float.padding_level4')), end: LengthMetrics.resource($r('sys.float.padding_level4')) }`
    *
-   * If the value is **undefined**, the default value is used.
+   * 值为undefined时，按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2440,13 +2429,13 @@ export declare struct MultiCapsuleSegmentButtonV2 {
   readonly itemPadding?: LocalizedPadding;
 
   /**
-   * Language direction of the segmented button.
+   * 配置分段按钮的布局方向。
    *
-   * Default value: **Direction.Auto**
+   * 默认值：Direction.Auto
    *
-   * If the value is out of the range, the default value is used.
+   * 超出取值范围按默认值处理。
    *
-   * This property is read-only.
+   * 该成员只读，不支持更改。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
