@@ -19,16 +19,14 @@
  */
 
 /**
- * The **font** module provides APIs for registering custom fonts.
- *
- * > **NOTE**
+ * 本模块提供注册自定义字体。
+ * 
+ * > **说明：**
  * >
- * > - The functionality of this module depends on UI context. This means that the APIs of this module cannot be used
- * > where [the UI context is ambiguous](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). For details, see
- * > [UIContext]{@link @ohos.arkui.UIContext}.
+ * > - 本模块功能依赖UI的执行上下文，不可在[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的地方使用，参见
+ * > [UIContext]{@link @ohos.arkui.UIContext}说明。
  * >
- * > - You are advised to use the [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync} API of the
- * > font engine to register custom fonts.
+ * > - 推荐使用字体引擎的[loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}接口注册自定义字体。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 12]
@@ -38,15 +36,14 @@
 declare namespace font {
 
   /**
-   * Information about the custom font to register.
-   *
-   * > **NOTE**
+   * 注册的自定义字体信息。
+   * 
+   * > **说明：**
    * >
-   * > Directly using **font** can lead to the issue of
-   * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the
-   * > [Font]{@link @ohos.arkui.UIContext} object associated with the current UI context by using the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext}.
+   * > 直接使用font可能导致[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题，推荐通过使用
+   * > [UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -56,7 +53,7 @@ declare namespace font {
   interface FontOptions {
 
     /**
-     * Name of the custom font to register.
+     * 设置注册的字体名称。
      *
      * @type { string } [since 9 - 9]
      * @type { string | Resource } [since 10]
@@ -68,13 +65,11 @@ declare namespace font {
     familyName: string | Resource;
 
     /**
-     * Path of the custom font file to register.
-     *
-     * **NOTE**
-     *
-     * If the font file to specify is a resource located within the system sandbox directory, you are advised to use a
-     * string with the **file://** path prefix. Ensure the target file exists in the sandbox path and has read
-     * permissions granted.
+     * 设置注册字体文件的路径。
+     * 
+     * **说明：**
+     * 
+     * 读取系统沙箱路径内的资源时，建议使用file://路径前缀的字符串，需要确保沙箱目录路径下的文件存在并且有可读权限。
      *
      * @type { string } [since 9 - 9]
      * @type { string | Resource } [since 10]
@@ -87,7 +82,7 @@ declare namespace font {
   }
 
   /**
-   * Information about the system font.
+   * 字体的详细信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -98,7 +93,7 @@ declare namespace font {
   interface FontInfo {
 
     /**
-     * File path of the system font.
+     * 系统字体的文件路径。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -109,7 +104,7 @@ declare namespace font {
     path: string;
 
     /**
-     * PostScript name of the system font.
+     * 系统字体的postScript名称。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -120,7 +115,7 @@ declare namespace font {
     postScriptName: string;
 
     /**
-     * Name of the system font.
+     * 系统字体的名称。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -131,7 +126,7 @@ declare namespace font {
     fullName: string;
 
     /**
-     * Family of the system font.
+     * 系统字体的字体家族。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -142,7 +137,7 @@ declare namespace font {
     family: string;
 
     /**
-     * Subfamily of the system font.
+     * 系统字体的子字体家族。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -153,12 +148,11 @@ declare namespace font {
     subfamily: string;
 
     /**
-     * Weight of the system font.
-     *
-     * Value range: [100, 900], with intervals of 100, corresponding to the values in the
-     * [FontWeight]{@link @ohos.graphics.text:text.FontWeight} enum
-     *
-     * Default value: **100**
+     * 系统字体的字重。
+     * 
+     * 取值范围：[100,900]，取值间隔为100，分别对应[FontWeight]{@link @ohos.graphics.text:text.FontWeight}枚举中的值。
+     * 
+     * 默认值：100
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -169,10 +163,9 @@ declare namespace font {
     weight: number;
 
     /**
-     * Width of the system font.
-     *
-     * Value range: [1, 9], with intervals of 1, corresponding to the values in the
-     * [FontWidth]{@link @ohos.graphics.text:text.FontWidth} enum
+     * 系统字体的宽度。
+     * 
+     * 取值范围：[1,9]，取值间隔为1，分别对应[FontWidth]{@link @ohos.graphics.text:text.FontWidth}枚举中的值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -183,11 +176,11 @@ declare namespace font {
     width: number;
 
     /**
-     * Whether the system font is italic.
-     *
-     * Default value: **false**
-     *
-     * **true**: The system font is italic. **false**: The system font is not italic.
+     * 系统字体是否倾斜。
+     * 
+     * 默认值：false
+     * 
+     * 值为true，表示斜体字体，值为false，表示非斜体字体。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -198,11 +191,11 @@ declare namespace font {
     italic: boolean;
 
     /**
-     * Whether the system font is monospaced.
-     *
-     * Default value: **false**
-     *
-     * **true**: The system font is monospaced. **false**: The system font is not monospaced.
+     * 系统字体是否等宽。
+     * 
+     * 默认值：false
+     * 
+     * 值为true，表示等宽字体，值为false，表示非等宽字体。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -213,11 +206,11 @@ declare namespace font {
     monoSpace: boolean;
 
     /**
-     * Whether the system font supports symbols.
-     *
-     * Default value: **false**
-     *
-     * **true**: The system font supports symbols. **false**: The system font does not support symbols.
+     * 系统字体是否支持符号字体。
+     * 
+     * 默认值：false
+     * 
+     * 值为true，表示支持符号字体，值为false，表示不支持符号字体。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -229,7 +222,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -240,7 +233,7 @@ declare namespace font {
   interface UIFontConfig {
 
     /**
-     * Path to the system font file.
+     * 系统字体文件所在的路径。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -251,7 +244,7 @@ declare namespace font {
     fontDir: Array<string>;
 
     /**
-     * List of supported generic font families.
+     * 系统所支持的通用字体集列表。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -262,7 +255,7 @@ declare namespace font {
     generic: Array<UIFontGenericInfo>;
 
     /**
-     * List of fallback generic font families.
+     * 备用字体集。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -274,7 +267,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -285,7 +278,7 @@ declare namespace font {
   interface UIFontGenericInfo {
 
     /**
-     * Font family name, which is the value of **family** specified in the font file.
+     * 字体集名，字体文件中指定的"family"值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -296,7 +289,7 @@ declare namespace font {
     family: string;
 
     /**
-     * Font alias configuration information.
+     * 别名列表。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -307,7 +300,7 @@ declare namespace font {
     alias: Array<UIFontAliasInfo>;
 
     /**
-     * Weight of the font when displayed, which corresponds to the original weight.
+     * 字体原本的weight值对应需显示的值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -319,7 +312,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -330,7 +323,7 @@ declare namespace font {
   interface UIFontAliasInfo {
 
     /**
-     * Alias name.
+     * 别名名称。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -341,10 +334,9 @@ declare namespace font {
     name: string;
 
     /**
-     * Weight of the fonts included in the font family. If the value is greater than 0, the font family contains only
-     * the fonts with the specified weight. If the value is 0, the font family contains all fonts.
-     *
-     * Valid values are **0**, **100**, **400**, **700**, and **900**.
+     * 当weight>0时表示此字体集只包含所指定weight的字体，当weight=0时，表示此字体集包含所有字体。
+     * 
+     * 可返回的值有0、100、400、700、900。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -356,7 +348,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -367,9 +359,9 @@ declare namespace font {
   interface UIFontAdjustInfo {
 
     /**
-     * Original weight of the font.
-     *
-     * Valid values are **50**, **80**, **100**, and **200**.
+     * 字体原本的weight值。
+     * 
+     * 可返回的值有50、80、100、200。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -380,9 +372,9 @@ declare namespace font {
     weight: number;
 
     /**
-     * Weight of the font displayed in the application.
-     *
-     * Valid values are **100**, **400**, **700**, and **900**.
+     * 字体在应用中显示的weight值。
+     * 
+     * 可返回的值有100、400、700、900。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -394,7 +386,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -405,7 +397,7 @@ declare namespace font {
   interface UIFontFallbackGroupInfo {
 
     /**
-     * Name of the font family corresponding to the fallback fonts.
+     * 备用字体集所对应的字体集名称。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -416,8 +408,7 @@ declare namespace font {
     fontSetName: string;
 
     /**
-     * Fallback fonts for the font family. If **fontSetName** is **""**, it indicates that the fonts can be used as
-     * fallback fonts for all font families.
+     * 表示以下列表为该字体集的备用字体，如果fontSetName为""，表示可以作为所有字体集的备用字体。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -429,7 +420,7 @@ declare namespace font {
   }
 
   /**
-   * UI font configuration of the system.
+   * 系统的UI字体配置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -440,7 +431,7 @@ declare namespace font {
   interface UIFontFallbackInfo {
 
     /**
-     * Language supported by the font family. The language format is BCP 47.
+     * 字体集所支持的语言类型，语言格式为bcp47。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -451,7 +442,7 @@ declare namespace font {
     language: string;
 
     /**
-     * Font family name, which is the value of **family** specified in the font file.
+     * 字体集名，字体文件中指定的"family"值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -463,18 +454,22 @@ declare namespace font {
   }
 
   /**
-   * Registers a custom font with the font manager.
-   *
-   * This API is asynchronous and does not support concurrent calls.
-   *
-   * > **NOTE**
+   * 在字体管理中注册自定义字体。
+   * 
+   * 该接口为异步接口，不支持并发调用。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
-   * > the current UI context.
+   * > -registerFont需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用registerFont可能导致
+   * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
+   * >
+   * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { FontOptions } options - Information about the custom font to register.
+   * @param { FontOptions } options - 注册的自定义字体信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
    * @atomicservice [since 11]
@@ -485,22 +480,24 @@ declare namespace font {
   function registerFont(options: FontOptions): void;
 
   /**
-   * Obtains this system font list.
-   *
-   * This API only takes effect on PCs/2-in-1 devices and returns an empty array on other devices.
-   *
-   * You are advised to use the
-   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API to obtain the
-   * latest system-supported font list data.
-   *
-   * > **NOTE**
+   * 获取系统字体列表。
+   * 
+   * 该接口仅在PC/2in1设备上生效，在其他设备上返回空数组。
+   * 
+   * 推荐使用[getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType}接口获取系统最新支持的字体列表数据。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
-   * > the current UI context.
+   * > -getSystemFontList需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用getSystemFontList可能导致
+   * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
+   * >
+   * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
-   * @returns { Array<string> } List of supported fonts.
+   * @returns { Array<string> } 系统的字体名列表。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]
@@ -512,17 +509,21 @@ declare namespace font {
   function getSystemFontList(): Array<string>;
 
   /**
-   * Obtains information about a system font based on the font name.
-   *
-   * > **NOTE**
+   * 根据传入的系统字体名称获取系统字体的相关信息。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 10, you can use the
-   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
-   * > the current UI context.
+   * > -getFontByName需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取
+   * > [Font]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用getFontByName可能导致
+   * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
+   * >
+   * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont)方法获取当前UI上下文关联的
+   * > [Font]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { string } fontName - System font name.
-   * @returns { FontInfo } Information about the system font.
+   * @param { string } fontName - 系统的字体名。
+   * @returns { FontInfo } 字体的详细信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 12]
@@ -534,11 +535,10 @@ declare namespace font {
   function getFontByName(fontName: string): FontInfo;
 
   /**
-   * Obtains the UI font configuration information in the system font configuration file.
-   *
-   * This API can only obtain the information in the configuration file. If the UI context is not clear, **undefined**
-   * may be returned. If you want to obtain the full font configuration information, you are advised to use the
-   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API of the font engine.
+   * 获取系统字体配置文件的UI字体配置信息。
+   * 
+   * 该接口仅支持获取配置文件内的信息以及当UI上下文不明确时可能返回undefined，如果想要获取全量的字体配置信息，推荐使用字体引擎的
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType}接口。
    *
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full

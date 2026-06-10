@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines Search Modifier
- *
+* Defines ImageSpan Modifier
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 20]
@@ -28,17 +28,17 @@
  * @since 12 dynamic
  * @noninterop
  */
-export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
+export declare class ImageSpanModifier extends ImageSpanAttribute implements AttributeModifier<ImageSpanAttribute> {
 
   /**
    * Defines the normal update attribute function.
    *
-   * @param { SearchAttribute } instance
+   * @param { ImageSpanAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  applyNormalAttribute?(instance: SearchAttribute): void;
+  applyNormalAttribute?(instance: ImageSpanAttribute): void;
 }

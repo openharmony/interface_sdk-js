@@ -1,3 +1,5 @@
+
+'use static';
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,31 +16,24 @@
  */
 
 /**
- * @file
+ * @file Marquee modifier file，defines modifier and function.
  * @kit ArkUI
  */
 
+import { AttributeModifier } from '@ohos.arkui.component';
+
+import { MarqueeAttribute } from '@ohos.arkui.component';
+
+import { AttributeModifier } from './component/common';
+
+import { MarqueeAttribute } from './component/marquee';
+
 /**
- * Defines Search Modifier
- *
+* Defines Marquee Modifier
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform [since 20]
- * @atomicservice
- * @since 12 dynamic
+ * @since 23 static
  * @noninterop
  */
-export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { SearchAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  applyNormalAttribute?(instance: SearchAttribute): void;
-}
+export declare class MarqueeModifier implements MarqueeAttribute, AttributeModifier<MarqueeAttribute> {}

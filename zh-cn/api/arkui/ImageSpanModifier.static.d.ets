@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,27 +18,20 @@
  * @kit ArkUI
  */
 
+import { AttributeModifier } from '@ohos.arkui.component';
+
+import { ImageSpanAttribute } from '@ohos.arkui.component';
+
+import { AttributeModifier } from './component/common';
+
+import { ImageSpanAttribute } from './component/imageSpan';
+
 /**
- * Defines Search Modifier
- *
+* Defines TextInput Modifier
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform [since 20]
- * @atomicservice
- * @since 12 dynamic
+ * @since 23 static
  * @noninterop
  */
-export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
-
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { SearchAttribute } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  applyNormalAttribute?(instance: SearchAttribute): void;
-}
+export declare class ImageSpanModifier implements ImageSpanAttribute, AttributeModifier<ImageSpanAttribute> {}
