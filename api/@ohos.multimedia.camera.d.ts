@@ -14117,6 +14117,31 @@ declare namespace camera {
      * @since 24 dynamic&static
      */
     enableOriginalImageGeneration(enabled: boolean): void;
+
+    /**
+     * Confirm if auto extended gainmap delivery supporteed.
+     * 
+     * @returns { boolean } TRUE if the auto extended gainmap delivery is supported.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isAutoExtendedGainmapDeliverySupported(): boolean;
+
+    /**
+     * Enable auto extended gainmap delivery.
+     * 
+     * @param { boolean } enabled - enable auto extended gainmap delivery if TRUE.
+     * @throws { BusinessError } 7400102 - Operation not alloweed.
+     * @throws { BusinessError } 7400103 - Session not config, only throw in session usage.
+     * @throws { BusinessError } 7400201 - Camera service fatal error.
+     * @syscap SystemCapability.Multimedia.Camera.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    enableAutoExtendedGainmapDelivery(enabled: boolean): void;
   }
 
   /**
