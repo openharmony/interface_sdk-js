@@ -19,7 +19,7 @@
  */
 
 /**
- * Enumerates alignment types.
+ * 对齐方式类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,7 +30,7 @@
 declare enum CalendarAlign {
 
   /**
-   * Left-aligned with the entry component.
+   * 设置选择器与入口组件的对齐方式为左对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +41,7 @@ declare enum CalendarAlign {
   START = 0,
 
   /**
-   * Center-aligned with the entry component.
+   * 设置选择器与入口组件的对齐方式为居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ declare enum CalendarAlign {
   CENTER = 1,
 
   /**
-   * Right-aligned with the entry component.
+   * 设置选择器与入口组件的对齐方式为右对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -64,7 +64,7 @@ declare enum CalendarAlign {
 }
 
 /**
- * Describes the parameters of the calendar picker.
+ * 日历选择器组件的参数说明。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -75,19 +75,18 @@ declare enum CalendarAlign {
 declare interface CalendarOptions {
 
   /**
-   * Style of the background of the selected state.
-   *
-   * Value range: [0.0, 16.0]
-   *
-   * Unit: vp.
-   *
-   * Default value: **16.0** (the background is a circle).
-   *
-   * **NOTE**
-   *
-   * If the value is **0.0**, the background is a right-angled rectangle. If the value is in the (0.0, 16.0) range, the
-   * background is a rounded rectangle. If the value is a negative number or greater than 16.0, the default value
-   * **16.0** is used, which means the background is a circle.
+   * 描述日期选中态底板样式。
+   * 
+   * 取值范围：[0.0, 16.0]
+   * 
+   * 单位：vp
+   * 
+   * 默认值：16.0，即底板样式为圆形。
+   * 
+   * **说明：**
+   * 
+   * 当hintRadius为0.0时表示底板样式为直角矩形；当hintRadius为(0.0, 16.0)时，底板样式为圆角矩形；
+   * 当hintRadius为负数或大于16.0时，恢复为默认值16.0。
    *
    * @default 16.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -99,12 +98,11 @@ declare interface CalendarOptions {
   hintRadius?: number | Resource;
 
   /**
-   * Date of the selected item. If the value is not set or does not comply with the date format specifications, the
-   * default value will be used.
-   *
-   * Default value: current system date
-   *
-   * Value range: [Date('0001-01-01'), Date('5000-12-31')].
+   * 设置选中项的日期。选中的日期未设置或日期格式不符合规范则为默认值。
+   * 
+   * 默认值：当前系统日期。
+   * 
+   * 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
    *
    * @default current system date
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -116,11 +114,11 @@ declare interface CalendarOptions {
   selected?: Date;
 
   /**
-   * Start date.
-   *
-   * Default value: **Date('0001-01-01')**
-   *
-   * Value range: [Date('0001-01-01'), Date('5000-12-31')].
+   * 设置开始日期。
+   * 
+   * 默认值：Date('0001-01-01')
+   * 
+   * 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
    *
    * @default Date('0001-01-01')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -132,11 +130,11 @@ declare interface CalendarOptions {
   start?: Date;
 
   /**
-   * End date.
-   *
-   * Default value: **Date('5000-12-31')**.
-   *
-   * Value range: [Date('0001-01-01'), Date('5000-12-31')].
+   * 设置结束日期。
+   * 
+   * 默认值：Date('5000-12-31')
+   * 
+   * 取值范围：[Date('0001-01-01'), Date('5000-12-31')]
    *
    * @default Date('5000-12-31')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -148,15 +146,13 @@ declare interface CalendarOptions {
   end?: Date;
 
   /**
-   * Disabled date range.
-   *
-   * **NOTE**
-   *
-   * 1. If the start date or end date within a date range is invalid or is not set,
-   *    the entire date range does not take effect.
-   * 2. If the end date is earlier than the start date within a date range, the entire date range does not take effect.
-   * 3. When users select a date and adjust it with the up or down arrow keys,
-   *    the system skips over all dates in the disabled date range.
+   * 设置禁用日期区间。
+   * 
+   * **说明：**
+   * 
+   * 1. 若日期区间内的开始日期或结束日期未设置或设置为异常值，则该日期区间无效。
+   * 2. 若在日期区间内，结束日期早于开始日期，则该日期区间无效。
+   * 3. 当在入口区选定某日期，通过上下箭头调整日期进行增加或减少操作时，若遇到禁用日期，系统将自动跳过整个禁用区间。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -168,9 +164,11 @@ declare interface CalendarOptions {
 }
 
 /**
- * The **CalendarPicker** component provides a drop-down calendar for users to select a date.
- *
- * > **NOTE**
+ * 日历选择器组件，提供下拉日历弹窗，可以让用户选择日期。
+ * 
+ * > **说明：**
+ * 
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -182,9 +180,9 @@ declare interface CalendarOptions {
 interface CalendarPickerInterface {
 
   /**
-   * Creates a calendar picker.
+   * 日历选择器。
    *
-   * @param { CalendarOptions } options - Parameters of the calendar picker.
+   * @param { CalendarOptions } options - 配置日历选择器组件的参数。
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -196,9 +194,9 @@ interface CalendarPickerInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link ./common}, the following attributes are supported.
- *
- * In addition to the [universal events]{@link ./common}, the following events are supported.
+ * 除支持[通用属性]{@link ./common}外，还支持以下属性：
+ * 
+ * 除支持[通用事件]{@link ./common}，还支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -210,11 +208,10 @@ interface CalendarPickerInterface {
 declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribute> {
 
   /**
-   * Sets how the picker is aligned with the entry component.
+   * 设置选择器与入口组件的对齐方式。
    *
-   * @param { CalendarAlign } alignType - Alignment type.<br>Default value: **CalendarAlign.END**.
-   * @param { Offset } offset - Offset of the picker relative to the entry component after alignment based on the
-   *     specified alignment type.<br>Default value: **{dx: 0, dy: 0}**
+   * @param { CalendarAlign } alignType - 对齐方式的类型。<br/>默认值：CalendarAlign.END
+   * @param { Offset } offset - 按照对齐方式对齐后，选择器相对入口组件的偏移量。<br/>默认值：{dx: 0, dy: 0}
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -225,14 +222,13 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   edgeAlign(alignType: CalendarAlign, offset?: Offset): CalendarPickerAttribute;
 
   /**
-   * Sets how the picker is aligned with the entry component. Compared with
-   * [edgeAlign]{@link CalendarPickerAttribute#edgeAlign(alignType: CalendarAlign, offset?: Offset)}, this API supports
-   * the **undefined** type for the **alignType** parameter.
+   * 设置选择器与入口组件的对齐方式。
+   * 与[edgeAlign]{@link CalendarPickerAttribute#edgeAlign(alignType: CalendarAlign, offset?: Offset)}相比，
+   * alignType参数新增了对undefined类型的支持。
    *
-   * @param { Optional<CalendarAlign> } alignType - Alignment type.<br>Default value: **CalendarAlign.END**.<br>If the
-   *     value of **alignType** is **undefined**, the default value is used.
-   * @param { Offset } offset - Offset of the picker relative to the entry component after alignment based on the
-   *     specified alignment type.<br>Default value: **{dx: 0, dy: 0}**
+   * @param { Optional<CalendarAlign> } alignType - 对齐方式的类型。
+   *    默认值：CalendarAlign.END<br/>当alignType的值为undefined时，使用默认值。
+   * @param { Offset } offset - 按照对齐方式对齐后，选择器相对入口组件的偏移量。<br/>默认值：{dx: 0, dy: 0}
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -243,10 +239,10 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   edgeAlign(alignType: Optional<CalendarAlign>, offset?: Offset): CalendarPickerAttribute;
 
   /**
-   * Sets the font color, font size, and font weight in the entry area.
+   * 入口区的文本颜色、字号、字体粗细。
    *
-   * @param { PickerTextStyle } value - Font color, font size, and font weight in the entry area.<br>Default value:<br>{
-   *     <br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}
+   * @param { PickerTextStyle } value - 设置入口区的文本颜色、字号、字体粗细。
+   *    默认值：<br/>{<br/>color: '#ff182431',<br/>font: {<br/>size:'16fp', <br/>weight: FontWeight.Regular<br/>}<br/>}
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -257,13 +253,12 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   textStyle(value: PickerTextStyle): CalendarPickerAttribute;
 
   /**
-   * Sets the font color, font size, and font weight in the entry area. Compared with
-   * [textStyle]{@link CalendarPickerAttribute#textStyle(value: PickerTextStyle)}, this API supports the **undefined**
-   * type for the **style** parameter.
+   * 入口区的文本颜色、字号、字体粗细。与[textStyle]{@link CalendarPickerAttribute#textStyle(value: PickerTextStyle)}相比，
+   * style参数新增了对undefined类型的支持。
    *
-   * @param { Optional<PickerTextStyle> } style - Font color, font size, and font weight in the entry area.<br>Default
-   *     value:<br>{<br>color: '#ff182431',<br>font: {<br>size: '16fp', <br>weight: FontWeight.Regular<br>}<br>}<br>If
-   *     the value of **style** is **undefined**, the default value is used.
+   * @param { Optional<PickerTextStyle> } style - 设置入口区的文本颜色、字号、字体粗细。
+   *    默认值：<br/>{<br/>color: '#ff182431',<br/>font: {<br/>size: '16fp', <br/>weight: FontWeight.Regular<br/>}<br/>}
+   *    当style的值为undefined时，使用默认值。
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -274,10 +269,10 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   textStyle(style: Optional<PickerTextStyle>): CalendarPickerAttribute;
 
   /**
-   * Triggered when a date is selected. This event cannot be triggered by two-way bound state variables.
+   * 选择日期时触发该事件。不能通过双向绑定的状态变量触发。
    *
    * @param { function } callback - Selected date value. [since 10 - 17]
-   * @param { Callback<Date> } callback - Selected date value. [since 18]
+   * @param { Callback<Date> } callback - 选中的日期值。 [since 18]
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -288,16 +283,15 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   onChange(callback: Callback<Date>): CalendarPickerAttribute;
 
   /**
-   * Triggered when a date is selected. This event cannot be triggered by two-way bound state variables. Compared with
-   * [onChange]{@link CalendarPickerAttribute#onChange(callback: Callback<Date>)}, this API supports the **undefined**
-   * type for the **callback** parameter.
-   *
-   * > **NOTE**
+   * 选择日期时触发该事件。不能通过双向绑定的状态变量触发。
+   * 与[onChange]{@link CalendarPickerAttribute#onChange(callback: Callback<Date>)}相比，
+   * callback参数新增了对undefined类型的支持。
+   * 
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   * > 从API version 20开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { Optional<Callback<Date>> } callback - Selected date value.<br>If **callback** is set to **undefined**, the
-   *     callback function is not used.
+   * @param { Optional<Callback<Date>> } callback - 选中的日期值。<br>当callback的值为undefined时，不使用回调函数。
    * @returns { CalendarPickerAttribute } the attribute of the CalendarPicker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -308,10 +302,10 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
   onChange(callback: Optional<Callback<Date>>): CalendarPickerAttribute;
 
   /**
-   * Whether to highlight the current system date.
+   * 设置日历选择器中系统当前日期是否保持高亮显示。
    *
-   * @param { boolean } enabled - Whether to highlight the current system date.<br>- **true**: Highlight the current
-   *     system date.<br>- **false**: Do not highlight the current system date.<br>Default value: **false**.
+   * @param { boolean } enabled - 设置日历选择器中系统当前日期是否保持高亮显示。
+   *  - true：系统当前日期在日历选择器内保持高亮显示。<br/>- false：系统当前日期在日历选择器内不保持高亮显示。<br/>默认值：false
    * @returns { CalendarPickerAttribute } the attribute of the calendar picker.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -323,15 +317,14 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
 }
 
 /**
- * Defines the configuration options of the calendar picker dialog box.
- *
- * Inherits from [CalendarOptions]{@link CalendarOptions}.
- *
- * > **NOTE**
+ * 日历选择器弹窗选项。
+ * 
+ * 继承自[CalendarOptions]{@link CalendarOptions}。
+ * 
+ * > **说明：**
  * >
- * > When the application window is resized, the width of the dialog box is continuously compressed. If the window width
- * > is reduced below a certain threshold, the content of the dialog box may not be fully visible. To ensure that the
- * > content of the **CalendarPickerDialog** component is fully displayed, the minimum window width required is 386 vp.
+ * > 在应用窗口缩小过程中，弹窗的宽度会被不断压缩，当缩小到一定程度时会导致其内容无法完整显示，
+ * 保证CalendarPickerDialog内容能够完整显示的最小窗口宽度为386vp。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -342,9 +335,9 @@ declare class CalendarPickerAttribute extends CommonMethod<CalendarPickerAttribu
 declare interface CalendarDialogOptions extends CalendarOptions {
 
   /**
-   * Triggered when the OK button in the dialog box is clicked.
-   *
-   * The callback parameter represents the selected date value.
+   * 点击弹窗中的“确定”按钮时触发该回调。
+   * 
+   * 回调函数的参数表示选中的日期值。
    *
    * @type { ?function } [since 10 - 17]
    * @type { ?Callback<Date> } [since 18]
@@ -357,7 +350,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onAccept?: Callback<Date>;
 
   /**
-   * Triggered when the Cancel button in the dialog box is clicked.
+   * 点击弹窗中的“取消”按钮时触发该回调。
    *
    * @type { ?function } [since 10 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -370,9 +363,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onCancel?: VoidCallback;
 
   /**
-   * Triggered when the selection in the picker changes the selected date.
-   *
-   * The callback parameter represents the selected date value.
+   * 选择弹窗中日期使当前选中项改变时触发该回调。
+   * 
+   * 回调函数的参数表示选中的日期值。
    *
    * @type { ?function } [since 10 - 17]
    * @type { ?Callback<Date> } [since 18]
@@ -385,14 +378,13 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onChange?: Callback<Date>;
 
   /**
-   * Backplane color of the dialog box.
-   *
-   * Default value: **Color.Transparent**
-   *
-   * **NOTE**
-   *
-   * When **backgroundColor** is set to a non-transparent color, **backgroundBlurStyle** must be set to
-   * **BlurStyle.NONE**; otherwise, the color display may not meet the expected effect.
+   * 弹窗背板颜色。
+   * 
+   * 默认值：Color.Transparent
+   * 
+   * **说明：** 
+   * 
+   * 当设置了backgroundColor为非透明色时，backgroundBlurStyle需要设置为BlurStyle.NONE，否则显示的颜色将不符合预期效果。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -404,15 +396,14 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the dialog box.
-   *
-   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
-   *
-   * **NOTE**
-   *
-   * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set to a
-   * value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce the
-   * expected visual effect.
+   * 弹窗背板模糊材质。
+   * 
+   * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
+   * 
+   * **说明：** 
+   * 
+   * 设置为BlurStyle.NONE即可关闭背景虚化。
+   * 当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则显示的颜色将不符合预期效果。
    *
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -424,7 +415,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Options for customizing the background blur style.
+   * 背景模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -435,7 +426,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Options for customizing the background effect.
+   * 背景效果参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -446,12 +437,12 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Style of the accept button.
-   *
-   * **NOTE**
-   *
-   * In the **acceptButtonStyle** and **cancelButtonStyle** configurations, only one **primary** field can be set to
-   * **true** at most. If both the **primary** fields are set to **true**, neither will take effect.
+   * 设置确认按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、
+   * 按钮是否默认响应Enter键。
+   * 
+   * **说明：**
+   * 
+   * acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -462,12 +453,12 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   acceptButtonStyle?: PickerDialogButtonStyle;
 
   /**
-   * Style of the cancel button.
-   *
-   * **NOTE**
-   *
-   * In the **acceptButtonStyle** and **cancelButtonStyle** configurations, only one **primary** field can be set to
-   * **true** at most. If both the **primary** fields are set to **true**, neither will take effect.
+   * 设置取消按钮显示样式、样式和重要程度、角色、背景色、圆角、文本颜色、字号、字体粗细、字体样式、字体列表、
+   * 按钮是否默认响应Enter键。
+   * 
+   * **说明：**
+   * 
+   * acceptButtonStyle与cancelButtonStyle中最多只能有一个primary字段配置为true，二者primary字段均配置为true时均不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -478,17 +469,17 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   cancelButtonStyle?: PickerDialogButtonStyle;
 
   /**
-   * Event callback after the dialog box appears.
-   *
-   * **NOTE**
-   *
-   * 1. The normal timing sequence is as follows:
-   *    onWillAppear > onDidAppear > (onAccept/onCancel/onChange) > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onDidAppear**.
-   *    The settings take effect next time the dialog box appears.
-   * 3. If the user dismisses the dialog box immediately after it appears,
-   *    **onWillDisappear** is invoked before **onDidAppear**.
-   * 4. If the dialog box is dismissed before its entrance animation is finished, this callback is not invoked.
+   * 弹窗弹出后的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
+   * 
+   * 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
+   * 
+   * 3.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。
+   * 
+   * 4. 当弹窗入场动效未完成时关闭弹窗，该回调不会触发。
    *
    * @type { ?function } [since 12 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -501,12 +492,11 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onDidAppear?: VoidCallback;
 
   /**
-   * Event callback after the dialog box disappears.
-   *
-   * **NOTE**
-   *
-   * 1. The normal timing sequence is as follows:
-   *    onWillAppear > onDidAppear > (onAccept/onCancel/onChange) > onWillDisappear > onDidDisappear.
+   * 弹窗消失后的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
    *
    * @type { ?function } [since 12 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -519,14 +509,13 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onDidDisappear?: VoidCallback;
 
   /**
-   * Event callback when the dialog box is about to appear.
-   *
-   * **NOTE**
-   *
-   * 1. The normal timing sequence is as follows:
-   *    onWillAppear > onDidAppear > (onAccept/onCancel/onChange) > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onWillAppear**.
-   *    The settings take effect next time the dialog box appears.
+   * 弹窗显示动效前的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
+   * 
+   * 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
    *
    * @type { ?function } [since 12 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -539,14 +528,13 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onWillAppear?: VoidCallback;
 
   /**
-   * Event callback when the dialog box is about to disappear.
-   *
-   * **NOTE**
-   *
-   * 1. The normal timing sequence is as follows:
-   *    onWillAppear > onDidAppear > (onAccept/onCancel/onChange) > onWillDisappear > onDidDisappear.
-   * 2. If the user closes the dialog box immediately after it appears,
-   *    **onWillDisappear** is invoked before **onDidAppear**.
+   * 弹窗退出动效前的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1.正常时序依次为：onWillAppear>>onDidAppear>>(onAccept/onCancel/onChange)>>onWillDisappear>>onDidDisappear。
+   * 
+   * 2.快速点击弹出，消失弹窗时，存在onWillDisappear在onDidAppear前生效。
    *
    * @type { ?function } [since 12 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -559,10 +547,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   onWillDisappear?: VoidCallback;
 
   /**
-   * Shadow of the dialog box.
-   *
-   * Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused and
-   * **ShadowStyle.OUTER_FLOATING_SM** otherwise
+   * 设置弹窗背板的阴影。
+   * 
+   * 当设备为2in1时，默认场景下，获焦时阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦时为ShadowStyle.OUTER_FLOATING_SM。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -573,12 +560,12 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Whether to respond when the device is in semi-folded mode.
-   *
-   * - **true**: Respond when the device is in semi-folded mode.
-   * - **false**: Do not respond when the device is in semi-folded mode.
-   *
-   * Default value: **false**.
+   * 是否响应悬停态。
+   * 
+   * - true：响应悬停态。
+   * - false：不响应悬停态。
+   * 
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -590,9 +577,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Display area of the dialog box when the device is in semi-folded mode.
-   *
-   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**
+   * 悬停态下弹窗默认展示区域。
+   * 
+   * 默认值：HoverModeAreaType.BOTTOM_SCREEN
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -604,12 +591,12 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Whether to highlight the current system date.
-   *
-   * - **true**: Highlight the current system date.
-   * - **false**: Do not highlight the current system date.
-   *
-   * Default value: **false**.
+   * 设置日历选择器弹窗中系统当前日期是否保持高亮显示。
+   * 
+   * - true：系统当前日期在日历选择器弹窗内保持高亮显示。
+   * - false：系统当前日期在日历选择器弹窗内不保持高亮显示。
+   * 
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -621,8 +608,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   markToday?: boolean;
 
   /**
-   * Set system-styled materials for dialog. Different materials have different effects,
-   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 为对话框设置系统风格的材质。不同的材质具有不同的效果，可以影响对话框的背景颜色、边框、阴影等视觉属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -632,9 +618,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   systemMaterial?: SystemUiMaterial;
 
   /**
-   * Sets the distortion animation mode for the dialog.
+   * 设置对话框的形变动画模式。
    *
-   * Default Value: DistortionMode.DISTORTION_AUTO
+   * 默认值：DistortionMode.DISTORTION_AUTO
    *
    * @default DistortionMode.DISTORTION_AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -645,9 +631,10 @@ declare interface CalendarDialogOptions extends CalendarOptions {
   distortionMode?: DistortionMode;
 
   /**
-   * Sets the edge light animation mode for the dialog.
+   * 设置对话框的边缘光动画模式。
    *
-   * Default value: EdgeLightMode.EDGELIGHT_AUTO
+   * 默认值：EdgeLightMode.EDGELIGHT_AUTO
+   *
    * @default EdgeLightMode.EDGELIGHT_AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -658,7 +645,7 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 }
 
 /**
- * A calendar picker dialog box is a dialog box that allows users to select a date from a calendar picker.
+ * 点击日期弹出日历选择器弹窗，可在弹窗内选择日期。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -669,9 +656,9 @@ declare interface CalendarDialogOptions extends CalendarOptions {
 declare class CalendarPickerDialog {
 
   /**
-   * Defines a calendar picker dialog box.
+   * 定义日历选择器弹窗。
    *
-   * @param { CalendarDialogOptions } options - Parameters of the calendar picker dialog box.
+   * @param { CalendarDialogOptions } options - 配置日历选择器弹窗参数。参数缺省时无法弹出弹窗。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -682,13 +669,15 @@ declare class CalendarPickerDialog {
 }
 
 /**
- * The **CalendarPicker** component provides a drop-down calendar for users to select a date.
- *
- * > **NOTE**
- *
- * Child Components
- *
- * Not supported
+ * 日历选择器组件，提供下拉日历弹窗，可以让用户选择日期。
+ * 
+ * > **说明：**
+ * 
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link ./with_theme}。
+ * 
+ * 子组件
+ * 
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -700,7 +689,7 @@ declare class CalendarPickerDialog {
 declare const CalendarPicker: CalendarPickerInterface;
 
 /**
- * Defines CalendarPicker Component instance.
+ * 定义日历选择器组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
