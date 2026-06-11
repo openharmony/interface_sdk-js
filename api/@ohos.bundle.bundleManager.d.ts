@@ -45,7 +45,8 @@ import { AbilityInfo as _AbilityInfo, WindowSize as _WindowSize } from './bundle
 import { AppProvisionInfo as _AppProvisionInfo, Validity as _Validity } from './bundleManager/AppProvisionInfo';
 import { BundleInfo as _BundleInfo, UsedScene as _UsedScene, ReqPermissionDetail as _ReqPermissionDetail,
   SignatureInfo as _SignatureInfo, AppCloneIdentity as _AppCloneIdentity, DynamicIconInfo as _DynamicIconInfo,
-  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo } from './bundleManager/BundleInfo';
+  BundleOptions as _BundleOptions, AlternateIconInfo as _AlternateIconInfo,
+  AppClonePreference as _AppClonePreference } from './bundleManager/BundleInfo';
 import { HapModuleInfo as _HapModuleInfo, PreloadItem as _PreloadItem, Dependency as _Dependency,
   RouterItem as _RouterItem, DataItem as _DataItem } from './bundleManager/HapModuleInfo';
 import { ExtensionAbilityInfo as _ExtensionAbilityInfo } from './bundleManager/ExtensionAbilityInfo';
@@ -1553,6 +1554,46 @@ declare namespace bundleManager {
      * @since 23 dynamic&static
      */
     BUNDLE_INSTALLED = 3
+  }
+
+  /**
+   * Enumerates the application clone preference modes.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum AppClonePreferenceMode {
+    /**
+     * Always prompts the user to select an application.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ALWAYS_ASK = 0,
+
+    /**
+     * Uses the main application by default.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    MAIN_APP = 1,
+
+    /**
+     * Uses the application clone by default.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CLONE_APP = 2
   }
 
   /**
@@ -4224,6 +4265,43 @@ declare namespace bundleManager {
   function getAppCloneIdentity(uid: int): Promise<AppCloneIdentity>;
 
   /**
+   * Obtains the application clone preference configuration based on the given bundle name.
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - Bundle name of the target application.
+   * @returns { Promise<AppClonePreference> } Promise used to return the application clone preference configuration.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700095 - The specified bundle not found app clone preference.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function getAppClonePreference(bundleName: string): Promise<AppClonePreference>;
+
+  /**
+   * Sets the application clone preference configuration.
+   *
+   * @permission ohos.permission.MANAGE_CLONE_BUNDLE_PREFERENCES
+   * @param { string } bundleName - Bundle name of the target application.
+   * @param { AppClonePreference } appClonePreference - Application clone preference configuration to set.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
+   * @throws { BusinessError } 17700001 - The specified bundleName is not found.
+   * @throws { BusinessError } 17700026 - The specified bundle is disabled.
+   * @throws { BusinessError } 17700061 - The specified app index is invalid.
+   * @throws { BusinessError } 17700094 - The specified bundle did not create a clone.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function setAppClonePreference(bundleName: string, appClonePreference: AppClonePreference): Promise<void>;
+
+  /**
    * Obtains all the plugin information in the system based on the given host bundle name and user ID. This API uses a
    * promise to return the result.
    *
@@ -4844,6 +4922,26 @@ declare namespace bundleManager {
    * @since 23 static
    */
   export type SkillUrl = _SkillUri;
+
+  /**
+   * Defines the AppClonePreference information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic
+   */
+  export type AppClonePreference = _BundleInfo.AppClonePreference;
+
+  /**
+   * Defines the AppClonePreference information.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 static
+   */
+  export type AppClonePreference = _AppClonePreference;
 
   /**
    * Defines the preinstalled application information.
