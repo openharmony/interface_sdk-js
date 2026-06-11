@@ -358,7 +358,7 @@ declare namespace inputEventClient {
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is already pressed and is not the most recently
-     *     pressed key.
+     *     pressed key, or the number of pressed keys exceeds 5.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -478,7 +478,7 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The axis event in progress.
+     * @throws { BusinessError } 4300001 - The axis event is in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
