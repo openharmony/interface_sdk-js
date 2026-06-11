@@ -1046,7 +1046,7 @@ declare namespace securityManager {
    * 
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
-   * @since 26.0.0
+   * @since 26.0.0 dynamic&static
    */
   export enum PasswordAlgs {
 
@@ -1055,7 +1055,7 @@ declare namespace securityManager {
      * 
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.0.0 dynamic&static
      */
     SCRYPT_HKDF_AES = 0,
     
@@ -1064,7 +1064,7 @@ declare namespace securityManager {
      * 
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
-     * @since 26.0.0
+     * @since 26.0.0 dynamic&static
      */
     SCRYPT_HKDF_SM4 = 1
   }
