@@ -19,7 +19,7 @@
  * @kit ArkUI
  */
 
-import { SystemProperties } from '../component/enums';
+import { Direction, SystemProperties } from '../component/enums';
 
 import { ReusePoolOwnership } from '../component/customComponent';
 
@@ -1926,7 +1926,24 @@ export declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare class WritableEnvKey {}
+export declare class WritableEnvKey {
+  /** 
+   * Defines the system environment key direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly DIRECTION: WritableSystemEnvKey<Direction>;
+  /** 
+   * Defines the system environment key fontScale.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static readonly FONT_SCALE: WritableSystemEnvKey<double>;
+}
 
 /**
  * Defines the readonly system environment key.
