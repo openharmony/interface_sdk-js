@@ -6672,6 +6672,19 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default onInputmethodAttached(callback: OnInputmethodAttachedCallback | undefined): this;
+
+    /**
+     * Enables or disables fullscreen video overlay in the WebView component.
+     *
+     * @param { boolean | undefined } enabled - {@code true} to enable the fullscreen video overlay,
+     *    {@code false} to disable it.
+     *    The default value is false.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableFullscreenVideoOverlay(enabled: boolean | undefined): this;
 }
 
 /**
