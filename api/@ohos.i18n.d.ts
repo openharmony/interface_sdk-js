@@ -27,27 +27,27 @@ import { StyledString, TextStyle } from './arkui/component/styledString';
 /*** endif */
 
 /**
- * This module provides system-related and enhanced [i18n](docroot://internationalization/i18n-l10n.md) capabilities, 
- * such as locale management, phone number formatting, and calendar, through supplementary i18n APIs that are not 
- * defined in [ECMA 402](https://dev.ecma-international.org/publications-and-standards/standards/ecma-402/). The 
- * [intl]{@link @ohos.intl:intl} module provides basic i18n capabilities through the standard i18n APIs defined in ECMA 
- * 402. It works with the **i18n** module to provide a complete suite of i18n capabilities. The terms used in the APIs 
+ * This module provides system-related and enhanced [i18n](docroot://internationalization/i18n-l10n.md) capabilities,
+ * such as locale management, phone number formatting, and calendar, through supplementary i18n APIs that are not
+ * defined in [ECMA 402](https://dev.ecma-international.org/publications-and-standards/standards/ecma-402/). The
+ * [intl]{@link @ohos.intl:intl} module provides basic i18n capabilities through the standard i18n APIs defined in ECMA
+ * 402. It works with the **i18n** module to provide a complete suite of i18n capabilities. The terms used in the APIs
  * are defined as follows:
- * 
- * - Pattern string, which is a string consisting of 
+ *
+ * - Pattern string, which is a string consisting of
  * [Unicode date field symbols](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) and custom
  * text enclosed by single quotation marks.
- * - Skeleton string: a string that consists of 
- * [Unicode date field symbols](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) and does 
+ * - Skeleton string: a string that consists of
+ * [Unicode date field symbols](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table) and does
  * not support custom text.
- * 
+ *
  * > **NOTE**
  * >
- * > - The APIs of this module are based on the [CLDR](https://cldr.unicode.org) internationalization database. The 
- * > processing results of the APIs may be adjusted as the CLDR standard evolves. For example, the return value of the 
- * > [date and time formatting API]{@link i18n.SimpleNumberFormat} is used only for UI display. Do not hardcode the 
- * > return value or make assumptions about the return value. Otherwise, version compatibility problems may occur. API 
- * > version 12 corresponds to [CLDR 42](https://cldr.unicode.org/index/downloads/cldr-42). For details about data 
+ * > - The APIs of this module are based on the [CLDR](https://cldr.unicode.org) internationalization database. The
+ * > processing results of the APIs may be adjusted as the CLDR standard evolves. For example, the return value of the
+ * > [date and time formatting API]{@link i18n.SimpleNumberFormat} is used only for UI display. Do not hardcode the
+ * > return value or make assumptions about the return value. Otherwise, version compatibility problems may occur. API
+ * > version 12 corresponds to [CLDR 42](https://cldr.unicode.org/index/downloads/cldr-42). For details about data
  * > changes, see the official CLDR documentation.
  * >
  * > - Since API version 11, some APIs of this module are supported in ArkTS widgets.
@@ -128,7 +128,7 @@ declare namespace i18n {
   export function getSystemLocale(): string;
 
   /**
-   * Provides system attribute configuration functions, including translating language and country/region names, 
+   * Provides system attribute configuration functions, including translating language and country/region names,
    * obtaining the list of supported languages and countries/regions, and obtaining the system language and region.
    *
    * @syscap SystemCapability.Global.I18n
@@ -214,7 +214,7 @@ declare namespace i18n {
     static getSystemCountries(language: string): Array<string>;
 
     /**
-     * Checks whether a language is a suggested language in the specified region. It can be used for region-based 
+     * Checks whether a language is a suggested language in the specified region. It can be used for region-based
      * language recommendation or language-based region recommendation.
      *
      * @param { string } language -
@@ -237,9 +237,9 @@ declare namespace i18n {
     static isSuggested(language: string, region?: string): boolean;
 
     /**
-     * Obtains the current system language. To listen for system language changes, enable listening for 
+     * Obtains the current system language. To listen for system language changes, enable listening for
      * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
-     * . For details, see 
+     * . For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
      * @returns { string } Language ID.
@@ -272,9 +272,9 @@ declare namespace i18n {
     static setSystemLanguage(language: string): void;
 
     /**
-     * Obtains the current system country/region. To listen for system region changes, enable listening for 
+     * Obtains the current system country/region. To listen for system region changes, enable listening for
      * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
-     * . For details, see 
+     * . For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
      * @returns { string } Country/region ID.
@@ -319,9 +319,9 @@ declare namespace i18n {
     static getSystemLocale(): string;
 
     /**
-     * Obtains the current system locale. To listen for system locale changes, enable listening for 
+     * Obtains the current system locale. To listen for system locale changes, enable listening for
      * [COMMON_EVENT_LOCALE_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_locale_changed)
-     * . For details, see 
+     * . For details, see
      * [System Language and Region](docroot://internationalization/i18n-system-language-region.md#how-to-develop).
      *
      * @returns { Intl.Locale } the locale object currently used by the system.
@@ -351,7 +351,7 @@ declare namespace i18n {
     static setSystemLocale(locale: string): void;
 
     /**
-     * Checks whether the 24-hour clock is used. To listen for system time format changes, enable listening for 
+     * Checks whether the 24-hour clock is used. To listen for system time format changes, enable listening for
      * [COMMON_EVENT_TIME_CHANGED](docroot://reference/apis-basic-services-kit/common_event/commonEventManager-definitions.md#common_event_time_changed)
      * . For details, see [User Preference](docroot://internationalization/i18n-user-preferences.md#how-to-develop).
      *
@@ -453,8 +453,8 @@ declare namespace i18n {
     static getFirstPreferredLanguage(): string;
 
     /**
-     * Sets the preferred language of the application. Resources are loaded in the preferred language when the 
-     * application is launched. If the preferred language is set to **default**, the application's language will be the 
+     * Sets the preferred language of the application. Resources are loaded in the preferred language when the
+     * application is launched. If the preferred language is set to **default**, the application's language will be the
      * same as the system language, and the setting will take effect upon cold starting of the application.
      *
      * @param { string } language -
@@ -972,7 +972,7 @@ declare namespace i18n {
   }
 
   /**
-   * Internationalization utility class, which provides the capabilities of unit conversion, date sequence retrieval, 
+   * Internationalization utility class, which provides the capabilities of unit conversion, date sequence retrieval,
    * time segment name retrieval, region matching, and path localization.
    *
    * @syscap SystemCapability.Global.I18n
@@ -1057,9 +1057,9 @@ declare namespace i18n {
     static getBestMatchLocale(locale: string, localeList: string[]): string;
 
     /**
-     * Converts a language code from two letters to three letters.  
-     * 
-     * For example, the two-letter language code of Chinese is **zh**, and the corresponding three-letter language code 
+     * Converts a language code from two letters to three letters.
+     *
+     * For example, the two-letter language code of Chinese is **zh**, and the corresponding three-letter language code
      * is **zho**. For details, see [ISO 639](https://www.iso.org/iso-639-language-code).
      *
      * @param { string } locale - Two-letter code of the language to be converted, for example, **zh**.
@@ -1076,9 +1076,9 @@ declare namespace i18n {
     static getThreeLetterLanguage(locale: string): string;
 
     /**
-     * Converts a region code from two letters to three letters.  
-     * 
-     * For example, the two-letter region code of China is **CN**, and the corresponding three-letter region code is 
+     * Converts a region code from two letters to three letters.
+     *
+     * For example, the two-letter region code of China is **CN**, and the corresponding three-letter region code is
      * **CHN**. For details, see [ISO 3166](https://www.iso.org/iso-3166-country-codes.html).
      *
      * @param { string } locale - Two-letter country/region code to be converted, for example, **CN**.
@@ -1096,27 +1096,7 @@ declare namespace i18n {
 
     /**
      * Localizes a file path for the specified locale.
-     * 
-     * For example, "/data/out/tmp" is changed to "tmp/out/data/" after localization.
      *
-     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
-     * @param { string } [delimiter] - Path delimiter. The default value is "/".
-     * @param { intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
-     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
-     *     the processed file path contains a direction control character to ensure that the file path is displayed in
-     *     mirror mode.
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
-     * @syscap SystemCapability.Global.I18n
-     * @atomicservice
-     * @since 18 dynamiconly
-     * @deprecated since 20
-     * @useinstead getUnicodeWrappedFilePath
-     */
-    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
-
-    /**
-     * Localizes a file path for the specified locale.
-     * 
      * For example, "/data/out/tmp" is changed to "tmp/out/data/" after localization.
      *
      * @param { string } path - Path to mirror, for example, "/data/out/tmp".
@@ -1133,6 +1113,26 @@ declare namespace i18n {
      * @since 23 static
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
+
+    /**
+     * Localizes a file path for the specified locale.
+     *
+     * For example, "/data/out/tmp" is changed to "tmp/out/data/" after localization.
+     *
+     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
+     * @param { string } [delimiter] - Path delimiter. The default value is "/".
+     * @param { intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
+     * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
+     *     the processed file path contains a direction control character to ensure that the file path is displayed in
+     *     mirror mode.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 18 dynamiconly
+     * @deprecated since 20
+     * @useinstead getUnicodeWrappedFilePath
+     */
+    static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: intl.Locale): string;
 
     /**
      * Converts a locale string into canonical locale identifier with BCP47 standard.
@@ -1212,10 +1212,10 @@ declare namespace i18n {
   export interface PhoneNumberFormatOptions {
     /**
      * Type of the phone number. The value can be **E164**, **INTERNATIONAL**, **NATIONAL**, **RFC3966**, or **TYPING**.
-     * 
+     *
      * - In API version 8, **type** is mandatory.
      * - In API version 9 or later, **type** is optional.
-     * - In API version 12 or later, TYPING is supported, which indicates that the dialed number is formatted in real 
+     * - In API version 12 or later, TYPING is supported, which indicates that the dialed number is formatted in real
      * time.
      * - In API version 23 or later, TYPING supports real-time obtaining of the home location of a dialed number.
      *
@@ -1231,7 +1231,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides phone number management capabilities, such as phone number validity verification, formatting, and home 
+   * Provides phone number management capabilities, such as phone number validity verification, formatting, and home
    * location retrieval.
    *
    * @syscap SystemCapability.Global.I18n
@@ -1272,7 +1272,7 @@ declare namespace i18n {
 
     /**
      * Formats a phone number.
-     * 
+     *
      * > **Description**
      * > > Formatting dialed phone numbers is supported since API version 12.
      *
@@ -1289,7 +1289,7 @@ declare namespace i18n {
 
     /**
      * Obtains the home location of a phone number.
-     * 
+     *
      * > **Description**
      * > > This API can be used to obtain the home location of a dialed number in real time since API version 23.
      *
@@ -1467,7 +1467,7 @@ declare namespace i18n {
      *         "millisecond": Millisecond.
      *         "week_of_year": Week of year. Note that the algorithm for calculating the first week of a year varies
      *             according to regions. For example, the first seven days in a year are the first week.
-     *         "year_woy": Year used with the week of year field. 
+     *         "year_woy": Year used with the week of year field.
      *         "week_of_month": Week of month.
      *         "day_of_week_in_month": Day of week in month.
      *         "day_of_year": Day of year.
@@ -1571,7 +1571,7 @@ declare namespace i18n {
   }
 
   /**
-   * Checks whether a language is an RTL language. For an RTL language, 
+   * Checks whether a language is an RTL language. For an RTL language,
    * [UI mirroring](docroot://internationalization/i18n-ui-design.md#ui-mirroring) is required.
    *
    * @param { string } locale - [System locale](docroot://internationalization/i18n-locale-culture.md#how-it-works),
@@ -1587,7 +1587,7 @@ declare namespace i18n {
   export function isRTL(locale: string): boolean;
 
   /**
-   * Obtains a **BreakIterator** object. The **BreakIterator** object maintains an internal break iterator that can be 
+   * Obtains a **BreakIterator** object. The **BreakIterator** object maintains an internal break iterator that can be
    * used to access various line break points.
    *
    * @param { string } locale - [System locale](docroot://internationalization/i18n-locale-culture.md#how-it-works),
@@ -1639,7 +1639,7 @@ declare namespace i18n {
     first(): int;
 
     /**
-     * Moves the break iterator to the last line break point, which is always the next position after the end of the 
+     * Moves the break iterator to the last line break point, which is always the next position after the end of the
      * processed text.
      *
      * @returns { int } Offset of the last line break point in the processed text.
@@ -1931,7 +1931,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides character attribute management capabilities, such as checking whether a character is a space, digit, or 
+   * Provides character attribute management capabilities, such as checking whether a character is a space, digit, or
    * letter.
    *
    * @syscap SystemCapability.Global.I18n
@@ -2069,70 +2069,70 @@ declare namespace i18n {
      *     checked. [since 12]
      * @returns { string } Type of the input character.U_UNASSIGNED： Non-category for unassigned and non-character code
      *     points. The value can be
-     *     
+     *
      *     U_GENERAL_OTHER_TYPES： Same as **U_UNASSIGNED**.
-     *     
+     *
      *     U_UPPERCASE_LETTER： Uppercase letter.
-     *     
-     *     U_LOWERCASE_LETTER： Lowercase letter. 
-     *     
+     *
+     *     U_LOWERCASE_LETTER： Lowercase letter.
+     *
      *     U_TITLECASE_LETTER： Title case letter.
-     *     
+     *
      *     U_MODIFIER_LETTER： Modifier letter.
-     *     
+     *
      *     U_OTHER_LETTER： Letters other than the uppercase letter, lowercase letter, title case letter, and modifier
      *     letter.
-     *     
+     *
      *     U_NON_SPACING_MARK： Non-spacing mark, such as the accent symbol **'** and the variable symbol **#**.
-     *     
+     *
      *     U_ENCLOSING_MARK： Enclosing mark, for example, a circle or a box.
-     *     
+     *
      *     U_COMBINING_SPACING_MARK： Spacing mark, for example, the vowel symbol **[]**.
-     *     
+     *
      *     U_DECIMAL_DIGIT_NUMBER： Decimal number.
-     *     
+     *
      *     U_LETTER_NUMBER： Letter and number (including Roman numeral).
-     *     
+     *
      *     U_OTHER_NUMBER： Other numbers, which are used as encryption symbols, marker symbols, or non-Arabic numerals,
      *     such as **@**, **#**, **(1)**, and **①**.
-     *     
+     *
      *     U_SPACE_SEPARATOR： Space separator, for example, a space character, uninterrupted space character, or space
      *     character with a fixed width.
-     *     
+     *
      *     U_LINE_SEPARATOR： Line separator.
-     *     
+     *
      *     U_PARAGRAPH_SEPARATOR： Paragraph separator.
-     *     
+     *
      *     U_CONTROL_CHAR： Control character.
-     *     
+     *
      *     U_FORMAT_CHAR： Format character.
-     *     
+     *
      *     U_PRIVATE_USE_CHAR： Privately used character, for example, a company logo.
-     *     
+     *
      *     U_SURROGATE： Surrogate, which is used to represent supplementary characters in UTF-16.
-     *     
+     *
      *     U_DASH_PUNCTUATION： Dash punctuation.
-     *     
+     *
      *     U_START_PUNCTUATION： Start punctuation, for example, the left parenthesis.
-     *     
+     *
      *     U_END_PUNCTUATION： End punctuation, for example, the right parenthesis.
-     *     
+     *
      *     U_INITIAL_PUNCTUATION ： Initial punctuation, for example, the left double quotation mark or left single
      *     quotation mark.
-     *     
+     *
      *     U_FINAL_PUNCTUATION： Final punctuation, for example, the right double quotation mark or right single
      *     quotation mark.
-     *     
+     *
      *     U_CONNECTOR_PUNCTUATION： Connector punctuation.
-     *     
+     *
      *     U_OTHER_PUNCTUATION： Other punctuations.
-     *     
+     *
      *     U_MATH_SYMBOL： Mathematical symbol.
-     *     
+     *
      *     U_CURRENCY_SYMBOL： Currency symbol.
-     *     
+     *
      *     U_MODIFIER_SYMBOL： Modifier symbol.
-     *     
+     *
      *     U_OTHER_SYMBOL： Other symbols.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
@@ -2166,7 +2166,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export interface EncodingInfo {  
+  export interface EncodingInfo {
     /**
      * Name of the detect encoding result, the value can be "UTF-8", "UTF-16BE", "UTF-16LE", "UTF-32BE",
      * "UTF-32LE", "Shift_JIS", "ISO-2022-JP", "ISO-2022-CN", "ISO-2022-KR", "GB18030", "Big5", "EUC-JP",
@@ -2283,7 +2283,7 @@ declare namespace i18n {
   export function getTimeZone(zoneID?: string): TimeZone;
 
   /**
-   * Provides time zone management capabilities, such as time zone name translation, offset retrieval, and transition 
+   * Provides time zone management capabilities, such as time zone name translation, offset retrieval, and transition
    * rule retrieval.
    *
    * @syscap SystemCapability.Global.I18n
@@ -2415,7 +2415,7 @@ declare namespace i18n {
     static getTimezonesByLocation(longitude: double, latitude: double): Array<TimeZone>;
 
     /**
-     * Obtains the time zone transition rules. For details about the time zone transition logic, see 
+     * Obtains the time zone transition rules. For details about the time zone transition logic, see
      * [DST Transition](docroot://internationalization/i18n-dst-transition.md).
      *
      * @returns { ZoneRules } Time zone transition rule, including the transition time and the offset before and after
@@ -3062,7 +3062,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides holiday data parsing capabilities, such as determining holidays and obtaining the holiday list of a 
+   * Provides holiday data parsing capabilities, such as determining holidays and obtaining the holiday list of a
    * specified year.
    *
    * @syscap SystemCapability.Global.I18n
@@ -3168,7 +3168,7 @@ declare namespace i18n {
   }
 
   /**
-   * Provides entity recognition capabilities, which can be used to obtain the type and start and end positions of an 
+   * Provides entity recognition capabilities, which can be used to obtain the type and start and end positions of an
    * entity in the text. Currently, supported entities include phone numbers, and date and time.
    *
    * @syscap SystemCapability.Global.I18n
@@ -3179,7 +3179,7 @@ declare namespace i18n {
    */
   export class EntityRecognizer {
     /**
-     * Creates an **entityRecognizer** object. This object is used to recognize entities in the text for the specified 
+     * Creates an **entityRecognizer** object. This object is used to recognize entities in the text for the specified
      * locale.
      *
      * @param { string } [locale] - [Locale ID](docroot://internationalization/i18n-locale-culture.md#how-it-works),
@@ -3213,8 +3213,27 @@ declare namespace i18n {
   }
 
   /**
-   * Obtains a **SimpleDateTimeFormat** object based on the specified pattern string. For details about the difference 
-   * between the objects obtained by this API and 
+   * Obtains a **SimpleDateTimeFormat** object based on the specified pattern string. For details about the difference
+   * between the objects obtained by this API and
+   * [getSimpleDateTimeFormatBySkeleton]{@link i18n.getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale)}
+   * , see the examples in [SimpleDateTimeFormat.format]{@link i18n.SimpleDateTimeFormat#format}.
+   *
+   * @param { string } pattern - Valid pattern, which supports free combinations of field patterns in
+   *     [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table). This
+   *     parameter also supports custom text enclosed in single quotation marks (`''`).
+   * @param { Intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
+   * @returns { SimpleDateTimeFormat } **SimpleDateTimeFormat** object.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @atomicservice
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
+
+  /**
+   * Obtains a **SimpleDateTimeFormat** object based on the specified pattern string. For details about the difference
+   * between the objects obtained by this API and
    * [getSimpleDateTimeFormatBySkeleton]{@link i18n.getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale)}
    * , see the examples in [SimpleDateTimeFormat.format]{@link i18n.SimpleDateTimeFormat#format}.
    *
@@ -3233,14 +3252,14 @@ declare namespace i18n {
   export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale): SimpleDateTimeFormat;
 
   /**
-   * Obtains a **SimpleDateTimeFormat** object based on the specified pattern string. For details about the difference 
-   * between the objects obtained by this API and 
-   * [getSimpleDateTimeFormatBySkeleton]{@link i18n.getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale)}
+   * Obtains a **SimpleDateTimeFormat** object based on the specified skeleton. For details about the difference between
+   * the objects obtained by this API and
+   * [getSimpleDateTimeFormatByPattern]{@link i18n.getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale)}
    * , see the examples in [SimpleDateTimeFormat.format]{@link i18n.SimpleDateTimeFormat#format}.
    *
-   * @param { string } pattern - Valid pattern, which supports free combinations of field patterns in
+   * @param { string } skeleton - Valid skeleton, which supports free combinations of field patterns in
    *     [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table). This
-   *     parameter also supports custom text enclosed in single quotation marks (`''`).
+   *     parameter does not support custom text.
    * @param { Intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
    * @returns { SimpleDateTimeFormat } **SimpleDateTimeFormat** object.
    * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -3249,11 +3268,11 @@ declare namespace i18n {
    * @since 20 dynamic
    * @since 23 static
    */
-  export function getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale): SimpleDateTimeFormat;
+  export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
   /**
    * Obtains a **SimpleDateTimeFormat** object based on the specified skeleton. For details about the difference between
-   * the objects obtained by this API and 
+   * the objects obtained by this API and
    * [getSimpleDateTimeFormatByPattern]{@link i18n.getSimpleDateTimeFormatByPattern(pattern: string, locale?: intl.Locale)}
    * , see the examples in [SimpleDateTimeFormat.format]{@link i18n.SimpleDateTimeFormat#format}.
    *
@@ -3270,25 +3289,6 @@ declare namespace i18n {
    * @useinstead getSimpleDateTimeFormatBySkeleton
    */
   export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleDateTimeFormat;
-
-  /**
-   * Obtains a **SimpleDateTimeFormat** object based on the specified skeleton. For details about the difference between
-   * the objects obtained by this API and 
-   * [getSimpleDateTimeFormatByPattern]{@link i18n.getSimpleDateTimeFormatByPattern(pattern: string, locale?: Intl.Locale)}
-   * , see the examples in [SimpleDateTimeFormat.format]{@link i18n.SimpleDateTimeFormat#format}.
-   *
-   * @param { string } skeleton - Valid skeleton, which supports free combinations of field patterns in
-   *     [Date Field Symbol Table](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table). This
-   *     parameter does not support custom text.
-   * @param { Intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
-   * @returns { SimpleDateTimeFormat } **SimpleDateTimeFormat** object.
-   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
-   * @syscap SystemCapability.Global.I18n
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  export function getSimpleDateTimeFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleDateTimeFormat;
 
   /**
    * Provide a simple date time formatting interface.
@@ -3318,6 +3318,23 @@ declare namespace i18n {
    * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
    *     [Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons)
    *     .
+   * @param { Intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
+   * @returns { SimpleNumberFormat } **SimpleNumberFormat** object.
+   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+   * @syscap SystemCapability.Global.I18n
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleNumberFormat;
+
+  /**
+   * Obtains a **SimpleNumberFormat** object based on the specified skeleton.
+   *
+   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
+   *     [Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons)
+   *     .
    * @param { intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
    * @returns { SimpleNumberFormat } **SimpleNumberFormat** object.
    * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
@@ -3329,23 +3346,6 @@ declare namespace i18n {
    * @useinstead getSimpleNumberFormatBySkeleton
    */
   export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: intl.Locale): SimpleNumberFormat;
-
-  /**
-   * Obtains a **SimpleNumberFormat** object based on the specified skeleton.
-   *
-   * @param { string } skeleton - Valid skeleton. For details about the supported characters and their meanings, see
-   *     [Number Skeletons](https://unicode-org.github.io/icu/userguide/format_parse/numbers/skeletons.html#number-skeletons)
-   *     .
-   * @param { Intl.Locale } [locale] - **Locale** object. The default value is the current system locale.
-   * @returns { SimpleNumberFormat } **SimpleNumberFormat** object.
-   * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
-   * @syscap SystemCapability.Global.I18n
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  export function getSimpleNumberFormatBySkeleton(skeleton: string, locale?: Intl.Locale): SimpleNumberFormat;
 
   /**
    * Formats a number based on the specified skeleton string.
@@ -3381,6 +3381,19 @@ declare namespace i18n {
     /**
      * Creates a **NumberFormat** object for rich text display.
      *
+     * @param { Intl.NumberFormat | SimpleNumberFormat } numberFormat - **NumberFormat** object.
+     * @param { StyledNumberFormatOptions } [ options ] - Configuration options of the **NumberFormat** object. The
+     *     default value is the default text style.
+     * @syscap SystemCapability.Global.I18n
+     * @atomicservice
+     * @since 20 dynamic
+     * @since 23 static
+     */
+    constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
+
+    /**
+     * Creates a **NumberFormat** object for rich text display.
+     *
      * @param { intl.NumberFormat | SimpleNumberFormat } numberFormat - **NumberFormat** object.
      * @param { StyledNumberFormatOptions } [ options ] - Configuration options of the **NumberFormat** object. The
      *     default value is the default text style.
@@ -3391,19 +3404,6 @@ declare namespace i18n {
      * @useinstead constructor
      */
     constructor(numberFormat: intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
-
-    /**
-     * Creates a **NumberFormat** object for rich text display.
-     *
-     * @param { Intl.NumberFormat | SimpleNumberFormat } numberFormat - **NumberFormat** object.
-     * @param { StyledNumberFormatOptions } [ options ] - Configuration options of the **NumberFormat** object. The
-     *     default value is the default text style.
-     * @syscap SystemCapability.Global.I18n
-     * @atomicservice
-     * @since 20 dynamic
-     * @since 23 static
-     */
-    constructor(numberFormat: Intl.NumberFormat | SimpleNumberFormat, options?: StyledNumberFormatOptions);
 
     /**
      * Formats a number as a rich text object.
@@ -3912,7 +3912,7 @@ declare namespace i18n {
      * @atomicservice
      * @since 26.0.0 dynamic
      */
-    export class SymbolDateTimeFormat extends Intl.DateTimeFormat {    
+    export class SymbolDateTimeFormat extends Intl.DateTimeFormat {
     /**
      * A constructor used to create a SymbolDateTimeFormat object.
      *
@@ -4068,7 +4068,7 @@ declare namespace i18n {
   /**
    * Provide a Number formatting interface that supports custom symbols.
    * This interface formats number values into strings with custom symbols,
-   * and can replace variable symbols in the formatted result with custom fixed symbols 
+   * and can replace variable symbols in the formatted result with custom fixed symbols
    * (e.g., replacing "null" to "NA").
    *
    * @syscap SystemCapability.Global.I18n
@@ -4257,7 +4257,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export interface ResolvedSymbolNumberFormatOptions extends Intl.ResolvedNumberFormatOptions {  
+  export interface ResolvedSymbolNumberFormatOptions extends Intl.ResolvedNumberFormatOptions {
     /**
      * Zero symbol of localized number part, such as "0".
      *
@@ -4318,7 +4318,7 @@ declare namespace i18n {
      */
     groupingSeparator?: string;
   }
-  
+
   /**
    * Provide a DateTime formatting interface which could format date to ISO 8601 standard string.
    * [ISO8601](https://iso8601.com/).
@@ -4328,7 +4328,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export class ISO8601DateTimeFormat {  
+  export class ISO8601DateTimeFormat {
     /**
      * A constructor used to create a ISO8601DateTimeFormat object.
      *
@@ -4364,7 +4364,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export interface ISO8601DateTimeFormatOptions {  
+  export interface ISO8601DateTimeFormatOptions {
     /**
      * The ISO 8601 date format to format. The value can be: "calendar", the format is yyyy-MM-dd; "ordinal",
      * the format is yyyy-DDD; "week", the format is YYYY-Www-e. Default value is "calendar".
@@ -4482,7 +4482,7 @@ declare namespace i18n {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  export interface ChineseCalendarTime {  
+  export interface ChineseCalendarTime {
     /**
      * The gregorian year of date.
      * If you need to convert between the chinese calendar and the Gregorian calendar,
