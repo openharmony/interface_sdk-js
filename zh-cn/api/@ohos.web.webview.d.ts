@@ -5117,10 +5117,10 @@ declare namespace webview {
     webPageSnapshot(info: SnapshotInfo, callback: AsyncCallback<SnapshotResult>): void;
 
     /**
-     * 根据指定的请求信息和附加的http请求头去预获取资源请求，存入内存缓存，并指定其缓存key和有效期，以加快加载速度。目前仅支持Content-Type为application/x-www-form-urlencoded的
-     * post请求。最多可以预获取6个post请求。如果要预获取第7个，请通过
-     * [clearPrefetchedResource]{@link webview.WebviewController.clearPrefetchedResource}清除不需要的post请求缓存，否则会自动清除最早预获取的
-     * post缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的post请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
+     * 根据指定的请求信息和附加的HTTP请求头去预获取资源请求，存入内存缓存，并指定其缓存key和有效期，以加快加载速度。目前仅支持Content-Type为application/x-www-form-urlencoded的
+     * POST请求。最多可以预获取6个POST请求。如果要预获取第7个，请通过
+     * [clearPrefetchedResource]{@link webview.WebviewController.clearPrefetchedResource}清除不需要的POST请求缓存，否则会自动清除最早预获取的
+     * POST缓存。如果要使用预获取的资源缓存，开发者需要在正式发起的POST请求的请求头中增加键值“ArkWebPostCacheKey”，其内容为对应缓存的cacheKey。
      *
      * 内存缓存中的资源由内核自动管理，当注入的资源过多导致内存压力过大，内核自动释放未使用的资源，应避免注入大量资源到内存缓存中。
      *
