@@ -21,13 +21,15 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * This module provides the capability of obtaining open anonymous device identifiers (OAIDs).
- *
+ * This module provides the capability of obtaining and resetting the Open Anonymous Device Identifier (OAID).
+ * 
  * > **NOTE**
- *
- * > - To use the OAID APIs, you must
- * > [request authorization from users](docroot://security/AccessToken/request-user-authorization.md): ohos
- * > .permission.APP_TRACKING_CONSENT.
+ * 
+ * 
+ * 
+ * > To use the API for obtaining the OAID, you need to 
+ * > [request user authorization](docroot://security/AccessToken/request-user-authorization.md) (the permission is 
+ * > enabled by default): ohos.permission.APP_TRACKING_CONSENT.
  *
  * @syscap SystemCapability.Advertising.OAID
  * @since 10
@@ -37,12 +39,13 @@ declare namespace identifier {
    * Obtains the OAID. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.APP_TRACKING_CONSENT
-   * @param { AsyncCallback<string> } callback - Callback used to return the OAID.<br>1. If the application has
-   *     configured the permission **ohos.permission.APP_TRACKING_CONSENT** and the permission is allowed, the OAID is
-   *     returned.<br>2. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT** and
-   *     the permission is disallowed, 00000000-0000-0000-0000-000000000000 is returned.<br>3. If the application has
-   *     not configured the permission **ohos.permission.APP_TRACKING_CONSENT**, 00000000-0000-0000-0000-000000000000 is
-   *     returned.
+   * @param { AsyncCallback<string> } callback - Callback used to return the OAID.
+   *     1. If the app has configured the ohos.permission.APP_TRACKING_CONSENT permission and the cross-app association 
+   *     access permission is allowed, the OAID is returned.
+   *     2. If the app has configured the ohos.permission.APP_TRACKING_CONSENT permission and
+   *     the cross-app association access permission is disallowed, 00000000-0000-0000-0000-000000000000 is returned.
+   *     3. If the app has not configured the ohos.permission.APP_TRACKING_CONSENT permission, 
+   *     00000000-0000-0000-0000-000000000000 is returned.
    * @throws { BusinessError } 17300001 - System internal error.
    * @syscap SystemCapability.Advertising.OAID
    * @since 10
@@ -54,11 +57,12 @@ declare namespace identifier {
    *
    * @permission ohos.permission.APP_TRACKING_CONSENT
    * @returns { Promise<string> } Promise used to return the OAID.
-   *     <br>1. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT**
-   *     and the permission is allowed, the OAID is returned.
-   *     <br>2. If the application has configured the permission **ohos.permission.APP_TRACKING_CONSENT**
-   *     and the permission is disallowed, 00000000-0000-0000-0000-000000000000 is returned.
-   *     <br>3. If the application has not configured the permission **ohos.permission.APP_TRACKING_CONSENT**,
+   *     1. If the app has configured the ohos.permission.APP_TRACKING_CONSENT
+   *     permission and the cross-app association access permission is allowed, the OAID is returned.
+   *     2. If the app has configured the ohos.permission.APP_TRACKING_CONSENT permission
+   *     and the cross-app association access permission is disallowed, 00000000-0000-0000-0000-000000000000
+   *     is returned.
+   *     3. If the app has not configured the ohos.permission.APP_TRACKING_CONSENT permission,
    *     00000000-0000-0000-0000-000000000000 is returned.
    * @throws { BusinessError } 17300001 - System internal error.
    * @syscap SystemCapability.Advertising.OAID

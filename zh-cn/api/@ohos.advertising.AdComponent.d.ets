@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Ad Component
+ * @file 广告展示组件
  * @kit AdsKit
  */
 
@@ -31,7 +31,7 @@ import advertising from './@ohos.advertising';
 declare struct AdComponent {
   /**
    * 广告对象数组。
-   *
+   * 
    * 说明：非贴片广告类型，组件只展示数组第一个数据。
    *
    * @syscap SystemCapability.Advertising.Ads
