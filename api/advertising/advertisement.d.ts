@@ -17,14 +17,9 @@
  * @file Defines the advertisement data model
  * @kit AdsKit
  */
+
 /**
- * # How to Use
- *
- * When using the [advertising]{@link ./../@ohos.advertising:advertising} function, you can obtain the returned ad
- * through [Advertisement]{@link ./../@ohos.advertising:advertising.Advertisement}.
- */
-/**
- * This module provides the capability of returning ads.
+ * This module provides the requested ad content.
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -33,13 +28,15 @@
 export interface Advertisement {
   /**
    * Ad type.
-   *
-   * - **1**: splash ad.
-   * - **3**: native ad.
-   * - **7**: rewarded ad.
-   * - **8**: banner ad.
-   * - **12**: interstitial ad.
-   * - **60**: roll ad.
+   * 
+   * - 1: Splash ad.
+   * - 3: Native ad.
+   * - 7: Rewarded ad.
+   * - 8: Banner ad.
+   * - 12: Interstitial ad.
+   * - 60: Roll ad.
+   * 
+   * If not filled, the default is native ad type.
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -48,7 +45,15 @@ export interface Advertisement {
   adType: number;
 
   /**
-   * Server verification parameter.
+   * Server verification parameters.
+   * 
+   * {
+   * 
+   * customData: "test",
+   * 
+   * userId: "12345"
+   * 
+   * }
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -67,7 +72,7 @@ export interface Advertisement {
 
   /**
    * Whether users get rewarded for watching or clicking the ad.
-   *
+   * 
    * - **true**: Users get rewarded.
    * - **false**: Users do not get rewarded.
    *
@@ -79,7 +84,7 @@ export interface Advertisement {
 
   /**
    * Whether the ad is shown.
-   *
+   * 
    * - **true**: The ad is shown.
    * - **false**: The ad is not shown.
    *
@@ -91,7 +96,7 @@ export interface Advertisement {
 
   /**
    * Whether the ad is clicked.
-   *
+   * 
    * - **true**: The ad is clicked.
    * - **false**: The ad is not clicked.
    *
@@ -102,7 +107,9 @@ export interface Advertisement {
   clicked: boolean;
 
   /**
-   * Custom parameter.
+   * Custom parameters.
+   * 
+   * <!--RP1--><!--RP1End-->
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]

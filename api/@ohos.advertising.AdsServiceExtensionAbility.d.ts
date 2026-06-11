@@ -33,11 +33,13 @@ import type advertising from './@ohos.advertising';
 export default class AdsServiceExtensionAbility {
 
   /**
-   * Called when media application starts to load ad.
+   * Called when the media application starts to load an ad.
+   * The device vendor needs to implement the ad request service logic
+   * in this API and send the result to the media application through a call back.
    *
-   * @param { advertising.AdRequestParams } adParam - Indicates the parameters in the request.
-   * @param { advertising.AdOptions } adOptions - Indicates the ad options.
-   * @param { RespCallback } respCallback - The response callback.
+   * @param { advertising.AdRequestParams } adParam - Ad request parameters.
+   * @param { advertising.AdOptions } adOptions - Ad configuration options.
+   * @param { RespCallback } respCallback - Ad request callback.
    * @syscap SystemCapability.Advertising.Ads
    * @systemapi
    * @since 11
@@ -45,16 +47,19 @@ export default class AdsServiceExtensionAbility {
   onLoadAd(adParam: advertising.AdRequestParams, adOptions: advertising.AdOptions, respCallback: RespCallback);
 
   /**
-   * Called when media application starts to load ad with multi-slots.
+   * Called when the media application starts to load multiple ads.
+   * The device vendor needs to implement the ad request service logic
+   * in this API and send the result to the media application through a call back.
    *
-   * @param { advertising.AdRequestParams[] } adParams - Indicates the parameters in the request.
-   * @param { advertising.AdOptions } adOptions - Indicates the ad options.
-   * @param { RespCallback } respCallback - The response callback.
+   * @param { advertising.AdRequestParams[] } adParams - Ad request parameters.
+   * @param { advertising.AdOptions } adOptions - Ad configuration options.
+   * @param { RespCallback } respCallback - Ad request callback.
    * @syscap SystemCapability.Advertising.Ads
    * @systemapi
    * @since 11
    */
-  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions, respCallback: RespCallback);
+  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions, 
+    respCallback: RespCallback);
 }
 
 /**
@@ -67,7 +72,8 @@ export interface RespCallback {
   /**
    * Data in the ad request callback.
    *
-   * @param { Map<string, Array<advertising.Advertisement>> } respData - Data in the ad request callback.
+   * @param { Map<string, Array<advertising.Advertisement>> } respData - Callback data of ad requests.
+   *     It is a mapping collection that takes ad unit ID as the key and stores acquired ad content.
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */

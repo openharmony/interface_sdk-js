@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Ads Service Framework
+ * @file 广告服务框架
  * @kit AdsKit
  */
 import type web_webview from './@ohos.web.webview';
@@ -23,6 +23,10 @@ import type { Advertisement as _Advertisement } from './advertising/advertisemen
 
 /**
  * 本模块提供广告操作能力，包括请求广告、展示广告。
+ * 
+ * > **说明：**
+ * >
+ * > 本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -116,18 +120,7 @@ declare namespace advertising {
     /**
      * 自定义参数。
      * 
-     * - isPreload：类型boolean，请求贴片广告时，用于区分普通在线请求和素材预加载请求。true：素材预加载请求，false：普通在线请求。默认值false。仅对贴片广告生效，其他广告请求不解析该参数。
-     * - enableDirectReturnVideoAd：类型boolean，原生广告自定义扩展参数，是否直接返回广告，不用等待所有广告素材下载完成。true：不等待广告素材下载完成，展示广告时在线加载素材；false：等待广告
-     * 素材下载完成，展示广告时从本地缓存中加载素材。如果不填以云侧配置为准。仅对原生广告生效，其他广告请求不解析该参数。
-     * - oaid: 类型string，开放匿名设备标识符，用于精准推送广告。不填无法获取到个性化广告。默认值为""。
-     * - tMax：类型number，交易的最大超时时间（包含网络延迟）单位ms。
-     * - cur：类型string，竞价请求支持的币种，支持传多个，用英文逗号分隔。当前支持五种货币：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元），不填则默认是CNY。
-     * - bidFloor：类型number或者string，实时竞价广告位的底价。如果底价是小数，请传入string避免丢失精度。
-     * - bidFloorCur：类型string，广告位底价使用的币种。如果bidFloor非空，则bidFloorCur也非空。当前只支持五种货币中的一种：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（
-     * 单位：英镑）、JPY（单位：日元），不填则默认是CNY。
-     * - bpkgName：类型string，广告位禁投的APP包名，支持传多个，用英文逗号分隔。
-     * - orientation ：类型number，媒体请求广告的屏幕方向。1表示竖屏，0表示横屏，不设置则默认为1。当前未上架横屏开屏素材，若设置请求屏幕方向为横屏则不展示开屏广告。如果媒体设置应用固定横屏展示，但该参数未设置或
-     * 者设置为1，则展示效果会受影响。
+     * <!--RP2--><!--RP2End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -150,6 +143,7 @@ declare namespace advertising {
      * -1：默认值，不确定。
      * 0：不希望。
      * 1：希望。
+     * 
      * 默认为-1。
      *
      * @syscap SystemCapability.Advertising.Ads
@@ -165,6 +159,7 @@ declare namespace advertising {
      * PI：7+，家长指导。
      * J：12+，青少年。
      * A：16+/18+，成人受众。
+     * 
      * 不填以业务逻辑为准。
      *
      * @syscap SystemCapability.Advertising.Ads
@@ -175,8 +170,10 @@ declare namespace advertising {
 
     /**
      * 设置是否只请求非个性化广告。
+     * 
      * 0：请求个性化广告与非个性化广告。
      * 1：只请求非个性化广告。
+     * 
      * 不填以业务逻辑为准。
      *
      * @syscap SystemCapability.Advertising.Ads
@@ -188,10 +185,7 @@ declare namespace advertising {
     /**
      * 自定义参数。
      * 
-     * - totalDuration：类型number，单位：s。贴片广告必填自定义参数，用于设置贴片广告展示时长。
-     * - allowMobileTraffic：类型number。可选自定义参数，设置是否允许使用流量下载广告素材。0：不允许，1：允许，不设置以广告主设置为准。
-     * - tagForUnderAgeOfPromise：类型number。可选自定义参数，设置未成年保护标签。是否希望按适合未达到法定承诺年龄的欧洲经济区 (EEA) 用户的方式处理该广告请求。-1：默认值，不确定， 0：不希望 
-     * ， 1：希望。
+     * <!--RP1--><!--RP1End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -244,6 +238,7 @@ declare namespace advertising {
      * 
      * - true：静音播放。
      * - false：非静音播放。
+     * 
      * 不填以业务逻辑为准。
      *
      * @syscap SystemCapability.Advertising.Ads
@@ -269,10 +264,11 @@ declare namespace advertising {
     /**
      * 自定义参数。
      * 
-     * - refreshTime：AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。类型number，单位：ms，取值范围[30000, 120000]。如果不设置或取值为非数字或小于等于0的数字，则不轮
-     * 播，只会展示广告响应中的第一个广告内容。设置小于30000的数字取值30000，设置大于120000的数字取值120000。
-     * - colorMode：广告的主题色。类型number。0：深色主题， 1：浅色主题 ， 2：跟随系统。设置主题色功能从8.4.80.300版本开始支持，查看方式：可在设备上选择“设置> 应用和元服务” ，右上角点击“更多应用
-     * ”，在应用界面查看智慧营销服务版本。
+     * - refreshTime：AutoAdComponent组件可选自定义参数，用于控制广告的轮播时间间隔。类型number，单位：ms，取值范围
+     * [30000, 120000]。如果不设置或取值为非数字或小于等于0的数字，则不轮播，
+     * 只会展示广告响应中的第一个广告内容。设置小于30000的数字取值30000，设置大于120000的数字取值120000。
+     * 
+     * <!--RP3--><!--RP3End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -292,15 +288,31 @@ declare namespace advertising {
     /**
      * 广告状态回调。
      *
-     * @param { string } status - 广告展示状态。<br/>- onAdLoad：广告加载成功。<br/>- onAdFail：广告加载失败。<br/>- onAdOpen：打开广告。<br/>-
-     *     onAdClick：点击广告。<br/>- onAdClose：关闭广告。<br/>- onMediaProgress：广告播放进度。<br/>- onMediaStart：广告开始播放。<br/>-
-     *     onMediaPause：广告暂停播放。<br/>- onMediaStop：广告停止播放。<br/>- onMediaComplete：广告播放完成。<br/>- onMediaCountDown：广告倒计时。<br
-     *     />- onMediaError：广告播放失败。<br/>- onLandscape：竖屏状态下点击全屏按钮。<br/>- onPortrait：全屏状态下点击返回按钮。<br/>- onBackClicked：点击返
-     *     回按钮。
+     * @param { string } status - 广告展示状态。
+     *     - onAdLoad：广告加载成功。
+     *     - onAdFail：广告加载失败。
+     *     - onAdOpen：打开广告。
+     *     - onAdClick：点击广告。
+     *     - onAdClose：关闭广告。
+     *     - onMediaProgress：广告播放进度。
+     *     - onMediaStart：广告开始播放。
+     *     - onMediaPause：广告暂停播放。
+     *     - onMediaStop：广告停止播放。
+     *     - onMediaComplete：广告播放完成。
+     *     - onMediaCountDown：广告倒计时。
+     *     - onMediaError：广告播放失败。
+     *     - onLandscape：竖屏状态下点击全屏按钮。
+     *     - onPortrait：全屏状态下点击返回按钮。
+     *     - onBackClicked：点击返回按钮。
+     *     - onAdSubWindow：打开半模态。
      * @param { Advertisement } ad - 发生状态变化的广告内容。
-     * @param { string } data - 扩展信息。<br/>当status参数为onAdClose时，data值为关闭原因，关闭原因描述如下：<br/>- adShowEnded：广告展示结束。<br/>-
-     *     adCloseBtnClicked：点击关闭按钮。<br/>- adSkipBtnClicked：点击跳过。<br/>- adFeedbackClosed：负反馈关闭。<br/>- adBackgroundClosed
-     *     ：开屏切后台关闭。
+     * @param { string } data - 扩展信息。
+     *     当status参数为onAdClose时，data值为关闭原因，关闭原因描述如下：
+     *     - adShowEnded：广告展示结束。
+     *     - adCloseBtnClicked：点击关闭按钮。
+     *     - adSkipBtnClicked：点击跳过。
+     *     - adFeedbackClosed：负反馈关闭。
+     *     - adBackgroundClosed：开屏切后台关闭。
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -374,11 +386,11 @@ declare namespace advertising {
    * @param { Advertisement } ad - 广告对象。
    * @param { AdDisplayOptions } options - 广告展示参数。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境，不设置从api:
-   *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common)
-   *     中获取。 [since 11 - 11]
+   *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/
+   *     js-apis-app-ability-common)中获取。 [since 11 - 11]
    * @param { common.UIAbilityContext } [context] - UIAbility的上下文环境，不设置从api:
-   *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-app-ability-common)
-   *     中获取。 [since 12]
+   *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/
+   *     js-apis-app-ability-common)中获取。 [since 12]  
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
@@ -414,8 +426,7 @@ declare namespace advertising {
      * @param { AdOptions } adOptions - 广告配置参数。
      * @param { AdLoadListener } listener - 请求广告回调监听。
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
-     *     unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed
+     *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @throws { BusinessError } 801 - Device not supported. [since 12]
@@ -432,8 +443,7 @@ declare namespace advertising {
      * @param { AdOptions } adOptions - 广告配置参数。
      * @param { MultiSlotsAdLoadListener } listener - 请求广告回调监听。
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
-     *     unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed
+     *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @throws { BusinessError } 801 - Device not supported. [since 12]
@@ -448,10 +458,11 @@ declare namespace advertising {
    * 获取广告请求体，使用Promise异步回调（该接口仅对部分系统预置应用开放）。
    *
    * @param { AdRequestParams[] } adParams - 广告请求参数。
+   *     **说明：** 该接口体的adId参数可以为空。
    * @param { AdOptions } adOptions - 广告配置参数。
    * @returns { Promise<string> } Promise对象，返回字符类型的广告数据。
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
-   *     <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -466,7 +477,7 @@ declare namespace advertising {
    * @param { MultiSlotsAdLoadListener } listener - 请求广告回调监听。
    * @param { common.UIAbilityContext } context - UIAbility的上下文环境。
    * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
-   *     <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
@@ -502,7 +513,8 @@ declare namespace advertising {
    * @atomicservice
    * @since 16
    */
-  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void;
+  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, 
+    needRefresh: boolean): void;
 
   /**
    * 删除通过registerWebAdInterface注入的广告JavaScript对象（该接口仅对部分系统预置应用开放）。

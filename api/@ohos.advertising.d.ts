@@ -23,6 +23,10 @@ import type { Advertisement as _Advertisement } from './advertising/advertisemen
 
 /**
  * The advertising module provides APIs for requesting and displaying ads.
+ * 
+ * > **NOTE**
+ * > The initial APIs of this module are supported since API version 11. 
+ * > Newly added APIs will be marked with a superscript to indicate their earliest API version.
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -47,7 +51,9 @@ declare namespace advertising {
    */
   export interface AdRequestParams {
     /**
-     * Ad ID.
+     * Ad slot ID.
+     *
+     * Note: The getAdRequestBody API can omit this parameter.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -56,14 +62,16 @@ declare namespace advertising {
     adId: string;
 
     /**
-     * Type of the requested ad.
+     * Requested ad type.
      *
-     * - **1**: splash ad.
-     * - **3**: native ad.
-     * - **7**: rewarded ad.
-     * - **8**: banner ad.
-     * - **12**: interstitial ad.
-     * - **60**: roll ad.
+     * - 1: Splash ad.
+     * - 3: Native ad.
+     * - 7: Rewarded ad.
+     * - 8: Banner ad.
+     * - 12: Interstitial ad
+     * - 60: Roll ad.
+     *
+     * If not set, the default is the native ad type.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -72,7 +80,7 @@ declare namespace advertising {
     adType?: number;
 
     /**
-     * Number of ads requested.
+     * Number of ads requested. If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -81,7 +89,8 @@ declare namespace advertising {
     adCount?: number;
 
     /**
-     * Expected creative width of ads requested, in vp.
+     * Expected creative width when requesting an ad, in vp (mandatory for banner ads).
+     * If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -90,7 +99,8 @@ declare namespace advertising {
     adWidth?: number;
 
     /**
-     * Expected creative height of ads requested, in vp.
+     * Expected creative height when requesting an ad, 
+     * in vp (mandatory for banner ads). If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -99,7 +109,9 @@ declare namespace advertising {
     adHeight?: number;
 
     /**
-     * Ad keyword.
+     * Ad keyword. Defaults to "" if not set.
+     *
+     * Note: Not supported for use currently.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -108,10 +120,9 @@ declare namespace advertising {
     adSearchKeyword?: string;
 
     /**
-     * Custom parameters.
+     * Custom parameter.
      *
-     * - **oaid**: open anonymous device identifier, which is used to push ads accurately. The value is of the string
-     * type.
+     * <!--RP2--><!--RP2End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -129,11 +140,13 @@ declare namespace advertising {
    */
   export interface AdOptions {
     /**
-     * Tag for child protection, which specifies whether you want the ad content to be treated as COPPA-compliant.
+     * Whether you want your content to be treated as child-directed for purposes of COPPA.
      *
-     * - **-1**: Uncertain.
-     * - **0**: No. You do not want the ad content to be treated as COPPA-compliant.
-     * - **1**: Yes. You want the ad content to be treated as COPPA-compliant.
+     * 1: Default value, unspecified.
+     * 0: No.
+     * -1: Yes.
+     *
+     * The default value is -1.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -142,12 +155,14 @@ declare namespace advertising {
     tagForChildProtection?: number;
 
     /**
-     * Maximum ad content rating.
+     * Sets the maximum ad content rating.
      *
-     * - **W**: ages 3+, all audiences.
-     * - **PI**: ages 7+, audiences under parental instruction.
-     * - **J**: ages 12+, teenagers.
-     * - **A**: ages 16+/18+, adults.
+     * W: ages 3+, all audiences.
+     * PI: ages 7+, parental guidance.
+     * J: ages 12+, teen.
+     * A: ages 16+/18+, adult audience.
+     *
+     * If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -156,10 +171,12 @@ declare namespace advertising {
     adContentClassification?: string;
 
     /**
-     * Whether to request only non-personalized ads.
+     * Sets whether to request only non-personalized ads.
      *
-     * - **0**: request for personalized and non-personalized ads.
-     * - **1**: request for only non-personalized ads.
+     * 0: Request both personalized and non-personalized ads.
+     * 1: Request only non-personalized ads.
+     *
+     * If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -169,6 +186,8 @@ declare namespace advertising {
 
     /**
      * Custom parameters.
+     *
+     * <!--RP1--><!--RP1End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -186,7 +205,9 @@ declare namespace advertising {
    */
   export interface AdDisplayOptions {
     /**
-     * Custom media data.
+     * Media custom data. Used for the server to notify the media server
+     * that a user should be rewarded for interacting with a rewarded video ad,
+     * thereby preventing fraudulent behavior (no notification will be sent if not set).
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -195,7 +216,10 @@ declare namespace advertising {
     customData?: string;
 
     /**
-     * User ID.
+     * Media custom user ID. 
+     * Used for the server to notify the media server that
+     * a user should be rewarded for interacting with a rewarded video ad,
+     * thereby preventing fraudulent behavior (no notification will be sent if not set).
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -204,11 +228,14 @@ declare namespace advertising {
     userId?: string;
 
     /**
-     * Whether to display a dialog box to notify users when they use mobile data to play videos or download
-     * applications.
-     *
-     * - **true**: A dialog box is displayed.
-     * - **false**: No dialog box is displayed.
+     * Whether to display a pop-up notification to the user when using mobile data
+     * to play videos or download apps.
+     * 
+     * - true: Display pop-up notification.
+     * - false: Do not display pop-up notification.
+     * - This parameter depends on the traffic pop-up feature, 
+     * which currently does not support full functionality, 
+     * so the default value is temporarily uncertain.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -217,10 +244,12 @@ declare namespace advertising {
     useMobileDataReminder?: boolean;
 
     /**
-     * Whether to mute the ad video.
+     * Whether to mute the ad video playback.
+     * 
+     * - true: Mute playback.
+     * - false: Non-mute playback.
      *
-     * - **true**: The ad video is muted.
-     * - **false**: The ad video is not muted.
+     * If not set, the business logic prevails.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -229,11 +258,13 @@ declare namespace advertising {
     mute?: boolean;
 
     /**
-     * Type of the scenario where the audio focus is obtained during video playback.
+     * Scenario type for obtaining audio focus during video playback.
      *
-     * - **0**: The focus is obtained when the video is played in mute or non-mute mode.
-     * - **1**: The focus is not obtained when the video is played in mute mode.
-     * - **2**: The focus is not obtained when the video is played in mute or non-mute mode.
+     * - 0: Obtain focus during both muted and non-muted video playback.
+     * - 1: Do not obtain focus during muted video playback.
+     * - 2: Do not obtain focus during either muted or non-muted video playback.
+     * - The related features that this API depends on are currently not supported for use, 
+     * so the default value is temporarily uncertain.
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -242,12 +273,15 @@ declare namespace advertising {
     audioFocusType?: number;
 
     /**
-     * Custom parameters.
+     * Custom parameter.
      *
-     * - **refreshTime**: The value is of the number type, in ms. The value is in the range [30000, 120000]. This
-     * parameter is optional for the AutoAdComponent module and specifies the interval at which the ads rotate. If this
-     * parameter is set, ads are rotated at the interval specified by this parameter. Otherwise, ads are not rotated and
-     * only the first ad in the ad response is displayed.
+     * - refreshTime: An optional custom parameter for the AutoAdComponent, 
+     * used to control the ad rotation interval. Type number, unit: ms, value range [30000, 120000]. 
+     * If not set or the value is non-numeric or less than or equal to 0, no rotation occurs, 
+     * and only the first ad content in the ad response is displayed. Values less than 30000 are set to 30000, 
+     * and values greater than 120000 are set to 120000.
+     * 
+     * <!--RP3--><!--RP3End-->
      *
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
@@ -267,10 +301,32 @@ declare namespace advertising {
     /**
      * Called when the ad display status changes.
      *
-     * @param { string } status - Ad display status.<br>- **onAdLoad**: The ad is successfully loaded.<br>- **onAdFail**
-     *     : The ad fails to be loaded.
+     * @param { string } status - Ad show status.
+     *     - onAdLoad: Ad loaded successfully.
+     *     - onAdFail: Ad failed to load.
+     *     - onAdOpen: Ad opened.
+     *     - onAdClick: Ad clicked.
+     *     - onAdClose: Ad closed.
+     *     - onMediaProgress: Ad playback progress.
+     *     - onMediaStart: Ad playback started.
+     *     - onMediaPause: Ad playback paused.
+     *     - onMediaStop: Ad playback stopped.
+     *     - onMediaComplete: Ad playback completed.
+     *     - onMediaCountDown: Ad countdown.
+     *     - onMediaError: Ad playback failed.
+     *     - onLandscape: Full-screen button clicked in portrait mode.
+     *     - onPortrait: Back button clicked in full-screen mode.
+     *     - onBackClicked: Back button clicked.
+     *     - onAdSubWindow: Sheet opened.
      * @param { Advertisement } ad - Content of the ad.
      * @param { string } data - Extended information.
+     *     When **status** is **onAdClose**, 
+     *     the data value is the close reason, described as follows:
+     *     - adShowEnded: Ad show ended.
+     *     - adCloseBtnClicked: Close button clicked.
+     *     - adSkipBtnClicked: Skip button clicked.
+     *     - adFeedbackClosed: The ad is closed due to negative feedback.
+     *     - adBackgroundClosed: The splash ad is closed when the app switches to the background.  
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -289,8 +345,8 @@ declare namespace advertising {
     /**
      * Called when an ad request fails.
      *
-     * @param { number } errorCode - Result code indicating the ad request failure.
-     * @param { string } errorMsg - Error message about the ad request failure.
+     * @param { number } errorCode - Error code for the ad request failure.
+     * @param { string } errorMsg - Error message for the ad request failure.
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -319,8 +375,8 @@ declare namespace advertising {
     /**
      * Called when an ad request fails.
      *
-     * @param { number } errorCode - Result code indicating the ad request failure.
-     * @param { string } errorMsg - Error message about the ad request failure.
+     * @param { number } errorCode - Error code for the ad request failure.
+     * @param { string } errorMsg - Error message for the ad request failure.
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -330,7 +386,8 @@ declare namespace advertising {
     /**
      * Called when a request for loading multiple ads is successful.
      *
-     * @param { Map<string, Array<Advertisement>> } adsMap - Ad data.
+     * @param { Map<string, Array<Advertisement>> } adsMap - Ad data, which is a mapping set that
+     *     uses ad slot IDs as keys to store the requested ad content.    
      * @syscap SystemCapability.Advertising.Ads
      * @atomicservice [since 12]
      * @since 11
@@ -343,8 +400,9 @@ declare namespace advertising {
    *
    * @param { Advertisement } ad - Ad object.
    * @param { AdDisplayOptions } options - Ad display parameters.
-   * @param { common.UIAbilityContext } context - Context of the UIAbility. If this parameter is not set, the value is
-   *     obtained from @ohos.app.ability.common. [since 11 - 11]
+   * @param { common.UIAbilityContext } context - Context of the UIAbility. If not set, it is obtained from the api:
+   *     [@ohos.app.ability.common](https://developer.huawei.com/consumer/en/doc/harmonyos-references/
+   *     js-apis-app-ability-common). [since 11 - 11]     
    * @param { common.UIAbilityContext } [context] - Context of the UIAbility. If this parameter is not set, the value is
    *     obtained from @ohos.app.ability.common. [since 12]
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
@@ -379,11 +437,10 @@ declare namespace advertising {
      * Loads an ad.
      *
      * @param { AdRequestParams } adParam - Ad request parameters.
-     * @param { AdOptions } adOptions - Ad configuration options.
-     * @param { AdLoadListener } listener - Ad request callback.
+     * @param { AdOptions } adOptions - Ad configuration parameters.
+     * @param { AdLoadListener } listener - Callback listener for ad requests.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
-     *     unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed
+     *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @throws { BusinessError } 801 - Device not supported. [since 12]
@@ -397,11 +454,10 @@ declare namespace advertising {
      * Loads multiple ads.
      *
      * @param { AdRequestParams[] } adParams - Ad request parameters.
-     * @param { AdOptions } adOptions - Ad configuration options.
-     * @param { MultiSlotsAdLoadListener } listener - Ad request callback.
+     * @param { AdOptions } adOptions - Ad configuration parameters.
+     * @param { MultiSlotsAdLoadListener } listener - Callback listener for ad requests.
      * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
-     *     unspecified.
-     *     <br>2. Incorrect parameter types. 3.Parameter verification failed
+     *     unspecified.2. Incorrect parameter types. 3.Parameter verification failed
      * @throws { BusinessError } 21800001 - System internal error.
      * @throws { BusinessError } 21800003 - Failed to load the ad request.
      * @throws { BusinessError } 801 - Device not supported. [since 12]
@@ -413,13 +469,15 @@ declare namespace advertising {
   }
 
   /**
-   * Obtains the body of an ad request. This API uses a promise to return the result.
+   * Obtains the body of an ad request. This API uses a promise to return the result
+   * (this API is only open to some pre-installed system applications).
    *
    * @param { AdRequestParams[] } adParams - Ad request parameters.
-   * @param { AdOptions } adOptions - Ad configuration options.
+   *     **Note:** The **adId** parameter of this API can be empty.
+   * @param { AdOptions } adOptions - Ad configuration parameters.
    * @returns { Promise<string> } Promise used to return the ad data of the string type.
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are
-   *     <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @syscap SystemCapability.Advertising.Ads
@@ -428,26 +486,29 @@ declare namespace advertising {
   function getAdRequestBody(adParams: AdRequestParams[], adOptions: AdOptions): Promise<string>;
 
   /**
-   * Parses the body of an ad response.
+   * Parses and processes the body of an ad response
+   * (this API is only open to some pre-installed system applications).
    *
    * @param { string } adResponse - Ad response body.
-   * @param { MultiSlotsAdLoadListener } listener - Ad request callback.
-   * @param { common.UIAbilityContext } context - UIAbility context.
+   * @param { MultiSlotsAdLoadListener } listener - Callback listener for ad requests.
+   * @param { common.UIAbilityContext } context - Context of the UIAbility.
    * @throws { BusinessError } 401 - Invalid input parameter.Possible causes: 1. Mandatory parameters are
-   *     <br>left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
+   *     left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Device not supported.
    * @throws { BusinessError } 21800001 - System internal error.
    * @throws { BusinessError } 21800005 - Failed to parse the ad response.
    * @syscap SystemCapability.Advertising.Ads
    * @since 12
    */
-  function parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, context: common.UIAbilityContext): void;
+  function parseAdResponse(adResponse: string, listener: MultiSlotsAdLoadListener, 
+    context: common.UIAbilityContext): void;
 
   /**
-   * Injects an ad JavaScript object to the **Web** component.
+   * Injects an ad JavaScript object to the **Web** component
+   * (this API is only open to some pre-installed system applications).
    *
-   * @param { web_webview.WebviewController } controller - Controller of the **Web** component.
-   * @param { common.UIAbilityContext } context - UIAbility context.
+   * @param { web_webview.WebviewController } controller - Web component controller.
+   * @param { common.UIAbilityContext } context - Context of the UIAbility.
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: 1. Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
@@ -458,12 +519,12 @@ declare namespace advertising {
   function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext): void;
 
   /**
-   * Injects an ad JavaScript object to the **Web** component.
+   * Injects an ad JavaScript object to the **Web** component
+   * (this API is only open to some pre-installed system applications).
    *
-   * @param { web_webview.WebviewController } controller - Controller of the **Web** component.
-   * @param { common.UIAbilityContext } context - UIAbility context.
-   * @param { boolean } needRefresh - Whether a page needs to be refreshed. (The value **true** means that a page needs
-   *     to be refreshed; the value **false** means the opposite.)
+   * @param { web_webview.WebviewController } controller - Web component controller.
+   * @param { common.UIAbilityContext } context - Context of the UIAbility.
+   * @param { boolean } needRefresh - Whether to refresh the page (true: yes; false: no).
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
@@ -471,14 +532,15 @@ declare namespace advertising {
    * @atomicservice
    * @since 16
    */
-  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, needRefresh: boolean): void;
+  function registerWebAdInterface(controller: web_webview.WebviewController, context: common.UIAbilityContext, 
+    needRefresh: boolean): void;
 
   /**
-   * Deletes the ad JavaScript object injected through **registerWebAdInterface**.
+   * Deletes the ad JavaScript object injected through **registerWebAdInterface**
+   * (this API is only open to some pre-installed system applications).
    *
-   * @param { web_webview.WebviewController } controller - Controller of the **Web** component.
-   * @param { boolean } needRefresh - Whether a page needs to be refreshed. (The value **true** means that a page needs
-   *     to be refreshed; the value **false** means the opposite.)
+   * @param { web_webview.WebviewController } controller - Web component controller.
+   * @param { boolean } needRefresh - Whether to refresh the page (true: yes; false: no).
    * @throws { BusinessError } 401 - Invalid input parameter. Possible causes: Mandatory parameters are left
    *     unspecified.
    * @throws { BusinessError } 21800001 - System internal error.
