@@ -5971,15 +5971,6 @@ declare namespace audio {
     DEFAULT_BEHAVIOR = 0x00000000,
 
     /**
-     * Non-privacy VoIP, allowed to be recorded.
-     *
-     * @syscap SystemCapability.Multimedia.Audio.Core
-     * @stagemodelonly
-     * @since 26.0.0 dynamic&static
-     */
-    VOIP_PRIVACY_TYPE_PUBLIC = 0x00000001,
-
-    /**
      * When the system needs to stop or pause the audio stream, it performs a forced mute instead.
      * In the audio session scenario, the application will receive a notification
      * {@link #AUDIO_SESSION_STATE_CHANGE_HINT_MUTE} when muted
