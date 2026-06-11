@@ -5198,7 +5198,7 @@ declare namespace image {
   /**
    * Creates a PixelMap from existing pixel data. The pixel data will be copied and converted to the specified
    * pixel format to initialize the PixelMap.
-   * 
+   *
    * The following pixel formats are not supported for PixelMap creation:
    * RGBA_1010102, YCBCR_P010, YCRCB_P010, ASTC_4x4.
    *
@@ -5271,7 +5271,7 @@ declare namespace image {
   /**
    * Create pixelmap by data buffer.
    * 
-   * It is recommended to use {@link createPixelMapFromPixels}.
+   * Starting from API 26.0.0, it is recommended to use {@link createPixelMapFromPixels} instead for better exception handling capabilities.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5295,7 +5295,7 @@ declare namespace image {
   /**
    * Create pixelmap by data buffer.
    * 
-   * It is recommended to use {@link createPixelMapFromPixels}.
+   * Starting from API 26.0.0, it is recommended to use {@link createPixelMapFromPixels} instead for better exception handling capabilities.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5310,7 +5310,7 @@ declare namespace image {
   /**
    * Create pixelmap by data buffer.
    * 
-   * It is recommended to use {@link createPixelMapFromPixelsSync}.
+   * Starting from API 26.0.0, it is recommended to use {@link createPixelMapFromPixelsSync} instead for better exception handling capabilities.
    *
    * @param { ArrayBuffer } colors The image color buffer.
    * @param { InitializationOptions } options Initialization options for pixelmap.
@@ -5389,7 +5389,7 @@ declare namespace image {
   /**
    * Create an empty pixelmap.
    * 
-   * It is recommended to use {@link createEmptyPixelMap}.
+   * Starting from API 26.0.0, it is recommended to use {@link createEmptyPixelMap} instead for better exception handling capabilities.
    *
    * @param { InitializationOptions } options Initialization options for pixelmap.
    * @returns { PixelMap } Returns the instance if the operation is successful;Otherwise, return undefined.
@@ -6165,57 +6165,6 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readonly isEditable: boolean;
 
     /**
-     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
-     * This API uses a promise to return the result.
-     *
-     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
-     * @returns { Promise<void> } Promise that returns no value.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform [since 10]
-     * @form [since 12]
-     * @atomicservice [since 11]
-     * @since 7 dynamic
-     * @since 23 static
-     */
-    readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
-
-    /**
-     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
-     * This API uses an asynchronous callback to return the result.
-     *
-     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an error object.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform [since 10]
-     * @form [since 12]
-     * @atomicservice [since 11]
-     * @since 7 dynamic
-     * @since 23 static
-     */
-    readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
-
-    /**
-     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
-     * This API returns the result synchronously.
-     *
-     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
-     *     2.Incorrect parameter types. 3.Parameter verification failed.
-     * @throws { BusinessError } 501 - Resource Unavailable.
-     * @syscap SystemCapability.Multimedia.Image.Core
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
-     * @since 23 static
-     */
-    readPixelsToBufferSync(dst: ArrayBuffer): void;
-
-    /**
      * Reads all the pixel data from the PixelMap and writes the data to a buffer.
      * The resulting data will be in the same pixel format as the PixelMap.
      *
@@ -6257,17 +6206,13 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readAllPixelsToBufferSync(dst: ArrayBuffer): void;
 
     /**
-     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
-     * of this PixelMap object in the BGRA_8888 format and writes the data to the
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses a promise to return
-     * the result.
-     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
-     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
-     * component + 0.25 * V component)
-     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
-     * component + 1 * B component + 1 * A component)
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API uses a promise to return the result.
      *
-     * @param { PositionArea } area - Area from which the pixels will be read.
+     * Starting from API 26.0.0, it is recommended to use {@link readAllPixelsToBuffer} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 10]
@@ -6276,20 +6221,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    readPixels(area: PositionArea): Promise<void>;
+    readPixelsToBuffer(dst: ArrayBuffer): Promise<void>;
 
     /**
-     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
-     * of this PixelMap object in the BGRA_8888 format and writes the data to the
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses an asynchronous
-     * callback to return the result.
-     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
-     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
-     * component + 0.25 * V component)
-     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
-     * component + 1 * B component + 1 * A component)
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API uses an asynchronous callback to return the result.
      *
-     * @param { PositionArea } area - Area from which the pixels will be read.
+     * Starting from API 26.0.0, it is recommended to use {@link readAllPixelsToBuffer} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6299,25 +6240,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
+    readPixelsToBuffer(dst: ArrayBuffer, callback: AsyncCallback<void>): void;
 
     /**
-     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
-     * of this PixelMap object in the BGRA_8888 format and writes the data to the
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API returns the result
-     * synchronously.
+     * Reads the pixels of this PixelMap object based on the PixelMap's pixel format and writes the data to the buffer.
+     * This API returns the result synchronously.
      *
-     * @param { PositionArea } area - Area from which the pixels will be read.
+     * Starting from API 26.0.0, it is recommended to use {@link readAllPixelsToBufferSync} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } dst - Buffer to which the pixels will be written. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    readPixelsSync(area: PositionArea): void;
+    readPixelsToBufferSync(dst: ArrayBuffer): void;
 
     /**
      * Reads pixel data from a certain area of the PixelMap to a buffer. The resulting data will be in BGRA_8888 format.
@@ -6363,17 +6306,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     readPixelsToAreaSync(area: PositionArea): void;
 
     /**
-     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
-     * BGRA_8888 format and writes the data to the area specified by
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses a
-     * promise to return the result.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses a promise to return
+     * the result.
      * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
      * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
      * component + 0.25 * V component)
      * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
      * component + 1 * B component + 1 * A component)
      *
-     * @param { PositionArea } area - Area to which the pixels will be written.
+     * Starting from API 26.0.0, it is recommended to use {@link readPixelsToArea} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area from which the pixels will be read.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 10]
@@ -6382,20 +6327,22 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    writePixels(area: PositionArea): Promise<void>;
+    readPixels(area: PositionArea): Promise<void>;
 
     /**
-     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
-     * BGRA_8888 format and writes the data to the area specified by
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses an
-     * asynchronous callback to return the result.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API uses an asynchronous
+     * callback to return the result.
      * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
      * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
      * component + 0.25 * V component)
      * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
      * component + 1 * B component + 1 * A component)
      *
-     * @param { PositionArea } area - Area to which the pixels will be written.
+     * Starting from API 26.0.0, it is recommended to use {@link readPixelsToArea} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area from which the pixels will be read.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6405,26 +6352,27 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
+    readPixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
-     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
-     * BGRA_8888 format and writes the data to the area specified by
-     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API returns
-     * the result synchronously.
+     * Reads the pixels in the area specified by [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region
+     * of this PixelMap object in the BGRA_8888 format and writes the data to the
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels buffer. This API returns the result
+     * synchronously.
      *
-     * @param { PositionArea } area - Area to which the pixels will be written.
+     * Starting from API 26.0.0, it is recommended to use {@link readPixelsToAreaSync} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area from which the pixels will be read.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
-     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    writePixelsSync(area: PositionArea): void;
+    readPixelsSync(area: PositionArea): void;
 
     /**
      * Writes data from a buffer to a certain area of the PixelMap. The source data must be in BGRA_8888 format.
@@ -6472,11 +6420,19 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     writePixelsFromAreaSync(area: PositionArea): void;
 
     /**
-     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
-     * This API uses a promise to return the result.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses a
+     * promise to return the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * Starting from API 26.0.0, it is recommended to use {@link writePixelsFromArea} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area to which the pixels will be written.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 10]
@@ -6485,16 +6441,24 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    writeBufferToPixels(src: ArrayBuffer): Promise<void>;
+    writePixels(area: PositionArea): Promise<void>;
 
     /**
-     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
-     * This API uses an asynchronous callback to return the result.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API uses an
+     * asynchronous callback to return the result.
+     * You can use a formula to calculate the size of the memory to be applied for based on **PositionArea**.
+     * YUV region calculation formula: region to read (region.size{width * height}) * 1.5 (1 * Y component + 0.25 * U
+     * component + 0.25 * V component)
+     * RGBA region calculation formula: region to read (region.size{width * height}) * 4 (1 * R component + 1 * G
+     * component + 1 * B component + 1 * A component)
      *
-     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the pixels in the buffer are
-     *     successfully written to the PixelMap, **err** is **undefined**; otherwise, **err** is an error object.
+     * Starting from API 26.0.0, it is recommended to use {@link writePixelsFromArea} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area to which the pixels will be written.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 10]
      * @form [since 12]
@@ -6502,24 +6466,28 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 7 dynamic
      * @since 23 static
      */
-    writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
+    writePixels(area: PositionArea, callback: AsyncCallback<void>): void;
 
     /**
-     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
-     * This API returns the result synchronously.
+     * Reads the pixels in the [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.region buffer in the
+     * BGRA_8888 format and writes the data to the area specified by
+     * [PositionArea]{@link @ohos.multimedia.image:image.PositionArea}.pixels in this PixelMap object. This API returns
+     * the result synchronously.
      *
-     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
-     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * Starting from API 26.0.0, it is recommended to use {@link writePixelsFromAreaSync} instead for better exception handling capabilities.
+     *
+     * @param { PositionArea } area - Area to which the pixels will be written.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 501 - Resource Unavailable.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
+     * @form
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
      */
-    writeBufferToPixelsSync(src: ArrayBuffer): void;
+    writePixelsSync(area: PositionArea): void;
 
     /**
      * Reads the pixel data from a buffer and writes the data to the PixelMap.
@@ -6563,6 +6531,62 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * @since 26.0.0 dynamic&static
      */
     writeAllPixelsFromBufferSync(src: ArrayBuffer): void;
+
+    /**
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API uses a promise to return the result.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link writeAllPixelsFromBuffer} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    writeBufferToPixels(src: ArrayBuffer): Promise<void>;
+
+    /**
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API uses an asynchronous callback to return the result.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link writeAllPixelsFromBuffer} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the pixels in the buffer are
+     *     successfully written to the PixelMap, **err** is **undefined**; otherwise, **err** is an error object.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform [since 10]
+     * @form [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    writeBufferToPixels(src: ArrayBuffer, callback: AsyncCallback<void>): void;
+
+    /**
+     * Reads the pixels in the buffer based on the PixelMap's pixel format and writes the data to this PixelMap object.
+     * This API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link writeAllPixelsFromBufferSync} instead for better exception handling capabilities.
+     *
+     * @param { ArrayBuffer } src - Buffer from which the pixels are read. The buffer size is obtained by calling
+     *     [getPixelBytesNumber]{@link image.PixelMap.getPixelBytesNumber}.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+     *     2.Incorrect parameter types. 3.Parameter verification failed.
+     * @throws { BusinessError } 501 - Resource Unavailable.
+     * @syscap SystemCapability.Multimedia.Image.Core
+     * @crossplatform
+     * @atomicservice
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    writeBufferToPixelsSync(src: ArrayBuffer): void;
 
     /**
      * Convert pixelmap to standard dynamic range.
@@ -6703,6 +6727,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Sets an opacity rate for this image. This API uses an asynchronous callback to return the result. It is invalid
      * for YUV images.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link setOpacity} instead for better exception handling capabilities.
+     *
      * @param { double } rate - Opacity rate. The value range is (0,1].
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
@@ -6718,6 +6744,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Sets an opacity rate for this image. It is invalid for YUV images. This API uses a promise to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link setOpacity} instead for better exception handling capabilities.
+     *
      * @param { double } rate - Opacity rate. The value range is (0,1].
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -6731,6 +6759,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Sets an opacity rate for this image. This API returns the result synchronously. It is invalid for YUV images.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link setOpacitySync} instead for better exception handling capabilities.
      *
      * @param { double } rate - Opacity rate. The value range is (0,1].
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -6790,6 +6820,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
      * shadow effect. It is invalid for YUV images. This API uses a promise to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link extractAlphaPixelMap} instead for better exception handling capabilities.
+     *
      * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 10]
@@ -6803,6 +6835,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
      * shadow effect. It is invalid for YUV images. This API returns the result through a callback.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link extractAlphaPixelMap} instead for better exception handling capabilities.
      *
      * @param { AsyncCallback<PixelMap> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is undefined and **data** is the PixelMap object obtained; otherwise, **err** is an error object.
@@ -6818,6 +6852,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Creates a PixelMap object that contains only the alpha channel information. This object can be used for the
      * shadow effect. This API returns the result synchronously. It is invalid for YUV images.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link extractAlphaPixelMapSync} instead for better exception handling capabilities.
      *
      * @returns { PixelMap } PixelMap object. If the operation fails, an error is thrown.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Parameter verification failed.
@@ -6881,6 +6917,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Scales this image based on the scale factors of the width and height. This API uses an asynchronous callback to
      * return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyScale} instead for better exception handling capabilities.
+     *
      * @param { double } x - Scale factor of the width.
      * @param { double } y - Scale factor of the height.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -6898,6 +6936,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Scales this image based on the scale factors of the width and height. This API uses a promise to return the
      * result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyScale} instead for better exception handling capabilities.
+     *
      * @param { double } x - Scale factor of the width.
      * @param { double } y - Scale factor of the height.
      * @returns { Promise<void> } Promise that returns no value.
@@ -6912,6 +6952,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Scales this image based on the scale factors of the width and height. This API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyScaleSync} instead for better exception handling capabilities.
      *
      * @param { double } x - Scale factor of the width.
      * @param { double } y - Scale factor of the height.
@@ -6929,6 +6971,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales this image based on the specified anti-aliasing level and the scale factors for the width and height. This
      * API uses a promise to return the result.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyScale} instead for better exception handling capabilities.
      *
      * @param { double } x - Scale factor of the width.
      * @param { double } y - Scale factor of the height.
@@ -6949,6 +6993,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Scales this image based on the specified anti-aliasing level and the scale factors for the width and height. This
      * API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyScaleSync} instead for better exception handling capabilities.
      *
      * @param { double } x - Scale factor of the width.
      * @param { double } y - Scale factor of the height.
@@ -7048,6 +7094,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
      * height not exceed the width and height of the screen.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyTranslate} instead for better exception handling capabilities.
+     *
      * @param { double } x - X coordinate to translate, in px.
      * @param { double } y - Y coordinate to translate, in px.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -7066,6 +7114,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
      * height not exceed the width and height of the screen.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyTranslate} instead for better exception handling capabilities.
+     *
      * @param { double } x - X coordinate to translate, in px.
      * @param { double } y - Y coordinate to translate, in px.
      * @returns { Promise<void> } Promise that returns no value.
@@ -7082,6 +7132,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Translates this image based on given coordinates. This API returns the result synchronously.
      * The size of the translated image is changed to width+X and height+Y. It is recommended that the new width and
      * height not exceed the width and height of the screen.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyTranslateSync} instead for better exception handling capabilities.
      *
      * @param { double } x - X coordinate to translate, in px.
      * @param { double } y - Y coordinate to translate, in px.
@@ -7146,6 +7198,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Rotates this image based on a given angle. This API uses an asynchronous callback to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyRotate} instead for better exception handling capabilities.
+     *
      * @param { double } angle - Angle to rotate. Unit: degrees.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
      *     **err** is **undefined**; otherwise, **err** is an error object.
@@ -7161,6 +7215,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Rotates a PixelMap based on a given angle. This API uses a promise to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyRotate} instead for better exception handling capabilities.
+     *
      * @param { double } angle - Angle to rotate. Unit: degrees.
      * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -7174,6 +7230,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Rotates this image based on a given angle. This API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyRotateSync} instead for better exception handling capabilities.
      *
      * @param { double } angle - Angle to rotate. Unit: degrees.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
@@ -7234,6 +7292,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      * Flips this image horizontally or vertically, or both. This API uses an asynchronous callback to return the
      * result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyFlip} instead for better exception handling capabilities.
+     *
      * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
      *     **false** otherwise.
      * @param { boolean } vertical - Whether to flip the image vertically. **true** to flip the image vertically,
@@ -7252,6 +7312,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Flips a PixelMap based on a given angle. This API uses a promise to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyFlip} instead for better exception handling capabilities.
+     *
      * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
      *     **false** otherwise.
      * @param { boolean } vertical - Whether to flip the image vertically. **true** to flip the image vertically,
@@ -7268,6 +7330,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Flips this image horizontally or vertically, or both. This API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyFlipSync} instead for better exception handling capabilities.
      *
      * @param { boolean } horizontal - Whether to flip the image horizontally. **true** to flip the image horizontally,
      *     **false** otherwise.
@@ -7330,6 +7394,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Crops this image based on a given size. This API uses an asynchronous callback to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyCrop} instead for better exception handling capabilities.
+     *
      * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
      *     image.
      * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
@@ -7346,6 +7412,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     /**
      * Crops a PixelMap based on a given size. This API uses a promise to return the result.
      *
+     * Starting from API 26.0.0, it is recommended to use {@link applyCrop} instead for better exception handling capabilities.
+     *
      * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
      *     image.
      * @returns { Promise<void> } Promise that returns no value.
@@ -7360,6 +7428,8 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
 
     /**
      * Crops this image based on a given size. This API returns the result synchronously.
+     *
+     * Starting from API 26.0.0, it is recommended to use {@link applyCropSync} instead for better exception handling capabilities.
      *
      * @param { Region } region - Size of the image after cropping. The value cannot exceed the width or height of the
      *     image.
