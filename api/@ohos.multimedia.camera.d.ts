@@ -12727,7 +12727,7 @@ declare namespace camera {
      * @syscap SystemCapability.Multimedia.Camera.Core
      * @stagemodelonly
      * @atomicservice
-     * [@since](https://gitcode.com/since) 26.0.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     compressionQuality?: int;
   }
