@@ -11503,7 +11503,8 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Only main windows and subwindows not set followed are supported.
+     *     1. Only main windows and subwindows are supported.
+     *     2. Not supported when subwindows are set to follow the main window.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. When called on a main window, the parameter should not only contain SPLIT.
      *     2. When called on a sub window, the parameter should not contain SPLIT.
