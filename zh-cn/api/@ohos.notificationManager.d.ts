@@ -3385,11 +3385,13 @@ declare namespace notificationManager {
    * 设置通知开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
-   * @param { boolean } switchState - 是否启用通知开关。true表示启用通知开关，false表示禁用。
-   * @param { int } userId - 用户ID。
-   *     <br>取值为所有整数。
-   * @returns { Promise<void> } Promise对象，无返回值。
+   * @param { string } switchName  - 通知开关名称。取值为：DEAL（交易类通知聚合开关）、LOGISTICS（物流类通知聚合开关）。
+   * @param { boolean } switchState  - 是否开启通知开关。
+   *     - true：表示开启。
+   *     - false：表示关闭。
+   * @param { int } userId  - 用户ID。
+   *     <br>取值范围为全体整数。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error. Database operation failed.
@@ -3408,9 +3410,9 @@ declare namespace notificationManager {
    * 获取通知开关状态。使用Promise异步回调。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
+   * @param { string } switchName - 通知开关名称。取值为：DEAL（交易类通知聚合开关）、LOGISTICS（物流类通知聚合开关）。
    * @param { int } userId - 用户ID。
-   *     <br>取值为所有整数。
+   *     <br>取值范围为全体整数。
    * @returns { Promise<SwitchState> } Promise对象，返回通知开关状态。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.

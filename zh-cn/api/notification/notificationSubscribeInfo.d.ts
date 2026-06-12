@@ -110,8 +110,9 @@ export interface NotificationSubscribeInfo {
   pictureOptions?: PictureOptions;
 
   /**
-   * 是否启用通知分类。true表示启用通知分类，false表示禁用。
-   * 默认值：false。
+   * 是否启用通知分类。
+   * - true：表示启用。
+   * - false：表示禁用。默认值为false。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -121,8 +122,10 @@ export interface NotificationSubscribeInfo {
   enableClassification?: boolean;
  
   /**
-   * 是否启用订阅时的静默重放。true表示启用订阅时的静默重放，false表示禁用。
-   * 默认值：false。
+   * 是否启用订阅时的静默重放。
+   * - true：表示启用。
+   * - false：表示禁用。默认值为false。
+   * 启用后，首次订阅时会以静默方式重新推送历史通知，不会出现响铃和振动提醒。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

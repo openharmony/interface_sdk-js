@@ -3577,13 +3577,16 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
 
   /**
-   * Sets the notification switch state. This API uses a promise to return the result.
+   * Sets the status of the notification switch. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
-   * @param { boolean } switchState - Whether to enable the notification switch. The value **true** means to enable the
-   *     notification switch, and **false** means the opposite.
-   * @param { int } userId - User ID
+   * @param { string } switchName - Notification switch name. Values are:
+   *     DEAL (transaction-related notification aggregation switch) and
+   *     LOGISTICS (logistics-related notification aggregation switch).
+   * @param { boolean } switchState - Whether to enable the notification switch.
+   *     - true: enabled.
+   *     - false: disabled.
+   * @param { int } userId - User ID.
    *     <br>The value range is all integers.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3601,13 +3604,15 @@ declare namespace notificationManager {
   function setNotificationSwitch(switchName: string, switchState: boolean, userId: int): Promise<void>;
 
   /**
-   * Gets the notification switch state. This API uses a promise to return the result.
+   * Obtains the status of the notification switch. Use Promise asynchronous callbacks.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
-   * @param { int } userId - User ID
+   * @param { string } switchName - Notification switch name. Values ​​are:
+   *     DEAL (transaction-related notification aggregation switch) and
+   *     LOGISTICS (logistics-related notification aggregation switch).
+   * @param { int } userId - User ID.
    *     <br>The value range is all integers.
-   * @returns { Promise<SwitchState> } Promise used to return the result.
+   * @returns { Promise<SwitchState> } Promise used to return the notification switch status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error. Database operation failed.

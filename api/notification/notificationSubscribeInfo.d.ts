@@ -116,9 +116,9 @@ export interface NotificationSubscribeInfo {
   pictureOptions?: PictureOptions;
 
   /**
-   * Whether to enable notification classification. The value **true** means to enable the
-   * notification classification, and **false** means the opposite.
-   * Default value: Default value: false.
+   * Whether to enable the notification classification.
+   * - true: enabled.
+   * - false: disabled. The default value is false.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -128,9 +128,11 @@ export interface NotificationSubscribeInfo {
   enableClassification?: boolean;
  
   /**
-   * Whether to enable silent replay on subscribe. The value **true** means to enable the
-   * silent replay on subscribe, and **false** means the opposite.
-   * Default value: Default value: false.
+   * Whether to enable silent replay during subscription.
+   * - true: enabled.
+   * - false: disabled. The default value is false.
+   * If this function is enabled, historical notifications will be replayed silently when you subscribe to the first
+   * time, without ringing or vibrating.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -152,7 +154,7 @@ export interface VoiceContentOptions {
   /**
    * Whether to enable voice content generation for subscribed notifications. The value **true** means enable
    * the voice content generation, and **false** means the opposite.
-   * Default value: Default value: false.
+   * Default value: false.
    *
    * @default false
    * @syscap SystemCapability.Notification.Notification

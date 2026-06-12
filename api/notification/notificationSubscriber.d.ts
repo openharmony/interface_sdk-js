@@ -197,7 +197,9 @@ export interface NotificationSubscriber {
   onSystemUpdate?: SystemUpdateCallback;
 
   /**
-   * Callback used to return the notification switch state changes.
+   * Returns the notification switch state change set by the interface of
+   * [notificationManager.setNotificationSwitch]{@link
+   * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -280,8 +282,9 @@ export interface SubscribeCallbackData {
   readonly voiceContent?: VoiceContent;
 
   /**
-   * Notification classification information.
-   * Only present when enableClassification is true in NotificationSubscribeInfo.
+   * Notification classification information. Only exists if the
+   * [NotificationSubscribeInfo.enableClassification]{@link
+   * notificationSubscribeInfo:NotificationSubscribeInfo.enableClassification} is true.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -606,10 +609,13 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
 
 /**
- * Defines a callback function to listen for the notification switch state changes.
+ * Register the callback function type for notification switch state changes set by the interface of
+ * [notificationManager.setNotificationSwitch]{@link
+ * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
  *
- * @param { NotificationSwitchChangedCallbackData } callbackData - Callback used to return
- *     the notification switch state changes.
+ * @param { NotificationSwitchChangedCallbackData } callbackData - The callback returns information about the status
+ *     change of the notification switch set by the interface of
+ *     [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -638,7 +644,8 @@ export interface NotificationSwitchChangedCallbackData {
   readonly userId: int;
 
   /**
-   * Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
+   * Notification switch name. Values ​​are: DEAL (transaction-related notification aggregation switch) and LOGISTICS
+   * (logistics-related notification aggregation switch).
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
