@@ -702,7 +702,7 @@ declare namespace bundleManager {
     FENCE = 24,
 
     /**
-     * Indicates extension info with type of CALLER_INFO_QUERY
+     * CallerInfoQueryExtensionAbility：为开发者提供来去电信息查询能力
      *
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @since 19 dynamic

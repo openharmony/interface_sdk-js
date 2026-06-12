@@ -2632,8 +2632,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
 
     /**
-     * This common event means an application package enables or disables a dynamic icon.
-     * This is a protected common event that can only be sent by system.
+     * 表示应用动态图标发生变化的公共事件。
+     *
+     * 在应用的动态图标发生变更时，会发送此公共事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
