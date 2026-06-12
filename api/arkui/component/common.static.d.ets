@@ -7813,6 +7813,18 @@ export declare interface SheetOptions extends BindOptions {
      * @since 26.0.0 static
      */
     edgeLightMode?: EdgeLightMode;
+    /**
+ 	 * Specifies whether to enable blur optimization for the sheet.
+ 	 * When enabled, the sheet background will be rendered using a blur snapshot.
+ 	 * This property cannot be dynamically switched after the sheet is presented.
+ 	 *
+ 	 * @default false
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @systemapi
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	enableBlurSnapshot?: boolean;
 }
 /**
  * The custom styles function block.
