@@ -30,9 +30,12 @@ import { Callback } from '@ohos.base';
 import { TouchEvent } from '@ohos.arkui.component';
 
 /**
- * Defined the controller of node container.Provides lifecycle callbacks for the associated NodeContainer
- * and methods to control the child node of the NodeContainer.
- *
+* NodeController用于实现自定义节点的创建、显示、更新等操作的管理，并负责将自定义节点挂载到[NodeContainer]{@link node_container}上。
+*
+* > **说明：**
+* >
+* > - NodeController对象不支持使用JSON序列化。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -42,11 +45,19 @@ import { TouchEvent } from '@ohos.arkui.component';
 export declare abstract class NodeController {
 
   /**
-   * MakeNode Method. Used to build a node tree and return the a FrameNode or null, and
-   * attach the return result to the associated NodeContainer.
-   * Executed when the associated NodeContainer is created or the rebuild function is called.
+   * 当实例绑定的[NodeContainer]{@link node_container}创建的时候进行回调。回调方法将返回一个节点，将该节点挂载至[NodeContainer]{@link node_container}。
    *
-   * @param { UIContext } uiContext - uiContext used to makeNode
+   * 或者可以通过NodeController的rebuild()方法进行回调的触发。
+   *
+   * > **说明：**
+   * >
+   * > [NodeContainer]{@link node_container}不支持跨实例复用。如果出现跨实例复用[NodeContainer]{@link node_container}，传入
+   * > [NodeContainer]{@link node_container}的[NodeController]{@link NodeController}触发
+   * > [makeNode]{@link NodeController#makeNode}回调方法时，入参中的[UIContext]{@link @ohos.arkui.UIContext}对象可能为undefined，此时需要开发者
+   * > 判断入参中的[UIContext]{@link @ohos.arkui.UIContext}对象是否为undefined，防止后续使用此入参时出现
+   * > [UIContext无效的JS异常](docroot://ui/arkts-wrong-uicontext-debug.md#定位uicontext错误问题)。
+   *
+   * @param { UIContext } uiContext - 回调该方法的时候，绑定[NodeContainer]{@link node_container}的UI上下文。
    * @returns { FrameNode | null } - Returns a FrameNode or null.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -57,9 +68,8 @@ export declare abstract class NodeController {
   abstract makeNode(uiContext: UIContext): FrameNode | null;
 
   /**
-   * AboutToResize Method. Executed when the associated NodeContainer performs the measure method.
    *
-   * @param { Size } size - size used to resize
+   * @param { Size } size - 用于返回组件布局大小的宽和高，单位为vp。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -69,7 +79,9 @@ export declare abstract class NodeController {
   aboutToResize(size: Size): void;
 
   /**
-   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
+   * > **说明：**
+   * >
+   * > 回调时机参考[onAppear]{@link CommonMethod#onAppear}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -80,7 +92,9 @@ export declare abstract class NodeController {
   aboutToAppear(): void;
 
   /**
-   * AboutToDisappear Method. Executed before the associated NodeContainer is destroyed.
+   * > **说明：**
+   * >
+   * > 回调时机参考[onDisAppear]{@link CommonMethod#onDisAppear}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,7 +105,13 @@ export declare abstract class NodeController {
   aboutToDisappear(): void;
 
   /**
-   * Rebuild Method. Used to re invoke the makeNode method.
+   * 调用此接口通知[NodeContainer]{@link node_container}组件重新回调[makeNode]{@link NodeController#makeNode}方法，更改子节点。
+   *
+   * > **说明：**
+   * > > 由于rebuild方法为应用主动调用的方法，且该操作与UI相关。需要开发者自行保证调用该接口时UI上下文有效，即与绑定的NodeContainer保持UI上下文一致。
+   * >
+   * > 监听回调等[UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)时，可以通过[UIContext]{@link @ohos.arkui.UIContext}的
+   * > [runScopedTask](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#runscopedtask)方法明确调用时的UI上下文。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,9 +122,8 @@ export declare abstract class NodeController {
   rebuild(): void;
 
   /**
-   * OnTouchEvent Method. Executed when associated NodeContainer is touched.
    *
-   * @param { TouchEvent } event - The TouchEvent when associated NodeContainer is touched.
+   * @param { TouchEvent } event - 触摸事件。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -114,7 +133,9 @@ export declare abstract class NodeController {
   onTouchEvent(event: TouchEvent): void;
 
   /**
-   * OnAttach Method. Executed when the associated NodeContainer is attached to the main tree.
+   * > **说明：**
+   * >
+   * > 回调时机参考[onAttach]{@link CommonMethod#onAttach}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +146,9 @@ export declare abstract class NodeController {
   onAttach(): void;
 
   /**
-   * OnDetach Method. Executed when the associated NodeContainer is detached from the main tree.
+   * > **说明：**
+   * >
+   * > 回调时机参考[onDetach]{@link CommonMethod#onDetach}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -136,9 +159,8 @@ export declare abstract class NodeController {
   onDetach(): void;
 
   /**
-   * OnWillBind Method. Executed before the NodeController is bound to a NodeContainer.
    *
-   * @param { long } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - 回调该方法时，NodeController与NodeContainerId对应的[NodeContainer]{@link node_container}即将绑定。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -148,9 +170,8 @@ export declare abstract class NodeController {
   onWillBind(containerId: long): void;
 
   /**
-   * OnWillUnbind Method. Executed before the NodeController is unbind with the NodeContainer.
    *
-   * @param { long } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - 回调该方法时，NodeController与NodeContainerId对应的[NodeContainer]{@link node_container}即将解绑。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -160,9 +181,8 @@ export declare abstract class NodeController {
   onWillUnbind(containerId: long): void;
 
   /**
-   * OnBind Method. Executed when the NodeController is bound to a NodeContainer.
    *
-   * @param { long } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - 回调该方法时，NodeController与NodeContainerId对应的[NodeContainer]{@link node_container}绑定完成。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -172,9 +192,9 @@ export declare abstract class NodeController {
   onBind(containerId: long): void;
 
   /**
-   * OnUnbind Method. Executed when the NodeController is unbind with the NodeContainer.
+   * OnUnbind方法。解除NodeController与NodeContainer的绑定时执行。
    *
-   * @param { long } containerId - the uniqueId of the NodeContainer.
+   * @param { long } containerId - 回调该方法时，NodeController与NodeContainerId对应的[NodeContainer]{@link node_container}解绑完成。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
