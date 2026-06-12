@@ -369,7 +369,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
-   * @param { Callback<OperatingHandStatus> } callback - Callback used to return the result.
+   * @param { Callback<OperatingHandStatus> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
@@ -431,7 +431,7 @@ declare namespace motion {
    * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
    *     status change event.
-   * @param { Callback<HoldingHandStatus> }[callback] - Callback to unregister. If this parameter is not passed, all
+   * @param { Callback<HoldingHandStatus> } [callback] - Callback to unregister. If this parameter is not passed, all
    *     callbacks for the holding hand status change event will be unregistered.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.

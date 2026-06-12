@@ -120,7 +120,7 @@ declare namespace metadataBinding {
    * @param { 'operationSubmitMetadata' } type - Event type. This parameter has a fixed value of
    *     **operationSubmitMetadata**, indicating the system application's attempt to obtain the encoded metadata.
    * @param { string } bundleName - Application bundle name.
-   * @param { Callback<int> } callback - Callback used to return the encoded metadata.
+   * @param { Callback<int> } [callback] - Callback used to return the encoded metadata.
    * @throws { BusinessError } 32100001 - Internal handling failed.
    * @throws { BusinessError } 32100005 - Unsubscribe Failed. Possible causes:
    *     <br> 1. Abnormal system capability.

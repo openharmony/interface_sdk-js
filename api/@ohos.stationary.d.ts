@@ -65,7 +65,7 @@ declare namespace stationary {
    */
   enum ActivityEvent {
     /**
-     * Event indicating entering device status.
+     * Enter event.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -73,7 +73,7 @@ declare namespace stationary {
     ENTER = 1,
 
     /**
-     * Event indicating exiting device status.
+     * Exit event.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -81,7 +81,7 @@ declare namespace stationary {
     EXIT = 2,
 
     /**
-     * Event indicating entering and exiting device status.
+     * Enter and exit events.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -97,7 +97,7 @@ declare namespace stationary {
    */
   enum ActivityState {
     /**
-     * Event indicating entering device status.
+     * Enter state.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -105,7 +105,7 @@ declare namespace stationary {
     ENTER = 1,
 
     /**
-     * Event indicating exiting device status.
+     * Exit state.
      *
      * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
      * @since 9
@@ -140,7 +140,7 @@ declare namespace stationary {
    *
    * @param { ActivityType } activity - Device status type.
    * @param { ActivityEvent } event - Event type.
-   * @param { Callback<ActivityResponse> } callback - Callback used to receive reported data. If no value or
+   * @param { Callback<ActivityResponse> } [callback] - Callback used to receive reported data. If no value or
    *     **undefined** is passed, all callbacks associated with the specified event in the process will be unregistered.
    * @syscap SystemCapability.Msdp.DeviceStatus.Stationary
    * @since 9
