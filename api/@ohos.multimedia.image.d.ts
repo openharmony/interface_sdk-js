@@ -7747,9 +7747,16 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     setMetadata(key: HdrMetadataKey, value: HdrMetadataValue): Promise<void>;
 
     /**
-     * Checks whether the PixelMap is released. If so, then any method call that accesses the object's internal data will fail.
+     * Checks whether this PixelMap object is released. If released, any attempt to access the internal data of this
+     * object will fail.
+     * 
+     * > **NOTE**
+     * >
+     * > Release occurs when an ArkTS object relinquishes control over its associated native object. The memory occupied
+     * > by the native object is reclaimed only after all managing ArkTS objects have relinquished their control.
      *
-     * @returns { boolean } True if the PixelMap is released, false otherwise.
+     * @returns { boolean } Check result for whether the PixelMap object is released. **true** if released; **false**
+     *     otherwise.
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 22 dynamic
      * @since 23 static
@@ -7768,14 +7775,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     getUniqueId(): int;
 
     /**
-     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     * Creates an image that has been cropped and resized based on the specified cropping area, scale factors of the
+     * width and height, and anti-aliasing level. This API returns the result synchronously.
      *
-     * @param { Region } region The region of the source pixelmap to be cropped.
-     * @param { double } x The scale ratio of width.
-     * @param { double } y The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
-     *     The default value is AntiAliasingLevel.NONE.
-     * @returns { PixelMap } return the new cropped and scaled pixelmap.
+     * @param { Region } region - Area to crop. It must be within the original image's dimension (in pixels).
+     * @param { double } x - Scale factor of the width. It must not be **0**.
+     * @param { double } y - Scale factor of the height. It must not be **0**.
+     * @param { AntiAliasingLevel } [level] - Anti-aliasing level. Default value: **NONE**.
+     * @returns { PixelMap } PixelMap object. If the operation fails, an error is thrown.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
      * @throws { BusinessError } 7600204 - Invalid region.
      * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
@@ -7787,14 +7794,14 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
     createCroppedAndScaledPixelMapSync(region: Region, x: double, y: double, level?: AntiAliasingLevel): PixelMap;
 
     /**
-     * Creates a cropped and scaled PixelMap based on current PixelMap.
+     * Creates an image that has been cropped and resized based on the specified cropping area, scale factors of the
+     * width and height, and anti-aliasing level. This API uses a promise to return the result.
      *
-     * @param { Region } region The region of the source pixelmap to be cropped.
-     * @param { double } x The scale ratio of width.
-     * @param { double } y The scale ratio of height.
-     * @param { AntiAliasingLevel } [level] The anti-aliasing algorithm to be used.
-     *     The default value is AntiAliasingLevel.NONE.
-     * @returns { Promise<PixelMap> } A Promise instance used to return the PixelMap object.
+     * @param { Region } region - Area to crop. It must be within the original image's dimension (in pixels).
+     * @param { double } x - Scale factor of the width. It must not be **0**.
+     * @param { double } y - Scale factor of the height. It must not be **0**.
+     * @param { AntiAliasingLevel } [level] - Anti-aliasing level. Default value: **NONE**.
+     * @returns { Promise<PixelMap> } Promise used to return the PixelMap object.
      * @throws { BusinessError } 7600201 - The PixelMap has been released.
      * @throws { BusinessError } 7600204 - Invalid region.
      * @throws { BusinessError } 7600205 - Unsupported memory format or pixel format.
