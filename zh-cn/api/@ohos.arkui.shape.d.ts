@@ -19,7 +19,7 @@
  */
 
 /**
- * Describes the size of a shape.
+ * 形状的尺寸参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,14 +30,13 @@
  */
 interface ShapeSize {
   /**
-   * Width of the shape.
+   * 形状的宽度。
    * 
-   * When the parameter type is number, the valid value range is 
-   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。 
    * 
-   * Unit: vp.
+   * 单位：vp
    * 
-   * If the value is invalid, 0 vp is used.
+   * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -49,14 +48,13 @@ interface ShapeSize {
   width?: number | string;
 
   /**
-   * Height of the shape.
+   * 形状的高度。 
    * 
-   * When the parameter type is number, the valid value range is 
-   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。 
    * 
-   * Unit: vp.
+   * 单位：vp
    * 
-   * If the value is invalid, 0 vp is used.
+   * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,9 +67,9 @@ interface ShapeSize {
 }
 
 /**
- * Represents the parameter of the constructor used to create a **RectShape** object.
+ * RectShape 的构造函数参数。
  * 
- * This API inherits from [ShapeSize]{@link ShapeSize}.
+ * 继承自[ShapeSize]{@link ShapeSize}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -82,14 +80,13 @@ interface ShapeSize {
  */
 interface RectShapeOptions extends ShapeSize {
   /**
-   * Radius of the rectangle border corners.
+   * 矩形形状的圆角半径。
    * 
-   * When the parameter type is number, the valid value range is 
-   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
    * 
-   * Unit: vp.
+   * 单位：vp
    * 
-   * If the value is invalid, 0 vp is used.
+   * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,9 +99,9 @@ interface RectShapeOptions extends ShapeSize {
 }
 
 /**
- * Represents the parameter of the constructor used to create a **RectShape** object with rounded corners.
+ * RectShape 带有半径的构造函数参数。
  * 
- * This API inherits from [ShapeSize]{@link ShapeSize}.
+ * 继承自[ShapeSize]{@link ShapeSize}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -115,14 +112,13 @@ interface RectShapeOptions extends ShapeSize {
  */
 interface RoundRectShapeOptions extends ShapeSize {
   /**
-   * Radius width of the rectangle border corners.
+   * 矩形形状圆角半径的宽度。
    * 
-   * When the parameter type is number, the valid value range is 
-   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
    * 
-   * Unit: vp.
+   * 单位：vp
    * 
-   * If the value is invalid, 0 vp is used.
+   * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -134,14 +130,13 @@ interface RoundRectShapeOptions extends ShapeSize {
   radiusWidth?: number | string;
 
   /**
-   * Radius height of the rectangle border corners.
+   * 矩形形状圆角半径的高度。
    * 
-   * When the parameter type is number, the valid value range is 
-   * [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.
+   * 类型为number时取值范围是[0, +∞)，string时是[Length]{@link Length}。
    * 
-   * Unit: vp.
+   * 单位：vp
    * 
-   * If the value is invalid, 0 vp is used.
+   * 取值为异常值时按照0vp处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -154,7 +149,7 @@ interface RoundRectShapeOptions extends ShapeSize {
 }
 
 /**
- * Represents the parameter of the constructor used to create a **PathShape** object.
+ * PathShape的构造函数参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -165,7 +160,7 @@ interface RoundRectShapeOptions extends ShapeSize {
  */
 interface PathShapeOptions {
   /**
-   * Path drawing commands. For more about the commands, see [commands]{@link PathAttribute#commands}.
+   * 绘制路径的指令。更多说明请参考[commands]{@link PathAttribute#commands}支持的绘制命令。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -178,7 +173,7 @@ interface PathShapeOptions {
 }
 
 /**
- * Implements the common shape methods.
+ * 常见的形状方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -189,10 +184,10 @@ interface PathShapeOptions {
  */
 declare class CommonShapeMethod<T> {
   /**
-   * Sets the coordinate offset relative to the component's layout position.
+   * 设置相对于组件布局位置的坐标偏移。
    *
-   * @param { Position } offset - Coordinate offset relative to the component's layout position.
-   * @returns { T } Current object.
+   * @param { Position } offset - 相对于组件布局位置的坐标偏移。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -203,12 +198,10 @@ declare class CommonShapeMethod<T> {
   offset(offset: Position): T;
 
   /**
-   * Sets the fill color of this shape, which determines its opacity, with black representing full transparency and 
-   * white representing full opacity.
+   * 设置形状的填充区域的透明度，黑色表示完全透明，白色表示完全不透明。
    *
-   * @param { ResourceColor } color - Fill color of the shape, which represents the opacity of the fill area. The black
-   *     color indicates full transparency, while white indicates full opacity.
-   * @returns { T } Current object.
+   * @param { ResourceColor } color - 形状的填充区域的透明度，黑色表示完全透明，白色表示完全不透明。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -219,10 +212,10 @@ declare class CommonShapeMethod<T> {
   fill(color: ResourceColor): T;
 
   /**
-   * Sets the position of the shape.
+   * 设置形状的位置。
    *
-   * @param { Position } position - Position of the shape.
-   * @returns { T } Current object.
+   * @param { Position } position - 设置形状的位置。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -234,7 +227,7 @@ declare class CommonShapeMethod<T> {
 }
 
 /**
- * This API inherits from [CommonShapeMethod]{@link CommonShapeMethod}.
+ * 继承自[CommonShapeMethod]{@link CommonShapeMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -245,10 +238,10 @@ declare class CommonShapeMethod<T> {
  */
 declare class BaseShape<T> extends CommonShapeMethod<T> {
   /**
-   * Sets the width of a shape.
+   * 设置形状的宽度。
    *
-   * @param { Length } width - Width of the shape.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
-   * @returns { T } Current object.
+   * @param { Length } width - 形状的宽度。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -259,10 +252,10 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
   width(width: Length): T;
 
   /**
-   * Sets the height of a shape.
+   * 设置形状的高度。
    *
-   * @param { Length } height - Height of the shape.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
-   * @returns { T } Current object.
+   * @param { Length } height - 形状的高度。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -273,10 +266,10 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
   height(height: Length): T;
 
   /**
-   * Sets the size of a shape.
+   * 设置形状的大小。
    *
-   * @param { SizeOptions } size - Size of the shape.
-   * @returns { T } Current object.
+   * @param { SizeOptions } size - 形状的大小。
+   * @returns { T } 返回当前对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -288,9 +281,9 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
 }
 
 /**
- * Represents a rectangle shape used in the **clipShape** and **maskShape** APIs.
+ * 用于clipShape和maskShape接口的矩形形状。
  * 
- * This API inherits from [BaseShape]{@link BaseShape}.
+ * 继承自[BaseShape]{@link BaseShape}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -301,9 +294,9 @@ declare class BaseShape<T> extends CommonShapeMethod<T> {
  */
 export declare class RectShape extends BaseShape<RectShape> {
   /**
-   * A constructor used to create a **RectShape** object.
+   * 创建RectShape对象。
    *
-   * @param { RectShapeOptions | RoundRectShapeOptions } options - Rectangle parameters.
+   * @param { RectShapeOptions | RoundRectShapeOptions } options - 矩形形状参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -314,12 +307,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   constructor(options?: RectShapeOptions | RoundRectShapeOptions);
 
   /**
-   * Sets the radius width of the rectangle border corners.
+   * 设置矩形形状圆角半径的宽度。
    *
-   * @param { number | string } rWidth - Radius width of the rectangle border corners.<br> When the parameter type is
-   *     number, the valid value range is
-   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
-   * @returns { RectShape } **RectShape** object.
+   * @param { number | string } rWidth - 矩形形状圆角半径的宽度。<br/> 类型为number时取值范围是
+   *     [0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回RectShape对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -330,12 +322,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   radiusWidth(rWidth: number | string): RectShape;
 
   /**
-   * Sets the radius height of the rectangle border corners.
+   * 设置矩形形状圆角半径的高度。
    *
-   * @param { number | string } rHeight - Radius height of the rectangle border corners.<br> When the parameter type is
-   *     number, the valid value range is
-   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
-   * @returns { RectShape } **RectShape** object.
+   * @param { number | string } rHeight - 矩形形状圆角半径的高度。 <br/> 类型为number时取值范围是
+   *     [0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回RectShape对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -346,14 +337,11 @@ export declare class RectShape extends BaseShape<RectShape> {
   radiusHeight(rHeight: number | string): RectShape;
 
   /**
-   * Sets the radius of the rectangle border corners.
+   * 设置矩形形状的圆角半径。
    *
-   * @param { number | string | Array<number | string> } radius - Radius of the rectangle border corners. When an array
-   *     is provided, it should contain exactly four elements, corresponding to the radius of the upper left, upper
-   *     right, lower left, and lower right corners of the rectangle, respectively. If more than four elements are
-   *     contained, only the first four are accepted.<br> When the parameter type is number, the valid value range is
-   *     [0, +∞). When the parameter type is string, the value must conform to the [Length]{@link Length} type specification.<br>Unit: vp.<br>If the value is invalid, 0 vp is used.
-   * @returns { RectShape } **RectShape** object.
+   * @param { number | string | Array<number | string> } radius - 矩形形状的圆角半径。仅接受数组的前四个元素，分别为矩形左上，右上，左下，右下的圆角半径。<br/> 类型为
+   *     number时取值范围是[0, +∞)，string时是[Length]{@link Length}。<br/>单位：vp<br/>取值为异常值时按照0vp处理。
+   * @returns { RectShape } 返回RectShape对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -365,9 +353,9 @@ export declare class RectShape extends BaseShape<RectShape> {
 }
 
 /**
- * Represents a circle shape used in the **clipShape** and **maskShape** APIs.
+ * 用于clipShape和maskShape接口的圆形形状。
  * 
- * This API inherits from [BaseShape]{@link BaseShape}.
+ * 继承自[BaseShape]{@link BaseShape}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -378,9 +366,9 @@ export declare class RectShape extends BaseShape<RectShape> {
  */
 export declare class CircleShape extends BaseShape<CircleShape> {
   /**
-   * A constructor used to create a **CircleShape** object.
+   * 创建CircleShape对象。
    *
-   * @param { ShapeSize } options - Size of the shape.
+   * @param { ShapeSize } options - 形状的大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -392,9 +380,9 @@ export declare class CircleShape extends BaseShape<CircleShape> {
 }
 
 /**
- * Represents an ellipse shape used in the **clipShape** and **maskShape** APIs.
+ * 用于clipShape和maskShape接口的椭圆形状。
  * 
- * This API inherits from [BaseShape]{@link BaseShape}.
+ * 继承自[BaseShape]{@link BaseShape}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -405,9 +393,9 @@ export declare class CircleShape extends BaseShape<CircleShape> {
  */
 export declare class EllipseShape extends BaseShape<EllipseShape> {
   /**
-   * A constructor used to create a **EllipseShape** object.
+   * 创建CircleShape对象。
    *
-   * @param { ShapeSize } options - Size of the shape.
+   * @param { ShapeSize } options - 形状的大小。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -419,9 +407,9 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
 }
 
 /**
- * Represents a path used in the **clipShape** and **maskShape** APIs.
+ * 用于clipShape和maskShape接口的路径。
  * 
- * This API inherits from [CommonShapeMethod]{@link CommonShapeMethod}.
+ * 继承自[CommonShapeMethod]{@link CommonShapeMethod}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -432,9 +420,9 @@ export declare class EllipseShape extends BaseShape<EllipseShape> {
  */
 export declare class PathShape extends CommonShapeMethod<PathShape> {
   /**
-   * A constructor used to create a **PathShape** object.
+   * 创建PathShape对象。
    *
-   * @param { PathShapeOptions } options - Path parameters.
+   * @param { PathShapeOptions } options - 路径参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -445,10 +433,10 @@ export declare class PathShape extends CommonShapeMethod<PathShape> {
   constructor(options?: PathShapeOptions);
 
   /**
-   * Sets the path drawing commands.
+   * 设置路径的绘制指令。
    *
-   * @param { string } commands - Path drawing commands.
-   * @returns { PathShape } **PathShape** object.
+   * @param { string } commands - 路径的绘制指令。
+   * @returns { PathShape } 返回PathShape对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
