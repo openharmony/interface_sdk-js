@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the text data detector type.
+ * 定义文本数据检测类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +29,7 @@
 declare enum TextDataDetectorType {
 
   /**
-   * Phone number.
+   * 电话号码
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -39,7 +39,7 @@ declare enum TextDataDetectorType {
   PHONE_NUMBER = 0,
 
   /**
-   * URL.
+   * 链接
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -49,7 +49,7 @@ declare enum TextDataDetectorType {
   URL = 1,
 
   /**
-   * Email address.
+   * 邮箱
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -59,7 +59,7 @@ declare enum TextDataDetectorType {
   EMAIL = 2,
 
   /**
-   * Address.
+   * 地址
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,7 +69,7 @@ declare enum TextDataDetectorType {
   ADDRESS = 3,
 
   /**
-   * Time.
+   * 时间
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -80,7 +80,7 @@ declare enum TextDataDetectorType {
 }
 
 /**
- * This configuration is only available for the [Text]{@link text} and [RichEditor]{@link rich_editor} components.
+ * 该配置只支持[Text]{@link text}组件和[RichEditor]{@link rich_editor}组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -90,8 +90,7 @@ declare enum TextDataDetectorType {
 declare interface TextDataDetectorConfig {
 
   /**
-   * Entity types for text recognition. Values **null** and **[]** indicate that all types of entities can be
-   * recognized.
+   * 设置文本识别的实体类型。设置types为null或者[]时，识别所有类型的实体，否则只识别指定类型的实体。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -101,7 +100,7 @@ declare interface TextDataDetectorConfig {
   types: TextDataDetectorType[];
 
   /**
-   * Callback invoked when text recognition succeeds.
+   * 文本识别成功后，触发onDetectResultUpdate回调。
    *
    * @type { ?function } [since 11 - 11]
    * @type { ?Callback<string> } [since 12]
@@ -113,9 +112,9 @@ declare interface TextDataDetectorConfig {
   onDetectResultUpdate?: Callback<string>;
 
   /**
-   * Color of the entity after successful text detection.
-   *
-   * Default value: **'#ff0a59f7'**
+   * 设置文本识别成功后的实体颜色。
+   * 
+   * 默认值：'#ff0a59f7'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,18 +124,18 @@ declare interface TextDataDetectorConfig {
   color?: ResourceColor;
 
   /**
-   * Decoration style of the entity after successful text detection.
-   *
-   * Default value:
-   *
+   * 设置文本识别成功后的实体装饰线样式。
+   * 
+   * 默认值：
+   * 
    * {
-   *
+   * 
    *  type: TextDecorationType.Underline,
-   *
-   *  color: same as the entity
-   *
-   *  style: TextDecorationStyle.SOLID
-   *
+   * 
+   *  color: 与实体颜色一致,
+   * 
+   *  style: TextDecorationStyle.SOLID 
+   * 
    * }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -147,16 +146,13 @@ declare interface TextDataDetectorConfig {
   decoration?: DecorationStyleInterface;
 
   /**
-   * Whether to enable the preview menu displayed when long-pressing recognized text. The value **true** means to enable
-   * the preview menu, and **false** means the opposite.
-   *
-   * Default value: **false**
-   *
-   * When [copyOptions]{@link RichEditorAttribute#copyOptions} is set to **None**, even if **enablePreviewMenu** is set
-   * to **true**, long-pressing AI entities will not display the preview menu.
-   *
-   * This API can be properly called on phones and tablets, but has no effect on other devices such as PCs, 2-in-1
-   * devices, TVs, and wearables.
+   * 设置是否开启文本识别长按显示预览菜单。true表示开启，false表示未开启。
+   * 
+   * 默认值：false
+   * 
+   * 当[copyOptions]{@link RichEditorAttribute#copyOptions}设置为None时，若enablePreviewMenu设置为true，长按AI实体也不能显示预览菜单。
+   * 
+   * 该参数在Phone、Tablet中可正常调用，在PC/2in1、TV和Wearable等其他设备类型中无效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -167,7 +163,7 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
- * Defines the text range.
+ * 文本范围。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -178,7 +174,7 @@ declare interface TextDataDetectorConfig {
 declare interface TextRange {
 
   /**
-   * Start index.
+   * 起始索引。
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -190,7 +186,7 @@ declare interface TextRange {
   start?: number;
 
   /**
-   * End index.
+   * 结束索引。
    *
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -203,7 +199,7 @@ declare interface TextRange {
 }
 
 /**
- * Defines the inserted text value info.
+ * 定义插入的文本值信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -214,7 +210,7 @@ declare interface TextRange {
 declare interface InsertValue {
 
   /**
-   * Position of the inserted text.
+   * 插入的值的位置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -225,7 +221,7 @@ declare interface InsertValue {
   insertOffset: number;
 
   /**
-   * Content of the inserted text.
+   * 插入的值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,7 +233,7 @@ declare interface InsertValue {
 }
 
 /**
- * Defines the direction for deleting text.
+ * 定义删除文本方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -248,7 +244,7 @@ declare interface InsertValue {
 declare enum TextDeleteDirection {
 
   /**
-   * Backward delete.
+   * 向后删除。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -259,7 +255,7 @@ declare enum TextDeleteDirection {
   BACKWARD = 0,
 
   /**
-   * Forward delete.
+   * 向前删除。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -271,7 +267,7 @@ declare enum TextDeleteDirection {
 }
 
 /**
- * Enumerates the text superscript and subscript styles.
+ * 定义文本上下角标样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -282,7 +278,7 @@ declare enum TextDeleteDirection {
 declare enum SuperscriptStyle {
 
   /**
-   * Normal text style.
+   * 普通文本样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -293,7 +289,7 @@ declare enum SuperscriptStyle {
   NORMAL = 0,
 
   /**
-   * Superscript text style.
+   * 上标文本样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -304,7 +300,7 @@ declare enum SuperscriptStyle {
   SUPERSCRIPT = 1,
 
   /**
-   * Subscript text style.
+   * 下标文本样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -316,7 +312,7 @@ declare enum SuperscriptStyle {
 }
 
 /**
- * Enumerates the menu types.
+ * 菜单类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -327,7 +323,7 @@ declare enum SuperscriptStyle {
 declare enum MenuType {
 
   /**
-   * Text selection menu.
+   * 文本选择菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -338,7 +334,7 @@ declare enum MenuType {
   SELECTION_MENU = 0,
 
   /**
-   * Preview menu.
+   * 图片预览菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -350,8 +346,7 @@ declare enum MenuType {
 }
 
 /**
- * Enumerates automatic capitalization modes. This only provides API capabilities; the specific implementation depends
- * on the input method application.
+ * 自动大小写模式类型，只提供接口能力，具体实现以输入法应用为主。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -362,7 +357,7 @@ declare enum MenuType {
 declare enum AutoCapitalizationMode {
 
   /**
-   * Default state; automatic capitalization is disabled.
+   * 默认状态无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -373,8 +368,7 @@ declare enum AutoCapitalizationMode {
   NONE = 0,
 
   /**
-   * Automatic capitalization is applied per word: The first character of each word is capitalized, others are
-   * lowercase.
+   * 按单词自动大小写，即输入单词的首个字符大写，其他字符小写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -385,8 +379,7 @@ declare enum AutoCapitalizationMode {
   WORDS = 1,
 
   /**
-   * Automatic capitalization is applied per sentence: The first character of each sentence is capitalized, others are
-   * lowercase.
+   * 按句子自动大小写，即输入句子的首个字符大写，其他字符小写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -397,7 +390,7 @@ declare enum AutoCapitalizationMode {
   SENTENCES = 2,
 
   /**
-   * Automatic capitalization applied to all characters.
+   * 按全字符自动大小写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -409,7 +402,7 @@ declare enum AutoCapitalizationMode {
 }
 
 /**
- * Provides an interface for deleting value from text.
+ * 提供从文本中删除值的接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -420,7 +413,7 @@ declare enum AutoCapitalizationMode {
 declare interface DeleteValue {
 
   /**
-   * Position of the deleted text.
+   * 删除的值的位置信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -431,7 +424,7 @@ declare interface DeleteValue {
   deleteOffset: number;
 
   /**
-   * Direction for deleting the text.
+   * 删除值的方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -442,7 +435,7 @@ declare interface DeleteValue {
   direction: TextDeleteDirection;
 
   /**
-   * Content of the deleted text.
+   * 删除的值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -454,10 +447,10 @@ declare interface DeleteValue {
 }
 
 /**
- * Represents the callback invoked after text changes.
+ * 文本变换后回调。
  *
- * @param { TextRange } rangeBefore - Range of the text to be changed.
- * @param { TextRange } rangeAfter - Range of the text added.
+ * @param { TextRange } rangeBefore - 文本变化前将要被替换的文本范围。
+ * @param { TextRange } rangeAfter - 文本变化后新增内容的文本范围。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -467,13 +460,11 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
- * Represents the callback triggered when the content in the text box changes.
+ * 输入内容发生变化时，触发该回调。
  *
- * @param { string } value - Text displayed in the text box.
- * @param { PreviewText } [previewText] - Information about the preview text, including its start position and text
- *     content.
- * @param { TextChangeOptions } [options] - Information about the text change, including the selection range, text
- *     displayed in the text box, and preview text. [since 15]
+ * @param { string } value - 文本框内正式上屏的文本内容。
+ * @param { PreviewText } [previewText] - 预上屏文本信息，包含预上屏起始位置和文本内容。
+ * @param { TextChangeOptions } [options] - 文本内容变化信息，包含文本的选中区范围、文本框内正式上屏的文本内容、预上屏文本内容。 [since 15]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -483,7 +474,7 @@ declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRang
 declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
 /**
- * Defines a text selection controller.
+ * 文本选择控制器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -494,29 +485,23 @@ declare type EditableTextOnChangeCallback = (value: string, previewText?: Previe
 declare interface TextBaseController {
 
   /**
-   * Sets the range of content selection. The selected content is highlighted.
+   * 支持设置组件内的内容选中，选中部分背板高亮。
+   * 
+   * selectionStart和selectionEnd均为-1时表示全选。
+   * 
+   * 未获焦时调用该接口不产生选中效果。
+   * 
+   * 从API version 12开始，在2in1设备中，无论options取何值，调用setSelection接口都不会弹出菜单，此外，如果组件中已经存在菜单，调用setSelection接口会关闭菜单。
+   * 
+   * 在非2in1设备中，options取值为MenuPolicy.DEFAULT时，遵循以下规则：
+   * 
+   * 1. 组件内有手柄菜单时，接口调用后不关闭菜单，并且调整菜单位置。
+   * 2. 组件内有不带手柄的菜单时，接口调用后不关闭菜单，并且菜单位置不变。
+   * 3. 组件内无菜单时，接口调用后也无菜单显示。
    *
-   * If both **selectionStart** and **selectionEnd** are set to **-1**, the entire content is selected.
-   *
-   * The component must be focused for the API call to have effect.
-   *
-   * Since API version 12, on 2-in-1 devices, regardless of the value of **options**, calling the **setSelection** API
-   * will not display a menu; if a menu is already open, calling the API will close it.
-   *
-   * On non-2-in-1 devices, when **options** is set to **MenuPolicy.DEFAULT**, the following rules apply after the API
-   * is called:
-   *
-   * 1. If the component has a menu with a selection handle,
-   * the menu remains open and is relocated according to the selection.
-   * 2. If the component has a menu without a selection handle,
-   * the menu remains open and its position remains unchanged.
-   * 3. If there is no menu open, no menu will appear after the selection.
-   *
-   * @param { number } selectionStart - Start position of the selection.<br>Values less than 0 are treated as **0**.
-   * @param { number } selectionEnd - End position of the selection.<br>If the value exceeds the text length, the
-   *     current text length is used instead.
-   * @param { SelectionOptions } [options] - Configuration of options. The default value is inherited from
-   *     [SelectionOptions]{@link SelectionOptions}.
+   * @param { number } selectionStart - 选中开始位置。<br/>取值小于0时，按0处理。
+   * @param { number } selectionEnd - 选中结束位置。<br/>取值大于文本长度时，按当前文本长度处理。
+   * @param { SelectionOptions } [options] - 选择项配置。 默认值继承[SelectionOptions]{@link SelectionOptions}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -526,7 +511,7 @@ declare interface TextBaseController {
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
-   * Closes the custom or default text selection menu.
+   * 关闭自定义选择菜单或系统默认选择菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -537,9 +522,9 @@ declare interface TextBaseController {
   closeSelectionMenu(): void;
 
   /**
-   * Obtains a **LayoutManager** object.
+   * 获取布局管理器对象。
    *
-   * @returns { LayoutManager } Layout manager object.
+   * @returns { LayoutManager } 布局管理器对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -550,9 +535,9 @@ declare interface TextBaseController {
 }
 
 /**
- * Implements an extended text editing controller.
- *
- * Inherits [TextBaseController]{@link TextBaseController}.
+ * 文本扩展编辑控制器。
+ * 
+ * 继承自[TextBaseController]{@link TextBaseController}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -563,10 +548,9 @@ declare interface TextBaseController {
 declare interface TextEditControllerEx extends TextBaseController {
 
   /**
-   * Obtains the editing status of the rich text.
+   * 获取当前富文本的编辑状态。
    *
-   * @returns { boolean } Editing status of the rich text. **true** means that the text is in editable state, and
-   *     **false** means the opposite.
+   * @returns { boolean } true为编辑态，false为非编辑态。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -576,7 +560,7 @@ declare interface TextEditControllerEx extends TextBaseController {
   isEditing(): boolean;
 
   /**
-   * Stops editing.
+   * 退出编辑态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -587,12 +571,10 @@ declare interface TextEditControllerEx extends TextBaseController {
   stopEditing(): void;
 
   /**
-   * Sets the offset of the caret.
+   * 设置光标偏移位置。
    *
-   * @param { number } offset - Offset of the caret. If the offset is outside the range of all content, the setting
-   *     fails.
-   * @returns { boolean } Whether the caret offset is set successfully.
-   *     <br>Returns **true** if it is set successfully; returns **false** otherwise.
+   * @param { number } offset - 光标偏移位置。超出所有内容范围时，设置失败。
+   * @returns { boolean } 光标是否设置成功。<br/>true表示光标设置成功，false表示设置失败。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -602,9 +584,9 @@ declare interface TextEditControllerEx extends TextBaseController {
   setCaretOffset(offset: number): boolean;
 
   /**
-   * Obtains the current position of the caret.
+   * 返回当前光标所在位置。
    *
-   * @returns { number } Position of the caret.
+   * @returns { number } 当前光标所在位置。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -614,9 +596,9 @@ declare interface TextEditControllerEx extends TextBaseController {
   getCaretOffset(): number;
 
   /**
-   * Obtains the preview text.
+   * 获取预上屏信息。
    *
-   * @returns { PreviewText } Preview text.
+   * @returns { PreviewText } 预上屏信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -627,7 +609,7 @@ declare interface TextEditControllerEx extends TextBaseController {
 }
 
 /**
- * Preview text.
+ * 预上屏信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -638,7 +620,7 @@ declare interface TextEditControllerEx extends TextBaseController {
 declare interface PreviewText {
 
   /**
-   * Start position of the preview text.
+   * 预上屏内容的起始位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -649,7 +631,7 @@ declare interface PreviewText {
   offset: number;
 
   /**
-   * Content of the preview text.
+   * 预上屏的内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -661,7 +643,7 @@ declare interface PreviewText {
 }
 
 /**
- * Defines a styled string controller.
+ * 定义StyledString控制器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -672,10 +654,10 @@ declare interface PreviewText {
 declare interface StyledStringController {
 
   /**
-   * Sets the styled string displayed in the rich text component.
+   * 设置富文本组件显示的属性字符串。
    *
-   * @param { StyledString } styledString - Styled string to set.<br>**NOTE**<br>The child class
-   *     [MutableStyledString]{@link MutableStyledString} of **StyledString** can also serve as the argument.
+   * @param { StyledString } styledString - 属性字符串。<br/>**说明：** <br/>StyledString的子类
+   *     [MutableStyledString]{@link MutableStyledString}也可以作为入参值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -685,9 +667,9 @@ declare interface StyledStringController {
   setStyledString(styledString: StyledString): void;
 
   /**
-   * Obtains the styled string displayed in the rich text component.
+   * 获取富文本组件显示的属性字符串。
    *
-   * @returns { MutableStyledString } Styled string displayed in the rich text component.
+   * @returns { MutableStyledString } 富文本组件显示的属性字符串。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -698,7 +680,7 @@ declare interface StyledStringController {
 }
 
 /**
- * Defines the listener for changes of the styled string text content.
+ * 属性字符串的文本内容变化监听器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -709,7 +691,7 @@ declare interface StyledStringController {
 declare interface StyledStringChangedListener {
 
   /**
-   * Callback invoked when text is about to change.
+   * 文本内容将要变化回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -720,7 +702,7 @@ declare interface StyledStringChangedListener {
   onWillChange?: Callback<StyledStringChangeValue, boolean>;
 
   /**
-   * Callback invoked when text is changed.
+   * 文本内容完成变化回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -732,7 +714,7 @@ declare interface StyledStringChangedListener {
 }
 
 /**
- * Describes the text changes of the styled string.
+ * 属性字符串的文本变化信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -743,7 +725,7 @@ declare interface StyledStringChangedListener {
 interface StyledStringChangeValue {
 
   /**
-   * Range of the styled string to be replaced in the original string.
+   * 即将被替换的属性字符串子串在原字符串中的范围。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -754,7 +736,7 @@ interface StyledStringChangeValue {
   range: TextRange;
 
   /**
-   * Styled string used for replacement.
+   * 用于替换的属性字符串。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -765,10 +747,9 @@ interface StyledStringChangeValue {
   replacementString: StyledString;
 
   /**
-   * Styled string for preview content.
-   *
-   * Used to represent temporary uncommitted input content in scenarios such as voice input, camera input, and IME pre-
-   * composition.
+   * 预览内容属性字符串。
+   * 
+   * 该属性用于表示语音输入、拍摄输入、输入法预上屏场景下的未提交上屏的临时输入内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -780,12 +761,11 @@ interface StyledStringChangeValue {
 }
 
 /**
- * Implements a layout manager object.
- *
- * > **NOTE**
+ * 布局管理器对象。
+ * 
+ * > **说明：**
  * >
- * > After the text content is changed, you must wait for the layout to be completed before you can obtain the most up-
- * > to-date layout information.
+ * > 文本内容变更后，需等待布局完成才可获取到最新的布局信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -796,9 +776,9 @@ interface StyledStringChangeValue {
 declare interface LayoutManager {
 
   /**
-   * Obtains the total number of lines in the component.
+   * 获取组件内容的总行数。
    *
-   * @returns { number } Total number of lines in the component.
+   * @returns { number } 组件内容的总行数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -808,11 +788,11 @@ declare interface LayoutManager {
   getLineCount(): number;
 
   /**
-   * Obtains the position of a glyph close to a given coordinate.
+   * 获取较为接近给定坐标的字形的位置信息。
    *
-   * @param { number } x - X coordinate relative to the component.<br>Unit: [px]{@link common}
-   * @param { number } y - Y coordinate relative to the component.<br>Unit: [px]{@link common}
-   * @returns { PositionWithAffinity } Glyph position.
+   * @param { number } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @returns { PositionWithAffinity } 字形位置信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -822,10 +802,10 @@ declare interface LayoutManager {
   getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
   /**
-   * Obtains the position of the character nearest to the specified coordinate.
+   * 获取距离指定坐标最近的字符的位置信息。
    *
-   * @param { number } x - X coordinate relative to the component.<br>Unit: [px]{@link common}
-   * @param { number } y - Y coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @param { number } x - 相对于组件的横坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
+   * @param { number } y - 相对于组件的纵坐标。<br/>单位：[px](docroot://reference/apis-arkui/arkui-ts/ts-pixel-units.md#基本像素单位)
    * @returns { PositionWithAffinity | undefined } Character position. Returns **undefined** when
    *     [LayoutManager]{@link LayoutManager} is not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -837,12 +817,10 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
-   * Obtains the glyph range and the actual character range based on the specified character range. If the first glyph
-   * is a Chinese character, the glyph index range of the character is [0, 1]. A Chinese character occupies three
-   * characters, so the corresponding character index range is [0, 3]. If the specified character index range is [0, 1],
-   * one third of a Chinese character cannot be parsed, so the actual character index range is [0, 3].
+   * 根据给定的文本字符范围来获取范围内的字形范围，以及实际的字符范围。例如文本为"世界Hello"，其中文本"世"的字形索引范围为[0, 1]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 3]。如果指定的字符索引范围是
+   * [0, 1]，但无法解析出三分之一个汉字，所以实际的字符索引范围是[0, 3]。
    *
-   * @param { TextRange } charRange - Character range of the text.
+   * @param { TextRange } charRange - 文本的字符范围。
    * @returns { Array<TextRange> | undefined } Contains two elements: the first is the glyph range, and the second is
    *     the actual character range. When the returned range is invalid, the element in the range is **-1**. Returns
    *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
@@ -855,12 +833,10 @@ declare interface LayoutManager {
   getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
 
   /**
-   * Obtains the character range and the actual glyph range based on the specified glyph range. If a text contains two
-   * Chinese characters and five letters, the glyph index range of the text is [0, 7]. A Chinese character occupies
-   * three characters, so the corresponding character index range is [0, 11]. If the specified index range is [0, 11],
-   * but there are only seven glyphs, the actual glyph index range is [0, 7].
+   * 根据给定的文本字形范围来获取范围内的字符范围，以及实际的字形范围。例如文本为"世界Hello"，其字形索引范围为[0, 7]，一个汉字占三个字符，所以其对应的字符索引范围为[0, 11]。如果指定的索引范围是[0, 11]，但字形
+   * 一共只有7个，所以实际的字形索引范围是[0, 7]。
    *
-   * @param { TextRange } glyphRange - Glyph range of the text.
+   * @param { TextRange } glyphRange - 文本的字形范围。
    * @returns { Array<TextRange> | undefined } Contains two elements: the first is the character range, and the second
    *     is the actual glyph range. When the returned range is invalid, the element in the range is **-1**. Returns
    *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
@@ -873,13 +849,10 @@ declare interface LayoutManager {
   getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
 
   /**
-   * Obtains the information about the specified line, including line metrics, text style information, and font
-   * properties.
+   * 获取指定行的行信息、文本样式信息、以及字体属性信息。
    *
-   * @param { number } lineNumber - Line number, which is zero-based.
-   * @returns { LineMetrics } Information about the specified line, including line metrics, text style information, and
-   *     font properties.
-   *     <br>Returns an invalid value if the line number is less than 0 or exceeds the actual number of lines.
+   * @param { number } lineNumber - 行号，从0开始。
+   * @returns { LineMetrics } 行信息、文本样式信息、以及字体属性信息。<br/>当行号小于0或超出实际行，返回无效值。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -889,13 +862,12 @@ declare interface LayoutManager {
   getLineMetrics(lineNumber: number): LineMetrics;
 
   /**
-   * Obtains the drawing area information of the characters or placeholders within any range of the text, based on the
-   * specified rectangle width and height styles.
+   * 获取给定的矩形区域宽度以及矩形区域高度的规格下，文本中任意区间范围内的字符或占位符所占的绘制区域信息。
    *
-   * @param { TextRange } range - Text range for which the drawing area is to be obtained.
-   * @param { RectWidthStyle } widthStyle - Width style of the rectangle.
-   * @param { RectHeightStyle } heightStyle - Height style of the rectangle.
-   * @returns { Array<TextBox> } Array of drawing rectangles.
+   * @param { TextRange } range - 需要获取的区域的文本区间。
+   * @param { RectWidthStyle } widthStyle - 返回的矩形区域的宽度的规格。
+   * @param { RectHeightStyle } heightStyle - 返回的矩形区域的高度的规格。
+   * @returns { Array<TextBox> } 矩形区域数组。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -906,7 +878,7 @@ declare interface LayoutManager {
 }
 
 /**
- * Describes the position and affinity of a glyph.
+ * 位置以及亲和度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -917,7 +889,7 @@ declare interface LayoutManager {
 interface PositionWithAffinity {
 
   /**
-   * Index of the glyph or character to the component. The value is an integer.
+   * 字形或字符相对于组件内容的索引，整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -928,7 +900,7 @@ interface PositionWithAffinity {
   position: number;
 
   /**
-   * Affinity of the position.
+   * 位置亲和度。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -940,7 +912,7 @@ interface PositionWithAffinity {
 }
 
 /**
- * Enumerates the affinity modes.
+ * 位置亲和度枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -951,7 +923,7 @@ interface PositionWithAffinity {
 declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
 
 /**
- * Describes the measurement information of a single line in the text layout.
+ * 用于描述文本布局中单行文字的度量信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -962,7 +934,7 @@ declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
 declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics;
 
 /**
- * Enumerates the rectangle width styles.
+ * 矩形区域宽度规格枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -973,7 +945,7 @@ declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetr
 declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
 
 /**
- * Enumerates the rectangle height styles.
+ * 矩形区域高度规格枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -984,7 +956,7 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
 declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
 
 /**
- * Describes the rectangle that contains the text.
+ * 文本矩形区域。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -995,7 +967,7 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
 /**
- * Implements a carrier that stores the text content and style. It supports operations such as layout and drawing.
+ * 保存文本内容及样式的载体，支持排版与绘制操作。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1005,7 +977,7 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
- * Represents the extension configuration of an input method.
+ * 输入法扩展信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1015,7 +987,7 @@ declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig;
 
 /**
- * Define the FontVariation type.
+ * 可变字体的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1026,7 +998,7 @@ declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConf
 declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVariation;
 
 /**
- * Defines the cursor style.
+ * 定义光标样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1037,9 +1009,9 @@ declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVa
 interface CaretStyle {
 
   /**
-   * Caret size. It cannot be set in percentage.
-   *
-   * Default value: **'2vp'**
+   * 光标尺寸，不支持百分比。
+   * 
+   * 默认值：'2vp'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1050,9 +1022,9 @@ interface CaretStyle {
   width?: Length;
 
   /**
-   * Caret color.
-   *
-   * Default value: **'#ff007dff'**
+   * 光标颜色。
+   * 
+   * 默认值：'#ff007dff'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1064,8 +1036,7 @@ interface CaretStyle {
 }
 
 /**
- * Defines the unique identifier for a custom menu item. It is used to identify menu items. The IDs for built-in menu
- * items are listed in the table below.
+ * 自定义菜单项的Id值。用于识别菜单选项，内置菜单项Id值见下列属性表格。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1076,10 +1047,10 @@ interface CaretStyle {
 declare class TextMenuItemId {
 
   /**
-   * Creates a **TextMenuItemId** object based on **id**.
+   * 根据id创建TextMenuItemId。
    *
-   * @param { ResourceStr } id - Menu ID.
-   * @returns { TextMenuItemId } **TextMenuItemId** object.
+   * @param { ResourceStr } id - 菜单的id。
+   * @returns { TextMenuItemId } TextMenuItemId的对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1089,11 +1060,10 @@ declare class TextMenuItemId {
   static of(id: ResourceStr): TextMenuItemId;
 
   /**
-   * Checks whether this **TextMenuItemId** object is the same as another **TextMenuItemId** object.
+   * 判断TextMenuItemId是否相等。
    *
-   * @param { TextMenuItemId } id - ID of the **TextMenuItemId** object to compare.
-   * @returns { boolean } Whether the two **TextMenuItemId** objects are the same.
-   *     <br>**true** if the objects are equal; **false** otherwise.
+   * @param { TextMenuItemId } id - TextMenuItemId的id。
+   * @returns { boolean } 两个TextMenuItemId是否相等。<br/>true表示相等，false表示不相等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1103,7 +1073,7 @@ declare class TextMenuItemId {
   equals(id: TextMenuItemId): boolean;
 
   /**
-   * ID for the default cut menu item. It is a level-1 menu item.
+   * 默认剪切，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1114,7 +1084,7 @@ declare class TextMenuItemId {
   static readonly CUT: TextMenuItemId;
 
   /**
-   * ID for the default copy menu item. It is a level-1 menu item.
+   * 默认复制，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1125,7 +1095,7 @@ declare class TextMenuItemId {
   static readonly COPY: TextMenuItemId;
 
   /**
-   * ID for the default paste menu item. It is a level-1 menu item.
+   * 默认粘贴，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1136,7 +1106,7 @@ declare class TextMenuItemId {
   static readonly PASTE: TextMenuItemId;
 
   /**
-   * ID for the default select-all menu item. It is a level-1 menu item.
+   * 默认全选，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1147,7 +1117,7 @@ declare class TextMenuItemId {
   static readonly SELECT_ALL: TextMenuItemId;
 
   /**
-   * ID for the collaboration service menu item. It is a level-1 menu item.
+   * 互通服务，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1157,7 +1127,7 @@ declare class TextMenuItemId {
   static readonly COLLABORATION_SERVICE: TextMenuItemId;
 
   /**
-   * ID for the camera input menu item. It is a level-1 menu item.
+   * 拍摄输入，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1167,10 +1137,7 @@ declare class TextMenuItemId {
   static readonly CAMERA_INPUT: TextMenuItemId;
 
   /**
-   * <!--RP1--><!--RP1End-->ID for the menu item involving text enhancement features,
-   * such as polishing, summary extraction, and formatting, for selected text.
-   * It is a level-1 menu item. This menu item requires the large language model. If no large language model is available,
-   * this menu item does not take effect.
+   * <!--RP1--><!--RP1End-->可对选中的文本进行润色、摘要提取、排版等，为一级菜单项。该菜单项依赖大模型能力，否则不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1180,8 +1147,7 @@ declare class TextMenuItemId {
   static readonly AI_WRITER: TextMenuItemId;
 
   /**
-   * ID for the translate menu item. It is a level-1 menu item. The translation service is provided for the selected
-   * text.
+   * 翻译，为一级菜单项。对选中的文本提供翻译服务。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1191,8 +1157,7 @@ declare class TextMenuItemId {
   static readonly TRANSLATE: TextMenuItemId;
 
   /**
-   * ID for the search menu item. It is a level-1 menu item. This menu item launches a browser to search for the
-   * selected text.
+   * 搜索，为一级菜单项。对选中的文本提供搜索服务，拉起浏览器搜索选中文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1202,8 +1167,7 @@ declare class TextMenuItemId {
   static readonly SEARCH: TextMenuItemId;
 
   /**
-   * ID for the share menu item. It is a level-1 menu item. This menu item launches a window for sharing the selected
-   * text.
+   * 分享，为一级菜单项。对选中的文本提供分享服务，拉起分享窗口分享选中文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1213,8 +1177,7 @@ declare class TextMenuItemId {
   static readonly SHARE: TextMenuItemId;
 
   /**
-   * ID for the URL menu item. It is a level-1 menu item. This menu item provides the redirection service for the
-   * selected URL, launching a browser search or app page.
+   * 打开链接，为一级菜单项。对选中的URL提供跳转服务，拉起浏览器搜索或者应用页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1224,8 +1187,7 @@ declare class TextMenuItemId {
   static readonly url: TextMenuItemId;
 
   /**
-   * ID for the email menu item. It is a level-1 menu item. This menu item provides the redirection service for the
-   * selected email address, launching the email app.
+   * 新建邮件，为一级菜单项。对选中的邮箱地址提供跳转服务，拉起邮箱应用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1235,8 +1197,7 @@ declare class TextMenuItemId {
   static readonly email: TextMenuItemId;
 
   /**
-   * ID for the phone call menu item. It is a level-1 menu item. This menu item provides the redirection service for the
-   * selected phone number, launching the phone dialer page.
+   * 呼叫，为一级菜单项。对选中的电话号码跳转服务，拉起电话拨号页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1246,8 +1207,7 @@ declare class TextMenuItemId {
   static readonly phoneNumber: TextMenuItemId;
 
   /**
-   * ID for the navigation menu item. It is a level-1 menu item. This menu item provides the redirection service for the
-   * selected address, launching the map app.
+   * 导航前往，为一级菜单项。对选中的地址提供跳转服务，拉起地图应用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1257,8 +1217,7 @@ declare class TextMenuItemId {
   static readonly address: TextMenuItemId;
 
   /**
-   * ID for the event creation menu item. It is a level-1 menu item. This menu item provides the redirection service for
-   * the selected date and time, launching the page for creating a calendar event.
+   * 新建日程，为一级菜单项。对选中的日期和时间提供跳转服务，拉起新建日程页面。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1268,8 +1227,7 @@ declare class TextMenuItemId {
   static readonly dateTime: TextMenuItemId;
 
   /**
-   * <!--RP2--><!--RP2End-->ID for the AI assistant menu item,
-   * which provides AI query capabilities for the selected text. It is a level-1 menu item.
+   * <!--RP2--><!--RP2End-->对选中的文本提供AI问询能力，为一级菜单项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1279,9 +1237,8 @@ declare class TextMenuItemId {
   static readonly askAI: TextMenuItemId;
 
   /**
-   * ID for the autofill menu item. It is a level-1 menu item. When a menu item is tapped, the secondary menu item
-   * **Password Vault** is displayed. This menu item is supported exclusively for the [Search]{@link search},
-   * [TextInput]{@link text_input}, [TextArea]{@link text_area}, and [RichEditor]{@link rich_editor} components.
+   * 自动填充，为一级菜单项。点击后会展开二级菜单项“密码保险箱”，仅支持[Search]{@link search}、[TextInput]{@link text_input}、[TextArea]{@link text_area}或
+   * [RichEditor]{@link rich_editor}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1291,10 +1248,8 @@ declare class TextMenuItemId {
   static readonly autoFill: TextMenuItemId;
 
   /**
-   * ID for the password vault menu item. It is a level-2 menu item. Tapping this menu item launches the password vault
-   * app, which supports automatic username and password filling. The menu item is supported only for
-   * [Search]{@link search}, [TextInput]{@link text_input}, [TextArea]{@link text_area}, and
-   * [RichEditor]{@link rich_editor}.
+   * 密码保险箱，为二级菜单项。点击该菜单项后会拉起密码保险箱应用，该应用提供自动填充账号密码能力，仅支持[Search]{@link search}、[TextInput]{@link text_input}、
+   * [TextArea]{@link text_area}或[RichEditor]{@link rich_editor}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1305,7 +1260,7 @@ declare class TextMenuItemId {
 }
 
 /**
- * TextMenuItem
+ * 文本菜单项
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1316,7 +1271,7 @@ declare class TextMenuItemId {
 declare interface TextMenuItem {
 
   /**
-   * Menu name.
+   * 菜单名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1327,9 +1282,9 @@ declare interface TextMenuItem {
   content: ResourceStr;
 
   /**
-   * Menu icon.
-   *
-   * Online images are not supported.
+   * 菜单图标。
+   * 
+   * 不支持网络图片。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1340,7 +1295,7 @@ declare interface TextMenuItem {
   icon?: ResourceStr;
 
   /**
-   * Menu ID.
+   * 菜单id。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1351,9 +1306,9 @@ declare interface TextMenuItem {
   id: TextMenuItemId;
 
   /**
-   * Shortcut key hint.
-   *
-   * This field is only supported on 2-in-1 devices.
+   * 快捷键提示。
+   * 
+   * 该字段仅2in1设备支持。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1365,10 +1320,10 @@ declare interface TextMenuItem {
 }
 
 /**
- * Callback function when the selection menu create.
+ * 菜单创建时触发。
  *
- * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
- * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @param { Array<TextMenuItem> } menuItems - 当前显示的菜单项。<br/>**说明：**<br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+ * @returns { Array<TextMenuItem> } 处理后的菜单项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1378,13 +1333,10 @@ declare interface TextMenuItem {
 type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 
 /**
- * Triggered before the menu is displayed after the text selection area changes. Menu data can be configured within this
- * callback. Both the input parameter and return value contain only level-1 menu items; level-2 menu items are not
- * included.
+ * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
  *
- * @param { Array<TextMenuItem> } menuItems - Menu items to be displayed.<br>**NOTE**<br>Modifications to the name,
- *     icon, or shortcut hint of default menu items do not take effect.
- * @returns { Array<TextMenuItem> } Menu items after the processing.
+ * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。<br/>**说明：** <br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+ * @returns { Array<TextMenuItem> } 处理后的菜单项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1394,7 +1346,7 @@ type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuIt
 type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 
 /**
- * EditMenuOptions
+ * 编辑菜单选项
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1405,12 +1357,10 @@ type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuI
 declare interface EditMenuOptions {
 
   /**
-   * Triggered when the menu is being created. Menu data can be configured within this callback. Both the input
-   * parameter and return value contain only level-1 menu items; level-2 menu items are not included.
+   * 在菜单创建时触发该回调，可在该回调中进行菜单数据设置。入参和返回值只包含一级菜单项，不包含二级菜单项。
    *
-   * @param { Array<TextMenuItem> } menuItems - Menu items to be displayed.<br>**NOTE**<br>Modifications to the name,
-   *     icon, or shortcut hint of default menu items do not take effect.
-   * @returns { Array<TextMenuItem> } Menu items after the processing.
+   * @param { Array<TextMenuItem> } menuItems - 将要显示的菜单项。<br/>**说明：** <br/>对默认菜单项的名称、图标、快捷键提示修改不生效。
+   * @returns { Array<TextMenuItem> } 处理后的菜单项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1420,15 +1370,12 @@ declare interface EditMenuOptions {
   onCreateMenu(menuItems: Array<TextMenuItem>): Array<TextMenuItem>;
 
   /**
-   * Triggered when the specified menu item is clicked.
+   * 菜单项功能函数。
    *
-   * @param { TextMenuItem } menuItem - Menu item.<br>**NOTE**<br>Since API version 23, for level-1 menu items that
-   *     support expandable level-2 menus (such as autofill), only the system default logic is executed and custom logic
-   *     is not executed.
-   * @param { TextRange } range - Selected text.
-   * @returns { boolean } Execution logic of the menu item.
-   *     <br>Returns **true** if the default system logic is intercepted and only the custom logic is executed.
-   *     <br>Returns **false** if the custom logic is executed before the default system logic.
+   * @param { TextMenuItem } menuItem - 菜单项。<br/>**说明：** <br/>从API version 23开始，对于具备可展开二级菜单能力的一级菜单项，例如自动填充，仅执行系统默认逻辑，不会执
+   *     行用户自定义逻辑。
+   * @param { TextRange } range - 选中的文本信息。
+   * @returns { boolean } 菜单项的执行逻辑。<br/>返回为true，拦截系统默认逻辑，仅执行自定义逻辑。<br/>返回为false，先执行自定义逻辑，再执行系统逻辑。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1438,8 +1385,7 @@ declare interface EditMenuOptions {
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
 
   /**
-   * Callback invoked before the menu is displayed after the text selection area changes. Menu data can be configured
-   * within this callback.
+   * 当文本选择区域变化后显示菜单之前触发该回调，可在该回调中进行菜单数据设置。 </br>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1451,7 +1397,7 @@ declare interface EditMenuOptions {
 }
 
 /**
- * Provides the text decoration information returned by the backend.
+ * 后端返回的文本装饰线样式信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1462,7 +1408,7 @@ declare interface EditMenuOptions {
 interface DecorationStyleResult {
 
   /**
-   * Type of the text decoration.
+   * 装饰线类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1473,7 +1419,7 @@ interface DecorationStyleResult {
   type: TextDecorationType;
 
   /**
-   * Color of the text decoration.
+   * 装饰线颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1484,7 +1430,7 @@ interface DecorationStyleResult {
   color: ResourceColor;
 
   /**
-   * Style of the text decoration.
+   * 装饰线样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1495,13 +1441,13 @@ interface DecorationStyleResult {
   style?: TextDecorationStyle;
 
   /**
-   * Scale factor of the text decoration thickness.
-   *
-   * Default value: **1.0**
-   *
-   * Value range: [0, +∞)
-   *
-   * Note: Negative values are treated as the default value.
+   * 装饰线粗细缩放比例。
+   * 
+   * 默认值：1.0
+   * 
+   * 取值范围：[0, +∞) 
+   * 
+   * **说明：** 负值按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1513,7 +1459,7 @@ interface DecorationStyleResult {
 }
 
 /**
- * Defines font setting options.
+ * 字体配置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1525,18 +1471,15 @@ interface DecorationStyleResult {
 declare interface FontSettingOptions {
 
   /**
-   * Whether to enable variable font weight adjustment. This parameter serves as the input for the
+   * 是否启用可变字重调节。字体配置项作为
    * [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}
-   * API. When the **weight** value in **fontWeight** is a non-hundred value within the [100, 900] range,
-   * **enableVariableFontWeight** controls whether this **weight** value is applied.
-   *
-   * Default value: **false**
-   *
-   * **true**: Enable variable font weight adjustment. If the **weight** value is an integer within the [100, 900]
-   * range, it is applied as the font weight.
-   *
-   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
-   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   * 接口的入参，fontWeight接口中weight取值为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
+   * 
+   * 默认值：false 
+   * 
+   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight。
+   * 
+   * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1549,7 +1492,7 @@ declare interface FontSettingOptions {
 }
 
 /**
- * Provides information about the text before and after a change, including the selection ranges.
+ * 变化前的文本信息，以及变化后的选区范围。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1560,7 +1503,7 @@ declare interface FontSettingOptions {
 declare interface TextChangeOptions {
 
   /**
-   * Selection range before the change.
+   * 变化前的选区范围。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1571,7 +1514,7 @@ declare interface TextChangeOptions {
   rangeBefore: TextRange;
 
   /**
-   * Selection range after the change.
+   * 变化后的选区范围。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1582,7 +1525,7 @@ declare interface TextChangeOptions {
   rangeAfter: TextRange;
 
   /**
-   * Text content before the change.
+   * 变化前的文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1593,7 +1536,7 @@ declare interface TextChangeOptions {
   oldContent: string;
 
   /**
-   * Preview text before the change.
+   * 变化前的预上屏信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1605,7 +1548,7 @@ declare interface TextChangeOptions {
 }
 
 /**
- * Provides detailed information of text changes, including preview text.
+ * 文本变化的详细信息，包括预上屏。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1616,7 +1559,7 @@ declare interface TextChangeOptions {
 interface EditableTextChangeValue {
 
   /**
-   * Current text content.
+   * 当前的文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1627,7 +1570,7 @@ interface EditableTextChangeValue {
   content: string;
 
   /**
-   * Preview text.
+   * 预上屏的内容信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1638,7 +1581,7 @@ interface EditableTextChangeValue {
   previewText?: PreviewText;
 
   /**
-   * Information about the text change.
+   * 变化的文本内容信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1650,7 +1593,7 @@ interface EditableTextChangeValue {
 }
 
 /**
- * Enumerates the text menu display modes.
+ * 菜单的显示模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1661,7 +1604,7 @@ interface EditableTextChangeValue {
 declare enum TextMenuShowMode {
 
   /**
-   * The menu is displayed in the current window.
+   * 显示在当前窗口中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1672,25 +1615,20 @@ declare enum TextMenuShowMode {
   DEFAULT = 0,
 
   /**
-   * The menu is preferentially displayed in a separate window. If a separate window is not supported, the menu is
-   * displayed in the current window.
-   *
-   * **NOTE**
-   *
-   * Displaying the text selection menu in a separate window is not supported for window types other than the app main
-   * window, app sub-window, system modal window, and system desktop window.
-   *
-   * Displaying the text selection menu in a separate window is not supported in the previewer.
-   *
-   * Displaying the text selection menu in a separate window is not supported in
-   * [UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}.
-   *
-   * When a text component is displayed in a child window of [Popup]{@link @ohos.arkui.advanced.Popup},
-   * [Dialog]{@link @ohos.arkui.advanced.Dialog}, [Toast](docroot://ui/arkts-create-toast.md), or [Menu]{@link menu},
-   * the corresponding text selection menu cannot be displayed in a separate window.
-   *
-   * When **autoFill** is available for **TextInput** or **TextArea**, the corresponding text selection menu cannot be
-   * displayed in a separate window.
+   * 优先显示在独立窗口中，若不支持独立窗口，则显示在当前窗口中。
+   * 
+   * **说明：** 
+   * 
+   * 除应用主窗口、应用子窗口、系统模态窗口及系统桌面类型的窗口外，其他类型的窗口不支持将文本选择菜单显示在独立窗口中。
+   * 
+   * 在预览器中不支持将文本选择菜单显示在独立窗口中。
+   * 
+   * 在[UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}中不支持将文本选择菜单显示在独立窗口中。
+   * 
+   * 当文本类组件已经显示在子窗类型的[Popup]{@link @ohos.arkui.advanced.Popup}、[Dialog]{@link @ohos.arkui.advanced.Dialog}、
+   * [Toast](docroot://ui/arkts-create-toast.md)、[Menu]{@link menu}中时，不支持将其对应的文本选择菜单显示在独立窗口中。
+   * 
+   * 当TextInput、TextArea可支持拉起AutoFill时，不支持将其对应的文本选择菜单显示在独立窗口中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1702,7 +1640,7 @@ declare enum TextMenuShowMode {
 }
 
 /**
- * Provides the options for customizing the context menu on selection.
+ * 菜单选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1713,9 +1651,9 @@ declare enum TextMenuShowMode {
 declare interface TextMenuOptions {
 
   /**
-   * Menu display mode.
-   *
-   * Default value: **TextMenuShowMode.DEFAULT**
+   * 菜单的显示模式。
+   * 
+   * 默认值：TextMenuShowMode.DEFAULT
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1727,7 +1665,7 @@ declare interface TextMenuOptions {
 }
 
 /**
- * Enumerates the appearance modes of the keyboard.
+ * 键盘外观。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1737,7 +1675,7 @@ declare interface TextMenuOptions {
 declare enum KeyboardAppearance {
 
   /**
-   * Default appearance mode, not using immersive style.
+   * 默认外观模式，不采用沉浸式风格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1747,7 +1685,7 @@ declare enum KeyboardAppearance {
   NONE_IMMERSIVE = 0,
 
   /**
-   * Immersive mode, following the system.
+   * 沉浸式模式，跟随系统。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1757,7 +1695,7 @@ declare enum KeyboardAppearance {
   IMMERSIVE = 1,
 
   /**
-   * Immersive style in light mode.
+   * 浅色沉浸式风格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1767,7 +1705,7 @@ declare enum KeyboardAppearance {
   LIGHT_IMMERSIVE = 2,
 
   /**
-   * Immersive style in dark mode.
+   * 深色沉浸式风格。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1778,7 +1716,7 @@ declare enum KeyboardAppearance {
 }
 
 /**
- * Defines the base class for text shader effects.
+ * 文本着色器效果基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1789,7 +1727,7 @@ declare enum KeyboardAppearance {
 declare class ShaderStyle {}
 
 /**
- * Displays a linear gradient. **LinearGradientStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
+ * 显示为线性渐变。LinearGradientStyle继承自[ShaderStyle]{@link ShaderStyle}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1800,9 +1738,10 @@ declare class ShaderStyle {}
 declare class LinearGradientStyle extends ShaderStyle {
 
   /**
-   * A constructor used to create a **LinearGradientStyle** object.
+   * 用于创建LinearGradientStyle对象的构造函数。
    *
-   * @param { LinearGradientOptions } options - Options for displaying a linear gradient.
+   * @param { LinearGradientOptions } options - 显示为线性渐变效果。<br/>[LinearGradientOptions]{@link LinearGradientOptions}中的
+   *     direction默认值按[GradientDirection]{@link GradientDirection}中的NONE处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1812,7 +1751,7 @@ declare class LinearGradientStyle extends ShaderStyle {
   constructor(options: LinearGradientOptions);
 
   /**
-   * Options for displaying a linear gradient.
+   * 显示为线性渐变效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1824,7 +1763,7 @@ declare class LinearGradientStyle extends ShaderStyle {
 }
 
 /**
- * Displays a radial gradient. **RadialGradientStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
+ * 显示为径向渐变。RadialGradientStyle继承自[ShaderStyle]{@link ShaderStyle}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1835,9 +1774,9 @@ declare class LinearGradientStyle extends ShaderStyle {
 declare class RadialGradientStyle extends ShaderStyle {
 
   /**
-   * A constructor used to create a **RadialGradientOptions** object.
+   * 用于创建RadialGradientOptions对象的构造函数。
    *
-   * @param { RadialGradientOptions } options - Options for displaying a radial gradient.
+   * @param { RadialGradientOptions } options - 显示为径向渐变效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1847,7 +1786,7 @@ declare class RadialGradientStyle extends ShaderStyle {
   constructor(options: RadialGradientOptions);
 
   /**
-   * Options for displaying a radial gradient.
+   * 显示为径向渐变效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1859,7 +1798,7 @@ declare class RadialGradientStyle extends ShaderStyle {
 }
 
 /**
- * Displays a solid color. **ColorShaderStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
+ * 显示为纯色。ColorShaderStyle继承自[ShaderStyle]{@link ShaderStyle}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1870,9 +1809,9 @@ declare class RadialGradientStyle extends ShaderStyle {
 declare class ColorShaderStyle extends ShaderStyle {
 
   /**
-   * A constructor used to create a **ResourceColor** object.
+   * 用于创建ResourceColor对象的构造函数。
    *
-   * @param { ResourceColor } color - Options for displaying a solid color.
+   * @param { ResourceColor } color - 显示为纯色效果。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1882,7 +1821,7 @@ declare class ColorShaderStyle extends ShaderStyle {
   constructor(color: ResourceColor);
 
   /**
-   * Options for displaying a solid color.
+   * 显示为纯色效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1894,7 +1833,7 @@ declare class ColorShaderStyle extends ShaderStyle {
 }
 
 /**
- * Defines the base class for text transitions.
+ * 文本动效基类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1905,12 +1844,10 @@ declare class ColorShaderStyle extends ShaderStyle {
 declare class ContentTransition {}
 
 /**
- * Implements a flip animation for numeric text. It applies only to positive integers (decimals and negative numbers are
- * not supported). Gradient colors and text marquee mode are not supported. Text selection is not supported, and the
- * [copyOption]{@link TextAttribute#copyOption} property is ineffective. The flip animation fails if the text contains
- * child components or is set via a styled string.
- *
- * **NumericTextTransition** inherits from [ContentTransition]{@link ContentTransition}.
+ * 数字翻牌动效。仅限正整数，不支持小数和负数。不支持渐变色和Text跑马灯模式。不支持选中，[copyOption]{@link TextAttribute#copyOption}属性无效。当文本存在子组件时或通过属性字符串设置时，数字
+ * 翻牌失效。
+ * 
+ * NumericTextTransition继承自[ContentTransition]{@link ContentTransition}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1921,10 +1858,10 @@ declare class ContentTransition {}
 declare class NumericTextTransition extends ContentTransition {
 
   /**
-   * A constructor used to create a **NumericTextTransition** object.
+   * 用于创建NumericTextTransition对象的构造函数。
    *
-   * @param { NumericTextTransitionOptions } [options] - Options of the numeric flip animation. The default value is
-   *     inherited from [NumericTextTransitionOptions]{@link NumericTextTransitionOptions}.
+   * @param { NumericTextTransitionOptions } [options] - 设置数字翻牌动效。 默认值继承
+   *     [NumericTextTransitionOptions](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#numerictexttransitionoptions20对象说明)。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 23]
@@ -1934,9 +1871,9 @@ declare class NumericTextTransition extends ContentTransition {
   constructor(options?: NumericTextTransitionOptions);
 
   /**
-   * Direction of the flip animation.
-   *
-   * Default value: **FlipDirection.DOWN**
+   * 翻牌方向。
+   * 
+   * 默认值：FlipDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1947,13 +1884,13 @@ declare class NumericTextTransition extends ContentTransition {
   flipDirection?: FlipDirection;
 
   /**
-   * Whether to enable the blur effect for the flip animation.
-   *
-   * Default value: **false**
-   *
-   * **true**: Enable the blur effect.
-   *
-   * **false**: Disable the blur effect.
+   * 是否开启翻牌模糊效果。
+   * 
+   * 默认值：false
+   * 
+   * true：开启翻牌模糊效果。
+   * 
+   * false：不开启翻牌模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1965,7 +1902,7 @@ declare class NumericTextTransition extends ContentTransition {
 }
 
 /**
- * Defines the options of the numeric flip animation.
+ * 数字翻牌的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1976,9 +1913,9 @@ declare class NumericTextTransition extends ContentTransition {
 declare interface NumericTextTransitionOptions {
 
   /**
-   * Direction of the flip animation.
-   *
-   * Default value: **FlipDirection.DOWN**
+   * 翻牌方向。
+   * 
+   * 默认值：FlipDirection.DOWN
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1989,13 +1926,13 @@ declare interface NumericTextTransitionOptions {
   flipDirection?: FlipDirection;
 
   /**
-   * Whether to enable the blur effect for the flip animation.
-   *
-   * Default value: **false**
-   *
-   * **true**: Enable the blur effect.
-   *
-   * **false**: Disable the blur effect.
+   * 是否开启翻牌模糊效果。
+   * 
+   * 默认值：false
+   * 
+   * true：开启翻牌模糊效果。
+   * 
+   * false：不开启翻牌模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2007,7 +1944,7 @@ declare interface NumericTextTransitionOptions {
 }
 
 /**
- * Enumerates the directions of the flip animation. The default value is **DOWN**.
+ * 翻牌方向。默认值为DOWN。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2018,7 +1955,7 @@ declare interface NumericTextTransitionOptions {
 declare enum FlipDirection {
 
   /**
-   * Content flips downward.
+   * 内容往下翻。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2029,7 +1966,7 @@ declare enum FlipDirection {
   DOWN = 0,
 
   /**
-   * Content flips upward.
+   * 内容往上翻。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2041,7 +1978,7 @@ declare enum FlipDirection {
 }
 
 /**
- * Configures the line spacing of text and whether it applies only between lines.
+ * 设置文本的行间距，是否仅在行与行之间生效。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2052,12 +1989,11 @@ declare enum FlipDirection {
 declare interface LineSpacingOptions {
 
   /**
-   * Whether line spacing applies only between lines.
-   *
-   * **true**: Line spacing applies only between lines; no extra spacing is added above the first line or below the last
-   * line. **false**: Extra line spacing is added both above the first line and below the last line.
-   *
-   * Default value: **false**
+   * 文本的行间距是否仅在行与行之间生效。
+   * 
+   * 当设置为true时，行间距仅适用于行与行之间，首行上方和尾行下方无额外的行间距。当设置为false时，首行上方和尾行下方均会存在行间距。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2069,7 +2005,7 @@ declare interface LineSpacingOptions {
 }
 
 /**
- * Configures the display effect of the **TextArea** component when the text exceeds the maximum number of lines.
+ * 配置TextArea组件，文本超长时的显示效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2080,11 +2016,9 @@ declare interface LineSpacingOptions {
 declare interface MaxLinesOptions {
 
   /**
-   * **overflowMode** can be used to set the non-inline mode for the [TextArea]{@link text_area} component. When the
-   * text exceeds the set value of **maxLines** (maximum number of lines), a scroll effect is enabled. This requires
-   * configuration of [textOverflow]{@link TextAreaAttribute#textOverflow}, and **MaxLinesMode** takes effect only when
-   * **textOverflow** is set to **None** or **Clip**. The default value of **MaxLinesMode** is **Clip**, indicating that
-   * text is truncated when it exceeds the value of **maxLines**.
+   * `overflowMode`可配置[TextArea]{@link text_area}组件的非内联模式。当超出设置的`maxLines`最大行数时，会启用滚动效果。需同时配置
+   * [textOverflow]{@link TextAreaAttribute#textOverflow}，且仅当`textOverflow`为None或Clip时，`MaxLinesMode`才能生效。默认情况下，
+   * `MaxLinesMode`的值为Clip，超出`maxLines`后文本会被截断。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2096,8 +2030,7 @@ declare interface MaxLinesOptions {
 }
 
 /**
- * Enumerates the display effects of the **TextArea** component when text exceeds the maximum number of lines. The
- * default value is **CLIP** (truncating text at the maximum line count).
+ * TextArea组件在文本超长时显示效果。默认值为CLIP，按最大行截断显示。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2108,7 +2041,7 @@ declare interface MaxLinesOptions {
 declare enum MaxLinesMode {
 
   /**
-   * Text is clipped when it exceeds the maximum number of lines.
+   * 文本超长时按最大行截断显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2119,7 +2052,7 @@ declare enum MaxLinesMode {
   CLIP = 0,
 
   /**
-   * Text can be scrolled when it exceeds the maximum number of lines.
+   * 文本超长时可滚动显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2131,7 +2064,7 @@ declare enum MaxLinesMode {
 }
 
 /**
- * Enumerates the reasons for component content changes.
+ * 组件内容变化原因。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -2141,7 +2074,7 @@ declare enum MaxLinesMode {
 declare enum TextChangeReason {
 
   /**
-   * Unknown reason.
+   * 未知原因。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2151,7 +2084,7 @@ declare enum TextChangeReason {
   UNKNOWN = 0,
 
   /**
-   * User input.
+   * 用户输入。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2161,7 +2094,7 @@ declare enum TextChangeReason {
   INPUT = 1,
 
   /**
-   * Paste operation.
+   * 粘贴。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2171,7 +2104,7 @@ declare enum TextChangeReason {
   PASTE = 2,
 
   /**
-   * Cut operation.
+   * 剪切。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2181,7 +2114,7 @@ declare enum TextChangeReason {
   CUT = 3,
 
   /**
-   * Drag and drop operation.
+   * 拖拽。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2191,7 +2124,7 @@ declare enum TextChangeReason {
   DRAG = 4,
 
   /**
-   * Auto-fill operation.
+   * 自动填充。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2201,7 +2134,7 @@ declare enum TextChangeReason {
   AUTO_FILL = 5,
 
   /**
-   * AI-assisted writing.
+   * AI帮写。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2211,7 +2144,7 @@ declare enum TextChangeReason {
   AI_WRITE = 6,
 
   /**
-   * Redo operation.
+   * 重做。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2221,7 +2154,7 @@ declare enum TextChangeReason {
   REDO = 7,
 
   /**
-   * Undo operation.
+   * 撤销。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2231,7 +2164,7 @@ declare enum TextChangeReason {
   UNDO = 8,
 
   /**
-   * Component API call.
+   * 开发者调用组件接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2241,7 +2174,7 @@ declare enum TextChangeReason {
   CONTROLLER = 9,
 
   /**
-   * Accessibility API.
+   * 无障碍接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2251,7 +2184,7 @@ declare enum TextChangeReason {
   ACCESSIBILITY = 10,
 
   /**
-   * Cross-device photographing.
+   * 跨端拍照。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2261,7 +2194,7 @@ declare enum TextChangeReason {
   COLLABORATION = 11,
 
   /**
-   * Stylus input.
+   * 手写笔。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2272,7 +2205,7 @@ declare enum TextChangeReason {
 }
 
 /**
- * Enumerates keyboard gradient effects.
+ * 键盘模糊效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -2282,7 +2215,7 @@ declare enum TextChangeReason {
 declare enum KeyboardGradientMode {
 
   /**
-   * No gradient effect.
+   * 键盘无模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2292,7 +2225,7 @@ declare enum KeyboardGradientMode {
   NONE = 0,
 
   /**
-   * Linear gradient effect.
+   * 键盘设置线性渐变模糊效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2303,7 +2236,7 @@ declare enum KeyboardGradientMode {
 }
 
 /**
- * Enumerates keyboard fluid lighting effects.
+ * 键盘流光效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -2313,7 +2246,7 @@ declare enum KeyboardGradientMode {
 declare enum KeyboardFluidLightMode {
 
   /**
-   * No fluid lighting effect.
+   * 键盘无流光效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2323,7 +2256,7 @@ declare enum KeyboardFluidLightMode {
   NONE = 0,
 
   /**
-   * Background fluid lighting effect enabled.
+   * 键盘设置流光效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2334,7 +2267,7 @@ declare enum KeyboardFluidLightMode {
 }
 
 /**
- * Enumerates the text layout directions.
+ * 文本排版方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2345,7 +2278,7 @@ declare enum KeyboardFluidLightMode {
 declare enum TextDirection {
 
   /**
-   * From left to right.
+   * 文本排版方向从左到右。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2356,7 +2289,7 @@ declare enum TextDirection {
   LTR = 0,
 
   /**
-   * From right to left.
+   * 文本排版方向从右到左。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2367,7 +2300,7 @@ declare enum TextDirection {
   RTL = 1,
 
   /**
-   * Follows the component layout direction.
+   * 文本排版方向遵循组件布局方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2378,9 +2311,7 @@ declare enum TextDirection {
   DEFAULT = 2,
 
   /**
-   * Follows the writing direction of the content. For example, for right-to-left (RTL) languages (such as Tibetan and
-   * Uyghur), the text is laid out from right to left. For left-to-right (LTR) languages (such as Chinese and English
-   * ), the text is laid out from left to right.
+   * 遵循自身实际文本内容的排版方向，如果文本为 RTL（Right-to-Left）类语言（如藏文、维吾尔文），文本排版方向为从右到左。如果为 LTR（Left-to-Right）类语言（如中文、英文），文本排版方向为从左到右。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2392,7 +2323,7 @@ declare enum TextDirection {
 }
 
 /**
- * Describes the keyboard visual style configuration.
+ * 键盘外观样式属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -2402,9 +2333,9 @@ declare enum TextDirection {
 declare interface KeyboardAppearanceConfig {
 
   /**
-   * Keyboard gradient effect.
-   *
-   * Default value: **KeyboardGradientMode.NONE**
+   * 键盘的模糊效果。
+   * 
+   * 默认值：KeyboardGradientMode.NONE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2414,9 +2345,9 @@ declare interface KeyboardAppearanceConfig {
   gradientMode?: KeyboardGradientMode;
 
   /**
-   * Keyboard fluid lighting effect.
-   *
-   * Default value: **KeyboardFluidLightMode.NONE**
+   * 键盘的流光效果。
+   * 
+   * 默认值：KeyboardFluidLightMode.NONE
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2427,7 +2358,7 @@ declare interface KeyboardAppearanceConfig {
 }
 
 /**
- * Defines the input method client type bound to an input component.
+ * 输入控件绑定输入法客户端类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2438,7 +2369,7 @@ declare interface KeyboardAppearanceConfig {
 declare interface IMEClient {
 
   /**
-   * Unique ID of the current input component. The value must be greater than or equal to 0.
+   * 当前输入控件的组件UniqueId。取值范围大于等于0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2449,9 +2380,9 @@ declare interface IMEClient {
   nodeId: number;
 
   /**
-   * Sets the extension configuration of an input method.
+   * 设置输入法扩展信息。
    *
-   * @param { InputMethodExtraConfig } config - Extension configuration of an input method.
+   * @param { InputMethodExtraConfig } config - 输入法扩展信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -2461,7 +2392,7 @@ declare interface IMEClient {
 }
 
 /**
- * Defines the vertical alignment mode of text. The default value is **BASELINE** (aligning along the baseline).
+ * 文本垂直对齐的方式。默认值BASELINE，沿基线对齐。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2472,7 +2403,7 @@ declare interface IMEClient {
 declare enum TextVerticalAlign {
 
   /**
-   * Aligns text along the baseline.
+   * 对齐文本基线。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2483,7 +2414,7 @@ declare enum TextVerticalAlign {
   BASELINE = 0,
 
   /**
-   * Aligns text to the bottom.
+   * 对齐文本底部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2494,7 +2425,7 @@ declare enum TextVerticalAlign {
   BOTTOM = 1,
 
   /**
-   * Aligns text vertically to the center.
+   * 垂直居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2505,7 +2436,7 @@ declare enum TextVerticalAlign {
   CENTER = 2,
 
   /**
-   * Aligns text to the top.
+   * 对齐文本顶部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2517,7 +2448,7 @@ declare enum TextVerticalAlign {
 }
 
 /**
- * Enumerates the vertical alignment directions of the text content area.
+ * 文本内容区垂直对齐方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2528,7 +2459,7 @@ declare enum TextVerticalAlign {
 declare enum TextContentAlign {
 
   /**
-   * Aligns the content area to the top.
+   * 内容区顶部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2539,7 +2470,7 @@ declare enum TextContentAlign {
   TOP = 0,
 
   /**
-   * Aligns the content area to the center.
+   * 内容区中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2550,7 +2481,7 @@ declare enum TextContentAlign {
   CENTER = 1,
 
   /**
-   * Aligns the content area to the bottom.
+   * 内容区底部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2562,8 +2493,7 @@ declare enum TextContentAlign {
 }
 
 /**
- * An enumeration that defines the line corner style, i.e.,
- * the style of the brush when drawing a polyline at the corners of the line segments.
+ * 定义线条拐角的样式，即在绘制折线时线段拐角处的画笔样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2574,7 +2504,7 @@ declare enum TextContentAlign {
 declare enum StrokeJoinStyle {
 
   /**
-   * The corner type is an acute angle.
+   * 拐角类型为锐角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2585,7 +2515,7 @@ declare enum StrokeJoinStyle {
   MITER_JOIN = 0,
 
   /**
-   * The corner type is round.
+   * 拐角类型为圆角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2596,7 +2526,7 @@ declare enum StrokeJoinStyle {
   ROUND_JOIN = 1,
 
   /**
-   * The corner type is flat.
+   * 拐角类型为平角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2608,7 +2538,7 @@ declare enum StrokeJoinStyle {
 }
 
 /**
- * Defines the text layout options.
+ * 文本布局选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2618,7 +2548,7 @@ declare enum StrokeJoinStyle {
 declare interface TextLayoutOptions {
 
   /**
-   * Layout width of the measured text. If not set, the width is the maximum width occupied by a single-line layout.
+   * 设置被计算文本布局宽度。若不设置则宽度为单行布局所占最大宽度值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2629,7 +2559,7 @@ declare interface TextLayoutOptions {
 }
 
 /**
- * Defines accessibility options for the span.
+ * Span的无障碍朗读功能属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2640,13 +2570,11 @@ declare interface TextLayoutOptions {
 declare interface AccessibilitySpanOptions {
 
   /**
-   * Accessibility text, that is, accessible label name. If a component has no text property, it will not be announced
-   * when selected by a screen reader. Setting this property allows you to define accessibility text for such
-   * components, which will be announced by a screen reader to help users identify the selected component.
-   *
-   * Default value: **''**
-   *
-   * If the value is **undefined**, the default value is used.
+   * 无障碍文本属性。组件无文本属性时，屏幕朗读选中此组件不会播报。设置该属性后可为此类组件设置无障碍文本，屏幕朗读时将播报该文本，帮助使用者明确选中了什么组件。
+   * 
+   * 默认值：''
+   * 
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2657,13 +2585,11 @@ declare interface AccessibilitySpanOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * Accessibility description. This description provides users with a detailed explanation of the current component to
-   * help users understand the intended operation and its consequences, especially when these consequences cannot be
-   * directly obtained from the component's attributes and accessibility text alone.
-   *
-   * Default value: **''**
-   *
-   * If the value is **undefined**, the default value is used.
+   * 无障碍说明属性。此描述用于向用户详细解释当前组件，开发人员应提供详尽的文本说明，以协助用户理解即将执行的操作及其后果，尤其当这些后果无法仅从组件的属性和无障碍文本中直接获取时。
+   * 
+   * 默认值：''
+   * 
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2674,32 +2600,29 @@ declare interface AccessibilitySpanOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Accessibility level. It determines whether the component can be recognized by accessibility services.
-   *
-   * The options are as follows:
-   *
-   * **"auto"**: The component's recognizability is determined jointly by accessibility services and ArkUI.
-   *
-   * **"yes"**: The component can be recognized by accessibility services.
-   *
-   * **"no"**: The component cannot be recognized by accessibility services.
-   *
-   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
-   * services.
-   *
-   * The default value is **"auto"**.
-   *
-   * If the value is **undefined**, the default value is used.
-   *
-   * **NOTE**
-   *
-   * When accessibilityLevel is set to **"auto"**, the component's recognizability depends on the following factors:
-   *
-   * 1. The accessibility service internally determines whether the component can be recognized.
-   * 2. If the parent component's **accessibilityGroup** property has **isGroup** set to **true**,
-   * the accessibility service will not focus on its child components, making them unrecognizable.
-   * 3. If the parent component's **accessibilityLevel** is set to **"no-hide-descendants"**,
-   * the component will not be recognized by accessibility services.
+   * 无障碍重要性。用于设置组件是否可被无障碍辅助服务识别。
+   * 
+   * 支持取值如下：
+   * 
+   * "auto"：当前组件由无障碍辅助服务和ArkUl进行综合判断组件是否可被无障碍辅助服务所识别。
+   * 
+   * "yes"：当前组件可被无障碍辅助服务识别。
+   * 
+   * "no"：当前组件不可被无障碍辅助服务识别。
+   * 
+   * "no-hide-descendants"：当前组件及其所有子组件不可被无障碍辅助服务所识别。
+   * 
+   * 默认值："auto"
+   * 
+   * 值为undefined时，按默认值处理。
+   * 
+   * **说明：**
+   * 
+   * 当accessibilityLevel设置成"auto"时，组件是否可被无障碍辅助服务所识别取决于以下多方面因素：
+   * 
+   * 1. 组件是否可被识别由无障碍辅助服务内部判断，自行选择。
+   * 2. 若组件的父组件accessibilityGroup属性中isGroup设置为true，无障碍服务将不再关注其子组件内容，组件不可被无障碍辅助服务所识别。
+   * 3. 若组件的父组件accessibilityLevel属性设置为"no-hide-descendants"，组件不可被无障碍辅助服务所识别。
    *
    * @default "auto".
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2712,7 +2635,7 @@ declare interface AccessibilitySpanOptions {
 }
 
 /**
- * Defines the drag preview style for selected text.
+ * 文本拖拽时的背板样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2723,10 +2646,9 @@ declare interface AccessibilitySpanOptions {
 declare interface SelectedDragPreviewStyle {
 
   /**
-   * Drag preview color for selected text
-   *
-   * The default value follows the theme. When the default theme is applied, the drag preview is white in light mode
-   * and black in dark mode.
+   * 用于设置文本拖拽时的背板颜色。
+   * 
+   * 默认值：跟随主题。默认主题时，浅色模式显示白色，深色模式显示黑色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2738,7 +2660,7 @@ declare interface SelectedDragPreviewStyle {
 }
 
 /**
- * Sets the voice button options.
+ * 语音按钮选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -2749,11 +2671,11 @@ declare interface SelectedDragPreviewStyle {
 interface VoiceButtonOptions {
 
   /**
-   * Whether to enable or disable the voice button for the input box.
-   *
-   * **true**: The voice button is enabled. **false**: The voice button is disabled.
-   *
-   * Default value: **false**
+   * 输入框启用或禁用语音按钮。
+   * 
+   * true表示启用语音按钮，false表示禁用语音按钮。
+   * 
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2765,7 +2687,7 @@ interface VoiceButtonOptions {
 }
 
 /**
- * Defines font configurations.
+ * 字体配置项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2776,7 +2698,8 @@ interface VoiceButtonOptions {
 declare interface FontConfigs {
 
   /**
-   * Font weight configuration. The default value is inherited from [FontWeightConfigs] (#fontweightconfigs24).
+   * 字体粗细配置。默认值继承
+   * [FontWeightConfigs](docroot://reference/apis-arkui/arkui-ts/ts-text-common.md#fontweightconfigs24对象说明)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2788,9 +2711,7 @@ declare interface FontConfigs {
 }
 
 /**
- * Defines font weight configurations. When the configuration object (including an empty object **{}**) is passed, the
- * default values are used for properties that are not explicitly set. When **null** or **undefined** is passed, default
- * values are not applied, and the font weight behavior is consistent with that of the parent component text.
+ * 字体粗细配置项。当传入该配置对象时（包括空对象{}），未显式设置的属性将使用默认值。当传入null或undefined时，不应用默认值，字体粗细行为与父组件文本保持一致。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2801,16 +2722,13 @@ declare interface FontConfigs {
 declare interface FontWeightConfigs {
 
   /**
-   * Whether to enable variable font weight adjustment. When **weight** is set to a non-multiple of 100 within
-   * [100, 900], **enableVariableFontWeight** is used to set whether the **weight** value takes effect.
-   *
-   * Default value: **false**
-   *
-   * **true**: Enable variable font weight adjustment. If the value of **weight** is any integer within [100, 900],
-   * the value is used. Otherwise, the default value **400** is used.
-   *
-   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
-   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   * 是否启用可变字重调节。当设置字体粗细的值weight为[100, 900]内非整百数值时，enableVariableFontWeight用于设置weight的值是否生效。
+   * 
+   * 默认值：false 
+   * 
+   * true：启用可变字重调节。此时如果weight取值为[100, 900]范围内任意整数，字重取值为weight，否则取默认值400。
+   * 
+   * false：禁用可变字重调节。此时如果weight取值为[100, 900]范围内的整百数值，字重取值为weight；weight是非整百数值时，字重取默认值400。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2821,13 +2739,13 @@ declare interface FontWeightConfigs {
   enableVariableFontWeight?: boolean;
 
   /**
-   * Whether to automatically synchronize the font weight with the device's font weight setting.
-   *
-   * Default value: **true**
-   *
-   * **true**: The font weight is automatically synchronized when the device's font weight setting changes.
-   *
-   * **false**: The font weight is not automatically synchronized when the device's font weight setting changes.
+   * 是否随设备的字体粗细级别自动更新字重。
+   * 
+   * 默认值：true 
+   * 
+   * true：当设备的字体粗细级别发生变化时，字重会自动更新。
+   * 
+   * false：当设备的字体粗细级别发生变化时，字重不会自动更新。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2839,7 +2757,7 @@ declare interface FontWeightConfigs {
 }
 
 /**
- * Defines incremental update policies for text rendering.
+ * 文本渲染的增量更新策略。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2850,7 +2768,7 @@ declare interface FontWeightConfigs {
 declare enum IncrementalUpdatePolicy {
 
   /**
-   * Disable incremental updates. Full layout rendering is used.
+   * 不启用增量更新，采用全量布局渲染。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2861,7 +2779,7 @@ declare enum IncrementalUpdatePolicy {
   NONE = 0,
 
   /**
-   * Enable incremental updates with paragraph-level cache.
+   * 启用增量更新，使用段落级缓存。该策略生效的前提是文本绑定的属性字符串对象保持不变，若属性字符串对象发生变化则无法命中缓存。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

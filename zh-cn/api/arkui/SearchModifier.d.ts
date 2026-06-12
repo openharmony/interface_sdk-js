@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines Search Modifier
- *
+* Defines Search Modifier
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 20]

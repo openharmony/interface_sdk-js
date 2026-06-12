@@ -3,7 +3,7 @@
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * 
  *     http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines Search Modifier
- *
+* Defines SymbolSpan Modifier. Provided for use by the SymbolSpan component
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform [since 20]
@@ -28,17 +28,29 @@
  * @since 12 dynamic
  * @noninterop
  */
-export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
+export declare class SymbolSpanModifier extends SymbolSpanAttribute implements AttributeModifier<SymbolSpanAttribute> {
+
+  /**
+   * constructor
+   *
+   * @param { Resource } src
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 20]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(src?: Resource);
 
   /**
    * Defines the normal update attribute function.
    *
-   * @param { SearchAttribute } instance
+   * @param { SymbolSpanAttribute } attribute
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 20]
    * @atomicservice
    * @since 12 dynamic
    */
-  applyNormalAttribute?(instance: SearchAttribute): void;
+  applyNormalAttribute?(attribute: SymbolSpanAttribute): void;
 }

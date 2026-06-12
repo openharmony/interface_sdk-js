@@ -21,7 +21,7 @@
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
- * Describes the edit menu options.
+ * 编辑菜单选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,7 +33,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 export interface EditorMenuOptions {
 
   /**
-   * Icon.
+   * 图标资源。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +44,7 @@ export interface EditorMenuOptions {
   icon: ResourceStr;
 
   /**
-   * Symbol icon resource, which has higher priority than **icon**.
+   * Symbol图标资源，优先级大于icon。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,7 +55,7 @@ export interface EditorMenuOptions {
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Action triggered when the menu option is clicked.
+   * 点击菜单项的事件回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -66,8 +66,7 @@ export interface EditorMenuOptions {
   action?: () => void;
 
   /**
-   * Builder of the custom component displayed upon click. It must be used with @Builder for building the custom
-   * component.
+   * 点击时显示用户自定义组件，自定义组件在构造时结合@Builder使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -79,9 +78,9 @@ export interface EditorMenuOptions {
 }
 
 /**
- * Describes the expanded drop-down menu options.
- *
- * Inherits from [MenuItemOptions]{@link MenuItemOptions}.
+ * 扩展下拉菜单。
+ * 
+ * 继承于[MenuItemOptions](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-menuitem.md#menuitemoptions对象说明)。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -93,7 +92,7 @@ export interface EditorMenuOptions {
 export interface ExpandedMenuOptions extends MenuItemOptions {
 
   /**
-   * Action triggered when the menu option is clicked.
+   * 点击菜单项的事件回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -105,7 +104,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
 }
 
 /**
- * Provides the information about the selected content.
+ * 选中内容信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -117,7 +116,7 @@ export interface ExpandedMenuOptions extends MenuItemOptions {
 export interface EditorEventInfo {
 
   /**
-   * Information about the selected content.
+   * 选中内容信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -129,7 +128,7 @@ export interface EditorEventInfo {
 }
 
 /**
- * Defines the configuration options of the **SelectionMenu** component.
+ * SelectionMenuOptions定义SelectionMenu的可选菜单类型项及其具体配置参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -141,15 +140,13 @@ export interface EditorEventInfo {
 export interface SelectionMenuOptions {
 
   /**
-   * Edit menu.
-   *
-   * If **editorMenuOptions** is not set, the edit menu is not displayed.
-   *
-   * When both **action** and **builder** in **EditorMenuOptions** are configured, clicking the edit icon will trigger
-   * both.
-   *
-   * By default, the context menu is not closed when the edit menu icon is clicked. You can configure
-   * **closeSelectionMenu** of **RichEditorController** in **action** to enable the menu to be closed.
+   * 编辑菜单。
+   * 
+   * editorMenuOptions未配置时，不显示编辑菜单。
+   * 
+   * 同时配置EditorMenuOptions中action和builder时，点击图标会同时响应。
+   * 
+   * 点击编辑菜单图标默认不关闭整个菜单，应用可以通过action接口配置RichEditorController的closeSelectionMenu主动关闭菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -160,12 +157,11 @@ export interface SelectionMenuOptions {
   editorMenuOptions?: Array<EditorMenuOptions>;
 
   /**
-   * Expanded drop-down menu options.
-   *
-   * If this parameter is left empty, the expanded drop-down menu is not displayed.
-   *
-   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
-   * shows the expanded drop-down menu.
+   * 扩展下拉菜单。
+   * 
+   * expandedMenuOptions参数为空时无更多按钮，不显示扩展下拉菜单。
+   * 
+   * expandedMenuOptions参数不为空时显示更多按钮，配置菜单项收起在更多按钮中，点击更多按钮展示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -176,12 +172,11 @@ export interface SelectionMenuOptions {
   expandedMenuOptions?: Array<ExpandedMenuOptions>;
 
   /**
-   * Expanded drop-down menu options.
-   *
-   * If this parameter is left empty, the expanded drop-down menu is not displayed.
-   *
-   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
-   * shows the expanded drop-down menu.
+   * 扩展下拉菜单。
+   * 
+   * expandedMenuOptions参数为空时无更多按钮，不显示扩展下拉菜单。
+   * 
+   * expandedMenuOptions参数不为空时显示更多按钮，配置菜单项收起在更多按钮中，点击更多按钮展示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -192,13 +187,13 @@ export interface SelectionMenuOptions {
   controller?: RichEditorController;
 
   /**
-   * Event callback to take the place of the preset paste menu option.
-   *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
-   *
-   * **NOTE**
-   *
-   * **event** indicates the returned information.
+   * 替代内置系统菜单粘贴项的事件回调。
+   * 
+   * 生效前提是一定要有controller参数，有系统默认菜单才能替换内置粘贴功能。
+   * 
+   * **说明：**
+   * 
+   * event为返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -209,13 +204,13 @@ export interface SelectionMenuOptions {
   onPaste?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset copy menu option.
-   *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
-   *
-   * **NOTE**
-   *
-   * **event** indicates the returned information.
+   * 替代内置系统菜单复制项的事件回调。
+   * 
+   * 生效前提是一定要有controller参数，有系统默认菜单才能替换内置复制功能。
+   * 
+   * **说明：**
+   * 
+   * event为返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -226,13 +221,13 @@ export interface SelectionMenuOptions {
   onCopy?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset cut menu option.
-   *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
-   *
-   * **NOTE**
-   *
-   * **event** indicates the returned information.
+   * 替代内置系统菜单剪切项的事件回调。
+   * 
+   * 生效前提是一定要有controller参数，有系统默认菜单才能替换内置剪切功能。
+   * 
+   * **说明：**
+   * 
+   * event为返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -243,13 +238,13 @@ export interface SelectionMenuOptions {
   onCut?: (event?: EditorEventInfo) => void;
 
   /**
-   * Event callback to take the place of the preset select-all menu option.
-   *
-   * It is effective only when the **controller** parameter is set and the preset menu is available.
-   *
-   * **NOTE**
-   *
-   * **event** indicates the returned information.
+   * 替代内置系统菜单全选项的事件回调。
+   * 
+   * 生效前提是一定要有controller参数，有系统默认菜单才能替换内置全选功能。
+   * 
+   * **说明：**
+   * 
+   * event为返回信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,8 +255,7 @@ export interface SelectionMenuOptions {
   onSelectAll?: (event?: EditorEventInfo) => void;
 
   /**
-   * Set system-styled materials for the component. Different materials have different effects,
-   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   * 菜单的背景板的系统材质。不同系统材质包含不同的属性影响效果。默认值：undefined，无材质效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -273,13 +267,10 @@ export interface SelectionMenuOptions {
 }
 
 /**
- * Defines a **SelectionMenu** component. When the input parameter is empty, both the component and its content area
- * have a zero size, making the component invisible. For example, when a **SelectionMenu** component activated via right
- * -click is bound to a [RichEditor]{@link rich_editor} component using
- * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}, it will not be displayed when the **RichEditor**
- * component receives a right-click event.
+ * 入参为空时，文本选择菜单组件SelectionMenu内容区大小及组件大小为零。表现例如，富文本组件[RichEditor]{@link rich_editor}使用
+ * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}接口绑定一个SelectionMenu的右键菜单，则右键富文本组件区域时无任何菜单弹出。
  *
- * @param { SelectionMenuOptions } options - Configuration options of the **SelectionMenu** component.
+ * @param { SelectionMenuOptions } options - 文本选择菜单可选项。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

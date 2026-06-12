@@ -40,7 +40,7 @@
  */
 
 /**
- * Provides attributes of the measured text.
+ * 被计算文本属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 11]
@@ -50,7 +50,7 @@
 export interface MeasureOptions {
 
   /**
-   * Content of the measured text.
+   * 设置被计算文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -60,12 +60,11 @@ export interface MeasureOptions {
   textContent: string | Resource;
 
   /**
-   * Layout width of the measured text.
-   *
-   * **NOTE**
-   *
-   * The default unit is vp. The value cannot be a percentage. If this parameter is not set, the value of
-   * **SizeOptions** is the maximum width allowed for the single-line text.
+   * 设置被计算文本布局宽度。
+   * 
+   * **说明：** 
+   * 
+   * 默认单位为vp，不支持设置百分比字符串。若不设置，则文本SizeOptions宽度为单行布局所占最大宽度值，若设置则为设置值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -76,15 +75,15 @@ export interface MeasureOptions {
   constraintWidth?: number | string | Resource;
 
   /**
-   * Font size of the text to be measured. When **fontSize** is of the number type, the unit is vp.
-   *
-   * Default value: **16**
-   *
-   * **NOTE**
-   *
-   * The value cannot be a percentage.
-   *
-   * Since API version 12, the fp unit is used when **fontSize** is of the number type.
+   * 设置被计算文本字体大小，fontSize为number类型时，使用vp单位。
+   * 
+   * 默认值：16
+   * 
+   * **说明：** 
+   * 
+   * 不支持设置百分比字符串。
+   * 
+   * 从API version 12开始，fontSize为number类型时，使用fp单位。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -94,11 +93,11 @@ export interface MeasureOptions {
   fontSize?: number | string | Resource;
 
   /**
-   * Font style of the measured text.
-   *
-   * Default value: **FontStyle.Normal**
-   *
-   * Value range for the number type: [0, 1], with intervals of 1, corresponding to the values in the **FontStyle** enum
+   * 设置被计算文本字体样式。
+   * 
+   * 默认值：FontStyle.Normal
+   * 
+   * number类型取值范围为[0,1]，取值间隔为1，依次对应FontStyle中的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -108,12 +107,10 @@ export interface MeasureOptions {
   fontStyle?: number | FontStyle;
 
   /**
-   * Font width of the measured text. For the number type, the value ranges from 100 to 900, at an interval of 100. A
-   * larger value indicates a heavier font weight. The default value is **400**. For the string type, only strings of
-   * the number type are supported, for example, **400**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
-   * **"medium"**, which correspond to the enumerated values in **FontWeight**.
-   *
-   * Default value: **FontWeight.Normal**
+   * 设置被计算文本的字体粗细，number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如"400"，以及"bold"、"bolder"、"
+   * lighter"、"regular"、"medium"，分别对应FontWeight中相应的枚举值。
+   * 
+   * 默认值：FontWeight.Normal
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -123,9 +120,7 @@ export interface MeasureOptions {
   fontWeight?: number | string | FontWeight;
 
   /**
-   * Font family of the measured text. Default value: **'HarmonyOS Sans'**
-   *
-   * Only the default font is supported.
+   * 设置被计算文本字体列表。默认字体'HarmonyOS Sans'，且当前只支持这种字体。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -135,9 +130,9 @@ export interface MeasureOptions {
   fontFamily?: string | Resource;
 
   /**
-   * Letter spacing of the measured text.
-   *
-   * Default value: **0**
+   * 设置被计算文本字符间距。
+   * 
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 12]
@@ -147,11 +142,11 @@ export interface MeasureOptions {
   letterSpacing?: number | string;
 
   /**
-   * Horizontal alignment mode of the measured text.
-   *
-   * Default value: **TextAlign.Start**
-   *
-   * Value range for the number type: [0, 3], with intervals of 1, corresponding to the values in the **TextAlign** enum
+   * 设置被计算文本水平方向的对齐方式。
+   * 
+   * 默认值：TextAlign.Start
+   * 
+   * number类型取值范围为[0,3]，取值间隔为1，依次对应TextAlign中的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -162,12 +157,11 @@ export interface MeasureOptions {
   textAlign?: number | TextAlign;
 
   /**
-   * Display mode when the measured text is too long.
-   *
-   * Default value: **1**
-   *
-   * Value range for the number type: [0, 3], with intervals of 1, corresponding to the values in the **TextOverflow**
-   * enum
+   * 设置被计算文本超长时的截断方式。
+   * 
+   * 默认值：1
+   * 
+   * number类型取值范围为[0,3]，取值间隔为1，依次对应TextOverflow中的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -178,9 +172,9 @@ export interface MeasureOptions {
   overflow?: number | TextOverflow;
 
   /**
-   * Maximum number of lines in the measured text.
-   *
-   * Value range: [0, *INT32_MAX*]
+   * 设置被计算文本最大行数。
+   * 
+   * 取值范围：[0, INT32_MAX]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -191,7 +185,7 @@ export interface MeasureOptions {
   maxLines?: number;
 
   /**
-   * Line height of the measured text.
+   * 设置被计算文本行高。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -202,9 +196,9 @@ export interface MeasureOptions {
   lineHeight?: number | string | Resource;
 
   /**
-   * Baseline offset of the measured text.
-   *
-   * Default value: **0**
+   * 设置被计算文本基线的偏移量。
+   * 
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -215,11 +209,11 @@ export interface MeasureOptions {
   baselineOffset?: number | string;
 
   /**
-   * Case of the measured text.
-   *
-   * Default value: **TextCase.Normal**
-   *
-   * Value range for the number type: [0, 2], with intervals of 1, corresponding to the values in the **TextCase** enum
+   * 设置被计算文本大小写。
+   * 
+   * 默认值：TextCase.Normal
+   * 
+   * number类型取值范围为[0,2]，取值间隔为1，依次对应TextCase中的枚举值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -230,7 +224,7 @@ export interface MeasureOptions {
   textCase?: number | TextCase;
 
   /**
-   * Indentation of the first line. Default value: **0**.
+   * 设置首行文本缩进，默认值为0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -241,14 +235,13 @@ export interface MeasureOptions {
   textIndent?: number | string;
 
   /**
-   * Line break rule.
-   *
-   * Default value: **WordBreak.BREAK_WORD**
-   *
-   * **NOTE**
-   *
-   * When used with **{overflow: TextOverflow.Ellipsis}** and **maxLines**, **WordBreak.BREAK_ALL** can insert line
-   * breaks between letters when overflow occurs and display excess content with an ellipsis (...).
+   * 设置断行规则。 
+   * 
+   * 默认值：WordBreak.BREAK_WORD 
+   * 
+   * **说明：** 
+   * 
+   * WordBreak.BREAK_ALL与{overflow: TextOverflow.Ellipsis}，`maxLines`组合使用可实现英文单词按字母截断，超出部分以省略号显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,7 +253,7 @@ export interface MeasureOptions {
 }
 
 /**
- * Defines the Measure interface.
+ * 定义测算文本相关接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 12]
@@ -270,23 +263,24 @@ export interface MeasureOptions {
 export default class MeasureText {
 
   /**
-   * Measures the single-line display width of the specified text. For multi-line text (separated by newline characters
-   * **\n**), this API returns the width of the longest line.
-   *
-   * > **NOTE**
+   * 计算指定文本作为单行文本显示时的宽度。如果文本包含多行（由换行符`\n`分隔），则返回其中最长的行的宽度。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 12, you can use the
-   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MeasureUtils]{@link @ohos.arkui.UIContext} object
-   * > associated with the current UI context.
+   * > -measureText需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12)方法获取
+   * > [MeasureUtils]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用measureText可能导致
+   * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
    * >
-   * > - **measureText** always measures single-line text width. Layout constraints in **options** (**constraintWidth**,
-   * > **maxLines**, and more) do not affect results. For layout-constrained width measurement, use
-   * > [measureTextSize](docroot://reference/apis-arkui/arkts-apis-uicontext-measureutils.md#measuretextsize12).
+   * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12)方法获取当前UI上下文关
+   * > 联的[MeasureUtils]{@link @ohos.arkui.UIContext}对象。
+   * >
+   * > - measureText接口的计算结果始终是单行文本的宽度，入参options中配置的布局约束（如constraintWidth、maxLines）对measureText的结果没有影响。如果需要计算布局约束下的宽度，请使用
+   * > [measureTextSize](docroot://reference/apis-arkui/arkts-apis-uicontext-measureutils.md#measuretextsize12)方法。
    *
-   * @param { MeasureOptions } options - Information about the measured text.
-   * @returns { number } Text width.
-   *     <br>Unit: px
+   * @param { MeasureOptions } options - 被计算文本描述信息。
+   * @returns { number } 文本宽度。<br/>单位：px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 11]
    * @atomicservice [since 12]
@@ -297,19 +291,21 @@ export default class MeasureText {
   static measureText(options: MeasureOptions): number;
 
   /**
-   * Measures the width and height of the given text.
-   *
-   * > **NOTE**
+   * 计算指定文本的宽度和高度。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 12, you can use the
-   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12) API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MeasureUtils]{@link @ohos.arkui.UIContext} object
-   * > associated with the current UI context.
+   * > -measureTextSize需要先通过[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12)方法获取
+   * > [MeasureUtils]{@link @ohos.arkui.UIContext}对象，然后通过该对象进行调用。且直接使用measureTextSize可能导致
+   * > [UI上下文不明确](docroot://ui/arkts-global-interface.md#ui上下文不明确)的问题。
+   * >
+   * > - 从API version 12开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12)方法获取当前UI上下文关
+   * > 联的[MeasureUtils]{@link @ohos.arkui.UIContext}对象。
    *
-   * @param { MeasureOptions } options - Information about the measured text.
-   * @returns { SizeOptions } Layout width and height occupied by the text.
-   *     <br>**NOTE**
-   *     <br>The return values for text width and height are both in px.
+   * @param { MeasureOptions } options - 被计算文本描述信息。
+   * @returns { SizeOptions } 返回文本所占布局宽度和高度。<br/>**说明:**  <br/>文本宽度以及高度返回值单位均为px。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
