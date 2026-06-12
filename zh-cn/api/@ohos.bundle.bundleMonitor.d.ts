@@ -21,7 +21,7 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Bundle monitor
+ * 本模块提供监听应用安装，卸载，更新的能力。
  *
  * @namespace bundleMonitor
  * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -31,9 +31,8 @@ import { Callback } from './@ohos.base';
  */
 declare namespace bundleMonitor {
   /**
-   * This module defines the result information of monitoring install, update and uninstall.
+   * 应用变更信息。
    *
-   * @typedef BundleChangedInfo
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -41,10 +40,8 @@ declare namespace bundleMonitor {
    */
   interface BundleChangedInfo {
     /**
-     * The bundle name
+     * 应用状态发生变化的应用Bundle名称。
      *
-     * @type { string }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
@@ -52,10 +49,8 @@ declare namespace bundleMonitor {
      */
     readonly bundleName: string;
     /**
-     * The user id
+     * 应用状态发生变化的用户ID，可以通过getOsAccountLocalId接口获取。
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 9 dynamic
@@ -63,10 +58,8 @@ declare namespace bundleMonitor {
      */
     readonly userId: int;
     /**
-     * The app index of clone app
+     * 应用状态发生变化的应用分身索引。
      *
-     * @type { int }
-     * @readonly
      * @syscap SystemCapability.BundleManager.BundleFramework.Core
      * @systemapi
      * @since 12 dynamic
@@ -76,9 +69,8 @@ declare namespace bundleMonitor {
   }
 
   /**
-   * Indicates the event type of bundle change
+   * 监听的事件类型。
    *
-   * @typedef { 'add' | 'update' | 'remove' }
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @systemapi
    * @since 9 dynamic
@@ -86,11 +78,11 @@ declare namespace bundleMonitor {
   type BundleChangedEvent = 'add' | 'update' | 'remove';
 
   /**
-   * Register to monitor the installation status
+   * 注册监听应用的安装、卸载、更新。使用callback异步回调。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { BundleChangedEvent } type - Indicates the command should be implement.
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be register.
+   * @param { BundleChangedEvent } type - 注册监听的事件类型。
+   * @param { Callback<BundleChangedInfo> } callback - 回调函数，当回调成功时，err为undefined，data为应用变更信息；否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -101,10 +93,10 @@ declare namespace bundleMonitor {
   function on(type: BundleChangedEvent, callback: Callback<BundleChangedInfo>): void;
 
   /**
-   * Register installation listener.
+   * 注册监听应用的安装。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -114,10 +106,10 @@ declare namespace bundleMonitor {
   function onAdd(callback: Callback<BundleChangedInfo>): void;
 
   /**
-   * Register update listener.
+   * 注册监听应用的更新。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -127,10 +119,10 @@ declare namespace bundleMonitor {
   function onUpdate(callback: Callback<BundleChangedInfo>): void;
 
   /**
-   * Register uninstallation listener.
+   * 注册监听应用的卸载。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be registered.
+   * @param { Callback<BundleChangedInfo> } callback - 注册监听的AsyncCallback
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -140,11 +132,11 @@ declare namespace bundleMonitor {
   function onRemove(callback: Callback<BundleChangedInfo>): void;
 
   /**
-   * Unregister to monitor the installation status
+   * 注销监听应用的安装，卸载，更新。使用callback异步回调。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { BundleChangedEvent } type -type Indicates the command should be implement.
-   * @param { Callback<BundleChangedInfo> } callback - Indicates the callback to be unregister.
+   * @param { BundleChangedEvent } type - 注销监听的事件类型。
+   * @param { Callback<BundleChangedInfo> } callback - 回调函数，当回调成功时，err为undefined，data为应用变更信息；否则为错误对象。
    * @throws { BusinessError } 201 - Verify permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.
@@ -155,10 +147,10 @@ declare namespace bundleMonitor {
   function off(type: BundleChangedEvent, callback?: Callback<BundleChangedInfo>): void;
 
   /**
-   * Unregister installation listener.
+   * 注销监听应用的安装。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -168,10 +160,10 @@ declare namespace bundleMonitor {
   function offAdd(callback?: Callback<BundleChangedInfo>): void;
 
   /**
-   * Unregister update listener.
+   * 注销监听应用的更新。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
@@ -181,10 +173,10 @@ declare namespace bundleMonitor {
   function offUpdate(callback?: Callback<BundleChangedInfo>): void;
 
   /**
-   * Unregister uninstallation listener.
+   * 注销监听应用的卸载。
    *
    * @permission ohos.permission.LISTEN_BUNDLE_CHANGE
-   * @param { Callback<BundleChangedInfo> } [callback] - Indicates the callback to be unregistered.
+   * @param { Callback<BundleChangedInfo> } [callback] - 注销监听的AsyncCallback，默认值：注销当前事件的所有callback。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
