@@ -785,113 +785,115 @@ export interface TargetInfo {
 }
 
 /**
- * 背景亮度采样配置参数。
+ * 背景取色参数配置。
  *
- * @interface BackgroundLuminanceSamplingConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 dynamic
+ * @since 26.0.0 static
  */
 export interface BackgroundLuminanceSamplingConfigs {
-
   /**
-   * 采样间隔，单位为毫秒。最小间隔为180毫秒。
+   * 取色间隔，单位为毫秒，最小值180ms。
+   * 
+   * 默认值：500
    *
-   * @type { ?number }
    * @default 500
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  samplingInterval?: number;
-
+  samplingInterval?: int;
   /**
-   * 亮度阈值。如果大于此阈值，则表示背景较亮。
-   * 取值范围为[0, 255]。brightThreshold的值必须大于等于DarkThreshold的值。
-   * 不在此范围内的值会导致参数设置异常。
+   * 浅色亮度阈值：[0, 255]内的整数，设置的深色亮度阈值应小于浅色亮度阈值。
+   * 
+   * 默认值：220
    *
-   * @type { ?number }
    * @default 220
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  brightThreshold?: number;
-
+  brightThreshold?: int;
   /**
-   * 黑暗阈值。如果小于此阈值，则背景为暗色。
-   * 取值范围为[0, 255]。brightThreshold的值必须大于等于DarkThreshold的值。
-   * 不在此范围内的值会导致参数设置异常。
+   * 深色亮度阈值：[0, 255]内的整数，设置的深色亮度阈值应小于浅色亮度阈值。
+   * 
+   * 默认值：150
    *
-   * @type { ?number }
    * @default 150
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  darkThreshold?: number;
-
+  darkThreshold?: int;
   /**
-   * 采样区域，如果不指定，则为节点区域。
+   * 相对组件的取色区域偏移，以组件自身的左上点为基准进行偏移计算。
+   * 
+   * 默认使用组件自身区域
    *
-   * @type { ?Edges<LengthMetrics> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  region?: Edges<LengthMetrics>;
+  region?: NodeEdges<LengthMetrics>;
 }
 
 /**
- * 类背景亮度采样器。
+ * 设置背景亮度取色参数、注册亮度变化监听回调、取消注册监听回调。
+ * 
+ * > **说明：**
+ * >
+ * > 以下API需先使用UIContext中的[getLuminanceSampler]{@link @ohos.arkui.UIContext:UIContext#getLuminanceSampler}方法获取到
+ * > LuminanceSampler对象，再通过该对象调用对应方法。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
- * @since 23 dynamic
+ * @since 26.0.0 static
  */
 export class LuminanceSampler {
-
   /**
-   * 设置背景亮度采样配置。
+   * 设置取色参数配置。当亮度阈值不在指定范围内或暗阈值大于亮阈值将抛出异常。
    *
-   * @param { BackgroundLuminanceSamplingConfigs } configs - 采样配置。
+   * @param { BackgroundLuminanceSamplingConfigs } configs - 取色参数。
    * @throws { BusinessError } 100001 - Internal error.
    *     <br> 1. Incorrect parameter values.
    *     <br> 2. Incorrect parameters types.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
   setBackgroundLuminanceSamplingConfigs(configs: BackgroundLuminanceSamplingConfigs): void;
-
   /**
-   * 注册背景亮度变化的回调。
+   * 设置取色监听回调。
+   * 
+   * 回调的触发条件：背景亮度根据
+   * [setBackgroundLuminanceSamplingConfigs]{@link @ohos.arkui.UIContext:LuminanceSampler#setBackgroundLuminanceSamplingConfigs}
+   * 接口设置的亮阈值和暗阈值分为三个区间，[0，暗阈值)，[暗阈值，亮阈值]，(亮阈值，255]。背景亮度所在区间发生变化（或者首次注册监听回调），并且距离上次取色的时间间隔达到设置的取色时间间隔时触发取色回调，并返回当前背景亮度。
    *
-   * @param { Callback<number> } samplingCallback - 亮度采样回调。
+   * @param { Callback<int> } samplingCallback - 监听回调。触发同时返回当前背景亮度。<br/>**说明**：监听回调里不能调用
+   *     [offBackgroundLuminanceChange]{@link LuminanceSampler#off}。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  onBackgroundLuminanceChange(samplingCallback: Callback<number>): void;
-
+  onBackgroundLuminanceChange(samplingCallback: Callback<int>): void;
   /**
-   * 注销背景亮度变化的回调。
+   * 取消注册取色监听回调。未指定回调时，取消所有监听。
    *
-   * @param { Callback<number> } [samplingCallback] - 亮度采样回调。
+   * @param { Callback<int> } [samplingCallback] - 监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 23 dynamic
+   * @since 26.0.0 static
    */
-  offBackgroundLuminanceChange(samplingCallback?: Callback<number>): void;
+  offBackgroundLuminanceChange(samplingCallback?: Callback<int>): void;
 }
 
 /**
@@ -5305,463 +5307,6 @@ export const enum CustomKeyboardContinueFeature {
 }
 
 /**
- * 动画组状态。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export const enum AnimationGroupStatus {
-
-  /**
-   * 动画组空闲。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  IDLE = 0,
-
-  /**
-   * 动画组正在运行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  RUNNING = 1,
-
-  /**
-   * 动画组暂停。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  PAUSED = 2,
-
-  /**
-   * 动画组已停止。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  STOPPED = 3,
-
-  /**
-   * 动画组完成。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  FINISHED = 4
-}
-
-/**
- * 定义动画组类。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export class AnimationGroup {
-
-  /**
-   * 添加animateTo动画。
-   *
-   * @param { AnimateParam } param - 动画参数。
-   * @param { Callback<void> } processor - 动画关闭。
-   * @param { AnimationChildOptions } [options] - 子动画选项。
-   * @returns { AnimationItem } 动画项。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  addAnimateTo(param: AnimateParam, processor: Callback<void>, options?: AnimationChildOptions): AnimationItem;
-
-  /**
-   * 添加keyframeAnimateTo动画。
-   *
-   * @param { KeyframeAnimateParam } param - 关键帧动画参数。
-   * @param { Array<KeyframeState> } keyframes - 关键帧的数组。
-   * @param { AnimationChildOptions } [options] - 子动画选项。
-   * @returns { AnimationItem } 动画项。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  addKeyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>,
-    options?: AnimationChildOptions): AnimationItem;
-
-  /**
-   * 获取所有子动画。
-   *
-   * @returns { Array<AnimationItem> } Array of child animations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  getAnimations(): Array<AnimationItem>;
-
-  /**
-   * 通过ID获取动画。
-   *
-   * @param { string } id - 动画ID。
-   * @returns { AnimationItem | undefined } Animation with specified ID, or undefined if not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  getAnimation(id: string): AnimationItem | undefined;
-
-  /**
-   * 移除动画。
-   *
-   * @param { AnimationItem } animation - 要移除的动画。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  removeAnimation(animation: AnimationItem): void;
-
-  /**
-   * 按ID移除动画。
-   *
-   * @param { string } id - 动画ID。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  removeAnimationById(id: string): void;
-
-  /**
-   * 清除所有子动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  clearAnimations(): void;
-
-  /**
-   * 播放动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  play(): void;
-
-  /**
-   * 暂停动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  pause(): void;
-
-  /**
-   * 停止动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  stop(): void;
-
-  /**
-   * 获取动画组状态。
-   *
-   * @returns { AnimationGroupStatus } Animation group status.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  getStatus(): AnimationGroupStatus;
-}
-
-/**
- * 动画组模式。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export const enum AnimationGroupMode {
-
-  /**
-   * 并行执行模式。所有动画同时开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  PARALLEL = 0,
-
-  /**
-   * 顺序执行模式。动画陆续开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  SEQUENTIAL = 1,
-
-  /**
-   * 自定义执行模式。动画在自定义beginTime开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  CUSTOM = 2
-}
-
-/**
- * 定义动画项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export interface AnimationItem {
-
-  /**
-   * 获取动画ID。
-   *
-   *
-   *
-   *
-   * @returns { string } Animation ID.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  getId(): string;
-
-  /**
-   * 播放动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  play(): void;
-
-  /**
-   * 暂停动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  pause(): void;
-
-  /**
-   * 停止动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  stop(): void;
-}
-
-/**
- * 动画组选项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export interface AnimationGroupParams {
-
-  /**
-   * 动画组执行模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  mode: AnimationGroupMode;
-
-  /**
-   * 动画组的总持续时间（以毫秒为单位）。
-   * 如果未设置，子动画使用自己的持续时间。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  duration?: int;
-
-  /**
-   * 以毫秒为单位的开始延迟。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  delay?: int;
-
-  /**
-   * 顺序模式下动画之间的间隔时间，以毫秒为单位。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  interval?: int;
-
-  /**
-   * 重复计数。-1表示无限循环。
-   *
-   * @default 1
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  repeatCount?: int;
-
-  /**
-   * 是否自动回退。
-   *
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  autoreverses?: boolean;
-
-  /**
-   * 完成回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  onFinish?: Callback<void>;
-
-  /**
-   * 开始回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  onStart?: Callback<void>;
-
-  /**
-   * 重复回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  onRepeat?: Callback<void>;
-}
-
-/**
- * 动画子选项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-export interface AnimationChildOptions {
-
-  /**
-   * 动画ID。如果没有设置，则会自动生成ID。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  id?: string;
-}
-
-/**
  * Class FrameCallback
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -5789,4 +5334,1629 @@ export abstract class FrameCallback {}
  * @atomicservice
  * @since 11 dynamic
  */
-export class UIContext {}
+export class UIContext {
+  /**
+   * UIContext constructor
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  constructor();
+
+  /**
+   * Gets the UIContext associated with the current calling scope.
+   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
+   *     or undefined if no context can be determined from the call stack.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  static getCallingScopeUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last focused UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  static getLastFocusedUIContext(): UIContext | undefined;
+
+  /**
+   * Gets the UIContext of the last foregrounded UI instance if one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
+   * exists
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  static getLastForegroundUIContext(): UIContext | undefined;
+
+  /**
+   * Gets all currently active UIContext instances.
+   * @returns { UIContext[] } - An array containing all valid UIContext instances,
+   *     returns an empty array if no contexts are available.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  static getAllUIContexts(): UIContext[];
+
+  /**
+   * Resolves a UIContext using priority strategy.
+   *
+   * Resolves and returns a UIContext instance following a predefined priority sequence.
+   * resolution rules in order:
+   * <br>1. the UIContext with current calling scope
+   * <br>2. Returns the unique UIContext if only one UI instance exists.
+   * <br>3. Returns the UIContext of the last focused UI instance if one exists.
+   * <br>4. Returns the UIContext of the last foregrounded UI instance if one exists.
+   * <br>5. Returns the UIContext of the most recently created UI instance if any UI instance exists.
+   * <br>6. Returns an invalid UIContext instance if none of the above conditions are met.
+   * @returns { ResolvedUIContext } - ResolvedUIContext instance
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  static resolveUIContext(): ResolvedUIContext;
+
+/**
+   * Checks whether the UiContext object ia available.
+ *
+   * @returns { boolean } Returns true if the UIConetxt object is available.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+   * @since 20 dynamic
+ */
+  isAvailable(): boolean;
+
+  /**
+   * get object font.
+   *
+   * @returns { Font } object Font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * get object font.
+   *
+   * @returns { Font } object Font.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getFont(): Font;
+
+  /**
+   * get object mediaQuery.
+   *
+   * @returns { MediaQuery } object MediaQuery.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * get object mediaQuery.
+   *
+   * @returns { MediaQuery } object MediaQuery.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getMediaQuery(): MediaQuery;
+
+  /**
+   * get object UIInspector.
+   * @returns { UIInspector } object UIInspector.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+/**
+   * get object UIInspector.
+   * @returns { UIInspector } object UIInspector.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getUIInspector(): UIInspector;
+
+  /**
+   * 获取[LuminanceSampler]{@link @ohos.arkui.UIContext}取色对象，通过该对象设置背景亮度取色参数、注册亮度变化监听回调、取消注册监听回调。
+   *
+   * @param { TargetInfo } target - 目标组件的标识。
+   * @returns { LuminanceSampler | undefined } 返回背景亮度取色器。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  getLuminanceSampler(target: TargetInfo): LuminanceSampler | undefined;
+
+  /**
+   * get the filtered attributes of the component tree.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+  getFilteredInspectorTree(filters?: Array<string>): string;
+
+  /**
+   * get the filtered attributes of the component tree with the specified id and depth
+   * @param { string } id - ID of the specified component tree to be obtained.
+   * @param { number } depth - depth of the component tree to be obtained.
+   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
+   * @returns { string } the specified attributes of the component tree in json string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getFilteredInspectorTreeById(id: string, depth: number, filters?: Array<string>): string;
+
+  /**
+   * Obtains a Router object.
+   *
+   * @returns { Router } Router object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Obtains a Router object.
+   *
+   * @returns { Router } Router object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getRouter(): Router;
+
+  /**
+   * get object PromptAction.
+   *
+   * @returns { PromptAction } object PromptAction.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Obtains a PromptAction object.
+   *
+   * @returns { PromptAction } PromptAction object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getPromptAction(): PromptAction;
+
+  /**
+   * get object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * get object ComponentUtils.
+   * @returns { ComponentUtils } object ComponentUtils.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getComponentUtils(): ComponentUtils;
+
+  /**
+   * Get the UI observer.
+   *
+   * @returns { UIObserver } The UI observer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 11
+   */
+  /**
+   * Get the UI observer.
+   *
+   * @returns { UIObserver } The UI observer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getUIObserver(): UIObserver;
+
+  /**
+   * Obtains the OverlayManager object.
+   *
+   * @returns { OverlayManager } OverlayManager instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getOverlayManager(): OverlayManager;
+
+  /**
+   * Obtains the Magnifier object.
+   *
+   * @returns { Magnifier } Magnifier instance obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getMagnifier(): Magnifier;
+
+  /**
+   * Init OverlayManager.
+   *
+   * @param { OverlayManagerOptions } options - Options.
+   * @returns { boolean } Returns true if it is called first and before getting an OverlayManager instance; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  setOverlayManagerOptions(options: OverlayManagerOptions): boolean;
+
+  /**
+   * Get object OverlayManagerOptions.
+   *
+   * @returns { OverlayManagerOptions } object OverlayManagerOptions.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  getOverlayManagerOptions(): OverlayManagerOptions;
+
+  /**
+   * 定义Animator类。
+   *
+   * @param { AnimatorOptions } options - 定义动画选项。
+   * @returns { AnimatorResult } Animator结果接口。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  createAnimator(options: AnimatorOptions): AnimatorResult;
+
+  /**
+   * 创建animator动画结果对象（AnimatorResult）。与[createAnimator]{@link UIContext#createAnimator(options: AnimatorOptions)}相比，新增对
+   * [SimpleAnimatorOptions]{@link @ohos.animator:SimpleAnimatorOptions}类型入参的支持。
+   *
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - 定义动画选项。
+   * @returns { AnimatorResult } Animator结果接口。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
+
+  /**
+   * 提供animateTo接口，用于为闭包代码中的状态变化添加过渡动画效果。
+   * 
+   * > **说明：**
+   * >
+   * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
+   * >
+   * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动
+   * > 画，自定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
+   * >
+   * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)
+   * > 时，组件即将销毁，不能在aboutToDisappear里面做动画。
+   * >
+   * > - 在组件出现和消失时，可以通过[组件内转场]{@link common}添加动画效果。
+   * >
+   * > - 组件内转场不支持的属性，可以参考[显式动画]{@link common}中的
+   * > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用animateTo实现动画执行结束后组件消失的效
+   * > 果。
+   * >
+   * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，
+   * > 具体可参考：[在状态管理V2中使用animateTo动画效果异常](docroot://ui/state-management/arkts-new-local.md#在状态管理v2中使用animateto动画效果异常)。
+   * >
+   * > - UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，从而触发动画播放完成回调[onFinish]{@link AnimateParam}。
+   * >
+   * > - 在设置的开发者选项中关闭过渡动画，动画会当帧结束，onFinish动画播放完成回调会立即执行，请避免在回调中加入时序相关的功能逻辑。
+   *
+   * @param { AnimateParam } value - 设置动画效果相关参数。
+   * @param { function } event - 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  animateTo(value: AnimateParam, event: () => void): void;
+
+/**
+   * alertDialog display.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Shows an alert dialog box.
+   *
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Shows
+   * an AlertDialog component in the given settings.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+   * @since 11 dynamic
+ */
+  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
+
+  /**
+   * actionSheet display.
+   *
+   * @param { ActionSheetOptions } value - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Shows an action sheet in the given settings.
+   *
+   * @param { ActionSheetOptions } value - Parameters of the action sheet.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  showActionSheet(value: ActionSheetOptions): void;
+
+  /**
+   * datePickerDialog display.
+   *
+   * @param { DatePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * datePickerDialog display.
+   *
+   * @param { DatePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  showDatePickerDialog(options: DatePickerDialogOptions): void;
+
+  /**
+   * timePickerDialog display.
+   *
+   * @param { TimePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * timePickerDialog display.
+   *
+   * @param { TimePickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  showTimePickerDialog(options: TimePickerDialogOptions): void;
+
+  /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions } options - Options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  showTextPickerDialog(options: TextPickerDialogOptions): void;
+
+  /**
+   * textPickerDialog display.
+   *
+   * @param { TextPickerDialogOptions | TextPickerDialogOptionsExt } style - Dialog style.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  showTextPickerDialog(style: TextPickerDialogOptions | TextPickerDialogOptionsExt): void;
+
+  /**
+   * Set image cache capacity of decoded image count.
+   * if not set, the application will not cache any decoded image.
+   *
+   * @param { number } value - capacity of decoded image count.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setImageCacheCount(value: number): void;
+
+  /**
+   * Set image cache capacity of raw image data size in bytes before decode.
+   * if not set, the application will not cache any raw image data.
+   *
+   * @param { number } value - capacity of raw image data size in bytes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setImageRawDataCacheSize(value: number): void;
+
+  /**
+   * Run custom functions inside the UIContext scope.
+   *
+   * @param { function } callback - The function called through UIContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 10
+   */
+  /**
+   * Run custom functions inside the UIContext scope.
+   *
+   * @param { function } callback - The function called through UIContext.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  runScopedTask(callback: () => void): void;
+
+  /**
+   * Sets the avoidance mode for the virtual keyboard.
+   *
+   * >  **NOTE**
+   * >
+   * >  With **KeyboardAvoidMode.RESIZE**, the page is resized to prevent the virtual keyboard from obstructing the
+   * >  view. Regarding components on the page, those whose width and height are set in percentage are resized with the
+   * >  page, and those whose width and height are set to specific values are laid out according to their settings.
+   * >  With **KeyboardAvoidMode.RESIZE**, **expandSafeArea([SafeAreaType.KEYBOARD],[SafeAreaEdge.BOTTOM])** does not
+   * >  take effect.
+   * >
+   * >  With **KeyboardAvoidMode.NONE**, keyboard avoidance is disabled, and the page will be covered by the displayed
+   * >  keyboard.
+   * >
+   * >  **setKeyboardAvoidMode** only affects page layouts. It does not apply to popup components, including the
+   * > following: **Dialog**, **Popup**, **Menu**, **BindSheet**, **BindContentCover**, **Toast**, **OverlayManager**.
+   * > For details about the avoidance mode of popup components, see
+   * > [CustomDialogControllerOptions](docroot://reference/arkui-ts/ts-methods-custom-dialog-box.md).
+   *
+   * @param { KeyboardAvoidMode } value - Avoidance mode of the virtual keyboard.<br>Default value:
+   *     **KeyboardAvoidMode.OFFSET**, which means that the page moves up when the keyboard is displayed.<br>When
+   *     **setKeyboardAvoidMode** is set to an invalid value, this attribute does not take effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  setKeyboardAvoidMode(value: KeyboardAvoidMode): void;
+
+  /**
+   * Obtains the avoidance mode of the virtual keyboard.
+   *
+   * @returns { KeyboardAvoidMode } Avoidance mode of the virtual keyboard.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getKeyboardAvoidMode(): KeyboardAvoidMode;
+
+  /**
+   * Sets the pixel rounding mode for this page.
+   *
+   * @param { PixelRoundMode } mode - Pixel rounding mode.
+   *     Default value:**PixelRoundMode.PIXEL_ROUND_ON_LAYOUT_FINISH**.<br>If this parameter is set to an invalid value,
+   *     the default value will be used.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  setPixelRoundMode(mode: PixelRoundMode): void;
+
+  /**
+   * Obtains the pixel rounding mode for this page.
+   *
+   * @returns { PixelRoundMode } Pixel rounding mode of the current page.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  getPixelRoundMode(): PixelRoundMode;
+
+  /**
+   * Dispach keyboard event to the frameNode with inspector key.
+   *
+   * @param { number | string } node - The uniqueId or inspector key of the target FrameNode.
+   * @param { KeyEvent } event - The key event to be sent.
+   * @returns { boolean } Returns whether the key event is consumed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  dispatchKeyEvent(node: number | string, event: KeyEvent): boolean;
+
+  /**
+   * Get AtomicServiceBar.
+   * @returns { Nullable<AtomicServiceBar> } The atomic service bar.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
+  getAtomicServiceBar(): Nullable<AtomicServiceBar>;
+
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 11
+   */
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Get DragController.
+   * @returns { DragController } the DragController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  getDragController(): DragController;
+
+  /**
+    * Get MeasureUtils.
+    * @returns { MeasureUtils } the MeasureUtils
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+   * @since 12 dynamic
+    */
+  getMeasureUtils(): MeasureUtils;
+
+  /**
+   * 产生关键帧动画。该接口的使用说明请参考[keyframeAnimateTo]{@link common}。
+   *
+   * @param { KeyframeAnimateParam } param - 关键帧动画的整体动画参数。
+   * @param { Array<KeyframeState> } keyframes - 所有的关键帧状态的列表。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
+  keyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>): void;
+
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Get FocusController.
+   * @returns { FocusController } the FocusController
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getFocusController(): FocusController;
+
+  /**
+   * 通过UIContext对象指定明确的动画主实例上下文，并触发显式动画立即下发。避免由于找不到实例或实例不对，导致的动画不执行或动画结束回调不执行问题。使用callback异步回调。
+   *
+   * @param { AnimateParam } param - 设置动画效果相关参数。
+   * @param { Callback<void> } processor - 回调函数。指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi [since 12 - 22]
+   * @publicapi [since 23]
+   * @stagemodelonly
+   * @atomicservice [since 23]
+   * @since 12 dynamic
+   */
+  animateToImmediately(param: AnimateParam, processor: Callback<void>): void;
+
+  /**
+   * Get FrameNode by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get the FrameNode attached to current window by id.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @returns { FrameNode | null } The instance of FrameNode.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getAttachedFrameNodeById(id: string): FrameNode | null;
+
+  /**
+   * Get FrameNode by uniqueId.
+   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
+   * The return value depends on the type of component associated with the uniqueId.
+   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
+   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
+   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
+   * component is returned.
+   * 3. If the uniqueId does not correspond to any component, null is returned.
+   *
+   * @param { number } id - The uniqueId of the FrameNode.
+   * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getFrameNodeByUniqueId(id: number): FrameNode | null;
+
+  /**
+   * Get page information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { PageInfo } - The page information of the frameNode with the target uniqueId, includes
+   * navDestination and router page information. If the frame node does not have navDestination and
+   * router page information, it will return an empty object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getPageInfoByUniqueId(id: number): PageInfo;
+
+  /**
+   * Get navigation information of the frameNode with uniqueId.
+   *
+   * @param { number } id - The uniqueId of the target FrameNode.
+   * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
+   * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
+
+  /**
+   * Dynamic dimming.
+   *
+   * @param { string } id - The id of FrameNode.
+   * @param { number } value - Compared to the original level of dimming.value range [0,1],
+   * set values less than 0 to 0 and values greater than 1 to 1.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 12 dynamic
+   */
+  setDynamicDimming(id: string, value: number): void;
+
+  /**
+   * Get object cursor controller.
+   *
+   * @returns { CursorController } object cursor controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getCursorController(): CursorController;
+
+  /**
+   * Registers a local input event monitor.
+   * The "Local" in the interface name indicates that the monitor is only valid within the current UIContext,
+   * and does not affect other UIContext instances. Each UIContext maintains its own independent list of monitors.
+   * > **NOTE**
+   * > Performance Warning: Do not perform time-consuming operations in the callback!
+   * > Monitor Object Notes:
+   * > - The returned Monitor object is a unique identifier created by the system.
+   * > - Developers cannot actively construct or forge this object.
+   * > - Must save the returned monitor object reference for subsequent cancellation.
+   * > - It is recommended to use a variable to save it to avoid losing the reference.
+   * > Usage Examples:
+   * > ```typescript
+   * > // Monitor a single event type
+   * > const monitor1 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent();
+   * > console.log(`Mouse: (${mouseEvent.windowX}, ${mouseEvent.windowY})`);
+   * > return { action: InputEventInterceptAction.CONTINUE };  // Allow event to continue
+   * > }
+   * > return { action: InputEventInterceptAction.BLOCK };  // Block event
+   * > }
+   * > );
+   * > // Monitor multiple event types (using bitwise operations)
+   * > const monitor2 = uiContext.addLocalInputEventMonitor(
+   * > InputEventSubTypeMask.LEFT_MOUSE_DOWN | InputEventSubTypeMask.RIGHT_MOUSE_DOWN,
+   * > (wrapper: RawInputEventWrapper) => {
+   * > if (wrapper.isMouseEvent()) {
+   * > const mouseEvent = wrapper.asMouseEvent()!;
+   * > console.log(`Mouse button: ${mouseEvent.button}`);
+   * > return { action: InputEventInterceptAction.BLOCK };
+   * > }
+   * > return { action: InputEventInterceptAction.CONTINUE };
+   * > }
+   * > );
+   * > // When unregistering the monitor, use the returned Monitor object
+   * > uiContext.removeLocalInputEventMonitor(monitor1);
+   * > uiContext.removeLocalInputEventMonitor(monitor2);
+   * > ```.
+   *
+   * @param { int } eventMask - Event type mask, specifying the types of events to monitor through
+   *     bitwise operations.
+   *     The value should be an integer.
+   * @param { InputEventListener } listener - Event listener callback function.
+   * @returns { InputEventMonitor } Unique identifier object for the monitor, used for subsequent
+   *     cancellation of registration.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  addLocalInputEventMonitor(eventMask: int, listener: InputEventListener): InputEventMonitor;
+
+  /**
+   * Removes a local input event monitor.
+   *
+   * **Important Notes**:
+   * - Only Monitor objects returned by addLocalInputEventMonitor can be removed.
+   * - Cannot unregister a monitor by manually constructing an object.
+   * - If an invalid object is passed, the system silently ignores it.
+   *
+   * @param { InputEventMonitor } monitor - Monitor identifier object (returned by addLocalInputEventMonitor).
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  removeLocalInputEventMonitor(monitor: InputEventMonitor): void;
+
+  /**
+   * Get object context menu controller.
+   *
+   * @returns { ContextMenuController } object context menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getContextMenuController(): ContextMenuController;
+
+  /**
+   * Get ComponentSnapshot.
+   * @returns { ComponentSnapshot } the ComponentSnapshot
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Get ComponentSnapshot.
+   * @returns { ComponentSnapshot } the ComponentSnapshot
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getComponentSnapshot(): ComponentSnapshot;
+
+  /**
+   * Converts a value in vp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in vp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  vp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in vp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in px units to a value in vp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  px2vp(value: number): number;
+
+  /**
+   * Converts a value in fp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in fp units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  fp2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in fp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in px units to a value in fp.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  px2fp(value: number): number;
+
+  /**
+   * Converts a value in lpx units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in lpx units to a value in px.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  lpx2px(value: number): number;
+
+  /**
+   * Converts a value in px units to a value in lpx.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Converts a value in px units to a value in lpx.
+   * @param { number } value
+   * @returns { number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  px2lpx(value: number): number;
+
+  /**
+   * Obtains the LocalStorage instance shared by this stage.
+   *
+   * @returns { LocalStorage | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getSharedLocalStorage(): LocalStorage | undefined;
+
+  /**
+   * Obtains context of the ability.
+   *
+   * @returns { Context | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getHostContext(): Context | undefined;
+
+  /**
+   * Get the name of current window.
+   *
+   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getWindowName(): string | undefined;
+
+  /**
+   * Get window id to which the current UIContext belongs.
+   * <p>**NOTE**:
+   * If the current UIContext is in a UIExtensionAbility running within the host process,
+   * this method returns the top-level window ID of the host application.
+   * </p>
+   *
+   * @returns { number | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  getWindowId(): number | undefined;
+  
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  /**
+   * Get the width breakpoint of current window.
+   *
+   * @returns { WidthBreakpoint } - The width breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getWindowWidthBreakpoint(): WidthBreakpoint;
+
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  /**
+   * Get the height breakpoint of current window.
+   *
+   * @returns { HeightBreakpoint } - The height breakpoint of current window.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getWindowHeightBreakpoint(): HeightBreakpoint;
+
+  /**
+   * 创建并弹出以bindSheetContent作为内容的半模态页面，使用Promise异步回调。通过该接口弹出的半模态页面样式完全按照bindSheetContent中设置的样式显示。
+   * 
+   * > **说明：**
+   * >
+   * > 1. 使用该接口时，若未传入有效的targetId，则不支持设置SheetOptions.preferType为POPUP模式、不支持设置SheetOptions.mode为EMBEDDED模式。
+   * >
+   * > 2. 由于[updateBindSheet]{@link UIContext#updateBindSheet}和[closeBindSheet]{@link UIContext#closeBindSheet}依赖
+   * > bindSheetContent去更新或者关闭指定的半模态页面，开发者需自行维护传入的bindSheetContent。
+   * >
+   * > 3. 不支持设置SheetOptions.UIContext。
+   *
+   * @param { ComponentContent<T> } bindSheetContent - 半模态页面中显示的组件内容。
+   * @param { SheetOptions } sheetOptions - 半模态页面样式。<br/>**说明：** <br/>1. 不支持设置SheetOptions.uiContext，该属性的值固定为当前实例的
+   *     UIContext。<br/>2. 若不传递targetId，则不支持设置SheetOptions.preferType为POPUP样式，若设置了POPUP样式则使用CENTER样式替代。<br/>3. 若不传递
+   *     targetId，则不支持设置SheetOptions.mode为EMBEDDED模式，默认为OVERLAY模式。<br/>4. 其余属性的默认值参考[SheetOptions]{@link SheetOptions}文
+   *     档。
+   * @param { number } targetId - 需要绑定组件的ID，若不指定则不绑定任何组件。id不存在时返回错误码120004。在传入undefined时返回错误码401。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120002 - The bindSheetContent already exists.
+   * @throws { BusinessError } 120004 - The targetId does not exist.
+   * @throws { BusinessError } 120005 - The node of targetId is not in the component tree.
+   * @throws { BusinessError } 120006 - The node of targetId is not a child of the page node or NavDestination node.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  openBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions?: SheetOptions, targetId?: number): Promise<void>;
+
+  /**
+   * 更新bindSheetContent对应的半模态页面的样式，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 不支持更新SheetOptions.UIContext、SheetOptions.mode、回调函数。
+   *
+   * @param { ComponentContent<T> } bindSheetContent - 半模态页面中显示的组件内容。
+   * @param { SheetOptions } sheetOptions - 半模态页面样式。<br/>**说明：** <br/>不支持更新SheetOptions.uiContext、SheetOptions.mode、回调函
+   *     数。
+   * @param { boolean } partialUpdate - 半模态页面更新方式, 默认值为false。<br/>**说明：** <br/>1. true为增量更新，保留当前值，更新SheetOptions中的指定属性。
+   *     <br/>2. false为全量更新，除SheetOptions中的指定属性，其他属性恢复默认值。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  updateBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+
+  /**
+   * 关闭bindSheetContent对应的半模态页面，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 使用此接口关闭半模态页面时，不会触发shouldDismiss回调。
+   *
+   * @param { ComponentContent<T> } bindSheetContent - 半模态页面中显示的组件内容。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 120001 - The bindSheetContent is incorrect.
+   * @throws { BusinessError } 120003 - The bindSheetContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
+
+  /**
+   * Post a frame callback to run on the next frame.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  postFrameCallback(frameCallback: FrameCallback): void;
+
+  /**
+   * Post a frame callback to run on the next frame after the specified delay.
+   *
+   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @param { number } delayTime - The delay time in milliseconds,
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  postDelayedFrameCallback(frameCallback: FrameCallback, delayTime: number): void;
+
+  /**
+   * Require DynamicSyncScene by id.
+   *
+   * @param { string } id - The id of DynamicSyncScene.
+   * @returns { Array<DynamicSyncScene>} The instance of SwiperDynamicSyncScene.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  requireDynamicSyncScene(id: string): Array<DynamicSyncScene>;
+
+  /**
+   * Clear the cache generated by using $r/$rawfile to retrieve resources. This cache is used to accelerate the process
+   * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during
+   * page overload.
+   *
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12
+   */
+  /**
+   * Clear the cache generated by using $r/$rawfile to retrieve resources. This cache is used to accelerate the process
+   * of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during
+   * page overload.
+   *
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 13 dynamic
+   */
+  /**
+   * Clear the cache generated by using $r/$rawfile to retrieve resources in HSP. This cache is used to accelerate the
+   * process of repeatedly loading resources. Clearing this cache may slow down the loading speed of resources during
+   * page overload.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  clearResourceCache(): void;
+
+  /**
+   * Checks whether current font scale follows the system.
+   *
+   * @returns { boolean } Returns true if current font scale follows the system; returns false otherwise.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  isFollowingSystemFontScale(): boolean;
+
+  /**
+   * Get the max font scale.
+   *
+   * @returns { number } The max font scale.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  getMaxFontScale(): number;
+
+  /**
+   * Bind tabs to scrollable container component to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  bindTabsToScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Unbind tabs from scrollable container component.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } scroller - The controller of the scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  unbindTabsFromScrollable(tabsController: TabsController, scroller: Scroller): void;
+
+  /**
+   * Bind tabs to nested scrollable container components to automatically hide tab bar.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  bindTabsToNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * Unbind tabs from nested scrollable container components.
+   *
+   * @param { TabsController } tabsController - The controller of the tabs.
+   * @param { Scroller } parentScroller - The controller of the parent scrollable container component.
+   * @param { Scroller } childScroller - The controller of the child scrollable container component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+
+  /**
+   * whether to enable or disable swipe to back event.
+   *
+   * @param { Optional<boolean> } enabled - enable or disable swipe to back event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  enableSwipeBack(enabled: Optional<boolean>): void;
+
+  /**
+   * Sets the component freezing flag based on the component id to prevent the
+   * UI component from marking and updating dirty areas.
+   * @param { string } id - Id of the frame node.
+   * @param { boolean } isFrozen  - whether the component is frozen.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  freezeUINode(id: string, isFrozen: boolean): void;
+
+  /**
+   * Sets the component freezing flag based on the component uniqueId to prevent the
+   * UI component from marking and updating dirty areas.
+   * @param { number } uniqueId - Unique Id of the frame node.
+   * @param { boolean } isFrozen - whether the component is frozen.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 18 dynamic
+   */
+  freezeUINode(uniqueId: number, isFrozen: boolean): void;
+
+  /**
+   * Get object text menu controller.
+   *
+   * @returns { TextMenuController } object text menu controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 16 dynamic
+   */
+  getTextMenuController(): TextMenuController;
+
+  /**
+   * Set the keyboard appearance config for this input component before attach InputMethod.
+   *
+   * @param { number } uniqueId - The unique id of the input component.
+   * @param { KeyboardAppearanceConfig } config - The config of keyboard.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 20 dynamic
+   */
+  setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
+
+  /**
+   * Create a UI instance singleton without window and get its UIContext object.
+   *
+   * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
+   * @returns { UIContext | undefined } object UIContext, or undefined when failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. The number of parameters is incorrect.
+   * <br> 2. Invalid parameter type of context.
+   * @throws { BusinessError } 100001 - Internal error.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 17 dynamic
+   */
+  static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
+
+  /**
+   * Destroy the UI instance singleton without window.
+   *
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 17 dynamic
+   */
+  static destroyUIContextWithoutWindow(): void;
+
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   *
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { number } count - The cache limit of resource manager for HSP, must be non-negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  /**
+   * Set the upper limit for the cache count of HSP resource management objects.
+   * 
+   * If the upper limit of the cache is set too high, there is a risk of excessive memory overhead. 
+   * It is recommended to configure it according to actual needs.
+   *
+   * @param { number } count - The cache limit of resource manager for HSP, must be non negative integers.
+   * @throws { BusinessError } 100101 - The parameter is less than 0.
+   * @throws { BusinessError } 100102 - The parameter value cannot be a floating point number.
+   * @throws { BusinessError } 100103 - The function cannot be called from a non main thread.
+   * @static
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  static setResourceManagerCacheMaxCountForHSP(count: number): void;
+
+  /**
+   * Get id of the UI instance.
+   *
+   * @returns { number } Returns id of the UI instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  getId(): number;
+
+  /**
+   * Set the switch for memory recycling of invisible image nodes
+   * 
+   * @param { boolean } enabled - The switch for memory recycling.
+   *    <br>Default value: false, Passing `undefined` restores the default value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 23 dynamic
+   */
+  recycleInvisibleImageMemory(enabled: boolean): void;
+
+  /**
+   * Set custom keyboard continue feature.
+   *
+   * @param { CustomKeyboardContinueFeature } feature - The custom keyboard continue feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
+
+  /**
+   * Retrieve the root node of the corresponding page of the UIContext.
+   *
+   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
+   *     or null if no root node exists.
+   * @throws { BusinessError } 120007 - The UIContext is not available.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  getPageRootNode(): FrameNode | null;
+
+   /**
+    * Checks whether the current UI instance is in easy split mode.
+    *
+    * @returns { boolean } Returns true if the current UI instance is in easy split mode; returns false otherwise.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 24 dynamic
+    */
+   isEasySplit(): boolean;
+
+  /**
+   * Whether to enable or disable event passthrough.
+   *
+   * @param { boolean } enabled - enable or disable event passthrough. The default value is false.
+   * @param { RawInputEventType } eventType - the type of raw input event.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservicet
+   * @since 26.0.0 dynamic
+   */
+  enableEventPassthrough(enabled: boolean, eventType: RawInputEventType): void;
+
+  /**
+   * Sets the text selection clear policy for text component.
+   * Default policy: **TextSelectionClearPolicy.KEEP_SELECTED_TEXT_ON_EXTERNAL_TOUCH**
+   *
+   * @param { TextSelectionClearPolicy } policy - The text selection clear policy.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  setTextSelectionClearPolicy(policy: TextSelectionClearPolicy): void;
+
+  /**
+   * Get object smart gesture controller.
+   *
+   * @returns { SmartGestureController } object smart gesture controller.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  getSmartGestureController(): SmartGestureController;
+}

@@ -549,7 +549,7 @@ declare enum Color {
 }
 
 /**
- * Enumerates the coloring strategies.
+ * 智能取色枚举类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -558,10 +558,10 @@ declare enum Color {
  * @since 10 dynamic
  */
 declare enum ColoringStrategy {
+
   /**
-   * The foreground colors are the inverse of the component background colors. This strategy is only applicable when set
-   * within the [foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)} 
-   * attribute.
+   * 设置前景色为控件背景色的反色。仅支持在[foregroundColor]{@link CommonMethod#foregroundColor(value: ResourceColor | ColoringStrategy)}中设
+   * 置该枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -572,10 +572,8 @@ declare enum ColoringStrategy {
   INVERT = 'invert',
 
   /**
-   * The shadow colors of the component are the average color obtained from the component background shadow area. This 
-   * strategy is only applicable when set within the 
-   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is 
-   * ShadowOptions.
+   * 设置控件背景阴影色为控件背景阴影区域的平均色。仅支持在入参类型为ShadowOptions的
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}中设置该枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -586,10 +584,8 @@ declare enum ColoringStrategy {
   AVERAGE = 'average',
 
   /**
-   * The shadow colors of the component are the primary color obtained from the component background shadow area. This 
-   * strategy is only applicable when set within the 
-   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)} attribute whose input parameter type is 
-   * ShadowOptions.
+   * 设置控件背景阴影色为控件背景阴影区域的主色。仅支持在入参类型为ShadowOptions的
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}中设置该枚举。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -600,8 +596,7 @@ declare enum ColoringStrategy {
   PRIMARY = 'primary',
 
   /**
-   * Extract the average color from the component background and convert to a contrasting black or white color.
-   * Child components can use this color through Color('foreground').
+   * 从组件背景中提取平均颜色，并转换为对比鲜明的黑色或白色。子组件可以通过 Color（'foreground'） 使用此颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -1121,6 +1116,7 @@ declare enum BorderStyle {
 /**
  * Enumerates rendering strategies for drawing rounded corners.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1966,8 +1962,7 @@ declare enum AnimationStatus {
 }
 
 /**
- * Enumerates the interpolation curves. For details about the animation, see <!--RP1-->
- * [Bezier Curve](docroot://../design/ux-design/animation-attributes.md)<!--RP1End-->.
+ * 插值曲线，动效请参考<!--RP1-->[贝塞尔曲线](docroot://../design/ux-design/animation-attributes.md)<!--RP1End-->。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -1976,8 +1971,9 @@ declare enum AnimationStatus {
  * @since 7 dynamic
  */
 declare enum Curve {
+
   /**
-   * The animation maintains a constant speed throughout the process.
+   * 表示动画在整个过程中速度保持一致。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -1988,8 +1984,7 @@ declare enum Curve {
   Linear,
 
   /**
-   * The animation starts slowly, accelerates, and then decelerates before ending. The curve is cubic-bezier(0.25, 0.1,
-   * 0.25, 1.0).
+   * 表示动画以低速开始，然后加快，在结束前减速，CubicBezier(0.25, 0.1, 0.25, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2000,8 +1995,7 @@ declare enum Curve {
   Ease,
 
   /**
-   * The animation starts at a low speed and then picks up speed until the end. The cubic-bezier(0.42, 0.0, 1.0, 1.0)
-   * is used.
+   * 表示动画以低速开始，CubicBezier(0.42, 0.0, 1.0, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2012,7 +2006,7 @@ declare enum Curve {
   EaseIn,
 
   /**
-   * The animation ends at a low speed. The cubic-bezier(0.0, 0.0, 0.58, 1.0) is used.
+   * 表示动画以低速结束，CubicBezier(0.0, 0.0, 0.58, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2023,7 +2017,7 @@ declare enum Curve {
   EaseOut,
 
   /**
-   * The animation starts and ends at a low speed. The cubic-bezier curve(0.42, 0.0, 0.58, 1.0) is used.
+   * 表示动画以低速开始和结束，CubicBezier(0.42, 0.0, 0.58, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2034,7 +2028,7 @@ declare enum Curve {
   EaseInOut,
 
   /**
-   * The animation uses the standard cubic-bezier curve(0.4, 0.0, 0.2, 1.0).
+   * 标准曲线，CubicBezier(0.4, 0.0, 0.2, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2045,7 +2039,7 @@ declare enum Curve {
   FastOutSlowIn,
 
   /**
-   * The animation uses the deceleration cubic-bezier curve(0.0, 0.0, 0.2, 1.0).
+   * 减速曲线，CubicBezier(0.0, 0.0, 0.2, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2056,7 +2050,7 @@ declare enum Curve {
   LinearOutSlowIn,
 
   /**
-   * The animation uses the acceleration cubic-bezier curve(0.4, 0.0, 1.0, 1.0).
+   * 加速曲线，CubicBezier(0.4, 0.0, 1.0, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2067,7 +2061,7 @@ declare enum Curve {
   FastOutLinearIn,
 
   /**
-   * The animation uses the extreme deceleration cubic-bezier curve(0.0, 0.0, 0.0, 1.0).
+   * 急缓曲线，CubicBezier(0.0, 0.0, 0.0, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2078,7 +2072,7 @@ declare enum Curve {
   ExtremeDeceleration,
 
   /**
-   * The animation uses the sharp cubic-bezier curve(0.33, 0.0, 0.67, 1.0).
+   * 锐利曲线，CubicBezier(0.33, 0.0, 0.67, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2089,7 +2083,7 @@ declare enum Curve {
   Sharp,
 
   /**
-   * The animation uses the rhythm cubic-bezier curve(0.7, 0.0, 0.2, 1.0).
+   * 节奏曲线，CubicBezier(0.7, 0.0, 0.2, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2100,7 +2094,7 @@ declare enum Curve {
   Rhythm,
 
   /**
-   * The animation uses the smooth cubic-bezier curve(0.4, 0.0, 0.4, 1.0).
+   * 平滑曲线，CubicBezier(0.4, 0.0, 0.4, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2111,7 +2105,7 @@ declare enum Curve {
   Smooth,
 
   /**
-   * The animation uses the friction cubic-bezier curve(0.2, 0.0, 0.2, 1.0).
+   * 阻尼曲线，CubicBezier(0.2, 0.0, 0.2, 1.0)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2119,13 +2113,13 @@ declare enum Curve {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Friction,
+  Friction
 }
 
 /**
- * Sets the status before and after execution of the animation in the current playback direction.
+ * 设置当前播放方向下，动画开始前和结束后的状态。动画结束后的状态由fillMode和reverse属性共同决定。例如，fillMode为Forwards表示停止时维持动画最后一个关键帧的状态，若reverse为false则维持正播的最后
+ * 一帧，即最后一张图，若reverse为true则维持逆播的最后一帧，即第一张图。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -2134,21 +2128,9 @@ declare enum Curve {
  * @since 7 dynamic
  */
 declare enum FillMode {
-  /**
-   * If the animation is not executed, no style is applied to the target. After the animation is played, the initial 
-   * default state is restored.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform [since 10]
-   * @form [since 10]
-   * @atomicservice [since 11]
-   * @since 7 dynamic
-   */
-  None = 0,
 
   /**
-   * The target component retains the state set by the last keyframe encountered during execution of the animation.
+   * 动画未执行时，不应用任何样式到目标；播放完成后，恢复初始默认状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2157,13 +2139,10 @@ declare enum FillMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Forwards = 1,
+  None,
 
   /**
-   * The animation applies the values defined in the first relevant keyframe once it is applied to the target component,
-   * and retains the values during the period set by **delay**. The first relevant keyframe depends on the value of 
-   * **playMode**. If **playMode** is **Normal** or **Alternate**, the first relevant keyframe is in the **from** state.
-   * If **playMode** is **Reverse** or **AlternateReverse**, the first relevant keyframe is in the **to** state.
+   * 目标将保留动画执行期间最后一个关键帧的状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2172,11 +2151,11 @@ declare enum FillMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Backwards = 2,
+  Forwards,
 
   /**
-   * The animation follows the rules for both **Forwards** and **Backwards**, extending the animation attributes in both
-   * directions.
+   * 动画应用于目标时，立即采用第一个关键帧定义的值，并在delay期间保留此值。第一个关键帧取决于playMode，playMode为Normal或Alternate时，帧为from状态；playMode为Reverse或
+   * AlternateReverse时，帧为to状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2185,13 +2164,24 @@ declare enum FillMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Both = 3,
+  Backwards,
+
+  /**
+   * 动画将遵循Forwards和Backwards的规则，从而在两个方向上扩展动画属性。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @form [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   */
+  Both,
 }
 
 /**
- * Animation playback mode.
+ * 动画播放模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -2201,7 +2191,7 @@ declare enum FillMode {
  */
 declare enum PlayMode {
   /**
-   * The animation is played forwards.
+   * 动画正向播放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2213,7 +2203,7 @@ declare enum PlayMode {
   Normal,
 
   /**
-   * The animation is played backwards.
+   * 动画反向播放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2225,8 +2215,7 @@ declare enum PlayMode {
   Reverse,
 
   /**
-   * The animation is played forwards for an odd number of times (1, 3, 5...) and backwards for an even number of times 
-   * (2, 4, 6...).
+   * 动画在奇数次（1、3、5...）正向播放，在偶数次（2、4、6...）反向播放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2238,8 +2227,7 @@ declare enum PlayMode {
   Alternate,
 
   /**
-   * The animation is played backwards for an odd number of times (1, 3, 5...) and forwards for an even number of times 
-   * (2, 4, 6...).
+   * 动画在奇数次（1、3、5...）反向播放，在偶数次（2、4、6...）正向播放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3697,7 +3685,7 @@ declare enum LocalizedAlignment {
 }
 
 /**
- * TransitionType enumeration description.
+ * 指定该转场样式生效的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3707,7 +3695,7 @@ declare enum LocalizedAlignment {
  */
 declare enum TransitionType {
   /**
-   * The transition takes effect in all scenarios.
+   * 指定当前的Transition动效在组件的所有变化场景中生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3718,7 +3706,7 @@ declare enum TransitionType {
   All,
 
   /**
-   * The transition takes effect when a component is inserted or displayed.
+   * 指定当前的Transition动效在组件的插入显示场景中生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3729,7 +3717,7 @@ declare enum TransitionType {
   Insert,
 
   /**
-   * The transition takes effect when a component is deleted or hidden.
+   * 指定当前的Transition动效在组件的删除隐藏场景中生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5708,7 +5696,7 @@ declare enum ImageSize {
 }
 
 /**
- * GradientDirection enumeration description
+ * 线性渐变的方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -5719,7 +5707,7 @@ declare enum ImageSize {
  */
 declare enum GradientDirection {
   /**
-   * From right to left.
+   * 从右向左。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5731,7 +5719,7 @@ declare enum GradientDirection {
   Left = 0,
 
   /**
-   * From bottom to top.
+   * 从下向上。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5743,7 +5731,7 @@ declare enum GradientDirection {
   Top = 1,
 
   /**
-   * From left to right.
+   * 从左向右。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5755,7 +5743,7 @@ declare enum GradientDirection {
   Right = 2,
 
   /**
-   * From top to bottom.
+   * 从上向下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5767,7 +5755,7 @@ declare enum GradientDirection {
   Bottom = 3,
 
   /**
-   * From upper left to lower right.
+   * 从左上向右下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5779,7 +5767,7 @@ declare enum GradientDirection {
   LeftTop = 4,
 
   /**
-   * From lower left to upper right.
+   * 从左下向右上。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5791,7 +5779,7 @@ declare enum GradientDirection {
   LeftBottom = 5,
 
   /**
-   * From upper right to lower left.
+   * 从右上向左下。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5803,7 +5791,7 @@ declare enum GradientDirection {
   RightTop = 6,
 
   /**
-   * From lower right to upper left.
+   * 从右下向左上。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5815,7 +5803,7 @@ declare enum GradientDirection {
   RightBottom = 7,
 
   /**
-   * None.
+   * 无。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -5828,7 +5816,7 @@ declare enum GradientDirection {
 }
 
 /**
- * SharedTransitionEffectType enumeration description
+ * 动画类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -5837,9 +5825,9 @@ declare enum GradientDirection {
  */
 declare enum SharedTransitionEffectType {
   /**
-   * The target page element remains in a fixed position, with configurable opacity animation.
+   * 目标页面元素的位置保持不变，支持配置透明度动画。
    * 
-   * Currently, this effect only takes effect when configured for redirection to the target page.
+   * 目前，仅在重定向到目标页面时配置的静态效果才会生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -5849,7 +5837,7 @@ declare enum SharedTransitionEffectType {
   Static,
 
   /**
-   * The source page element moves to the position of the target page element and scales accordingly.
+   * 将源页面元素移动到目标页面元素的位置并适当缩放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -8416,7 +8404,7 @@ declare enum TextContentStyle {
 }
 
 /**
- * Enum of click effect level.
+ * 定义点击效果的级别及对应动效参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8426,7 +8414,7 @@ declare enum TextContentStyle {
  */
 declare enum ClickEffectLevel {
   /**
-   * Small area (light)
+   * 小面积（轻盈）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8437,7 +8425,7 @@ declare enum ClickEffectLevel {
   LIGHT = 0,
 
   /**
-   * Medium area (stable)
+   * 中面积（稳定）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8448,7 +8436,7 @@ declare enum ClickEffectLevel {
   MIDDLE = 1,
 
   /**
-   * Large area (heavy)
+   * 大面积（厚重）
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8762,8 +8750,7 @@ declare enum ScrollSource {
 }
 
 /**
- * Enumerates the modes in which the final state of the component's content is rendered during its width and height 
- * animation process.
+ * 表示宽高动画过程中组件内容的填充方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -8774,7 +8761,7 @@ declare enum ScrollSource {
  */
 declare enum RenderFit {
   /**
-   * The component's content stays at the final size and always aligned with the center of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8785,7 +8772,7 @@ declare enum RenderFit {
    */
   CENTER = 0,
   /**
-   * The component's content stays at the final size and always aligned with the top center of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持顶部中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8796,7 +8783,7 @@ declare enum RenderFit {
    */
   TOP = 1,
   /**
-   * The component's content stays at the final size and always aligned with the bottom center of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持底部中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8807,7 +8794,7 @@ declare enum RenderFit {
    */
   BOTTOM = 2,
   /**
-   * The component's content stays at the final size and always aligned with the left of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持左侧对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8818,7 +8805,7 @@ declare enum RenderFit {
    */
   LEFT = 3,
   /**
-   * The component's content stays at the final size and always aligned with the right of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持右侧对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8829,7 +8816,7 @@ declare enum RenderFit {
    */
   RIGHT = 4,
   /**
-   * The component's content stays at the final size and always aligned with the upper left corner of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持左上角对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8840,7 +8827,7 @@ declare enum RenderFit {
    */
   TOP_LEFT = 5,
   /**
-   * The component's content stays at the final size and always aligned with the upper right corner of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持右上角对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8851,7 +8838,7 @@ declare enum RenderFit {
    */
   TOP_RIGHT = 6,
   /**
-   * The component's content stays at the final size and always aligned with the lower left corner of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持左下角对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8862,7 +8849,7 @@ declare enum RenderFit {
    */
   BOTTOM_LEFT = 7,
   /**
-   * The component's content stays at the final size and always aligned with the lower right corner of the component.
+   * 保持动画终态的内容大小，并且内容始终与组件保持右下角对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8873,8 +8860,7 @@ declare enum RenderFit {
    */
   BOTTOM_RIGHT = 8,
   /**
-   * The component's content is always resized to fill the component's content box, without considering its aspect ratio
-   * in the final state.
+   * 不考虑动画终态内容的宽高比，并且内容始终缩放到组件的大小。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8885,8 +8871,7 @@ declare enum RenderFit {
    */
   RESIZE_FILL = 9,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
-   * component's content box. It is always aligned with the center of the component.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内，且与组件保持中心对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8897,10 +8882,7 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN = 10,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
-   * component's content box. When there is remaining space in the width direction of the component, the content is left
-   * -aligned with the component. When there is remaining space in the height direction of the component, the content is
-   * top-aligned with the component.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持左侧对齐，当组件高方向有剩余时，内容与组件保持顶部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8911,10 +8893,7 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_TOP_LEFT = 11,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to fit within the 
-   * component's content box. When there is remaining space in the width direction of the component, the content is 
-   * right-aligned with the component. When there is remaining space in the height direction of the component, the 
-   * content is bottom-aligned with the component.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容完整显示在组件内。当组件宽方向有剩余时，内容与组件保持右侧对齐，当组件高方向有剩余时，内容与组件保持底部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8925,8 +8904,7 @@ declare enum RenderFit {
    */
   RESIZE_CONTAIN_BOTTOM_RIGHT = 12,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
-   * entire content box. It is always aligned with the center of the component, so that its middle part is displayed.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容两边都大于或等于组件两边，且与组件保持中心对齐，显示内容的中间部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8937,10 +8915,7 @@ declare enum RenderFit {
    */
   RESIZE_COVER = 13,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
-   * entire content box. When there is remaining space in the width direction, the content is left-aligned with the 
-   * component, so that its left part is displayed. When there is remaining space in the height direction, the content 
-   * is top-aligned with the component, so that its top part is displayed.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持左侧对齐，显示内容的左侧部分。当内容高方向有剩余时，内容与组件保持顶部对齐，显示内容的顶侧部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8951,10 +8926,7 @@ declare enum RenderFit {
    */
   RESIZE_COVER_TOP_LEFT = 14,
   /**
-   * While maintaining its aspect ratio in the final state, the component's content is scaled to cover the component's 
-   * entire content box. When there is remaining space in the width direction, the content is right-aligned with the 
-   * component, so that its right part is displayed. When there is remaining space in the height direction, the content 
-   * is bottom-aligned with the component, so that its bottom part is displayed.
+   * 保持动画终态内容的宽高比进行缩小或放大，使内容的两边都恰好大于或等于组件两边。当内容宽方向有剩余时，内容与组件保持右侧对齐，显示内容的右侧部分。当内容高方向有剩余时，内容与组件保持底部对齐，显示内容的底侧部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9125,7 +9097,7 @@ declare enum LineBreakStrategy {
 }
 
 /**
- * Enum of Illuminated type
+ * 被照亮的类型枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -9134,7 +9106,7 @@ declare enum LineBreakStrategy {
  */
 declare enum IlluminatedType {
   /**
-   * Component is not illuminated.
+   * 组件不会被照亮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9143,7 +9115,7 @@ declare enum IlluminatedType {
    */
   NONE = 0,
   /**
-   * Border is illuminated.
+   * 组件边缘可以被照亮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9152,7 +9124,7 @@ declare enum IlluminatedType {
    */
   BORDER = 1,
   /**
-   * Content is illuminated.
+   * 组件内容可以被照亮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9161,7 +9133,7 @@ declare enum IlluminatedType {
    */
   CONTENT = 2,
   /**
-   * Border and Content is illuminated.
+   * 组件边缘和内容可以被照亮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9170,7 +9142,7 @@ declare enum IlluminatedType {
    */
   BORDER_CONTENT = 3,
   /**
-   * Border is illuminated, and the border have a bloom effect.
+   * 组件边缘可以被照亮，边缘带有发光效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9179,7 +9151,7 @@ declare enum IlluminatedType {
    */
   BLOOM_BORDER = 4,
   /**
-   * Border and Content is illuminated, and the border have a bloom effect.
+   * 组件边缘和内容可以被照亮，边缘带有发光效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -10553,7 +10525,7 @@ declare enum DialogDisplayMode {
 }
 
 /**
- * Enumerates color space types for specifying color rendering modes.
+ * 定义了颜色空间的类型，用于指定颜色显示的模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -10563,7 +10535,7 @@ declare enum DialogDisplayMode {
  */
 declare enum ColorSpace {
   /**
-   * Standard RGB color space, suitable for most display devices.
+   * SRGB颜色空间，适用于大多数显示设备。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10574,7 +10546,7 @@ declare enum ColorSpace {
   SRGB = 0,
 
   /**
-   * Display P3 color space with wider gamut, designed for high-end display devices.
+   * Display-P3颜色空间，具有更广的色域，适用于高端显示设备。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10585,7 +10557,9 @@ declare enum ColorSpace {
   DISPLAY_P3 = 1,
 
   /**
-   * BT2020 ColorSpace.
+   * BT2020颜色空间，具有更广的色域，适用于高端显示设备。
+   *
+   * **系统接口：** 此接口为系统接口。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -10596,7 +10570,7 @@ declare enum ColorSpace {
 }
 
 /**
- * Enumerates animatable property types for component animations.
+ * 用于动画的属性类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -10606,8 +10580,7 @@ declare enum ColorSpace {
  */
 declare enum AnimationPropertyType {
   /**
-   * Rotation angles for the x, y, and z axes. Parameters: 3. Unit: degrees (°).
-   *
+   * x、y、z方向的旋转角属性。该属性对应参数个数为3，属性的单位为度（°）。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10617,7 +10590,7 @@ declare enum AnimationPropertyType {
   ROTATION = 0,
 
   /**
-   * Translation offsets for the x and y axes. Parameters: 2. Unit: px.
+   * x、y方向的平移属性。该属性对应参数个数为2，属性的单位为px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10628,7 +10601,7 @@ declare enum AnimationPropertyType {
   TRANSLATION = 1,
 
   /**
-   * Scale factors for the x and y axes. Parameters: 2. Value range: (-∞, +∞).
+   * x、y方向的缩放属性。该属性对应参数个数为2，属性的取值范围为(-∞, +∞) 。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10639,7 +10612,7 @@ declare enum AnimationPropertyType {
   SCALE = 2,
 
   /**
-   * Opacity value. Parameters: 1. Value range: [0, 1].
+   * 透明度属性。该属性对应参数个数为1，属性的取值范围为[0,1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11118,7 +11091,7 @@ declare enum UIMaterialAnimationMode {
 }
 
 /**
- * Defines the position of the edge light effect.
+ * 边缘流光位置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -11127,7 +11100,7 @@ declare enum UIMaterialAnimationMode {
  */
 declare enum EdgeLightPosition {
   /**
-   * Edge light effect in the upper left corner.
+   * 边缘流光在左上角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11136,7 +11109,7 @@ declare enum EdgeLightPosition {
    */
   TOP_LEFT = 0,
   /**
-   * Edge light effect is in the upper right corner.
+   * 边缘流光在右上角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11145,7 +11118,7 @@ declare enum EdgeLightPosition {
    */
   TOP_RIGHT = 1,
   /**
-   * Edge light effect is in the lower left corner.
+   * 边缘流光在左下角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11154,7 +11127,7 @@ declare enum EdgeLightPosition {
    */
   BOTTOM_LEFT = 2,
   /**
-   * Edge light effect is in the lower right corner.
+   * 边缘流光在右下角。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11163,7 +11136,7 @@ declare enum EdgeLightPosition {
    */
   BOTTOM_RIGHT = 3,
   /**
-   * Edge light effect is on the top edge.
+   * 边缘流光在顶部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11172,7 +11145,7 @@ declare enum EdgeLightPosition {
    */
   TOP = 4,
   /**
-   * The light effect starts from the bottom edge.
+   * 边缘流光在底部。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11181,7 +11154,7 @@ declare enum EdgeLightPosition {
    */
   BOTTOM = 5,
   /**
-   * Edge light effect is on the left edge.
+   * 边缘流光在左边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -11190,7 +11163,7 @@ declare enum EdgeLightPosition {
    */
   LEFT = 6,
   /**
-   * Edge light effect is on the right edge.
+   * 边缘流光在右边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
