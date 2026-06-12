@@ -197,7 +197,8 @@ export interface NotificationSubscriber {
   onSystemUpdate?: SystemUpdateCallback;
 
   /**
-   * 回调返回通知开关状态变化。
+   * 返回由[notificationManager.setNotificationSwitch]{@link
+   * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
@@ -598,9 +599,10 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
 
 /**
- * 定义回调函数监听通知开关状态变化。
+ * 注册由[notificationManager.setNotificationSwitch]{@link
+ * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化的回调函数类型。
  *
- * @param { NotificationSwitchChangedCallbackData } callbackData - 回调返回通知开关状态变化信息。
+ * @param { NotificationSwitchChangedCallbackData } callbackData  - 回调返回由[notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化信息。
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
  * @stagemodelonly
@@ -629,7 +631,7 @@ export interface NotificationSwitchChangedCallbackData {
   readonly userId: int;
 
   /**
-   * 通知开关名称。取值为：**DEAL**，**LOGISTICS**。
+   * 通知开关名称。取值为：DEAL（交易类通知聚合开关）、LOGISTICS（物流类通知聚合开关）。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

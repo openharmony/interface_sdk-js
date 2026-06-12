@@ -743,7 +743,8 @@ declare namespace notificationSubscribe {
   export type NotificationClassification = _NotificationClassification;
   
   /**
-   * 定义回调函数监听通知开关状态变化。
+   * 注册由[notificationManager.setNotificationSwitch]{@link
+   * ./@ohos.notificationManager:notificationManager.setNotificationSwitch}接口设置的通知开关状态变化的回调函数类型。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
