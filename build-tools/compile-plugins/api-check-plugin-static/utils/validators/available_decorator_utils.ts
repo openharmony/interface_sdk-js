@@ -246,7 +246,7 @@ export function isSourceRetentionAnnotationContentValid(annotation: arkts.AstNod
     }
 
     // Check parent version hierarchy
-    return checkParentVersionHierarchy(annotation.parent, parseVersion, result);
+    return checkParentVersionHierarchy(annotation, parseVersion, result);
   } catch (e) {
     return result;
   }
