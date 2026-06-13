@@ -216,6 +216,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -247,6 +248,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -277,6 +279,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */

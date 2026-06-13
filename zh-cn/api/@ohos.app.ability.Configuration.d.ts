@@ -170,6 +170,7 @@ export interface Configuration {
    * 表示字体粗细缩放比例，取值为非负数，默认值为1。
    *
    * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static
