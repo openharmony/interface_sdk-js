@@ -524,6 +524,26 @@ export declare interface NavDestinationModuleInfo {
 }
 
 /**
+ * Custom page state save callback.
+ *
+ * @returns { Record<string, Object> | null } Custom page state.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type SaveStateCallback = () => Record<string, Object> | null;
+
+/**
+ * Custom page state restore callback.
+ *
+ * @param { Record<string, Object> | null } savedState - Custom page state saved by onSaveState.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type RestoreStateCallback = (savedState: Record<string, Object> | null) => void;
+
+/**
  * The attribute function of NavDestination
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -924,6 +944,35 @@ export declare interface NavDestinationAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default fullScreenOverlay(fullScreenOverlay: boolean | undefined): this;
+
+  /**
+   * Sets custom page state save callback.
+   *
+   * Triggered when page becomes hidden. Save custom page state for potential restoration.
+   * The initial param used to create the page is preserved by Navigation separately.
+   * State object must be serializable.
+   *
+   * @param { SaveStateCallback | undefined } callback - Custom state save callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onSaveState(callback: SaveStateCallback | undefined): this;
+
+  /**
+   * Sets custom page state restore callback.
+   *
+   * Triggered when page is reconstructed. The custom state saved by onSaveState is passed to this callback.
+   * Null is passed if no custom state was saved.
+   *
+   * @param { RestoreStateCallback | undefined } callback - Custom state restore callback.
+   * @returns { NavDestinationAttribute } Returns the instance of the NavDestinationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onRestoreState(callback: RestoreStateCallback | undefined): this;
 
   /**
    * Set navDestination options.

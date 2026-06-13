@@ -32,6 +32,8 @@ import { AttributeModifier, CommonMethod, ICurve } from "./common";
 
 import { CommonModifier } from '@ohos.arkui.modifier';
 
+import uiMaterial from '../../@ohos.arkui.uiMaterial'
+
 /**
  * Declare the graphic format of the bar chart.
  *
@@ -508,6 +510,117 @@ export interface ScrollableBarModeOptions {
    * @since 23 static
    */
   nonScrollableLayoutStyle?: LayoutStyle;
+}
+
+/**
+ * Provides an interface for the options for the floating bar width of the tab width at different breakpoints.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface FloatingTabBarWidth {
+
+  /**
+   * The bar width of the small devices. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  smallBarWidth?: Length;
+
+  /**
+   * The bar width of the medium devices. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  mediumBarWidth?: Length;
+
+  /**
+   * The bar width of the large devices. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  largeBarWidth?: Length;
+}
+
+/**
+ * Provides an interface for the options for the floating bar mode.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface FloatingTabBarStyle {
+
+  /**
+   * The bar width of the tab width at different breakpoints.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  barWidth?: FloatingTabBarWidth;
+
+  /**
+   * The width of the left and right margins of the bar. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  barSideMargin?: Length;
+
+  /**
+   * The distance between the bar and the bottom of tab. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  barBottomMargin?: Length;
+
+  /**
+   * The color of the mask.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  maskColor?: ResourceColor;
+
+  /**
+   * The height of the mask. It cannot be set in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  maskHeight?: Length;
+
+  /**
+   * Whether to adapt to the handedness.
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  adaptToHandedness?: boolean;
+
+  /**
+   * The style of the material.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  systemMaterial?: uiMaterial.ImmersiveMaterial;
 }
 
 /**
@@ -1121,6 +1234,17 @@ export declare interface TabsAttribute extends CommonMethod {
    * @since 26.0.0 staticonly
    */
   default setTabsOptions(options?: TabsOptions): this;
+
+  /**
+   * Enable floating style for bar.
+   *
+   * @param { FloatingTabBarStyle | undefined } style - floating style for bar.
+   * @returns { TabsAttribute } - the attribute of the tabs.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default barFloatingStyle(style: FloatingTabBarStyle | undefined): this;
 }
 
 /**
