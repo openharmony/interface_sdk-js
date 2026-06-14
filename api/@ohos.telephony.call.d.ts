@@ -3618,7 +3618,8 @@ declare namespace call {
    *
    * @enum { int }
    * @syscap SystemCapability.Telephony.CallManager
-   * @systemapi Hide this for inner system use.
+   * @systemapi [since 8 - 24]
+   * @publicapi [since 26.0.0]
    * @since 8 dynamic
    * @since 23 static
    */
@@ -3627,7 +3628,8 @@ declare namespace call {
      * Indicates unconditional transfer of a call.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3637,7 +3639,8 @@ declare namespace call {
      * Indicates transfer the call when busy.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3647,7 +3650,8 @@ declare namespace call {
      * Indicates transfer the call when no reply.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
@@ -3657,7 +3661,8 @@ declare namespace call {
      * Indicates transfer the call when unreachable.
      *
      * @syscap SystemCapability.Telephony.CallManager
-     * @systemapi Hide this for inner system use.
+     * @systemapi [since 8 - 24]
+     * @publicapi [since 26.0.0]
      * @since 8 dynamic
      * @since 23 static
      */
