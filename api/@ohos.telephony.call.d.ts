@@ -260,6 +260,24 @@ declare namespace call {
   function makeCall(context: Context, phoneNumber: string): Promise<void>;
 
   /**
+   * Go to the dial screen and the called number is displayed.The authentication challenge value is returned.
+   *
+   * @param { string } phoneNumber - Indicates the called number.
+   * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
+   *     <br>Default value: false.
+   * @returns { Promise<string> } Promise used to return access token by the makeCall.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Applications.Contacts
+   * @FaAndStageModel
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  function makeCallWithToken(phoneNumber: string, options?: MakeCallOptions): Promise<string>;
+
+  /**
    * Checks whether a call is ongoing.
    *
    * @param { AsyncCallback<boolean> } callback - The callback of hasCall. Returns {@code true} if at least one call is
@@ -4984,18 +5002,31 @@ declare namespace call {
    * @FaAndStageModel
    * @atomicservice
    * @since 24 dynamic
+   * @since 26.0.0 static
    */
   export interface MakeCallOptions {
     /**
      * Whether to hide the dialer screen after call ends.
-     * <br>Default value: false.
+     * Default value: false.
      *
      * @syscap SystemCapability.Applications.Contacts
      * @FaAndStageModel
      * @atomicservice
      * @since 24 dynamic
+     * @since 26.0.0 static
      */
     isHideDialScreen?: boolean;
+
+    /**
+     * Whether the third-party app supports custom accessibility features.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.Applications.Contacts
+     * @FaAndStageModel
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    isCustomAccessibility?: boolean;
   }
 
   /**
