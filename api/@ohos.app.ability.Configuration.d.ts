@@ -182,6 +182,7 @@ export interface Configuration {
    * Font weight scale ratio. The value is a non-negative number. The default value is **1**.
    *
    * @syscap SystemCapability.Ability.AbilityBase
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 12 dynamic
    * @since 23 static

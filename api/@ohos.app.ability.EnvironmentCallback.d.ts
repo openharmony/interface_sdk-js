@@ -25,6 +25,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * The EnvironmentCallback module provides capabilities to listen for system environment changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform [since 26.0.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -38,6 +39,7 @@ export default class EnvironmentCallback {
    * @param { Configuration } config - Configuration object after the change.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -51,6 +53,7 @@ export default class EnvironmentCallback {
    * @param { AbilityConstant.MemoryLevel } level - Memory level, indicating the available memory of the entire device.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */

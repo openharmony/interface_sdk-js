@@ -616,6 +616,7 @@ declare namespace AbilityConstant {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -628,6 +629,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -640,6 +642,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -653,6 +656,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -664,6 +668,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -674,6 +679,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -684,6 +690,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -694,6 +701,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
