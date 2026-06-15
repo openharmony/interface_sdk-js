@@ -3103,7 +3103,7 @@ declare class Driver {
      * @param { int } keyCode - Key value. The value is an integer greater than or equal to 0. 
      *     For details, see [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
      * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
-     *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
+     *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. 
      *     Incorrect parameter types; 3. Parameter verification failed.
@@ -3503,7 +3503,7 @@ declare class Driver {
      * @param { string } savePath - File save path. The path must be the
      *     [sandbox path](docroot://file-management/app-sandbox-directory.md) of the current application.
      * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
-     *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
+     *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
      * @returns { Promise<boolean> } Promise used to return whether the screenshot operation is successful. The value
      *     **true** indicates that the screen capture operation is successful, and **false** indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. 
@@ -3811,7 +3811,7 @@ declare class Driver {
      *     <br>Throws error code 401 if negative.
      *     <br>Default value: 600
      * @param { int } displayId - Display ID. The value is an integer greater than or equal to 0.
-     *     <br> **Note**: If the input **displayId** does not exist, the exception **17000007** is reported.
+     *     <br> **Note**: If the input **displayId** does not exist, the exception **401** is reported.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. 
      *     Incorrect parameter types; 3. Parameter verification failed.
