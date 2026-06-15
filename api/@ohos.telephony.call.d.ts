@@ -264,7 +264,6 @@ declare namespace call {
    *
    * @param { string } phoneNumber - Indicates the called number.
    * @param { MakeCallOptions } [options] - Indicates additional information carried in the call.
-   *     <br>Default value: false.
    * @returns { Promise<string> } Promise used to return access token by the makeCall.
    * @throws { BusinessError } 8300001 - Invalid parameter value.
    * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
