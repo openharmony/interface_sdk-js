@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines a pair of given type for particle.
+ * 粒子元组，表示定义一些动画参数的类型。
  *
- * @typedef { [T1, T2] } ParticleTuple
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,15 +30,12 @@
 declare type ParticleTuple<T1, T2> = [T1, T2];
 
 /**
- * Defines velocity options.
- *
- *  * > **NOTE**
+ * 粒子速度配置。
+ * 
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer
- * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef VelocityOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -48,9 +44,10 @@ declare type ParticleTuple<T1, T2> = [T1, T2];
  */
 declare interface VelocityOptions {
   /**
-   * Time rate at which the particle moves.
+   * 表示速度大小。
+   * 
+   * 默认值：[0.0,0.0]
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -60,10 +57,10 @@ declare interface VelocityOptions {
   speed: ParticleTuple<number, number>;
 
   /**
-   * Direction (in angles) in which the particle moves, with the geometric center of the element as the coordinate 
-   * origin and the horizontal direction as the x-axis. A positive number indicates clockwise rotation.
+   * 表示速度的方向（单位为角度）。以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
+   * 
+   * 默认值：[0.0,0.0]
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -74,15 +71,12 @@ declare interface VelocityOptions {
 }
 
 /**
- * Particle acceleration.
+ * 粒子加速度配置。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the
- * > outer element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef AccelerationOptions<ACC_SPEED_UPDATER extends ParticleUpdater, ACC_ANGLE_UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -94,11 +88,10 @@ declare interface AccelerationOptions<
   ACC_ANGLE_UPDATER extends ParticleUpdater
 > {
   /**
-   * Acceleration speed.
+   * 表示加速度大小。
    * 
-   * Default value: **{range:[0.0,0.0]}**
+   * 默认值：{range:[0.0,0.0]}
    *
-   * @type { ?ParticlePropertyOptions<number, ACC_SPEED_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -108,11 +101,10 @@ declare interface AccelerationOptions<
   speed?: ParticlePropertyOptions<number, ACC_SPEED_UPDATER>;
 
   /**
-   * Acceleration direction (in angles).
+   * 表示加速度方向（单位为角度）。
    * 
-   * Default value: **{range:[0.0,0.0]}**
+   * 默认值：{range:[0.0,0.0]}
    *
-   * @type { ?ParticlePropertyOptions<number, ACC_ANGLE_UPDATER> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -123,9 +115,8 @@ declare interface AccelerationOptions<
 }
 
 /**
- * Defines the ParticleOptions Interface.
+ * 设置粒子参数。
  *
- * @interface ParticleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -142,8 +133,8 @@ interface ParticleOptions<
   SPIN_UPDATER extends ParticleUpdater
 > {
   /**
-   * Particle emitter.
-   * @type { EmitterOptions<PARTICLE> }
+   * 粒子发射器配置。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -153,13 +144,12 @@ interface ParticleOptions<
   emitter: EmitterOptions<PARTICLE>;
 
   /**
-   * Particle color.
+   * 粒子颜色配置。
    * 
-   * **NOTE**
+   * **说明**：
    * 
-   * Default value: **{ range:[Color.White,Color.White] }.** Colors cannot be set for image particles.
+   * 默认值：{ range:[Color.White,Color.White] } 。图片粒子不支持设置颜色。
    *
-   * @type { ?ParticleColorPropertyOptions<COLOR_UPDATER> }
    * @default {range:['#FFFFFF','#FFFFFF']}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,11 +160,10 @@ interface ParticleOptions<
   color?: ParticleColorPropertyOptions<COLOR_UPDATER>;
 
   /**
-   * Particle opacity.
+   * 粒子透明度配置。
    * 
-   * Default value: **{ range:[1.0,1.0] }**
+   * 默认值：{ range:[1.0,1.0] }
    *
-   * @type { ?ParticlePropertyOptions<number, OPACITY_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,11 +174,10 @@ interface ParticleOptions<
   opacity?: ParticlePropertyOptions<number, OPACITY_UPDATER>;
 
   /**
-   * Particle scale.
+   * 粒子大小配置。
    * 
-   * Default value: **{ range:[1.0,1.0] }**
+   * 默认值：{ range:[1.0,1.0] }
    *
-   * @type { ?ParticlePropertyOptions<number, SCALE_UPDATER> }
    * @default {range:[1.0,1.0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -200,15 +188,13 @@ interface ParticleOptions<
   scale?: ParticlePropertyOptions<number, SCALE_UPDATER>;
 
   /**
-   * Particle velocity.
+   * 粒子速度配置。
    * 
-   * **NOTE**
+   * **说明**：
    * 
-   * **speed** indicates the time rate at which the particle moves. **angle** indicates the direction (in angles) in 
-   * which the particle moves, with the geometric center of the element as the coordinate origin and the horizontal 
-   * direction as the x-axis. A positive number indicates clockwise rotation.
+   * speed表示速度大小。angle表示速度的方向（单位为角度），以元素几何中心为坐标原点，水平方向为X轴，正数表示顺时针方向旋转角度。
    * 
-   * Default value: **{speed: [0.0,0.0],angle: [0.0,0.0] }**
+   * 默认值：{ speed:[0.0,0.0],angle:[0.0,0.0] }
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?VelocityOptions } [since 18]
@@ -222,13 +208,13 @@ interface ParticleOptions<
   velocity?: VelocityOptions;
 
   /**
-   * Particle acceleration.
+   * 粒子加速度配置。 
    * 
-   * **NOTE**
+   * **说明**：
    * 
-   * **speed** indicates the acceleration speed, and **angle** indicates the acceleration direction (in angles).
+   * speed表示加速度大小，angle表示加速度方向（单位为角度）。
    * 
-   * Default value: **{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} }**
+   * 默认值：{ speed:{range:[0.0,0.0]},angle:{range:[0.0,0.0]} }
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER> } [since 18]
@@ -242,13 +228,12 @@ interface ParticleOptions<
   acceleration?: AccelerationOptions<ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER>;
 
   /**
-   * Particle spin angle.
+   * 粒子自旋角度配置。 
    * 
-   * Default value: **{range:[0.0,0.0]}**
+   * 默认值：{range:[0.0,0.0]}
    * 
-   * Direction: A positive number indicates clockwise spinning, and a negative number indicates anticlockwise spinning.
+   * 方向：正数表示顺时针旋转，负数表示逆时针旋转。
    *
-   * @type { ?ParticlePropertyOptions<number, SPIN_UPDATER> }
    * @default {range:[0,0]}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -260,8 +245,8 @@ interface ParticleOptions<
 }
 
 /**
- * Defines the parameters for a point-like particle.
- * @interface PointParticleParameters
+ * 设置粒子半径。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -270,9 +255,10 @@ interface ParticleOptions<
  */
 interface PointParticleParameters {
   /**
-   * Particle radius.
+   * 粒子半径。
+   * 
+   * 默认值：0，小于0时取默认值0。
    *
-   * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -283,8 +269,8 @@ interface PointParticleParameters {
 }
 
 /**
- * Defines the parameters for an image-like particle.
- * @interface ImageParticleParameters
+ * 设置图片选项。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -293,16 +279,12 @@ interface PointParticleParameters {
  */
 interface ImageParticleParameters {
   /**
-   * Path to the image. Local and online sources are supported. For details about how to reference an image, see 
-   * [Loading Image Resources](docroot://ui/arkts-graphics-display.md#loading-image-resources).
+   * 图片路径，支持本地图片和网络图片，引用方式请参考[加载图片资源](docroot://ui/arkts-graphics-display.md#加载图片资源)。
    * 
-   * SVG images are not supported.
+   * 暂不支持svg图片类型。
    * 
-   * If the value of src does not change, the cached resource is preferentially used. As a result, resources cannot be 
-   * dynamically switched. If you want to dynamically switch resources, you are advised to switch to different src 
-   * values.
+   * src未发生变化时，会优先使用缓存的资源，无法动态切换资源。如需动态切换资源建议切换为不同的src。
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -312,7 +294,9 @@ interface ImageParticleParameters {
   src: ResourceStr;
 
   /**
-   * Particle image size.
+   * 图像尺寸。
+   * 
+   * 默认值：[0, 0]
    *
    * @type { [Dimension, Dimension] } [since 10 - 17]
    * @type { ParticleTuple<Dimension, Dimension> } [since 18]
@@ -325,9 +309,8 @@ interface ImageParticleParameters {
   size: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * Image display mode.
+   * 图片显示模式。
    *
-   * @type { ?ImageFit }
    * @default ImageFit.Cover
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -339,9 +322,8 @@ interface ImageParticleParameters {
 }
 
 /**
- * Defines the particle configs.
+ * 设置粒子配置项。
  *
- * @interface ParticleConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -350,9 +332,8 @@ interface ImageParticleParameters {
  */
 interface ParticleConfigs {
   /**
-   * Point particle configuration.
+   * 点状粒子配置。
    *
-   * @type { PointParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -362,9 +343,8 @@ interface ParticleConfigs {
   [ParticleType.POINT]: PointParticleParameters;
 
   /**
-   * Image particle configuration.
+   * 图片粒子配置。
    *
-   * @type { ImageParticleParameters } 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -375,9 +355,8 @@ interface ParticleConfigs {
 }
 
 /**
- * Defines the emitter property.
+ * 设置发射器属性。
  *
- * @interface EmitterProperty
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -387,8 +366,7 @@ interface ParticleConfigs {
 interface EmitterProperty {
 
   /**
-   * Index of the emitter based on the index array of the emitters in the initialization parameters. The value is 
-   * rounded to the nearest whole number. The default value **0** is used in case of exceptions.
+   * 索引，取整，按初始化参数中发射器的数组索引指定对应的发射器。异常默认值为0。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -396,16 +374,13 @@ interface EmitterProperty {
    * @atomicservice
    * @since 12 dynamic
    */
-  index: number;
+  index : number;
 
   /**
-   * Emit rate, that is, the number of particles emitted per second.
+   * 发射器发射速率，即每秒发射粒子的数量。
    * 
-   * If no value is passed in, the current emit rate is retained. If a value less than 0 is passed in, the default value
-   * **5** is used. The **emitRate** value can significantly impact performance when it exceeds 5000; you are advised to
-   * set it to be less than 5000.
+   * 未传入时保持其当前的发射速率， 传入值小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -415,14 +390,12 @@ interface EmitterProperty {
   emitRate?: number;
 
   /**
-   * Array of emitter positions. Only the number type is supported.
+   * 发射器位置的数组，只支持number类型。
    * 
-   * If no value is passed in, the current emitter position is retained. Two valid values must be passed in; if either 
-   * is an invalid value, **position** will not take effect.
+   * 未传入时保持其当前的发射器位置。需传入两个有效参数，若其中一个为异常值，则position不生效。
    * 
-   * Value range of **x** and **y**: (-∞, +∞).
+   * x、y的取值范围：(-∞, +∞)。
    *
-   * @type { ?PositionT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -432,12 +405,10 @@ interface EmitterProperty {
   position?: PositionT<number>;
 
   /**
-   * Size of the emit window. Only the number type is supported.
+   * 发射窗口的大小，只支持number类型。
    * 
-   * If no value is passed in, the current emitter window size is retained. Two valid values greater than 0 must be 
-   * passed in; if either is an invalid value, **size** will not take effect.
+   * 未传入时保持其当前发射窗口大小。需传入两个有效参数且都大于0，若其中一个为异常值，则size不生效。
    *
-   * @type { ?SizeT<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -447,28 +418,24 @@ interface EmitterProperty {
   size?: SizeT<number>;
 
   /**
-   * the description of the annulus region. This parameter is valid only for emitter whose shape is annulus.
+   * 环形发射器参数。需要对应index的发射器形状为环形才生效。
    *
-   * @type { ?ParticleAnnulusRegion }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-   annulusRegion?: ParticleAnnulusRegion;
+  annulusRegion?: ParticleAnnulusRegion;
 }
 
 /**
- * Defines parameters of particles used by emitters.
- *
- * > **NOTE**
+ * 粒子配置。
+ * 
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef EmitterParticleOptions<PARTICLE extends ParticleType>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -477,9 +444,8 @@ interface EmitterProperty {
  */
 interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   /**
-   * Particle type, which can be **IMAGE** or **POINT**.
+   * 表示粒子类型，可以选择图片或者是点。
    *
-   * @type { PARTICLE }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -488,14 +454,13 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
    */
   type: PARTICLE;
   /**
-   * Configuration of the particle type.
+   * 表示对应类型的配置。
    * 
-   * The value type of **config** is subject to the value of **type**.
+   * config类型和type值有关联：
    * 
-   * 1. If the type is ParticleType.POINT, the config type is [PointParticleParameters]{@link PointParticleParameters}.
-   * 2. If the type is ParticleType.IMAGE, the config type is [ImageParticleParameters]{@link ImageParticleParameters}.
+   * 1. 如果type为ParticleType.POINT，则config类型为[PointParticleParameters]{@link PointParticleParameters} 。
+   * 2. 如果type为ParticleType.IMAGE，则config类型为[ImageParticleParameters]{@link ImageParticleParameters} 。
    *
-   * @type { ParticleConfigs[PARTICLE] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -505,10 +470,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   config: ParticleConfigs[PARTICLE];
 
   /**
-   * Number of particles. The value is greater than or equal to -1. The value **-1** indicates that the number of 
-   * particles is infinite.
+   * 表示发射的粒子总数，count取值>=-1,当count为-1表示粒子总数无限大。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -518,14 +481,10 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   count: number;
 
   /**
-   * Lifetime of a single particle. The default value is **1000** (that is, 1000 ms, 1s). The value is greater than or 
-   * equal to -1. The value **-1** indicates that the lifetime of the particle is infinite. If the value specified is 
-   * less than **-1**, the default value is used.
+   * 表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1。当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。
    * 
-   * Note: If you do not want the animation to keep playing, you are advised not to set the lifetime to –1, which may 
-   * greatly affect the performance.
+   * **说明**：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。
    *
-   * @type { ?number }
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -536,11 +495,9 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
   lifetime?: number;
 
   /**
-   * Random integer within the range of [lifetime – lifetimeRange, lifetime + lifetimeRange]. After lifetimeRange is 
-   * set, the particle lifecycle is a random integer within the range. The default value is 0. The value range is from 0
-   * to positive infinity. If it is set to a negative value, the default value is used.
+   * 表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。lifetimeRange默认值为0，取
+   * 值范围为0到正无穷。设置为负值时取默认值。
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -552,9 +509,8 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
 }
 
 /**
- * Particle emitter configuration.
+ * 粒子发射器的配置。
  *
- * @interface EmitterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -563,28 +519,25 @@ interface EmitterParticleOptions<PARTICLE extends ParticleType> {
  */
 interface EmitterOptions<PARTICLE extends ParticleType> {
   /**
-   * Particle configuration.
+   * 粒子配置。
    * 
-   * - **type**: particle type, which can be **IMAGE** or **POINT**.
-   * - **config**: configuration of the particle type.
-   * - The value type of **config** is subject to the value of **type**.
+   * -type表示粒子类型，可以选择图片或者是点。
    * 
-   * 1. If the type is ParticleType.POINT, the config type is [PointParticleParameters]{@link PointParticleParameters}.
-   * 2. If the type is ParticleType.IMAGE, the config type is [ImageParticleParameters]{@link ImageParticleParameters}.
+   * -config表示对应类型的配置。
    * 
-   * - **count**: number of particles. The value is greater than or equal to -1. The value **-1** indicates that the 
-   * number of particles is infinite.
-   * - **lifetime**: lifetime of a single particle. The default value is **1000** (that is, 1000 ms, 1s). The value is 
-   * greater than or equal to -1. The value **-1** indicates that the lifetime of the particle is infinite. If the value
-   * specified is less than **-1**, the default value is used.
+   * -config类型和type值有关联：
    * 
-   * Note: If you do not want the animation to keep playing, you are advised not to set the lifetime to –1, which may 
-   * greatly affect the performance.
+   * 1. 如果type为ParticleType.POINT，则config类型为[PointParticleParameters]{@link PointParticleParameters} 。
+   * 2. 如果type为ParticleType.IMAGE，则config类型为[ImageParticleParameters]{@link ImageParticleParameters} 。
    * 
-   * The **lifeTimeRange** parameter indicates the range of the particle lifetime. After this parameter is set, the 
-   * lifetime of a particle is a random integer within the range of 
-   * [lifetime – lifeTimeRange, lifetime + lifeTimeRange]. The default value of lifeTimeRange is 0. The value ranges 
-   * from 0 to positive infinity. If it is set to a negative value, the default value is used.
+   * -count表示发射的粒子总数，count取值>=-1，当count为-1表示粒子总数无限大。
+   * 
+   * -lifetime表示单个粒子的生命周期，默认值1000（即1000ms，1s），lifetime>=-1，当lifetime为-1表示粒子生命周期无限大。当lifetime<-1，取默认值。
+   * 
+   * **说明**：如果不需要动画一直播放，建议不要将生命周期设置为-1，可能对性能造成较大影响。
+   * 
+   * lifetimeRange表示粒子生命周期取值范围，设置lifetimeRange后粒子的生命周期为[lifetime-lifetimeRange, lifetime+lifetimeRange]中间的一个随机整数。
+   * lifetimeRange默认值为0，取值范围为[0, +∞）。设置为负值时取默认值。
    *
    * @type { object } [since 10 - 17]
    * @type { EmitterParticleOptions<PARTICLE> } [since 18]
@@ -597,14 +550,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   particle: EmitterParticleOptions<PARTICLE>;
 
   /**
-   * Emit rate (that is, the number of particles emitted per second).
-   * 
-   * Default value: **5**. If the value specified is less than 0, the default value is used.
-   * 
-   * The **emitRate** value can significantly impact performance when it exceeds 5000; you are advised to set it to be 
-   * less than 5000.
+   * 发射器发射速率（即每秒发射粒子数）。 默认值：5，小于0时取默认值5。emitRate值超过5000时会极大影响性能，建议设置参数小于5000。
    *
-   * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -615,11 +562,10 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   emitRate?: number;
 
   /**
-   * Shape of emitter.
+   * 发射器形状。
    * 
-   * Default value: ParticleEmitterShape.RECTANGLE
+   * 默认值：ParticleEmitterShape.RECTANGLE
    *
-   * @type { ?ParticleEmitterShape }
    * @default ParticleEmitterShape.RECTANGLE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -630,10 +576,9 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   shape?: ParticleEmitterShape;
 
   /**
-   * Emitter position (distance from the upper left corner of the component). The first parameter indicates the relative
-   * offset along the x-axis, and the second parameter indicates the relative offset along the y-axis.
+   * 发射器位置（距离组件左上角的位置。第一个参数为x方向上的相对偏移，第二个参数为y轴方向相对偏移。） 
    * 
-   * Default value: **[0.0, 0.0]**
+   * 默认值：`[0.0, 0.0]`
    *
    * @type { ?[Dimension, Dimension] } [since 10 - 17]
    * @type { ?ParticleTuple<Dimension, Dimension> } [since 18]
@@ -647,10 +592,9 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   position?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * Size of the emit window. The first parameter indicates the emitter width, and the second parameter indicates the 
-   * emitter height.
+   * 发射窗口的大小。第一个参数为发射器宽，第二个参数为发射器高。
    * 
-   * Default value: **['100%','100%']** (that is, the emission window occupies the entire Particle component.)
+   * 默认值：`['100%','100%']`(即发射窗口占满Particle组件)
    *
    * @type { ?[Dimension, Dimension] } [since 10 - 17]
    * @type { ?ParticleTuple<Dimension, Dimension> } [since 18]
@@ -664,11 +608,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
   size?: ParticleTuple<Dimension, Dimension>;
 
   /**
-   * Annulus emitter parameters. This parameter takes effect only when the emitter shape is annulus (that is, the shape 
-   * parameter is ParticleEmitterShape.ANNULUS). For an annulus emitter, the shape information must be specified by the 
-   * annulusRegion parameter, and the position and size parameters do not take effect.
+   * 环形发射器参数。需要发射器形状为环形（即shape参数为ParticleEmitterShape.ANNULUS）时才生效，且对于环形发射器，形状信息必须通过annulusRegion参数指定，position和size不生效。
    *
-   * @type { ?ParticleAnnulusRegion }
    * @default {innerRadius:LengthMetrics.vp(0),outerRadius:LengthMetrics.vp(0)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -680,8 +621,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
 }
 
 /**
- * Defines the particle property updater configs.
- * @interface ParticlePropertyUpdaterConfigs
+ * 设置粒子属性更新器配置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -690,9 +631,8 @@ interface EmitterOptions<PARTICLE extends ParticleType> {
  */
 interface ParticlePropertyUpdaterConfigs<T> {
   /**
-   * No effect of particle updater.
+   * 无变化。
    *
-   * @type { void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -702,26 +642,19 @@ interface ParticlePropertyUpdaterConfigs<T> {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * The property changes randomly, with the per-second change difference being a value randomly generated from the 
-   * range.
+   * 表示变化方式为匀速变化时，每秒的变化差值为设置区间随机生成的值。
    * 
-   * The target property value is obtained by applying the change difference to the current property value. For example,
-   * if the current property value is **0.2** and **config** is set to **[0.1,1.0]**, then:
+   * 目标属性值为当前属性值叠加变化差值。如当前属性值为0.2，config取[0.1,1.0]:
    * 
-   * 1. When the random change difference is 0.5, the target property value is 0.2 + 0.5 = 0.7.
-   * 2. The change difference may also be a negative value. For example, if the current property
-   * value is **0.2** and **config** is set to **[-3.0,2.0]**, then when the random change difference is **-2.0**,
-   * the target property value is 0.2 - 2.0 = -1.8.
+   * 1、如果变化差值在区间[0.1,1.0]取随机值0.5，则目标属性值为0.2+0.5 = 0.7；
    * 
-   * **NOTE**
+   * 2、变化差值也可以取负值。如当前属性值为0.2，config为 [-3.0,2.0],如果变化差值在区间[-3.0,2.0]取随机值-2.0，则目标属性值为0.2-2.0 = -1.8。
    * 
-   * **config** sets the value range of the change difference. While the change difference does not have a maximum or 
-   * minimum value limit, the target property value does. Therefore, if the target property value is greater than the 
-   * maximum property value, the maximum property value will be used instead; if the target property value is less than 
-   * the minimum property value, the minimum property value will be used instead. **T** represents a number.
+   * **说明：**
    * 
-   * For example, if the value range of **opacity** is **[0.0, 1.0]**, then if the target property value is greater than
-   * 1.0, **1.0** will be used instead.
+   * config配置的是变化差值的取值范围，差值的最大最小值没有约束。但是如果当前属性值叠加差值大于属性最大值，目标属性值取属性最大值；如果当前属性值叠加差值小于属性最小值，目标属性值取属性最小值。T为number。
+   * 
+   * 例如：opacity的取值范围[0.0,1.0]则当当前属性值叠加差值超过1.0，则取1.0。
    *
    * @type { [T, T] } [since 10 - 17]
    * @type { ParticleTuple<T, T> } [since 18]
@@ -734,10 +667,8 @@ interface ParticlePropertyUpdaterConfigs<T> {
   [ParticleUpdater.RANDOM]: ParticleTuple<T, T>;
 
   /**
-   * The property changes with the animation curve. The array type indicates that multiple animation segments can be set
-   * for the current property, for example, 0-3000 ms, 3000-5000 ms, and 5000-8000 ms. **T** represents a number.
+   * 表示变化方式为曲线变化时，属性变化的配置。数组类型表示当前属性可以设置多段动画，如0ms-3000ms，3000ms-5000ms，5000ms-8000ms分别设置动画。T为number。
    *
-   * @type { Array<ParticlePropertyAnimation<T>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -748,15 +679,12 @@ interface ParticlePropertyUpdaterConfigs<T> {
 }
 
 /**
- * Defines the particle updater options.
+ * 颜色属性变化配置。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -765,9 +693,10 @@ interface ParticlePropertyUpdaterConfigs<T> {
  */
 interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * Particle updater type.
+   * 表示颜色属性变化类型。 
+   * 
+   * 默认值：type默认为ParticleUpdater.NONE。
    *
-   * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -777,17 +706,17 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
   type: UPDATER;
 
   /**
-   * How the property is updated. The available options of **type** are as follows:
+   * 属性变化配置。属性变化类型type有三类：
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case,
-   * the **config** type is
-   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为[ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}
+   * [ParticleUpdater.NONE]。
+   * 
+   * 2、当type为ParticleUpdater.RANDOM，表示变化类型为随机变化，则config类型为
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。
+   * 
+   * 3、当type为ParticleUpdater.CURVE，表示变化类型为曲线变化，则config类型为
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE]。
    *
-   * @type { ParticlePropertyUpdaterConfigs<TYPE>[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -798,17 +727,12 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 
 /**
- * The color changes randomly, with the per-second change difference being a value randomly generated from the range. 
- * The target color is obtained by applying the change difference to the current color value of each of the R, G, B, A 
- * channels.  
+ * 颜色变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef ParticleColorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -817,9 +741,8 @@ interface ParticleUpdaterOptions<TYPE, UPDATER extends ParticleUpdater> {
  */
 interface ParticleColorOptions {
   /**
-   * Difference value for the red color channel.
+   * r颜色通道的差值。
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -829,9 +752,8 @@ interface ParticleColorOptions {
   r: ParticleTuple<number, number>;
 
   /**
-   * Difference value for the green color channel.
+   * g颜色通道的差值。
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -841,9 +763,8 @@ interface ParticleColorOptions {
   g: ParticleTuple<number, number>;
 
   /**
-   * Difference value for the blue color channel.
+   * b颜色通道的差值。
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -853,9 +774,8 @@ interface ParticleColorOptions {
   b: ParticleTuple<number, number>;
 
   /**
-   * Difference value for the alpha (transparency) channel.
+   * a颜色通道的差值。
    *
-   * @type { ParticleTuple<number, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -866,15 +786,12 @@ interface ParticleColorOptions {
 }
 
 /**
- * How the color property is updated.
+ * 颜色属性变化配置。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -883,11 +800,10 @@ interface ParticleColorOptions {
  */
 interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   /**
-   * Type of property updating.
+   * 表示颜色属性变化类型。
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * 默认值：type默认为 ParticleUpdater.NONE。
    *
-   * @type { UPDATER }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -897,25 +813,22 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
   type: UPDATER;
 
   /**
-   * Color updater configuration.
+   * 颜色属性变化类型type有三类：
    * 
-   * The available options of **type** are as follows:
+   * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]。 
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case,
-   *  the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case,
-   *  the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve.
-   *  In this case, the **config** type is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。 
    * 
-   * **NOTE**
+   * 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE]。 
    * 
-   * When **type** is set to **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in 
-   * **updater** has higher priority than that in **range**. During the animation period specified by updater, the color
-   * changes based on the color configuration in updater. Before the animation period specified by updater, the color 
-   * changes based on the color configuration in range.
+   * **说明**：
+   * 
+   * 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配
+   * 置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。
    *
-   * @type { ParticleColorPropertyUpdaterConfigs[UPDATER] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -926,8 +839,8 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle property Options.
- * @interface ParticlePropertyOptions
+ * 设置粒子属性选项。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -936,23 +849,23 @@ interface ParticleColorUpdaterOptions<UPDATER extends ParticleUpdater> {
  */
 interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   /**
-   * Initial property value range of the particle. The initial property value of particles generated by the particle 
-   * emitter is randomly selected in this range.
+   * 粒子初始属性值区间，粒子发射器生成粒子的属性值在range区间随机取值。
    * 
-   * **NOTE**
+   * **说明**
    * 
-   * If a property is set to an invalid value, the default value will be used. If the maximum value is less than the 
-   * minimum value, the default range will be used. **TYPE** is number.
+   * 各项属性的非法输入取默认值，当最大值小于最小值的时候取默认区间。TYPE为number。
    * 
-   * The default value varies by property:
+   * 不同属性的默认值不同：
    * 
-   * 1. **opacity** property: **range:[1.0,1.0]**; the value range is [0, 1]; the default value is **1.0**.
-   * 2. **scale** property: **range:[1.0,1.0]**; the value range is [0, 10000]; the default value is **1.0**.
-   * 3. **acceleration** speed property:
-   *   **range:[0.0,0.0]**; the value range is [0, 10000]; the default value is **0.0**.
-   * 4. **acceleration** angle property:
-   *   **range:[0.0,0.0]**; the value range is [-10000, 10000]; the default value is **0.0**.
-   * 5. **spin** speed property: **range:[0.0,0.0]**; the value range is [-10000, 10000]; the default value is **0.0**.
+   * 1、opacity属性：range:[1.0,1.0]，取值范围为[0, 1]，默认值为1.0。
+   * 
+   * 2、scale属性：range:[1.0,1.0]，取值范围为[0, 10000]，默认值为1.0。
+   * 
+   * 3、acceleration加速度speed属性：range:[0.0,0.0]，取值范围为[0, 10000]，默认值为0.0。
+   * 
+   * 4、acceleration加速度angle属性：range:[0.0,0.0]，取值范围为[-10000, 10000]，默认值为0.0。
+   * 
+   * 5、spin属性：range:[0.0,0.0]，取值范围为[-10000, 10000]，默认值为0.0。
    *
    * @type { [TYPE, TYPE] } [since 10 - 17]
    * @type { ParticleTuple<TYPE, TYPE> } [since 18]
@@ -965,16 +878,18 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
   range: ParticleTuple<TYPE, TYPE>;
 
   /**
-   * How the property is updated. The available options of **type** are as follows:
+   * 属性变化配置。属性变化类型type有三类：
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type is
-   *  [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case, the
-   *  **config** type is [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为[ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}
+   * [ParticleUpdater.NONE]。
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * 2、当type为ParticleUpdater.RANDOM，表示变化类型为随机变化，则config类型为
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。
+   * 
+   * 3、当type为ParticleUpdater.CURVE，表示变化类型为曲线变化，则config类型为
+   * [ParticlePropertyUpdaterConfigs]{@link ParticlePropertyUpdaterConfigs}[ParticleUpdater.CURVE] 
+   * 
+   * 默认值：type默认为ParticleUpdater.NONE。
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?ParticleUpdaterOptions<TYPE, UPDATER> } [since 18]
@@ -989,8 +904,8 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle color property updater configs.
- * @interface ParticleColorPropertyUpdaterConfigs
+ * 设置粒子颜色属性更新器的配置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -999,7 +914,7 @@ interface ParticlePropertyOptions<TYPE, UPDATER extends ParticleUpdater> {
  */
 interface ParticleColorPropertyUpdaterConfigs {
   /**
-   * The color does not change.
+   * 无变化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1010,9 +925,7 @@ interface ParticleColorPropertyUpdaterConfigs {
   [ParticleUpdater.NONE]: void;
 
   /**
-   * The color changes randomly, with the per-second change difference being a value randomly generated from the range. 
-   * The target color is obtained by applying the change difference to the current color value of each of the R, G, B, A
-   * channels.
+   * 表示变化方式为均匀变化的时候，在区间内随机生成一个差值。r、g、b、a四个颜色通道每秒分别使用差值叠加当前颜色值，生成目标颜色值。实现颜色随机变化的效果。
    *
    * @type { object } [since 10 - 17]
    * @type { ParticleColorOptions } [since 18]
@@ -1025,8 +938,7 @@ interface ParticleColorPropertyUpdaterConfigs {
   [ParticleUpdater.RANDOM]: ParticleColorOptions;
 
   /**
-   * The color changes with the animation curve. The array type indicates that multiple animation segments can be set 
-   * for the current property, for example, 0–3000 ms, 3000–5000 ms, and 5000–8000 ms.
+   * 表示变化方式为曲线变化时，颜色变化的配置。数组类型表示当前属性可以设置多段动画，如0ms-3000ms，3000ms-5000ms，5000ms-8000ms分别设置动画。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1038,8 +950,8 @@ interface ParticleColorPropertyUpdaterConfigs {
 }
 
 /**
- * Defines the particle color property updater configs which can support generics.
- * @interface ParticleColorPropertyOptions
+ * 设置粒子颜色属性更新器配置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1048,10 +960,9 @@ interface ParticleColorPropertyUpdaterConfigs {
  */
 interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   /**
-   * Initial color range of the particle. The initial color of particles generated by the particle emitter is randomly 
-   * selected in this range.
+   * 粒子初始颜色区间，粒子发射器生成粒子的初始颜色在range区间随机取值。
    * 
-   * Default value: range:[Color.White,Color.White]
+   * 默认值：range:[Color.White,Color.White]
    *
    * @type { [ResourceColor, ResourceColor] } [since 10 - 17]
    * @type { ParticleTuple<ResourceColor, ResourceColor> } [since 18]
@@ -1064,12 +975,10 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   range: ParticleTuple<ResourceColor, ResourceColor>;
 
   /**
-   * Type of random value distribution for the initial color of the particle. Both uniform distribution and normal (
-   * Gaussian) distribution are supported.
+   * 粒子初始颜色随机值分布，允许用户选择颜色随机值生成的分布类型，支持均匀分布或正态（高斯）分布。
    * 
-   * Default value: **DistributionType.UNIFORM**
+   * 默认值：DistributionType.UNIFORM
    *
-   * @type { ?DistributionType }
    * @default DistributionType.UNIFORM
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1080,23 +989,23 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
   distributionType?: DistributionType;
 
   /**
-   * How the color property is updated. The available options of **type** are as follows:
+   * 颜色属性变化配置。颜色属性变化类型type有三类：
    * 
-   * 1. **ParticleUpdater.NONE**: The property does not change. In this case, the **config** type is
-   *  [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE].
-   * 2. **ParticleUpdater.RANDOM**: The property changes randomly. In this case, the **config** type
-   *  is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM].
-   * 3. **ParticleUpdater.CURVE**: The property changes with the animation curve. In this case, the **config** type
-   *  is [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE].
+   * 1、当type为ParticleUpdater.NONE，表示无变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.NONE]。 
    * 
-   * The default value of **type** is **ParticleUpdater.NONE**.
+   * 2、type为ParticleUpdater.RANDOM，表示随机变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.RANDOM]。 
    * 
-   * **NOTE**
+   * 3、type为ParticleUpdater.CURVE,表示按动画曲线变化，则config类型为
+   * [ParticleColorPropertyUpdaterConfigs]{@link ParticleColorPropertyUpdaterConfigs}[ParticleUpdater.CURVE]。
    * 
-   * When **type** is set to **ParticleUpdater.RANDOM** or **ParticleUpdater.CURVE**, the color configuration in 
-   * **updater** has higher priority than that in **range**. During the animation time period configured in **updater**,
-   * the color configuration from **updater** is used. Outside of the animation time period configured in **updater**, 
-   * the color configuration from **range** is used.
+   * 默认值：type默认为 ParticleUpdater.NONE。 
+   * 
+   * **说明**：
+   * 
+   * 当type为ParticleUpdater.RANDOM或者ParticleUpdater.CURVE时，updater中颜色配置的优先级高于range中的颜色配置。在updater配置的动画时间周期内，以updater中的颜色配
+   * 置来变化；在updater配置的动画时间周期外，以range中的颜色配置来变化。
    *
    * @type { ?object } [since 10 - 17]
    * @type { ?ParticleColorUpdaterOptions<UPDATER> } [since 18]
@@ -1111,8 +1020,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
 }
 
 /**
- * Defines the particle property lifecycle.
- * @interface ParticlePropertyAnimation
+ * 设置粒子属性生命周期。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1121,9 +1030,8 @@ interface ParticleColorPropertyOptions<UPDATER extends ParticleUpdater> {
  */
 interface ParticlePropertyAnimation<T> {
   /**
-   * Initial value of the property. If the value is invalid, the default value will be used.
+   * 属性起始值。非法输入取对应属性的默认值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1133,9 +1041,8 @@ interface ParticlePropertyAnimation<T> {
   from: T;
 
   /**
-   * Target value of the property. If the value is invalid, the default value will be used.
+   * 属性目标值。非法输入取对应属性的默认值。
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1145,13 +1052,12 @@ interface ParticlePropertyAnimation<T> {
   to: T;
 
   /**
-   * Start time of the animation.
+   * 动画开始时间。
    * 
-   * Unit: ms.
+   * 单位：毫秒。
    * 
-   * Value range: [0, +∞).
+   * 取值范围：[0, +∞)。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1161,13 +1067,12 @@ interface ParticlePropertyAnimation<T> {
   startMillis: number;
 
   /**
-   * End time of the animation.
+   * 动画结束时间。
    * 
-   * Unit: ms.
+   * 单位：毫秒。
    * 
-   * Value range: [0, +∞).
+   * 取值范围：[0, +∞)。
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1177,11 +1082,10 @@ interface ParticlePropertyAnimation<T> {
   endMillis: number;
 
   /**
-   * Animation curve.
+   * 设置动画曲线。
    * 
-   * Default value: **Curve.Linear**
+   * 默认值：Curve.Linear
    *
-   * @type { ?(Curve | ICurve) }
    * @default Curve.Linear
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1193,15 +1097,12 @@ interface ParticlePropertyAnimation<T> {
 }
 
 /**
- * Defines the particle array.
+ * 粒子动画的集合。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
- * @typedef Particles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1218,10 +1119,9 @@ interface Particles<
   SPIN_UPDATER extends ParticleUpdater
 > {
   /**
-   * An array of particle options, each of which covers the emitter, color, opacity, scale, velocity, acceleration, and 
-   * spin speed of particles. For details, see [ParticleOptions]{@link ParticleOptions}.
+   * 粒子动画的集合。每个粒子动画（[ParticleOptions]{@link ParticleOptions}）包含粒子发射，同时可配置粒子的颜色、透明度、大小、速度、加速度与旋转速度，详见
+   * [ParticleOptions]{@link ParticleOptions}属性说明。
    *
-   * @type { Array<ParticleOptions<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER, SPIN_UPDATER>> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1244,7 +1144,6 @@ interface Particles<
 /**
  * Defines the particle Interface.
  *
- * @interface ParticleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1253,20 +1152,22 @@ interface Particles<
  * @noninterop
  */
 interface ParticleInterface {
+
   /**
    * create a particle array.
-   *
+   * 
    * Anonymous Object Rectification.
+   *
    * @param { object } value - Particle value
    *     particles - list of ParticleOptions. [since 10 - 17]
    * @param { Particles<PARTICLE, COLOR_UPDATER, OPACITY_UPDATER, SCALE_UPDATER, ACC_SPEED_UPDATER, ACC_ANGLE_UPDATER,
-  *     SPIN_UPDATER> } particles - Array of particles. [since 18]
-  * @returns { ParticleAttribute } Returns the particle attribute.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice [since 11]
-  * @since 10 dynamic
+   *     SPIN_UPDATER> } particles - Array of particles. [since 18]
+   * @returns { ParticleAttribute } Returns the particle attribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   <
     PARTICLE extends ParticleType,
@@ -1288,9 +1189,8 @@ interface ParticleInterface {
 }
 
 /**
- * Enumerates the particle types.
+ * 粒子类型。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1299,7 +1199,7 @@ interface ParticleInterface {
  */
 declare enum ParticleType {
   /**
-   * Point-like particle.
+   * 点状粒子
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1310,7 +1210,7 @@ declare enum ParticleType {
   POINT = 'point',
 
   /**
-   * Image-like particle.
+   * 图片粒子
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1322,9 +1222,8 @@ declare enum ParticleType {
 }
 
 /**
- * Enumerates the emitter shapes of a particle.
+ * 粒子发射器形状。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1333,7 +1232,7 @@ declare enum ParticleType {
  */
 declare enum ParticleEmitterShape {
   /**
-   * Rectangle.
+   * 粒子发射器为矩形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1344,7 +1243,7 @@ declare enum ParticleEmitterShape {
   RECTANGLE = 'rectangle',
 
   /**
-   * Circle.
+   * 粒子发射器为圆形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1355,7 +1254,7 @@ declare enum ParticleEmitterShape {
   CIRCLE = 'circle',
 
   /**
-   * Ellipse.
+   * 粒子发射器为椭圆形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1366,20 +1265,20 @@ declare enum ParticleEmitterShape {
   ELLIPSE = 'ellipse',
 
   /**
-   * Annulus.
+   * 粒子发射器为环形。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
    */
-   ANNULUS = 'annulus'
+  ANNULUS = 'annulus'
 }
 
 /**
- * Enumerates the color distribution types of a particle.
- * 
- * @enum { number }
+ * 初始颜色随机值分布类型。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1388,8 +1287,8 @@ declare enum ParticleEmitterShape {
  */
 declare enum DistributionType {
   /**
-   * The initial color random values are distributed uniformly.
-   * 
+   * 初始颜色随机值分布为均匀分布。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1399,8 +1298,8 @@ declare enum DistributionType {
   UNIFORM = 0,
 
   /**
-   * The initial color random values are distributed according to a Gaussian distribution.
-   * 
+   * 初始颜色随机值分布为高斯分布。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1411,9 +1310,8 @@ declare enum DistributionType {
 }
 
 /**
- * Enumerates the updater types of a particle.
+ * 粒子变化类型。
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1422,7 +1320,7 @@ declare enum DistributionType {
  */
 declare enum ParticleUpdater {
   /**
-   * No change.
+   * 无变化
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1433,7 +1331,7 @@ declare enum ParticleUpdater {
   NONE = 'none',
 
   /**
-   * Random change.
+   * 随机变化
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1444,7 +1342,7 @@ declare enum ParticleUpdater {
   RANDOM = 'random',
 
   /**
-   * Change with the animation curve.
+   * 动画曲线变化
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1458,7 +1356,6 @@ declare enum ParticleUpdater {
 /**
  * Defines the SizeT type.
  *
- * @typedef { import('../api/arkui/Graphics').SizeT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1470,7 +1367,6 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 /**
  * Defines the PositionT type.
  *
- * @typedef { import('../api/arkui/Graphics').PositionT<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1480,9 +1376,8 @@ declare type SizeT<T> = import('../api/arkui/Graphics').SizeT<T>;
 declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 
 /**
- * Defines the Vector2T type. The Vector2T type contains two attribute values: x and y.
+ * 定义Vector2T类型。其中Vector2T类型包含x和y两个属性值。
  *
- * @typedef { import('../api/arkui/Graphics').Vector2T<T> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1492,21 +1387,20 @@ declare type PositionT<T> = import('../api/arkui/Graphics').PositionT<T>;
 declare type Vector2T<T> = import('../api/arkui/Graphics').Vector2T<T>;
 
 /**
- * Defines the Particle component attribute functions.
+ * 除支持[通用属性]{@link common}外还支持以下属性：
  *
- * @extends CommonMethod<ParticleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 11]
- * @since 10 dynamic
  * @noninterop
+ * @since 10 dynamic
  */
 declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   /**
-   * Sets the disturbance fields.
+   * 设置扰动场。
    *
-   * @param { Array<DisturbanceFieldOptions> } fields - Array of disturbance fields.
+   * @param { Array<DisturbanceFieldOptions> } fields - 扰动场数组。
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1517,9 +1411,9 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   disturbanceFields(fields: Array<DisturbanceFieldOptions>): ParticleAttribute;
 
   /**
-   * Sets the emitter parameters.
+   * 支持发射器位置动态更新
    *
-   * @param { Array<EmitterProperty> } value - Array of emitter parameters to set.
+   * @param { Array<EmitterProperty> } value - 需要更新的emitter参数数组
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1530,11 +1424,9 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   emitter(value: Array<EmitterProperty>): ParticleAttribute;
 
   /**
-   * Sets the particle wave field. The wave field applies a force that changes according to the waveform to particles 
-   * within the affected range, producing an effect similar to the spreading of ripples.
+   * 设置粒子波动场。波动场会对影响范围内的粒子施加按波形变化的力，产生类似波纹扩散的效果。
    *
-   * @param { Array<RippleFieldOptions> | undefined } fields - Particle wave field array. You can set multiple particle
-   *     wave fields in array form. If this parameter is set to undefined, no wave field is available.
+   * @param { Array<RippleFieldOptions> | undefined } fields - 粒子波动场数组。通过数组形式可以设置多个粒子波动场。当设置为undefined时，表示无波动场。
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1545,11 +1437,9 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
   rippleFields(fields: Array<RippleFieldOptions> | undefined): ParticleAttribute;
 
   /**
-   * Sets the particle velocity field. The velocity field applies a force to particles within the affected range, so 
-   * that the particles move at the velocity specified by the velocity field in addition to their original velocity.
+   * 设置粒子速度场。速度场会对影响范围内的粒子施加一个力，使粒子在原有速度的基础上叠加速度场指定的速度。
    *
-   * @param { Array<VelocityFieldOptions> | undefined } fields - Particle velocity field array. You can set multiple
-   *     particle velocity fields in array form. If this parameter is set to undefined, there is no velocity field.
+   * @param { Array<VelocityFieldOptions> | undefined } fields - 粒子速度场数组。通过数组形式可设置多个粒子速度场。设置为undefined时表示无速度场。
    * @returns { ParticleAttribute } Returns the particle attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1573,9 +1463,8 @@ declare class ParticleAttribute extends CommonMethod<ParticleAttribute> {
 declare const Particle: ParticleInterface;
 
 /**
- * Defines particle disturbance Field params.
+ * 设置粒子扰动场参数。
  *
- * @interface DisturbanceFieldOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1585,13 +1474,10 @@ declare const Particle: ParticleInterface;
 declare interface DisturbanceFieldOptions {
 
   /**
-   * Field strength, which indicates the intensity of the repulsive force from the center outward. The default value is 
-   * **0**. Positive values indicate a repulsive force directed outward, while negative values indicate an attractive 
-   * force directed inward.
+   * 场强，表示场从中心向外的排斥力的强度，默认值0。正数表示排斥力方向朝外，负数表示吸引力，方向朝内。
    * 
-   * Value range: (-∞, +∞).
+   * 取值范围：(-∞, +∞)。
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1602,11 +1488,10 @@ declare interface DisturbanceFieldOptions {
   strength?: number;
 
   /**
-   * Shape of the field.
+   * 场的形状。
    * 
-   * Default value: **DisturbanceFieldShape.RECT**
+   * 默认为DisturbanceFieldShape.RECT。
    *
-   * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1617,13 +1502,12 @@ declare interface DisturbanceFieldOptions {
   shape?: DisturbanceFieldShape;
 
   /**
-   * Size of the field.
+   * 场的大小。
    * 
-   * Default value: {width:0, height:0}.
+   * 默认值 {width:0，height:0}。
    * 
-   * Value range of **width** and **height**: [0, +∞).
+   * width和height的取值范围：[0, +∞)。
    *
-   * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1634,13 +1518,12 @@ declare interface DisturbanceFieldOptions {
   size?: SizeT<number>;
 
   /**
-   * Position of the field.
+   * 场的位置。
    * 
-   * Default value: {x:0, y:0}.
+   * 默认值{x:0，y:0}。
    * 
-   * Value range of **x** and **y**: (-∞, +∞).
+   * x、y的取值范围：(-∞, +∞)。
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1651,14 +1534,10 @@ declare interface DisturbanceFieldOptions {
   position?: PositionT<number>;
 
   /**
-   * Feather value, which represents the degree of attenuation from the center of the field to its edges. The value is 
-   * an integer ranging from 0 to 100. A value of 0 indicates that the field is rigid, and all particles within its 
-   * range are repelled. The higher the feather value, the more gradual the field becomes, resulting in more particles 
-   * close to the center point appearing within the field's range.
+   * 羽化值，表示场从中心点到场边缘的衰减程度，取值范围0到100的整数，如果0则表示场是一个刚体，所有范围内的粒子都被排斥在外。羽化值越大场的缓和程度越大，场范围内出现越多靠近中心点的粒子。
    * 
-   * Default value: **0**.
+   * 默认值为0。
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1669,11 +1548,10 @@ declare interface DisturbanceFieldOptions {
   feather?: number;
 
   /**
-   * Noise scale, used to control the overall size of the noise pattern. The value is greater than or equal to 0.
+   * 噪声尺度，用于控制噪声图案的整体大小，取值大于等于0。
    * 
-   * Default value: **1**.
+   * 默认值1。
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1684,11 +1562,10 @@ declare interface DisturbanceFieldOptions {
   noiseScale?: number;
 
   /**
-   * Noise frequency. The higher the frequency, the finer the noise. The value is greater than or equal to 0.
+   * 噪声频率，频率越大噪声越细腻，取值大于等于0。
    * 
-   * Default value: **1**.
+   * 默认值1。
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1699,12 +1576,10 @@ declare interface DisturbanceFieldOptions {
   noiseFrequency?: number;
 
   /**
-   * Noise amplitude, which indicates the range of noise fluctuations. The greater the amplitude, the greater the 
-   * difference between the noises. The value is greater than or equal to 0.
+   * 噪声振幅，噪声的波动的范围，振幅越大噪音之间差异越大。取值大于等于0。
    * 
-   * Default value: **1**.
+   * 默认值1。
    *
-   * @type { ?number }
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1716,9 +1591,8 @@ declare interface DisturbanceFieldOptions {
 }
 
 /**
- * Defines particle disturbance shape.
+ * 粒子形状。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1728,7 +1602,7 @@ declare interface DisturbanceFieldOptions {
 declare enum DisturbanceFieldShape {
 
   /**
-   * Rectangle.
+   * 长方形。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1739,7 +1613,7 @@ declare enum DisturbanceFieldShape {
   RECT = 0,
 
   /**
-   * Circle.
+   * 圆。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1750,7 +1624,7 @@ declare enum DisturbanceFieldShape {
   CIRCLE = 1,
 
   /**
-   * Ellipse.
+   * 椭圆。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1759,26 +1633,21 @@ declare enum DisturbanceFieldShape {
    * @since 12 dynamic
    */
   ELLIPSE = 2
-
 }
 
 /**
- * Configures the annular emitter area.
+ * 用于设置环形发射器区域的配置信息。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - If the value of outerRadius or innerRadius is less than 0 or uses the percentage unit, the value is considered as
- * > 0.
+ * > - outerRadius、innerRadius小于零或使用百分比单位时，会按零进行处理。
  * >
- * > - If the value of outerRadius is less than that of innerRadius, the smaller value is used as the new inner radius 
- * > and the larger value is used as the new outer radius.
+ * > - 当outerRadius小于innerRadius时（即外圆半径小于内圆半径时），会将当前较小的值作为新的内圆半径，将较大的值作为新的外圆半径。
  * >
- * > - If the value of endAngle is less than that of startAngle, the smaller value is used as the new start angle and 
- * > the larger value is used as the new end angle.
+ * > - 当endAngle小于startAngle时（即结束角度小于起始角度时），会将当前较小的值作为新的起始角度，将较大的值作为新的结束角度。
  * >
  * > ![](docroot://reference/apis-arkui/arkui-ts/figures/annulus.png)
- * 
- * @interface ParticleAnnulusRegion
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1789,7 +1658,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The coordinates of the center of the annulus
    *
-   * @type { ?PositionT<LengthMetrics> }
    * @default {x:LengthMetrics.percent(0.5),y:LengthMetrics.percent(0.5)}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1801,7 +1669,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The outer radius of the annulus
    *
-   * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1812,7 +1679,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The inner radius of the annulus
    *
-   * @type { LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1823,7 +1689,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The start angle of the annulus, in degree
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1835,7 +1700,6 @@ declare interface ParticleAnnulusRegion {
   /**
    * The end angle of the annulus, in degree
    *
-   * @type { ?number }
    * @default 360
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1847,9 +1711,8 @@ declare interface ParticleAnnulusRegion {
 }
 
 /**
- * Defines the area information of the particle field.
- * 
- * @interface FieldRegion
+ * 用于设置粒子场的区域信息。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1860,7 +1723,6 @@ declare interface FieldRegion {
   /**
    * The shape of the field
    *
-   * @type { ?DisturbanceFieldShape }
    * @default DisturbanceFieldShape.RECT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1873,7 +1735,6 @@ declare interface FieldRegion {
    * The coordinates of the center position of the field. The top-left corner of the component is the origin of the
    * coordinate system. The coordinate unit is vp.
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1885,7 +1746,6 @@ declare interface FieldRegion {
   /**
    * The size of the field. The unit of value is vp.
    *
-   * @type { ?SizeT<number> }
    * @default {width:0,height:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1897,9 +1757,8 @@ declare interface FieldRegion {
 }
 
 /**
- * Defines ripple field options.
- * 
- * @interface RippleFieldOptions
+ * 用于描述粒子波动场信息的参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1911,7 +1770,6 @@ declare interface RippleFieldOptions {
    * The amplitude of the ripple field. The greater the amplitude, the stronger the force of the ripple field.
    * Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1925,7 +1783,6 @@ declare interface RippleFieldOptions {
    * the wavelength, the slower the wave changes with distance, and the less pronounced the wave fluctiations.
    * Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1938,7 +1795,6 @@ declare interface RippleFieldOptions {
    * Wave speed. The greater the wave speed, the faster the wave changes over time, and the more pronounced the wave
    * motion. Range of values:[0, +∞)
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1951,7 +1807,6 @@ declare interface RippleFieldOptions {
    * The attenuation coefficient of the ripple field. The larger the attenuation coefficient, the faster the wave
    * attenuates over time. Range of values:[0,1]
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1964,7 +1819,6 @@ declare interface RippleFieldOptions {
    * The central point where the ripple field generates force. The top-left corner of the component is the origin of
    * coordinates. The coordinate unit is vp.
    *
-   * @type { ?PositionT<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1976,7 +1830,6 @@ declare interface RippleFieldOptions {
   /**
    * The region influenced by the ripple field.
    *
-   * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1988,9 +1841,8 @@ declare interface RippleFieldOptions {
 }
 
 /**
- * Parameter used to describe the velocity field of particles.
- * 
- * @interface VelocityFieldOptions
+ * 用于描述粒子速度场信息的参数。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2003,7 +1855,6 @@ declare interface VelocityFieldOptions {
    * the range of the velocity field; once they leave the range of the velocity field, they are no longer influenced
    * by it and do not gain this additional velocity.
    *
-   * @type { ?Vector2T<number> }
    * @default {x:0,y:0}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2015,7 +1866,6 @@ declare interface VelocityFieldOptions {
   /**
    * The region influenced by the velocity field.
    *
-   * @type { ?FieldRegion }
    * @default {shape:DisturbanceFieldShape.RECT,position:{x:0,y:0},size:{width:0,height:0}}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -19,7 +19,7 @@
  */
 
 /**
- * Animator options.
+ * 定义动画选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -28,11 +28,11 @@
  */
 export interface AnimatorOptions {
   /**
-   * Duration for playing the animation, in milliseconds.
+   * 动画播放的时长，单位毫秒。
    * 
-   * Value range: [0, +∞).
+   * 取值范围：[0, +∞)  
    * 
-   * Default value: **0**
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -42,9 +42,9 @@ export interface AnimatorOptions {
   duration: number;
 
   /**
-   * Animation interpolation curve.
+   * 动画插值曲线，支持的曲线类型可参考表1。
    * 
-   * If the provided string is invalid, **"ease"** is used.
+   * 非法字符串时取:"ease"。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -54,11 +54,9 @@ export interface AnimatorOptions {
   easing: string;
 
   /**
-   * Animation delay duration, in milliseconds. Value **0** means that there is no delay. If the value specified is a 
-   * negative number, the animation starts playing ahead of its scheduled time. If the amount of time by which the 
-   * playback is advanced exceeds the total duration of the animation, the animation immediately skips to its end state.
+   * 动画延时播放时长，单位毫秒，设置为0时，表示不延时。设置为负数时动画提前播放，如果提前播放的时长大于动画总时长，动画直接过渡到终点。 
    * 
-   * Default value: **0**
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -68,20 +66,17 @@ export interface AnimatorOptions {
   delay: number;
 
   /**
-   * State of the animated target after the animation is executed.
+   * 动画执行后是否恢复到初始状态，动画执行后，动画结束时的状态（在最后一个关键帧中定义）将保留。
    * 
-   * **'none'**: No style is applied to the target before or after the animation is executed.
+   * 'none'：在动画执行之前和之后都不会应用任何样式到目标上。
    * 
-   * **'forwards'**: The target keeps the state at the end of the animation (defined in the last key frame) after the 
-   * animation is executed.
+   * 'forwards'：在动画结束后，目标将保留动画结束时的状态（在最后一个关键帧中定义）。
    * 
-   * **'backwards'**: During the delay period specified in [AnimatorOptions]{@link AnimatorOptions}, the animation uses 
-   * the value defined in the first keyframe. When **direction** in [AnimatorOptions]{@link AnimatorOptions} is 
-   * **'normal'** or **'alternate'**, the animation uses the **from** keyframe value. When **direction** in 
-   * [AnimatorOptions]{@link AnimatorOptions} is **'reverse'** or **'alternate-reverse'**, the animation uses the **to**
-   * keyframe value.
+   * 'backwards'：动画将在[AnimatorOptions]{@link AnimatorOptions}中的delay期间应用第一个关键帧中定义的值。当
+   * [AnimatorOptions]{@link AnimatorOptions}中的direction为'normal'或'alternate'时应用from关键帧中的值，当
+   * [AnimatorOptions]{@link AnimatorOptions}中的direction为'reverse'或'alternate-reverse'时应用to关键帧中的值。
    * 
-   * **'both'**: The animation follows the **'forwards'** and **'backwards'** rules.
+   * 'both'：动画将遵循forwards和backwards的规则，从而在两个方向上扩展动画属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -91,21 +86,17 @@ export interface AnimatorOptions {
   fill: "none" | "forwards" | "backwards" | "both";
 
   /**
-   * Animation playback mode.
+   * 动画播放模式。
    * 
-   * **'normal'**: plays the animation in forward loop mode.
+   * 'normal'： 动画正向循环播放。
    * 
-   * **'reverse'**: plays the animation in reverse loop mode.
+   * 'reverse'： 动画反向循环播放。
    * 
-   * **'alternate'**: plays the animation in alternating loop mode. When the animation is played for an odd number of 
-   * times, the playback is in forward direction. When the animation is played for an even number of times, the playback
-   * is in reverse direction.
+   * 'alternate'：动画交替循环播放，奇数次正向播放，偶数次反向播放。
    * 
-   * **'alternate-reverse'**: plays the animation in reverse alternating loop mode. When the animation is played for an 
-   * odd number of times, the playback is in reverse direction. When the animation is played for an even number of 
-   * times, the playback is in forward direction.
+   * 'alternate-reverse'：动画反向交替循环播放，奇数次反向播放，偶数次正向播放。
    * 
-   * Default value: **'normal'**
+   * 默认值：'normal'
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -115,11 +106,9 @@ export interface AnimatorOptions {
   direction: "normal" | "reverse" | "alternate" | "alternate-reverse";
 
   /**
-   * Number of times that the animation is played. The value **0** means the animation is not played, **-1** means the 
-   * animation is played for an unlimited number of times, and a positive integer means the animation is played that 
-   * specific number of times.
+   * 动画播放次数。设置为0时不播放，设置为-1时无限次播放，设置大于0时为播放次数。
    * 
-   * Note: Any negative value other than **-1** is treated as invalid. For invalid values, the animation is played once.
+   * **说明:** 设置为除-1外其他负数视为无效取值，无效取值动画默认播放1次。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -129,12 +118,11 @@ export interface AnimatorOptions {
   iterations: number;
 
   /**
-   * Start point of the animation interpolation.
+   * 动画插值起点。
    * 
-   * Note: This setting affects the input parameter value of the 
-   * [onFrame](docroot://reference/apis-arkui/js-apis-animator.md#properties) callback.
+   * **说明:** 会影响[onFrame](docroot://reference/apis-arkui/js-apis-animator.md#属性)回调的入参值。
    * 
-   * Default value: **0**
+   * 默认值：0
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -144,12 +132,11 @@ export interface AnimatorOptions {
   begin: number;
 
   /**
-   * End point of animation interpolation.
+   * 动画插值终点。
    * 
-   * Note: This setting affects the input parameter value of the 
-   * [onFrame](docroot://reference/apis-arkui/js-apis-animator.md#properties) callback.
+   * **说明:** 会影响[onFrame](docroot://reference/apis-arkui/js-apis-animator.md#属性)回调的入参值。   
    * 
-   * Default value: **1**
+   * 默认值：1
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -160,7 +147,7 @@ export interface AnimatorOptions {
 }
 
 /**
- * Defines the animator result.
+ * 定义Animator结果接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -169,20 +156,24 @@ export interface AnimatorOptions {
  */
 export interface AnimatorResult {
   /**
-   * Updates this animator.
+   * 更新当前动画器。
+   * 
+   * > **说明：**  
+   * >
+   * > 从API version 6开始支持，从API version 9开始废弃。建议使用[reset]{@link AnimatorResult.reset(options: AnimatorOptions)}替代。
    *
-   * @param { AnimatorOptions } options - Animator options.
+   * @param { AnimatorOptions } options - 定义动画选项。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.animator.reset
+   * @useinstead AnimatorResult.reset(options: AnimatorOptions)
    */
   update(options: AnimatorOptions): void;
 
   /**
-   * Resets the animation parameters of this animator.
+   * 重置当前animator动画参数。
    *
-   * @param { AnimatorOptions } options - Animator options.
+   * @param { AnimatorOptions } options - 定义动画选项。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -196,8 +187,7 @@ export interface AnimatorResult {
   reset(options: AnimatorOptions): void;
 
   /**
-   * Plays this animation. The animation retains the previous playback state. For example, if the animation is set to 
-   * **reverse** and paused, it will remain in **reverse** when resumed.
+   * 启动动画。动画会保留上一次的播放状态，比如播放状态设置reverse后，再次播放会保留reverse的播放状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -207,8 +197,7 @@ export interface AnimatorResult {
   play(): void;
 
   /**
-   * Ends the animation, triggering the [onFinish](docroot://reference/apis-arkui/js-apis-animator.md#properties) 
-   * callback.
+   * 结束动画，会触发[onFinish](docroot://reference/apis-arkui/js-apis-animator.md#属性)回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -218,7 +207,7 @@ export interface AnimatorResult {
   finish(): void;
 
   /**
-   * Pauses this animation.
+   * 暂停动画。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -228,9 +217,8 @@ export interface AnimatorResult {
   pause(): void;
 
   /**
-   * Cancels the animation, triggering the [onCancel](docroot://reference/apis-arkui/js-apis-animator.md#properties) 
-   * callback. This API is functionally identical to [finish]{@link AnimatorResult.finish} except for the callback it 
-   * triggers. It is recommended that you use the **finish** API to end animations.
+   * 取消动画，会触发[onCancel](docroot://reference/apis-arkui/js-apis-animator.md#属性)回调。此接口和
+   * [finish]{@link AnimatorResult.finish}接口功能上没有区别，仅触发的回调不同，建议使用finish接口结束动画。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -240,7 +228,7 @@ export interface AnimatorResult {
   cancel(): void;
 
   /**
-   * Plays this animation in reverse order. This API does not take effect when the interpolating spring curve is used.
+   * 以相反的顺序播放动画。使用interpolating-spring曲线时此接口无效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -250,10 +238,9 @@ export interface AnimatorResult {
   reverse(): void;
 
   /**
-   * Called when a frame is received.
+   * 接收到帧时回调。
    * 
-   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
-   * **onFrame** instead.
+   * **说明:** 从API version 6开始支持，从API version 12开始废弃，推荐使用onFrame。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -265,10 +252,9 @@ export interface AnimatorResult {
   onframe: (progress: number) => void;
 
   /**
-   * Called when a frame is received.
+   * 接收到帧时回调。
    * 
-   * **progress**: current value of the animation. Value range: [begin, end] defined in 
-   * [AnimatorOptions]{@link AnimatorOptions}. Default value range: [0, 1]
+   * progress表示动画的当前值。取值范围为[AnimatorOptions]{@link AnimatorOptions}定义的[begin, end]，默认取值范围为[0, 1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,10 +265,9 @@ export interface AnimatorResult {
   onFrame: (progress: number) => void;
 
   /**
-   * Called when this animation is finished.
+   * 动画完成时回调。
    * 
-   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
-   * **onFinish** instead.
+   * **说明:** 从API version 6开始支持，从API version 12开始废弃，推荐使用onFinish。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -294,7 +279,7 @@ export interface AnimatorResult {
   onfinish: () => void;
 
   /**
-   * Called when this animation is finished.
+   * 动画完成时回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -305,10 +290,9 @@ export interface AnimatorResult {
   onFinish: () => void;
 
   /**
-   * Called when this animation is canceled.
+   * 动画被取消时回调。
    * 
-   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
-   * **onCancel** instead.
+   * **说明:** 从API version 6开始支持，从API version 12开始废弃，推荐使用onCancel。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -320,7 +304,7 @@ export interface AnimatorResult {
   oncancel: () => void;
 
   /**
-   * Called when this animation is canceled.
+   * 动画被取消时回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -331,10 +315,9 @@ export interface AnimatorResult {
   onCancel: () => void;
 
   /**
-   * Called when this animation repeats.
+   * 动画重复时回调。
    * 
-   * Note: This API is supported since API version 6 and deprecated since API version 12. You are advised to use 
-   * **onRepeat** instead.
+   * **说明:** 从API version 6开始支持，从API version 12开始废弃，推荐使用onRepeat。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -346,7 +329,7 @@ export interface AnimatorResult {
   onrepeat: () => void;
 
   /**
-   * Called when this animation repeats.
+   * 动画重复时回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -357,9 +340,9 @@ export interface AnimatorResult {
   onRepeat: () => void;
 
   /**
-   * Sets the expected frame rate range.
+   * 设置期望的帧率范围。
    *
-   * @param { ExpectedFrameRateRange } rateRange - Expected frame rate range.
+   * @param { ExpectedFrameRateRange } rateRange - 设置期望的帧率范围。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -368,11 +351,10 @@ export interface AnimatorResult {
   setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
 
   /**
-   * Resets the animation parameters of this animator. Compared with 
-   * [reset]{@link AnimatorResult.reset(options: AnimatorOptions)}, this API accepts parameters of the 
-   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
+   * 重置当前animator动画参数。与[reset]{@link AnimatorResult.reset(options: AnimatorOptions)}相比，新增对
+   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions}类型入参的支持。
    *
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Animator options.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - 定义动画选项。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -388,7 +370,7 @@ export interface AnimatorResult {
 }
 
 /**
- * Creates an **Animator** object.
+ * 定义Animator类。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -397,28 +379,31 @@ export interface AnimatorResult {
  */
 export default class Animator {
   /**
-   * Creates an animation.
+   * 创建动画。
+   * 
+   * > **说明：**
    *
-   * @param { AnimatorOptions } options - Animator options.
-   * @returns { AnimatorResult } Animator result.
+   * @param { AnimatorOptions } options - 定义动画选项。
+   * @returns { AnimatorResult } Animator结果接口。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 6 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.animator.create
+   * @useinstead Animator.create(options: AnimatorOptions)
    */
   static createAnimator(options: AnimatorOptions): AnimatorResult;
 
   /**
-   * Creates an **AnimatorResult** object for animations.
+   * 创建animator动画结果对象（AnimatorResult）。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > - Since API version 10, you can use the 
-   * > [createAnimator](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#createanimator) API in 
-   * > [UIContext]{@link @ohos.arkui.UIContext}, which ensures that the object is created in the intended UI instance.
+   * > -
+   * >
+   * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [createAnimator](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#createanimator)来明确UI的执行上下文。
    *
-   * @param { AnimatorOptions } options - Animator options.
-   * @returns { AnimatorResult } Animator result.
+   * @param { AnimatorOptions } options - 定义动画选项。
+   * @returns { AnimatorResult } Animator结果接口。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -433,12 +418,11 @@ export default class Animator {
   static create(options: AnimatorOptions): AnimatorResult;
 
   /**
-   * Creates an **AnimatorResult** object for animations. Compared with
-   * [create]{@link Animator.create(options: AnimatorOptions)}, this API accepts parameters of the 
-   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
+   * 创建animator动画结果对象（AnimatorResult）。与[create]{@link Animator.create(options: AnimatorOptions)}相比，新增对
+   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions}类型入参的支持。
    *
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Parameters of the animation.
-   * @returns { AnimatorResult } Animator result.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - 定义动画参数选项。
+   * @returns { AnimatorResult } Animator结果接口。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -453,8 +437,7 @@ export default class Animator {
 }
 
 /**
- * Defines a simple animation parameter object. Unlike **AnimatorOptions**, this object comes with some default values 
- * for certain animation parameters, so you do not have to set them manually.
+ * animator简易动画参数对象。与AnimatorOptions相比，部分动画参数有默认值，可不设置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -465,11 +448,10 @@ export default class Animator {
 export declare class SimpleAnimatorOptions {
 
   /**
-   * Sets the number of times that this animation is played.
+   * 设置animator动画播放次数。
    *
-   * @param { number } iterations - Number of times that the animation is played. The value **0** means the animation is
-   *     not played, and **-1** means the animation is played for an unlimited number of times.<br>Default value: **1**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { number } iterations - 设置animator动画播放次数，设置为0时不播放，设置为-1时无限次播放。<br/>默认值：1
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -479,10 +461,10 @@ export declare class SimpleAnimatorOptions {
   iterations(iterations: number): SimpleAnimatorOptions;
 
   /**
-   * Sets the playback direction for this animator animation.
+   * 设置animator动画播放方向。
    *
-   * @param { PlayMode } direction - Playback direction.<br>Default value: **PlayMode.Normal**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { PlayMode } direction - 设置animator动画播放方向。<br/>默认值：PlayMode.Normal
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -492,10 +474,10 @@ export declare class SimpleAnimatorOptions {
   direction(direction: PlayMode): SimpleAnimatorOptions;
 
   /**
-   * A constructor used to create a **SimpleAnimatorOptions** instance.
+   * SimpleAnimatorOptions的构造函数。
    *
-   * @param { number } begin - Start point of the animation interpolation.
-   * @param { number } end - End point of animation interpolation.
+   * @param { number } begin - 动画插值起点。
+   * @param { number } end - 动画插值终点。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -505,11 +487,10 @@ export declare class SimpleAnimatorOptions {
   constructor(begin: number, end: number);
 
   /**
-   * Sets the fill mode for this animation.
+   * 设置animator动画填充方式。
    *
-   * @param { FillMode } fillMode - Fill mode, which affects how the animation behaves during the delay period and after
-   *     it ends.<br>Default value: **FillMode.Forwards**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { FillMode } fillMode - 设置animator动画填充方式，影响动画delay期间和结束时的表现。<br/>默认值：FillMode.Forwards
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -519,13 +500,10 @@ export declare class SimpleAnimatorOptions {
   fill(fillMode: FillMode): SimpleAnimatorOptions;
 
   /**
-   * Sets the playback delay for this animation.
+   * 设置animator动画播放时延。
    *
-   * @param { number } delay - Playback delay, in milliseconds. The value **0** indicates no delay. If the value
-   *     specified is a negative number, the animation starts playing ahead of its scheduled time. If the amount of time
-   *     by which the playback is advanced exceeds the total duration of the animation, the animation immediately skips
-   *     to its end state.<br>Default value: **0**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { number } delay - 设置animator动画播放时延，单位毫秒，设置为0时，表示不延时。设置为负数时动画提前播放，如果提前播放的时长大于动画总时长，动画直接过渡到终点。<br/>默认值：0
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -535,11 +513,10 @@ export declare class SimpleAnimatorOptions {
   delay(delay: number): SimpleAnimatorOptions;
 
   /**
-   * Sets the interpolation curve for this animation.
+   * 设置animator动画插值曲线。
    *
-   * @param { string } curve - Interpolation curve. For details, see [AnimatorOptions]{@link AnimatorOptions}.<br>
-   *     Default value: **"ease"**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { string } curve - 设置animator动画插值曲线，具体说明参考[AnimatorOptions]{@link AnimatorOptions}。<br/>默认值：“ease”
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -549,10 +526,10 @@ export declare class SimpleAnimatorOptions {
   easing(curve: string): SimpleAnimatorOptions;
 
   /**
-   * Sets the animation duration.
+   * 设置animator动画时长。
    *
-   * @param { number } duration - Animation duration, in milliseconds.<br>Default value: **1000**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @param { number } duration - 设置动画时长，单位毫秒。<br/>默认值：1000
+   * @returns { SimpleAnimatorOptions } Animator简易动画参数对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

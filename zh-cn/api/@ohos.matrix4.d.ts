@@ -19,15 +19,12 @@
  */
 
 /**
- * Provides matrix transformation capabilities for components, including translation, rotation, and scaling. For 
- * details, see [Transformation]{@link common}.
+ * 用于对组件进行[图形变换]{@link common}的各种操作，为组件提供矩阵变换能力，支持对图形进行平移、旋转和缩放等。
  * 
- * **Matrix4** can be used in the following scenarios:
+ * Matrix4的使用场景包括：
  * 
- * In [Transformation]{@link common}, the [transform]{@link CommonMethod#transform(transform: Optional<object>)} API 
- * uses the **Matrix4** object to display the matrix transformation in two-dimensional transformation, and the 
- * [transform3D]{@link CommonMethod#transform3D} API uses the **Matrix4** object to set the three-dimensional 
- * transformation matrix for a component.
+ * [图形变换]{@link common}中的[transform]{@link CommonMethod#transform(transform: Optional<object>)}接口通过使用图形变换矩阵Matrix4对象显示二维
+ * 变换时的矩阵变换，[transform3D]{@link CommonMethod#transform3D}接口通过使用图形变换矩阵Matrix4对象设置组件的三维变换矩阵。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -36,7 +33,7 @@
  */
 declare namespace matrix4 {
   /**
-   * Describes the translation parameters.
+   * 平移参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -45,13 +42,13 @@ declare namespace matrix4 {
    */
   interface TranslateOption {
     /**
-     * Translation distance along the x-axis.
+     * x轴的平移距离。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: **0**
+     * 默认值：0
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -61,13 +58,13 @@ declare namespace matrix4 {
     x?: number;
 
     /**
-     * Translation distance along the y-axis.
+     * y轴的平移距离。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: **0**
+     * 默认值：0
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -77,13 +74,13 @@ declare namespace matrix4 {
     y?: number;
 
     /**
-     * Translation distance along the z-axis.
+     * z轴的平移距离。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: **0**
+     * 默认值：0
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -94,7 +91,7 @@ declare namespace matrix4 {
   }
 
   /**
-   * Describes the scale parameters.
+   * 缩放参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -103,15 +100,11 @@ declare namespace matrix4 {
    */
   interface ScaleOption {
     /**
-     * Scaling multiple along the x-axis. x > 1: The image is scaled up along the x-axis.
+     * x轴的缩放倍数。x>1时以x轴方向放大，0<x<1时以x轴方向缩小，x<0时沿x轴反向并缩放。
      * 
-     * 0 < x < 1: The image is scaled down along the x-axis.
+     * 默认值：1
      * 
-     * x < 0: The image is scaled in the reverse direction along the x-axis.
-     * 
-     * Default value: **1**
-     * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -121,15 +114,11 @@ declare namespace matrix4 {
     x?: number;
 
     /**
-     * Scaling multiple along the y-axis. y > 1: The image is scaled up along the y-axis.
+     * y轴的缩放倍数。y>1时以y轴方向放大，0<y<1时以y轴方向缩小，y<0时沿y轴反向并缩放。
      * 
-     * 0 < y < 1: The image is scaled down along the y-axis.
+     * 默认值：1
      * 
-     * y < 0: The image is scaled in the reverse direction along the y-axis.
-     * 
-     * Default value: **1**
-     * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -139,15 +128,11 @@ declare namespace matrix4 {
     y?: number;
 
     /**
-     * Scaling multiple along the z-axis. z > 1: The image is scaled up along the z-axis.
+     * z轴的缩放倍数。z>1时以z轴方向放大，0<z<1时以z轴方向缩小，z<0时沿z轴反向并缩放。
      * 
-     * 0 < z < 1: The image is scaled down along the z-axis.
+     * 默认值：1
      * 
-     * z < 0: The image is scaled in the reverse direction along the z-axis.
-     * 
-     * Default value: **1**
-     * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -157,13 +142,13 @@ declare namespace matrix4 {
     z?: number;
 
     /**
-     * X-coordinate of the center point.
+     * 变换中心点x轴坐标。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: X-coordinate of the component center
+     * 默认值：组件中心点x轴坐标。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -173,13 +158,13 @@ declare namespace matrix4 {
     centerX?: number;
 
     /**
-     * Y-coordinate of the center point.
+     * 变换中心点y轴坐标。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: Y-coordinate of the component center
+     * 默认值：组件中心点y轴坐标。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -190,7 +175,7 @@ declare namespace matrix4 {
   }
 
   /**
-   * Describes the rotation parameters.
+   * 旋转参数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -199,11 +184,11 @@ declare namespace matrix4 {
    */
   interface RotateOption {
     /**
-     * X-coordinate of the rotation axis vector.
+     * 旋转轴向量x坐标。
      * 
-     * Default value: **0**
+     * 默认值：0。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -213,11 +198,11 @@ declare namespace matrix4 {
     x?: number;
 
     /**
-     * Y-coordinate of the rotation axis vector.
+     * 旋转轴向量y坐标。
      * 
-     * Default value: **0**
+     * 默认值：0。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -227,15 +212,13 @@ declare namespace matrix4 {
     y?: number;
 
     /**
-     * Z-coordinate of the rotation axis vector.
+     * 旋转轴向量z坐标。
      * 
-     * Default value: **0**
+     * 默认值：0。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围 (-∞, +∞)。
      * 
-     * **NOTE**
-     * 
-     * The rotation axis vector is valid only when at least one of **x**, **y**, and **z** is not 0.
+     * **说明：** 旋转向量中x、y、z至少有一个不为0才有意义。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -245,17 +228,16 @@ declare namespace matrix4 {
     z?: number;
 
     /**
-     * Additional x-axis offset of the transformation center relative to the component's anchor.
+     * 单次矩阵变换中心点相对于组件变换中心点（锚点）的额外x轴偏移值。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: **0**
+     * 默认值：0
      * 
-     * **NOTE**
+     * **说明：** 
      * 
-     * The value **0** indicates that the transformation center coincides with the component's x-axis anchor. For 
-     * details about the implementation, see 
-     * [Example 3: Implementing Rotation Around a Center Point](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#example-3-implementing-rotation-around-a-center-point).
+     * 为0时表示x方向的矩阵变换中心恰好为组件x方向锚点，取值表示相对组件x方向锚点的额外偏移量。具体实现可参考
+     * [示例3（按中心点旋转）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#示例3按中心点旋转)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -265,17 +247,16 @@ declare namespace matrix4 {
     centerX?: number;
 
     /**
-     * Additional y-axis offset of the transformation center relative to the component's anchor.
+     * 单次矩阵变换中心点相对于组件变换中心点（锚点）的额外y轴偏移值。
      * 
-     * Unit: px
+     * 单位：px
      * 
-     * Default value: **0**
+     * 默认值：0
      * 
-     * **NOTE**
+     * **说明：** 
      * 
-     * The value **0** indicates that the transformation center coincides with the component's y-axis anchor. For 
-     * details about the implementation, see 
-     * [Example 3: Implementing Rotation Around a Center Point](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#example-3-implementing-rotation-around-a-center-point).
+     * 为0时表示y方向的矩阵变换中心恰好为组件y方向锚点，取值表示相对组件y方向锚点的额外偏移量。具体实现可参考
+     * [示例3（按中心点旋转）](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-transformation.md#示例3按中心点旋转)。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -285,9 +266,9 @@ declare namespace matrix4 {
     centerY?: number;
 
     /**
-     * Rotation angle.
+     * 旋转角度。
      * 
-     * Default value: **0**
+     * 默认值：0
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
@@ -298,7 +279,7 @@ declare namespace matrix4 {
   }
 
   /**
-   * Defines the data structure of a coordinate point.
+   * 坐标点的数据结构。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -309,9 +290,9 @@ declare namespace matrix4 {
   export interface Point {
 
     /**
-     * X-coordinate.
+     * x轴坐标。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -322,9 +303,9 @@ declare namespace matrix4 {
     x: number;
 
     /**
-     * Y-coordinate.
+     * y轴坐标。
      * 
-     * Value range: (-∞, +∞)
+     * 取值范围：(-∞, +∞)
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -336,7 +317,7 @@ declare namespace matrix4 {
   }
 
   /**
-   * Describes the configuration options for polygon-to-polygon transformation mapping.
+   * 多边形到多边形的映射选项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -347,7 +328,7 @@ declare namespace matrix4 {
   export interface PolyToPolyOptions {
 
     /**
-     * Coordinates of the source point.
+     * 源点坐标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -358,11 +339,11 @@ declare namespace matrix4 {
     src: Array<Point>;
 
     /**
-     * Start index of the source point coordinates.
+     * 源点坐标起始索引。
      * 
-     * Default value: **0**.
+     * 默认值:0 
      * 
-     * Value range: [0, +∞).
+     * 取值范围：[0, +∞)
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -374,7 +355,7 @@ declare namespace matrix4 {
     srcIndex?: number;
 
     /**
-     * Coordinates of the destination point.
+     * 目标点坐标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -385,11 +366,11 @@ declare namespace matrix4 {
     dst:Array<Point>;
 
     /**
-     * Start index of the destination point coordinates.
+     * 目标坐标起始索引。
      * 
-     * Default value: **src.length/2**.
+     * 默认值: src.length/2 
      * 
-     * Value range: [0, +∞).
+     * 取值范围：[0, +∞)
      *
      * @default src.Length/2
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -401,12 +382,11 @@ declare namespace matrix4 {
     dstIndex?: number;
 
     /**
-     * Number of used points. **0**: returns an identity matrix. **1**: returns a translation matrix. 2-4: returns a 
-     * transformation matrix.
+     * 使用到的点数量。要使用的点的数量如果为0，则返回单位矩阵。如果为1，则返回一个将两个点改变之前的平移矩阵。如果为2-4，则返回一个变换矩阵。
      * 
-     * Default value: **0**.
+     * 默认值: 0 
      * 
-     * Value range: [0, +∞).
+     * 取值范围：[0, +∞)
      *
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -418,7 +398,7 @@ declare namespace matrix4 {
     pointCount?:number;
   }
   /**
-   * Implements a **Matrix4Transit** object.
+   * 矩阵对象。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -427,9 +407,9 @@ declare namespace matrix4 {
    */
   interface Matrix4Transit {
     /**
-     * Copies this matrix object.
+     * Matrix的拷贝函数，可以拷贝一份当前的矩阵对象。
      *
-     * @returns { Matrix4Transit } Copy object of the current matrix.
+     * @returns { Matrix4Transit } 当前矩阵的拷贝对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -438,9 +418,9 @@ declare namespace matrix4 {
     copy(): Matrix4Transit;
 
     /**
-     * Inverts this matrix object. The matrix that calls this API will be changed.
+     * Matrix的逆函数，可以返回一个当前矩阵对象的逆矩阵，即效果正好相反。会改变调用该函数的原始矩阵。
      *
-     * @returns { Matrix4Transit } Inverse matrix object of the current matrix.
+     * @returns { Matrix4Transit } 当前矩阵的逆矩阵对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -449,11 +429,10 @@ declare namespace matrix4 {
     invert(): Matrix4Transit;
 
     /**
-     * Combines the effects of two matrices to generate a new matrix object. The matrix that calls this API will be 
-     * changed.
+     * Matrix的叠加函数，可以将两个矩阵的效果叠加起来生成一个新的矩阵对象。会改变调用该函数的原始矩阵。
      *
-     * @param { Matrix4Transit } options - Matrix object to be combined.
-     * @returns { Matrix4Transit } Object after matrix combination.
+     * @param { Matrix4Transit } options - 待叠加的矩阵对象。
+     * @returns { Matrix4Transit } 矩阵叠加后的对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -462,10 +441,10 @@ declare namespace matrix4 {
     combine(options: Matrix4Transit): Matrix4Transit;
 
     /**
-     * Translates this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
+     * Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。会改变调用该函数的原始矩阵。
      *
-     * @param { TranslateOption } options - Translation configuration.
-     * @returns { Matrix4Transit } Matrix object after the translation.
+     * @param { TranslateOption } options - 设置平移参数。
+     * @returns { Matrix4Transit } 平移效果后的矩阵对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -474,10 +453,10 @@ declare namespace matrix4 {
     translate(options: TranslateOption): Matrix4Transit;
 
     /**
-     * Scales this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
+     * Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。会改变调用该函数的原始矩阵。
      *
-     * @param { ScaleOption } options - Scaling configuration.
-     * @returns { Matrix4Transit } Matrix object after the scaling.
+     * @param { ScaleOption } options - 设置缩放参数。
+     * @returns { Matrix4Transit } 缩放效果后的矩阵对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -486,11 +465,11 @@ declare namespace matrix4 {
     scale(options: ScaleOption): Matrix4Transit;
 
     /**
-     * Skews this matrix object along the x and y axes. The matrix that calls this API will be changed.
+     * Matrix的倾斜函数，可以为当前矩阵增加x轴/y轴倾斜效果。会改变调用该函数的原始矩阵。
      *
-     * @param { number } x - Amount of skewing on the x-axis.
-     * @param { number } y - Amount of skewing on the y-axis.
-     * @returns { Matrix4Transit } Matrix object after the skewing.
+     * @param { number } x - 设置x轴倾斜参数。
+     * @param { number } y - 设置y轴倾斜参数。
+     * @returns { Matrix4Transit } 倾斜效果后的矩阵对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -500,10 +479,10 @@ declare namespace matrix4 {
     skew(x: number, y: number): Matrix4Transit;
 
     /**
-     * Rotates this matrix object along the x, y, and z axes. The matrix that calls this API will be changed.
+     * Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。会改变调用该函数的原始矩阵。
      *
-     * @param { RotateOption } options - Rotation configuration.
-     * @returns { Matrix4Transit } Matrix object after the rotation.
+     * @param { RotateOption } options - 设置旋转参数。
+     * @returns { Matrix4Transit } 旋转效果后的矩阵对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -512,10 +491,10 @@ declare namespace matrix4 {
     rotate(options: RotateOption): Matrix4Transit;
 
     /**
-     * Applies the current transformation effect to a coordinate point.
+     * Matrix的坐标点转换函数，可以将当前的变换效果作用到一个坐标点上。
      *
-     * @param { [number, number] } options - Point to be transformed.
-     * @returns { [number, number] } Point object after matrix transformation
+     * @param { [number, number] } options - 需要转换的坐标点。
+     * @returns { [number, number] } 返回矩阵变换后的Point对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @crossplatform [since 10]
      * @atomicservice [since 11]
@@ -524,10 +503,10 @@ declare namespace matrix4 {
     transformPoint(options: [number, number]): [number, number];
 
     /**
-     * Maps the vertex coordinates of a polygon to those of another polygon.
+     * 将一个多边形的顶点坐标映射到另外一个多边形的顶点坐标。
      *
-     * @param { PolyToPolyOptions } options - Parameters for mapping.
-     * @returns { Matrix4Transit } Matrix object after the mapping.
+     * @param { PolyToPolyOptions } options - 映射相关的参数。
+     * @returns { Matrix4Transit } 当前矩阵变换后的对象。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -538,14 +517,14 @@ declare namespace matrix4 {
   }
 
   /**
-   * Matrix constructor, which is used to create a 4 x 4 matrix with the input parameters. Column-major order is used.
+   * Matrix的构造函数，可以通过传入的参数创建一个四阶矩阵，矩阵为列优先。
    *
    * @param {
    *
    *     [number,number,number,number,number,number,number,number,number,number,number,number,number,number,number,number]
-   *     } options - A number array whose length is 16 (4 x 4). For details, see **4 x 4 matrix description**.<br>Value
-   *     range of each number: (-∞, +∞)<br>Default value:<br>[1, 0, 0, 0,<br>0, 1, 0, 0,<br>0, 0, 1, 0,<br>0, 0, 0, 1]
-   * @returns { Matrix4Transit } 4 x 4 matrix object created based on the input parameters.
+   *     } options - 参数为长度为16（4*4）的number数组, 详情见四阶矩阵说明。<br/>各number取值范围：(-∞, +∞)<br/>默认值：<br/>
+   *     [1, 0, 0, 0,<br/>0, 1, 0, 0,<br/>0, 0, 1, 0,<br/>0, 0, 0, 1]
+   * @returns { Matrix4Transit } 根据入参创建的四阶矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -573,9 +552,9 @@ declare namespace matrix4 {
   ): Matrix4Transit;
 
   /**
-   * Constructs an identity matrix.
+   * Matrix的初始化函数，可以返回一个单位矩阵对象。
    *
-   * @returns { Matrix4Transit } Identity matrix object.
+   * @returns { Matrix4Transit } 单位矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -584,84 +563,98 @@ declare namespace matrix4 {
   function identity(): Matrix4Transit;
 
   /**
-   * Copies this matrix object.
+   * Matrix的拷贝函数，可以拷贝一份当前的矩阵对象。
+   * 
+   * > **说明：**
    *
-   * @returns { Matrix4Transit } Copy object of the current matrix.
+   * @returns { Matrix4Transit } 当前矩阵的拷贝对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.copy
+   * @useinstead matrix4.Matrix4Transit.copy
    */
   function copy(): Matrix4Transit;
 
   /**
-   * Inverts this matrix object.
+   * Matrix的逆函数，可以返回一个当前矩阵对象的逆矩阵，即效果正好相反。
+   * 
+   * > **说明：**
    *
-   * @returns { Matrix4Transit } Inverse matrix object of the current matrix.
+   * @returns { Matrix4Transit } 当前矩阵的逆矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.invert
+   * @useinstead matrix4.Matrix4Transit.invert
    */
   function invert(): Matrix4Transit;
 
   /**
-   * Combines the effects of two matrices to generate a new matrix object.
+   * Matrix的叠加函数，可以将两个矩阵的效果叠加起来生成一个新的矩阵对象。
+   * 
+   * > **说明：**
    *
-   * @param { Matrix4Transit } options - Matrix object to be combined.
-   * @returns { Matrix4Transit } Matrix object after combination.
+   * @param { Matrix4Transit } options - 待叠加的矩阵对象。
+   * @returns { Matrix4Transit } 叠加后的矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.combine
+   * @useinstead matrix4.Matrix4Transit.combine
    */
   function combine(options: Matrix4Transit): Matrix4Transit;
 
   /**
-   * Translates this matrix object along the x, y, and z axes.
+   * Matrix的平移函数，可以为当前矩阵增加x轴/y轴/z轴平移效果。
+   * 
+   * > **说明：**
    *
-   * @param { TranslateOption } options - Translation configuration.
-   * @returns { Matrix4Transit } Matrix object after translation.
+   * @param { TranslateOption } options - 设置平移参数。
+   * @returns { Matrix4Transit } 平移后的矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.translate
+   * @useinstead matrix4.Matrix4Transit.translate
    */
   function translate(options: TranslateOption): Matrix4Transit;
 
   /**
-   * Scales this matrix object along the x, y, and z axes.
+   * Matrix的缩放函数，可以为当前矩阵增加x轴/y轴/z轴缩放效果。
+   * 
+   * > **说明：**
    *
-   * @param { ScaleOption } options - Scaling configuration.
-   * @returns { Matrix4Transit } Matrix object after scaling.
+   * @param { ScaleOption } options - 设置缩放参数。
+   * @returns { Matrix4Transit } 缩放后的矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.scale
+   * @useinstead matrix4.Matrix4Transit.scale
    */
   function scale(options: ScaleOption): Matrix4Transit;
 
   /**
-   * Rotates this matrix object along the x, y, and z axes.
+   * Matrix的旋转函数，可以为当前矩阵增加x轴/y轴/z轴旋转效果。
+   * 
+   * > **说明：**
    *
-   * @param { RotateOption } options - Rotation configuration.
-   * @returns { Matrix4Transit } Matrix object after rotation.
+   * @param { RotateOption } options - 设置旋转参数。
+   * @returns { Matrix4Transit } 旋转后的矩阵对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.rotate
+   * @useinstead matrix4.Matrix4Transit.rotate
    */
   function rotate(options: RotateOption): Matrix4Transit;
 
   /**
-   * Applies the current transformation effect to a coordinate point.
+   * Matrix的坐标点转换函数，可以将当前的变换效果作用到一个坐标点上。
+   * 
+   * > **说明：**
    *
-   * @param { [number, number] } options - Point to be transformed.
-   * @returns { [number, number] } Point object after matrix transformation
+   * @param { [number, number] } options - 需要转换的坐标点。
+   * @returns { [number, number] } 返回矩阵变换后的Point对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
-   * @useinstead Matrix4Transit.transformPoint
+   * @useinstead matrix4.Matrix4Transit.transformPoint
    */
   function transformPoint(options: [number, number]): [number, number];
 }
