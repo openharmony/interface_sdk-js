@@ -1,3 +1,4 @@
+'use static'
 /*
  * Copyright (c) 2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -19,41 +20,36 @@
  */
 
 import AbilityStageContext from './application/AbilityStageContext';
-
 /**
  * The module provides capabilities related to startup tasks in
  * [AppStartup](docroot://application-models/app-startup.md).
  *
  * @syscap SystemCapability.Ability.AppStartup
  * @stagemodelonly
- * @since 12 dynamic
+ * @since 23 static
  */
-@Sendable
 declare class StartupTask {
   /**
-   * Called when the dependent startup task is complete.
+   * 当依赖的启动任务执行完成时该方法将会被调用。
    *
-   * @param { string } dependency - Name of the dependent startup task.
-   * @param { Object } result - Execution result of [init]{@link StartupTask#init(context: AbilityStageContext)} of the
-   *     dependent startup task.
+   * @param { string } dependency - 依赖的启动任务名称。
+   * @param { Any } result - 依赖启动任务执行的结果。
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12 dynamic
+   * @since 23 static
    */
-  onDependencyCompleted?(dependency: string, result: Object): void;
+  onDependencyCompleted(dependency: string, result: Any): void;
 
   /**
-   * Called when all the dependent startup tasks are complete. You can initialize the startup task in this callback.
-   * This API uses a promise to return the result.
+   * 启动任务执行的初始化业务。
    *
-   * @param { AbilityStageContext } context - Context environment of the
-   *     [AbilityStage]{@link @ohos.app.ability.AbilityStage:AbilityStage}.
-   * @returns { Promise<Object | void> } Promise used to return the execution result.
+   * @param { AbilityStageContext } context - AbilityStage的上下文环境。
+   * @returns { Promise<Any> | Promise<void> } Promise对象，返回启动任务执行结果对象。
    * @syscap SystemCapability.Ability.AppStartup
    * @stagemodelonly
-   * @since 12 dynamic
+   * @since 23 static
    */
-  init(context: AbilityStageContext): Promise<Object | void>;
+  init(context: AbilityStageContext): Promise<Any> | Promise<void>;
 }
 
 export default StartupTask;
