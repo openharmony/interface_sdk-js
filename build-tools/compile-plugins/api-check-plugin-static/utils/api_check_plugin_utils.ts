@@ -98,7 +98,7 @@ function parseVersion(s: string): number {
 
   if (pattern1.test(s)) {
     const match = s.match(pattern1);
-    const buildNumber = parseInt(match[4], 10);
+    const buildNumber = parseInt(match![4], 10);
     return buildNumber * 10000;
   }
 
@@ -567,7 +567,8 @@ function defaultLogger(): Logger {
   return {
     printInfo: (message: string): void => {},
     printWarn: (message: string): void => {},
-    printDebug: (message: string): void => {}
+    printDebug: (message: string): void => {},
+    printError: (message: SdkHvigorLogInfo): void => {}
   }
 }
 
@@ -780,7 +781,7 @@ export function readSystemModules(projectConfig: ProjectConfig): void {
  * @param {Object} sdkConfig - SDK configuration object
  * @param {string} sdkPath - Base SDK path for resolving plugin paths
  */
-function collectExternalApiCheckPlugin(sdkConfig, sdkPath): void {
+function collectExternalApiCheckPlugin(sdkConfig: SdkConfig, sdkPath: string): void {
   const osName = sdkConfig.osName;
   if (!osName) {
     return;
@@ -792,6 +793,9 @@ function collectExternalApiCheckPlugin(sdkConfig, sdkPath): void {
   ].filter(Boolean);
   for (let i = 0; i < pluginGroups.length; i++) {
     const pluginGroup = pluginGroups[i];
+    if (!pluginGroup) {
+      continue;
+    }
 
     for (const config of pluginGroup) {
       let pluginKey = '';
@@ -1268,7 +1272,7 @@ export function checkAvailableDecorator(
   }
 
   const nodeDecl = arkts.getDecl(node);
-  const program = arkts.getProgramFromAstNode(nodeDecl);
+  const program = nodeDecl ? arkts.getProgramFromAstNode(nodeDecl) : undefined;
   const sourceFileName = program?.sourceFilePath || '';
   if (!sourceFileName || !path.normalize(sourceFileName).startsWith(globalObject.projectConfig.projectRootPath)) {
     monitor.end(PERF.CHECK_AVAILABLE_DECORATOR);
@@ -1346,7 +1350,7 @@ export function checkPermissionValue(
  * @param {ts.Declaration} [declaration] - Optional declaration containing the JSDoc tags.
  * @returns {boolean} - Returns true if the Stage module value is valid; otherwise, returns false.
  */
-export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.Declaration): boolean {
+export function checkStageModuleValue(jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode): boolean {
   const monitor = getGlobalMonitor();
   monitor.start(PERF.CHECK_STAGE_MODULE_VALUE);
   monitor.end(PERF.CHECK_STAGE_MODULE_VALUE);

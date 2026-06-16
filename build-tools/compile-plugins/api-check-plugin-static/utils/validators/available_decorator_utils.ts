@@ -30,7 +30,8 @@ import {
   defaultFormatCheckerCompatibileIntegerAndMSF,
   getFormatChecker,
   initComparisonFunctions,
-  compareVersions
+  compareVersions,
+  isAnnotationAllowed
 } from '../api_check_base_utils';
 import { ParsedVersion } from '../api_check_plugin_typedef';
 import { globalObject, fileAvailableCheckCache } from '../../index';
@@ -38,7 +39,7 @@ import { DiagnosticCategory, ConditionCheckResult } from '../../api-check-wrappe
 
 export const availableNodeCheckConfigCache: Map<string, string> = new Map<string, string>();
 
-export function isAvailableDecorator(annotation: arkts.AstNode): boolean {
+export function isAvailableDecorator(annotation: arkts.AnnotationUsage): boolean {
   if (!annotation) {
     return false;
   }
@@ -50,10 +51,8 @@ export function isAvailableDecorator(annotation: arkts.AstNode): boolean {
   let decoratorName: string = '';
   const expr = annotation.expr;
 
-  if (expr.name) {
+  if (!!expr && arkts.isIdentifier(expr) && expr.name) {
     decoratorName = expr.name;
-  } else if (expr.expression && expr.expression.name) {
-    decoratorName = expr.expression.name;
   }
 
   if (decoratorName !== 'Available') {
@@ -76,22 +75,22 @@ export function isAvailableDecorator(annotation: arkts.AstNode): boolean {
   return isValidFormat.result;
 }
 
-export function extractMinApiFromDecorator(annotation: arkts.AstNode): ParsedVersion | null {
+export function extractMinApiFromDecorator(annotation: arkts.AnnotationUsage | undefined): ParsedVersion | null {
   if (!annotation || !annotation.expr) {
     return null;
   }
 
   for (const prop of annotation.properties) {
-    if (!prop.key || !prop.value) {
+    if (!arkts.isClassProperty(prop) || !prop.key || !prop.value) {
       continue;
     }
 
-    const propName = prop.key.name || '';
+    const propName = arkts.isIdentifier(prop.key) ? prop.key.name : '';
     if (propName !== 'minApiVersion') {
       continue;
     }
 
-    const versionText = prop.value.str;
+    const versionText = arkts.isStringLiteral(prop.value) ? prop.value.str : undefined;
     if (versionText) {
       return parseVersionString(versionText);
     }
@@ -102,20 +101,16 @@ export function extractMinApiFromDecorator(annotation: arkts.AstNode): ParsedVer
 
 export function getValidAnnotationFromNode(
   node: arkts.AstNode,
-  predicate: (annotation: arkts.AstNode) => boolean,
+  predicate: (annotation: arkts.AnnotationUsage) => boolean,
   maxDepth: number = 50
-): arkts.AstNode | null {
+): arkts.AnnotationUsage | null {
   if (!node || maxDepth <= 0) {
     return null;
   }
 
-  const annotationArray: arkts.AstNode[] = [];
-  if (node.annotations && Array.isArray(node.annotations)) {
+  const annotationArray: arkts.AnnotationUsage[] = [];
+  if (isAnnotationAllowed(node)) {
     annotationArray.push(...node.annotations);
-  }
-
-  if (node.scriptFunction && node.scriptFunction.annotations && Array.isArray(node.scriptFunction.annotations)) {
-    annotationArray.push(...node.scriptFunction.annotations);
   }
 
   const validAnnotation = annotationArray.find(annotation => predicate(annotation));
@@ -157,8 +152,8 @@ export function getAvailableNodeKey(node: arkts.AstNode): string {
   const program = arkts.getProgramFromAstNode(node);
   const fileName = program?.sourceFilePath || '';
   const startPos = node.startPosition;
-  const line = startPos?.line() || 0;
-  const col = startPos?.col() || 0;
+  const line = startPos?.getLine() || 0;
+  const col = startPos?.getCol() || 0;
   return `${fileName}_${line}_${col}`;
 }
 
@@ -173,7 +168,7 @@ export function getAvailableNodeKey(node: arkts.AstNode): string {
  * @returns boolean
  */
 export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): boolean {
-    if (!annoDecl) {
+  if (!annoDecl || !arkts.isAnnotationDeclaration(annoDecl)) {
     return false;
   }
 
@@ -184,7 +179,7 @@ export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): bool
     if (decoratorName !== 'Available' && decoratorName !== 'SuppressWarnings') {
       return false;
     }
-  } else if (annoDecl.expr && annoDecl.expr.name) {
+  } else if (annoDecl.expr && arkts.isIdentifier(annoDecl.expr) && annoDecl.expr.name) {
     // Alternative: get name from expr
     const decoratorName = annoDecl.expr.name;
     if (decoratorName !== 'Available' && decoratorName !== 'SuppressWarnings') {
@@ -192,7 +187,7 @@ export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): bool
     }
   }
 
-  const nodeDecl = arkts.getDecl(annoDecl.expr);
+  const nodeDecl = !annoDecl.expr ? undefined : arkts.getDecl(annoDecl.expr);
   if (nodeDecl === undefined || nodeDecl === null) {
     return false;
   }
@@ -218,7 +213,7 @@ export function isSourceRetentionDeclarationValid(annoDecl: arkts.AstNode): bool
  * @param annotation AnnotationUsage node
  * @returns ConditionCheckResult
  */
-export function isSourceRetentionAnnotationContentValid(annotation: arkts.AstNode): ConditionCheckResult {
+export function isSourceRetentionAnnotationContentValid(annotation: arkts.AnnotationUsage): ConditionCheckResult {
   const result: ConditionCheckResult = {
     valid: true
   };
@@ -306,7 +301,7 @@ function checkFormatResult(parseVersion: ParsedVersion | null): ConditionCheckRe
   } else {
     const msg = AVAILABLE_OSNAME_ERROR
       .replace('$RUNTIMEOS', globalObject.projectConfig.runtimeOS || '')
-      .replace('$OSNAME', parseVersion.os);
+      .replace('$OSNAME', parseVersion.os!);
     return {
       valid: false,
       message: msg,

@@ -67,13 +67,8 @@ export interface JsDocNodeCheckConfigItemInterface {
   checkJsDocSuppressorValidCallback?: CheckJsDocSpecialValidCallbackInterface
 }
 
-interface Declaration extends Node {
-    _declarationBrand: Object;
-}
-
 export interface CheckJsDocSpecialValidCallbackInterface {
-  (jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: Node,
-    declaration?: Declaration): boolean;
+  (jsDocTags: readonly JSDocTag[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode, declaration?: arkts.AstNode): boolean;
 }
 
 export interface JsDocNodeCheckConfig {
@@ -139,13 +134,13 @@ export interface ConditionCheckResult {
   message?: string;
 }
 
-export interface ASTDeclaration extends arkts.AstNode {
-  kind: number;
-  pos: number;
-  end: number;
-  parent?: ASTDeclaration;
-  jsDoc?: JSDoc[];
-}
+// export interface ASTDeclaration extends arkts.AstNode {
+//   kind: number;
+//   pos: number;
+//   end: number;
+//   parent?: ASTDeclaration;
+//   jsDoc?: JSDoc[];
+// }
 
 export interface ASTIdentifier extends arkts.AstNode {
   kind: number;

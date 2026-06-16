@@ -33,12 +33,12 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
 
   private checkCommentsWarning(node: arkts.AstNode): boolean {
     const nodeDecl = arkts.getDecl(node);
-    const program = arkts.getProgramFromAstNode(nodeDecl);
-    if (!program || !program.astNode.dumpSrc()) {
+    const program = nodeDecl ? arkts.getProgramFromAstNode(nodeDecl) : undefined;
+    if (!program || !program.ast.dumpSrc()) {
       return false;
     }
 
-    const commentsMessage: string[] = this.getAllClosestComments(program.astNode.dumpSrc(), node);
+    const commentsMessage: string[] = this.getAllClosestComments(program.ast.dumpSrc(), node);
     if (!commentsMessage || commentsMessage.length === 0) {
       return false;
     }
@@ -53,7 +53,7 @@ export class CommentSuppressWarningsValidator implements NodeValidator {
       return comments;
     }
 
-    const nodePos = startPos?.index() || 0;
+    const nodePos = startPos?.getIndex() || 0;
 
     const commentRegex = /\/\/[^\n]*@SuppressWarnings[^\n]*\n/g;
     let match;
@@ -103,11 +103,11 @@ function checkSuppressWarningsCache(warnName: string, node: arkts.AstNode, scene
   const annotationRegex = /\s*@SuppressWarnings\s*(\()/g;
   const contentRegex = sceneName === 'comment_suppressWarnings' ? commentRegex : annotationRegex;
   const nodeDecl = arkts.getDecl(node);
-  const program = arkts.getProgramFromAstNode(nodeDecl);
+  const program = nodeDecl ? arkts.getProgramFromAstNode(nodeDecl) : undefined;
   if (!program) {
     return true;
   }
-  const nodeSourceText = program.astNode.dumpSrc() || '';
+  const nodeSourceText = program.ast.dumpSrc() || '';
   const nodeSourceFile = program.fileName;
   const mapKey = `${warnName}_${sceneName}_${nodeSourceFile}`;
   if (suppressWarningsCheckPlugin.has(mapKey)) {
