@@ -1427,7 +1427,7 @@ declare namespace cloudData {
     }
 
     /**
-     * Participants in cloud sharing.
+     * Represents information about a participant of device-cloud sharing.
      *
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Client
      * @systemapi
@@ -1542,13 +1542,15 @@ declare namespace cloudData {
 
     /**
      * Allocates a shared resource ID based on the data that matches the specified predicates.
-     * This API uses an asynchronous callback to return the result.
+     * This API uses an asynchronous callback to return the result set of the data to share,
+     * which includes the shared resource ID and column names.
      *
      * @param { string } storeId - Name of the RDB store.
      * @param { relationalStore.RdbPredicates } predicates - Predicates for matching the data to share.
      * @param { Array<Participant> } participants - Participants of the share.
      * @param { Array<string> } columns - Columns in which the data is located.
-     * @param { AsyncCallback<relationalStore.ResultSet> } callback - Callback used to return the result.
+     * @param { AsyncCallback<relationalStore.ResultSet> } callback -
+     *     Callback used to return the result set of the data to share.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1743,7 +1745,8 @@ declare namespace cloudData {
      * This API uses an asynchronous callback to return the result.
      *
      * @param { string } sharingResource - Shared resource ID.
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Callback used to return the result.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback -
+     *     Callback used to return the participants obtained.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1778,8 +1781,9 @@ declare namespace cloudData {
      * Queries the participants based on the sharing invitation code.
      * This API uses an asynchronous callback to return the result.
      *
-     * @param { string } invitationCode - Invitation code.
-     * @param { AsyncCallback<Result<Array<Participant>>> } callback - Callback used to return the result.
+     * @param { string } invitationCode - Invitation code of the share.
+     * @param { AsyncCallback<Result<Array<Participant>>> } callback -
+     *     Callback used to return the participants obtained.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1799,7 +1803,7 @@ declare namespace cloudData {
      * Queries the participants based on the sharing invitation code.
      * This API uses a promise to return the result.
      *
-     * @param { string } invitationCode - Invitation code.
+     * @param { string } invitationCode - Invitation code of the share.
      * @returns { Promise<Result<Array<Participant>>> } Promise used to return the participants obtained.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -1819,7 +1823,7 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Invitation code of the share.
      * @param { State } state - Confirmation state.
-     * @param { AsyncCallback<Result<string>> } callback - Callback used to return the shared resource ID.
+     * @param { AsyncCallback<Result<string>> } callback - Callback used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1838,7 +1842,7 @@ declare namespace cloudData {
      *
      * @param { string } invitationCode - Invitation code of the share.
      * @param { State } state - Confirmation state.
-     * @returns { Promise<Result<string>> } Promise used to return the shared resource ID.
+     * @returns { Promise<Result<string>> } Promise used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1856,7 +1860,7 @@ declare namespace cloudData {
      * This API uses an asynchronous callback to return the result.
      *
      * @param { string } sharingResource - Shared resource ID.
-     * @param { State } state - Confirmation state.
+     * @param { State } state - New confirmation state of the invitation.
      * @param { AsyncCallback<Result<void>> } callback - Callback used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.
@@ -1875,7 +1879,7 @@ declare namespace cloudData {
      * This API uses a promise to return the result.
      *
      * @param { string } sharingResource - Shared resource ID.
-     * @param { State } state - Confirmation state.
+     * @param { State } state - New confirmation state of the invitation.
      * @returns { Promise<Result<void>> } Promise used to return the result.
      * @throws { BusinessError } 202 - Permission verification failed,
      *     application which is not a system application uses system API.

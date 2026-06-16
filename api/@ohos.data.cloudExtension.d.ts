@@ -82,9 +82,9 @@ declare namespace cloudExtension {
    * @unionmember { double } The value is a floating-point number (float).
    * @unionmember { string } The value is a string.
    * @unionmember { boolean } The value is true or false.
-   * @unionmember { Uint8Array } The value is an array of 8-bit unsigned integers.
-   * @unionmember { CloudAsset } The value is an instance of the Asset type.
-   * @unionmember { CloudAssets } The value is an instance of the Assets type.
+   * @unionmember { Uint8Array } The value is a Uint8 array.
+   * @unionmember { CloudAsset } The value is of the cloud asset type.
+   * @unionmember { CloudAssets } The value is an array of cloud assets.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -859,7 +859,7 @@ declare namespace cloudExtension {
    * This API uses a promise to return the result.
    *
    * @param { ShareCenter } instance - Instance of the ShareCenter class.
-   * @returns { Promise<rpc.RemoteObject> } Promise used to return the rpc.RemoteObject instance of ShareCenter.
+   * @returns { Promise<rpc.RemoteObject> } Promise used to return the RemoteObject instance of ShareCenter.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -873,7 +873,7 @@ declare namespace cloudExtension {
    * This API uses a promise to return the result.
    *
    * @param { CloudService } instance - Instance of the CloudService class.
-   * @returns { Promise<rpc.RemoteObject> } Promise used to return the rpc.RemoteObject instance of CloudService.
+   * @returns { Promise<rpc.RemoteObject> } Promise used to return the RemoteObject instance of CloudService.
    * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
    * @systemapi
    * @since 11 dynamic
@@ -1176,7 +1176,7 @@ declare namespace cloudExtension {
      * @param { int } userId - User ID.
      * @param { string } bundleName - Bundle name of the application.
      * @param { string } sharingResource - Shared resource ID.
-     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Promise used to return the result.
+     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Promise used to return the participants obtained.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1196,7 +1196,7 @@ declare namespace cloudExtension {
      * @param { int } userId - User ID.
      * @param { string } bundleName - Bundle name of the application.
      * @param { string } invitationCode - Invitation code for the share.
-     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Promise used to return the result.
+     * @returns { Promise<Result<Array<cloudData.sharing.Participant>>> } Promise used to return the participants obtained.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1216,7 +1216,7 @@ declare namespace cloudExtension {
      * @param { string } bundleName - Bundle name of the application.
      * @param { string } invitationCode - Invitation code for the share.
      * @param { cloudData.sharing.State } state - Confirmation state of the invitation.
-     * @returns { Promise<Result<string>> } Promise used to return the result.
+     * @returns { Promise<Result<string>> } Promise used to return the shared resource ID.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
@@ -1350,7 +1350,7 @@ declare namespace cloudExtension {
      *
      * @param { string } bundleName - Bundle name of the application.
      * @param { Database } database - Database to connect.
-     * @returns { Promise<rpc.RemoteObject> } Promise used to return the rpc.RemoteObject instance of AssetLoader.
+     * @returns { Promise<rpc.RemoteObject> } Promise used to return the RemoteObject instance of AssetLoader.
      * @syscap SystemCapability.DistributedDataManager.CloudSync.Server
      * @systemapi
      * @since 11 dynamic
