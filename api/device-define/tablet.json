@@ -34,6 +34,7 @@
     "SystemCapability.Communication.WiFi.AP.Core",
     "SystemCapability.Communication.WiFi.P2P",
     "SystemCapability.Communication.Bluetooth.Core",
+    "SystemCapability.Communication.NearLink.Base",
     "SystemCapability.Location.Location.Core",
     "SystemCapability.Location.Location.Geocoder",
     "SystemCapability.Location.Location.Geofence",
