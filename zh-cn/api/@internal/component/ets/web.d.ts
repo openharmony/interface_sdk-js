@@ -3547,15 +3547,6 @@ declare class WebResourceError {
    * @since 8 dynamic
    */
   getErrorCode(): number;
-
-  /**
-   * Gets the custom error code of the Web resource.
-   *
-   * @returns { number } Return the custom error code of the Web resource.
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 26.0.0 dynamic
-   */
-  getCustomErrorCode(): number;
 }
 
 /**
