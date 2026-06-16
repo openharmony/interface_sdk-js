@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -751,9 +751,10 @@ export class Router {
 }
 
 /**
- * Defines the custom builder with id.
+ * Defines a type that can be used for component attributes and method parameters to customize the UI description and
+ * generate custom components with a specific component ID.
  *
- * @typedef { function } CustomBuilderWithId
+ * @param { number } id
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1424,13 +1425,10 @@ export class PromptAction {
 }
 
 /**
- * Defines the callback type used in UIObserver watch click event.
- * The value of event indicates the information of ClickEvent.
- * The value of node indicates the frameNode which will receive the event.
+ * Defines the callback type for listening for click events in **UIObserver**.
  *
- * @typedef { function } ClickEventListenerCallback
- * @param { ClickEvent } event - the information of ClickEvent
- * @param { FrameNode } [node] - the information of frameNode
+ * @param { ClickEvent } event - Information about the click event that triggers the callback.
+ * @param { FrameNode } [node] - Component bound to the click event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1440,14 +1438,11 @@ export class PromptAction {
 declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 
 /**
- * Defines the callback type used in UIObserver watch pan event.
- * The value of event indicates the information of pan event.
- * The value of node indicates the frameNode which will receive the event.
+ * Defines a callback for pan gesture events.
  *
- * @typedef { function } PanListenerCallback
- * @param { GestureEvent } event - the information of pan event
- * @param { GestureRecognizer } current - the information of panRecognizer
- * @param { FrameNode } [node] - the information of frameNode
+ * @param { GestureEvent } event - Information about the gesture event that triggers the callback.
+ * @param { GestureRecognizer } current - Information about the gesture recognizer that detects the event.
+ * @param { FrameNode } [node] - Component bound to the gesture event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1457,13 +1452,10 @@ declare type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) 
 declare type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 
 /**
- * Defines the callback type used in UIObserver watch gesture.
- * The value of event indicates the information of gesture.
- * The value of node indicates the frameNode which will receive the event.
+ * Defines the callback type for gesture event listeners in **UIObserver**.
  *
- * @typedef { function } GestureEventListenerCallback
- * @param { GestureEvent } event - the information of GestureEvent
- * @param { FrameNode } [node] - the information of frameNode
+ * @param { GestureEvent } event - Information about the gesture event that triggers the callback.
+ * @param { FrameNode } [node] - Component bound to the gesture event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1474,10 +1466,11 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
 
 /**
  * Defines the type can be used for identiting the node, for the string type, it's the inspector id
- * set through .id attribute, and for the number type, it's the unique ID got from the FrameNode by
- * getUniqueID method.
+ * set through .[id]{@link CommonMethod#id} attribute, and for the number type, it's the unique ID got from the FrameNode by
+ * [getUniqueId]{@link FrameNode:FrameNode#getUniqueId} method.
  *
- * @typedef { string | number } NodeIdentity
+ * @unionmember { string }
+ * @unionmember { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1487,11 +1480,11 @@ declare type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNo
 export declare type NodeIdentity = string | number;
 
 /**
- * Defines the callback type used in UIObserver to monitor one specific node's render state.
+ * Defines the callback type for listening for the rendering state of a specific node in **UIObserver**.
  *
- * @typedef { function } NodeRenderStateChangeCallback
- * @param { NodeRenderState } state - the node's render state
- * @param { FrameNode } [node] - the information of frameNode
+ * @param { NodeRenderState } state - Information about the gesture event that triggers the callback.
+ * @param { FrameNode } [node] - Component bound to the gesture event that triggers the listener; returns **null** if
+ *     the component has been released.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1501,10 +1494,9 @@ export declare type NodeIdentity = string | number;
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
 /**
- * Defines the callback type used in UIObserver to monitor specific gesture triggered information.
+ * Defines the callback type for listening for specific gesture trigger information in **UIObserver**.
  *
- * @typedef { function } GestureListenerCallback
- * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
+ * @param { GestureTriggerInfo } info - Details of the gesture triggered by the interaction.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2185,11 +2177,16 @@ export class UIObserver {
   off(type: 'didClick', callback?: GestureEventListenerCallback): void;
 
   /**
-   * Registers a callback function to be called before panGesture onActionStart is called.
+   * Listens for pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} pre-execution events, executing
+   * the callback before the actual [onActionStart]{@link PanGestureInterface.onActionStart} event. It works for finger
+   * swiping, mouse dragging, mouse wheel scrolling, and touchpad movements, but not for screen reader touch mode.
    *
-   * @param { 'beforePanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { 'beforePanStart' } type - Event type. The value is fixed at **'beforePanStart'**, indicating command
+   *     dispatch before the execution of the pan gesture [onActionStart]{@link PanGestureInterface.onActionStart}
+   *     event. The registered callback is triggered before **onActionStart** is executed.
+   * @param { PanListenerCallback } callback - Callback used to return the result. It provides
+   *     [GestureEvent]{@link GestureEvent}, [GestureRecognizer]{@link GestureRecognizer}, and the target component's
+   *     [FrameNode]{@link FrameNode} information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2199,11 +2196,16 @@ export class UIObserver {
   on(type: 'beforePanStart', callback: PanListenerCallback): void;
 
   /**
-   * Removes a callback function to be called before panGesture onActionStart is called.
+   * Unregisters the listener for pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} pre-execution
+   * events, canceling callbacks registered via
+   * [on('beforePanStart')]{@link UIObserver#on(type: 'beforePanStart', callback: PanListenerCallback)}.
    *
-   * @param { 'beforePanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { 'beforePanStart' } type - Event type. The value is fixed at **'beforePanStart'**, indicating command
+   *     dispatch before the execution of the pan gesture [onActionStart]{@link PanGestureInterface.onActionStart}
+   *     event.
+   * @param { PanListenerCallback } [callback] - Target listener to unregister. If no parameter is provided, all
+   *     callback listeners for command dispatch before the execution of the pan gesture
+   *     [onActionStart]{@link PanGestureInterface.onActionStart} event will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2213,11 +2215,16 @@ export class UIObserver {
   off(type: 'beforePanStart', callback?: PanListenerCallback): void;
 
   /**
-   * Registers a callback function to be called before panGesture onActionEnd is called.
+   * Listens for pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} pre-execution events, executing the
+   * callback before the actual [onActionEnd]{@link PanGestureInterface.onActionEnd} event. It works for finger swiping,
+   * mouse dragging, mouse wheel scrolling, and touchpad movements, but not for screen reader touch mode.
    *
-   * @param { 'beforePanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { 'beforePanEnd' } type - Event type. The value is fixed at **'beforePanEnd'**, indicating command dispatch
+   *     before the execution of the pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} event. The
+   *     registered callback is triggered before **onActionEnd** is executed.
+   * @param { PanListenerCallback } callback - Callback used to return the result. It provides
+   *     [GestureEvent]{@link GestureEvent}, [GestureRecognizer]{@link GestureRecognizer}, and the target component's
+   *     [FrameNode]{@link FrameNode} information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2227,11 +2234,15 @@ export class UIObserver {
   on(type: 'beforePanEnd', callback: PanListenerCallback): void;
 
   /**
-   * Removes a callback function to be called before panGesture onActionEnd is called.
+   * Unregisters the listener for pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} pre-execution events,
+   * canceling callbacks registered via
+   * [on('beforePanEnd')]{@link UIObserver#on(type: 'beforePanEnd', callback: PanListenerCallback)}.
    *
-   * @param { 'beforePanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { 'beforePanEnd' } type - Event type. The value is fixed at **'beforePanEnd'**, indicating command dispatch
+   *     before the execution of the pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} event.
+   * @param { PanListenerCallback } [callback] - Target listener to unregister. If no parameter is provided, all
+   *     callback listeners for command dispatch before the execution of the pan gesture
+   *     [onActionEnd]{@link PanGestureInterface.onActionEnd} event will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2241,11 +2252,16 @@ export class UIObserver {
   off(type: 'beforePanEnd', callback?: PanListenerCallback): void;
 
   /**
-   * Registers a callback function to be called after panGesture onActionStart is called.
+   * Listens for pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} post-execution events, executing
+   * the callback after the actual [onActionStart]{@link PanGestureInterface.onActionStart} event. It works for finger
+   * swiping, mouse dragging, mouse wheel scrolling, and touchpad movements, but not for screen reader touch mode.
    *
-   * @param { 'afterPanStart' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { 'afterPanStart' } type - Event type. The value is fixed at **'afterPanStart'**, indicating command
+   *     dispatch after the execution of the pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} event.
+   *     The registered callback is triggered after **onActionStart** is executed.
+   * @param { PanListenerCallback } callback - Callback used to return the result. It provides
+   *     [GestureEvent]{@link GestureEvent}, [GestureRecognizer]{@link GestureRecognizer}, and the target component's
+   *     [FrameNode]{@link FrameNode} information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2255,11 +2271,15 @@ export class UIObserver {
   on(type: 'afterPanStart', callback: PanListenerCallback): void;
 
   /**
-   * Removes a callback function to be called after panGesture onActionStart is called.
+   * Unregisters the listener for pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} post-execution
+   * events, canceling callbacks registered via
+   * [on('afterPanStart')]{@link UIObserver#on(type: 'afterPanStart', callback: PanListenerCallback)}.
    *
-   * @param { 'afterPanStart' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { 'afterPanStart' } type - Event type. The value is fixed at **'afterPanStart'**, indicating command
+   *     dispatch after the execution of the pan gesture [onActionStart]{@link PanGestureInterface.onActionStart} event.
+   * @param { PanListenerCallback } [callback] - Target listener to unregister. If no parameter is provided, all
+   *     callback listeners for command dispatch after the execution of the pan gesture
+   *     [onActionStart]{@link PanGestureInterface.onActionStart} event will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2269,11 +2289,16 @@ export class UIObserver {
   off(type: 'afterPanStart', callback?: PanListenerCallback): void;
 
   /**
-   * Registers a callback function to be called after panGesture onActionEnd is called.
+   * Listens for pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} post-execution events, executing the
+   * callback after the actual [onActionEnd]{@link PanGestureInterface.onActionEnd} event. It works for finger swiping,
+   * mouse dragging, mouse wheel scrolling, and touchpad movements, but not for screen reader touch mode.
    *
-   * @param { 'afterPanEnd' } type - The type of event to listen for.
-   * @param { PanListenerCallback } callback - The callback function to be called
-   *                                                when the panGesture will be trigger or after.
+   * @param { 'afterPanEnd' } type - Event type. The value is fixed at **'beforePanEnd'**, indicating command dispatch
+   *     after the execution of the pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} event. The
+   *     registered callback is triggered after **onActionEnd** is executed.
+   * @param { PanListenerCallback } callback - Callback used to return the result. It provides
+   *     [GestureEvent]{@link GestureEvent}, [GestureRecognizer]{@link GestureRecognizer}, and the target component's
+   *     [FrameNode]{@link FrameNode} information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2283,11 +2308,15 @@ export class UIObserver {
   on(type: 'afterPanEnd', callback: PanListenerCallback): void;
 
   /**
-   * Removes a callback function to be called after panGesture onActionEnd is called.
+   * Unregisters the listener for pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} post-execution
+   * events, canceling callbacks registered via
+   * [on('afterPanEnd')]{@link UIObserver#on(type: 'afterPanEnd', callback: PanListenerCallback)}.
    *
-   * @param { 'afterPanEnd' } type - The type of event to remove the listener for.
-   * @param { PanListenerCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { 'afterPanEnd' } type - Event type. The value is fixed at **'afterPanEnd'**, indicating command dispatch
+   *     after the execution of the pan gesture [onActionEnd]{@link PanGestureInterface.onActionEnd} event.
+   * @param { PanListenerCallback } [callback] - Target listener to unregister. If no parameter is provided, all
+   *     callback listeners for command dispatch after the execution of the pan gesture
+   *     [onActionEnd]{@link PanGestureInterface.onActionEnd} event will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2450,32 +2479,24 @@ export class UIObserver {
   off(type: 'windowSizeLayoutBreakpointChange', callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
-   * Registers a callback function to be called when the specific node's render state changed.
-   * This callback will be executed once immediately when the register is successful.
-   * [Notes]:
-   *  1. Be aware of the limit on the number of nodes:
-   *     For performance considerations, the system has imposed a limit on the number of
-   *     nodes that can be registered for monitoring in a single UI instance, exception will be thrown
-   *     if overmuch. Please use this interface with caution.
-   *  2. Understanding scenarios where notifications may not occur:
-   *     In general, within container components that have view or page switching functionality,
-   *     when a view or page within the screen is moved outside the screen, the components previously
-   *     within the screen should be removed from the render tree and should receive a RENDER_OUT
-   *     notification. However, this is not always the case, as some scenarios involve views or components
-   *     being moved outside the screen's display range without triggering a RENDER_OUT notification.
-   *     For example, some components with caching capabilities may affect this behavior, and swiper is one
-   *     such component. The cacheCount property of the swiper component allows you to force, via its second
-   *     parameter isShow, that even if the current page is moved outside the display range, it remains in the
-   *     render tree. This can be useful in scenarios where multiple pages are displayed on the screen simultaneously.
-   *     Another example is scrolling components like list or scroll, where their internal content remains in the
-   *     render tree even if it is scrolled outside the screen's display range, provided that lazyForEach/Repeat is
-   *     not used. As a result, there will be no changes to the render state. Once you understand the principles
-   *     behind the triggers for render state changes, these scenarios will become easier to comprehend.
+   * Registers a callback to be invoked when the rendering state of a specific node changes. This callback is executed
+   * immediately once upon successful registration.
    *
-   * @param { 'nodeRenderState' } type - The type of event to listen for.
-   * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } callback - The callback function to be called
-   *                                                    when the clickEvent will be trigger or after.
+   * Be mindful of node quantity limitations. For performance reasons, registering too many nodes within a single UI
+   * instance will throw an exception.
+   *
+   * Typically, a **RENDER_OUT** notification is received when a component moves off-screen. However, in certain
+   * scenarios, a **RENDER_OUT** notification might not be triggered even if a component has moved off-screen. For
+   * example, components with caching capabilities like [Swiper]{@link swiper} will not trigger **RENDER_OUT**
+   * notifications even when the **isShown** parameter in the
+   * [cachedCount]{@link SwiperAttribute#cachedCount(count: number, isShown: boolean)} attribute is set to **true**.
+   *
+   * @param { 'nodeRenderState' } type - Event type. The value is fixed at **'nodeRenderState'**, indicating rendering
+   *     state changes.
+   * @param { NodeIdentity } nodeIdentity - Node ID.
+   * @param { NodeRenderStateChangeCallback } callback - Callback used to return the result. It provides the
+   *     [NodeRenderState]{@link NodeRenderState} of the node rendering state change event and the component's
+   *     [FrameNode]{@link FrameNode}.
    * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2486,12 +2507,12 @@ export class UIObserver {
   on(type: 'nodeRenderState', nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
 
   /**
-   * Removes a callback function to be called before tapGesture is called.
+   * Unregisters the callback for listening for node rendering state changes.
    *
-   * @param { 'nodeRenderState' } type - The type of event to remove the listener for.
-   * @param { NodeIdentity } nodeIdentity - The identity of the target node
-   * @param { NodeRenderStateChangeCallback } [callback] - The callback function to remove. If not provided,
-   *                                                      all callbacks for the given event type will be removed.
+   * @param { 'nodeRenderState' } type - Event type. The value is fixed at **'nodeRenderState'**.
+   * @param { NodeIdentity } nodeIdentity - Node ID.
+   * @param { NodeRenderStateChangeCallback } [callback] - Target listener to unregister. If no parameter is provided,
+   *     all node rendering state change listeners are unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2505,7 +2526,7 @@ export class UIObserver {
    *
    * @param { 'textChange' } type - The type of event to listen for. Must be 'textChange'.
    * @param { Callback<observer.TextChangeEventInfo> } callback - The callback function to be called when
-  *                                                                  text field's content is changed.
+   *                                                                  text field's content is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2518,7 +2539,7 @@ export class UIObserver {
    *
    * @param { 'textChange' } type - The type of event to remove the listener for. Must be 'textChange'.
    * @param { Callback<observer.TextChangeEventInfo> } [callback] - The callback function to remove. If not provided,
-  *                                                                     all callbacks for the given event type will be removed.
+   *                                                                     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2541,7 +2562,8 @@ export class UIObserver {
    * @atomicservice
    * @since 22 dynamic
    */
-  on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void
+  on(type: 'textChange', identity: observer.ObserverOptions, callback: Callback<observer.TextChangeEventInfo>): void;
+
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
@@ -2555,15 +2577,14 @@ export class UIObserver {
    * @atomicservice
    * @since 22 dynamic
    */
-  off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void
+  off(type: 'textChange', identity: observer.ObserverOptions, callback?: Callback<observer.TextChangeEventInfo>): void;
 
   /**
-   * Registers a callback to monitor the gesture trigger information.
+   * Registers a callback to listen for gesture triggering information.
    *
-   * @param { GestureListenerType } type - The type of gesture to monitor.
-   * @param { GestureObserverConfigs } option - The options when bind the global listener.
-   * @param { GestureListenerCallback } callback - The callback function to be called when any gesture's state
-   *                                               is updated.
+   * @param { GestureListenerType } type - Type of gesture to listen for.
+   * @param { GestureObserverConfigs } option - Configuration options for binding the global listener.
+   * @param { GestureListenerCallback } callback - Callback triggered when the gesture state updates.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2572,12 +2593,13 @@ export class UIObserver {
    */
   addGlobalGestureListener(type: GestureListenerType,
       option: GestureObserverConfigs, callback: GestureListenerCallback): void;
+
   /**
-   * Removes a callback function for one gesture listener type.
+   * Unregisters the specified global gesture listener.
    *
-   * @param { GestureListenerType } type - The type of event to remove the listener for.
-   * @param { GestureListenerCallback } [callback] - The callback function to be removed. If not provided,
-   *                                                      all callbacks for the given gesture type will be removed.
+   * @param { GestureListenerType } type - Event type.
+   * @param { GestureListenerCallback } [callback] - Callback to unregister. If this parameter is not specified, this
+   *     API unregisters all callbacks for this gesture type.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2810,42 +2832,41 @@ export interface SwiperItemInfo {
 }
 
 /**
- * class ComponentUtils
+ * Provides API for obtaining the coordinates and size of the drawing area of a component.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this class are supported since API version 10.
+ * >
+ * > - In the following API examples, you must first use [getComponentUtils()]{@link UIContext#getComponentUtils} in
+ * > **UIContext** to obtain a **ComponentUtils** instance, and then call the APIs using the obtained instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * class ComponentUtils
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class ComponentUtils {
+
   /**
-   * Provide the ability to obtain the coordinates and size of component drawing areas.
+   * Obtains the size, position, translation, scaling, rotation, and affine matrix information of the specified
+   * component.
    *
-   * @param { string } id - ID of the component whose attributes are to be obtained.
-   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
+   * > **NOTE**
+   * >
+   * > This API should be called after the target component's layout is complete to obtain its size information. It is
+   * > recommended that you use this API within [onAppear]{@link CommonMethod#onAppear}.
+   *
+   * @param { string } id - Unique component ID.
+   * @returns { componentUtils.ComponentInfo } Size, position, translation, scaling, rotation, and affine matrix
+   *     information of the component.
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Provide the ability to obtain the coordinates and size of component drawing areas.
-   *
-   * @param { string } id - ID of the component whose attributes are to be obtained.
-   * @returns { componentUtils.ComponentInfo } the object of ComponentInfo.
-   * @throws { BusinessError } 100001 - UI execution context not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getRectangleById(id: string): componentUtils.ComponentInfo;
 }
@@ -3161,9 +3182,8 @@ export interface AtomicServiceBar {
 }
 
 /**
- * The information when one gesture specific callback is triggered.
+ * Defines the information provided when a specific gesture callback is triggered.
  *
- * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3171,10 +3191,10 @@ export interface AtomicServiceBar {
  * @since 20 dynamic
  */
 export interface GestureTriggerInfo {
+
   /**
-   * The gesture event object.
+   * Gesture event object.
    *
-   * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3182,11 +3202,11 @@ export interface GestureTriggerInfo {
    * @since 20 dynamic
    */
   event: GestureEvent;
+
   /**
-   * The gesture recognizer object. You can obtain the detailed information of the gesture from it,
-   * but please do not keep this object locally, as it might be unavailable when the node is released.
+   * Gesture recognizer object. Detailed gesture information can be obtained from this object. However, avoid retaining
+   * this object locally as it may become invalid after the node is released.
    *
-   * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3194,10 +3214,10 @@ export interface GestureTriggerInfo {
    * @since 20 dynamic
    */
   current: GestureRecognizer;
+
   /**
-   * The gesture action callback phase.
+   * Phase of the gesture action callback.
    *
-   * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3205,10 +3225,11 @@ export interface GestureTriggerInfo {
    * @since 20 dynamic
    */
   currentPhase: GestureActionPhase;
+
   /**
-   * The node which the gesture is being triggered on.
+   * Node that triggers the gesture. The default value is **null**, indicating that no specific node triggers the
+   * gesture.
    *
-   * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3219,9 +3240,9 @@ export interface GestureTriggerInfo {
 }
 
 /**
- * The observer options for global gesture listener.
+ * Specifies the gesture callback phases to listen for (passing an empty array will be ineffective). Notifications are
+ * sent only when the gesture triggers the specified phases.
  *
- * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -3229,11 +3250,10 @@ export interface GestureTriggerInfo {
  * @since 20 dynamic
  */
 export interface GestureObserverConfigs {
+
   /**
-   * The gesture callback phases want to monitor. Only the specific action phases can be notified when the gesture is triggered.
-   * If empty array provided, the register will has no any effect.
+   * Gesture event object.
    *
-   * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3326,210 +3346,126 @@ export class MarqueeDynamicSyncScene extends DynamicSyncScene {
 }
 
 /**
- * class DragController
+ * Provides APIs for initiating drag actions. When receiving a gesture event, such as a touch or long-press event, an
+ * application can initiate a drag action and carry drag information therein.
+ *
+ * > **NOTE**
+ * >
+ * > In the following API examples, you must first use [getDragController()]{@link UIContext#getDragController} in
+ * > **UIContext** to obtain a **DragController** instance, and then call the APIs using the obtained instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * class DragController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12
- */
-/**
- * class DragController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export class DragController {
+
   /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback that contains
-   * the drag event information.
+   * Initiates a drag action, with the object to be dragged and the drag information passed in. This API uses a callback
+   * to return the drag event result.
+   *
+   * @param { CustomBuilder | DragItemInfo } custom - Object to be dragged.<br> **NOTE**<br>The global builder is not
+   *     supported. If the [Image]{@link image} component is used in the builder, enable synchronous loading, that is,
+   *     set the [syncLoad]{@link ImageAttribute#syncLoad} attribute of the component to **true**. The builder is used
+   *     only to generate the image displayed during the current dragging. If the root component of the builder has zero
+   *     width or height, it will cause failure in drag image generation, which in turn breaks the entire drag
+   *     operation. Changes to the builder, if any, apply to the next dragging, but not to the current dragging.
+   * @param { dragController.DragInfo } dragInfo - Drag information.
+   * @param { AsyncCallback<{ event: DragEvent, extraParams: string }> } callback - Callback used to return the result.<br>
+   *     - **event**: drag event information that includes only the drag result.<br>- **extraParams**: extra
+   *     information about the drag event. [since 11 - 11]
+   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback used to return the result.<br>-
+   *     **event**: drag event information that includes only the drag result.<br>- **extraParams**: extra information
+   *     about the drag event. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains
-   * the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @param { AsyncCallback<dragController.DragEventParam> } callback - Callback that contains
-   * the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo,
     callback: AsyncCallback<dragController.DragEventParam>): void;
 
   /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<{ event: DragEvent, extraParams: string }> } A Promise with the drag event information.
+   * Initiates a drag action, with the object to be dragged and the drag information passed in. This API uses a promise
+   * to return the drag event result.
+   *
+   * @param { CustomBuilder | DragItemInfo } custom - Object to be dragged.
+   * @param { dragController.DragInfo } dragInfo - Drag information.
+   * @returns { Promise<{ event: DragEvent, extraParams: string }> } Callback used to return the result.
+   *     <br>- **event**: drag event information that includes only the drag result.
+   *     <br>- **extraParams**: extra information about the drag event. [since 11 - 11]
+   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Execute a drag event.
-   * @param { CustomBuilder | DragItemInfo } custom - Object used for prompts displayed when the object is dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { Promise<dragController.DragEventParam> } A Promise with the drag event information.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   executeDrag(custom: CustomBuilder | DragItemInfo, dragInfo: dragController.DragInfo)
     : Promise<dragController.DragEventParam>;
 
   /**
-   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { dragController.DragAction } one drag action object
+   * Creates a drag action object for initiating drag and drop operations. You need to explicitly specify one or more
+   * drag previews, the drag data, and the drag handle point. If a drag operation initiated by an existing drag action
+   * object is not completed, no new object can be created, and calling the API will throw an exception. After the
+   * lifecycle of the drag action object ends, the callback functions registered on this object become invalid.
+   * Therefore, it is necessary to hold this object within a longer scope and replace the old value with a new object
+   * returned by **createDragAction** before each drag initiation.
+   *
+   * > **NOTE**
+   * >
+   * > For optimal drag and drop performance, limit the number of drag previews.
+   *
+   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Object to be dragged.
+   * @param { dragController.DragInfo } dragInfo - Drag information.
+   * @returns { dragController.DragAction } **DragAction** object, which is used to subscribe to drag state changes and
+   *     start the drag service.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal handling failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { dragController.DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Create one drag action object, which can be used for starting drag later or monitoring the drag status after drag started.
-   * @param { Array<CustomBuilder | DragItemInfo> } customArray - Objects used for prompts displayed when the objects are dragged.
-   * @param { dragController.DragInfo } dragInfo - Information about the drag event.
-   * @returns { dragController.DragAction } one drag action object
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal handling failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   createDragAction(customArray: Array<CustomBuilder | DragItemInfo>, dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
-   * Get a drag preview object, which provides the functions of setting color or updating animation and has no effect in OnDrop and OnDragEnd callback.
-   * @returns { dragController.DragPreview } A drag preview object.
+   * Obtains the **DragPreview** object, which represents the preview displayed during a drag operation.
+   *
+   * @returns { dragController.DragPreview } **DragPreview** object. It provides the API for setting the preview style.
+   *     It does not work in the **OnDrop** and **OnDragEnd** callbacks.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get a drag preview object.
-   * @returns { dragController.DragPreview } A drag preview object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get a drag preview object.
-   * @returns { dragController.DragPreview } A drag preview object.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getDragPreview(): dragController.DragPreview;
 
   /**
-   * Enable drag event strict reporting for drag enter and leave notification in nested situation.
-   * For example, the parent and child both register the onDragEnter/onDragLeave events, if this
-   * flag is enabled, the parent will be notified with leave event, and the child will notified with
-   * enter event at the same time, when user drag action is passing through the parent and enter the
-   * scope of the child.
-   * Please be noted, the default value of the flag is false, it means, for the same situation, the
-   * parent will not receive the leave notification, just the child can get the enter event, which is
-   * not fully strict.
+   * Sets whether the **onDragLeave** callback of the parent component is triggered when an item is dragged from the
+   * parent to the child component.
    *
-   * @param { boolean } enable - Indicating enable drag event strict reporting or not.
+   * @param { boolean } enable - Whether the **onDragLeave** callback of the parent component is triggered when an item
+   *     is dragged from the parent to the child component. The value **true** means the **onDragLeave** callback of the
+   *     parent component is triggered, and **false** means the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3539,8 +3475,10 @@ export class DragController {
   setDragEventStrictReportingEnabled(enable: boolean): void;
 
   /**
-   * Notify the drag start request to specific pending or continue.
-   * @param { dragController.DragStartRequestStatus } requestStatus - Status about the drag start behavior.
+   * Controls whether the application can initiate a drag operation.
+   *
+   * @param { dragController.DragStartRequestStatus } requestStatus - Whether the application can initiate a drag
+   *     operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -3549,9 +3487,11 @@ export class DragController {
   notifyDragStartRequest(requestStatus: dragController.DragStartRequestStatus): void;
 
   /**
-   * Cancel the UDMF data sync process by passing in the data key as the identify, can only be used after the drop.
+   * Cancels the data loading initiated by the [startDataLoading]{@link DragEvent.startDataLoading}
+   * API. This API can be called only after the drag is released.
    *
-   * @param { string } key - The data key returned by startDataLoading method.
+   * @param { string } key - Identifier for the drag data. It is used to distinguish between different drag operations.
+   *     The key can be obtained through the **startDataLoading** API.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 190004 - Operation failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3564,8 +3504,8 @@ export class DragController {
   /**
    * Interrupt the pending follow-hand morph drop animation and trigger the finish sequence immediately.
    *
-   * @returns { boolean } Returns true if interrupted successfully; false if there is no pending
-   *     follow-hand morph drop animation to interrupt.
+   * @returns { boolean } Interruption result.<br>Returns **true** if the interruption is successful, and **false**
+   *     if there is no pending follow-hand morph drop animation to interrupt.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -3574,21 +3514,18 @@ export class DragController {
   interruptFollowHandMorphDropAnimation(): boolean;
 
   /**
-   * Sets whether to enable the disallow badge icon show.
+   * Specifies whether to enable the display of a disallowed badge when dragged content is incompatible with a component
+   * 's configured [allowDrop]{@link CommonMethod#allowDrop} types. When a component can accept or process dragged data
+   * or returns **DragBehavior.COPY** to indicate copy mode processing, the drag preview shows a plus icon with data
+   * count badge. When the component returns **DragBehavior.MOVE** to indicate cut mode processing, only the data count
+   * badge appears. When this feature is enabled, the system automatically displays a disallowed badge during drag
+   * operations if the dragged data types are incompatible with the target component's allowed drop types. This API
+   * currently does not support [UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}.
    *
-   * Typically, when a component can receive or process data dragged by the user, or when it declares to the
-   * system that data should be processed in COPY way by returning DragBehavior.COPY, the system will display
-   * a plus sign together with the data number on the upper-left corner of the dragged object; if returning
-   * DragBehavior.MOVE to the system to declare that data should be processed in CUT way, the system will only
-   * display the data number on the upper-left corner of the dragged object.
-   *
-   * In some cases, when the system determines or the component explicitly declares that it cannot handle the
-   * data that the user is dragging, the system displays a badge icon in the same way as it does for DragBehavior.MOVE.
-   * So if you want to show the more clearly status, you can call this method on the UI instance in advance to force
-   * the system to display a clear prohibition icon on the upper left corner in such cases, and the user can clearly
-   * know that data cannot be dropped here.
-   *
-   * @param { boolean } enabled - Indicating enable the disallow status showing or not.
+   * @param { boolean } enabled - Whether to enable the display of a disallowed badge when dragged content is
+   *     incompatible with a component's configured [allowDrop]{@link CommonMethod#allowDrop} types. The value **true**
+   *     means to enable the display of a disallowed badge, and **false** means the opposite. The default value is
+   *     **false**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3654,67 +3591,56 @@ export class MeasureUtils {
 }
 
 /**
- * class FocusController
+ * Provides capabilities to control focus, including features such as clearing, moving, and activating focus.
+ *
+ * > **NOTE**
+ * >
+ * > In the following API examples, you must first use [getFocusController()]{@link UIContext#getFocusController} in
+ * > **UIContext** to obtain a **FocusController** instance, and then call the APIs using the obtained instance.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 22]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * class FocusController
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 22 dynamic
- */
 export class FocusController {
+
   /**
-   * clear focus to the root container.
+   * Clears the focus and forcibly moves the focus to the root container node of the page, causing other nodes in the
+   * focus chain to lose focus.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * clear focus to the root container.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   clearFocus(): void;
 
   /**
-   * request focus to the specific component.
-   * @param { string } key - the inspector key of the component.
+   * Transfers focus to a component node by the component ID, which is effective immediately.
+   *
+   * @param { string } key - [Component ID]{@link common} of the target node.
    * @throws { BusinessError } 150001 - the component cannot be focused.
    * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
    * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * request focus to the specific component.
-   * @param { string } key - the inspector key of the component.
-   * @throws { BusinessError } 150001 - the component cannot be focused.
-   * @throws { BusinessError } 150002 - This component has an unfocusable ancestor.
-   * @throws { BusinessError } 150003 - the component is not on tree or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   requestFocus(key: string): void;
 
   /**
-   * Activate focus style.
-   * @param { boolean } isActive - activate/deactivate the focus style.
-   * @param { boolean } [autoInactive] - deactivate the focus style when touch event or mouse event triggers, the default value is true.
+   * Sets the [focus activation state](docroot://ui/arkts-common-events-focus-event.md) of this page.
+   *
+   * @param { boolean } isActive - Whether to enter or exit the focus activation state.<br>The value **true** means to
+   *     enter the focus activation state, and **false** means to exit the focus activation state.
+   * @param { boolean } [autoInactive] - Logic for exiting the focus activation state.<br>The value **true** means the
+   *     focus activation state will be exited automatically when touch or mouse events are triggered, and **false**
+   *     means the state is controlled solely by API calls.<br>Default value: **true**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3724,8 +3650,14 @@ export class FocusController {
   activate(isActive: boolean, autoInactive?: boolean): void;
 
   /**
-   * Get whether the focus style is active.
-   * @returns { boolean } Whether the focus style is active.
+   * Obtains the focus activation state of the UI instance.
+   *
+   * For details about the focus activation state, see
+   * [Basic Concepts](docroot://ui/arkts-common-events-focus-event.md#basic-concepts).
+   *
+   * @returns { boolean } Focus activation state of the UI instance. The value **true** means that the instance has
+   *     entered the focus activation state, and **false** means that the instance has exited the focus activation
+   *     state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3735,8 +3667,13 @@ export class FocusController {
   isActive(): boolean;
 
   /**
-   * Set whether to enable autofocus transfer.
-   * @param { boolean } isAutoFocusTransfer - A Boolean value that indicates whether autofocus transfer is enabled.
+   * Sets whether the new page automatically obtains focus during page switching.
+   *
+   * @param { boolean } isAutoFocusTransfer - Whether the new page automatically obtains focus during page switching
+   *     using navigation components or APIs, such as [Router]{@link @ohos.router:router},
+   *     [Navigation]{@link navigation}, [Menu]{@link menu}, [Dialog]{@link @ohos.arkui.advanced.Dialog}, and
+   *     [Popup]{@link @ohos.arkui.advanced.Popup}. The value **true** means the new page automatically obtains focus,
+   *     and **false** means the opposite. Default value: **true**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3746,8 +3683,9 @@ export class FocusController {
   setAutoFocusTransfer(isAutoFocusTransfer: boolean): void;
 
   /**
-   * Set the priority of key event processing when component cannot handle the key event..
-   * @param { KeyProcessingMode } mode - Key processing mode.
+   * Sets the mode for processing key events.
+   *
+   * @param { KeyProcessingMode } mode - Mode for processing key events.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3758,9 +3696,8 @@ export class FocusController {
 }
 
 /**
- * Pointer style.
+ * Defines the pointer style.
  *
- * @typedef {pointer.PointerStyle} PointerStyle
  * @syscap SystemCapability.MultimodalInput.Input.Pointer
  * @atomicservice
  * @since 12 dynamic
@@ -3768,7 +3705,14 @@ export class FocusController {
 export type PointerStyle = pointer.PointerStyle;
 
 /**
- * class CursorController
+ * Provides the capability to set cursor styles.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this class are supported since API version 12.
+ * >
+ * > - In the following API examples, you must first use [getCursorController()]{@link UIContext#getCursorController} in
+ * > **UIContext** to obtain a **CursorController** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3777,8 +3721,9 @@ export type PointerStyle = pointer.PointerStyle;
  * @since 12 dynamic
  */
 export class CursorController {
+
   /**
-   * Restore default cursor.
+   * Restores the default cursor style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3787,10 +3732,15 @@ export class CursorController {
    * @since 12 dynamic
    */
   restoreDefault(): void;
+
   /**
-   * Set cursor style.
+   * Sets the cursor style.
    *
-   * @param { PointerStyle } value - cursor style enum.
+   * > **NOTE**
+   * >
+   * > This API does not take effect immediately. The cursor style will be updated in the next rendering frame.
+   *
+   * @param { PointerStyle } value - Pointer style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3798,14 +3748,19 @@ export class CursorController {
    * @since 12 dynamic
    */
   setCursor(value: PointerStyle): void;
+
   /**
    * Sets the custom cursor style.
    *
-   * @param { image.PixelMap } value - custom cursor style.
-   * @param { int } [focusX] - Focus x of the custom cursor. The value is greater than or equal to 0. The default
-   *     value is 0.
-   * @param { int } [focusY] - Focus y of the custom cursor. The value is greater than or equal to 0. The default
-   *     value is 0.
+   * > **NOTE**
+   * >
+   * > This API does not take effect immediately. The cursor style will be updated in the next rendering frame.
+   *
+   * @param { image.PixelMap } value - Pixel map of the custom mouse cursor style.
+   * @param { int } [focusX] - X coordinate of the custom cursor's hotspot. The hotspot refers to the actual location
+   *     where the click occurs.<br>Default value: **0**<br>Unit: px<br>Value range: [0, +∞)
+   * @param { int } [focusY] - Y coordinate of the custom cursor's hotspot.<br>Default value: **0**<br>Unit: px<br>Value
+   *     range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -3886,104 +3841,123 @@ export abstract class FrameCallback {
 export type Context = common.Context;
 
 /**
- * class ComponentSnapshot
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
- */
-/**
- * class ComponentSnapshot
+ * Provides APIs for obtaining component snapshots, including snapshots of components that have been loaded and
+ * snapshots of components that have not been loaded yet.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this class are supported since API version 12.
+ * >
+ * > - In the following API examples, you must first use [getComponentSnapshot()]{@link UIContext#getComponentSnapshot}
+ * > in **UIContext** to obtain a **ComponentSnapshot** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - Transformation properties such as scaling, translation, and rotation only apply to the child components of the
+ * > target component. Applying these transformation properties directly to the target component itself has no effect;
+ * > the snapshot will still display the component as it appears before any transformations are applied.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
+ * @crossplatform [since 22]
  * @atomicservice
- * @since 22 dynamic
+ * @since 12 dynamic
  */
 export class ComponentSnapshot {
+
   /**
-   * Get a component snapshot by component id.
+   * Obtains the snapshot of a component that has been loaded based on the provided [component ID]{@link common}. This
+   * API uses an asynchronous callback to return the result.
    *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * > **NOTE**
+   * >
+   * > The snapshot captures content rendered in the last frame. If this API is called when the component triggers an
+   * > update, the re-rendered content will not be included in the obtained snapshot.
+   *
+   * @param { string } id - [ID]{@link common} of the target component.<br>Note: Off-screen or cached components not
+   *     mounted in the component tree are not supported.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the result. If the snapshot capture is
+   *     successful, **err** is **undefined**, and **data** contains the resulting
+   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}. Otherwise, **err** provides detailed error
+   *     information.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get a component snapshot by component id.
-   *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Invalid ID.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   get(id: string, callback: AsyncCallback<image.PixelMap>, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
-   * Get a component snapshot by component id.
+   * Obtains the snapshot of a component that has been loaded based on the provided [component ID]{@link common}. This
+   * API uses a promise to return the result.
    *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * > **NOTE**
+   * >
+   * > The snapshot captures content rendered in the last frame. If this API is called when the component triggers an
+   * > update, the re-rendered content will not be included in the obtained snapshot.
+   *
+   * @param { string } id - [ID]{@link common} of the target component.<br>Note: Off-screen or cached components not
+   *     mounted in the component tree are not supported.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
+   * @returns { Promise<image.PixelMap> } Promise used to return the snapshot object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get a component snapshot by component id.
-   *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Invalid ID.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   get(id: string, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
   /**
-   * Generate a snapshot from a custom component builder.
+   * Captures a snapshot of an offscreen-rendered component created from a [CustomBuilder]{@link common:CustomBuilder}.
+   * This API uses an asynchronous callback to return the result.
    *
-   * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
+   * > **NOTE**
+   * >
+   * > - Due to the need to wait for the component to be built and rendered, there is a delay of not more than 500 ms in
+   * > the callback for off-screen snapshot capturing. Therefore, this API is not recommended for performance-sensitive
+   * > scenarios.
+   * >
+   * > - If a component is on a time-consuming task, for example, an [Image]{@link image} or [Web]{@link web} component
+   * > that is loading online images, its loading may be still in progress when this API is called. In this case, the
+   * > output snapshot does not represent the component in the way it looks when the loading is successfully completed.
+   *
+   * @param { CustomBuilder } builder - Builder of the custom component.<br>Note: The global builder is not supported.<
+   *     br>If the root component of the builder has a width or height of zero, the snapshot operation will fail with
+   *     error code 100001.
+   * @param { AsyncCallback<image.PixelMap> } callback - Callback used to return the result. If the snapshot capture is
+   *     successful, **err** is **undefined**, and **data** contains the resulting
+   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap}. Otherwise, **err** provides detailed error
+   *     information. The coordinates and size of the offscreen component's drawing area can be obtained through the
+   *     callback.
+   * @param { number } [delay] - Delay time for triggering the screenshot command. When the layout includes an image
+   *     component, it is necessary to set a delay time to allow the system to decode the image resources. The decoding
+   *     time is subject to the resource size. In light of this, whenever possible, use pixel map resources that do not
+   *     require decoding.<br> When PixelMap resources are used or when [syncLoad]{@link ImageAttribute#syncLoad} is set
+   *     to **true** for the **Image** component, you can set **delay** to **0** to forcibly capture snapshots without
+   *     waiting. This delay time does not refer to the time from the API call to the return: As the system needs to
+   *     temporarily construct the passed-in **builder** offscreen, the return time is usually longer than this delay.<
+   *     br>Note: In the **builder** passed in, state variables should not be used to control the construction of child
+   *     components. If they are used, they should not change when the API is called, so as to avoid unexpected snapshot
+   *     results.<br> Default value: **300**<br> Unit: ms<br> Value range:
+   *     [0, +∞). If the value is less than 0, the default value is used.
+   * @param { boolean } [checkImageStatus] - Whether to verify the image decoding status before taking a snapshot. If
+   *     the value is **true**, the system checks whether all **Image** components have been decoded before taking the
+   *     snapshot. If the check is not completed, the system aborts the snapshot and returns an exception.<br>Default
+   *     value: **false**.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -3991,46 +3965,51 @@ export class ComponentSnapshot {
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Generate a snapshot from a custom component builder.
-   *
-   * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { AsyncCallback<image.PixelMap> } callback - Callback that contains the snapshot in PixelMap format.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The builder is not a valid build function.
-   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   *     the ready state is required when the checkImageStatus option is enabled.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   createFromBuilder(builder: CustomBuilder, callback: AsyncCallback<image.PixelMap>,
     delay?: number, checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): void;
 
   /**
-   * Generate a snapshot from a custom component builder.
+   * Captures a snapshot of an offscreen-rendered component created from a [CustomBuilder]{@link common:CustomBuilder}.
+   * This API uses a promise to return the result.
    *
-   * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * > **NOTE**
+   * >
+   * > - Due to the need to wait for the component to be built and rendered, there is a delay of not more than 500 ms in
+   * > the callback for off-screen snapshot capturing. Therefore, this API is not recommended for performance-sensitive
+   * > scenarios.
+   * >
+   * > - If a component is on a time-consuming task, for example, an [Image]{@link image} or [Web]{@link web} component
+   * > that is loading online images, its loading may be still in progress when this API is called. In this case, the
+   * > output snapshot does not represent the component in the way it looks when the loading is successfully completed.
+   *
+   * @param { CustomBuilder } builder - Builder of the custom component.<br>Note: The global builder is not supported.<
+   *     br>If the root component of the builder has a width or height of zero, the snapshot operation will fail with
+   *     error code 100001.
+   * @param { number } [delay] - Delay time for triggering the screenshot command. When the layout includes an image
+   *     component, it is necessary to set a delay time to allow the system to decode the image resources. The decoding
+   *     time is subject to the resource size. In light of this, whenever possible, use pixel map resources that do not
+   *     require decoding.<br> When PixelMap resources are used or when [syncLoad]{@link ImageAttribute#syncLoad} is set
+   *     to **true** for the **Image** component, you can set **delay** to **0** to forcibly capture snapshots without
+   *     waiting. This delay time does not refer to the time from the API call to the return: As the system needs to
+   *     temporarily construct the passed-in **builder** offscreen, the return time is usually longer than this delay.<
+   *     br>Note: In the **builder** passed in, state variables should not be used to control the construction of child
+   *     components. If they are used, they should not change when the API is called, so as to avoid unexpected snapshot
+   *     results.<br> Default value: **300**<br> Unit: ms<br> Value range:
+   *     [0, +∞). If the value is less than 0, the default value is used.
+   * @param { boolean } [checkImageStatus] - Whether to verify the image decoding status before taking a snapshot. If
+   *     the value is **true**, the system checks whether all **Image** components have been decoded before taking the
+   *     snapshot. If the check is not completed, the system aborts the snapshot and returns an exception.<br>Default
+   *     value: **false**.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
+   * @returns { Promise<image.PixelMap> } Promise used to return the snapshot object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4038,169 +4017,128 @@ export class ComponentSnapshot {
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Generate a snapshot from a custom component builder.
-   *
-   * @param { CustomBuilder } builder - Builder function of a custom component.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The builder is not a valid build function.
-   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   *     the ready state is required when the checkImageStatus option is enabled.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   createFromBuilder(builder: CustomBuilder, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
   /**
-   * Take a screenshot of the specified component in synchronous mode,
-   * this mode will block the main thread, please use it with caution, the maximum
-   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   * Obtains the snapshot of a component that has been loaded based on the provided [component ID]{@link common}. This
+   * API synchronously returns a [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} after completing the capture.
+   * Note that this API blocks the main thread and has a 3-second timeout. If the operation exceeds this limit, it
+   * throws an exception. Use with caution in performance-critical scenarios.
    *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * > **NOTE**
+   * >
+   * > The snapshot captures content rendered in the last frame. If this API is called when the component triggers an
+   * > update, the re-rendered content will not be included in the obtained snapshot.
+   *
+   * @param { string } id - [ID]{@link common} of the target component.<br>Note: Off-screen or cached components not
+   *     mounted in the component tree are not supported.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
+   * @returns { image.PixelMap } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  /**
-   * Take a screenshot of the specified component in synchronous mode,
-   * this mode will block the main thread, please use it with caution, the maximum
-   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
-   *
-   * @param { string } id - Target component ID, set by developer through .id attribute.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Invalid ID.
-   * @throws { BusinessError } 160002 - Timeout.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
   getSync(id: string, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
   /**
-   * Get a component snapshot by uniqueId.
+   * Obtains the snapshot of a component that has been loaded based on the provided **uniqueId**. This API uses a
+   * promise to return the result.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * > **NOTE**
+   * >
+   * > The snapshot captures content rendered in the last frame. If this API is called when the component triggers an
+   * > update, the re-rendered content will not be included in the obtained snapshot.
+   *
+   * @param { number } uniqueId - Unique ID of the target component. The unique ID of the **FrameNode** can be obtained
+   *     via the [getUniqueId]{@link FrameNode:FrameNode#getUniqueId} API.<br>Note: Off-screen or cached components not
+   *     mounted in the component tree are not supported.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
+   * @returns { Promise<image.PixelMap> } Promise used to return the snapshot object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
-   */
-  /**
-   * Get a component snapshot by uniqueId.
-   *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Invalid ID.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   getWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
   /**
-   * Take a screenshot of the specified component in synchronous mode,
-   * this mode will block the main thread, please use it with caution, the maximum
-   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
+   * Obtains the snapshot of a component that has been loaded based on the provided **uniqueId**. This API synchronously
+   * waits for the snapshot to complete and returns a [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} object.
    *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
+   * > **NOTE**
+   * >
+   * > The snapshot captures content rendered in the last frame. If this API is called when the component triggers an
+   * > update, the re-rendered content will not be included in the obtained snapshot.
+   *
+   * @param { number } uniqueId - Unique ID of the target component. The unique ID of the **FrameNode** can be obtained
+   *     via the [getUniqueId]{@link FrameNode:FrameNode#getUniqueId} API.<br>Note: Off-screen or cached components not
+   *     mounted in the component tree are not supported.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot.
+   * @returns { image.PixelMap } Promise used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160002 - Timeout.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
-  /**
-   * Take a screenshot of the specified component in synchronous mode,
-   * this mode will block the main thread, please use it with caution, the maximum
-   * waiting time of the interface is 3s, if it does not return after 3s, an exception will be thrown.
-   *
-   * @param { number } uniqueId - The uniqueId of the node, can get through getUniqueId.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { image.PixelMap } The snapshot result in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Invalid ID.
-   * @throws { BusinessError } 160002 - Timeout.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
   getSyncWithUniqueId(uniqueId: number, options?: componentSnapshot.SnapshotOptions): image.PixelMap;
 
   /**
-   * Generate a snapshot from a custom component content.
+   * Captures a snapshot of the provided component content. This API uses a promise to return the result.
    *
-   * @param { ComponentContent<T> } content - The content to be taken snapshot.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * @param { ComponentContent<T> } content - Component content to be captured. This is the content currently displayed
+   *     in the **UIContext**.
+   * @param { number } [delay] - Delay time for triggering the screenshot command. When the layout includes an image
+   *     component, it is necessary to set a delay time to allow the system to decode the image resources. The decoding
+   *     time is subject to the resource size. In light of this, whenever possible, use pixel map resources that do not
+   *     require decoding.<br> When PixelMap resources are used or when [syncLoad]{@link ImageAttribute#syncLoad} is set
+   *     to **true** for the **Image** component, you can set **delay** to **0** to forcibly capture snapshots without
+   *     waiting. This delay time does not refer to the time from the API call to the return: As the system needs to
+   *     temporarily construct the passed-in **builder** offscreen, the return time is usually longer than this delay.<
+   *     br>Note: In the **builder** passed in, state variables should not be used to control the construction of child
+   *     components. If they are used, they should not change when the API is called, so as to avoid unexpected snapshot
+   *     results.<br> Value range:
+   *     [0, +∞). If the value is less than 0, the default value is used.<br>Default value: **300**<br> Unit: ms
+   * @param { boolean } [checkImageStatus] - Whether to verify the image decoding status before taking a snapshot. If
+   *     the value is **true**, the system checks whether all **Image** components have been decoded before taking the
+   *     snapshot. If the check is not completed, the system aborts the snapshot and returns an exception.<br>Default
+   *     value: **false**.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom settings of the snapshot. You can specify the scale
+   *     ratio for the pixelmap during rendering and whether to force the system to complete all rendering commands
+   *     before taking the snapshot.
+   * @returns { Promise<image.PixelMap> } Promise used to return the snapshot object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4208,81 +4146,48 @@ export class ComponentSnapshot {
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
    *     the ready state is required when the checkImageStatus option is enabled.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
+   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
    */
-  /**
-   * Generate a snapshot from a custom component content.
-   *
-   * @param { ComponentContent<T> } content - The content to be taken snapshot.
-   * @param { number } [delay] - Defines the delay time to render the snapshot.
-   * @param { boolean } [checkImageStatus] - Defines if check the image decoding status before taking snapshot.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The builder is not a valid build function.
-   * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   *     the ready state is required when the checkImageStatus option is enabled.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
   createFromComponent<T extends Object>(content: ComponentContent<T>, delay?: number,
     checkImageStatus?: boolean, options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
 
   /**
-   * Get a component snapshot by component range.
+   * Captures a snapshot of the area between two specified components. This API uses a promise to return the result.
    *
-   * @param { NodeIdentity } start - the start component ID, set by developer through .id attribute or the unique ID
-   *     get from FrameNode.
-   * @param { NodeIdentity } end - the end component ID, set by developer through.id attribute or the unique ID
-   *     get from FrameNode.
-   * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
-   *     rect of the start component, false for using the rect of the end component.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
+   * > **NOTE**
+   * >
+   * > The components corresponding to **start** and **end** must belong to the same component tree, and the **start**
+   * > component must be an ancestor of the **end** component.
+   *
+   * @param { NodeIdentity } start - ID of the component marking the start of the capture range.
+   * @param { NodeIdentity } end - ID of the component marking the end of the capture range.
+   * @param { boolean } isStartRect - Whether to use the bounding rectangle of the **start** component to determine the
+   *     capture range.<br>**true**: Use the bounding rectangle of the **start** component. **false**: Use the bounding
+   *     rectangle of the **end** component.<br>Default value: **true**.
+   * @param { componentSnapshot.SnapshotOptions } [options] - Custom snapshot configuration options. The **region**
+   *     parameter is not supported.
+   * @returns { Promise<image.PixelMap> } Result of the snapshot.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
+   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options. [since 23]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
    */
-  /**
-   * Get a component snapshot by component range.
-   *
-   * @param { NodeIdentity } start - the start component ID, set by developer through .id attribute or the unique ID
-   *     get from FrameNode.
-   * @param { NodeIdentity } end - the end component ID, set by developer through.id attribute or the unique ID
-   *     get from FrameNode.
-   * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
-   *     rect of the start component, false for using the rect of the end component.
-   * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 100001 - Invalid ID detected.
-   * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 23 dynamic
-   */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap>;
+
   /**
-   * Query the size limitation for taking a component snapshot.
+   * Obtains the size limit of a component screenshot.
    *
-   * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
+   * @returns { componentSnapshot.SnapshotSizeLimitation } Size limit of a component screenshot.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4293,7 +4198,9 @@ export class ComponentSnapshot {
 }
 
 /**
- * Class BaseGestureHandlingProposal.
+ * Base class for smart gesture handling. When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, the callback parameter type is an instance of a
+ * specific subclass type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4301,8 +4208,9 @@ export class ComponentSnapshot {
  * @since 26.0.0 dynamic
  */
 export abstract class BaseGestureHandlingProposal {
+
   /**
-   * The smart gesture action to be performed. Defines the specific operation triggered by the gesture.
+   * Final action of the smart gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4312,7 +4220,7 @@ export abstract class BaseGestureHandlingProposal {
   action: SmartGestureAction;
 
   /**
-   * The underlying user operation intention. Represents the fundamental user interaction goal.
+   * Underlying operation intention of the smart gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4323,7 +4231,7 @@ export abstract class BaseGestureHandlingProposal {
 }
 
 /**
- * Class TargetedGestureProposal.
+ * Base class for smart gesture handling with a target node.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4331,8 +4239,9 @@ export abstract class BaseGestureHandlingProposal {
  * @since 26.0.0 dynamic
  */
 export abstract class TargetedGestureProposal extends BaseGestureHandlingProposal {
+
   /**
-   * The target frame node for gesture handling. This node will receive and process the gesture events.
+   * Target node that handles the current smart gesture.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4343,7 +4252,17 @@ export abstract class TargetedGestureProposal extends BaseGestureHandlingProposa
 }
 
 /**
- * Class ClickActionProposal.
+ * Smart gesture click action handling. When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type
+ * triggers a click operation on the target component.
+ *
+ * > **NOTE**
+ * >
+ * > - This action handling follows the "select first, then click" processing semantics.
+ * >
+ * > - If the target node is not yet selected, this handling first establishes the selected state without immediately
+ * > triggering the click.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4351,10 +4270,11 @@ export abstract class TargetedGestureProposal extends BaseGestureHandlingProposa
  * @since 26.0.0 dynamic
  */
 export class ClickActionProposal extends TargetedGestureProposal {
+
   /**
-   * ClickActionProposal constructor.
+   * Constructor for the smart gesture click action handling.
    *
-   * @param { FrameNode } node - The node responding to click action.
+   * @param { FrameNode } node - Target node that responds to the click action.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4364,7 +4284,10 @@ export class ClickActionProposal extends TargetedGestureProposal {
 }
 
 /**
- * Class SelectActionProposal.
+ * Smart gesture selection action handling. When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type causes
+ * the target component to be selected.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4372,10 +4295,11 @@ export class ClickActionProposal extends TargetedGestureProposal {
  * @since 26.0.0 dynamic
  */
 export class SelectActionProposal extends TargetedGestureProposal {
+
   /**
-   * SelectActionProposal constructor.
+   * Constructor for the smart gesture selection action handling.
    *
-   * @param { FrameNode } node - The node responding to select action.
+   * @param { FrameNode } node - Target node that responds to the selection action.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4385,7 +4309,10 @@ export class SelectActionProposal extends TargetedGestureProposal {
 }
 
 /**
- * Class NoneActionProposal.
+ * Smart gesture no-op action handling. When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type
+ * triggers no action.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4393,8 +4320,9 @@ export class SelectActionProposal extends TargetedGestureProposal {
  * @since 26.0.0 dynamic
  */
 export class NoneActionProposal extends BaseGestureHandlingProposal {
+
   /**
-   * NoneActionProposal constructor.
+   * Constructor for the smart gesture no-op action handling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4405,7 +4333,10 @@ export class NoneActionProposal extends BaseGestureHandlingProposal {
 }
 
 /**
- * Class BackPressActionProposal.
+ * Smart gesture back press action handling. When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type
+ * navigates back to the previous page.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4413,8 +4344,9 @@ export class NoneActionProposal extends BaseGestureHandlingProposal {
  * @since 26.0.0 dynamic
  */
 export class BackPressActionProposal extends BaseGestureHandlingProposal {
+
   /**
-   * BackPressActionProposal constructor.
+   * Constructor for the smart gesture back press action handling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4425,7 +4357,11 @@ export class BackPressActionProposal extends BaseGestureHandlingProposal {
 }
 
 /**
- * Class PageSwitchActionProposal. The default page switch direction is forward.
+ * Smart gesture page switch action handling. The default direction is forward page switching, including right and down.
+ * When dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type
+ * triggers a page switching operation on the target component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4433,12 +4369,13 @@ export class BackPressActionProposal extends BaseGestureHandlingProposal {
  * @since 26.0.0 dynamic
  */
 export class PageSwitchActionProposal extends TargetedGestureProposal {
+
   /**
-   * PageSwitchActionProposal constructor.
+   * Constructor for the smart gesture page switch action handling.
    *
-   * @param { FrameNode } node - The node responding to page switch action.
-   * @param { int } pageCount - The number of pages to navigate.
-   *     The value should be an integer.
+   * @param { FrameNode } node - Target node that responds to the page switch action.
+   * @param { int } pageCount - Number of pages to switch.<br/>Value range:
+   *     [0, +∞). Values less than 0 are treated as 0.<br/>Unit: pages.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4447,8 +4384,11 @@ export class PageSwitchActionProposal extends TargetedGestureProposal {
   constructor(node: FrameNode, pageCount: int);
 
   /**
-   * Page count parameter for gesture operations. Specifies the number of pages to navigate forward.
-   * The value should be an integer.
+   * Number of pages to switch in the smart gesture.
+   *
+   * Value range: [0, +∞). Values less than 0 are treated as 0.
+   *
+   * Unit: pages.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4459,7 +4399,11 @@ export class PageSwitchActionProposal extends TargetedGestureProposal {
 }
 
 /**
- * Class ScrollActionProposal. The default scroll direction is forward.
+ * Smart gesture scroll action handling. The default direction is forward scrolling, including right and down. When
+ * dynamically customizing smart gesture behavior through the
+ * [registerMonitor]{@link SmartGestureController#registerMonitor} API, setting the return value
+ * [GestureHandlingResolution]{@link GestureHandlingResolution}'s **selectedProposal** to an object of this type
+ * triggers a scroll operation on the target component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4467,11 +4411,13 @@ export class PageSwitchActionProposal extends TargetedGestureProposal {
  * @since 26.0.0 dynamic
  */
 export class ScrollActionProposal extends TargetedGestureProposal {
+
   /**
-   * ScrollActionProposal constructor.
+   * Constructor for the smart gesture scroll action handling.
    *
-   * @param { FrameNode } node - The node responding to scroll action.
-   * @param { double } distance - The distance to scroll or slide.
+   * @param { FrameNode } node - Target node that responds to the scroll action.
+   * @param { double } distance - Scroll distance.<br/>Value range:
+   *     [0, +∞). Values less than 0 are treated as 0.<br/>Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4480,7 +4426,11 @@ export class ScrollActionProposal extends TargetedGestureProposal {
   constructor(node: FrameNode, distance: double);
 
   /**
-   * Distance parameter for gesture operations. Used for actions like scrolling or sliding to specify travel distance.
+   * Scroll distance of the smart gesture.
+   *
+   * Value range: [0, +∞). Values less than 0 are treated as 0.
+   *
+   * Unit: vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4491,7 +4441,7 @@ export class ScrollActionProposal extends TargetedGestureProposal {
 }
 
 /**
- * Class GestureHandlingResolution. Represents the developer's decision result for smart gesture handling.
+ * Class for declaring the result of smart gesture handling.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4499,10 +4449,14 @@ export class ScrollActionProposal extends TargetedGestureProposal {
  * @since 26.0.0 dynamic
  */
 export class GestureHandlingResolution {
+
   /**
-   * GestureHandlingResolution constructor.
+   * Constructor for the smart gesture handling result.
    *
-   * @param { boolean } isConsumed - Whether to consume the current gesture event.
+   * @param { boolean } isConsumed - Whether to consume the current smart gesture.<br/>**true**: The smart gesture is
+   *     consumed. If [selectedProposal]{@link GestureHandlingResolution#selectedProposal}
+   *     is not set, the system default action handling is used. If **selectedProposal** is set, the custom action
+   *     handling is used.<br/>**false**: The smart gesture is not consumed, and the system treats it as unhandled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4511,8 +4465,12 @@ export class GestureHandlingResolution {
   constructor(isConsumed: boolean);
 
   /**
-   * Determines whether to consume the current gesture event. If the gesture is not consumed, it will inform the
-   * consumer that the gesture is not supported.
+   * Whether to consume the current smart gesture.
+   *
+   * **true**: The smart gesture is consumed. If **selectedProposal** is not set, the system default action handling is
+   * used. If **selectedProposal** is set, the custom action handling is used.
+   *
+   * **false**: The smart gesture is not consumed, and the system treats it as unhandled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4522,7 +4480,12 @@ export class GestureHandlingResolution {
   isConsumed: boolean;
 
   /**
-   * The final gesture handling proposal selected by the developer.
+   * The smart gesture handling behavior specified by the user.
+   *
+   * When **isConsumed** is **true**: If **selectedProposal** is not set, the system default action handling is used. If
+   * **selectedProposal** is set, the custom action handling is used.
+   *
+   * When **isConsumed** is **false**, the **selectedProposal** setting does not take effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4533,7 +4496,13 @@ export class GestureHandlingResolution {
 }
 
 /**
- * Class SmartGestureController.
+ * Provides the capability to enable smart gestures, monitor them, control the selection state, and dynamically
+ * determine smart gesture behavior.
+ *
+ * > **NOTE**
+ * >
+ * > The following APIs must be called using a **SmartGestureController** instance obtained via
+ * > [getSmartGestureController()]{@link UIContext#getSmartGestureController} in **UIContext**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4541,12 +4510,19 @@ export class GestureHandlingResolution {
  * @since 26.0.0 dynamic
  */
 export class SmartGestureController {
+
   /**
-   * Enable or disable smart tap and slide gestures for watch. This switch controls the new implementation of tap and
-   * slide gestures. When enabled, the new smart gesture handling pipeline is used. When disabled, the legacy
-   * implementation is used for compatibility.
+   * Sets whether to enable the tap and slide operations of smart gestures.
    *
-   * @param { boolean } enabled - Whether to enable smart tap and slide gesture handling.
+   * > **NOTE**
+   * >
+   * > - This API affects only the tap and slide smart gestures, not the wrist-turn gesture.
+   * >
+   * > - When disabled, the [smartGestureShortcut]{@link CommonMethod#smartGestureShortcut}
+   * > attribute on the component side is retained, but the tap and slide smart gestures will not be responded to.
+   *
+   * @param { boolean } enabled - Whether to enable the tap and slide smart gesture handling. The value **true** means
+   *     to enable it, and **false** means to disable it.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4555,12 +4531,32 @@ export class SmartGestureController {
   enableSmartTapAndSlideGestures(enabled: boolean): void;
 
   /**
-   * Register a callback function to monitor gesture events. This method enables the application to receive the
-   * processing intention of the current gesture and carry out customized intervention before the system processes
-   * the gesture event.
+   * Registers a smart gesture monitoring callback. Before the system processes the current smart gesture, the
+   * application can receive the default action handling of the current gesture and apply custom intervention. The
+   * callback is used for asynchronous callbacks.
    *
-   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function
-   *     invoked when a gesture is recognized.
+   * > **NOTE**
+   * >
+   * > - This API enables the application to receive the system's handling intent for the current smart gesture event
+   * > before it is processed by the system and apply custom intervention.
+   * >
+   * > - Users can customize the behavior of the current smart gesture through this callback.
+   * >
+   * > - Multiple monitoring callbacks can be registered. They are triggered in the reverse order of registration (the
+   * > last registered one is executed first). When a monitoring callback consumes the smart gesture event, that is,
+   * > when the return value [GestureHandlingResolution]{@link GestureHandlingResolution}.isConsumed is **true**,
+   * > subsequent monitoring callbacks will not be executed.
+   * >
+   * > - If the same callback is registered repeatedly, only the first registration takes effect; duplicate
+   * > registrations are ignored.
+   * >
+   * > - The return value of the callback must be a valid [GestureHandlingResolution]{@link GestureHandlingResolution}
+   * > instance; otherwise, the modification will not take effect.
+   *
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Smart gesture
+   *     monitoring callback. The callback parameter is the default action handling provided by the system, and the
+   *     return value is used to declare whether to consume the current smart gesture and whether to replace the default
+   *     action handling.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4569,10 +4565,10 @@ export class SmartGestureController {
   registerMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
 
   /**
-   * Unregister a callback function to monitor gesture events.
+   * Unregisters a smart gesture monitoring callback.
    *
-   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - Callback function
-   *     invoked when a gesture is recognized.
+   * @param { Callback<BaseGestureHandlingProposal, GestureHandlingResolution> } monitorCallback - The smart gesture
+   *     monitoring callback to unregister.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4581,7 +4577,7 @@ export class SmartGestureController {
   unregisterMonitor(monitorCallback: Callback<BaseGestureHandlingProposal, GestureHandlingResolution>): void;
 
   /**
-   * Clear the callback functions to monitor gesture events.
+   * Clears all monitoring callbacks registered for the current **UIContext**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4591,9 +4587,20 @@ export class SmartGestureController {
   clearMonitors(): void;
 
   /**
-   * Request smart gesture selection of a frame node by its identifier.
+   * Requests to set the specified component as the current smart gesture selected node. After successful selection, a
+   * selection prompt box is displayed. The style of the selection box varies by device.
    *
-   * @param { string } id - The identifier of the frame node to select.
+   * > **NOTE**
+   * >
+   * > - The request takes effect only when all the following conditions are met: the target component can respond to
+   * > smart gestures, the component is visible on the screen, and the component has an
+   * > [onClick]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)} event bound or a
+   * > [TapGesture]{@link TapGesture} gesture bound.
+   * >
+   * > - Whether a component can respond to smart gestures is determined by **enabled** in
+   * > [smartGestureShortcut]{@link CommonMethod#smartGestureShortcut}.
+   *
+   * @param { string } id - Component [id]{@link CommonMethod#id}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -4602,7 +4609,7 @@ export class SmartGestureController {
   requestSelected(id: string): void;
 
   /**
-   * Clear the current smart gesture selection.
+   * Clears the currently selected node of smart gestures.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6379,25 +6386,24 @@ export class UIContext {
 }
 
 /**
- * Enum of KeyBoardAvoidMethodType
+ * Enumerates the modes in which the layout responds when the keyboard is displayed.
  *
- * @enum { number } KeyBoardAvoidMethodType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
  */
-
 export const enum KeyboardAvoidMode {
+
   /**
-  * Offset Type, the layout moves up.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 11 dynamic
-  */
+   * Offset Type, the layout moves up.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 11 dynamic
+   */
   OFFSET = 0,
 
   /**
@@ -6411,34 +6417,34 @@ export const enum KeyboardAvoidMode {
   RESIZE = 1,
 
   /**
-  * Offset Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 14 dynamic
-  */
+   * Offset Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
   OFFSET_WITH_CARET = 2,
 
   /**
-  * Resize Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 14 dynamic
-  */
+   * Resize Type, the layout moves up, and this adjustment also occurs if the caret position in the text box changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
   RESIZE_WITH_CARET = 3,
 
   /**
-  * None Type, the layout is not adjusted to avoid the keyboard.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 14 dynamic
-  */
-  NONE = 4,
+   * None Type, the layout is not adjusted to avoid the keyboard.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  NONE = 4
 }
 
 /**
@@ -6620,12 +6626,10 @@ export const enum NodeRenderState {
 }
 
 /**
- * This is an enumeration type representing the gesture callback phases to be triggered, corresponding to
- * the action callbacks defined in gesture.d.ts. Therefore, not all gesture types have all the following
- * phase definitions. For example, SwipeGesture only has one callback named onAction, so it also only has
- * one enumeration type, which is WILL_START.
+ * Enumerates triggering phases of gesture callbacks, corresponding to the action callbacks defined in **gesture.d.ts**.
+ * However, different gesture types support different phases (for example, **SwipeGesture** only includes the
+ * **WILL_START** enumerated value).
  *
- * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6633,6 +6637,7 @@ export const enum NodeRenderState {
  * @since 20 dynamic
  */
 export const enum GestureActionPhase {
+
   /**
    * The gesture has been successfully recognized by the system, and the action-start/action callback will be
    * executed immediately.
@@ -6644,6 +6649,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   WILL_START = 0,
+
   /**
    * This indicates the gesture has been determined to be an end, which usually happens when the user lifts their
    * fingers, ending the entire interaction, and the action-end callback will be executed immediately.
@@ -6658,16 +6664,16 @@ export const enum GestureActionPhase {
 }
 
 /**
- * This is an enumeration type indicating what kind of gesture you want to monitor for.
+ * Enumerates the types of gestures to be listened for.
  *
- * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 20 dynamic
  */
- export const enum GestureListenerType {
+export const enum GestureListenerType {
+
   /**
    * The tap gesture.
    *
@@ -6678,6 +6684,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   TAP = 0,
+
   /**
    * The long press gesture.
    *
@@ -6688,6 +6695,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   LONG_PRESS = 1,
+
   /**
    * The pan gesture.
    *
@@ -6698,6 +6706,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   PAN = 2,
+
   /**
    * The pinch gesture.
    *
@@ -6708,6 +6717,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   PINCH = 3,
+
   /**
    * The swipe gesture.
    *
@@ -6718,6 +6728,7 @@ export const enum GestureActionPhase {
    * @since 20 dynamic
    */
   SWIPE = 4,
+
   /**
    * The rotation gesture.
    *

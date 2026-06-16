@@ -1303,124 +1303,58 @@ declare enum LineJoinStyle {
 }
 
 /**
- * Function Called by Touch
+ * Sets the trigger status type of a touch operation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Function Called by Touch
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Function Called by Touch
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum TouchType {
   /**
-   * Triggered when the finger is pressed.
+   * A finger is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Triggered when the finger is pressed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the finger is pressed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Down,
 
   /**
-   * Triggered when the finger is raised.
+   * A finger is lifted.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Triggered when the finger is raised.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the finger is raised.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Up,
 
   /**
-   * Triggered when the finger presses on the screen.
+   * A finger moves on the screen in pressed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Triggered when the finger presses on the screen.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the finger presses on the screen.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Move,
 
   /**
-   * Triggers when the touch event cancels.
+   * A touch event is canceled. Examples: 1. touching the home button to return to the home screen while keeping a 
+   * finger on the screen; 2. folding a foldable phone to switch to the external screen while keeping a finger on the 
+   * screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Triggers when the touch event cancels.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggers when the touch event cancels.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Cancel,
 
   /**
-   * Triggers when the touch event turns to hover enter in accessibility processing.
+   * A finger is pressed in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1431,7 +1365,7 @@ declare enum TouchType {
   HOVER_ENTER = 9,
 
   /**
-   * Triggers when the touch event turns to hover move in accessibility processing.
+   * The mouse pointer moves in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1442,7 +1376,7 @@ declare enum TouchType {
   HOVER_MOVE = 10,
 
   /**
-   * Triggers when the touch event turns to hover exit in accessibility processing.
+   * The mouse pointer exits the component in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1453,7 +1387,7 @@ declare enum TouchType {
   HOVER_EXIT = 11,
 
   /**
-   * Triggers when the touch event turns to hover cancel in accessibility processing.
+   * The triggered event is canceled in accessibility mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1465,9 +1399,8 @@ declare enum TouchType {
 }
 
 /**
- * Function Called by Touch or Gesture.
+ * Enumerates how an input event is triggered.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1476,7 +1409,7 @@ declare enum TouchType {
  */
 declare enum InteractionHand {
   /**
-   * Unknown hand.
+   * Unspecified.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1487,7 +1420,7 @@ declare enum InteractionHand {
   NONE = 0,
 
   /**
-   * Left hand.
+   * Left-hand interaction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1498,7 +1431,7 @@ declare enum InteractionHand {
   LEFT = 1,
 
   /**
-   * Right hand.
+   * Right-hand interaction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1510,302 +1443,133 @@ declare enum InteractionHand {
 }
 
 /**
- * Define the button types of the mouse device.
+ * Enumerates the mouse button types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Define the button types of the mouse device.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Define the button types of the mouse device.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum MouseButton {
   /**
-   * Mouse Left Button.
+   * Left button on the mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse Left Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse Left Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Left,
 
   /**
-   * Mouse Right Button.
+   * Right button on the mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse Right Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse Right Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Right,
 
   /**
-   * Mouse Middle Button.
+   * Middle button on the mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse Middle Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse Middle Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Middle,
 
   /**
-   * Mouse Back Button.
+   * Back button on the left of the mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse Back Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse Back Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Back,
 
   /**
-   * Mouse Forward Button.
+   * Forward button on the left of the mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse Forward Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse Forward Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Forward,
 
   /**
-   * Mouse None Button.
+   * No button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse None Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mouse None Button.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None,
 }
 
 /**
- * Function Called by Mouse
+ * Sets the action type of a mouse operation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
  * @since 8 dynamic
- */
-/**
- * Function Called by Mouse
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10 dynamic
- */
-/**
- * Function Called by Mouse
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
  */
 declare enum MouseAction {
   /**
-   * Triggered when the mouse is pressed.
+   * The mouse button is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 8 dynamic
-   */
-  /**
-   * Triggered when the mouse is pressed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10 dynamic
-   */
-  /**
-   * Triggered when the mouse is pressed.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
    */
   Press,
 
   /**
-   * Triggered when the mouse is released.
+   * The mouse button is released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 8 dynamic
-   */
-  /**
-   * Triggered when the mouse is released.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10 dynamic
-   */
-  /**
-   * Triggered when the mouse is released.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
    */
   Release,
+
   /**
-   * Triggered when the mouse is Moved.
+   * The mouse cursor moves.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 8 dynamic
-   */
-  /**
-   * Triggered when the mouse is Moved.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10 dynamic
-   */
-  /**
-   * Triggered when the mouse is Moved.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
    */
   Move,
 
   /**
-   * Triggered when the mouse is Hovered.
+   * The mouse pointer is hovered on an element.
+   * 
+   * Note: This value has no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
    * @since 8 dynamic
-   */
-  /**
-   * Triggered when the mouse is Hovered.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10 dynamic
-   */
-  /**
-   * Triggered when the mouse is Hovered.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
    */
   Hover,
 
   /**
-   * Triggered when mouse enters the window.
+   * The mouse pointer moves into the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1816,7 +1580,7 @@ declare enum MouseAction {
   ENTER_WINDOW = 4,
 
   /**
-   * Triggered when mouse leaves the window.
+   * The mouse pointer moves out of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1825,9 +1589,16 @@ declare enum MouseAction {
    * @since 23 dynamic
    */
   LEAVE_WINDOW = 5,
-  
+
   /**
-   * Triggered when the mouse event is canceled.
+   * The mouse button action is canceled. It is triggered in the following scenarios:
+   * 
+   * 1. Component focus loss: This action is triggered when a currently focused component loses focus due to a system
+   * event (such as pop-up interruption or app switching).
+   * 2. Event interruption: During a mouse operation, if a higher-priority event occurs (such as a system-level gesture
+   * or forced event stream recycling), causing the current mouse operation to be forcibly terminated.
+   * 3. Abnormal state exit: In scenarios such as component destruction or abnormal rendering environment, unfinished
+   * mouse events are marked as canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2252,56 +2023,23 @@ declare enum PlayMode {
 }
 
 /**
- * Type of a key.
+ * Sets the status type of a button operation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Type of a key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Type of a key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum KeyType {
   /**
-   * Press the key.
+   * The key is pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Press the key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Press the key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Down,
 
@@ -2310,24 +2048,9 @@ declare enum KeyType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The key is released.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The key is released.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Up,
 
@@ -2344,87 +2067,39 @@ declare enum KeyType {
 }
 
 /**
- * Type of the input device that triggers the current key.
+ * Sets the device type that triggers the button event.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Type of the input device that triggers the current key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Type of the input device that triggers the current key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum KeySource {
   /**
-   * The input device type is unknown.
+   * Unknown input device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The input device type is unknown.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The input device type is unknown.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Unknown,
 
   /**
-   * Set Device Type to Keyboard.
+   * The input device is a keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set Device Type to Keyboard.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set Device Type to Keyboard.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Keyboard,
 
   /**
-   * Set Device Type to Joystic.
+   * The input device is a joystick.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3822,133 +3497,45 @@ declare enum RelateType {
 }
 
 /**
- * Controls the display or hide of the current component
+ * Defines the visibility and layout placeholder status of the component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Controls the display or hide of the current component
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Controls the display or hide of the current component
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Controls the display or hide of the current component
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Visibility {
   /**
-   * Show
+   * The component is visible.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Show
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Show
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Show
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Visible,
 
   /**
-   * Hide, but participate in layout for placeholder.
+   * The component is hidden, and a placeholder is used for it in the layout.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Hide, but participate in layout for placeholder.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Hide, but participate in layout for placeholder.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Hide, but participate in layout for placeholder.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Hidden,
 
   /**
-   * Hides but does not participate in layout and does not take place.
+   * The component is hidden. It is not involved in the layout, and no placeholder is used for it.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Hides but does not participate in layout and does not take place.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Hides but does not participate in layout and does not take place.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Hides but does not participate in layout and does not take place.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   None,
 }
@@ -4086,101 +3673,34 @@ declare enum LineCapStyle {
 }
 
 /**
- * Axis enumeration description.
+ * Defines the axis direction.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Axis enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Axis enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Axis enumeration description.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum Axis {
   /**
-   * Longitudinal arrangement
+   * Vertical direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Longitudinal arrangement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Longitudinal arrangement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Longitudinal arrangement
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Vertical,
 
   /**
-   * Horizontal arrangement.
+   * Horizontal direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Horizontal arrangement.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Horizontal arrangement.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Horizontal arrangement.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Horizontal,
 }
@@ -6985,119 +6505,51 @@ declare enum ResponseType {
 }
 
 /**
- * HoverEffect enumeration description
+ * Sets the hover effect of the component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * HoverEffect enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * HoverEffect enumeration description
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum HoverEffect {
   /**
-   * Default effect
+   * Default hover effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Default effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Auto,
 
   /**
-   * Zoom in and out effect
+   * Zoom-in and zoom-out effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Zoom in and out effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Zoom in and out effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Scale,
 
   /**
-   * Highlight effect
+   * Background fade-in and fade-out effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Highlight effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Highlight effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Highlight,
 
   /**
-   * None effect
+   * No effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * None effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * None effect
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   None,
 }
@@ -7653,9 +7105,15 @@ declare enum CopyOptions {
 }
 
 /**
- * Defines the hit test mode.
+ * Sets the response logic and node blocking rules for the hit test.
+ * 
+ * > **NOTE**
+ * >
+ * > When multiple nodes in a **Stack** component have overlapping touch areas, if the touch point hits a child 
+ * > component of the topmost node, only the topmost node will undergo hit testing by default. In this case, touch 
+ * > testing for lower-layer nodes can only be triggered by setting the 
+ * > [hitTestBehavior]{@link CommonMethod#hitTestBehavior} of the topmost node to **HitTestMode.Transparent**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -7665,8 +7123,8 @@ declare enum CopyOptions {
  */
 declare enum HitTestMode {
   /**
-   * Both self and children nodes respond to the hit test for touch events,
-   * but block hit test of the other nodes which is masked by this node.
+   * Default hit test mode. The node itself and its child nodes respond to the hit test, but block the hit test of 
+   * sibling nodes. It does not affect the hit test of ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -7678,8 +7136,7 @@ declare enum HitTestMode {
   Default = 0,
 
   /**
-   * Self respond to the hit test for touch events,
-   * but block hit test of children and other nodes which is masked by this node.
+   * The node itself responds to the hit test and blocks the hit test of child nodes, sibling nodes, and ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -7691,8 +7148,8 @@ declare enum HitTestMode {
   Block = 1,
 
   /**
-   * Self and children respond to the hit test for touch events,
-   * and allow hit test of other nodes which is masked by this node.
+   * Both the node itself and its child nodes respond to the hit test and do not block the hit test of sibling nodes and
+   * ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -7704,8 +7161,8 @@ declare enum HitTestMode {
   Transparent = 2,
 
   /**
-   * Self not respond to the hit test for touch events,
-   * but children respond to the hit test for touch events.
+   * The node itself does not respond to the hit test and does not block the hit test of child nodes, sibling nodes, and
+   * ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -7716,7 +7173,8 @@ declare enum HitTestMode {
    */
   None = 3,
   /**
-   * Blocks all lower-priority siblings and parent nodes from receiving the event.
+   * The node itself and its child nodes respond to the hit test, preventing all sibling nodes and parent nodes with 
+   * lower priority from participating in the hit test.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7727,8 +7185,8 @@ declare enum HitTestMode {
    */
   BLOCK_HIERARCHY = 4,
   /**
-   * Self not respond to the hit test for touch events,
-   * and all descendants (children, grandchildren, etc.) not respond to the hit test for touch events too.
+   * The node itself does not respond to the hit test, and all its descendants (children, grandchildren, and more) also 
+   * do not respond to the hit test. It does not affect the hit test of ancestor nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7813,352 +7271,204 @@ declare enum TitleHeight {
 }
 
 /**
- * Modifier key for hot key.
+ * Enumerates the input method modifier keys.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Modifier key for hot key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ModifierKey {
   /**
-   * ctrl.
+   * Ctrl key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * ctrl.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   CTRL,
 
   /**
-   * shift.
+   * Shift key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * shift.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   SHIFT,
 
   /**
-   * alt.
+   * Alt key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * alt.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   ALT,
 }
 
 /**
- * Function key for hot key.
+ * Enumerates the input method function keys.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Function key for hot key.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum FunctionKey {
   /**
-   * Escape key.
+   * Esc key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Escape key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   ESC,
 
   /**
-   * F1 key.
+   * F1 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F1 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F1,
 
   /**
-   * F2 key.
+   * F2 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F2 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F2,
 
   /**
-   * F3 key.
+   * F3 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F3 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F3,
 
   /**
-   * F4 key.
+   * F4 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F4 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F4,
 
   /**
-   * F5 key.
+   * F5 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F5 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F5,
 
   /**
-   * F6 key.
+   * F6 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F6 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F6,
 
   /**
-   * F7 key.
+   * F7 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F7 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F7,
 
   /**
-   * F8 key.
+   * F8 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F8 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F8,
 
   /**
-   * F9 key.
+   * F9 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F9 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F9,
 
   /**
-   * F10 key.
+   * F10 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F10 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F10,
 
   /**
-   * F11 key.
+   * F11 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F11 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F11,
 
   /**
-   * F12 key.
+   * F12 key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * F12 key.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   F12,
-    
+
   /**
-   * Tab key.
+   * Tab key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8169,7 +7479,7 @@ declare enum FunctionKey {
   TAB,
 
   /**
-   * Up arrow key.
+   * Up arrow key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8180,7 +7490,7 @@ declare enum FunctionKey {
   DPAD_UP,
 
   /**
-   * Down arrow key.
+   * Down arrow key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8191,7 +7501,7 @@ declare enum FunctionKey {
   DPAD_DOWN,
 
   /**
-   * Left arrow key.
+   * Left arrow key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8202,7 +7512,7 @@ declare enum FunctionKey {
   DPAD_LEFT,
 
   /**
-   * Right arrow key.
+   * Right arrow key on the keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9134,7 +8444,7 @@ declare enum LineBreakStrategy {
  */
 declare enum IlluminatedType {
   /**
-   * Component is not illuminated.
+   * The component is not illuminated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9143,7 +8453,7 @@ declare enum IlluminatedType {
    */
   NONE = 0,
   /**
-   * Border is illuminated.
+   * The borders of the component can be illuminated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9152,7 +8462,7 @@ declare enum IlluminatedType {
    */
   BORDER = 1,
   /**
-   * Content is illuminated.
+   * The content of the component can be illuminated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9161,7 +8471,7 @@ declare enum IlluminatedType {
    */
   CONTENT = 2,
   /**
-   * Border and Content is illuminated.
+   * The borders and content of the component can be illuminated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9170,7 +8480,7 @@ declare enum IlluminatedType {
    */
   BORDER_CONTENT = 3,
   /**
-   * Border is illuminated, and the border have a bloom effect.
+   * The borders of the component can be illuminated, with a luminous effect applied to the borders.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -9179,14 +8489,14 @@ declare enum IlluminatedType {
    */
   BLOOM_BORDER = 4,
   /**
-   * Border and Content is illuminated, and the border have a bloom effect.
+   * The borders and content of the component can be illuminated, with a luminous effect applied to the borders.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
    */
-  BLOOM_BORDER_CONTENT = 5,
+  BLOOM_BORDER_CONTENT = 5
 }
 
 /**
@@ -9288,23 +8598,15 @@ declare enum EllipsisMode {
 }
 
 /**
- * A type which can be undefined
+ * This type allows for an object of a custom type or **undefined**.
  *
- * @typedef { T | undefined } Nullable<T>
+ * @unionmember { T } The object can be of any custom type.
+ * @unionmember { undefined } The object can be **undefined**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * A type which can be undefined
- *
- * @typedef { T | undefined } Nullable<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type Nullable<T> = T | undefined;
 
@@ -9932,9 +9234,8 @@ declare enum HeightBreakpoint {
 }
 
 /**
- * Type of axis.
+ * Enumerates the axis types for focus axis events.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -9942,7 +9243,7 @@ declare enum HeightBreakpoint {
  */
 declare enum AxisModel {
   /**
-   * ABS_X axis type.
+   * Game controller x-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9952,7 +9253,7 @@ declare enum AxisModel {
   ABS_X = 0,
 
   /**
-   * ABS_Y axis type.
+   * Game controller y-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9962,7 +9263,7 @@ declare enum AxisModel {
   ABS_Y = 1,
 
   /**
-   * ABS_Z axis type.
+   * Game controller z-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9972,7 +9273,7 @@ declare enum AxisModel {
   ABS_Z = 2,
 
   /**
-   * ABS_RZ axis type.
+   * Game controller rz-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9982,7 +9283,7 @@ declare enum AxisModel {
   ABS_RZ = 3,
 
   /**
-   * ABS_GAS axis type.
+   * Game controller GAS-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9992,7 +9293,7 @@ declare enum AxisModel {
   ABS_GAS = 4,
 
   /**
-   * ABS_BRAKE axis type.
+   * Game controller BRAKE-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10002,7 +9303,7 @@ declare enum AxisModel {
   ABS_BRAKE = 5,
 
   /**
-   * ABS_HAT0X axis type.
+   * Game controller HAT0X-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10012,7 +9313,7 @@ declare enum AxisModel {
   ABS_HAT0X = 6,
 
   /**
-   * ABS_HAT0Y axis type.
+   * Game controller HAT0Y-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10022,7 +9323,7 @@ declare enum AxisModel {
   ABS_HAT0Y = 7,
 
   /**
-   * ABS_RX axis type.
+   * Game controller RX-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10032,7 +9333,7 @@ declare enum AxisModel {
   ABS_RX = 8,
 
   /**
-   * ABS_RY axis type.
+   * Game controller RY-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10042,7 +9343,7 @@ declare enum AxisModel {
   ABS_RY = 9,
 
   /**
-   * ABS_THROTTLE axis type.
+   * Game controller THROTTLE-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10052,7 +9353,7 @@ declare enum AxisModel {
   ABS_THROTTLE = 10,
 
   /**
-   * ABS_RUDDER axis type.
+   * Game controller RUDDER-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10062,7 +9363,7 @@ declare enum AxisModel {
   ABS_RUDDER = 11,
 
   /**
-   * ABS_WHEEL axis type.
+   * Game controller WHEEL-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10072,7 +9373,7 @@ declare enum AxisModel {
   ABS_WHEEL = 12,
 
   /**
-   * ABS_HAT1X axis type.
+   * Game controller HAT1X-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10082,7 +9383,7 @@ declare enum AxisModel {
   ABS_HAT1X = 13,
 
   /**
-   * ABS_HAT1Y axis type.
+   * Game controller HAT1Y-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10092,7 +9393,7 @@ declare enum AxisModel {
   ABS_HAT1Y = 14,
 
   /**
-   * ABS_HAT2X axis type.
+   * Game controller HAT2X-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10102,7 +9403,7 @@ declare enum AxisModel {
   ABS_HAT2X = 15,
 
   /**
-   * ABS_HAT2Y axis type.
+   * Game controller HAT2Y-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10112,7 +9413,7 @@ declare enum AxisModel {
   ABS_HAT2Y = 16,
 
   /**
-   * ABS_HAT3X axis type.
+   * Game controller HAT3X-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10122,7 +9423,7 @@ declare enum AxisModel {
   ABS_HAT3X = 17,
 
   /**
-   * ABS_HAT3Y axis type.
+   * Game controller HAT3Y-axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10131,10 +9432,10 @@ declare enum AxisModel {
    */
   ABS_HAT3Y = 18
 }
-/**
- * Focus wrap mode of a list or grid when moving focus using the arrow keys.
 
- * @enum { number } FocusWrapMode
+/**
+ * Enumerates focus wrapping modes for cross-axis directional navigation.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10143,7 +9444,7 @@ declare enum AxisModel {
  */
 declare enum FocusWrapMode {
   /**
-   * No wrap when moving focus using the arrow keys.
+   * Cross-axis directional navigation does not wrap focus.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10154,7 +9455,10 @@ declare enum FocusWrapMode {
   DEFAULT = 0,
 
   /**
-   * Auto wrap when moving focus using the arrow keys.
+   * Cross-axis directional navigation wraps focus.
+   * 
+   * In irregular grid layouts, when moving focus along the cross axis, the system prioritizes focusable items within 
+   * the same row.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10211,9 +9515,8 @@ declare enum PresetFillType {
 }
 
 /**
- * Rotating crown event behavior.
+ * Enumerates the crown actions.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -10253,9 +9556,8 @@ declare enum CrownAction {
 }
 
 /**
- * Sensitivity of rotating crown.
+ * Enumerates the sensitivity levels for crown rotation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -10331,9 +9633,8 @@ declare enum PageFlipMode {
 }
 
 /**
- * Type of axis action.
+ * Enumerates the types of axis actions for axis events.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -10341,7 +9642,7 @@ declare enum PageFlipMode {
  */
 declare enum AxisAction {
   /**
-   * None action.
+   * No axis event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10351,7 +9652,7 @@ declare enum AxisAction {
   NONE = 0,
 
   /**
-   * Triggered when an axis event starts.
+   * The axis event begins.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10361,7 +9662,7 @@ declare enum AxisAction {
   BEGIN = 1,
 
   /**
-   * Triggered when the axis event is updated.
+   * The axis event is in progress.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10371,7 +9672,7 @@ declare enum AxisAction {
   UPDATE = 2,
 
   /**
-   * Triggered when the axis event ends.
+   * The axis event ends.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10381,7 +9682,7 @@ declare enum AxisAction {
   END = 3,
 
   /**
-   * Triggered when the axis event is cancelled.
+   * The axis event is canceled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10463,9 +9764,8 @@ declare enum DividerMode {
 }
 
 /**
- * Event query type.
+ * Enumerates interaction event types that can be queried.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10474,7 +9774,7 @@ declare enum DividerMode {
  */
 declare enum EventQueryType {
   /**
-   * Type of onClick event.
+   * Click event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10651,9 +9951,8 @@ declare enum AnimationPropertyType {
 }
 
 /**
- * Defines the event tool type that support response region settings.
- * 
- * @enum { number }
+ * Sets the type of the input tool applicable to the touch target.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10662,8 +9961,8 @@ declare enum AnimationPropertyType {
  */
 declare enum ResponseRegionSupportedTool {
   /**
-   * All source tool type.
-   * 
+   * All input tool types.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10673,8 +9972,8 @@ declare enum ResponseRegionSupportedTool {
   ALL = 0,
 
   /**
-   * The finger type.
-   * 
+   * Finger.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10684,8 +9983,8 @@ declare enum ResponseRegionSupportedTool {
   FINGER = 1,
 
   /**
-   * The pen type.
-   * 
+   * Stylus.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10695,8 +9994,8 @@ declare enum ResponseRegionSupportedTool {
   PEN = 2,
 
   /**
-   * The mouse type.
-   * 
+   * Mouse.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10707,9 +10006,8 @@ declare enum ResponseRegionSupportedTool {
 }
 
 /**
- * Define the axis type of axis event.
+ * Enumerates the axis types for axis events.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -10717,8 +10015,7 @@ declare enum ResponseRegionSupportedTool {
  */
 declare enum AxisType {
   /**
-   * Indicates the vertical scoll axis. When you scroll the mouse wheel or make certain gestures on the touchpad,
-   * the status of the vertical scoll axis changes.
+   * Vertical scroll axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10728,8 +10025,7 @@ declare enum AxisType {
   VERTICAL_AXIS = 0,
 
   /**
-   * Indicates the horizontal scoll axis. When you make certain gestures on the touchpad,
-   * the status of the horizontal scroll axis changes.
+   * Horizontal scroll axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10739,20 +10035,19 @@ declare enum AxisType {
   HORIZONTAL_AXIS = 1,
 
   /**
-   * Indicates the pinch axis, which is used to describe a pinch gesture on the touchpad.
+   * Pinch axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
-  PINCH_AXIS = 2,
+  PINCH_AXIS = 2
 }
 
 /**
  * Defines the input event subtype mask for monitoring.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10907,7 +10202,6 @@ declare enum InputEventSubTypeMask {
 /**
  * Defines the input event intercept action.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10937,51 +10231,44 @@ declare enum InputEventInterceptAction {
    */
   BLOCK = 1
 }
+
+/**
+ * Defines whether the dispatched event is a competitive gesture. In the competitive scenario, only one of the original 
+ * node and target node of the gesture responds. In the non‑competitive scenario, both nodes can respond simultaneously.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 24 dynamic
+ */
+declare enum CompetitionStrategy {
   /**
-   * Defines whether a competition for gesture recognition results should occur between the event injector and the
-   * gesture recognizers of the target component.
-   * This strategy determines how the injected input event interacts with the target component's own gesture
-   * handling logic.
+   * Indicates that the dispatched event is a non‑competitive gesture.
    *
-   * @enum {number}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 24 dynamic
    */
-  declare enum CompetitionStrategy {
-    /**
-     * No competition strategy.
-     * The injected event does not compete with any existing gestures.
-     * Both the injected event and existing gestures can be processed independently and in parallel.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    DEFAULT = 0,
-  
-    /**
-     * Competition strategy.
-     * The gesture recognition result from the event injector will compete with those from the target component's own
-     * recognizers.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    COMPETITION = 1,
-  }
+  DEFAULT = 0,
+
+  /**
+   * Indicates that the dispatched event is a competitive gesture.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  COMPETITION = 1
+}
 
 /**
  * Define the gesture and events collection intervention operations.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10991,7 +10278,7 @@ declare enum InputEventInterceptAction {
 declare enum GestureCollectIntervention {
   /**
    * Continue the normal collection process. No intervention will be applied.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11004,7 +10291,7 @@ declare enum GestureCollectIntervention {
    * Discard all pending lower-priority gestures and events.
    * This includes gestures from left sibling nodes and ancestor nodes (parent and above).
    * Only the already collected gestures from the current node and higher-priority nodes will be retained.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11017,7 +10304,7 @@ declare enum GestureCollectIntervention {
    * Discard already collected higher-priority gestures and events.
    * This removes gestures from right sibling nodes that have been collected.
    * The collection will continue with lower-priority gestures (left siblings and ancestors).
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11030,7 +10317,7 @@ declare enum GestureCollectIntervention {
    * Discard gestures and events from the current node itself.
    * The current node's gestures and events will be excluded from the gesture tree.
    * Gestures from sibling nodes (both left and right) and ancestor nodes will still be collected.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11043,18 +10330,18 @@ declare enum GestureCollectIntervention {
    * Discard gestures and events from left sibling nodes that are pending collection.
    * Gestures and events from the current node and already collected right sibling nodes will be retained.
    * The collection will continue with ancestor nodes.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  DISCARD_LOWER_PRIORITY_SIBLINGS = 4,
+  DISCARD_LOWER_PRIORITY_SIBLINGS = 4
 }
 
 /**
- * Define the type of raw input event.
+ * Enumerates the raw input event types.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11064,7 +10351,7 @@ declare enum GestureCollectIntervention {
  */
 declare enum RawInputEventType {
   /**
-   * Touch events.
+   * Touch event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11075,7 +10362,7 @@ declare enum RawInputEventType {
   TOUCH = 0,
 
   /**
-   * Mouse events.
+   * Mouse event.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11197,13 +10484,12 @@ declare enum EdgeLightPosition {
    * @stagemodelonly
    * @since 26.0.0 dynamic
    */
-  RIGHT = 7,
+  RIGHT = 7
 }
 
-/** 
+/**
  * Define the smart gesture shortcut priority enumeration.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -11224,7 +10510,6 @@ declare enum GestureShortcut {
 /**
  * Define the actions for smart gesture shortcut.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -11295,7 +10580,6 @@ declare enum SmartGestureAction {
 /**
  * Define the smart gesture's operation intention.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
