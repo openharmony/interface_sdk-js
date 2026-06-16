@@ -22,7 +22,7 @@ import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
 
 /**
- * The **componentUtils** module provides API for obtaining the coordinates and size of the drawing area of a component.
+ * 提供获取组件绘制区域坐标和大小的能力。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,8 +33,7 @@ import type common2D from './@ohos.graphics.common2D';
 declare namespace componentUtils {
 
   /**
-   * Implements a **ComponentInfo** object, which provides the size, position, translation, scaling, rotation, and
-   * affine matrix information of the component.
+   * 组件大小、位置、平移缩放旋转及仿射矩阵属性信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -45,7 +44,7 @@ declare namespace componentUtils {
   interface ComponentInfo {
 
     /**
-     * Component size.
+     * 组件大小。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -56,7 +55,7 @@ declare namespace componentUtils {
     size: Size;
 
     /**
-     * Offset of the component relative to the parent component.
+     * 组件相对于父组件信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -67,7 +66,7 @@ declare namespace componentUtils {
     localOffset: Offset;
 
     /**
-     * Offset of the component relative to the window.
+     * 组件相对于窗口信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -78,7 +77,7 @@ declare namespace componentUtils {
     windowOffset: Offset;
 
     /**
-     * Offset of the component relative to the screen.
+     * 组件相对于屏幕信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -89,7 +88,7 @@ declare namespace componentUtils {
     screenOffset: Offset;
 
     /**
-     * Translation of the component.
+     * 组件平移信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -100,7 +99,7 @@ declare namespace componentUtils {
     translate: TranslateResult;
 
     /**
-     * Scaling of the component.
+     * 组件缩放信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -111,7 +110,7 @@ declare namespace componentUtils {
     scale: ScaleResult;
 
     /**
-     * Rotation of the component.
+     * 组件旋转信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -122,7 +121,7 @@ declare namespace componentUtils {
     rotate: RotateResult;
 
     /**
-     * Affine matrix of the component, which is a 4x4 matrix object created based on the input parameter.
+     * 仿射矩阵信息，根据入参创建的四阶矩阵对象。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -134,7 +133,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Defines the size property.
+   * 定义尺寸属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -145,9 +144,9 @@ declare namespace componentUtils {
   interface Size {
 
     /**
-     * Component width.
-     *
-     * Unit: px
+     * 组件宽度。
+     * 
+     * 单位: px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -158,9 +157,9 @@ declare namespace componentUtils {
     width: number;
 
     /**
-     * Component height.
-     *
-     * Unit: px
+     * 组件高度。
+     * 
+     * 单位: px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -172,7 +171,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Defines the offset property.
+   * 定义坐标属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -183,9 +182,9 @@ declare namespace componentUtils {
   interface Offset {
 
     /**
-     * X-coordinate.
-     *
-     * Unit: px
+     * x点坐标。
+     * 
+     * 单位: px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -196,9 +195,9 @@ declare namespace componentUtils {
     x: number;
 
     /**
-     * Y-coordinate.
-     *
-     * Unit: px
+     * y点坐标。
+     * 
+     * 单位: px
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -210,7 +209,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Translation Result
+   * 平移信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -221,9 +220,9 @@ declare namespace componentUtils {
   interface TranslateResult {
 
     /**
-     * Translation distance along the x-axis.
-     *
-     * Unit: vp
+     * x轴平移距离。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -234,9 +233,9 @@ declare namespace componentUtils {
     x: number;
 
     /**
-     * Translation distance along the y-axis.
-     *
-     * Unit: vp
+     * y轴平移距离。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -247,9 +246,9 @@ declare namespace componentUtils {
     y: number;
 
     /**
-     * Translation distance along the z-axis.
-     *
-     * Unit: vp
+     * z轴平移距离。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -261,7 +260,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Scale Result
+   * 缩放信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -272,7 +271,7 @@ declare namespace componentUtils {
   interface ScaleResult {
 
     /**
-     * Scale factor along the x-axis.
+     * x轴缩放倍数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -283,7 +282,7 @@ declare namespace componentUtils {
     x: number;
 
     /**
-     * Scale factor along the y-axis.
+     * y轴缩放倍数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -294,7 +293,7 @@ declare namespace componentUtils {
     y: number;
 
     /**
-     * Scale factor along the z-axis.
+     * z轴缩放倍数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -305,9 +304,9 @@ declare namespace componentUtils {
     z: number;
 
     /**
-     * X-coordinate of the center point.
-     *
-     * Unit: vp
+     * 变换中心点x轴坐标。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -318,9 +317,9 @@ declare namespace componentUtils {
     centerX: number;
 
     /**
-     * Y-coordinate of the center point.
-     *
-     * Unit: vp
+     * 变换中心点y轴坐标。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -332,7 +331,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Rotation Result.
+   * 旋转信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -343,7 +342,7 @@ declare namespace componentUtils {
   interface RotateResult {
 
     /**
-     * X-coordinate of the rotation vector.
+     * 旋转轴向量x坐标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -354,7 +353,7 @@ declare namespace componentUtils {
     x: number;
 
     /**
-     * Y-coordinate of the rotation vector.
+     * 旋转轴向量y坐标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -365,7 +364,7 @@ declare namespace componentUtils {
     y: number;
 
     /**
-     * Z coordinate of the rotation vector.
+     * 旋转轴向量z坐标。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -376,9 +375,9 @@ declare namespace componentUtils {
     z: number;
 
     /**
-     * X-coordinate of the center point.
-     *
-     * Unit: vp
+     * 变换中心点x轴坐标。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -389,9 +388,9 @@ declare namespace componentUtils {
     centerX: number;
 
     /**
-     * Y-coordinate of the center point.
-     *
-     * Unit: vp
+     * 变换中心点y轴坐标。
+     * 
+     * 单位: vp
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -402,9 +401,9 @@ declare namespace componentUtils {
     centerY: number;
 
     /**
-     * Rotation angle.
-     *
-     * Unit: deg
+     * 旋转角度。
+     * 
+     * 单位: deg
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -416,7 +415,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * The matrix is column-first fourth-order matrix.
+   * 列优先四阶矩阵。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -444,7 +443,7 @@ declare namespace componentUtils {
   ];
 
   /**
-   * Describes a rotation in 2D, which can be defined by rotation angle and rotation center.
+   * 描述二维空间中的旋转，可以通过旋转角度和旋转中心来定义。
    *
    * @typedef Rotation2D
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -453,8 +452,9 @@ declare namespace componentUtils {
    * @since 23 dynamic
    */
   interface Rotation2D {
+
     /**
-     * Rotation angle Information.
+     * 旋转角信息
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -463,8 +463,9 @@ declare namespace componentUtils {
      * @since 23 dynamic
      */
     angle: double;
+
     /**
-     * Rotation centerX Information.
+     * 旋转中心X信息。
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -473,8 +474,9 @@ declare namespace componentUtils {
      * @since 23 dynamic
      */
     centerX: double;
+
     /**
-     * Rotation centerY Information.
+     * 旋转中心Y信息。
      *
      * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -486,7 +488,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Image object with layout information.
+   * 带有布局信息的图像对象。
    *
    * @interface ImageItem
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -495,8 +497,9 @@ declare namespace componentUtils {
    * @since 23 dynamic
    */
   interface ImageItem {
+
     /**
-     * Image Decoding Information.
+     * 图像解码信息。
      *
      * @type { image.PixelMap }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -507,7 +510,7 @@ declare namespace componentUtils {
     image: image.PixelMap;
 
     /**
-     * Information about the position and size of the box which displays the image.
+     * 显示图像的框的位置和大小信息。
      *
      * @type { common2D.Rect }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -518,7 +521,7 @@ declare namespace componentUtils {
     rect: common2D.Rect;
 
     /**
-     * Information about the rotation of the box which displays the image.
+     * 显示图像的框的旋转信息。
      *
      * @type { ?Rotation2D }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -529,7 +532,7 @@ declare namespace componentUtils {
     rotation?: Rotation2D;
 
     /**
-     * Information about image rendering hierarchy.
+     * 图像渲染层次结构信息。
      *
      * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -541,7 +544,7 @@ declare namespace componentUtils {
   }
 
   /**
-   * Image options setted when need to get the image objects.
+   * 需要获取图像对象时设置的图像选项。
    *
    * @interface GetItemsInShapePathParams
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -550,8 +553,9 @@ declare namespace componentUtils {
    * @since 23 dynamic
    */
   interface GetItemsInShapePathParams {
+
     /**
-     * image information.
+     * 图片信息
      *
      * @type { Array<ImageItem> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -562,7 +566,7 @@ declare namespace componentUtils {
     images: Array<ImageItem>;
 
     /**
-     * Indicates the path points information.
+     * 表示路径的点信息
      *
      * @type { Array<common2D.Point> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -573,8 +577,8 @@ declare namespace componentUtils {
     shapePath: Array<common2D.Point>;
 
     /**
-     * The proportion of non-transparent blank pixels in the selected area
-     * relative to the total pixels of the image. Default value is 0.15.
+     * 所选区域中非透明空白像素的比例
+     * 相对于图像总像素的比例。默认值为0.15。
      *
      * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -583,13 +587,13 @@ declare namespace componentUtils {
      * @since 23 dynamic
      */
     ratio?: double;
-   }
+  }
 
   /**
-   * Get the image objects located within the selected area.
+   * 获取位于选定区域内的图像对象。
    *
-   * @param { GetItemsInShapePathParams } value - options to get images in shapePath.
-   * @returns { Array<ImageItem> } Returns the image objects located within the selected area.
+   * @param { GetItemsInShapePathParams } value - 获取形状路径中图像的选项。
+   * @returns { Array<ImageItem> } 返回位于选定区域内的图像对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -598,24 +602,18 @@ declare namespace componentUtils {
   function getItemsInShapePath(value: GetItemsInShapePathParams): Array<ImageItem>;
 
   /**
-   * Obtains a **ComponentInfo** object based on the component ID and synchronously returns the geometric properties of
-   * the component.
-   *
-   * > **NOTE**
+   * 根据组件ID获取组件实例对象，通过组件实例对象将获取的坐标位置和大小同步返回给开发者。
+   * 
+   * > **说明：**
    * >
-   * > - Since API version 10, you can use the
-   * > [getComponentUtils]{@link @ohos.arkui.UIContext:UIContext#getComponentUtils} API in
-   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [ComponentUtils]{@link @ohos.arkui.UIContext} object
-   * > associated with the current UI context. This API provides access to component coordinates and size information
-   * > after the target component completes layout. It is recommended that you invoke this API within
-   * > [layout completion callbacks]{@link @ohos.arkui.inspector:inspector}. Note that dynamically created components
-   * > must be mounted to the component tree before this API can obtain their information, as unmounted components are
-   * > not measured or laid out by the UI framework. Always ensure that component mounting precedes information
-   * > retrieval attempts.
+   * > - 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [getComponentUtils]{@link @ohos.arkui.UIContext:UIContext#getComponentUtils}方法获取当前UI上下
+   * > 文关联的[ComponentUtils]{@link @ohos.arkui.UIContext:ComponentUtils}对象。在目标组件布局完成后，通过该接口能够获取组件坐标和尺寸信息。建议在
+   * > [布局回调]{@link @ohos.arkui.inspector:inspector}中使用该接口。如果组件动态创建但未挂载组件树，则无法通过该接口获取正常的组件信息。因为组件在未挂载组件树的情况下，一般未经过UI框架正常
+   * > 的测量与布局，此时请确保组件正常挂载组件树后再尝试获取组件信息。
    *
-   * @param {string} id - Component ID.
-   * @returns {ComponentInfo} **ComponentInfo** object, which provides the size, position, translation, scaling,
-   *     rotation, and affine matrix information of the component.
+   * @param {string} id - 指定组件id。
+   * @returns {ComponentInfo} 组件大小、位置、平移缩放旋转及仿射矩阵属性信息。
    * @throws { BusinessError } 100001 - UI execution context not found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

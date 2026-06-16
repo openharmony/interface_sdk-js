@@ -57,7 +57,7 @@
 declare type Resource = import('../api/global/resource').Resource;
 
 /**
- * Defines the length property with string, number and resource unit.
+ * 定义包含字符串、数字和资源单位的长度属性。
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -65,7 +65,7 @@ declare type Resource = import('../api/global/resource').Resource;
  * @since 7
  */
 /**
- * Defines the length property with string, number and resource unit.
+ * 定义包含字符串、数字和资源单位的长度属性。
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -74,7 +74,7 @@ declare type Resource = import('../api/global/resource').Resource;
  * @since 9
  */
 /**
- * Defines the length property with string, number and resource unit.
+ * 定义包含字符串、数字和资源单位的长度属性。
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -84,7 +84,7 @@ declare type Resource = import('../api/global/resource').Resource;
  * @since 10
  */
 /**
- * Defines the length property with string, number and resource unit.
+ * 定义包含字符串、数字和资源单位的长度属性。
  *
  * @typedef { string | number | Resource } Length
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -97,16 +97,14 @@ declare type Resource = import('../api/global/resource').Resource;
 declare type Length = string | number | Resource;
 
 /**
- * Defines the length property with number in units of px.
- *
+ * 定义长度属性，单位为像素（px）。
  * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * Defines the length property with number in units of px.
- *
+ * 定义长度属性，单位为像素（px）。
  * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -114,8 +112,7 @@ declare type Length = string | number | Resource;
  * @since 11
  */
 /**
- * Defines the length property with number in units of px.
- *
+ * 定义长度属性，单位为像素（px）。
  * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -124,8 +121,7 @@ declare type Length = string | number | Resource;
  * @since 18 dynamic
  */
 /**
- * Defines the length property with number in units of px.
- *
+ * 定义长度属性，单位为像素（px）。
  * @typedef { `${number}px` } PX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -134,19 +130,17 @@ declare type Length = string | number | Resource;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type PX = `${number}px`;
+declare type PX = `${number}px`
 
 /**
- * Defines the length property with number or number in units of vp.
- *
+ * 定义长度属性，可以是数字或以 vp 为单位的数字。
  * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * Defines the length property with number or number in units of vp.
- *
+ * 定义长度属性，可以是数字或以 vp 为单位的数字。
  * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -154,8 +148,7 @@ declare type PX = `${number}px`;
  * @since 11
  */
 /**
- * Defines the length property with number or number in units of vp.
- *
+ * 定义长度属性，可以是数字或以 vp 为单位的数字。
  * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -164,8 +157,7 @@ declare type PX = `${number}px`;
  * @since 18 dynamic
  */
 /**
- * Defines the length property with number or number in units of vp.
- *
+ * 定义长度属性，可以是数字或以 vp 为单位的数字。
  * @typedef { `${number}vp` | number } VP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -174,19 +166,17 @@ declare type PX = `${number}px`;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type VP = `${number}vp` | number;
+declare type VP = `${number}vp` | number
 
 /**
- * Defines the length property with number in units of fp.
- *
+ * 定义长度属性，单位为fp。
  * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * Defines the length property with number in units of fp.
- *
+ * 定义长度属性，单位为fp。
  * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -194,8 +184,7 @@ declare type VP = `${number}vp` | number;
  * @since 11
  */
 /**
- * Defines the length property with number in units of fp.
- *
+ * 定义长度属性，单位为fp。
  * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -204,8 +193,7 @@ declare type VP = `${number}vp` | number;
  * @since 18 dynamic
  */
 /**
- * Defines the length property with number in units of fp.
- *
+ * 定义长度属性，单位为fp。
  * @typedef { `${number}fp` } FP
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -214,19 +202,17 @@ declare type VP = `${number}vp` | number;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type FP = `${number}fp`;
+declare type FP = `${number}fp`
 
 /**
- * Defines the length property with number in units of lpx.
- *
+ * 定义长度属性，单位为lpx。
  * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * Defines the length property with number in units of lpx.
- *
+ * 定义长度属性，单位为lpx。
  * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -234,8 +220,7 @@ declare type FP = `${number}fp`;
  * @since 11
  */
 /**
- * Defines the length property with number in units of lpx.
- *
+ * 定义长度属性，单位为lpx。
  * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -244,8 +229,7 @@ declare type FP = `${number}fp`;
  * @since 18 dynamic
  */
 /**
- * Defines the length property with number in units of lpx.
- *
+ * 定义长度属性，单位为lpx。
  * @typedef { `${number}lpx` } LPX
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -254,19 +238,17 @@ declare type FP = `${number}fp`;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type LPX = `${number}lpx`;
+declare type LPX = `${number}lpx`
 
 /**
- * Defines the length property with number in units of Percentage.
- *
+ * 定义长度属性，单位为百分比。
  * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 10
  */
 /**
- * Defines the length property with number in units of Percentage.
- *
+ * 定义长度属性，单位为百分比。
  * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -274,8 +256,7 @@ declare type LPX = `${number}lpx`;
  * @since 11
  */
 /**
- * Defines the length property with number in units of Percentage.
- *
+ * 定义长度属性，单位为百分比。
  * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -284,8 +265,7 @@ declare type LPX = `${number}lpx`;
  * @since 18 dynamic
  */
 /**
- * Defines the length property with number in units of Percentage.
- *
+ * 定义长度属性，单位为百分比。
  * @typedef { `${number}%` } Percentage
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -294,7 +274,7 @@ declare type LPX = `${number}lpx`;
  * @atomicservice
  * @since 23 dynamic
  */
-declare type Percentage = `${number}%`;
+declare type Percentage = `${number}%`
 
 /**
  * Defines the angle property with number in units of deg.
@@ -314,10 +294,10 @@ declare type Percentage = `${number}%`;
  * @atomicservice
  * @since 11 dynamic
  */
-declare type Degree = `${number}deg`;
+declare type Degree = `${number}deg`
 
 /**
- * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
  *
  * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -325,7 +305,7 @@ declare type Degree = `${number}deg`;
  * @since 10
  */
 /**
- * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
  *
  * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -334,7 +314,7 @@ declare type Degree = `${number}deg`;
  * @since 11
  */
 /**
- * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
  *
  * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -344,7 +324,7 @@ declare type Degree = `${number}deg`;
  * @since 18 dynamic
  */
 /**
- * Defines the dimension property with number with units(vp|px|fp|lpx|%), and resource.
+ * 定义具有数值和单位（vp|px|fp|lpx|%）以及资源的尺寸属性。
  *
  * @typedef { PX | VP | FP | LPX | Percentage | Resource } Dimension
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -567,7 +547,7 @@ declare type Padding = {
    * @since 11
    */
   left?: Length;
-};
+}
 
 /**
  * Defines the localized padding property.
@@ -581,6 +561,7 @@ declare type Padding = {
  * @since 12 dynamic
  */
 declare interface LocalizedPadding {
+
   /**
    * top property.
    *
@@ -834,7 +815,7 @@ declare type EdgeWidths = {
    * @since 11
    */
   left?: Length;
-};
+}
 
 /**
  * Defines the localized border width property.
@@ -848,6 +829,7 @@ declare type EdgeWidths = {
  * @since 12 dynamic
  */
 declare interface LocalizedEdgeWidths {
+
   /**
    * top property.
    *
@@ -1013,7 +995,7 @@ declare type EdgeOutlineWidths = {
    * @since 12
    */
   left?: Dimension;
-};
+}
 
 /**
  * Defines the border radius property.
@@ -1158,7 +1140,7 @@ declare type BorderRadiuses = {
    * @since 11
    */
   bottomRight?: Length;
-};
+}
 
 /**
  * Defines the localized border radius property.
@@ -1172,6 +1154,7 @@ declare type BorderRadiuses = {
  * @since 12 dynamic
  */
 declare interface LocalizedBorderRadiuses {
+
   /**
    * top-start property.
    *
@@ -1338,7 +1321,7 @@ declare type OutlineRadiuses = {
    * @since 12
    */
   bottomRight?: Dimension;
-};
+}
 
 /**
  * Defines the border color property.
@@ -1483,7 +1466,7 @@ declare type EdgeColors = {
    * @since 11
    */
   left?: ResourceColor;
-};
+}
 
 /**
  * Defines the localized border color property.
@@ -1497,6 +1480,7 @@ declare type EdgeColors = {
  * @since 12 dynamic
  */
 declare interface LocalizedEdgeColors {
+
   /**
    * top property.
    *
@@ -1706,7 +1690,7 @@ declare type EdgeStyles = {
    * @since 11
    */
   left?: BorderStyle;
-};
+}
 
 /**
  * Defines the outline style property.
@@ -1821,7 +1805,7 @@ declare type EdgeOutlineStyles = {
    * @since 12
    */
   left?: OutlineStyle;
-};
+}
 
 /**
  * Defines the offset property.
@@ -1908,7 +1892,7 @@ declare type Offset = {
    * @since 11
    */
   dy: Length;
-};
+}
 
 /**
  * Defines the color which can use resource.
@@ -2031,10 +2015,10 @@ declare type LengthConstrain = {
    * @since 11
    */
   maxLength: Length;
-};
+}
 
 /**
- * Defines VoidCallback.
+ * 定义VoidCallback。
  *
  * @typedef { function } VoidCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2107,6 +2091,7 @@ declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
  * @since 11 dynamic
  */
 declare interface Font {
+
   /**
    * font size.
    *
@@ -2213,7 +2198,7 @@ declare interface Font {
 }
 
 /**
- * Defines the area information of a component.
+ * 区域类型，用于存储元素所占的区域信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2224,9 +2209,9 @@ declare interface Font {
 declare interface Area {
 
   /**
-   * Width of the target element.
-   *
-   * Unit: vp
+   * 目标元素的宽度。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2237,9 +2222,9 @@ declare interface Area {
   width: Length;
 
   /**
-   * Height of the target element.
-   *
-   * Unit: vp
+   * 目标元素的高度。
+   * 
+   * 单位：vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2250,8 +2235,7 @@ declare interface Area {
   height: Length;
 
   /**
-   * Position of the top-left corner of the target element in the
-   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) of the parent element.
+   * 目标元素左上角在以父元素为基准的[组件坐标系](docroot://ui/arkui-glossary.md#组件坐标系)中的位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2262,7 +2246,7 @@ declare interface Area {
   position: Position;
 
   /**
-   * Position of the top-left corner of the target element in the current window coordinate system.
+   * 目标元素左上角在当前窗口坐标系中的位置。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2274,7 +2258,7 @@ declare interface Area {
 }
 
 /**
- * Defines the position.
+ * 定义位置。
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2282,7 +2266,7 @@ declare interface Area {
  * @since 7
  */
 /**
- * Defines the position.
+ * 定义位置。
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2291,7 +2275,7 @@ declare interface Area {
  * @since 9
  */
 /**
- * Defines the position.
+ * 定义位置。
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2301,7 +2285,7 @@ declare interface Area {
  * @since 10
  */
 /**
- * Defines the position.
+ * 定义位置。
  *
  * @interface Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2312,8 +2296,9 @@ declare interface Area {
  * @since 11 dynamic
  */
 declare interface Position {
+
   /**
-   * Coordinate x of the Position.
+   * 位置X坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2321,7 +2306,7 @@ declare interface Position {
    * @since 7
    */
   /**
-   * Coordinate x of the Position.
+   * 位置X坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2330,7 +2315,7 @@ declare interface Position {
    * @since 9
    */
   /**
-   * Coordinate x of the Position.
+   * 位置X坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2340,7 +2325,7 @@ declare interface Position {
    * @since 10
    */
   /**
-   * Coordinate x of the Position.
+   * 位置X坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2353,7 +2338,7 @@ declare interface Position {
   x?: Length;
 
   /**
-   * Coordinate y of the Position.
+   * 位置Y坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2361,7 +2346,7 @@ declare interface Position {
    * @since 7
    */
   /**
-   * Coordinate y of the Position.
+   * 位置Y坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2370,7 +2355,7 @@ declare interface Position {
    * @since 9
    */
   /**
-   * Coordinate y of the Position.
+   * 位置Y坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2380,7 +2365,7 @@ declare interface Position {
    * @since 10
    */
   /**
-   * Coordinate y of the Position.
+   * 位置Y坐标。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2404,6 +2389,7 @@ declare interface Position {
  * @since 12 dynamic
  */
 declare interface LocalizedPosition {
+
   /**
    * Coordinate start of the Position.
    *
@@ -2441,6 +2427,7 @@ declare interface LocalizedPosition {
  * @since 12 dynamic
  */
 declare interface Edges {
+
   /**
    * top property.
    *
@@ -2505,6 +2492,7 @@ declare interface Edges {
  * @since 12 dynamic
  */
 declare interface LocalizedEdges {
+
   /**
    * top property.
    *
@@ -2576,6 +2564,7 @@ declare interface LocalizedEdges {
  * @since 12 dynamic
  */
 declare interface Bias {
+
   /**
    * Horizontal ratio of the Bias, it must be >= 0.
    *
@@ -2662,6 +2651,7 @@ declare interface Bias {
  * @since 11 dynamic
  */
 declare interface ConstraintSizeOptions {
+
   /**
    * Defines the min width.
    *
@@ -2808,7 +2798,7 @@ declare interface ConstraintSizeOptions {
 }
 
 /**
- * Defines the size options.
+ * 定义尺寸选项。
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2816,7 +2806,7 @@ declare interface ConstraintSizeOptions {
  * @since 7
  */
 /**
- * Defines the size options.
+ * 定义尺寸选项。
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2825,7 +2815,7 @@ declare interface ConstraintSizeOptions {
  * @since 9
  */
 /**
- * Defines the size options.
+ * 定义尺寸选项。
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2835,7 +2825,7 @@ declare interface ConstraintSizeOptions {
  * @since 10
  */
 /**
- * Defines the size options.
+ * 定义尺寸选项。
  *
  * @interface SizeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2846,8 +2836,9 @@ declare interface ConstraintSizeOptions {
  * @since 11 dynamic
  */
 declare interface SizeOptions {
+
   /**
-   * Defines the width.
+   * 定义宽度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2855,7 +2846,7 @@ declare interface SizeOptions {
    * @since 7
    */
   /**
-   * Defines the width.
+   * 定义宽度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2864,7 +2855,7 @@ declare interface SizeOptions {
    * @since 9
    */
   /**
-   * Defines the width.
+   * 定义宽度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2874,7 +2865,7 @@ declare interface SizeOptions {
    * @since 10
    */
   /**
-   * Defines the width.
+   * 定义宽度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2887,7 +2878,7 @@ declare interface SizeOptions {
   width?: Length;
 
   /**
-   * Defines the height.
+   * 定义高度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2895,7 +2886,7 @@ declare interface SizeOptions {
    * @since 7
    */
   /**
-   * Defines the height.
+   * 定义高度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2904,7 +2895,7 @@ declare interface SizeOptions {
    * @since 9
    */
   /**
-   * Defines the height.
+   * 定义高度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2914,7 +2905,7 @@ declare interface SizeOptions {
    * @since 10
    */
   /**
-   * Defines the height.
+   * 定义高度。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2972,6 +2963,7 @@ declare interface SizeOptions {
  * @since 12 dynamic
  */
 declare interface BorderOptions {
+
   /**
    * Defines the border width.
    *
@@ -3172,7 +3164,7 @@ declare interface BorderOptions {
 }
 
 /**
- * Defines the options of outline.
+ * 定义外描边的参数选项
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3182,7 +3174,7 @@ declare interface BorderOptions {
  * @since 11
  */
 /**
- * Defines the options of outline.
+ * 定义外描边的参数选项
  *
  * @interface OutlineOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3193,6 +3185,7 @@ declare interface BorderOptions {
  * @since 12 dynamic
  */
 declare interface OutlineOptions {
+
   /**
    * Defines the outline width.
    *
@@ -3306,6 +3299,7 @@ declare interface OutlineOptions {
  * @since 11 dynamic
  */
 declare interface MarkStyle {
+
   /**
    * Define the stroke color of checkbox mark.
    *
@@ -3398,6 +3392,7 @@ declare interface MarkStyle {
  * @since 11 dynamic
  */
 declare class ColorFilter {
+
   /**
    * Creates ColorFilter with 4*5 matrix.
    *
@@ -3432,7 +3427,7 @@ declare class ColorFilter {
 }
 
 /**
- * Defines the coordinates of the touch point. If it is not set, the touch point is centered.
+ * 配置跟手点坐标，不配置时，默认居中。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3443,7 +3438,7 @@ declare class ColorFilter {
 declare interface TouchPoint {
 
   /**
-   * X coordinate of the touch point.
+   * 跟手点X轴坐标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3454,7 +3449,7 @@ declare interface TouchPoint {
   x: Dimension;
 
   /**
-   * Y coordinate of the touch point.
+   * 跟手点Y轴坐标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3477,6 +3472,7 @@ declare interface TouchPoint {
  * @since 12 dynamic
  */
 declare interface DirectionalEdgesT<T> {
+
   /**
    * Start edge.
    *
@@ -3541,6 +3537,7 @@ declare interface DirectionalEdgesT<T> {
  * @since 12 dynamic
  */
 declare interface DividerStyleOptions {
+
   /**
    * The strokeWidth of Divider.
    *
@@ -3613,6 +3610,7 @@ declare interface DividerStyleOptions {
  * @since 14 dynamic
  */
 declare interface ChainWeightOptions {
+
   /**
    * Horizontal ChainWeight.
    *
@@ -3649,8 +3647,9 @@ declare interface ChainWeightOptions {
  * @since 14 dynamic
  */
 declare interface AccessibilityOptions {
+
   /**
-   * accessibilityPreferred - Should accessibilityText be prioritized when concatenating child component strings.
+   * accessibilityPreferred -在连接子组件字符串时，是否应该优先考虑accessibilityText。
    *
    * @type { ?(boolean) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3662,8 +3661,7 @@ declare interface AccessibilityOptions {
   accessibilityPreferred?: boolean;
 
   /**
-   * stateControllerRoleType - the first component of a specific type found within the composition defined by
-   * accessibility group will take over the state attributes and announcement of the composition
+   * stateControllerRoleType - 通过该可选参数指定特定类型的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，会将该子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
    *
    * @type { ?AccessibilityRoleType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3675,8 +3673,7 @@ declare interface AccessibilityOptions {
   stateControllerRoleType?: AccessibilityRoleType;
 
   /**
-   * stateControllerId - the first component of a specific id found within the composition defined by
-   * accessibility group will take over the state attributes and announcement of the composition
+   * stateControllerId -通过该可选参数指定特定ID的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，会将该子组件的选中状态和状态播报文本作为聚合组件的状态和播报文本。从而聚合屏幕朗读下的状态播报，避免需要对子组件单独进行聚焦。
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3688,8 +3685,7 @@ declare interface AccessibilityOptions {
   stateControllerId?: string;
 
   /**
-   * actionControllerRoleType - the first component of a specific type found within the composition defined by
-   * accessibility group will take over part of the accessibility action of the composition
+   * stateControllerRoleType - 通过该可选参数指定特定类型的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定类型的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
    *
    * @type { ?AccessibilityRoleType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3701,8 +3697,7 @@ declare interface AccessibilityOptions {
   actionControllerRoleType?: AccessibilityRoleType;
 
   /**
-   * actionControllerId - the first component of a specific id found within the composition defined by
-   * accessibility group will take over part of the accessibility action of the composition
+   * 通过该可选参数指定特定ID的子组件，配置AccessibilityGroup的容器组件进行无障碍聚合后，如果触发无障碍的控制操作时，会将操作转发给该特定类型的子组件。从而聚合屏幕朗读下的点击事件，避免需要对子组件单独进行聚焦。
    *
    * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3715,7 +3710,7 @@ declare interface AccessibilityOptions {
 }
 
 /**
- * Defines the struct of AccessibilityActionOptions that can affect operation under accessibility.
+ * 包含无障碍操作的参数的结构体。
  *
  * @interface AccessibilityActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3726,8 +3721,9 @@ declare interface AccessibilityOptions {
  * @since 23 dynamic
  */
 declare interface AccessibilityActionOptions {
+
   /**
-   * scrollStep - the step when the component is scrolled by accessibility.
+   * scrollStep - 无障碍手势触发的无障碍滚动操作中的组件操作步长。只支持slider组件。默认值基于组件默认值
    *
    * @type { ?(number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3741,7 +3737,7 @@ declare interface AccessibilityActionOptions {
 }
 
 /**
- * Defines struct of the parameters used to configure the next accessibility focus transition.
+ * 定义用于配置下一个可访问性焦点转换的参数的结构。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3751,9 +3747,10 @@ declare interface AccessibilityActionOptions {
  * @since 26.0.0 dynamic
  */
 declare interface AccessibilityNextFocusParams {
+
   /**
-   * isConsiderDescendants - Determines whether the focus search should consider focusable nodes within the
-   *     descendants of the target element during the next accessibility focus operation.
+   * descendantMode -确定焦点搜索是否应考虑
+   * 在下一个可访问性焦点操作。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3766,7 +3763,7 @@ declare interface AccessibilityNextFocusParams {
 }
 
 /**
- * Defines struct of AccessibilityCustomAction that can be processed in custom action processing under accessibility.
+ * 定义AccessibilityCustomAction的结构体，可以在可访问性下的自定义操作处理中处理。
  *
  * @interface AccessibilityCustomAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3777,8 +3774,9 @@ declare interface AccessibilityNextFocusParams {
  * @since 26.0.0 dynamic
  */
 declare interface AccessibilityCustomAction {
+
   /**
-   * name - name to specific custom action.
+   * name -指定自定义操作的名称。
    *
    * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3791,7 +3789,7 @@ declare interface AccessibilityCustomAction {
   name: ResourceStr;
 
   /**
-   * onAction - callback to process custom action.
+   * onAction -处理自定义操作的回调。
    *
    * @type { VoidCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3805,7 +3803,7 @@ declare interface AccessibilityCustomAction {
 }
 
 /**
- * Define scrollbar margin options.
+ * 定义滚动条边距选项。
  *
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3815,8 +3813,9 @@ declare interface AccessibilityCustomAction {
  * @since 20 dynamic
  */
 declare interface ScrollBarMargin {
+
   /**
-   * Start margin of the scroll bar.
+   * 滚动条的起始边距。
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3828,7 +3827,7 @@ declare interface ScrollBarMargin {
   start?: LengthMetrics;
 
   /**
-   * End margin of the scroll bar.
+   * 滚动条的末尾边距。
    *
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3841,7 +3840,7 @@ declare interface ScrollBarMargin {
 }
 
 /**
- * Define cache count information.
+ * 定义缓存计数信息。
  *
  * @interface CacheCountInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3851,9 +3850,10 @@ declare interface ScrollBarMargin {
  * @since 22 dynamic
  */
 declare interface CacheCountInfo {
+
   /**
-   * min cache count.
-   * 
+   * 最小缓存数量。
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3862,9 +3862,10 @@ declare interface CacheCountInfo {
    * @since 22 dynamic
    */
   minCount: number;
+
   /**
-   * max cache count.
-   * 
+   * 最大缓存数量。
+   *
    * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3876,7 +3877,7 @@ declare interface CacheCountInfo {
 }
 
 /**
- * Describes a two-dimension coordinate.
+ * 描述一个二维坐标。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3885,8 +3886,9 @@ declare interface CacheCountInfo {
  * @since 26.0.0 dynamic
  */
 declare interface Coordinate2D {
+
   /**
-   * Horizontal coordinate.
+   * 横坐标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3895,8 +3897,9 @@ declare interface Coordinate2D {
    * @since 26.0.0 dynamic
    */
   x: double;
+
   /**
-   * Vertical coordinate.
+   * 纵坐标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3908,7 +3911,7 @@ declare interface Coordinate2D {
 }
 
 /**
- * Define a responsive item filling pattern that can be used in WaterFlow,Grid,List, and Swiper components.
+ * 定义一个响应式item填充模式，可以在WaterFlow、Grid、List和Swiper组件中使用。
  *
  * @typedef { PresetFillType } ResponsiveFillType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3920,7 +3923,7 @@ declare interface Coordinate2D {
 declare type ResponsiveFillType = PresetFillType;
 
 /**
- * Define a responsive item layout suitable for WaterFlow, Grid, List,and Swiper components.
+ * 定义一个适合WaterFlow、Grid、List和Swiper组件的响应式item布局。
  *
  * @interface ItemFillPolicy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3930,16 +3933,17 @@ declare type ResponsiveFillType = PresetFillType;
  * @since 22 dynamic
  */
 declare interface ItemFillPolicy {
+
   /**
-   *Specify the number of columns for different responsive breakpoints.
-    *
-    * @typedef { ?ResponsiveFillType }
-    * @default ResponsiveFillType.BREAKPOINT_DEFAULT
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 22 dynamic
-    */
+   * 指定不同响应断点的列数。
+   *
+   * @typedef { ?ResponsiveFillType }
+   * @default ResponsiveFillType.BREAKPOINT_DEFAULT
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
   fillType?: ResponsiveFillType;
 }

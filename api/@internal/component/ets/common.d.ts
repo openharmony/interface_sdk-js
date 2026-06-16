@@ -30,9 +30,9 @@
 type window = import('../api/@ohos.window').default;
 
 /**
- * The type for SpringLoadingContext, see the detailed description in dragController.
+ * Defines callback context information, which is passed to the application in the hover detection callback to allow the
+ * application to access the drag status.
  *
- * @typedef {import('../api/@ohos.arkui.dragController').default.SpringLoadingContext} SpringLoadingContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -42,9 +42,8 @@ type window = import('../api/@ohos.window').default;
 declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').default.SpringLoadingContext;
 
 /**
- * The type for DragSpringLoadingConfiguration, see the detailed description in dragController.
+ * Defines the configuration parameters for drag hover detection.
  *
- * @typedef {import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration} DragSpringLoadingConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -52,7 +51,6 @@ declare type SpringLoadingContext = import('../api/@ohos.arkui.dragController').
  * @since 20 dynamic
  */
 declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragController').default.DragSpringLoadingConfiguration;
-
 
 /**
  * Defines the options of Component ClassDecorator.
@@ -2490,187 +2488,111 @@ declare interface Configuration {
 /**
  * The data type used to describe a rectangular area.
  *
- * @interface Rectangle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * The data type used to describe a rectangular area.
+ * > **NOTE**
+ * >
+ * > - **x** and **y** can be set to a positive or negative percentage value. For example, when **x** is set to
+ * > **'100%'**, the touch target is the offset from the right edge of the component by the component's width. When
+ * > **x** is set to **'-100%'**, the touch target is the offset from the left edge of the component by the component's
+ * > width. When **y** is set to **'100%'**, the touch target is the offset from the bottom edge of the component by the
+ * > component's height. When **y** is set to **'-100%'**, the touch target is the offset from the top edge of the
+ * > component by the component's height.
+ * >
+ * > - **width** and **height** can only be set to positive percentage values. When **width** is set to **'100%'**, the
+ * > width of the touch target is equal to that of the component. For example, if the width of a component is 100 vp,
+ * > **'100%'** indicates that the width of the touch target is also 100 vp. When **height** is set to **'100%'**, the
+ * > height of the touch target is equal to that of the component.
+ * >
+ * > - The percentage is measured relative to the component itself.
+ * >
+ * > - When the parent component has [clip]{@link CommonMethod#clip(value: boolean)} set to **true**, child component
+ * > interaction is affected by the parent component's response region. Children outside the parent component's response
+ * > region won't respond to gestures or events.
+ * >
+ * > - **width** and **height** do not support **calc()** dynamic calculations.
  *
- * @interface Rectangle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * The data type used to describe a rectangular area.
- *
- * @interface Rectangle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * The data type used to describe a rectangular area.
- *
- * @interface Rectangle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface Rectangle {
+
   /**
-   * x:Horizontal coordinate
+   * X coordinate of the touch point relative to the upper left corner of the component.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * x:Horizontal coordinate
+   * Default value: **0vp**
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * x:Horizontal coordinate
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * x:Horizontal coordinate
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   x?: Length;
 
   /**
-   * y:Vertical axis coordinate.
+   * Y coordinate of the touch point relative to the upper left corner of the component.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * y:Vertical axis coordinate.
+   * Default value: **0vp**
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * y:Vertical axis coordinate.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * y:Vertical axis coordinate.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   y?: Length;
 
   /**
-   * Sets the width of the current touchRect.
+   * Width of the touch target.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the width of the current touchRect.
+   * Default value: **'100%'**
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the width of the current touchRect.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the width of the current touchRect.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   width?: Length;
 
   /**
-   * Sets the height of the current touchRect.
+   * Height of the touch target.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the height of the current touchRect.
+   * Default value: **'100%'**
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the height of the current touchRect.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the height of the current touchRect.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   height?: Length;
 }
 
 /**
- * Defines the response region interface.
- * 
- * @interface ResponseRegion
+ * Defines a touch target consisting of an input tool type, touch position, and size.
+ *
+ * > **NOTE**
+ * >
+ * > - When the parent component has [clip]{@link CommonMethod#clip(value: boolean)} set to **true**, child component
+ * > interaction is affected by the parent component's response region. Children outside the parent component's response
+ * > region won't respond to gestures or events.
+ * >
+ * > - If the input tool type, touch position, and size are not configured for a touch target, default values are used.
+ * >
+ * > - Positive calculation results for x and y represent shifts to the right and down, respectively. Negative
+ * > calculation results represent shifts to the left and up, respectively.
+ * >
+ * > - If the width and height are of the string type, the string must be in lowercase. Dynamic calculation with
+ * > **calc()** is supported. The format of the input string for **calc()** is Width/Height scaling ratio ± Width/Height
+ * > increment, where the scaling ratio is a percentage and the increment unit is px or vp. For example, in
+ * > **calc(80% + 10vp)**, **80%** is the width/height scaling ratio, and **10vp** is the width/height increment. If the
+ * > width and height are of the **LengthMetrics** type and the unit is percent, the width and height are calculated
+ * > relative to the component's own width and height. **percent(1)** indicates 100%. If the calculation result is a
+ * > negative value, the default value is used.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2678,10 +2600,12 @@ declare interface Rectangle {
  * @since 22 dynamic
  */
 declare interface ResponseRegion {
+
   /**
-   *  The event tool type applicable to this response region.
-   * 
-   * @type { ?ResponseRegionSupportedTool }
+   * Type of the input tool applicable to the touch target.
+   *
+   * Default value: **ResponseRegionSupportedTool.ALL**
+   *
    * @default ResponseRegionSupportedTool.ALL
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2692,9 +2616,10 @@ declare interface ResponseRegion {
   tool?: ResponseRegionSupportedTool;
 
   /**
-   * Horizontal axis coordinate
-   * 
-   * @type { ?LengthMetrics }
+   * X coordinate of the touch point relative to the upper left corner of the component.
+   *
+   * Default value: **LengthMetrics.vp(0)**
+   *
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2705,9 +2630,10 @@ declare interface ResponseRegion {
   x?: LengthMetrics;
 
   /**
-   * Vertical axis coordinate.
-   * 
-   * @type { ?LengthMetrics }
+   * Y coordinate of the touch point relative to the upper left corner of the component.
+   *
+   * Default value: **LengthMetrics.vp(0)**
+   *
    * @default LengthMetrics.vp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2718,9 +2644,10 @@ declare interface ResponseRegion {
   y?: LengthMetrics;
 
   /**
-   * Sets the width of the current touchRect.
-   * 
-   * @type { ?(LengthMetrics | string) }
+   * Width of the touch target.
+   *
+   * Default value: **LengthMetrics.percent(1)**
+   *
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2731,9 +2658,10 @@ declare interface ResponseRegion {
   width?: LengthMetrics | string;
 
   /**
-   * Sets the height of the current touchRect.
-   * 
-   * @type { ?(LengthMetrics | string) }
+   * Height of the touch target.
+   *
+   * Default value: **LengthMetrics.percent(1)**
+   *
    * @default LengthMetrics.percent(1)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4369,69 +4297,70 @@ declare enum FinishCallbackType {
  * @since 12 dynamic
  */
 declare enum TouchTestStrategy {
+
   /**
-  * Do framework touch test.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @since 11
-  */
- /**
-  * Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Do framework touch test.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  /**
+   * Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
   DEFAULT = 0,
 
   /**
-  * Specify the component to do touch test and follow the framework touch test
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @since 11
-  */
- /**
-  * The specified event is forwarded to a particular child node, and the system determines whether to
-  * distribute the event to other sibling nodes.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Specify the component to do touch test and follow the framework touch test
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  /**
+   * The specified event is forwarded to a particular child node, and the system determines whether to
+   * distribute the event to other sibling nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
   FORWARD_COMPETITION = 1,
 
   /**
-  * Specify the component to do touch test and not follow the framework touch test
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @since 11
-  */
- /**
-  * The specified event is forwarded to a particular child node, and the system no longer distributes
-  * the event to other sibling nodes.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Specify the component to do touch test and not follow the framework touch test
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @since 11
+   */
+  /**
+   * The specified event is forwarded to a particular child node, and the system no longer distributes
+   * the event to other sibling nodes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
   FORWARD = 2
 }
 
@@ -7042,9 +6971,8 @@ declare enum EffectType {
 }
 
 /**
- * Defines the drag status before drag action.
+ * Defines the states before the drag gesture is triggered.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -7052,8 +6980,9 @@ declare enum EffectType {
  * @since 12 dynamic
  */
 declare enum PreDragStatus {
+
   /**
-   * Define the status for user prepare to start long press gesture.
+   * A drag gesture is being detected. (Triggered when the component is long pressed for 50 ms.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7064,7 +6993,7 @@ declare enum PreDragStatus {
   ACTION_DETECTING_STATUS = 0,
 
   /**
-   * Define the status for user can start drag action.
+   * The component is ready to be dragged. (Triggered when the component is long pressed for 500 ms.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7075,7 +7004,7 @@ declare enum PreDragStatus {
   READY_TO_TRIGGER_DRAG_ACTION = 1,
 
   /**
-   * Define the status for dragItem lift animation started.
+   * A lift animation is started. (Triggered when the component is long pressed for 800 ms.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7086,7 +7015,7 @@ declare enum PreDragStatus {
   PREVIEW_LIFT_STARTED = 2,
 
   /**
-   * Define the status for dragItem lift animation finished.
+   * A lift animation is finished. (Triggered at the completion of the lift animation.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7097,7 +7026,7 @@ declare enum PreDragStatus {
   PREVIEW_LIFT_FINISHED = 3,
 
   /**
-   * Define the status for dragItem landing animation started.
+   * A drop animation is started. (Triggered when the drop animation starts.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7108,7 +7037,7 @@ declare enum PreDragStatus {
   PREVIEW_LANDING_STARTED = 4,
 
   /**
-   * Define the status for dragItem landing animation finished.
+   * A drop animation is finished. (Triggered when the drop animation ends.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7119,7 +7048,8 @@ declare enum PreDragStatus {
   PREVIEW_LANDING_FINISHED = 5,
 
   /**
-   * Define the status for user cancel drag action.
+   * A drop animation is terminated. (Triggered when the finger is lifted off the screen after the component enters the
+   * **READY_TO_TRIGGER_DRAG_ACTION** state.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7130,7 +7060,7 @@ declare enum PreDragStatus {
   ACTION_CANCELED_BEFORE_DRAG = 6,
 
   /**
-   * Define the status for user to sense the availability of drag in advance.
+   * The component is ready to be dragged. (Triggered when the component is long pressed for 350 ms.)
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7142,105 +7072,53 @@ declare enum PreDragStatus {
 }
 
 /**
- * DragItemInfo object description
+ * Defines the information about the dragged item during drag.
  *
- * @interface DragItemInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * DragItemInfo object description
- *
- * @interface DragItemInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
-/**
- * DragItemInfo object description
- *
- * @interface DragItemInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 14 dynamic
+ * @crossplatform [since 14]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface DragItemInfo {
+
   /**
-   * Uses the pixelMap object for drawing.
+   * Image to be displayed during dragging.
    *
-   * @type { ?PixelMap }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Uses the pixelMap object for drawing.
-   *
-   * @type { ?PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uses the pixelMap object for drawing.
-   *
-   * @type { ?PixelMap }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   pixelMap?: PixelMap;
 
   /**
-   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * Custom component to display during dragging. If **pixelMap** is set, this parameter is ignored.
    *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * **NOTE**
    *
-   * @type { ?CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uses the custom builder for drawing, if pixelMap is set, this value is ignored.
+   * Global builder definition is not supported. If the [Image]{@link image} component is used in the builder, enable
+   * synchronous loading whenever possible, that is, set the [syncLoad]{@link ImageAttribute#syncLoad} attribute of the
+   * component to **true**. The builder is used only to generate the image displayed during the current dragging.
+   * Changes to the builder, if any, apply to the next dragging, but not to the current dragging.
    *
-   * @type { ?CustomBuilder }
+   * When passing the builder as a parameter, the format builder: ()=>{this.customBuilder()} is recommended to ensure
+   * correctness of this binding. For details, see
+   * [Using Functions Decorated with @Builder as CustomBuilder Types](docroot://ui/state-management/arkts-builder.md#using-functions-decorated-with-builder-as-custombuilder-types).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   builder?: CustomBuilder;
 
   /**
-   * Sets the extra info for drag event.
+   * Additional information about the dragged item, used to describe the item being dragged.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the extra info for drag event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the extra info for drag event.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   extraInfo?: string;
 }
@@ -7620,51 +7498,32 @@ declare function lpx2px(value: number): number;
 declare function px2lpx(value: number): number;
 
 /**
- * Defines the namespace of focus controller.
+ * Implements focus control.
  *
- * @namespace focusControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform
  * @form
- * @since 9
- */
-/**
- * Defines the namespace of focus controller.
- *
- * @namespace focusControl
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare namespace focusControl {
+
   /**
-   * Request focus to the specific component by param: 'id/key'.
+   * Requests focus transfer to the specified component during the next frame rendering. This global API provides
+   * asynchronous focus control.
    *
-   * @param { string } value
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Request focus to the specific component by param: 'id/key'.
+   * For scenarios requiring immediate focus changes, it is recommended that you use the focus synchronization transfer
+   * API [requestFocus]{@link @ohos.arkui.UIContext:FocusController#requestFocus} in **FocusController**.
    *
-   * @param { string } value
-   * @returns { boolean }
+   * @param { string } value - String bound to the target component using **key(value: string)** or
+   *     **id(value: string)**.
+   * @returns { boolean } Returns whether focus transfer is successfully requested for the target component. If the
+   *     target component pointed to by the parameter exists, is mounted to the component tree, and is focusable,
+   *     **true** is returned. Otherwise, **false** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Request focus to the specific component by param: 'id/key'.
-   *
-   * @param { string } value
-   * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   function requestFocus(value: string): boolean;
 }
@@ -7749,80 +7608,32 @@ declare namespace cursorControl {
 }
 
 /**
- * Defines the event target.
+ * Defines the type of the **target** parameter in [BaseEvent]{@link BaseEvent}.
  *
- * @interface EventTarget
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the event target.
+ * Represents the display area of the element object that triggers the event.
  *
- * @interface EventTarget
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the event target.
- *
- * @interface EventTarget
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the event target.
- *
- * @interface EventTarget
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface EventTarget {
-  /**
-   * Area of current target.
-   *
-   * @type { Area }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Area of current target.
-   *
-   * @type { Area }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Area of current target.
-   *
-   * @type { Area }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
+
   /**
    * Area information of the target element.
    *
-   * @type { Area }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   area: Area;
 
   /**
-   * Node id of current target.
+   * Custom node [ID]{@link CommonMethod#id}. Default value: **undefined**.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -7834,101 +7645,47 @@ declare interface EventTarget {
 }
 
 /**
- * Defines the event source type.
+ * Enumerates the input source device types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the event source type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the event source type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum SourceType {
-  /**
-   * Unknown type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Unknown type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Unknown device type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Unknown,
 
   /**
-   * The mouse type.
+   * Unknown input source.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * The mouse type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The mouse type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Mouse,
+  Unknown = 0,
 
   /**
-   * The touch screen type.
+   * Mouse.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * The touch screen type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The touch screen type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  TouchScreen,
+  Mouse = 1,
 
   /**
-   * The key type.
+   * Touchscreen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
+   */
+  TouchScreen = 2,
+
+  /**
+   * Key.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7939,7 +7696,7 @@ declare enum SourceType {
   KEY = 4,
 
   /**
-   * The joystick type.
+   * Joystick.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -7947,105 +7704,51 @@ declare enum SourceType {
    * @atomicservice
    * @since 22 dynamic
    */
-  JOYSTICK = 5,
+  JOYSTICK = 5
 }
 
 /**
- * Defines the event tool type.
+ * Enumerates the input source tool types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the event tool type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the event tool type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum SourceTool {
-  /**
-   * Unknown type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Unknown type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
+
   /**
    * Unknown input source.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  Unknown,
+  Unknown = 0,
 
   /**
-   * The finger type.
+   * Finger.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * The finger type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The finger type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Finger,
+  Finger = 1,
 
   /**
-   * The pen type.
+   * Stylus.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * The pen type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The pen type.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Pen,
+  Pen = 2,
 
   /**
-   * The mouse type.
+   * Mouse device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8053,10 +7756,10 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE,
+  MOUSE = 3,
 
   /**
-   * The touchpad type.
+   * Touchpad. Single-finger input on the touchpad is treated as a mouse input operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8064,10 +7767,10 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD,
+  TOUCHPAD = 4,
 
   /**
-   * The joystick type.
+   * Joystick.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8075,7 +7778,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK
+  JOYSTICK = 5
 }
 
 /**
@@ -9767,152 +9470,62 @@ declare enum SheetSize {
 }
 
 /**
- * Defines the base event.
+ * Basic event type.
  *
- * @interface BaseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the base event.
- *
- * @interface BaseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the base event.
- *
- * @interface BaseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the base event.
- *
- * @interface BaseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface BaseEvent {
+
   /**
-   * Defines the current target which fires this event.
+   * Object that triggers the gesture event.
    *
-   * @type { EventTarget }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the current target which fires this event.
-   *
-   * @type { EventTarget }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the current target which fires this event.
-   *
-   * @type { EventTarget }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Display area of the element that triggers the gesture event.
-   *
-   * @type { EventTarget }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   target: EventTarget;
 
   /**
-   * Event timestamp.
+   * Timestamp of the event. It is the interval between the time when the event is triggered and the time when the
+   * system starts.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Event timestamp.
+   * Unit: ns
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Event timestamp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Timestamp of the event.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   timestamp: number;
 
   /**
-   * the event source info.
+   * Type of the event input device.
    *
-   * @type { SourceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * the event source info.
-   *
-   * @type { SourceType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * the event source info.
-   *
-   * @type { SourceType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Event input device.
-   *
-   * @type { SourceType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   source: SourceType;
 
   /**
-   * the Horizontal axis coordinate.
+   * Horizontal axis value.
    *
-   * @type { ?number }
+   * Default value: **0**
+   *
+   * **NOTE**
+   *
+   * This value is available only when the pan gesture is triggered by mouse wheel scrolling or two-finger touchpad
+   * sliding, or when the pinch gesture is triggered by Ctrl + mouse wheel scrolling.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9920,12 +9533,18 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisHorizontal?: number;
+  axisHorizontal ?: number;
 
   /**
-   * the Vertical axis coordinate.
+   * Vertical axis value.
    *
-   * @type { ?number }
+   * Default value: **0**
+   *
+   * **NOTE**
+   *
+   * This value is available only when the pan gesture is triggered by mouse wheel scrolling or two-finger touchpad
+   * sliding, or when the pinch gesture is triggered by Ctrl + mouse wheel scrolling.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9933,12 +9552,23 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisVertical?: number;
+  axisVertical ?: number;
 
   /**
-   * Indicates the Pinch axis coordinate.
+   * Two-finger pinch scaling ratio.
    *
-   * @type { ?number }
+   * Default value: **0**
+   *
+   * **NOTE**
+   *
+   * This value is available only when a pinch gesture is triggered by a two-finger scaling operation on a touchpad or
+   * during axis events.
+   *
+   * In other scenarios, the default value is returned. The scaling ratio represents the ratio of the current two-finger
+   * distance to the initial two-finger distance when first pressed during a pinch gesture.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -9949,96 +9579,56 @@ declare interface BaseEvent {
   axisPinch?: number;
 
   /**
-   * Touch pressure.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Touch pressure.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Press pressure.
    *
-   * @type { number }
+   * Default value: **0**
+   *
+   * Value range: [0, 1], typical value 0.913168, where higher values indicate greater pressure. On some devices, the
+   * return value may be greater than 1 due to different hardware parameter configurations.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   pressure: number;
 
   /**
-   * The angle between pencil projection on plane-X-Y and axis-Z.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The angle between pencil projection on plane-X-Y and axis-Z.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Angle between the projection of the stylus on the device plane and the x-axis.
    *
-   * @type { number }
+   * Unit: deg
+   *
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   tiltX: number;
 
   /**
-   * The angle between pencil projection on plane-Y-Z and axis-Z.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The angle between pencil projection on plane-Y-Z and axis-Z.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Angle between the projection of the stylus on the device plane and the y-axis.
    *
-   * @type { number }
+   * Unit: deg
+   *
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   tiltY: number;
 
   /**
-   * Indicates the angle at which the stylus rotates around the Z-axis.
+   * Angle between the stylus and the device's surface.
    *
-   * @type { number }
+   * Unit: deg
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10049,40 +9639,29 @@ declare interface BaseEvent {
   rollAngle?: number;
 
   /**
-   * The event tool type info.
+   * Event input source type.
    *
-   * @type { SourceTool }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
    * @form
-   * @since 9
-   */
-  /**
-   * The event tool type info.
-   *
-   * @type { SourceTool }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Event input source.
-   *
-   * @type { SourceTool }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   sourceTool: SourceTool;
 
   /**
-   * Obtains the pressed status of modifier keys. The following modifier keys are supported: 'Ctrl'|'Alt'|'Shift'.
+   * Obtains the pressed status of modifier keys. For details about the error message, see the following error codes.
+   * The Ctrl, Alt, and Shift keys are supported.
    *
-   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > This API is not supported in stylus scenarios.
+   *
+   * @param { Array<string> } keys - Modifier key list.
+   * @returns { boolean } Pressed status of modifier keys. Returns **true** if all modifier keys are pressed; returns
+   *     **false** otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
+   *     verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10092,9 +9671,12 @@ declare interface BaseEvent {
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Indicates the ID of the input device that triggers the current event.
+   * ID of the input device that triggers the event.
    *
-   * @type { ?number } [deviceId] The ID of the input device that triggers the current event
+   * Default value: **0**
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10104,9 +9686,12 @@ declare interface BaseEvent {
   deviceId?: number;
 
   /**
-   * Indicates the screen ID on which the event occurred.
+   * ID of the screen where the event occurs.
    *
-   * @type { ?number } [targetDisplayId] The screen ID on which the event occurred.
+   * Default value: **0**
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10459,48 +10044,24 @@ declare class LayoutPolicy {
 }
 
 /**
- * The tap action triggers this method invocation.
+ * Inherits from [BaseEvent]{@link BaseEvent}.
  *
- * @extends BaseEvent
- * @interface ClickEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * The tap action triggers this method invocation.
- *
- * @extends BaseEvent
- * @interface ClickEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * The tap action triggers this method invocation.
- *
- * @extends BaseEvent
- * @interface ClickEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * The tap action triggers this method invocation.
- *
- * @extends BaseEvent
- * @interface ClickEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface ClickEvent extends BaseEvent {
+
   /**
-   * X coordinate of the point relative to the global display.
+   * X coordinate of the click position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10510,9 +10071,13 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the touch point in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10522,93 +10087,67 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the device screen.
+   * X coordinate of the click position in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * X coordinate of the click relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayX: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the device screen.
+   * Y coordinate of the click position in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Y coordinate of the click relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayY: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the current window.
+   * X coordinate of the click position in the coordinate system of the current application window. After
+   * distanceThreshold is set for **onClick**, the click position is the lift-off point.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * X coordinate of the click relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowX: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the current window.
+   * Y coordinate of the click position in the coordinate system of the current application window. After
+   * distanceThreshold is set for **onClick**, the click position is the lift-off point.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Y coordinate of the click relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowY: number;
 
   /**
-   * X coordinate of the click relative to the upper left corner of the application window.
+   * X coordinate of the click position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp
+   *
+   * Note: This API is supported since API version 7 and deprecated since API version 10. You are advised to use
+   * **windowX** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -10617,9 +10156,13 @@ declare interface ClickEvent extends BaseEvent {
   screenX: number;
 
   /**
-   * Y coordinate of the click relative to the upper left corner of the application window.
+   * Y coordinate of the click position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp
+   *
+   * Note: This API is supported since API version 7 and deprecated since API version 10. You are advised to use
+   * **windowY** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -10628,81 +10171,41 @@ declare interface ClickEvent extends BaseEvent {
   screenY: number;
 
   /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * X coordinate of the click position in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the clicked
+   * element. After [distanceThreshold]{@link CommonMethod#onClick(event: Callback<ClickEvent>, distanceThreshold: number)}
+   * is set for **onClick**, the click position is the lift-off point. If the event is triggered by a keyboard or gamepad
+   * device, the click position is the center of the clicked element.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
+   * Unit: vp
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * X coordinate of the click point relative to the left edge of the clicked element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   x: number;
 
   /**
-   * Y coordinate of the click point relative to the upper edge of the clicked element.
+   * Y coordinate of the click position in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the clicked
+   * element. After distanceThreshold is set for **onClick**, the click position is the lift-off point. If the event is
+   * triggered by a keyboard or gamepad device, the click position is the center of the clicked element.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Y coordinate of the click point relative to the left edge of the clicked element.
+   * Unit: vp
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Y coordinate of the click point relative to the left edge of the clicked element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Y coordinate of the click point relative to the left edge of the clicked element.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   y: number;
 
   /**
    * Whether the event is triggered by a left-hand or right-hand tap.
    *
-   * @type { InteractionHand }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10712,9 +10215,12 @@ declare interface ClickEvent extends BaseEvent {
   hand?: InteractionHand;
 
   /**
-   * Prevent the default function.
+   * Blocks the default event.
    *
-   * @type { function }
+   * Note: This API is only supported by the following components: **RichEditor** and **Hyperlink**. An exception is
+   * thrown when this API is used with unsupported components. Currently, asynchronous calls and Modifier APIs are not
+   * supported.
+   *
    * @throws { BusinessError } 100017 - Component does not support prevent function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10728,7 +10234,7 @@ declare interface ClickEvent extends BaseEvent {
    * Gets the coordinates of the top-left corner of the current component based on its real-time position.
    *
    * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
-   * real-time position.
+   *     real-time position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10739,29 +10245,22 @@ declare interface ClickEvent extends BaseEvent {
 }
 
 /**
- * The hover action triggers this method invocation.
+ * Inherits from [BaseEvent]{@link BaseEvent}.
  *
- * @extends BaseEvent
- * @interface HoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * The hover action triggers this method invocation.
- *
- * @extends BaseEvent
- * @interface HoverEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface HoverEvent extends BaseEvent {
+
   /**
-   * X coordinate of the hover point relative to the left edge of the hover element.
+   * X coordinate of the cursor or stylus position in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the current
+   * component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10770,9 +10269,12 @@ declare interface HoverEvent extends BaseEvent {
   x?: number;
 
   /**
-   * Y coordinate of the hover point relative to the upper edge of the hover element.
+   * Y coordinate of the cursor or stylus position in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the current
+   * component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10781,9 +10283,10 @@ declare interface HoverEvent extends BaseEvent {
   y?: number;
 
   /**
-   * X coordinate of the hover point relative to the left edge of the current window.
+   * X coordinate of the cursor or stylus position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10792,9 +10295,10 @@ declare interface HoverEvent extends BaseEvent {
   windowX?: number;
 
   /**
-   * Y coordinate of the hover point relative to the upper edge of the current window.
+   * Y coordinate of the cursor or stylus position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10803,9 +10307,10 @@ declare interface HoverEvent extends BaseEvent {
   windowY?: number;
 
   /**
-   * X coordinate of the hover point relative to the left edge of the device screen.
+   * X coordinate of the cursor or stylus position in the coordinate system of the current screen window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10814,9 +10319,10 @@ declare interface HoverEvent extends BaseEvent {
   displayX?: number;
 
   /**
-   * Y coordinate of the hover point relative to the upper edge of the device screen.
+   * Y coordinate of the cursor or stylus position in the coordinate system of the current screen window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10825,9 +10331,13 @@ declare interface HoverEvent extends BaseEvent {
   displayY?: number;
 
   /**
-   * X coordinate of the point relative to the global display.
+   * X coordinate of the cursor or stylus position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10847,81 +10357,51 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayY?: number;
 
   /**
-   * The blocking hover event pops up.
+   * Disables [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * The blocking hover event pops up.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   stopPropagation: () => void;
 }
 
 /**
- * The mouse click action triggers this method invocation.
+ * Inherits from [BaseEvent]{@link BaseEvent}.
  *
- * @extends BaseEvent
- * @interface MouseEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * The mouse click action triggers this method invocation.
- *
- * @extends BaseEvent
- * @interface MouseEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface MouseEvent extends BaseEvent {
+
   /**
-   * Mouse button of the click event.
+   * Mouse button.
    *
-   * @type { MouseButton }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse button of the click event.
-   *
-   * @type { MouseButton }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   button: MouseButton;
 
   /**
-   * Mouse action of the click event.
+   * Mouse action.
    *
-   * @type { MouseAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Mouse action of the click event.
-   *
-   * @type { MouseAction }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   action: MouseAction;
 
   /**
-   * X coordinate of the point relative to the global display.
+   * X coordinate of the mouse position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10930,9 +10410,13 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the cursor in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10941,85 +10425,61 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the mouse point relative to the left edge of the device screen.
+   * X coordinate of the mouse position in the coordinate system of the current screen window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayX: number;
 
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the device screen.
+   * Y coordinate of the mouse position in the coordinate system of the current screen window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayY: number;
 
   /**
-   * X coordinate of the mouse point relative to the left edge of the current window.
+   * X coordinate of the mouse position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowX: number;
 
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the current window.
+   * Y coordinate of the mouse position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowY: number;
 
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application window.
+   * X coordinate of the mouse position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
+   * Note: This API is supported since API version 8 and deprecated since API version 10. You are advised to use
+   * **windowX** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -11028,9 +10488,13 @@ declare interface MouseEvent extends BaseEvent {
   screenX: number;
 
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application window.
+   * Y coordinate of the mouse position in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
+   * Note: This API is supported since API version 8 and deprecated since API version 10. You are advised to use
+   * **windowY** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -11039,63 +10503,51 @@ declare interface MouseEvent extends BaseEvent {
   screenY: number;
 
   /**
-   * X coordinate of the mouse point relative to the left edge of the mouse hit element.
+   * X coordinate of the mouse point in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the event-
+   * responsive component.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   * Unit: vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   x: number;
 
   /**
-   * Y coordinate of the mouse point relative to the upper edge of the mouse hit element.
+   * Y coordinate of the mouse point in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the event-
+   * responsive component.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the component being clicked.
+   * Unit: vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   y: number;
 
   /**
-   * The blocking event pops up.
+   * Disables [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Stops the event from bubbling upwards or downwards.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   stopPropagation: () => void;
 
   /**
-   * The movement increment of the mouse device along the X-axis in a two-dimensional plane.
-   * Its value represents the raw movement data from the mouse device, expressed in units of physical
-   * distance in the real world. The reported value is determined by the hardware itself and does not
-   * correspond to the physical or logical pixels on the screen.
+   * Movement increment of the mouse along the X axis in a two-dimensional plane. The value is the original movement
+   * data of the mouse hardware, which is expressed in the unit of the mouse movement distance in the physical world.
+   * The reported value is determined by the hardware, not the physical or logical pixels of the screen.
    *
-   * @type { ?number }
+   * **NOTE**
+   *
+   * Before API version 26.0.0, the return value of **rawDeltaX** was not the original movement data of the mouse
+   * hardware, but the original data reduced by a factor of X, where X is the system's display size ratio. Since API
+   * version 26.0.0, the return value of **rawDeltaX** is the original movement data of the mouse hardware.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11104,12 +10556,16 @@ declare interface MouseEvent extends BaseEvent {
   rawDeltaX?: number;
 
   /**
-   * The movement increment of the mouse device along the Y-axis in a two-dimensional plane.
-   * Its value represents the raw movement data from the mouse device, expressed in units of physical
-   * distance in the real world. The reported value is determined by the hardware itself and does not
-   * correspond to the physical or logical pixels on the screen.
+   * Movement increment of the mouse along the Y axis in a two-dimensional plane. The value is the original movement
+   * data of the mouse hardware, which is expressed in the unit of the mouse movement distance in the physical world.
+   * The reported value is determined by the hardware, not the physical or logical pixels of the screen.
    *
-   * @type { ?number }
+   * **NOTE**
+   *
+   * Before API version 26.0.0, the return value of **rawDeltaY** was not the original movement data of the mouse
+   * hardware, but the original data reduced by a factor of X, where X is the system's display size ratio. Since API
+   * version 26.0.0, the return value of **rawDeltaY** is the original movement data of the mouse hardware.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11118,9 +10574,8 @@ declare interface MouseEvent extends BaseEvent {
   rawDeltaY?: number;
 
   /**
-   * Array of all mouse buttons that are currently pressed.
+   * Set of buttons being pressed.
    *
-   * @type { ?MouseButton[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11132,7 +10587,7 @@ declare interface MouseEvent extends BaseEvent {
    * Gets the coordinates of the top-left corner of the current component based on its real-time position.
    *
    * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
-   * real-time position.
+   *     real-time position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11142,10 +10597,19 @@ declare interface MouseEvent extends BaseEvent {
   getCurrentLocalPosition?(): Coordinate2D;
 
   /**
-   * The unique handle for the event processing session. This handle must be used for any further operations on the
-   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   * Unique identifier for event processing.
    *
-   * @type { ?number }
+   * Value range: [0, +∞)
+   *
+   * **NOTE**
+   *
+   * This field is used when dispatching events using the
+   * [postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy} API. Each time an event is
+   * dispatched, this field is increased by 100000.
+   *
+   * Using the same **eventHandleId** for multiple event dispatches will cause abnormal event responses. This field only
+   * needs to be assigned when constructing an event; developers do not need to handle it in other cases.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11155,9 +10619,17 @@ declare interface MouseEvent extends BaseEvent {
   eventHandleId?: number;
 
   /**
-   * Obtains all historical points of the current frame.
+   * Obtains all historical point information of the current frame. Historical points can be used to achieve smoother
+   * drawing effects.
    *
-   * @returns { Array<MouseHistoricalPoint> } - All historical points of the mouse event.
+   * This API can only be called from [MouseEvent]{@link MouseEvent} to obtain information about historical points of
+   * the current frame when [onMouse]{@link CommonMethod#onMouse} is triggered. The mouse event reporting frequency per
+   * frame varies across different devices. Typically, only one mouse event is reported per frame. If the number of
+   * [MouseEvent]{@link MouseEvent} instances received in the current frame is greater than 1, the last point of that
+   * frame is returned via [onMouse]{@link CommonMethod#onMouse}, and the remaining points are treated as historical
+   * points.
+   *
+   * @returns { Array<MouseHistoricalPoint> } Array of all historical point information for the current frame.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11168,7 +10640,18 @@ declare interface MouseEvent extends BaseEvent {
 }
 
 /**
- * Defines the historical point information for mouse event.
+ * Mouse event historical point information.
+ *
+ * Historical points are arranged in chronological order. The first historical point obtained is the earliest event, and
+ * the last is the most recent event. The number of historical points depends on the system event queue configuration
+ * and hardware performance. Historical points are mainly used for the following scenarios:
+ *
+ * 1. Smooth drawing: Historical points enable smoother drawing effects, especially when the mouse moves quickly.
+ * 2. Gesture recognition: By analyzing the trajectory of historical points, various mouse gestures can be recognized.
+ * 3. Performance optimization: Processing multiple historical points in one event callback reduces event processing
+ * frequency and improves performance.
+ * 4. Trajectory analysis: Analyzing mouse movement trajectories for drawing applications or gesture control.
+ * 5. Data analysis: The **timestamp** in historical points can be used to calculate mouse movement speed.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11176,8 +10659,11 @@ declare interface MouseEvent extends BaseEvent {
  * @since 26.0.0 dynamic
  */
 declare interface MouseHistoricalPoint {
+
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the current component, in vp.
+   * X coordinate of the mouse pointer relative to the upper-left corner of the clicked component.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11187,7 +10673,9 @@ declare interface MouseHistoricalPoint {
   x: double;
 
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the current component, in vp.
+   * Y coordinate of the mouse pointer relative to the upper-left corner of the clicked component.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11197,7 +10685,9 @@ declare interface MouseHistoricalPoint {
   y: double;
 
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application screen, in vp.
+   * X coordinate of the mouse pointer relative to the upper-left corner of the entire screen.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11207,7 +10697,9 @@ declare interface MouseHistoricalPoint {
   displayX: double;
 
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application screen, in vp.
+   * Y coordinate of the mouse pointer relative to the upper-left corner of the entire screen.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11217,7 +10709,9 @@ declare interface MouseHistoricalPoint {
   displayY: double;
 
   /**
-   * X coordinate of the mouse pointer relative to the upper left corner of the application window, in vp.
+   * X coordinate of the mouse pointer relative to the upper-left corner of the application window.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11227,7 +10721,9 @@ declare interface MouseHistoricalPoint {
   windowX: double;
 
   /**
-   * Y coordinate of the mouse pointer relative to the upper left corner of the application window, in vp.
+   * Y coordinate of the mouse pointer relative to the upper-left corner of the application window.
+   *
+   * Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11237,7 +10733,11 @@ declare interface MouseHistoricalPoint {
   windowY: double;
 
   /**
-   * X coordinate of the point relative to the global display, in vp.
+   * X coordinate of the mouse position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
+   *
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11246,7 +10746,11 @@ declare interface MouseHistoricalPoint {
   globalDisplayX: double;
 
   /**
-   * Y coordinate of the point relative to the global display, in vp.
+   * Y coordinate of the mouse position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
+   *
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11256,6 +10760,8 @@ declare interface MouseHistoricalPoint {
 
   /**
    * Timestamp of the mouse event.
+   *
+   * Unit: ns
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11373,9 +10879,13 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the mouse position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -11387,84 +10897,41 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
 /**
  * Type of the touch event.
  *
- * @interface TouchObject
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Type of the touch event.
- *
- * @interface TouchObject
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Type of the touch event.
- *
- * @interface TouchObject
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface TouchObject {
+
   /**
    * Type of the touch event.
    *
-   * @type { TouchType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Type of the touch event.
-   *
-   * @type { TouchType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Type of the touch event.
-   *
-   * @type { TouchType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   type: TouchType;
 
   /**
-   * Finger unique identifier.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Finger unique identifier.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Unique identifier of a finger.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   id: number;
 
   /**
-   * X coordinate of the point relative to the global display.
+   * X coordinate of the touch point in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11474,9 +10941,13 @@ declare interface TouchObject {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the click position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11486,93 +10957,65 @@ declare interface TouchObject {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * X coordinate of the touch point in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * X coordinate of the touch point relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayX: number;
 
   /**
-   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * Y coordinate of the touch point in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper left corner of the application screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   displayY: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the current window.
+   * X coordinate of the touch point in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * X coordinate of the touch point relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowX: number;
 
   /**
-   * Y coordinate of the touch point relative to the upper edge of the current window.
+   * Y coordinate of the touch point in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper left corner of the application window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   windowY: number;
 
   /**
-   * X coordinate of the touch point relative to the upper left corner of the application window.
+   * X coordinate of the touch point in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
+   * Note: This API is supported since API version 7 and deprecated since API version 10. You are advised to use
+   * **windowX** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -11581,9 +11024,13 @@ declare interface TouchObject {
   screenX: number;
 
   /**
-   * Y coordinate of the touch point relative to the upper left corner of the application window.
+   * Y coordinate of the touch point in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
+   * Note: This API is supported since API version 7 and deprecated since API version 10. You are advised to use
+   * **windowY** instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -11592,73 +11039,49 @@ declare interface TouchObject {
   screenY: number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the touched element.
+   * X coordinate of the touch point in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the event-
+   * responsive component.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the touched element.
+   * Unit: vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * X coordinate of the touch point relative to the upper left corner of the event responding component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   x: number;
 
   /**
-   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * Y coordinate of the touch point in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the event-
+   * responsive component.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper edge of the touched element.
+   * Unit: vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper left corner of the event responding component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   y: number;
 
   /**
-   * Whether the event is triggered by a left-hand or right-hand tap.
+   * Whether the event was triggered by a left-hand or right-hand tap.
    *
-   * @type { InteractionHand }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 15 dynamic
    */
-    hand?: InteractionHand;
+  hand?: InteractionHand;
 
   /**
    * Time when the finger is pressed.
    *
-   * @type { ?number }
+   * Unit: ns
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11666,22 +11089,25 @@ declare interface TouchObject {
    * @since 15 dynamic
    */
   pressedTime?: number;
+
   /**
- * Pressure value of the finger press.
- *
- * @type { ?number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 15 dynamic
- */
+   * Pressure value of finger contact.
+   *
+   * Value range: [0, 65535), where higher values indicate stronger pressure.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
   pressure?: number;
 
   /**
-   * Width of the area pressed by the finger.
+   * Width of the finger contact area.
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11691,9 +11117,10 @@ declare interface TouchObject {
   width?: number;
 
   /**
-   * Height of the area pressed by the finger.
+   * Height of the finger contact area.
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11706,7 +11133,7 @@ declare interface TouchObject {
    * Gets the coordinates of the top-left corner of the current component based on its real-time position.
    *
    * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
-   * real-time position.
+   *     real-time position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11717,267 +11144,151 @@ declare interface TouchObject {
 }
 
 /**
- * TouchObject getHistoricalPoints Function Parameters
+ * Provides historical touch point information.
  *
- * @interface HistoricalPoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * TouchObject getHistoricalPoints Function Parameters
- *
- * @interface HistoricalPoint
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface HistoricalPoint {
+
   /**
-   * The base touchObject information of historicalPoint
+   * Basic touch event information for the historical point.
    *
-   * @type { TouchObject }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The base touchObject information of historicalPoint
-   *
-   * @type { TouchObject }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   touchObject: TouchObject;
 
   /**
-   * Contact area between the finger pad and the screen.
+   * Size of the contact area size between the finger and screen in the touch event corresponding to the historical
+   * point.
    *
-   * @type { number }
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Contact area between the finger pad and the screen.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   size: number;
 
   /**
-   * Pressure of the touch event.
+   * Touch pressure value of the historical point.
    *
-   * @type { number }
+   * Default value: **0**
+   *
+   * Value range: [0, 65535), where higher values indicate stronger pressure.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pressure of the touch event.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   force: number;
 
   /**
-   * Timestamp of the touch event.
+   * Timestamp of the touch event corresponding to the historical point, representing the time interval from system boot
+   * when the event is triggered.
    *
-   * @type { number }
+   * Unit: ns
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Timestamp of the touch event.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   timestamp: number;
 }
 
 /**
- * Touch Action Function Parameters
+ * Inherits from [BaseEvent]{@link BaseEvent}. In non-event injection scenarios, **changedTouches** contains points
+ * resampled at the screen refresh rate, while **touches** contains points reported at the device's refresh rate. As
+ * such, **changedTouches** data may differ from **touches**.
  *
- * @extends BaseEvent
- * @interface TouchEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Touch Action Function Parameters
- *
- * @extends BaseEvent
- * @interface TouchEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Touch Action Function Parameters
- *
- * @extends BaseEvent
- * @interface TouchEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface TouchEvent extends BaseEvent {
+
   /**
    * Type of the touch event.
    *
-   * @type { TouchType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Type of the touch event.
-   *
-   * @type { TouchType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Type of the touch event.
-   *
-   * @type { TouchType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   type: TouchType;
 
   /**
-   * All finger information.
+   * Information about all touch points (for multi-touch). Each element represents one touch point. When using this
+   * property, you need to check whether it is empty.
    *
-   * @type { TouchObject[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * All finger information.
-   *
-   * @type { TouchObject[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * All finger information.
-   *
-   * @type { TouchObject[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   touches: TouchObject[];
 
   /**
-   * Indicates the current changed finger information.
+   * Information about touch points that changed and triggered the event. When using this property, you need to check
+   * whether it is empty.
    *
-   * @type { TouchObject[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates the current changed finger information.
-   *
-   * @type { TouchObject[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Finger information changed.
-   *
-   * @type { TouchObject[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   changedTouches: TouchObject[];
 
   /**
-   * The blocking event pops up.
+   * Disables [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The blocking event pops up.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Stops the event from bubbling upwards or downwards.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stopPropagation: () => void;
 
   /**
-   * Get the historical points.
+   * Obtains all historical touch points for the current frame. The touch event frequency per frame varies by device.
+   * This API can be called only in [TouchEvent]{@link TouchEvent}. This API is only available within
+   * [TouchEvent]{@link TouchEvent} during [onTouch]{@link CommonMethod#onTouch} invocations. Typically,
+   * [onTouch]{@link CommonMethod#onTouch} is invoked once per frame. If multiple [TouchEvent]{@link TouchEvent}
+   * instances are received in a single frame, the last point is returned through **onTouch**, and the remaining points
+   * are stored as historical points. For multi-touch events within the same frame, multiple** onTouch** calls may
+   * occur.
    *
-   * @returns { Array<HistoricalPoint> } - return all historical points.
+   * @returns { Array<HistoricalPoint> } Array of historical points.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains all historical points of the current frame.
-   *
-   * @returns { Array<HistoricalPoint> } - return all historical points.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getHistoricalPoints(): Array<HistoricalPoint>;
 
   /**
    * Blocks the default event.
    *
-   * @type { function }
+   * **NOTE**
+   *
+   * This API is only supported by the [Hyperlink]{@link hyperlink} component. Using it with unsupported
+   * components throws an exception. Asynchronous calls and **Modifier** API integration are not yet supported.
+   *
    * @throws { BusinessError } 100017 - Component does not support prevent function.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11988,10 +11299,19 @@ declare interface TouchEvent extends BaseEvent {
   preventDefault: () => void;
 
   /**
-   * The unique handle for the event processing session. This handle must be used for any further operations on the
-   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   * Unique identifier for event processing.
    *
-   * @type { ?number }
+   * Value range: [0, +∞)
+   *
+   * **NOTE**
+   *
+   * This field is used when dispatching events using the
+   * [postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy} API. Each time an event is
+   * dispatched, this field is increased by 100000.
+   *
+   * Using the same **eventHandleId** for multiple event dispatches will cause abnormal event responses. This field only
+   * needs to be assigned when constructing an event; developers do not need to handle it in other cases.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12002,20 +11322,18 @@ declare interface TouchEvent extends BaseEvent {
 }
 
 /**
- * The axis event triggers this method invocation.
+ * Describes the axis event object. Inherits from [BaseEvent]{@link BaseEvent}.
  *
- * @extends BaseEvent
- * @interface AxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 17 dynamic
  */
 declare interface AxisEvent extends BaseEvent {
+
   /**
-   * Axis action of the axis event.
+   * Action type of the axis event.
    *
-   * @type { AxisAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12024,9 +11342,13 @@ declare interface AxisEvent extends BaseEvent {
   action: AxisAction;
 
   /**
-   * X coordinate of the point relative to the global display.
+   * X coordinate of the cursor in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12035,9 +11357,13 @@ declare interface AxisEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the cursor or stylus position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12046,9 +11372,10 @@ declare interface AxisEvent extends BaseEvent {
   globalDisplayY?: number;
 
   /**
-   * X coordinate of the mouse cursor relative to the left edge of the device screen.
+   * X coordinate of the cursor in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12057,9 +11384,10 @@ declare interface AxisEvent extends BaseEvent {
   displayX: number;
 
   /**
-   * Y coordinate of the mouse cursor relative to the upper edge of the device screen.
+   * Y coordinate of the cursor in the coordinate system of the current application screen.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12068,9 +11396,10 @@ declare interface AxisEvent extends BaseEvent {
   displayY: number;
 
   /**
-   * X coordinate of the mouse cursor relative to the left edge of the current window.
+   * X coordinate of the cursor in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12079,9 +11408,10 @@ declare interface AxisEvent extends BaseEvent {
   windowX: number;
 
   /**
-   * Y coordinate of the mouse cursor relative to the upper edge of the current window.
+   * Y coordinate of the cursor in the coordinate system of the current application window.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12090,9 +11420,12 @@ declare interface AxisEvent extends BaseEvent {
   windowY: number;
 
   /**
-   * X coordinate of the mouse cursor relative to the left edge of the axis event hit element.
+   * X coordinate of the cursor in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the clicked
+   * element.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12101,9 +11434,12 @@ declare interface AxisEvent extends BaseEvent {
   x: number;
 
   /**
-   * Y coordinate of the mouse cursor relative to the upper edge of the axis event hit element.
+   * Y coordinate of the cursor in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) based on the clicked
+   * element.
    *
-   * @type { number }
+   * Unit: vp
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12112,9 +11448,10 @@ declare interface AxisEvent extends BaseEvent {
   y: number;
 
   /**
-   * Scroll step configuration which is only mouse wheel has.
-   *  *
-   * @type { ?number }
+   * Scroll step length for the mouse wheel.
+   *
+   * Note: Only the mouse wheel is supported. The value ranges from 0 to 65535.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12123,10 +11460,19 @@ declare interface AxisEvent extends BaseEvent {
   scrollStep?: number;
 
   /**
-   * The unique handle for the event processing session. This handle must be used for any further operations on the
-   * event. The system ensures that for a given finger, only one event with this handle can be active at a time.
+   * Unique identifier for event processing.
    *
-   * @type { ?number }
+   * Value range: [0, +∞)
+   *
+   * **NOTE**
+   *
+   * This field is used when dispatching events using the
+   * [postInputEventWithStrategy]{@link BuilderNode:BuilderNode#postInputEventWithStrategy} API. Each time an event is
+   * dispatched, this field is increased by 100000.
+   *
+   * Using the same **eventHandleId** for multiple event dispatches will cause abnormal event responses. This field only
+   * needs to be assigned when constructing an event; developers do not need to handle it in other cases.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12136,9 +11482,8 @@ declare interface AxisEvent extends BaseEvent {
   eventHandleId?: number;
 
   /**
-   * Active event bubbling.
+   * Enables [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12147,9 +11492,10 @@ declare interface AxisEvent extends BaseEvent {
   propagation: Callback<void>;
 
   /**
-   * Obtains the value of the horizontal scroll axis for this axis event.
+   * Obtains the horizontal axis value of this axis event.
    *
-   * @returns { number }
+   * @returns { number } Horizontal axis value.
+   *     <br>Unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12158,9 +11504,10 @@ declare interface AxisEvent extends BaseEvent {
   getHorizontalAxisValue(): number;
 
   /**
-   * Obtains the value of the vertical scroll axis for this axis event.
+   * Obtains the vertical axis value of this axis event.
    *
-   * @returns { number }
+   * @returns { number } Vertical axis value.
+   *     <br>Unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12169,9 +11516,14 @@ declare interface AxisEvent extends BaseEvent {
   getVerticalAxisValue(): number;
 
   /**
-   * Obtains the value of the pinch axis for this axis event.
+   * Obtains the two-finger pinch zoom ratio from the axis event.
    *
-   * @returns { number }
+   * @returns { number } Two-finger pinch zoom ratio.
+   *     <br> Note: This ratio is calculated as the current distance between two fingers during a touchpad pinch event
+   *     divided by the initial distance when the fingers first made contact.
+   *     <br>Default value: **0**.
+   *     <br>Value range: [0, +∞).
+   *     <br>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12180,10 +11532,11 @@ declare interface AxisEvent extends BaseEvent {
   getPinchAxisScaleValue(): number;
 
   /**
-   * Checks whether this event contains a specified axis type.
+   * Checks whether this axis event contains the specified axis type.
    *
-   * @param { AxisType } axisType - Indicates the axis type.
-   * @returns { boolean }
+   * @param { AxisType } axisType - Axis type to check for.
+   * @returns { boolean } Whether the axis event contains the specified axis type.
+   *     <br>**true** if the axis event contains the specified axis type; **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12195,7 +11548,7 @@ declare interface AxisEvent extends BaseEvent {
    * Gets the coordinates of the top-left corner of the current component based on its real-time position.
    *
    * @returns { Coordinate2D } - return the coordinates of the top-left corner of the current component based on its
-   * real-time position.
+   *     real-time position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -12207,10 +11560,9 @@ declare interface AxisEvent extends BaseEvent {
 
 /**
  * Defines the callback type used in onSizeChange.
- * <br>oldValue - the width and height of the component before the change.
- * <br>newValue - the width and height of the component after the change.
+ * The value of oldValue is last size of the component.
+ * The value of newValue is new size of the component.
  *
- * @typedef { function } SizeChangeCallback
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12221,44 +11573,32 @@ declare interface AxisEvent extends BaseEvent {
 declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions) => void;
 
 /**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
+ * Represents a custom gesture recognizer judgment callback type.
  *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
+ * @param { BaseGestureEvent } event - Information about the current basic gesture event.
+ * @param { GestureRecognizer } current - Gesture recognizer object that is about to respond.
+ * @param { Array<GestureRecognizer> } recognizers - Other gesture recognizer objects in the response chain.
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - Touch recognizers in the response chain. The default value is
+ *     **null**, indicating no responsive touch recognizers in the current gesture-bound component and its
+ *     descendants. [since 20]
+ * @returns { GestureJudgeResult } Judgment result indicating whether gesture recognition succeeds.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
+ * @since 12 dynamic
  */
-/**
- * Defines the callback type used in onGestureRecognizerJudgeBegin.
- *
- * @typedef { function } GestureRecognizerJudgeBeginCallback
- * @param { BaseGestureEvent } event - the event information
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain
- * @returns { GestureJudgeResult } the gesture judge result
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
- */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
-  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
- * Defines the callback type used in shouldBuiltInRecognizerParallelWith.
+ * Represents the callback used to set the parallel relationship between built-in gestures and gestures of other
+ * components in the response chain.
  *
- * @typedef { function } ShouldBuiltInRecognizerParallelWithCallback
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
- * @returns { GestureRecognizer } gesture recognizer of the component
+ * @param { GestureRecognizer } current - Built-in gesture recognizer of the current component. Currently only a built-
+ *     in gesture recognizer of the [GestureType]{@link GestureControl.GestureType}.PAN_GESTURE type is supported.
+ * @param { Array<GestureRecognizer> } others - Gesture recognizers of the same type from other components with higher
+ *     priority in the response chain.
+ * @returns { GestureRecognizer } Gesture recognizer that is bound in parallel with the current recognizer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12268,12 +11608,14 @@ declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, cur
 declare type ShouldBuiltInRecognizerParallelWithCallback = (current: GestureRecognizer, others: Array<GestureRecognizer>) => GestureRecognizer;
 
 /**
- * Defines the callback type used in shouldRecognizerParallelWith.
+ * Represents the callback used to set the parallel relationship between gestures of the current component and gestures
+ * of other components in the response chain.
  *
- * @typedef { function } ShouldRecognizerParallelWithCallback
- * @param { GestureRecognizer } current - the current gesture recognizer of the component
- * @param { Array<GestureRecognizer> } others - the gesture recognizers of the component on the response chain
- * @returns { GestureRecognizer } gesture recognizer of the component
+ * @param { GestureRecognizer } current - Gesture recognizer of the current component. Currently only a gesture
+ *     recognizer of the [GestureType]{@link GestureType}.PAN_GESTURE type is supported.
+ * @param { Array<GestureRecognizer> } others - Gesture recognizers of the same [GestureType]{@link GestureControl.GestureType} from
+ *     other components with higher priority in the response chain.
+ * @returns { GestureRecognizer } Gesture recognizer that is bound in parallel with the current recognizer.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12312,14 +11654,14 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
 declare type OnNeedSoftkeyboardCallback = () => boolean;
 
 /**
- * Defines the callback type used in onTouchTestDone.
- * When the user touch down, the system performs hit test process to collect all gesture recognizers
- * based on the press location, when the collection is completed, and before gesture begin to be recognizing,
- * the callback is triggered, you can get all recognizer's information from this callback.
+ * Represents the callback type for dynamically specifying gesture recognizer participation in gesture processing.
  *
- * @typedef { function } TouchTestDoneCallback
- * @param { BaseGestureEvent } event - the event information, basicly is the touch down information
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain
+ * @param { BaseGestureEvent } event - Basic gesture event information after
+ *     [hit testing](docroot://ui/arkts-interaction-basic-principles.md#hit-testing) completes.<br>**NOTE**<br>Only
+ *     **BaseGestureEvent** information is contained, excluding child class extensions.<br>The values of
+ *     **axisHorizontal** and **axisVertical** are **0**.
+ * @param { Array<GestureRecognizer> } recognizers - All gesture recognizers after
+ *     [hit testing](docroot://ui/arkts-interaction-basic-principles.md#hit-testing) completes.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12329,12 +11671,12 @@ declare type OnNeedSoftkeyboardCallback = () => boolean;
 declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Array<GestureRecognizer>) => void;
 
 /**
- * Defines the callback type used in onGestureCollectIntercept.
+ * Defines the callback type used in [onGestureCollectIntercept]{@link CommonMethod#onGestureCollectIntercept}.
  *
- * @typedef { function } GestureCollectInterceptCallback
- * @param { Array<GestureRecognizer> } recognizers - the gesture recognizers of the component on the response chain.
- * @param { Array<TouchRecognizer> } [touchRecognizers] - the touch recognizers of the component on the response chain.
- * @returns { GestureCollectIntervention } the gesture intervention.
+ * @param { Array<GestureRecognizer> } recognizers - Gesture recognizer objects of the component on the response chain.
+ * @param { Array<TouchRecognizer> } [touchRecognizers] - Touch recognizer objects of the component on the response
+ *     chain.<br>The default value is **null**.
+ * @returns { GestureCollectIntervention } Gesture collection intervention result.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12342,7 +11684,7 @@ declare type TouchTestDoneCallback = (event: BaseGestureEvent, recognizers: Arra
  * @since 26.0.0 dynamic
  */
 declare type GestureCollectInterceptCallback = (recognizers: Array<GestureRecognizer>,
-    touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
+   touchRecognizers?: Array<TouchRecognizer>) => GestureCollectIntervention;
 
 /**
  * Defines the PixelMap type object for ui component.
@@ -12388,101 +11730,56 @@ declare interface PixelMapMock {
 }
 
 /**
- * Enum for Drag Behavior.
+ * Describes the drag behavior. When [DragResult]{@link DragResult} is set to **DROP_ENABLED**, you can define
+ * **DragBehavior** as either **COPY** or **MOVE**. When **DragBehavior** is set to **COPY**, a plus sign will be
+ * displayed in the badge of the dragged object. When **DragBehavior** is set to **MOVE**, the plus sign will not be
+ * displayed. **DragBehavior** is used to indicate the intended way of handling data (either copy or move) without
+ * governing the actual data processing. This behavior is reported back to the drag source through **onDragEnd**,
+ * enabling the drag initiator to distinguish whether the operation results in a copy or a move of the data.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Enum for Drag Behavior.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Enum for Drag Behavior.
- * 
- * <strong>NOTE</strong>:<br>
- * DragBehavior serves to inform you about the intended method of data handling, 
- * whether it's a copy or a move, but it does not actually dictate the real processing of the data.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum DragBehavior {
+
   /**
-   * If drag use copy event, then set DragBehavior.COPY.
+   * The data is handled as a copy operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If drag use copy event, then set DragBehavior.COPY.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * If drag use copy event, then set DragBehavior.COPY.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   COPY = 0,
+
   /**
-   * If drag use move event, then set DragBehavior.MOVE.
+   * The data is handled as a move operation, effectively cutting it from its original location.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If drag use move event, then set DragBehavior.MOVE.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * If drag use move event, then set DragBehavior.MOVE.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   MOVE = 1
 }
 
 /**
- * Enum for Drag Animation Type.
+ * Enumerates drag animation types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 dynamic
  */
 declare enum DragAnimationType {
+
   /**
-   * Use the default animation during dragging.
+   * Default drag animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -12490,8 +11787,9 @@ declare enum DragAnimationType {
    * @since 26.0.0 dynamic
    */
   DEFAULT = 0,
+
   /**
-   * Use the follow-hand morph animation during dragging.
+   * Follow-hand morph drag animation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -12502,42 +11800,23 @@ declare enum DragAnimationType {
 }
 
 /**
- * Import the UnifiedData type object for ui component.
+ * Defines drag-related data.
  *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Import the UnifiedData type object for ui component.
- *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData } UnifiedData
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type UnifiedData = import('../api/@ohos.data.unifiedDataChannel').default.UnifiedData;
 
 /**
- * Import the Summary type object for ui component.
+ * Provides a summary of drag-related data.
  *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Import the Summary type object for ui component.
- *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.Summary } Summary
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Summary;
 
@@ -12547,24 +11826,15 @@ declare type Summary = import('../api/@ohos.data.unifiedDataChannel').default.Su
  * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Import the UniformDataType type object for ui component.
- *
- * @typedef { import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType } UniformDataType
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor').default.UniformDataType;
 
 /**
- * Import the GetDataParams type object for ui component.
+ * Defines the input parameter object for **startDataLoading**.
  *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams } GetDataParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12574,9 +11844,8 @@ declare type UniformDataType = import('../api/@ohos.data.uniformTypeDescriptor')
 declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').default.GetDataParams;
 
 /**
- * Import the DataLoadParams type object for ui component.
+ * Defines the data loading parameters used during a drop operation.
  *
- * @typedef { import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams } DataLoadParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -12586,33 +11855,16 @@ declare type DataSyncOptions = import('../api/@ohos.data.unifiedDataChannel').de
 declare type DataLoadParams = import('../api/@ohos.data.unifiedDataChannel').default.DataLoadParams;
 
 /**
- * Enum for Drag Result.
+ * Defines the result of a drag operation and the drop-selection state of a component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Enum for Drag Result.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Enum for Drag Result.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 14 dynamic
+ * @crossplatform [since 14]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum DragResult {
+
   /**
    * If the drag is not finished and the result is not set by receiver, return DragResult.UNKNOWN.
    *
@@ -12623,105 +11875,64 @@ declare enum DragResult {
    * @since 24 dynamic
    */
   UNKNOWN = -1,
+
   /**
-   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
+   * The drag is successful. This value applies to
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * If the drag is successful, return DragResult.DRAG_SUCCESSFUL.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DRAG_SUCCESSFUL = 0,
+
   /**
-   * If drag fail, return DragResult.DRAG_FAILED.
+   * The drag fails. This value applies to
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If drag fail, return DragResult.DRAG_FAILED.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * If drag fail, return DragResult.DRAG_FAILED.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DRAG_FAILED = 1,
+
   /**
-   * If drag action cancel, return DragResult.DRAG_CANCELED.
+   * The drag is canceled. This value applies to
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If drag action cancel, return DragResult.DRAG_CANCELED.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DRAG_CANCELED = 2,
+
   /**
-   * If node allow drop in, return DragResult.DROP_ENABLED.
+   * The component allows dropping. This value applies to [onDragEnter]{@link CommonMethod#onDragEnter},
+   * [onDragMove]{@link CommonMethod#onDragMove}, and [onDragLeave]{@link CommonMethod#onDragLeave}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If node allow drop in, return DragResult.DROP_ENABLED.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DROP_ENABLED = 3,
+
   /**
-   * If node don't allow drop in, return DragResult.DROP_DISABLED.
+   * The component does not allow dropping. This value applies to [onDragEnter]{@link CommonMethod#onDragEnter},
+   * [onDragMove]{@link CommonMethod#onDragMove}, and [onDragLeave]{@link CommonMethod#onDragLeave}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If node don't allow drop in, return DragResult.DROP_DISABLED.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DROP_DISABLED = 4
 }
@@ -13213,34 +12424,20 @@ declare enum EdgeLightMode {
 }
 
 /**
- * DragEvent object description
+ * Provides information about the drag event.
  *
- * @interface DragEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * DragEvent object description
- *
- * @interface DragEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
-/**
- * DragEvent object description
- *
- * @interface DragEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 14 dynamic
+ * @crossplatform [since 14]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface DragEvent {
+
   /**
-   * X coordinate of the point relative to the global display.
+   * Obtains the x-coordinate of the drag point relative to the upper left corner of the global screen.
    *
-   * @returns { number }
+   * @returns { number } X-coordinate of the drag point relative to the upper left corner of the global screen.
+   *     <br>Unit: vp. Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -13249,9 +12446,10 @@ declare interface DragEvent {
   getGlobalDisplayX(): number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Obtains the y-coordinate of the drag point relative to the upper left corner of the global screen.
    *
-   * @returns { number }
+   * @returns { number } Y-coordinate of the drag point relative to the upper left corner of the global screen.
+   *     <br>Unit: vp. Value range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -13260,125 +12458,60 @@ declare interface DragEvent {
   getGlobalDisplayY(): number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
+   * Obtains the x-coordinate of the drag point relative to the upper left corner of the screen.
    *
-   * @returns { number }
+   * @returns { number } X-coordinate of the drag point relative to the upper left corner of the screen, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the device screen.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getDisplayX(): number;
 
   /**
-   * Y coordinate of the touch point relative to the upper edge of the device screen.
+   * Obtains the y-coordinate of the drag point relative to the upper left corner of the screen.
    *
-   * @returns { number }
+   * @returns { number } Y-coordinate of the drag point relative to the upper left corner of the screen, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper edge of the device screen.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Y coordinate of the touch point relative to the upper edge of the device screen.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getDisplayY(): number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the current window.
+   * Obtains the x-coordinate of the drag point relative to the upper left corner of the window.
    *
-   * @returns { number }
+   * @returns { number } X coordinate of the drag point relative to the upper left corner of the window, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the current window.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * X coordinate of the touch point relative to the left edge of the current window.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getWindowX(): number;
 
   /**
-   * Y coordinate of the touch point relative to the left edge of the current window.
+   * Obtains the y-coordinate of the drag point relative to the upper left corner of the window.
    *
-   * @returns { number }
+   * @returns { number } Y-coordinate of the drag point relative to the upper left corner of the window, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Y coordinate of the touch point relative to the left edge of the current window.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Y coordinate of the touch point relative to the left edge of the current window.
-   *
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getWindowY(): number;
 
   /**
-   * X coordinate of the touch point relative to the left edge of the current window. in vp.
+   * Obtains the x-coordinate of the drag point relative to the upper left corner of the window, in vp.
    *
-   * @returns { number }
+   * > **NOTE**
+   *
+   * @returns { number } X-coordinate of the drag point relative to the upper left corner of the window.
+   *     <br>Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -13387,9 +12520,12 @@ declare interface DragEvent {
   getX(): number;
 
   /**
-   * Y coordinate of the touch point relative to the left edge of the current window. in vp.
+   * Obtains the y-coordinate of the drag point relative to the upper left corner of the window, in vp.
    *
-   * @returns { number }
+   * > **NOTE**
+   *
+   * @returns { number } Y-coordinate of the drag point relative to the upper left corner of the window.
+   *     <br>Unit: vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -13398,57 +12534,49 @@ declare interface DragEvent {
   getY(): number;
 
   /**
-   * If copy is COPY, this DragEvent is a copy event.
-   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
+   * Copy or paste mode.
+   *
+   * Default value: **DragBehavior.COPY**
+   *
    * @default COPY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If copy is COPY, this DragEvent is a copy event.
-   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-   * @default COPY
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * If copy is COPY, this DragEvent is a copy event.
-   * @type { DragBehavior } Operation, if use copy then set COPY, else set MOVE.
-   * @default COPY
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   dragBehavior: DragBehavior;
 
   /**
-   * If useCustomDropAnimation is true, System will not use drop animation.
+   * Whether to disable the default drop animation when the dragging ends.
    *
-   * @type { boolean }
+   * If this parameter is set to **true**, the default drop animation is disabled, and the custom one is used.
+   *
+   * If this parameter is not set or is set to **false**, the default drop animation takes effect. When [setResult]{@link DragEvent#setResult}
+   * is set to **DRAG_SUCCESSFUL**, a shrink-out animation takes effect. Otherwise, an expand-out animation takes effect.
+   *
+   * When the default drop animation is not disabled, avoid implementing custom animations to prevent conflicts.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * If useCustomDropAnimation is true, System will not use drop animation.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   useCustomDropAnimation: boolean;
 
-
   /**
-   * Sets the drag animation type.
-   * This property can only be set during onDragStart, but can be retrieved in any onDragXXX callback.
+   * Sets the drag animation type. This attribute can only be set during the
+   * [onDragStart]{@link CommonMethod#onDragStart} phase and can be obtained in the
+   * [onDragStart]{@link CommonMethod#onDragStart}, [onDragEnter]{@link CommonMethod#onDragEnter},
+   * [onDragMove]{@link CommonMethod#onDragMove}, [onDragLeave]{@link CommonMethod#onDragLeave},
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)}, and
+   * [onDragEnd]{@link CommonMethod#onDragEnd} callbacks.
+   *
+   * Default value: **DEFAULT**
+   *
+   * **System API:** This is a system API.
    *
    * @default DragAnimationType.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13473,256 +12601,150 @@ declare interface DragEvent {
   autoHideComponentUniqueIds?: int | int[];
 
   /**
-   * Set dragData into DragEvent.
+   * Sets drag-related data in **DragEvent**.
    *
-   * @param { UnifiedData } unifiedData - dragData.
+   * @param { UnifiedData } unifiedData - Drag-related data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set dragData into DragEvent.
-   *
-   * @param { UnifiedData } unifiedData - dragData.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   setData(unifiedData: UnifiedData): void;
 
   /**
-   * Get dragData from DragEvent.
+   * Obtains drag-related data.
    *
-   * @returns { UnifiedData } - get dragData.
+   * @returns { UnifiedData } Drag-related data. For details about the data obtaining result, see the error code
+   *     description.
    * @throws { BusinessError } 190001 - Data not found.
    * @throws { BusinessError } 190002 - Data error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get dragData from DragEvent.
-   *
-   * @returns { UnifiedData } - get dragData.
-   * @throws { BusinessError } 190001 - Data not found.
-   * @throws { BusinessError } 190002 - Data error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getData(): UnifiedData;
 
   /**
-   * Get dragData summary from DragEvent.
+   * Obtains a summary of drag data, including data type and size information. In a delayed drag scenario, only data
+   * type information can be obtained.
    *
-   * @returns { Summary } - get Summary Data.
+   * @returns { Summary } Summary of drag data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get dragData summary from DragEvent.
-   *
-   * @returns { Summary } - get Summary Data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getSummary(): Summary;
 
   /**
-   * Set dragEvent result to DragEvent.
+   * Sets the drag result in **DragEvent**.
    *
-   * @param { DragResult } dragResult - the return of dragEvent.
+   * @param { DragResult } dragResult - Drag result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set dragEvent result to DragEvent.
-   *
-   * @param { DragResult } dragResult - the return of dragEvent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set dragEvent result to DragEvent.
-   *
-   * @param { DragResult } dragResult - the return of dragEvent.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   setResult(dragResult: DragResult): void;
 
   /**
-   * Get dragEvent result from DragEvent.
+   * Obtains the drag result.
    *
-   * @returns { DragResult } - dragResult Data.
+   * @returns { DragResult } Drag result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get dragEvent result from DragEvent.
-   *
-   * @returns { DragResult } - dragResult Data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get dragEvent result from DragEvent.
-   *
-   * @returns { DragResult } - dragResult Data.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getResult(): DragResult;
 
   /**
-   * Get the rectangle of drag window.
+   * Obtains the position of the drag preview relative to the current window and the preview size.
    *
-   * @returns { Rectangle } - getPreview rectangle.
+   * @returns { Rectangle } Position of the drag preview relative to the current window and the preview size, in vp. x
+   *     and y indicate the window coordinates of the upper left corner of the preview, and width and height indicate
+   *     the preview size.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get the rectangle of drag window.
-   *
-   * @returns { Rectangle } - getPreview rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get the rectangle of drag window.
-   *
-   * @returns { Rectangle } - getPreview rectangle.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getPreviewRect(): Rectangle;
 
   /**
-   * Get the x axis velocity of drag gesture.
+   * Obtains the dragging velocity along the x-axis.
    *
-   * @returns { number } - get x axis velocity.
+   * @returns { number } Dragging velocity along the x-axis. The origin of the coordinate axis is the upper left corner
+   *     of the screen. The unit is vp. The velocity is positive if the movement is from left to right, and it is
+   *     negative if the movement is from right to left.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the x axis velocity of drag gesture.
-   *
-   * @returns { number } - get x axis velocity.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getVelocityX(): number;
 
   /**
-   * Get the y axis velocity of drag gesture.
+   * Obtains the dragging velocity along the y-axis.
    *
-   * @returns { number } - get y axis velocity.
+   * @returns { number } Dragging velocity along the y-axis. The origin of the coordinate axis is the upper left corner
+   *     of the screen. The unit is vp. The velocity is positive if the movement is from top to bottom, and it is
+   *     negative if the movement is from bottom to top.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the y axis velocity of drag gesture.
-   *
-   * @returns { number } - get y axis velocity.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getVelocityY(): number;
 
   /**
-   * Get the velocity of drag gesture.
+   * Obtains the dragging velocity along the main axis.
    *
-   * @returns { number } - get velocity.
+   * @returns { number } Dragging velocity along the main axis. The value is the arithmetic square root of the sum of
+   *     the squares of the velocities along the x-axis and y-axis, in vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the velocity of drag gesture.
-   *
-   * @returns { number } - get velocity.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getVelocity(): number;
 
   /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
+   * Obtains the pressed status of modifier keys.
    *
-   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @param { Array<string> } keys - Obtains the pressed status of modifier keys. For details about the error message,
+   *     see the following error codes. The following modifier keys are supported: 'Ctrl' | 'Alt' | 'Shift'.<br>**NOTE**
+   *     <br>This API is not supported in stylus scenarios.
+   * @returns { boolean } Whether the specified modifier keys are pressed. Returns **true** if the specified modifier
+   *     keys are pressed; returns **false** otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
+   *     verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 12
-   */
-  /**
-   * Query the ModifierKey press state, support 'ctrl'|'alt'|'shift'
-   *
-   * @param { Array<string> } keys - indicate the keys of the ModifierKey.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @atomicservice [since 13]
+   * @since 12 dynamic
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Setup one drop animation execution callback, which will be triggered by system when user drops.
-   * Use this way to implement the custom drop animation instead of doing it in onDrop, as the system
-   * will decide when to trigger the callback during the drop handling.
-   * [Note]:
-   *   1. Please set useCustomDropAnimation to true as well when using this method.
-   *   2. Do not implement the animation no-related logics in the callback.
+   * Sets the execution function of the custom drop animation. This parameter is valid only when
+   * [useCustomDropAnimation]{@link DragEvent#useCustomDropAnimation} is set to **true**.
    *
-   * @param { Callback<void> } customDropAnimation - the custom drop animation function.
+   * @param { Callback<void> } customDropAnimation - Custom drop animation in this callback.<br> **NOTE**<br>1. This API
+   *     is valid only in the **onDrop** callback.<br> 2. Before using this API, set **useCustomDropAnimation** to
+   *     **true**. Otherwise, this API does not take effect.<br> 3. Do not implement logic unrelated to the animation in
+   *     the animation callback to avoid affecting performance.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13732,14 +12754,34 @@ declare interface DragEvent {
   executeDropAnimation(customDropAnimation: Callback<void>): void;
 
   /**
-   * Setup one follow-hand morph drop animation execution callback, which will be triggered by system after the
-   * drag framework animation ends.
-   * [Note]:
-   *   1. This method is effective only when dragAnimationType is FOLLOW_HAND_MORPH.
-   *   2. Do not implement animation no-related logic in the callback.
+   * Sets a callback to be executed after the follow-hand morph drop animation is completed. This callback is triggered
+   * by the system after the drag framework animation ends. This callback uses an asynchronous callback.
    *
-   * @param { Callback<void> } onAnimationFinished - the callback triggered after framework animation ends.
-   * @param { string } [animationOption] - optional animation option payload that will be forwarded by framework.
+   * > **NOTE**
+   * >
+   * > 1. This API takes effect only when [dragAnimationType]{@link DragEvent#dragAnimationType} is
+   * > set to **DragAnimationType.FOLLOW_HAND_MORPH**.
+   * >
+   * > 2. Do not implement logic unrelated to the animation in the callback to avoid affecting execution efficiency.
+   *
+   * @param { Callback<void> } onAnimationFinished - Callback triggered after the drag framework animation ends.
+   * @param { string } [animationOption] - Drop animation parameters.<br>The parameter is a JSON string containing the
+   *     following fields:<br>**CubicCurveEnable**: boolean, indicating whether to enable the cubic curve animation. Set
+   *     to **true** to enable it, or **false** to disable it.<br>**SpringEnable**: boolean, indicating whether to
+   *     enable the spring animation. Set to **true** to enable it, or **false** to disable it.<br>
+   *     **dropAnimationCurve**: number[], indicating the drop animation curve parameters. Its meaning depends on
+   *     **SpringEnable** and **CubicCurveEnable** (with **SpringEnable** having higher priority). When **SpringEnable**
+   *     is **true**, the array length is 3, in the format of [response, dampingRatio, blendDuration], corresponding to
+   *     the spring curve parameters of [curves.springMotion]{@link @ohos.curves:curves.springMotion}. When
+   *     **SpringEnable** is **false** and **CubicCurveEnable** is **true**, the array length is 4, in the format of
+   *     [x1, y1, x2, y2], corresponding to the cubic Bezier curve control point parameters of
+   *     [curves.cubicBezierCurve]{@link @ohos.curves:curves.cubicBezierCurve}.<br>**NOTE:** **SpringEnable** takes
+   *     priority over **CubicCurveEnable**. When both are **true**, the spring animation prevails. When neither
+   *     **SpringEnable** nor **CubicCurveEnable** is correctly set, the default spring animation is used.<br>
+   *     **dropPosition**: number[], indicating the drop position coordinates. The array length is 2, in the format of
+   *     [x, y], in px, representing the target position coordinates of the dragged element when it drops. Value range:
+   *     (-∞, +∞).<br>**dropSize**: number[], indicating the drop size. The array length is 2, in the format of
+   *     [width, height], in px, representing the target size of the dragged element when it drops. Value range: (0, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -13748,11 +12790,14 @@ declare interface DragEvent {
   executeFollowHandMorphDropAnimation(onAnimationFinished: Callback<void>, animationOption?: string): void;
 
   /**
-   * Request the drag data to be synchronized to caller, can be notified with the synchronization progress.
-   * Only can be used in onDrop event processing.
+   * Asynchronously obtains drag data and notifies you of the current data synchronization progress. This API is only
+   * supported in the **onDrop** callback.
    *
-   * @param { DataSyncOptions } options - the data sync options.
-   * @returns { string } The data key returned by system, which can be used as the identify of the request.
+   * @param { DataSyncOptions } options - Parameters for obtaining drag data, including the target path, file conflict
+   *     options, and progress bar type. You can use the
+   *     [cancelDataLoading]{@link @ohos.arkui.UIContext:DragController#cancelDataLoading} API to cancel data loading
+   *     during data transmission.
+   * @returns { string } Identifier for the drag data. It is used to distinguish between different drag operations.
    * @throws { BusinessError } 401 - Parameter error.
    * @throws { BusinessError } 190003 - Operation not allowed for current phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13763,9 +12808,9 @@ declare interface DragEvent {
   startDataLoading(options: DataSyncOptions): string;
 
   /**
-   * Retrieve the bundle information of the drag source application.
+   * Obtains the package name of the drag source application.
    *
-   * @returns { string }
+   * @returns { string } Package name of the drag source application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -13774,9 +12819,10 @@ declare interface DragEvent {
   getDragSource(): string;
 
   /**
-   * Call this method to determine whether the current drag operation is a cross-device drag.
+   * Checks whether the drag operation is cross-device.
    *
-   * @returns { boolean }
+   * @returns { boolean } Whether the drag operation is cross-device. Returns **true** for cross-device drag operations;
+   *     returns **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -13785,9 +12831,10 @@ declare interface DragEvent {
   isRemote(): boolean;
 
   /**
-   * Get the id of display which the drag event is occuring on.
+   * Obtains the ID of the screen where the current drag event occurs. This API is not supported in the
+   * [onDragEnd]{@link CommonMethod#onDragEnd} callback.
    *
-   * @returns { number }
+   * @returns { number } ID of the screen where the current drag event occurs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13795,32 +12842,29 @@ declare interface DragEvent {
    * @since 20 dynamic
    */
   getDisplayId(): number;
-  
+
   /**
-   * Use this method to provide a data representation to the system instead of directly providing a complete data
-   * object. When the user releases the drag over the target application, the system will use this data
-   * representation to request the actual data from drag source. This approach significantly improves the
-   * efficiency of initiating drag operations for large volumes of data and enhances the effectiveness of data
-   * reception. It is recommended to use this method instead of the setData method.
+   * Sets the parameters for deferred data loading from the drag source. This API provides data loading parameters to
+   * the system instead of directly providing complete data objects. When the user drops data on the target application,
+   * the system will use these parameters to request the actual data from the drag source. If this API is used together
+   * with [setData]{@link DragEvent#setData}, the last called API takes precedence. This API takes effect only in the
+   * [onDragStart]{@link CommonMethod#onDragStart} callback.
    *
-   * @param { DataLoadParams } dataLoadParams The data backend representation.
+   * @param { DataLoadParams } dataLoadParams - Data loading parameters used during a drop operation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
    */
   setDataLoadParams(dataLoadParams: DataLoadParams): void;
-  
+
   /**
-   * Enable the internal drop animation, which is only avaiable for system applications.
-   *
-   * The animations' configuration need to be provided through the input paramerter, and it is a string in json format.
-   *
-   * This method can only be called in onDrop, and please do not use custom drop animation after this method,
-   * as it will reset the calling result, and use custom drop animation insteadly.
+   * Sets whether to enable the system's built-in drop animation effect. This API is available only to system
+   * applications and can only be used during the **onDrop** phase.
    *
    * @param { string } configuration - the internal drop animation's configuration.
-   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses system API.
+   * @throws { BusinessError } 202 - Permission verification failed, application which is not a system application uses
+   *     system API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 190003 - Operation not allowed for current phase.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -13832,10 +12876,11 @@ declare interface DragEvent {
 }
 
 /**
- * The event callback function for drag and drop common interfaces.
- * @typedef { function } OnDragEventCallback
- * @param { DragEvent } event - the event object indicating current drag status.
- * @param { string } [extraParams] - extra information set by user or system.
+ * Defines a callback for drag events.
+ *
+ * @param { DragEvent } event - **event**: drag event information, including the coordinates of the drag point.
+ * @param { string } [extraParams] - **extraParams**: additional information about the drag event. Its value must be
+ *     parsed into JSON format.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13845,9 +12890,8 @@ declare interface DragEvent {
 declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => void;
 
 /**
- * Defines the options for the drop handling.
+ * Sets parameters for the drop process.
  *
- * @interface DropOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13857,16 +12901,13 @@ declare type OnDragEventCallback = (event: DragEvent, extraParams?: string) => v
 declare interface DropOptions {
 
   /**
-   * Indicating to disable the UDMF data prefetch action by system or not.
-   * The system will try to fetch data before calling user's onDrop for some situation,
-   * it will retry to get data until the max time limit (2.4s for now) reaches,
-   * this's useful for the cross device draging operation, as the system helps to eliminate
-   * the communication instability, but it's redundant for startDataLoading method, as this
-   * method will take care the data fetching with asynchronous mechanism, so must set this
-   * field to true if using startDataLoading in onDrop to avoid the data is fetched before
-   * onDrop executing unexpectedly.
+   * Whether to disable data prefetching for the drag-and-drop operation. The value **true** means to disable data
+   * prefetching for the drag-and-drop operation, and **false** means the opposite. Default value: **false**.
    *
-   * @type { boolean }
+   * **NOTE**
+   *
+   * Set this parameter to **true** when using [startDataLoading]{@link DragEvent#startDataLoading} to enable data prefetching.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13877,310 +12918,145 @@ declare interface DropOptions {
 }
 
 /**
- * Import the IntentionCode type object for IntentionCode.
+ * Intention corresponding to the key.
  *
- * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Import the IntentionCode type object for IntentionCode.
- *
- * @typedef { import('../api/@ohos.multimodalInput.intentionCode').IntentionCode } IntentionCode
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare type IntentionCode = import('../api/@ohos.multimodalInput.intentionCode').IntentionCode;
 
 /**
- * KeyEvent object description:
+ * KeyEvent object description.
  *
- * @interface KeyEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * KeyEvent object description:
- *
- * @interface KeyEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * KeyEvent object description:
- *
- * @interface KeyEvent
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface KeyEvent {
+
   /**
-   * Type of a key.
+   * Key type.
    *
-   * @type { KeyType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Type of a key.
-   *
-   * @type { KeyType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Type of a key.
-   *
-   * @type { KeyType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   type: KeyType;
 
   /**
-   * Key code of a key
+   * Key value. For details about the key values provided by the key-based input devices, see
+   * [KeyCode]{@link @ohos.multimodalInput.keyCode:KeyCode}.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Key code of a key
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Key code of a key
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   keyCode: number;
 
   /**
-   * Key value of a key.
+   * Name of the key.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Key value of a key.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Key value of a key.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   keyText: string;
 
   /**
-   * Type of the input device that triggers the current key, such as the keyboard or handle.
+   * Type of the input device that triggers the key event.
    *
-   * @type { KeySource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Type of the input device that triggers the current key, such as the keyboard or handle.
-   *
-   * @type { KeySource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Type of the input device that triggers the current key, such as the keyboard or handle.
-   *
-   * @type { KeySource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   keySource: KeySource;
 
   /**
-   * Indicates the ID of the input device that triggers the current key.
+   * ID of the input device that triggers the key event.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates the ID of the input device that triggers the current key.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the ID of the input device that triggers the current key.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   deviceId: number;
 
   /**
-   * Indicates the status of the key when the key is pressed.
-   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
+   * State of the Meta key (the key located next to the **Ctrl** key in the lower left corner of the keyboard, or the
+   * key marked with a window logo) when the key event occurs. The value **1** indicates that the Meta key is pressed,
+   * and **0** indicates that it is not pressed.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates the status of the key when the key is pressed.
-   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates the status of the key when the key is pressed.
-   * The value 1 indicates the pressed state, and the value 0 indicates the unpressed state.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   metaKey: number;
 
   /**
-   * Timestamp when the key was pressed.
+   * Timestamp of the event. It is the interval between the time when the event is triggered and the time when the
+   * system starts, in nanoseconds.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Timestamp when the key was pressed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Timestamp when the key was pressed.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   timestamp: number;
 
   /**
-   * Block event bubbling.
+   * Blocks [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Block event bubbling.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Block event bubbling.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stopPropagation: () => void;
 
   /**
-   * Intention code of a key or modifier keys.
+   * Intention corresponding to the key.
    *
-   * @type { IntentionCode }
+   * Default value: **IntentionCode.INTENTION_UNKNOWN**.
+   *
    * @default IntentionCode.INTENTION_UNKNOWN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Intention code of a key or modifier keys.
-   *
-   * @type { IntentionCode }
-   * @default IntentionCode.INTENTION_UNKNOWN
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   intentionCode: IntentionCode;
 
   /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
+   * Obtains the pressed status of modifier keys.
    *
-   * @param { Array<string> } keys - indicate the modifier keys.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
+   * @param { Array<string> } keys - Obtains the pressed status of modifier keys. For details about the error message,
+   *     see the following error codes. The following modifier keys are supported: 'Ctrl'| 'Alt' | 'Shift'.<br>**NOTE**<
+   *     br>This API is not supported in stylus scenarios.
+   * @returns { boolean } Whether the modifier key is pressed. **true** if the modifier key is pressed; **false**
+   *     otherwise.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter
+   *     verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 12
-   */
-  /**
-   * Get the modifier keys press state, support 'ctrl'|'alt'|'shift'
-   *
-   * @param { Array<string> } keys - indicate the modifier keys.
-   * @returns { boolean }
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types. 2. Parameter verification failed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @atomicservice [since 13]
+   * @since 12 dynamic
    */
   getModifierKeyState?(keys: Array<string>): boolean;
 
   /**
-   * Unicode of a key
+   * Unicode value of the key. Non-space basic Latin characters in the 0x0021-0x007E range are supported. Characters
+   * with a value of 0 are not supported. In the case of key combination, this API returns the Unicode value of the key
+   * corresponding to the key event.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14189,9 +13065,8 @@ declare interface KeyEvent {
   unicode?: number;
 
   /**
-   * Whether Num Lock is on
+   * NumLock state. **true**: locked. **false**: unlocked.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14200,9 +13075,8 @@ declare interface KeyEvent {
   isNumLockOn?: boolean;
 
   /**
-   * Whether Caps Lock is on
+   * CapsLock state. **true**: locked. **false**: unlocked.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14211,9 +13085,8 @@ declare interface KeyEvent {
   isCapsLockOn?: boolean;
 
   /**
-   * Whether Scroll Lock is on
+   * ScrollLock state. **true**: locked. **false**: unlocked.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14223,20 +13096,18 @@ declare interface KeyEvent {
 }
 
 /**
- * Focus axis event object description.
+ * Describes the focus axis event object. Inherits from [BaseEvent]{@link BaseEvent}.
  *
- * @extends BaseEvent
- * @interface FocusAxisEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 15 dynamic
  */
 declare interface FocusAxisEvent extends BaseEvent {
+
   /**
-   * The axis values of axis event.
+   * Axis value table of the focus axis event.
    *
-   * @type { Map<AxisModel, number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14245,9 +13116,8 @@ declare interface FocusAxisEvent extends BaseEvent {
   axisMap: Map<AxisModel, number>;
 
   /**
-   * The blocking event pops up.
+   * Blocks [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14257,19 +13127,21 @@ declare interface FocusAxisEvent extends BaseEvent {
 }
 
 /**
- * CrownEvent object description
+ * Defines a data structure for the crown event received by a component. It includes the timestamp, angular velocity,
+ * rotation angle, crown action, and event propagation disabling.
  *
- * @interface CrownEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 18 dynamic
  */
 declare interface CrownEvent {
+
   /**
-   *The timestamp of the rotating crown event.
+   * Timestamp.
    *
-   * @type { number }
+   * Unit: ns
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14278,9 +13150,10 @@ declare interface CrownEvent {
   timestamp: number;
 
   /**
-   * The angular velocity of a rotating crown.
+   * Angular velocity.
    *
-   * @type { number }
+   * Unit: deg/s
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14289,9 +13162,12 @@ declare interface CrownEvent {
   angularVelocity: number;
 
   /**
-   * The rotation angle of the rotating crown.
+   * Relative rotation angle.
    *
-   * @type { number }
+   * Unit: deg
+   *
+   * Value range: [-360, 360]
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14300,9 +13176,8 @@ declare interface CrownEvent {
   degree: number;
 
   /**
-   * The behavior of rotating crown.
+   * Crown action.
    *
-   * @type { CrownAction }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -14311,9 +13186,8 @@ declare interface CrownEvent {
   action: CrownAction;
 
   /**
-   * The blocking event pops up.
+   * Disables [event bubbling](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) propagation.
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -20951,9 +19825,8 @@ declare interface DragInteractionOptions {
 }
 
 /**
- * Defines the drag preview configuration.
+ * Configures the style of the preview image during custom drag operations.
  *
- * @interface PreviewConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -20961,10 +19834,19 @@ declare interface DragInteractionOptions {
  * @since 15 dynamic
  */
 declare interface PreviewConfiguration {
+
   /**
-   * Define whether to only use for lifting.
+   * Whether the custom preview image is used only for lifting.
    *
-   * @type { ?boolean }
+   * **NOTE**
+   *
+   * The default value is **false**. **true**: The custom preview image is used only for lifting. **false**: The custom
+   * preview image is used for both lifting and dragging. When the value is set to **true**, the preview image is used
+   * only during the lifting phase of a long press. For the preview image used during the dragging phase: The
+   * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)} attribute is ignored,
+   * and the system prioritizes the image returned in [onDragStart]{@link CommonMethod#onDragStart}; if no image is
+   * returned in **onDragStart**, the component's snapshot is used.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20975,9 +19857,11 @@ declare interface PreviewConfiguration {
   onlyForLifting?: boolean;
 
   /**
-   * Define whether to delay create builder.
+   * Whether the preview builder is loaded at the time of setting.
    *
-   * @type { ?boolean }
+   * The default value is **false**. The value **true** means that the preview builder is loaded at the time of setting,
+   * and **false** means the opposite.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -21512,73 +20396,44 @@ declare class CommonMethod<T> {
   ignoreLayoutSafeArea(types?: Array<LayoutSafeAreaType>, edges?: Array<LayoutSafeAreaEdge>): T;
 
   /**
-   * Sets the response region of the current component.
+   * Sets one or more touch targets.
    *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T }
+   * @param { Array<Rectangle> | Rectangle } value - Touch target, including the position and size.<br>The default touch
+   *     target is the entire component. Default value:<br>{<br>x: 0,<br>y: 0,<br>width: '100%',<br>height: '100%'<br>}<br>
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the response region of the current component.
-   *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the response region of the current component.
-   *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the response region of the current component.
-   *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   responseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
-   * Sets the mouse response region of current component
+   * Sets one or more mouse response regions.
    *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T } return the component attribute
+   * @param { Array<Rectangle> | Rectangle } value - Mouse response regions, defining the position and size.<br>The
+   *     default touch target is the entire component. Default value:<br>{<br>x: 0,<br>y: 0,<br>width: '100%',<br>
+   *     height: '100%'<br>}
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the mouse response region of current component
-   *
-   * @param { Array<Rectangle> | Rectangle } value
-   * @returns { T } return the component attribute
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mouseResponseRegion(value: Array<Rectangle> | Rectangle): T;
 
   /**
-   * Sets the response region list of the current component.
-   * 
-   * @param { Array<ResponseRegion> } regions
-   * @returns { T } return the component attribute
+   * Sets the touch target list for the component. When this API is called, the
+   * [responseRegion]{@link CommonMethod#responseRegion} and
+   * [mouseResponseRegion]{@link CommonMethod#mouseResponseRegion} APIs do not take effect.
+   *
+   * @param { Array<ResponseRegion> } regions - Array of touch targets for the component.<br>Each touch target contains
+   *     the input tool type, position, and size.<br>Default value:<br>
+   *     [{<br>tool: ResponseRegionSupportedTool.ALL,<br>x: LengthMetrics.vp(0),<br>y: LengthMetrics.vp(0),
+   *     <br>width: LengthMetrics.percent(1),<br>height: LengthMetrics.percent(1)<br>}]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21586,7 +20441,7 @@ declare class CommonMethod<T> {
    * @since 22 dynamic
    */
   responseRegionList(regions: Array<ResponseRegion>): T;
-  
+
   /**
    * Sets the width and height of the component.
    * <br>Since API version 10, this API supports the calc calculation feature.
@@ -22536,6 +21391,7 @@ declare class CommonMethod<T> {
    * @since 7 dynamic
    */
   borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses): T;
+
   /**
    * Sets the border corner radius and the rendering strategy for rounded corners.
    * NOTE
@@ -22784,63 +21640,57 @@ declare class CommonMethod<T> {
   foregroundColor(color: Optional<ResourceColor | ColoringStrategy>): T;
 
   /**
-   * Trigger a click event when a click is clicked.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Trigger a click event when a click is clicked.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Trigger a click event when a click is clicked.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Called when a click event occurs.
    *
-   * <p><strong>NOTE</strong>:
-   * <br> Since API version 9, the following constraints apply when this API is used in service widgets:
-   * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
-   * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
-   * </p>
-   * @param { function } event
-   * @returns { T }
+   * When triggered by keyboard or gamepad input, the event's **SourceTool** is **Unknown**, and
+   * [SourceType]{@link SourceType} is **KEY** or **JOYSTICK**.
+   *
+   * > **NOTE**
+   * >
+   * > Since API version 9, the following constraints apply when this API is used in service widgets:
+   * >
+   * > 1. Click events will not be triggered if the finger is pressed for more than 800 ms.
+   * >
+   * > 2. Click events will not be triggered if the finger moves more than 20 px after pressing down.
+   *
+   * @param { function } event - Callback for the click event.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onClick(event: (event: ClickEvent) => void): T;
 
   /**
-   * Trigger a click event when a click is clicked, move distance should smaller than distanceThreshold.
+   * Called when a click event occurs.
    *
-   * <p><strong>NOTE</strong>:
-   * <br> If the distanceThreshold value specified is less than or equal to 0 vp, it will be converted to the default value.
-   * <br> Since API version 12, the following constraints apply when this API is used in service widgets:
-   * <br> Click events cannot be triggered if the finger is pressed for more than 800 ms.
-   * <br> Click events cannot be triggered if the finger moves more than 20 px after pressing down.
-   * </p>
-   * @param { function } event - this function callback executed when the click action is recognized
-   * @param { number } distanceThreshold - the distance threshold of finger's movement when detecting a click action
-   * @default (2^31-1)vp 
-   * @returns { T }
+   * When triggered by keyboard or gamepad input, the event's [SourceTool]{@link SourceTool} is **Unknown**, and
+   * [SourceType]{@link SourceType} is **KEY** or **JOYSTICK**.
+   *
+   * Compared with the original **onClick** API, this API has the **distanceThreshold** parameter that specifies the
+   * finger movement threshold for click events. If the finger's movement exceeds the set threshold, the gesture
+   * recognition will fail. The click gesture recognition will fail if finger movement exceeds this threshold.
+   *
+   * For scenarios where there is no restriction on the finger movement distance during a click, the original API is
+   * preferred. To limit finger movement range during a click, use this new API.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 12, the following constraints apply when this API is used in service widgets:
+   * > >    1. Click events will not be triggered if the finger is pressed for more than 800 ms.
+   * > >    2. Click events will not be triggered if the finger moves more than 20 px after pressing down.
+   * >
+   * > - This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { function } event - Callback for the click event.
+   * @param { number } distanceThreshold - Finger movement threshold for click events. If the value specified is less
+   *     than or equal to 0, it will be converted to the default value.<br>Default value: 2^31-1<br>Unit: vp<br>**NOTE**
+   *     <br>If the finger movement exceeds the preset movement threshold, the gesture recognition fails. If the default
+   *     threshold is used during initialization and the finger moves beyond the component's touch target, the gesture
+   *     recognition fails.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22851,30 +21701,26 @@ declare class CommonMethod<T> {
   onClick(event: Callback<ClickEvent>, distanceThreshold: number): T;
 
   /**
-   * Trigger a hover event.
+   * Triggered when the mouse pointer or stylus enters or leaves the component.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback for mouse or stylus hover status.<br>**event**: event bubbling control and
+   *     coordinates of the hover position; available since API version 11.<br>**isHover**: whether the mouse pointer or
+   *     stylus is hovering over the component. **true**: The mouse pointer or stylus has entered the component.
+   *     **false**: The mouse pointer or stylus has left the component.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Trigger a hover event.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onHover(event: (isHover: boolean, event: HoverEvent) => void): T;
 
   /**
-   * Trigger a hover move event.
+   * Triggered when a stylus hovers over the component.
    *
-   * @param { Callback<HoverEvent> } event
-   * @returns { T }
+   * @param { Callback<HoverEvent> } event - Callback that controls event bubbling blocking and obtains the stylus hover
+   *     position coordinates.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -22940,87 +21786,50 @@ declare class CommonMethod<T> {
   hoverEffect(value: HoverEffect): T;
 
   /**
-   * Trigger a mouse event.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
    * Triggered when the component is clicked by a mouse button or the mouse pointer moves on the component.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Timestamp, mouse button, action, coordinates of the clicked point on the entire screen,
+   *     and coordinates of the clicked point relative to the component when the event is triggered.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onMouse(event: (event: MouseEvent) => void): T;
 
   /**
-   * Trigger a touch event when touched.
+   * Invoked when a touch event is triggered. Touch events
+   * [bubble](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) by default and can be consumed by
+   * multiple components. To prevent event bubbling, use the **stopPropagation** API of [TouchEvent]{@link TouchEvent}.
+   * Mouse left-click events are converted to touch events and will also trigger this callback.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - **TouchEvent** object.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Trigger a touch event when touched.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoked when a touch event is triggered.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onTouch(event: (event: TouchEvent) => void): T;
 
   /**
-   * Keyboard input
+   * Triggered when a key event occurs.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - **KeyEvent** object.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Keyboard input
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Keyboard input
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onKeyEvent(event: (event: KeyEvent) => void): T;
 
   /**
-   * Keyboard input
+   * Triggered when a key operation is performed on the bound component after it obtains focus. If the callback returns
+   * **true**, the key event is considered handled.
    *
    * @param { Callback<KeyEvent, boolean> } event - Callback for handling the key event.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23030,10 +21839,14 @@ declare class CommonMethod<T> {
   onKeyEvent(event: Callback<KeyEvent, boolean>): T;
 
   /**
-   * Digital crown input.
+   * Called when the crown is rotated while the component has focus.
    *
-   * @param { Optional<Callback<CrownEvent>> } handler
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { Callback<CrownEvent> } event - [CrownEvent]{@link CrownEvent} object.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -23042,10 +21855,14 @@ declare class CommonMethod<T> {
   onDigitalCrown(handler: Optional<Callback<CrownEvent>>): T;
 
   /**
-   * Handle keyboard events before input method events.
+   * Triggered before other callbacks when a key operation is performed on the bound component after it obtains focus.
+   *
+   * If the return value of this callback is **true**, the key event is considered consumed, and subsequent event
+   * callbacks (**keyboardShortcut**, input method events, **onKeyEventDispatch**, and **onKeyEvent**) will be
+   * intercepted and no longer triggered.
    *
    * @param { Callback<KeyEvent, boolean> } event - Callback for handling the key event.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23055,10 +21872,15 @@ declare class CommonMethod<T> {
   onKeyPreIme(event: Callback<KeyEvent, boolean>): T;
 
   /**
-   * Customize the handling and distribution of key events.
+   * Triggered when the bound component receives a key event. The key event will not be dispatched to its child
+   * components. Only existing key events can be intercepted; creating new **KeyEvent** objects for dispatch is not
+   * supported.
    *
-   * @param { Callback<KeyEvent, boolean> } event
-   * @returns { T }
+   * If the callback returns **true**, the key event is marked as consumed and will not
+   * [bubble up](docroot://ui/arkts-interaction-basic-principles.md#event-bubbling) to parent components.
+   *
+   * @param { Callback<KeyEvent, boolean> } event - Callback for handling key event dispatch.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23068,10 +21890,11 @@ declare class CommonMethod<T> {
   onKeyEventDispatch(event: Callback<KeyEvent, boolean>): T;
 
   /**
-   * Trigger a FocusAxisEvent.
+   * Binds a focus axis event callback to the component. Triggered when any operation is performed with the game
+   * controller's directional pad or joystick on the bound component.
    *
-   * @param { Callback<FocusAxisEvent> } event
-   * @returns { T }
+   * @param { Callback<FocusAxisEvent> } event - Focus axis event callback.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -23080,10 +21903,10 @@ declare class CommonMethod<T> {
   onFocusAxisEvent(event: Callback<FocusAxisEvent>): T;
 
   /**
-   * Handle axis events.
+   * Triggered by mouse wheel scrolling, a two-finger sliding gesture, or a pinch gesture on the touchpad.
    *
-   * @param { Callback<AxisEvent> } event
-   * @returns { T }
+   * @param { Callback<AxisEvent> } event - [AxisEvent]{@link AxisEvent} object.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -23092,34 +21915,18 @@ declare class CommonMethod<T> {
   onAxisEvent(event: Callback<AxisEvent>): T;
 
   /**
-   * Set focusable.
+   * Sets whether the component is focusable.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether the component is focusable.<br>**true**: The component is focusable.<br>
+   *     **false**: The component is not focusable.<br>**NOTE**<br>Components that have default interaction logic, such
+   *     as [Button]{@link button} and [TextInput]{@link text_input}, are focusable by default. Other components, such
+   *     as [Text]{@link text} and [Image]{@link image}, are not focusable by default. Only focusable components can
+   *     trigger a [focus event]{@link common}.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set focusable.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set focusable.
-   * Components that have default interaction logic, such as Button and TextInput, are focusable by default. Other 
-   * components, such as Text and Image, are not focusable by default. Only focusable components can trigger a focus 
-   * event.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   focusable(value: boolean): T;
 
@@ -23150,185 +21957,127 @@ declare class CommonMethod<T> {
   tabStop(isTabStop: boolean): T;
 
   /**
-   * Trigger a event when got focus.
+   * Triggered when the current component obtains focus.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function of **onFocus**, indicating that the component has gained focus.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Trigger a event when got focus.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger a event when got focus.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onFocus(event: () => void): T;
 
   /**
    * Triggered when the current component loses focus.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function of **onBlur**, which indicates that the component has lost focus.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Triggered when the current component loses focus.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the current component loses focus.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onBlur(event: () => void): T;
 
   /**
-   * Set focus index by key tab.
+   * Sets the tab navigation order of the component in sequential focus navigation with the **Tab** key. Components
+   * without explicit **tabIndex** settings follow default focus navigation rules.
    *
-   * @param { number } index
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set focus index by key tab.
+   * > **NOTE**
+   * >
+   * > - **tabIndex** only customizes **Tab** key navigation. For arrow key navigation customization, use
+   * > [nextFocus]{@link CommonMethod#nextFocus}.
    *
-   * @param { number } index
-   * @returns { T }
+   * @param { number } index - Tab navigation order of the component in sequential focus navigation with the **Tab**
+   *     key. When components with positive **tabIndex** values are present, only these components are reachable through
+   *     sequential focus navigation, and they are navigated cyclically in ascending order based on the **tabIndex**
+   *     value. When components with positive **tabIndex** values are not present, those components with a **tabIndex**
+   *     value of **0** are navigated based on the preset focus navigation rule.<br>The
+   *     [UiExtension]{@link @ohos.arkui.uiExtension:uiExtension} component does not support **tabIndex**. As such,
+   *     using **tabIndex** on [hierarchical pages](docroot://ui/arkts-common-events-focus-event.md#basic-concepts) that
+   *     contain **UiExtension** components may lead to disordered focus navigation.<br>- **tabIndex** >= 0: The
+   *     component is focusable and can be reached through sequential keyboard navigation.<br>- **tabIndex** < 0 (
+   *     usually **tabIndex** = -1): The component is focusable, but cannot be reached through sequential keyboard
+   *     navigation.<br> **NOTE**<br> **tabIndex** and **focusScopeId** cannot be used together.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set focus index by key tab.
-   * The tabIndex and focusScopeId cannot be used together.
-   * @param { number } index
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   tabIndex(index: number): T;
 
   /**
-   * Set default focused component when a page create.
+   * Specifies whether to set this component as the default focus of the current
+   * [hierarchical page](docroot://ui/arkts-common-events-focus-event.md#basic-concepts). If **defaultFocus** is not
+   * set, the component will not receive initial focus on the current page.
    *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set default focused component when a page create.
+   * > **NOTE**
+   * >
+   * > This setting applies to pages that support routing or modal-type container components, such as **Page**,
+   * > **NaviDestination**, **NavBar**, **PopUp**, and **Dialog**.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether to set the component as the default focus of the current
+   *     [hierarchical page](docroot://ui/arkts-common-events-focus-event.md#basic-concepts). This parameter takes
+   *     effect only when the hierarchical page is new and accessed for the first time.<br>**NOTE**<br>The value
+   *     **true** means to set the component as the default focus, and the value **false** has no effect.<br>If no
+   *     component on the hierarchical page has **defaultFocus(true)** set:<br>For API version 11 and earlier, the
+   *     default focus is on the first focusable non-container component.<br>For API version versions later than 11, the
+   *     default focus is on the hierarchical page's root container.<br>If **defaultFocus(true)** is set for multiple
+   *     components on the hierarchical page, the first component found in the component tree depth-first traversal is
+   *     used as the default focus.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set default focused component when a page create.
-   *
-   * @param { boolean } value - True means to set the component as the default focus, and the value false has no effect.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   defaultFocus(value: boolean): T;
 
   /**
-   * Set default focused component when focus on a focus group.
+   * Specifies whether to set the component as the default focus of the container. If **groupDefaultFocus** is not set,
+   * the component will not receive focus by default when its container is focused.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether to set the component as the default focus of the parent container. This
+   *     parameter takes effect only when the container is new and obtains focus for the first time. <br>**true**: The
+   *     component is the default focus of the parent container.<br>**false**: The component is not the default focus of
+   *     the parent container.<br>**NOTE**<br>This parameter must be used together with
+   *     [tabIndex]{@link CommonMethod#tabIndex}. When **tabIndex** is set for a container and
+   *     **groupDefaultFocus(true)** is set for a child in the container or for the container itself, then when the
+   *     container obtains focus for the first time through sequential Tab navigation, the focus automatically moves to
+   *     the specified component. If **groupDefaultFocus(true)** is set for multiple components in the container (
+   *     including the container itself), the first component found in the component tree in-depth traversal receives
+   *     the focus.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set default focused component when focus on a focus group.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set default focused component when focus on a focus group.
-   *
-   * @param { boolean } value - True means the component is the default focus of the parent container, and
-   * false means the component is not the default focus of the parent container.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   groupDefaultFocus(value: boolean): T;
 
   /**
-   * Set a component focused when the component be touched.
+   * Sets whether the component is focusable on touch. If **focusOnTouch** is not set, the component is not focusable on
+   * touch by default.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether the component is focusable on touch. <br>**true**: The component is focusable on
+   *     touch.<br>**false**: The component is not focusable on touch.<br>**NOTE**<br>This setting requires the
+   *     component to be touchable.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Set a component focused when the component be touched.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set a component focused when the component be touched.
-   *
-   * @param { boolean } value - True means the component is focusable on touch, false means the component is not focusable on touch.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   focusOnTouch(value: boolean): T;
 
   /**
-   * Set the component's focusBox style.
+   * Sets the system focus box style for the component.
    *
-   * @param { FocusBoxStyle } style - Component's focusBox style.
-   * @returns { T }
+   * @param { FocusBoxStyle } style - System focus box style for the component.<br>**NOTE**<br>This style affects only
+   *     the components that display the system focus box during focus traversal.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -23350,13 +22099,14 @@ declare class CommonMethod<T> {
    * @since 12 dynamic
    */
   focusScopeId(id: string, isGroup?: boolean): T;
+
   /**
    * Set container as a focus group with a specific identifier.
    *
    * @param { string } id - focus scope identifier.
    * @param { boolean } [isGroup] - whether this scope is a focus group, the default value is false.
    * @param { boolean } [arrowStepOut] - whether the arrow keys can move focus from inside the focus group to outside,
-   * only effective when isGroup is true, the default value is true.
+   *     only effective when isGroup is true, the default value is true.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -23440,107 +22190,60 @@ declare class CommonMethod<T> {
   transition(effect: TransitionEffect, onFinish: Optional<TransitionFinishCallback>): T;
 
   /**
-   * Bind gesture recognition.
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * Gesture to bind.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Bind gesture recognition.
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
+   * @param { GestureType } gesture - Type of the gesture to bind.
+   * @param { GestureMask } mask - Mask for gesture events.<br>Default value: **GestureMask.Normal**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Bind gesture recognition.
-   * gesture:Bound Gesture Type,mask:GestureMask;
-   *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   gesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
-   * Binding Preferential Recognition Gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * Gesture to preferentially recognize.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Binding Preferential Recognition Gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * 1. By default, the child component preferentially recognizes the gesture specified by **gesture**, and the parent
+   * component preferentially recognizes the gesture specified by **priorityGesture** (if set).
+   * 2. For long press gestures, the component with the shortest minimum hold-down time responds first, ignoring the
+   * **priorityGesture** settings.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Binding Preferential Recognition Gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
+   * @param { GestureType } gesture - Gesture object to bind.
+   * @param { GestureMask } mask - Mask for gesture events.<br>Default value: **GestureMask.Normal**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   priorityGesture(gesture: GestureType, mask?: GestureMask): T;
 
   /**
-   * Binding gestures that can be triggered simultaneously with internal component gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * Gesture that can be recognized at once by the component and its child component. The gesture event is not a
+   * bubbling event. When **parallelGesture** is set for a component, both it and its child component can respond to the
+   * same gesture events, thereby implementing a quasi-bubbling effect.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Binding gestures that can be triggered simultaneously with internal component gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
+   * @param { GestureType } gesture - Gesture object to bind.
+   * @param { GestureMask } mask - Mask for gesture events.<br>Default value: **GestureMask.Normal**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Binding gestures that can be triggered simultaneously with internal component gestures
-   * gesture:Bound Gesture Type,mask:GestureMask;
-   *
-   * @param { GestureType } gesture
-   * @param { GestureMask } mask
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   parallelGesture(gesture: GestureType, mask?: GestureMask): T;
 
@@ -24602,90 +23305,51 @@ declare class CommonMethod<T> {
   transform3D(transform: Optional<Matrix4Transit>): T;
 
   /**
-   * This callback is triggered when a component mounts a display.
+   * Triggered when this component appears.
    *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * This callback is triggered when a component mounts a display.
+   * > **NOTE**
+   * >
+   * > This callback may be called after the component layout and rendering process.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function of the **onAppear** event, which indicates that the component is
+   *     displayed.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * This callback is triggered when a component mounts a display.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * This callback is triggered when a component mounts a display.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onAppear(event: () => void): T;
 
   /**
-   * This callback is triggered when component uninstallation disappears.
+   * Triggered when this component disappears.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function of the **onDisAppear** event, which indicates that the component is
+   *     hidden.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * This callback is triggered when component uninstallation disappears.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * This callback is triggered when component uninstallation disappears.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * This callback is triggered when component uninstallation disappears.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onDisAppear(event: () => void): T;
 
   /**
-   * This callback is triggered when a component mounts to view tree.
+   * Triggered when this component is mounted to the component tree. Due to the following limitations, it is recommended
+   * that you use [onAppear]{@link CommonMethod#onAppear} instead of this callback.
    *
-   * @param { Callback<void> } callback
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > - This callback is triggered before the component layout and rendering process.
+   * >
+   * > - Modifying the component tree within the callback is prohibited, including initiating animations or altering the
+   * > component structure through conditional statements like **if-else**.
+   *
+   * @param { Callback<void> } callback - Callback function of the **onAttach** event, indicating that the component has
+   *     been mounted to the component tree.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24695,10 +23359,12 @@ declare class CommonMethod<T> {
   onAttach(callback: Callback<void>): T;
 
   /**
-   * This callback is triggered when a component is detached from view tree.
+   * Triggered when this component is unmounted from the component tree. You are advised to use
+   * [onDisAppear]{@link CommonMethod#onDisAppear} instead.
    *
-   * @param { Callback<void> } callback
-   * @returns { T }
+   * @param { Callback<void> } callback - Callback function of the **onDetach** event, indicating that the component has
+   *     been unmounted from the component tree.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24708,41 +23374,42 @@ declare class CommonMethod<T> {
   onDetach(callback: Callback<void>): T;
 
   /**
-   * This callback is triggered when the size or position of this component change finished.
+   * Triggered when the component area changes in size or position due to layout updates.
    *
-   * @param { function } event - event callback.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * This callback is triggered when the size or position of this component change finished.
+   * This event is not triggered for render attribute changes caused by re-rendering, such as changes to
+   * [translate]{@link CommonMethod#translate(value: TranslateOptions)}, [offset]{@link CommonMethod#offset},
+   * [markAnchor]{@link CommonMethod#markAnchor}, [scale]{@link CommonMethod#scale(value: ScaleOptions)}, or
+   * [transform]{@link CommonMethod#transform(value: object)}. In addition, if the component position is altered
+   * due to drawing changes, for example, through [bindSheet]{@link CommonMethod#bindSheet}, this event is also not triggered.
    *
-   * @param { function } event - event callback.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * This callback is triggered when the size or position of this component change finished.
+   * > **NOTE**
+   * >
+   * > When a component is bound to both the **onAreaChange** event and the [position]{@link CommonMethod#position}
+   * > attribute, the **onAreaChange** event responds to changes in the **position** attribute of type
+   * > [Position]{@link Position}, but does not respond to changes in the **position** attribute of type
+   * > [Edges]{@link Edges} or [LocalizedEdges]{@link LocalizedEdges}.
    *
-   * @param { function } event - event callback.
-   * @returns { T }
+   * @param { function } event - Position information of the target element. **oldValue** indicates the width and height
+   *     of the target element as well as its coordinates relative to the parent element and the upper left corner of
+   *     the page before the change. **newValue** indicates these dimensions and coordinates after the change.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onAreaChange(event: (oldValue: Area, newValue: Area) => void): T;
 
-    /**
-   * This callback is triggered when the size or position of this component has finished changing.
-   * The interval between two area change callbacks will not be less than the expected update interval.
+  /**
+   * Triggered when the component area changes. The interval at which the callback is triggered can be set using
+   * expectedUpdateInterval in [AreaChangeOptions]{@link AreaChangeOptions}. This event is triggered only in response
+   * to changes in component size or position caused by layout updates.
    *
-   * @param { AreaChangeCallback } event - Callback invoked when the area of the component changes.
-   * @param { AreaChangeOptions } [options] - The options for the area change event.
-   * @returns { T }
+   * @param { AreaChangeCallback } event - Callback function for the **onAreaChange** event. Triggered when the
+   *     component's size or position changes.
+   * @param { AreaChangeOptions } [options] - Parameters related to the area change. If not specified,
+   *     **expectedUpdateInterval** is treated as **0**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24752,42 +23419,16 @@ declare class CommonMethod<T> {
   onAreaChange(event: AreaChangeCallback, options?: AreaChangeOptions): T;
 
   /**
-   * Controls the display or hide of the current component.
+   * Sets the visibility of the component. If **visibility** is not set, the component is displayed by default.
    *
-   * @param { Visibility } value
-   * @returns { T }
+   * @param { Visibility } value - Whether the component is visible. When appropriate, consider using
+   *     [conditional rendering](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) as a substitute.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Controls the display or hide of the current component.
-   *
-   * @param { Visibility } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Controls the display or hide of the current component.
-   *
-   * @param { Visibility } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Controls the display or hide of the current component.
-   *
-   * @param { Visibility } value - Whether the component is visible.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   visibility(value: Visibility): T;
 
@@ -24917,46 +23558,19 @@ declare class CommonMethod<T> {
   displayPriority(value: number): T;
 
   /**
-   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
+   * Sets the stacking order of the component.
    *
-   * @param { number } value
-   * @returns { T }
+   * @param { number } value - Stacking order of the component relative to its sibling components in a container. The
+   *     components with a larger **zIndex** value cover those with a smaller one. When dynamically changing zIndex does
+   *     not involve adding or removing sibling nodes, the components are sorted stably based on their previous stack
+   *     level.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The sibling components in the same container are hierarchically displayed. A larger value of z indicates a higher display level.
-   *
-   * @param { number } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   zIndex(value: number): T;
 
@@ -25377,169 +23991,113 @@ declare class CommonMethod<T> {
    * @atomicservice
    * @since 24 dynamic
    */
-  enableClickSoundEffect(enabled: boolean | undefined): T
+  enableClickSoundEffect(enabled: boolean | undefined): T;
 
   /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
+   * In a gesture-based drag scenario, this callback is triggered when a user long-presses a draggable component for
+   * more than 500 ms and then moves the finger more than 10 vp. In a mouse-drag scenario, it is triggered when the left
+   * mouse button is pressed on a draggable component and moved more than 1 vp.
    *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
+   * For components that provide drag and drop capabilities by default, a custom **onDragStart** event, if set, is
+   * executed and:
    *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 500 milliseconds (ms) and then finger move a distance greater than 10 vp)
-   * 
-   * <strong>NOTE</strong>:<br>
-   * The global builder is not supported.
+   * - If a custom drag preview is returned, it is used in place of the default drag preview.
+   * - If drag data is set, it is used in place of the default drag data.
    *
-   * @param { function } event
-   * @returns { T }
+   * The custom drag preview is not supported for dragging selected text in the following components:
+   * [Text]{@link text}, [Search]{@link search}, [TextInput]{@link text_input}, [TextArea]{@link text_area},
+   * [RichEditor]{@link rich_editor} When **onDragStart** is used with menu preview or any component that provides
+   * default drag and drop capabilities, custom content on menu items and the preview cannot be dragged.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 13.
+   *
+   * @param { function } event - Callback function.<br> **NOTE**<br> **event**: drag event information.<br>
+   *     **extraParams**: additional information about the drag event. Its value must be parsed into JSON format.<br>
+   *     **CustomBuilder**: component information displayed during dragging. Global builders are not supported.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDragStart(event: (event: DragEvent, extraParams?: string) => CustomBuilder | DragItemInfo): T;
 
   /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * Triggered when a dragged item enters a valid drop target. This event takes effect only when a listener for the
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)} event is enabled.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function.<br>**NOTE**<br> **event**: drag event information, including the
+   *     coordinates of the drag point.<br> **extraParams**: additional information about the drag event. Its value must
+   *     be parsed into JSON format.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDragEnter(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
+   * Triggered when a dragged item moves in a valid drop target. This event takes effect only when a listener for the
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)} event is enabled.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function.<br>**NOTE**<br> **event**: drag event information, including the
+   *     coordinates of the drag point.<br> **extraParams**: additional information about the drag event. Its value must
+   *     be parsed into JSON format.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDragMove(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
+   * Triggered when a dragged item leaves a valid drop target. This event takes effect only when a listener for the
+   * [onDrop]{@link CommonMethod#onDrop(event: (event: DragEvent, extraParams?: string) => void)} event is enabled.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function.<br>**NOTE**<br> **event**: drag event information, including the
+   *     coordinates of the drag point.<br> **extraParams**: additional information about the drag event. Its value must
+   *     be parsed into JSON format.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDragLeave(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * A component bound with this event can serve as a drop target. This callback is triggered when the drag-and-drop
+   * action stops within the bounds of this component If **event.setResult()** is not explicitly called in the
+   * **onDrop** callback to set the drag-and-drop result, then: For supported components, the result is determined based
+   * on the actual data processed; for other components, the system considers the data as successfully received.
    *
-   * @param { function } event
-   * @returns { T }
+   * @param { function } event - Callback function.<br>**NOTE**<br> **event**: drag event information, including the
+   *     coordinates of the drag point.<br> **extraParams**: additional information about the drag event. Its value must
+   *     be parsed into JSON format.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onDrop(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
+   * Triggered when a dragged item is dropped on a valid drop target. If you do not explicitly call event.
+   * [setResult]{@link DragEvent#setResult}() in **onDrop** to set the result of the drag reception, the
+   * system handles it as follows:
    *
-   * @param { OnDragEventCallback } eventCallback - event callback.
-   * @param { DropOptions } [dropOptions] - the drop handling options.
-   * @returns { T }
+   * - If the component being dragged is one that supports drop actions by default, the system's actual data processing
+   * result is used.
+   * - For other components, the system assumes that the data is received successfully.
+   *
+   * @param { OnDragEventCallback } eventCallback - Callback function.
+   * @param { DropOptions } [dropOptions] - Parameters for the drop process.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -25549,34 +24107,17 @@ declare class CommonMethod<T> {
   onDrop(eventCallback: OnDragEventCallback, dropOptions?: DropOptions): T;
 
   /**
-   * This function is called when the drag event is end.
+   * Triggered when the dragging of the component bound to the event ends.
    *
-   * @param { function } event - indicates the function to be called.
-   * @returns { T } property value of type T.
+   * @param { function } event - Callback function.<br>**NOTE**<br> **event**: drag event information. The coordinates
+   *     of the drag point are not included in **onDragEnd**.<br> **extraParams**: additional information about the drag
+   *     event. Its value must be parsed into JSON format.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * This function is called when the drag event is end.
-   *
-   * @param { function } event - indicates the function to be called.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * This function is called when the drag event is end.
-   *
-   * @param { function } event - indicates the function to be called.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 14 dynamic
+   * @crossplatform [since 14]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
@@ -25708,10 +24249,16 @@ declare class CommonMethod<T> {
   dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T;
 
   /**
-   * After binding, a callback is triggered when the preDrag status change finished.
+   * Triggered when the component enters a state prior to a gesture-based drag operation. For details about the state
+   * prior to the drag-and-drop operation, see [PreDragStatus]{@link PreDragStatus}. This API cannot be triggered in
+   * mouse-based drag scenarios.
    *
-   * @param { Callback<PreDragStatus> } callback callback - The callback will be triggered when the preDrag status change.
-   * @returns { T } property value of type T.
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { Callback<PreDragStatus> } callback - Callback function.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26721,61 +25268,68 @@ declare class CommonMethod<T> {
   restoreId(value: number): T;
 
   /**
-   * Trigger a visible area change event.
+   * Called when the visible area of the component changes. For details about the development guidelines and FAQs, see
+   * [Detecting Component Visibility](docroot://ui/arkts-manage-components-visibility.md).
    *
-   * @param { Array<number> } ratios
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Trigger a visible area change event.
+   * > **NOTE**
+   * >
+   * > - This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   * >
+   * > - This API only takes into account the relative clipped area ratio of the component with respect to all ancestor
+   * > nodes (up to the window boundary) and its own area.
+   * >
+   * > - The following calculation scenarios are not supported: clipping by sibling nodes, clipping by siblings of any
+   * > ancestor node, window-level occlusion, and component rotation. Examples include layouts using
+   * > [Stack]{@link stack}, [z-order control]{@link CommonMethod#zIndex}, and
+   * > [rotate]{@link CommonMethod#rotate(value: RotateOptions)} transformations.
+   * >
+   * > - It does not support visibility change calculations for nodes that are not in the component tree. For example,
+   * > preloaded nodes or custom nodes mounted using the
+   * > [overlay](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-overlay.md#overlay) capability.
+   * >
+   * > - This API does not support the [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute. To enable
+   * > support for the [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute, use
+   * > [onVisibleAreaChange<sup>22+</sup>]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean)}
+   * > and set **measureFromViewport** to **true**.
    *
-   * @param { Array<number> } ratios
-   * @param { function } event
-   * @returns { T }
+   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible
+   *     area (that is, the area of the component that is visible on screen; only the area within the parent component
+   *     is counted) to the component's total area. This callback is invoked when the ratio of the component's visible
+   *     area to its total area is greater than or less than the threshold. The value of each threshold ranges from 0.0
+   *     to 1.0. If a threshold value is less than 0.0, it is clamped to 0.0; if it is greater than 1.0, it is clamped
+   *     to 1.0.<br>**NOTE**<br>When the value is close to the boundary 0 or 1, it is rounded off with a round-off error
+   *     not greater than 0.001. For example, 0.9997 is rounded off to 1.
+   * @param { function } event - Callback for visible area changes of the component. [since 9 - 12]
+   * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component. [since 13]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger a visible area change event.
-   *
-   * @param { Array<number> } ratios
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Trigger a visible area change event.
-   *
-   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible area to the component's total area.
-   * The value range of the threshold is [0.0, 1.0].
-   * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 13 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback): T;
 
   /**
-   * Trigger a visible area change event.
+   * Called when the visible area of the component changes. You can use **measureFromViewport** to set the visible area
+   * calculation mode. For details about the development guidelines and FAQs, see
+   * [Detecting Component Visibility](docroot://ui/arkts-manage-components-visibility.md).
    *
-   * @param { Array<number> } ratios - Threshold array. Each threshold represents a ratio of the component's visible area to the component's total area.
-   * The value range of the threshold is [0.0, 1.0].
+   * @param { Array<number> } ratios - Threshold array. Each threshold represents the ratio of the component's visible
+   *     area to its own total area. This callback is invoked when the ratio of the component's visible area to its
+   *     total area is greater than or less than the threshold. The value of each threshold ranges from 0.0 to 1.0. If a
+   *     threshold value is less than 0.0, it is clamped to 0.0; if it is greater than 1.0, it is clamped to 1.0.<br>
+   *     **NOTE**<br>When the value is close to the boundary 0 or 1, it is rounded off with a round-off error not
+   *     greater than 0.001. For example, 0.9997 is rounded off to 1.
    * @param { VisibleAreaChangeCallback } event - Callback for visible area changes of the component.
-   * @param { boolean } measureFromViewport - When this parameter is set to true, the parts of the component
-   *      that exceed the parent component's area wil also be included in the visible area calculation. However, this
-   *      only applies if the parent component does not explicitly set the clip property to true. If the parent
-   *      component sets clip to ture, regardless of the value of this parameter, the parts that exceed the parent
-   *      component's area will still be treated as invisible in the visible area calculation.
-   * @returns { T }
+   * @param { boolean } measureFromViewport - Visible area calculation mode.<br>**true**: considers the parent's
+   *     [clip]{@link CommonMethod#clip(value: boolean)} attribute. If [clip]{@link CommonMethod#clip(value: boolean)}
+   *     is **false**, areas of the child component beyond the parent's bounds are counted as visible; if
+   *     [clip]{@link CommonMethod#clip(value: boolean)} is **true**, such areas are counted as invisible. **false**:
+   *     ignores the parent's [clip]{@link CommonMethod#clip(value: boolean)} attribute, treating areas beyond the
+   *     parent's bounds as invisible.<br>When **measureFromViewport** is set to **true**, and an ancestor node has the
+   *     [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute set, the component's visible ratio will be
+   *     correctly calculated.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26785,12 +25339,18 @@ declare class CommonMethod<T> {
   onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback, measureFromViewport: boolean): T;
 
   /**
-   * Set or reset the callback which is triggered when the visibleArea of component changed.
-   * The interval between two visible area change callbacks will not be less than the expected update interval.
+   * Configures a callback for the **onVisibleAreaApproximateChange** event, with options to limit the callback
+   * execution interval.
    *
-   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
-   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
-   * If set undefined will reset the target callback.
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 23.
+   *
+   * @param { VisibleAreaEventOptions } options - Visible area change configuration options.
+   * @param { VisibleAreaChangeCallback | undefined } event - Callback for the **onVisibleAreaChange** event. This
+   *     callback is triggered when the ratio of the component's visible area to its total area approaches the threshold
+   *     set in **options**.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26938,29 +25498,19 @@ declare class CommonMethod<T> {
   pixelStretchEffect(options: Optional<PixelStretchEffectOptions>): T;
 
   /**
-   * Sets hot keys
+   * Sets a keyboard shortcut for the component.
    *
-   * @param { string | FunctionKey } value - Character of the combination key.
-   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
-   * @returns { T }
+   * @param { string | FunctionKey } value - Character key (which can be entered through the keyboard) or
+   *     [function key]{@link FunctionKey}.<br>An empty string means to disable the keyboard shortcut.<br>
+   * @param { Array<ModifierKey> } keys - Modifier keys.<br>This parameter can be left empty only when **value** is set
+   *     to a [function key]{@link FunctionKey}.<br>
+   * @param { function } [action] - Callback for a custom event after the keyboard shortcut is triggered.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets hot keys
-   *
-   * @param { string | FunctionKey } value - Character of the combination key.
-   * @param { Array<ModifierKey> } keys - The modifier keys modify the action of key when the key are pressed at the same time.
-   * @param { function } [action] - Callback function, triggered when the shortcut keyboard is pressed.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   keyboardShortcut(value: string | FunctionKey, keys: Array<ModifierKey>, action?: () => void): T;
 
@@ -27516,33 +26066,25 @@ declare class CommonMethod<T> {
   backgroundBrightness(options: Optional<BackgroundBrightnessOptions>): T;
 
   /**
-   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
+   * Binds a custom gesture determination callback to the component. When the gesture is about to succeed, the user-
+   * defined callback is triggered to obtain the result.
    *
    * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * When a gesture bound to this component will be accepted, a user-defined callback is triggered to get the result
-   *
-   * @param { function } callback - A callback instance used when a gesture bound to this component will be accepted.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onGestureJudgeBegin(callback: (gestureInfo: GestureInfo, event: BaseGestureEvent) => GestureJudgeResult): T;
 
   /**
    * Binds a custom gesture recognizer judgment callback to the component.
    *
-   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
-   * @returns { T }
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this
+   *     component will be accepted.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27553,32 +26095,36 @@ declare class CommonMethod<T> {
 
   /**
    * Binds a custom gesture recognizer judgment callback to the component.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br> For a composite component, setting exposeInnerGesture to true exposes the internal gesture recognizer of the
-   * <br> composite component in the current parameter callback. Currently, only the Tabs component is supported. 
-   * 
-   * <br> Do not set exposeInnerGesture for other components. When exposeInnerGesture is set to false, this API provides the same functionality
-   * <br> as the onGestureRecognizerJudgeBegin API.
-   * </p>
-   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this component will be accepted.
-   * @param { boolean } exposeInnerGesture - This parameter is a flag. This flag determines whether to expose internal gestures.
-   * @default false 
-   * @returns { T }
+   *
+   * The **exposeInnerGesture** parameter indicates whether to expose gestures from built-in components within ArkUI
+   * system composite components to developers. When this parameter is set to **true**, these internal gestures are
+   * exposed.
+   *
+   * For scenarios where exposure of internal gestures is not required, use the original
+   * [onGestureRecognizerJudgeBegin]{@link CommonMethod#onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback)}
+   * API. Use this API with **exposeInnerGesture** set to **true** only when internal gesture exposure is necessary.
+   *
+   * @param { GestureRecognizerJudgeBeginCallback } callback - A callback instance used when a gesture bound to this
+   *     component will be accepted.
+   * @param { boolean } exposeInnerGesture - This parameter is a flag. This flag determines whether to expose internal
+   *     gestures.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   *
    * @since 13 dynamic
    */
   onGestureRecognizerJudgeBegin(callback: GestureRecognizerJudgeBeginCallback, exposeInnerGesture: boolean): T;
 
   /**
-   * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in the response chain.
+   * Provides a callback to set the parallel relationship between built-in gestures and gestures of other components in
+   * the response chain. The corresponding C API is
+   * [setInnerGestureParallelTo](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativegestureapi-1.md#setinnergestureparallelto).
    *
-   * @param { ShouldBuiltInRecognizerParallelWithCallback } callback - A callback instance used when a component is doing touch test.
-   * @returns { T }
+   * @param { ShouldBuiltInRecognizerParallelWithCallback } callback - A callback instance used when a component is
+   *     doing touch test.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27588,12 +26134,13 @@ declare class CommonMethod<T> {
   shouldBuiltInRecognizerParallelWith(callback: ShouldBuiltInRecognizerParallelWithCallback): T;
 
   /**
-   * Provides a callback to set the parallel relationship between gestures of current component and gestures of other
-   * components in the response chain.
+   * Provides a callback to set the parallel relationship between gestures of the current component and gestures of
+   * other components in the response chain. This callback uses an asynchronous callback. The corresponding C API is
+   * [setGestureParallelTo](docroot://reference/apis-arkui/capi-arkui-nativemodule-arkui-nativegestureapi-3.md#setgestureparallelto).
    *
    * @param { ShouldRecognizerParallelWithCallback } callback - A callback instance used when a component is doing
    *     touch test.
-   * @returns { T }
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27641,11 +26188,24 @@ declare class CommonMethod<T> {
   onTouchIntercept(callback: Callback<TouchEvent, HitTestMode>): T;
 
   /**
-   * This callback is triggered when the component size changes due to layout updates.
-   * This event is not triggered for render attribute changes caused by re-rendering.
+   * Triggered when the component size changes due to layout updates.
    *
-   * @param { SizeChangeCallback } event - event callback.
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > 1. This API is triggered upon layout changes. Due to calculation precision limitations, the return value may
+   * > deviate slightly from the actual physical size.
+   * >
+   * > 2. **onSizeChange** is a synchronous callback triggered during the layout process. Directly modifying state
+   * > variables within **onSizeChange** may cause the changes to be included in the animation closure. Specifically,
+   * > animations compare the layout state before the animation starts with the state after the animation closure is
+   * > executed. If the **onSizeChange** callback is triggered synchronously during the pre-animation layout phase, the
+   * > changes made in this callback will be processed as part of the animation, along with the changes in the animation
+   * > closure. To avoid this issue, you can use [setTimeout]{@link api/@internal/ets/global:setTimeout} or
+   * > [postFrameCallback]{@link @ohos.arkui.UIContext:UIContext#postFrameCallback} (with a 0 ms delay) inside
+   * > **onSizeChange** to defer the UI processing logic to asynchronous execution.
+   *
+   * @param { SizeChangeCallback } event - Size of the component before and after the change.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27670,13 +26230,13 @@ declare class CommonMethod<T> {
   accessibilityFocusDrawLevel(drawLevel: FocusDrawLevel): T;
 
   /**
-   * Register one callback which will be executed when all gesture recognizers are collected done, this happens
-   * when user touchs down, the system do hit test process and collect gesture recognizers base on the touch
-   * position, after this, before handling any move events, the component can use this interface to know which
-   * gesture recognizers will participate in the recognition and competing with each other.
+   * Specifies whether gesture recognizers participate in subsequent processing after
+   * [hit testing](docroot://ui/arkts-interaction-basic-principles.md#hit-testing) completes.
    *
-   * @param { TouchTestDoneCallback } callback - A callback instance used when all gesture recognizers are collected.
-   * @returns { T }
+   * @param { TouchTestDoneCallback } callback - Callback to specify gesture recognizer participation in subsequent
+   *     processing. Triggered after [hit testing](docroot://ui/arkts-interaction-basic-principles.md#hit-testing)
+   *     completes but before user gesture recognition begins.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27686,11 +26246,12 @@ declare class CommonMethod<T> {
   onTouchTestDone(callback: TouchTestDoneCallback): T;
 
   /**
-   * When the events and gestures on this node and higher-priority nodes have been collected, the callback is executed.
-   * This callback is used to intervene in the event and gesture collection results.
+   * Triggered after events and gestures on the current node and higher-priority nodes are collected. This callback can
+   * be used to intervene in the collection results of events and gestures. This callback uses an asynchronous callback.
    *
-   * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch test.
-   * @returns { T }
+   * @param { GestureCollectInterceptCallback } callback - A callback instance used when the component does a touch
+   *     test.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27700,29 +26261,20 @@ declare class CommonMethod<T> {
   onGestureCollectIntercept(callback: GestureCollectInterceptCallback): T;
 
   /**
-   * Enables the component as a drag-and-drop target with spring loading functionality.
+   * The component bound to this event can be used as a drag-response target with hover detection capability. When the
+   * dragged object hovers over the target, the callback is triggered. Only one target can become the responder at any
+   * time, and child components always have higher response priority.
    *
-   * When a dragged object hovers over the target, it triggers a callback notification. Spring Loading is an enhanced
-   * feature for drag-and-drop operations, allowing users to automatically trigger view transitions during dragging
-   * by hovering (hover) without needing to use another hand.
-   * This feature is primarily designed to enhance the smoothness and efficiency of drag-and-drop operations. Below are
-   * some common scenarios suitable for supporting this feature:
-   *  - In a file manager, when dragging a file and hovering over a folder, the folder is automatically opened.
-   *  - On a desktop launcher, when dragging a file and hovering over an application icon, the application is
-   *  automatically opened.
+   * For details about the hover detection triggering mechanism and usage, see
+   * [Spring Loading (Hover Detection) Support](docroot://ui/arkts-common-events-drag-event.md#spring-loading-hover-detection-support).
    *
-   * Please note:
-   *   1. Registering spring-loaded or drag-and-drop events (onDragEnter/Move/Leave/Drop) on a component makes it a
-   *   drag-and-drop target. Only one target can be the responder at the same time when user drags and hovers on, and
-   *   child components always have higher priority.
-   *   2. Once a complete spring loading is triggered on a component, new spring loading detection will only occur after the
-   *   dragged object leaves and re-enters the component's range.
-   *
-   * @param { Callback<SpringLoadingContext> | null } callback Registers the callback for spring loading response, or
-   *    sets it to null to disable the support for spring loading.
-   * @param { DragSpringLoadingConfiguration } [configuration] The initialized spring loading configuration which is
-   *    only used when the entire spring detecting.
-   * @returns { T }
+   * @param { Callback<SpringLoadingContext> | null } callback - Hover detection callback. If the value is **null**,
+   *     hover detection is disabled.
+   * @param { DragSpringLoadingConfiguration } [configuration] - Hover detection configuration. If the value is
+   *     **undefined**, the default value of
+   *     [DragSpringLoadingConfiguration]{@link @ohos.arkui.dragController:dragController#DragSpringLoadingConfiguration}
+   *     is used.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -27777,7 +26329,6 @@ declare class CommonMethod<T> {
    * @since 24 dynamic
    */
   onNeedSoftkeyboard(onNeedSoftkeyboardCallback: OnNeedSoftkeyboardCallback | undefined): T;
-  
   /**
    * Sets the state anouncement text of the component under accessibility.
    *
@@ -27792,7 +26343,6 @@ declare class CommonMethod<T> {
    * @since 23 dynamic
    */
   accessibilityStateDescription(description: string | Resource | undefined): T;
-  
   /**
    * Sets AccessibilityActionOptions that can affect operation under accessibility.
    *
@@ -27849,9 +26399,8 @@ declare class CommonMethod<T> {
    * @since 26.0.0 dynamic
    */
   accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
-  
   /**
-   * Set the component's inspector label which only display on DevEco Studio. 
+   * Set the component's inspector label which only display on DevEco Studio.
    * @param { string | undefined } label - the inspector label.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -27863,7 +26412,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets whether to component is double-sided. 
-   * 
+   *
    * @param { Optional<boolean> } value - Whether to draw both sides of component.
    *     **true**: Both front and back sides are visible (default).
    *     **false**: Only to front side is visible, to back side is hidden when rotated.
@@ -28118,7 +26667,7 @@ declare type CustomBuilderT<T> = (t: T) => void;
  * Defines the OverlayOptions interface.
  * 
  * <strong>NOTE</strong>:<br>
- * When both align and offset are set, the effects are combined. 
+ * When both align and offset are set, the effects are combined.
  * The overlay is first aligned relative to the component and then offset from its current upper left corner.
  *
  * @typedef OverlayOptions
@@ -29374,11 +27923,12 @@ declare interface AreaChangeOptions {
   }
 
 /**
- * Defines the callback type for area change events.
- * 
- * @typedef { function } AreaChangeCallback
- * @param { Area } oldValue - Component area information before the change.
- * @param { Area } newValue - Component area information after the change.
+ * Callback type for the component area change event.
+ *
+ * @param { Area } oldValue - Information before the area change, including the width, height, coordinates relative to
+ *     the parent element, and position coordinates of the upper-left corner in the current window coordinate system.
+ * @param { Area } newValue - Information after the area change, including the width, height, coordinates relative to
+ *     the parent element, and position coordinates of the upper-left corner in the current window coordinate system.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29730,19 +28280,6 @@ declare interface SizeResult {
    * @since 10 dynamic
    */
   height: number,
-}
-
-/**
- * Provides the measurement result of the component. This API inherits from [SizeResult]{@link SizeResult}.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice [since 11]
- * @since 10 dynamic
- */
-declare interface MeasureResult extends SizeResult {
-
 }
 
 /**
@@ -32519,13 +31056,10 @@ declare interface Callback<T, V = void> {
 }
 
 /**
- * Defines the callback type used in hover events.
- * The value of isHover indicates whether the mouse is hovering over the component.
- * The value of event contains information about HoverEvent.
+ * Defines the callback type for hover events.
  *
- * @typedef { function } HoverCallback
- * @param { boolean } isHover
- * @param { HoverEvent} event
+ * @param { boolean } isHover - Whether the element is in the hover state. **true**: yes; **false**: no.
+ * @param { HoverEvent} event - Position coordinates of the hovered mouse or stylus.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32564,9 +31098,8 @@ declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHove
 declare type AccessibilityTransparentCallback = (event: TouchEvent) => void;
 
 /**
- * Defines the options about VisibleAreaEvent.
+ * Describes visible area change configuration options.
  *
- * @interface VisibleAreaEventOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32574,10 +31107,13 @@ declare type AccessibilityTransparentCallback = (event: TouchEvent) => void;
  * @since 12 dynamic
  */
 declare interface VisibleAreaEventOptions {
+
   /**
-   * Each number in ratios indicates the value of visibility ratio. Each number in the Array value range in [0, 1].
+   * Threshold array. Each threshold represents a ratio of the component's visible area (that is, the area of the
+   * component that is visible on screen; only the area within the parent component is counted) to the component's total
+   * area. The value of each threshold ranges from 0.0 to 1.0. If a threshold value is less than 0.0, it is clamped to 0
+   * .0; if it is greater than 1.0, it is clamped to 1.0.
    *
-   * @type { Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32587,9 +31123,11 @@ declare interface VisibleAreaEventOptions {
   ratios: Array<number>;
 
   /**
-   * The value of expectedUpdateInterval indicates desired update period(ms).
+   * Expected calculation interval, in ms. If the value is less than 100 or set to **NaN**, the default value **100** is
+   * used. If the value is greater than 2^31-1, the default value **2^31-1** is used.
    *
-   * @type { ?number }
+   * Default value: **1000**.
+   *
    * @default 1000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -32600,13 +31138,20 @@ declare interface VisibleAreaEventOptions {
   expectedUpdateInterval?: number;
 
   /**
-   * When this parameter is set to true, the parts of the component that exceed the parent component's area will also
-   * be included in the visible area calculation. However, this only applies if the parent component does not
-   * explicitly set the clip property to true. If the parent component sets clip to true, regardless of the value
-   * of this parameter, the parts that exceed the parent component's area will still be treated as invisible in the
-   * visible area calculation.
+   * Visible area calculation mode.
    *
-   * @type { ?boolean }
+   * **true**: considers the parent's [clip]{@link CommonMethod#clip(value: boolean)} attribute. If
+   * [clip]{@link CommonMethod#clip(value: boolean)} is **false**, areas of the child component beyond the parent's
+   * bounds are counted as visible; if [clip]{@link CommonMethod#clip(value: boolean)} is **true**, such areas are
+   * counted as invisible. **false**: ignores the parent's [clip]{@link CommonMethod#clip(value: boolean)} attribute,
+   * treating areas beyond the parent's bounds as invisible.
+   *
+   * Default value: **false**.
+   *
+   * When **measureFromViewport** is set to **true**, and an ancestor node has the
+   * [scale]{@link CommonMethod#scale(value: ScaleOptions)} attribute set, the component's visible ratio will be
+   * correctly calculated.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -32618,37 +31163,28 @@ declare interface VisibleAreaEventOptions {
 }
 
 /**
- * Defines the callback type used in VisibleAreaChange events.
+ * Represents a callback for visible area changes of the component.
  *
- * @typedef { function } VisibleAreaChangeCallback
- * @param { boolean } isVisible - Indicates the ratio of the visible area to its own area compared to the last change.
- * It is true as the ratio increases and false as the ratio decreases.
- * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
+ * @param { boolean } isVisible - Whether the component's visible area has increased or decreased relative to its
+ *     total area since the last callback. The value **true** indicates that the visible area has increased, and
+ *     **false** indicates that the visible area has decreased. [since 12 - 12]
+ * @param { boolean } isExpanding - Whether the component's visible area has increased or decreased relative to its
+ *     total area since the last callback. The value **true** indicates that the visible area has increased, and
+ *     **false** indicates that the visible area has decreased. [since 13]
+ * @param { number } currentRatio - Ratio of the component's visible area to its own area at the moment the callback is
+ *     triggered.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
- */
-/**
- * Defines the callback type used in VisibleAreaChange events.
- *
- * @typedef { function } VisibleAreaChangeCallback
- * @param { boolean } isExpanding - Indicates the ratio of the visible area to its own area compared to the last change.
- * It is true as the ratio increases and false as the ratio decreases.
- * @param { number } currentRatio - The value of currentRatio indicates the visibility ratio of the current component.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 13 dynamic
+ * @since 12 dynamic
  */
 declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: number) => void;
 
 /**
- * Defines a UICommonEvent which is used to set different common event to target component.
+ * Implements a common event callback. Passing **undefined** as the input parameter resets the corresponding event
+ * callback.
  *
- * @interface UICommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32656,10 +31192,11 @@ declare type VisibleAreaChangeCallback = (isExpanding: boolean, currentRatio: nu
  * @since 12 dynamic
  */
 declare interface UICommonEvent {
+
   /**
-   * Set or reset the callback which will be triggered a click event when clicked.
+   * Set the callback for the [click event]{@link CommonMethod#onClick(event: (event: ClickEvent) => void)}.
    *
-   * @param { Callback<ClickEvent> | undefined } callback - The callback about the click event. If set undefined will reset the target callback.
+   * @param { Callback<ClickEvent> | undefined } callback - Callback for the click event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32669,9 +31206,9 @@ declare interface UICommonEvent {
   setOnClick(callback: Callback<ClickEvent> | undefined): void;
 
   /**
-   * Set or reset the callback which will be triggered a touch event when touched.
+   * Sets the callback for the [touch event]{@link CommonMethod#onTouch(event: (event: TouchEvent) => void)}.
    *
-   * @param { Callback<TouchEvent> | undefined } callback - The callback about the touch event. If set undefined will reset the target callback.
+   * @param { Callback<TouchEvent> | undefined } callback - Callback for the touch event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32681,9 +31218,9 @@ declare interface UICommonEvent {
   setOnTouch(callback: Callback<TouchEvent> | undefined): void;
 
   /**
-   * Set or reset the callback is triggered when a component mounts a display.
+   * Sets the callback for the [onAppear]{@link CommonMethod#onAppear} event.
    *
-   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component mounts a display. If set undefined will reset the target callback.
+   * @param { Callback<void> | undefined } callback - Callback invoked when the component appears.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32693,9 +31230,9 @@ declare interface UICommonEvent {
   setOnAppear(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback is triggered when component uninstallation disappears.
+   * Sets the callback for the [onDisAppear]{@link CommonMethod#onDisAppear} event.
    *
-   * @param { Callback<void> | undefined } callback - The callback will be triggered when component uninstallation disappears. If set undefined will reset the target callback.
+   * @param { Callback<void> | undefined } callback - Callback invoked when the component disappears.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32704,11 +31241,10 @@ declare interface UICommonEvent {
    */
   setOnDisappear(callback: Callback<void> | undefined): void;
 
-
   /**
-   * Set or reset the callback is triggered when component has keyboard input.
+   * Sets the callback for the [key event]{@link common}.
    *
-   * @param { Callback<KeyEvent> | undefined } callback - The callback will be triggered when has keyboard input. If set undefined will reset the target callback.
+   * @param { Callback<KeyEvent> | undefined } callback - Callback for the key event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32718,9 +31254,9 @@ declare interface UICommonEvent {
   setOnKeyEvent(callback: Callback<KeyEvent> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when component get focus.
+   * Sets the callback for the [onFocus]{@link CommonMethod#onFocus} event.
    *
-   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component get focus. If set undefined will reset the target callback.
+   * @param { Callback<void> | undefined } callback - Callback for the focus event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32730,9 +31266,9 @@ declare interface UICommonEvent {
   setOnFocus(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when lose focus.
+   * Sets the callback for the [onBlur]{@link CommonMethod#onBlur} event.
    *
-   * @param { Callback<void> | undefined } callback - The callback will be triggered when a component lose focus. If set undefined will reset the target callback.
+   * @param { Callback<void> | undefined } callback - Callback for the blur event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32742,9 +31278,9 @@ declare interface UICommonEvent {
   setOnBlur(callback: Callback<void> | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when has a hover event.
+   * Sets the callback for the [onHover]{@link CommonMethod#onHover} event.
    *
-   * @param { HoverCallback | undefined } callback - The callback will be triggered when has a hover event. If set undefined will reset the target callback.
+   * @param { HoverCallback | undefined } callback - Callback for the hover event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32754,9 +31290,9 @@ declare interface UICommonEvent {
   setOnHover(callback: HoverCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when has a mouse event.
+   * Sets the callback for the [onMouse]{@link CommonMethod#onMouse} event.
    *
-   * @param { Callback<MouseEvent> | undefined } callback - The callback will be triggered when has mouse input. If set undefined will reset the target callback.
+   * @param { Callback<MouseEvent> | undefined } callback - Callback for the mouse event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32766,23 +31302,26 @@ declare interface UICommonEvent {
   setOnMouse(callback: Callback<MouseEvent> | undefined): void;
 
   /**
-  * Sets the callback for the onSizeChange event.
-  *
-  * @param { SizeChangeCallback | undefined } callback - The callback will be triggered when the size of component changed. If set undefined will reset the target callback.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Sets the callback for the [onSizeChange]{@link CommonMethod#onSizeChange} event, which is triggered when the
+   * component's size changes.
+   *
+   * @param { SizeChangeCallback | undefined } callback - Callback invoked when the component's size changes.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   setOnSizeChange(callback: SizeChangeCallback | undefined): void;
 
   /**
-   * Sets the onVisibleAreaChange callback that limits the callback interval.
+   * Sets the callback for the
+   * [onVisibleAreaChange]{@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}
+   * visible area change event.
    *
-   * @param { VisibleAreaEventOptions } options - The options for the visibility event.
-   * @param { VisibleAreaChangeCallback | undefined } event - The callback will be triggered when the visibleArea of component changed and get close to any number in ratios defined by options.
-   * If set undefined will reset the target callback.
+   * @param { VisibleAreaEventOptions } options - Configuration options for visible area change detection.
+   * @param { VisibleAreaChangeCallback | undefined } event - Callback invoked when the ratio of the component's visible
+   *     area to its total area crosses the threshold specified in **options**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32869,9 +31408,8 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
 }
 
 /**
- * Defines a UIGestureEvent which is used to set different gestures to target component.
+ * Provides APIs for configuring gestures bound to a component.
  *
- * @interface UIGestureEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32879,12 +31417,13 @@ declare interface UIScrollableCommonEvent extends UICommonEvent {
  * @since 12 dynamic
  */
 declare interface UIGestureEvent {
+
   /**
-   * Add a gesture bound to the component.
+   * Adds a gesture.
    *
-   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
-   * @param { GesturePriority } priority - priority indicates the gesture's priority.
-   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @param { GestureHandler<T> } gesture - Gesture handler object.
+   * @param { GesturePriority } priority - Priority of the bound gesture.<br>Default value: **GesturePriority.NORMAL**.
+   * @param { GestureMask } mask - Mask for gesture events.<br>Default value: **GestureMask.Normal**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32894,10 +31433,10 @@ declare interface UIGestureEvent {
   addGesture<T>(gesture: GestureHandler<T>, priority?: GesturePriority, mask?: GestureMask): void;
 
   /**
-   * Add a parallel gesture bound to the component.
+   * Adds a gesture that can be recognized at once by the component and its child component.
    *
-   * @param { GestureHandler<T> } gesture - gesture indicates the gesture bound to a component.
-   * @param { GestureMask } mask - mask indicates the gesture's GestureMask value.
+   * @param { GestureHandler<T> } gesture - Gesture handler object.
+   * @param { GestureMask } mask - Mask for gesture events.<br>Default value: **GestureMask.Normal**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32909,7 +31448,7 @@ declare interface UIGestureEvent {
   /**
    * Remove a gesture from a component that has been bound with a specific tag through a modifier.
    *
-   * @param { string } tag - tag indicates the gesture's tag.
+   * @param { string } tag - Gesture handler flag.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -32919,7 +31458,7 @@ declare interface UIGestureEvent {
   removeGestureByTag(tag: string): void;
 
   /**
-   * Clear gestures bound to the component.
+   * Clears all gestures that have been bound to the component through a modifier.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -32979,9 +31518,17 @@ declare interface SelectionOptions {
 }
 
 /**
- * Defines the next focus item.
+ * Sets the target component for focus movement based on key presses. If it is not specified, the default focus movement
+ * logic applies.
  *
- * @interface FocusMovement
+ * > **NOTE**
+ * >
+ * > Directly using **focusControl** can lead to the issue of
+ * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the
+ * > [UIContext]{@link @ohos.arkui.UIContext:UIContext} object using the **getUIContext()** API and then obtain the
+ * > **focusControl** bound to the instance using the
+ * > [getFocusController]{@link @ohos.arkui.UIContext:UIContext#getFocusController} API.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32989,10 +31536,12 @@ declare interface SelectionOptions {
  * @since 18 dynamic
  */
 declare interface FocusMovement {
+
   /**
-   * Next focus item's component identifier of forward.
+   * ID of the component to focus on when the **Tab** key is pressed.
    *
-   * @type { ?string }
+   * The default value resets **forward** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33000,10 +31549,12 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   forward?: string;
+
   /**
-   * Next focus item's component identifier of backward.
+   * ID of the component to focus on when **Shift+Tab** is pressed.
    *
-   * @type { ?string }
+   * The default value resets **backward** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33011,10 +31562,12 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   backward?: string;
+
   /**
-   * Next focus item's component identifier of up.
+   * ID of the component to focus on when the up arrow key is pressed.
    *
-   * @type { ?string }
+   * The default value resets **up** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33022,10 +31575,12 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   up?: string;
+
   /**
-   * Next focus item's component identifier of down.
+   * ID of the component to focus on when the down arrow key is pressed.
    *
-   * @type { ?string }
+   * The default value resets **down** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33033,10 +31588,12 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   down?: string;
+
   /**
-   * Next focus item's component identifier of left.
+   * ID of the component to focus on when the left arrow key is pressed.
    *
-   * @type { ?string }
+   * The default value resets **left** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33044,10 +31601,12 @@ declare interface FocusMovement {
    * @since 18 dynamic
    */
   left?: string;
+
   /**
-   * Next focus item's component identifier of right.
+   * ID of the component to focus on when the right arrow key is pressed.
    *
-   * @type { ?string }
+   * The default value resets **right** to empty.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33163,9 +31722,9 @@ declare interface DateRange {
 }
 
 /**
- * Defines the input event intercept result.
+ * Input event interception result interface, used by the listener callback
+ * [InputEventListener]{@link InputEventListener} to return the interception decision.
  *
- * @interface InputEventInterceptResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33173,12 +31732,14 @@ declare interface DateRange {
  * @since 26.0.0 dynamic
  */
 declare interface InputEventInterceptResult {
+
   /**
-   * Event intercept decision.
-   * - CONTINUE: Allows the event to continue to be delivered to the UI framework.
-   * - BLOCK: Blocks the event from being delivered, the event will not enter the UI framework.
+   * Input event interception action.
    *
-   * @type { InputEventInterceptAction }
+   * **CONTINUE**: The event is allowed to continue being passed to the UI framework.
+   *
+   * **BLOCK**: The event is blocked from being passed to the UI framework.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33189,28 +31750,47 @@ declare interface InputEventInterceptResult {
 }
 
 /**
- * Defines the input event monitor identifier.
+ * Input event monitor identity object.
  *
- * Important Notes:
- * - This object is created and returned by the system as a unique identifier for the listener.
- * - The object is an empty object with no accessible members.
- * - Developers cannot actively construct this object, it can only be obtained through the registration interface.
- * - Used for subsequent unregistration to verify identity.
+ * This object is created and returned by the system, serving as the unique identifier of the monitor.
  *
- * @interface InputEventMonitor
+ * > **NOTE**
+ * >
+ * > - The object is empty and does not contain any accessible members.
+ * >
+ * > - Developers cannot create this object on their own. It can only be obtained by registering through the
+ * > [addLocalInputEventMonitor]{@link UIContext:UIContext#addLocalInputEventMonitor} API.
+ * >
+ * > - It is used for identity verification when unregistering later.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-declare interface InputEventMonitor {
-  // Empty interface, no members
-  // Used only as an identifier
-}
+declare interface InputEventMonitor {}
 
 /**
- * Defines the raw input event wrapper.
+ * Raw input event wrapper class.
+ *
+ * Provides a unified interface to access different types of input events, ensuring type safety and backward
+ * compatibility.
+ *
+ * This class encapsulates either a raw **MouseEvent**, **TouchEvent**, or **KeyEvent** object and provides type-safe
+ * methods for access.
+ *
+ * This class is an abstract class. Developers cannot create instances on their own. The system automatically creates an
+ * instance and passes it to the callback when the input event listener is triggered.
+ *
+ * > **NOTE**
+ * >
+ * > Since the listener is executed before events are dispatched to specific components, some fields in the event will
+ * > not provide valid values: the trigger object [target]{@link EventTarget}, coordinates relative to the component
+ * > [x]{@link MouseEvent#x} and [y]{@link MouseEvent#y}, [getCurrentLocalPosition]{@link TouchObject#getCurrentLocalPosition}
+ * > and [stopPropagation]{@link TouchEvent#stopPropagation} methods, [preventDefault]{@link TouchEvent#preventDefault} and
+ * > [getHistoricalPoints]{@link TouchEvent#getHistoricalPoints} methods of **TouchEvent**, as well as the [metaKey]{@link KeyEvent#metaKey}
+ * > attribute and [getModifierKeyState]{@link KeyEvent.getModifierKeyState} method of **KeyEvent**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33219,10 +31799,11 @@ declare interface InputEventMonitor {
  * @since 26.0.0 dynamic
  */
 declare abstract class RawInputEventWrapper {
+
   /**
    * Checks whether the event is a mouse event.
    *
-   * @returns { boolean } - Returns true if the event is a mouse event, otherwise returns false.
+   * @returns { boolean } Whether it is a mouse event. Returns **true** if it is a mouse event, and **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33234,7 +31815,7 @@ declare abstract class RawInputEventWrapper {
   /**
    * Checks whether the event is a touch event.
    *
-   * @returns { boolean } - Returns true if the event is a touch event, otherwise returns false.
+   * @returns { boolean } Whether it is a touch event. Returns **true** if it is a touch event, and **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33244,9 +31825,9 @@ declare abstract class RawInputEventWrapper {
   isTouchEvent(): boolean;
 
   /**
-   * Checks whether the event is a keyboard event.
+   * Checks whether the event is a key event.
    *
-   * @returns { boolean } - Returns true if the event is a keyboard event, otherwise returns false.
+   * @returns { boolean } Whether it is a key event. Returns **true** if it is a key event, and **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33256,11 +31837,9 @@ declare abstract class RawInputEventWrapper {
   isKeyEvent(): boolean;
 
   /**
-   * Attempts to get the mouse event.
+   * Obtains the mouse event.
    *
-   * Returns the event object if it is a mouse event, otherwise returns null.
-   *
-   * @returns { MouseEvent | null } - The mouse event object or null.
+   * @returns { MouseEvent | null } Mouse event object if it is a mouse event, or **null** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33270,11 +31849,9 @@ declare abstract class RawInputEventWrapper {
   asMouseEvent(): MouseEvent | null;
 
   /**
-   * Attempts to get the touch event.
+   * Obtains the touch event.
    *
-   * Returns the event object if it is a touch event, otherwise returns null.
-   *
-   * @returns { TouchEvent | null } - The touch event object or null.
+   * @returns { TouchEvent | null } Touch event object if it is a touch event, or **null** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33284,11 +31861,9 @@ declare abstract class RawInputEventWrapper {
   asTouchEvent(): TouchEvent | null;
 
   /**
-   * Attempts to get the keyboard event.
+   * Obtains the key event.
    *
-   * Returns the event object if it is a keyboard event, otherwise returns null.
-   *
-   * @returns { KeyEvent | null } - The keyboard event object or null.
+   * @returns { KeyEvent | null } Key event object if it is a key event, or **null** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -33299,21 +31874,29 @@ declare abstract class RawInputEventWrapper {
 }
 
 /**
- * Defines the input event listener callback function type.
+ * Input event listener callback type.
  *
- * Performance Warning: Do not perform time-consuming operations in the callback, otherwise it may cause
- * the application to freeze.
+ * > **NOTE**
+ * >
+ * > - **RawInputEventWrapper** is an abstract class. Developers cannot create instances using the `new` operator.
+ * >
+ * > - The system automatically creates instances when an event is triggered and passes them to the callback through
+ * > this parameter.
+ * >
+ * > - The current callback parameter **event** only encapsulates the following raw input event types:
+ * > [MouseEvent]{@link MouseEvent}, [TouchEvent]{@link TouchEvent}, [KeyEvent]{@link KeyEvent}. Developers can obtain
+ * > the corresponding event objects using [asMouseEvent]{@link RawInputEventWrapper#asMouseEvent},
+ * > [asTouchEvent]{@link RawInputEventWrapper#asTouchEvent}, and [asKeyEvent]{@link RawInputEventWrapper#asKeyEvent}.
+ * >
+ * > - Do not perform time-consuming operations (such as complex calculations or network requests) in the callback, as
+ * > this may cause application lag.
+ * >
+ * > - The listener executes synchronously on the UI thread, which directly blocks the event processing flow. It is
+ * > recommended to only perform simple judgment and calculation.
  *
- * The listener executes synchronously in the UI thread and will directly block the event processing flow.
- * It is recommended to only perform simple judgments and calculations, avoiding:
- * - Synchronous I/O operations
- * - Complex data processing
- * - Network requests
- * - Massive log output
- *
- * @typedef { function }
- * @param { RawInputEventWrapper } event - Input event wrapper
- * @returns { InputEventInterceptResult } - Event intercept result
+ * @param { RawInputEventWrapper } event - Input event wrapper. The system automatically creates and passes it.
+ *     Developers do not need to create it manually.
+ * @returns { InputEventInterceptResult } Event interception result.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33429,19 +32012,21 @@ declare interface GravityCenterOptions {
 }
 
 /**
- * Options for configuring smart gesture shortcuts.
+ * Smart gesture response behavior configuration object.
  *
- * @interface SmartGestureShortcutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 declare interface SmartGestureShortcutOptions {
+
   /**
-   * Set the response priority.
+   * Smart gesture response priority. Currently only **GestureShortcut.PRIMARY** is supported, indicating the component
+   * serves as the preferred response target for smart gesture operations such as swiping and clicking.
    *
-   * @type { ?GestureShortcut }
+   * Default value: **GestureShortcut.PRIMARY**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -33450,9 +32035,14 @@ declare interface SmartGestureShortcutOptions {
   action?: GestureShortcut;
 
   /**
-   * Whether to enable the specific smart gesture shortcuts.
+   * Whether the current component responds to smart gestures.
    *
-   * @type { ?boolean }
+   * **true**: The component responds to smart gestures.
+   *
+   * **false**: The component does not respond to smart gestures.
+   *
+   * Default value: **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -33461,9 +32051,15 @@ declare interface SmartGestureShortcutOptions {
   enabled?: boolean;
 
   /**
-   * Whether to enable the selection state effect of the component's smart gesture.
+   * Whether to display and retain the selected state after the component is selected by a smart gesture operation.
    *
-   * @type { ?boolean }
+   * **true**: Show the selection indicator.
+   *
+   * **false**: Do not show the selection indicator.
+   *
+   * When **enabled** is **true**, the default value is **true**; when **enabled** is **false**, the default value is
+   * **false**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice

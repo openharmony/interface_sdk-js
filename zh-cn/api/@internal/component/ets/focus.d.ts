@@ -19,8 +19,8 @@
  */
 
 /**
- * Sets the system focus box style for the component.
- *
+* 设置当前组件系统焦点框样式。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30,10 +30,9 @@
 declare interface FocusBoxStyle {
 
   /**
-   * Distance of the focus box from the component's edge.
+   * 焦点框相对组件边缘的距离。
    *
-   * A positive number indicates the outside, and a negative number indicates the inside. The value cannot be in
-   * percentage.
+   * 正数代表外侧，负数代表内侧。不支持百分比。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,7 +43,7 @@ declare interface FocusBoxStyle {
   margin?: LengthMetrics;
 
   /**
-   * Stroke color of the focus box.
+   * 焦点框颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -55,9 +54,9 @@ declare interface FocusBoxStyle {
   strokeColor?: ColorMetrics;
 
   /**
-   * Stroke width of the focus box.
+   * 焦点框宽度。
    *
-   * Negative numbers and percentages are not supported.
+   * 不支持负数与百分比。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,8 +68,8 @@ declare interface FocusBoxStyle {
 }
 
 /**
- * Sets the focus priority of a component.
- *
+* 设置组件焦点的优先级。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -80,7 +79,7 @@ declare interface FocusBoxStyle {
 declare enum FocusPriority {
 
   /**
-   * Default priority, that is, the focus priority assigned by default.
+   * 默认的优先级，缺省时组件的获焦优先级。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,7 +90,7 @@ declare enum FocusPriority {
   AUTO = 0,
 
   /**
-   * Priority that indicates the component is prioritized in the container. This level is higher than **AUTO**.
+   * 容器内优先获焦的优先级。优先级高于AUTO。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,7 +101,7 @@ declare enum FocusPriority {
   PRIOR = 2000,
 
   /**
-   * Priority of a previously focused node in the container. This level is higher than **PRIOR**.
+   * 上一次容器整体失焦时获焦节点的优先级。优先级高于PRIOR。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,8 +113,8 @@ declare enum FocusPriority {
 }
 
 /**
- * Enumerates the modes for processing key events.
- *
+* 设置按键事件处理的优先级。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -125,8 +124,7 @@ declare enum FocusPriority {
 declare enum KeyProcessingMode {
 
   /**
-   * Default value. When the current component does not consume the key event, focus navigation using the **Tab** and
-   * arrow keys preferentially stays within the current container.
+   * 默认值，当前组件不消费按键时，tab/方向键优先在当前容器内走焦。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -137,8 +135,7 @@ declare enum KeyProcessingMode {
   FOCUS_NAVIGATION = 0,
 
   /**
-   * When the current component does not consume the key event, focus navigation using the **Tab** and arrow keys is
-   * bubbled up to the parent component.
+   * 当前组件不消费按键时，tab/方向键优先冒泡给父组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
