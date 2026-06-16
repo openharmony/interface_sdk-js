@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,6 +25,7 @@
  * @since 22
  */
 declare namespace huksExternalCrypto {
+
   /**
    * 表示外部加密数据类型的枚举。
    *
@@ -32,6 +33,7 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   export enum HuksExternalCryptoTagType {
+
     /**
      * 表示TAG的值为整数类型。
      *
@@ -39,6 +41,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_TYPE_INT = 1 << 28,
+
     /**
      * 表示TAG的值为字节数组。
      *
@@ -55,6 +58,7 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   export enum HuksExternalCryptoTag {
+
     /**
      * 表示PIN码的TAG。
      *
@@ -62,6 +66,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_UKEY_PIN = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200001,
+
     /**
      * 表示[CryptoExtensionAbility]{@link @ohos.security.CryptoExtensionAbility}的名称。
      *
@@ -69,6 +74,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_ABILITY_NAME = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200002,
+
     /**
      * 外部数据，在通用查询场景，表示返回的数据。
      *
@@ -76,6 +82,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_EXTRA_DATA = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200003,
+
     /**
      * 表示调用方的uid。
      *
@@ -83,6 +90,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_UID = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200004,
+
     /**
      * 表示证书链对应密钥的使用类型，具体类型详见
      * [CertificatePurpose定义]{@link @ohos.security.certManager:certificateManager.CertificatePurpose}。
@@ -91,6 +99,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_TAG_PURPOSE = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_INT | 200005,
+
     /**
      * 表示获取资源ID所需的信息，格式和内容由厂商自定义。
      * 
@@ -101,6 +110,7 @@ declare namespace huksExternalCrypto {
      * @since 26.0.0
      */
     HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200007,
+
     /**
      * 表示密钥管理扩展自定义PIN码弹窗相关Ability列表信息，在注册密钥管理扩展时，同步注册，详见
      * [provider注册示例](docroot://security/UniversalKeystoreKit/huks-extension-registration-and-unregistration-arkts.md)。注
@@ -122,6 +132,7 @@ declare namespace huksExternalCrypto {
      * @since 26.0.0
      */
     HUKS_EXT_CRYPTO_TAG_ABILITY_INFO = HuksExternalCryptoTagType.HUKS_EXT_CRYPTO_TAG_TYPE_BYTES | 200008,
+
     /**
      * 表示CryptoExtensionAbility所属的HAP Bundle名称。
      * 
@@ -135,12 +146,13 @@ declare namespace huksExternalCrypto {
   }
 
   /**
-   * 表示Ukey PIN码管理的状态值的枚举。
+   * 枚举PIN认证的状态
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   export enum HuksExternalPinAuthState {
+
     /**
      * Ukey PIN未认证。
      *
@@ -148,15 +160,17 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_NO_AUTH = 0,
+
     /**
-     * Ukey PIN认证成功。
+     * PIN认证成功
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
      */
     HUKS_EXT_CRYPTO_PIN_AUTH_SUCCEEDED = 1,
+
     /**
-     * Ukey PIN已锁定。
+     * UKey PIN码已锁定
      *
      * @syscap SystemCapability.Security.Huks.CryptoExtension
      * @since 22
@@ -171,6 +185,7 @@ declare namespace huksExternalCrypto {
    * @since 22
    */
   export interface HuksExternalCryptoParam {
+
     /**
      * 参数标签，用于区分参数。
      *
@@ -178,6 +193,7 @@ declare namespace huksExternalCrypto {
      * @since 22
      */
     tag: HuksExternalCryptoTag;
+
     /**
      * 标签对应值。
      *
@@ -195,6 +211,7 @@ declare namespace huksExternalCrypto {
    * @since 26.0.0
    */
   export interface HuksExternalErrorInfo {
+
     /**
      * 详细错误码
      *
@@ -213,6 +230,7 @@ declare namespace huksExternalCrypto {
      */
     errorDesc: string;
   }
+
   /**
    * 注册指定的外部provider。使用Promise异步回调。
    * 
@@ -444,7 +462,7 @@ declare namespace huksExternalCrypto {
    *     [HUKS_EXT_CRYPTO_TAG_RESOURCE_INFO]{@link huksExternalCrypto.HuksExternalCryptoTagType}。
    * @returns { Promise<string> } Promise对象，返回资源ID。
    * @throws { BusinessError } 801 - API is not supported.
-   * @throws { BusinessError } 12000002 - The ability name or bundle name parameter is missing.
+   * @throws { BusinessError } 12000002 - The ability name, bundle name parameter or resource information is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - The provider is not found.
    * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
@@ -531,6 +549,16 @@ declare namespace huksExternalCrypto {
    * @since 26.0.0
    */
   function closeResource(resourceId: string, params?: HuksExternalCryptoParam[]): Promise<void>;
+
+  /**
+   * 查询上次接口调用产生的详细错误信息。
+   *
+   * @returns { HuksExternalErrorInfo } 返回的详细错误信息。
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function getErrorInfo(): HuksExternalErrorInfo;
 }
 
 export default huksExternalCrypto;

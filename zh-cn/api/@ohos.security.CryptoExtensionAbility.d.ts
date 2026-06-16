@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -30,6 +30,7 @@ import certificateManager from '@ohos.security.certManager';
  * @since 22
  */
 export const enum HuksCryptoExtensionResultCode {
+
   /**
    * 密钥扩展错误。可能的原因：
    * 
@@ -41,6 +42,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_EXTENSION_FAIL = 34800000,
+
   /**
    * UKey不存在。可能的原因：
    * 
@@ -52,6 +54,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_UKEY_NOT_EXIST = 34800001,
+
   /**
    * UKey驱动出现未知错误。
    *
@@ -60,6 +63,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_UKEY_DRIVER_FAIL = 34800002,
+
   /**
    * UKey PIN码未认证，需要先认证Ukey PIN码。
    *
@@ -68,6 +72,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_PIN_NO_AUTH = 34800003,
+
   /**
    * 句柄不存在。可能的原因：
    * 
@@ -79,6 +84,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_HANDLE_NOT_EXIST = 34800004,
+
   /**
    * 句柄不可用。可能的原因：
    * 
@@ -89,6 +95,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_HANDLE_UNAVAILABLE = 34800005,
+
   /**
    * UKey PIN码错误，需要检查输入的PIN码。
    *
@@ -97,6 +104,7 @@ export const enum HuksCryptoExtensionResultCode {
    * @since 22
    */
   HUKS_CRYPTO_EXTENSION_ERR_PIN_INCORRECT = 34800006,
+
   /**
    * UKey PIN码被锁。可能的原因：
    * 
@@ -116,6 +124,7 @@ export const enum HuksCryptoExtensionResultCode {
  * @since 22
  */
 export interface HuksCryptoExtensionCertInfo {
+
   /**
    * 表示证书链对应密钥的使用类型。
    *
@@ -123,6 +132,7 @@ export interface HuksCryptoExtensionCertInfo {
    * @since 22
    */
   purpose: certificateManager.CertificatePurpose;
+
   /**
    * 资源ID。JSON格式，能够映射到Ukey中的某个资源。
    *
@@ -130,6 +140,7 @@ export interface HuksCryptoExtensionCertInfo {
    * @since 22
    */
   resourceId: string;
+
   /**
    * 证书。
    *
@@ -146,6 +157,7 @@ export interface HuksCryptoExtensionCertInfo {
  * @since 22
  */
 export interface HuksCryptoExtensionResult {
+
   /**
    * 返回值的错误码。
    *
@@ -153,6 +165,7 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   resultCode: int;
+
   /**
    * 资源句柄。
    *
@@ -160,6 +173,7 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   handle?: string;
+
   /**
    * 认证状态。
    *
@@ -167,6 +181,7 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   authState?: int;
+
   /**
    * 重试次数。
    *
@@ -174,20 +189,24 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   retryCount?: int;
+
   /**
+   /**
    * 证书。
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   certs?: Array<HuksCryptoExtensionCertInfo>;
+
   /**
-   * 属性。
+   * 返回的属性信息。
    *
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
   property?: Array<huksExternalCrypto.HuksExternalCryptoParam>;
+
   /**
    * 返回的数据。
    *
@@ -195,6 +214,7 @@ export interface HuksCryptoExtensionResult {
    * @since 22
    */
   outData?: Uint8Array;
+
   /**
    * 返回的资源ID。
    * 
@@ -207,6 +227,7 @@ export interface HuksCryptoExtensionResult {
    * @since 26.0.0
    */
   resourceId?: string;
+
   /**
    * 返回详细错误信息
    *
@@ -219,96 +240,167 @@ export interface HuksCryptoExtensionResult {
 }
 
 /**
+ * 定义调用接口的param类型。
+ *
+ * @syscap SystemCapability.Security.Huks.CryptoExtension
+ * @stagemodelonly
+ * @since 26.0.0
+ */
+export interface HuksCryptoExtensionParam {
+
+  /**
+   * 参数标签，用于区分参数。
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  tag: huksExternalCrypto.HuksExternalCryptoTag | huks.HuksTag | number;
+
+  /**
+   * 标签的值。
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  value: boolean | int | bigint | Uint8Array;
+}
+
+/**
+ * 定义API中使用的选项。
+ *
+ * @syscap SystemCapability.Security.Huks.CryptoExtension
+ * @stagemodelonly
+ * @since 26.0.0
+ */
+export interface HuksCryptoExtensionParams {
+
+  /**
+   * 操作的属性。
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  properties: HuksCryptoExtensionParam[];
+
+  /**
+   * 操作的输入数据。
+   *
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  inData?: Uint8Array;
+}
+
+/**
  * Class to be override for external crypto extension ability.
  *
  * @syscap SystemCapability.Security.Huks.CryptoExtension
  * @since 22
  */
 declare class CryptoExtensionAbility {
+
   /**
-   * 获取外部扩展设备内的资源ID。使用Promise异步回调。
+   * 回调以获取加密扩展的资源ID。
    *
-   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - 获取资源ID所需的属性参数。
-   * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
-   * 当调用成功时，resultCode为0，resourceId携带资源ID信息。调用失败时，resultCode携带错误码信息。
-   * 可能返回的错误码值：
-   * 0 - 调用成功。
-   * 34800000 - 密钥扩展错误。
-   * 
+   * @param { HuksCryptoExtensionParam[] } params - 获取资源ID所需的属性参数。
+   * @returns { Promise<HuksCryptoExtensionResult> } params - 获取资源ID所需的属性参数。
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
    */
-  onGetResourceId(params: huksExternalCrypto.HuksExternalCryptoParam[]):Promise<HuksCryptoExtensionResult>;
+  onGetResourceId(params: HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
-   * 根据参数中的resourceId，打开Ukey的密钥资源。使用Promise异步回调。
+   * 打开资源句柄回调，在加密操作之前需打开资源，获取句柄。注意：返回的句柄必须被onCloseResource关闭。
    *
-   * @param { string } resourceId - 资源ID。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
-   * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
-   * 当调用成功时，resultCode为0，handle携带资源句柄信息。调用失败时，resultCode携带错误码信息。
-   * 可能返回的错误码值：
-   * 0 - 调用成功。
-   * 34800000 - 密钥扩展错误。
-   * 34800001 - Ukey不存在。
-   * 34800002 - Ukey驱动错误。
-   * 34800004 - 句柄不存在。
+   * @param { string } resourceId - resourceId表示资源ID
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
+   * @returns { Promise<HuksCryptoExtensionResult> } 函数返回的promise。
+   *     HuksCryptoExtensionResult.resultCode可能具有以下值：
+   *     0-操作成功
+   *     34800000 -加密扩展中发生错误。可能原因：
+   *     1.输入参数非法。
+   *     2.加密扩展遇到无法解析的错误状态。
+   *     34800001-UKey不存在。可能原因：
+   *     1.UKey已经被移除。
+   *     2.加密扩展维护了一个错误的UKey状态。
+   *     34800002-UKey驱动程序错误。这意味着UKey驱动程序中发生了未知错误。
+   *     34800004-resourceId不存在。这说明resourceId、设备名称、应用名称或容器名称错误。
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onOpenResource(resourceId: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onOpenResource(resourceId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+     HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 根据参数中的handle，关闭Ukey的密钥资源。使用Promise异步回调。
    *
    * @param { string } handle - 会话句柄。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
-   * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
-   * 当调用成功时，resultCode为0，表示关闭资源成功。调用失败时，resultCode携带错误码信息。
-   * 可能返回的错误码值：
-   * 0 - 调用成功。
-   * 34800000 - 密钥扩展错误。
-   * 34800002 - Ukey驱动错误。
-   * 34800004 - 句柄不存在。
-   * 34800005 - 句柄不可用。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
+   * @returns { Promise<HuksCryptoExtensionResult> } 函数返回的promise。
+   *     HuksCryptoExtensionResult.resultCode可能具有以下值：
+   *     0-操作成功
+   *     34800000 -加密扩展中发生错误。可能原因：
+   *     1.输入参数非法。
+   *     2.加密扩展遇到无法解析的错误状态。
+   *     34800002-UKey驱动程序错误。这意味着UKey驱动程序中发生了未知错误。
+   *     34800004 -句柄不存在。可能原因：
+   *     1.输入的句柄无效。
+   *     2.huks服务和加密扩展的状态不一致。由于异常，
+   *     huks服务持有的句柄没有被释放。
+   *     34800005 -句柄不可用，可能是因为状态不一致
+   *     在加密扩展和UKey之间。
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onCloseResource(handle: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onCloseResource(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
-   * 根据参数中的handle和propertyId获取属性。使用Promise异步回调。
+   * 查询操作回调。
+   *
+   * @param { string } handle - handle表示onOpenResource打开的句柄。
+   * @param { string } propertyId - propertyId表示属性函数的名称，GMT 0016-2023中定义。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
+   * @returns { Promise<HuksCryptoExtensionResult> } 函数返回的promise。
+   *     HuksCryptoExtensionResult.resultCode可能具有以下值：
+   *     0-操作成功
+   *     34800000 -加密扩展中发生错误。可能原因：
+   *     1.输入参数非法。
+   *     2.加密扩展遇到无法解析的错误状态。
+   *     34800002-UKey驱动程序错误。这意味着UKey驱动程序中发生了未知错误。
+   *     34800003-UKey PIN未鉴权。请先验证UKey PIN码。
+   *     34800004 -句柄不存在。可能原因：
+   *     1.输入的句柄无效。
+   *     2.huks服务和加密扩展的状态不一致。由于异常，
+   *     huks服务持有的句柄没有被释放。
+   *     34800005 -句柄不可用，可能是因为状态不一致
+   *     在加密扩展和UKey之间。
+   *     34800007-UKey PIN被锁定，因为已超过允许的最大尝试次数。
+   * @syscap SystemCapability.Security.Huks.CryptoExtension
+   * @since 22
+   */
+  onGetProperty(handle: string, propertyId: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
+
+  /**
+   * 根据参数中的handle和propertyId设置属性。使用Promise异步回调。
    *
    * @param { string } handle - 资源句柄。
    * @param { string } propertyId - 查找操作的属性名称，是GMT 0016-2023中定义的SKF接口名，要业务针对接口名适配。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
-   * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
-   * 当调用成功时，resultCode为0，HuksCryptoExtensionResult的property成员非空，
-   * 包含获取到的属性，由HUKS_EXT_CRYPTO_TAG_EXTRA_DATA参数携带。调用失败时，resultCode携带错误码信息。
-   * 可能返回的错误码值：
-   * 0 - 调用成功。
-   * 34800000 - 密钥扩展错误。
-   * 34800002 - Ukey驱动错误。
-   * 34800003 - Ukey PIN码未认证。
-   * 34800004 - 句柄不存在。
-   * 34800005 - 句柄不可用。
-   * @syscap SystemCapability.Security.Huks.CryptoExtension
-   * @since 22
-   */
-  onGetProperty(handle: string, propertyId: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
-  /**
-   * 用于执行提供程序的set操作的回调。
-   *
-   * @param { string } handle - set操作的资源句柄。
-   * @param { string } propertyId - 需要设置的属性的ID。
-   *     目前支持GMT 0016-2023定义的部分方法名和自定义方法。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作参数。
-   *     此参数包含与需要设置的属性ID相关的参数。
-   * @returns { Promise<HuksCryptoExtensionResult> } 函数返回的promise。 如果函数执行失败，扩展需要在HuksCryptoExtensionResult.errInfo设置详细信息.  HuksCryptoExtensionResult.resultCode可能具有以下值：
+   * @param { HuksCryptoExtensionParam[] } params - 操作属性。
+   * @returns { Promise<HuksCryptoExtensionResult> } Promise用于返回HuksCryptoExtensionResult。
+   *     HuksCryptoExtensionResult.resultCode可能具有以下值：
    *     0-操作成功。
    *     34800000 -加密扩展中发生错误。可能原因：
    *     1.输入参数非法。
@@ -326,13 +418,16 @@ declare class CryptoExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0
    */
-  onSetProperty(handle: string, propertyId: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onSetProperty(handle: string, propertyId: string, params: HuksCryptoExtensionParam[]):
+      Promise<HuksCryptoExtensionResult>;
+
   /**
    * 请求Ukey认证PIN码。使用Promise异步回调。
    *
    * @param { string } handle - 资源句柄。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，authState非0，表示认证请求成功。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -342,18 +437,20 @@ declare class CryptoExtensionAbility {
    * 34800004 - 句柄不存在。
    * 34800005 - 句柄不可用。
    * 34800006 - Ukey PIN码错误。
-   * 34800007 - Ukey PIN码被锁。
+   * 34800007 - Ukey PIN码被锁
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onAuthUkeyPin(handle: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onAuthUkeyPin(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 获取Ukey的PIN码认证状态。使用Promise异步回调。
    *
    * @param { string } handle - 资源句柄。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，HuksCryptoExtensionResult的authState成员非空，为获取的PIN码认证状态。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -365,14 +462,16 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onGetUkeyPinAuthState(handle: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onGetUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 清除应用维度PIN码的认证状态。使用Promise异步回调。
    *
-   * @param { string } handle - 会话句柄。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - 操作属性。
+   * @param { string } handle - 资源句柄
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } params - params indicates
+   *     the properties of the operation[since 22 -24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } params - 操作属性。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，表示清除PIN码认证状态成功。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -384,14 +483,15 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onClearUkeyPinAuthState(handle: string,
-      params: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onClearUkeyPinAuthState(handle: string, params: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 三段式初始化密钥会话操作。使用Promise异步回调。
    *
    * @param { string } handle - 资源句柄。
-   * @param { huks.HuksOptions } params - 操作属性。
+   * @param { huks.HuksOptions } params - params indicates the properties of the operation[since 22 -24].
+   * @param { huks.HuksOptions | HuksCryptoExtensionParams } params - 操作属性。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，handle成员非空。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -405,12 +505,16 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onInitSession(handle: string, params: huks.HuksOptions): Promise<HuksCryptoExtensionResult>;
+  onInitSession(handle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
+      Promise<HuksCryptoExtensionResult>;
+
   /**
    * 三段式密钥会话更新数据操作。使用Promise异步回调。
    *
    * @param { string } initHandle - 资源句柄。
-   * @param { huks.HuksOptions } params - 操作属性。
+   * @param { huks.HuksOptions } params - params indicates the properties of the operation[since 22 - 24].
+   * @param { huks.HuksOptions | HuksCryptoExtensionParams } params - params indicates the
+   *     properties of the operation[since 26.0.0].
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -424,13 +528,15 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onUpdateSession(initHandle: string, params: huks.HuksOptions): Promise<HuksCryptoExtensionResult>;
+  onUpdateSession(initHandle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
+      Promise<HuksCryptoExtensionResult>;
 
   /**
    * 三段式密钥会话结束操作。使用Promise异步回调。
    *
    * @param { string } initHandle - 资源句柄。
-   * @param { huks.HuksOptions } params - 操作属性。
+   * @param { huks.HuksOptions } params - params indicates the properties of the operation[since 22 - 24].
+   * @param { huks.HuksOptions | HuksCryptoExtensionParams } params - 操作属性。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -444,13 +550,16 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onFinishSession(initHandle: string, params: huks.HuksOptions): Promise<HuksCryptoExtensionResult>;
+  onFinishSession(initHandle: string, params: huks.HuksOptions | HuksCryptoExtensionParams):
+      Promise<HuksCryptoExtensionResult>;
 
   /**
    * 查询指定resourceId下的证书。使用Promise异步回调。
    *
-   * @param { string } resourceId - 资源ID。会附带在HuksCryptoExtensionCertInfo中。
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } [params] - 操作属性。
+   * @param { string } resourceId - 资源ID。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } [params] - params
+   *     indicates the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } [params] - 操作属性
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，certs成员非空，包含获取的单本证书。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -462,15 +571,16 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onExportCertificate(resourceId: string,
-      params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onExportCertificate(resourceId: string, params?: Array<huksExternalCrypto.HuksExternalCryptoParam> |
+      HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 导入指定资源句柄的证书。使用Promise异步回调。
    *
    * @param { string } handle - 导入证书的资源句柄。
-   * @param { huksExternalCrypto.HuksExternalCryptoParam[] } params - 导入证书所需的属性参数。
-   * @param { HuksCryptoExtensionCertInfo } certInfo - 待导入的证书信息。需指定证书类型（purpose）。
+   * @param { HuksCryptoExtensionParam[] } params - Indicates
+   *     the needed properties for the import certificate operation.
+   * @param { HuksCryptoExtensionCertInfo } certInfo - 待导入的证书信息。需指定证书类型（purpose）
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，表示导入证书成功。调用失败时，resultCode携带错误码信息，errInfo携带详细错误信息。
    * 可能返回的错误码值：
@@ -484,13 +594,15 @@ declare class CryptoExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0
    */
-  onImportCertificate(handle: string, params: huksExternalCrypto.HuksExternalCryptoParam[],
+  onImportCertificate(handle: string, params: HuksCryptoExtensionParam[],
       certInfo: HuksCryptoExtensionCertInfo): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 枚举Extension下所有Ukey设备的证书信息。使用Promise异步回调。
    *
-   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } [params] - 操作属性。
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> } [params] - params
+   *     indicates the properties of the operation[since 22 - 24].
+   * @param { Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[] } [params] - 操作属性
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，certs成员非空，包含获取的所有证书。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -501,13 +613,14 @@ declare class CryptoExtensionAbility {
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @since 22
    */
-  onEnumCertificates(params?: Array<huksExternalCrypto.HuksExternalCryptoParam>): Promise<HuksCryptoExtensionResult>;
+  onEnumCertificates(params?: Array<huksExternalCrypto.HuksExternalCryptoParam> | HuksCryptoExtensionParam[]):
+      Promise<HuksCryptoExtensionResult>;
 
   /**
    * 用于在扩展设备内生成密钥对。使用Promise异步回调。
    *
    * @param { string } handle - 待生成密钥的资源句柄。
-   * @param { huks.HuksParam[] } params - 密钥生成操作的属性参数。
+   * @param { HuksCryptoExtensionParam[] } params - 密钥生成操作的属性参数。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，表示生成密钥成功。调用失败时，resultCode携带错误码信息。
    * 可能返回的错误码值：
@@ -521,13 +634,13 @@ declare class CryptoExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0
    */
-  onGenerateKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoExtensionResult>;
+  onGenerateKeyItem(handle: string, params:HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
    * 用于导出指定密钥的公钥。使用Promise异步回调。
    *
-   * @param { string } handle - 待导出公钥的资源句柄。
-   * @param { huks.HuksParam[] } params - 导出公钥操作的属性参数。
+   * @param { string } handle - 待导出公钥的资源句柄
+   * @param { HuksCryptoExtensionParam[] } params - 导出公钥操作的属性参数。
    * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
    * 当调用成功时，resultCode为0，outData携带导出的公钥数据。调用失败时，resultCode携带错误码信息，errInfo携带详细错误信息。
    * 可能返回的错误码值：
@@ -541,35 +654,29 @@ declare class CryptoExtensionAbility {
    * @stagemodelonly
    * @since 26.0.0
    */
-  onExportKeyItem(handle: string, params: huks.HuksParam[]): Promise<HuksCryptoExtensionResult>;
+  onExportKeyItem(handle: string, params: HuksCryptoExtensionParam[]): Promise<HuksCryptoExtensionResult>;
 
   /**
-   * Callback to import the wrapped key pair specified by the resource handle.
+   * 用于导入加密封装的密钥对。使用Promise异步回调。
    *
-   * @param { string } handle - Indicates the resource handle of the wrapped key to be imported.
-   * @param { string } wrappingHandle - Indicates the resource handle of the key used to unwrap the imported key.
-   * @param { huks.HuksParam[] } params - Indicates the needed properties for the import wrapped key operation.
-   * @param { Uint8Array } wrappedKey - Indicates the wrapped key data, which format is defined by the crypto extension.
-   * @returns { Promise<HuksCryptoExtensionResult> } The promise returned by the function.
-   *     If the function execution fails, the extension needs to set the detailed error information in
-   *     HuksCryptoExtensionResult.errInfo.
-   *     HuksCryptoExtensionResult.resultCode may have the following values:
-   *     0 - The operation is successful.
-   *     34800000 - An error occurred in the crypto extension. Possible causes:
-   *     1. The input parameter is invalid.
-   *     2. The crypto extension encountered an unresolvable error state.
-   *     34800002 - Failed to call the UKey driver interface. Please check the UKey's connection and driver status.
-   *     34800004 - The handle does not exist. Possible causes:
-   *     1. The handle you entered is invalid.
-   *     2. The states of HUKS service and crypto extension are inconsistent. Due to an exception,
-   *     the handle held by HUKS service was not released.
-   *     34800005 - The handle is unavailable, possibly due to an inconsistent state
-   *     between the crypto extension and the UKey.
+   * @param { string } handle - 待导入密钥的资源句柄。
+   * @param { string } wrappingHandle - 待导入密钥的资源句柄。
+   * @param { HuksCryptoExtensionParam[] } params - 导入密钥所需的属性
+   * @param { Uint8Array } wrappedKey - 封装密钥数据，格式由密钥扩展定义。
+   * @returns { Promise<HuksCryptoExtensionResult> } Promise对象。
+   * 当调用成功时，resultCode为0，表示导入密钥成功。调用失败时，resultCode携带错误码信息，errInfo携带详细错误信息。
+   * 可能返回的错误码值：
+   * 0 - 调用成功。
+   * 34800000 - 密钥扩展错误。
+   * 34800001 - Ukey不存在。
+   * 34800002 - Ukey驱动错误。
+   * 34800004 - 句柄不存在。
+   * 34800005 - 句柄不可用。
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0
    */
-  onImportWrappedKeyItem(handle: string, wrappingHandle: string, params: huks.HuksParam[],
+  onImportWrappedKeyItem(handle: string, wrappingHandle: string, params: HuksCryptoExtensionParam[],
       wrappedKey: Uint8Array): Promise<HuksCryptoExtensionResult>;
 }
 
