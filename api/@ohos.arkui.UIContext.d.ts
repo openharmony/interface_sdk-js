@@ -1643,25 +1643,24 @@ export interface OrderOverlayOptions {
 }
 
 /**
- * Register callbacks to observe ArkUI behavior.
- * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
- * then call the APIs using the obtained instance.
+ * Provides APIs for listening for UI component behavior changes.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this class are supported since API version 11.
+ * >
+ * > - In the following API examples, you must first use [getUIObserver()]{@link UIContext#getUIObserver} in
+ * > **UIContext** to obtain a **UIObserver** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - UIObserver can only listen for relevant information within the current process and does not support obtaining
+ * > information in cross-process scenarios<!--Del--> such as [UIExtensionComponent]{@link ui_extension_component}<!--
+ * > DelEnd-->.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Register callbacks to observe ArkUI behavior.
- * In the following API examples, you must first use getUIObserver() in UIContext to obtain a UIObserver instance, and
- * then call the APIs using the obtained instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export class UIObserver {
   /**
@@ -1912,10 +1911,12 @@ export class UIObserver {
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
 
   /**
-   * Registers a callback function to be called when the screen density in a ui context is updated.
+   * Listens for screen pixel density changes.
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
-   * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is updated.
+   * @param { 'densityUpdate' } type - Event type. The value **'densityUpdate'** indicates the pixel density changes of
+   *     the screen.
+   * @param { Callback<observer.DensityInfo> } callback - Callback used to return the updated screen pixel density using
+   *     a [DensityInfo]{@link @ohos.arkui.observer:uiObserver.DensityInfo} object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1925,11 +1926,12 @@ export class UIObserver {
   on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for screen pixel density changes.
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
-   * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'densityUpdate' } type - Event type. The value **'densityUpdate'** indicates the pixel density changes of
+   *     the screen.
+   * @param { Callback<observer.DensityInfo> } [callback] - Target listener to unregister. If no parameter is provided,
+   *     all screen pixel density change listeners for the current [UIContext]{@link @ohos.arkui.UIContext} are removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1939,10 +1941,10 @@ export class UIObserver {
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
 
   /**
-   * Registers a callback function to be called when the draw command will be drawn.
+   * Listens for drawing instruction dispatch in each frame.
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
-   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @param { 'willDraw' } type - Event event. The value **'willDraw'** indicates whether drawing is about to occur.
+   * @param { Callback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1952,11 +1954,11 @@ export class UIObserver {
   on(type: 'willDraw', callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for drawing instruction dispatch in each frame.
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'willDraw' } type - Event event. The value **'willDraw'** indicates whether drawing is about to occur.
+   * @param { Callback<void> } [callback] - Target listener to unregister. If no parameter is provided, all drawing
+   *     instruction dispatch listeners are unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1966,10 +1968,11 @@ export class UIObserver {
   off(type: 'willDraw', callback?: Callback<void>): void;
 
   /**
-   * Registers a callback function to be called when the layout is done.
+   * Listens for layout completion status in each frame.
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
-   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @param { 'didLayout' } type - Event type. The value **'didLayout'** indicates whether the layout has been
+   *     completed.
+   * @param { Callback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1979,11 +1982,12 @@ export class UIObserver {
   on(type: 'didLayout', callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for layout completion status in each frame.
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'didLayout' } type - Event type. The value **'didLayout'** indicates whether the layout has been
+   *     completed.
+   * @param { Callback<void> } [callback] - Target listener to unregister. If no parameter is provided, all layout
+   *     completion listeners are unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2444,16 +2448,14 @@ export class UIObserver {
   off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * Registers a callback function to be called when the window size layout breakpoint changes.
-   * This method allows observing changes in window size breakpoints which can be used to
-   * adapt UI layouts responsively based on window dimensions.
+   * Registers a callback for window size layout breakpoint changes. This enables adaptive UI layout adjustments based
+   * on window size variations. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to listen for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - The callback function to be
-   *     called when the window size layout breakpoint changes. The callback receives a
-   *     {@link WindowSizeLayoutBreakpointInfo} object containing the current width and height
-   *     breakpoint classifications.
+   * @param { 'windowSizeLayoutBreakpointChange' } type - Event type. The value is fixed at
+   *     **'windowSizeLayoutBreakpointChange'**, indicating window size layout breakpoint changes.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - Callback used to return the result. It
+   *     provides window width and height layout breakpoint enumerations using a **WindowSizeLayoutBreakpointinfo**
+   *     object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -2463,13 +2465,14 @@ export class UIObserver {
   on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
-   * Removes a previously registered callback function for window size layout breakpoint changes.
-   * If no callback is provided, all callbacks for the specified context will be removed.
+   * Unregisters previously registered window size layout breakpoint change listeners. If no callback is specified, all
+   * listeners for the current UI context are removed. This API uses an asynchronous callback to return the result.
    *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - The type of event to remove the listener for.
-   *     Must be 'windowSizeLayoutBreakpointChange'.
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - The specific callback function to remove.
-   *     If not provided, all callbacks for the given event type and context will be removed.
+   * @param { 'windowSizeLayoutBreakpointChange' } type - Event type. The value is fixed at
+   *     **'windowSizeLayoutBreakpointChange'**, indicating window size layout breakpoint changes.
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - Target listener to unregister. If no
+   *     parameter is provided, all window size layout breakpoint change listeners for the current
+   *     [UIContext]{@link @ohos.arkui.UIContext} are removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -3792,19 +3795,27 @@ export declare class ContextMenuController {
 }
 
 /**
- * Class FrameCallback
+ * Implements the API for setting the task that needs to be executed during the next frame rendering.
+ *
+ * > **NOTE**
+ * >
+ * > - The following APIs must be used in conjunction with [postFrameCallback]{@link UIContext#postFrameCallback} and
+ * > [postDelayedFrameCallback]{@link UIContext#postDelayedFrameCallback} from [UIContext]{@link @ohos.arkui.UIContext}.
+ * > Extend this class and override either the [onFrame]{@link FrameCallback#onFrame} or
+ * > [onIdle]{@link FrameCallback#onIdle} method to implement specific service logic.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
 export abstract class FrameCallback {
   /**
-   * Call when a new display frame is being rendered.
+   * Called when the next frame is rendered.
    *
-   * @param { number } frameTimeInNano - The frame time in nanoseconds.
-   * Value range: [0, +∞)
+   * @param { number } frameTimeInNano - Time when the rendering of the next frame starts, in nanoseconds.<br>Value
+   *     range: [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3814,10 +3825,12 @@ export abstract class FrameCallback {
   onFrame(frameTimeInNano: number): void;
 
   /**
-   * Called at the end of the next idle frame. If there is no next frame, will request one automatically.
+   * Called after the rendering of the subsequent frame has finished and there is more than 1 millisecond left before
+   * the next VSync signal. If the time left is not more than 1 millisecond, the execution of this API will be deferred
+   * to a later frame.
    *
-   * @param { number } timeLeftInNano - The remaining time from the deadline for this frame, in nanoseconds.
-   * Value range: [0, +∞)
+   * @param { number } timeLeftInNano - Remaining idle time for the current frame, in nanoseconds.<br>Value range:
+   *     [0, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3828,10 +3841,8 @@ export abstract class FrameCallback {
 }
 
 /**
- * The base context of an ability or an application. It allows access to
- * application-specific resources.
+ * Defines the context of the current ability.
  *
- * @typedef { common.Context } Context
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -4620,8 +4631,8 @@ export class SmartGestureController {
 }
 
 /**
- * Enum of strategy of resolved UIContext.
- * @enum { number } strategy of resolved UIContext.
+ * Enumerates resolution strategies for **UIContext** objects.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4630,7 +4641,8 @@ export class SmartGestureController {
  */
 export const enum ResolveStrategy {
   /**
-   * Get UIContext of calling scope.
+   * Obtain the UIContext of the current calling scope.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4640,7 +4652,8 @@ export const enum ResolveStrategy {
   CALLING_SCOPE = 0,
 
   /**
-   * Get UIContext of last focused instance.
+   * Obtain the UIContext of the instance that most recently switched to the focused state.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4650,7 +4663,8 @@ export const enum ResolveStrategy {
   LAST_FOCUS = 1,
 
   /**
-   * Get UIContext with maximum instanceId.
+   * Obtain the UIContext of the instance with the largest instance ID.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4660,7 +4674,8 @@ export const enum ResolveStrategy {
   MAX_INSTANCE_ID = 2,
 
   /**
-   * Get UIContext of unique UI instance.
+   * Obtain the UIContext of the unique UI instance (when only one UI instance exists).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4670,7 +4685,8 @@ export const enum ResolveStrategy {
   UNIQUE = 3,
 
   /**
-   * Get UIContext of last foregrounded instance.
+   * Obtain the UIContext of the instance that most recently switched to the foreground.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4680,7 +4696,8 @@ export const enum ResolveStrategy {
   LAST_FOREGROUND = 4,
 
   /**
-   * Get UIContext of undefined calling scope.
+   * Obtain a UIContext with an ambiguous calling scope.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4691,10 +4708,15 @@ export const enum ResolveStrategy {
 }
 
 /**
- * Defines the result of UIContext.resolveUIContext.
- * This class is a subclass of UIContext and additionally provides the strategy used to
- * obtain this UIContext.
- * @extends UIContext
+ * **ResolvedUIContext** instance object.
+ *
+ * > **NOTE**
+ * >
+ * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ * >
+ * > - **ResolvedUIContext** is inherited from [UIContext]{@link @ohos.arkui.UIContext}. Objects of this class contain
+ * > the [UIContext]{@link @ohos.arkui.UIContext} instance and its parsing policy.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4704,7 +4726,7 @@ export const enum ResolveStrategy {
 export class ResolvedUIContext extends UIContext {
   /**
    * Resolving strategy of the UIContext.
-   * @type { ResolveStrategy }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4715,25 +4737,36 @@ export class ResolvedUIContext extends UIContext {
 }
 
 /**
- * class UIContext
+ * Implements a **UIContext** instance.
+ *
+ * > **NOTE**
+ * >
+ * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ * >
+ * > - The following APIs must be called through a corresponding UIContext instance. There are three ways to obtain a
+ * > **UIContext** instance: (1) using the
+ * > [getUIContext()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10) method from
+ * > ohos.window; (2) using the built-in method
+ * > [getUIContext()](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-api.md#getuicontext) of a custom
+ * > component; (3) using static methods of the UIContext class such as
+ * > [getCallingScopeUIContext]{@link UIContext#getCallingScopeUIContext}. In this document, the **UIContext** instance
+ * > is represented by **uiContext**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * class UIContext
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class UIContext {
   /**
-   * UIContext constructor
+   * Construct a **UIContext** object.
+   *
+   * > **NOTE**
+   * >
+   * > A **UIContext** object created using the constructor points to an ambiguous UI context, meaning it is not bound
+   * > to any specific UI instance. The unique ID of such a UIContext instance is -1.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4743,10 +4776,18 @@ export class UIContext {
   constructor();
 
   /**
-   * Gets the UIContext associated with the current calling scope.
-   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
-   *     or undefined if no context can be determined from the call stack.
-   * @static
+   * Obtains the UIContext of this [calling scope](docroot://ui/arkts-global-interface.md#basic-concepts). This API
+   * returns **undefined** if the calling scope is ambiguous.
+   *
+   * > **NOTE**
+   * >
+   * > The returned UIContext object may point to a destroyed UI instance, which usually occurs when an asynchronous
+   * > task is dispatched from an instance that has already been destroyed. As such, you are advised to verify its
+   * > validity via the [isAvailable]{@link UIContext#isAvailable} API.
+   *
+   * @returns { UIContext | undefined } UIContext of the current
+   *     [calling scope](docroot://ui/arkts-global-interface.md#basic-concepts). Returns **undefined** if the calling
+   *     scope is ambiguous.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4756,9 +4797,11 @@ export class UIContext {
   static getCallingScopeUIContext(): UIContext | undefined;
 
   /**
-   * Gets the UIContext of the last focused UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
-   * @static
+   * Obtains the UIContext of the UI instance that most recently switched to the focused state.
+   *
+   * @returns { UIContext | undefined } UIContext of the UI instance that most recently switched to the focused state.
+   *     Returns **undefined** if the most recently focused instance has been destroyed or if no instance has ever been
+   *     focused.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4768,10 +4811,11 @@ export class UIContext {
   static getLastFocusedUIContext(): UIContext | undefined;
 
   /**
-   * Gets the UIContext of the last foregrounded UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
-   * exists
-   * @static
+   * Obtains the UIContext of the UI instance that most recently switched to the foreground state.
+   *
+   * @returns { UIContext | undefined } UIContext of the UI instance that most recently switched to the foreground
+   *     state. Returns **undefined** if the most recently foreground UI instance has been destroyed or if no UI
+   *     instance has ever been in the foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4781,10 +4825,10 @@ export class UIContext {
   static getLastForegroundUIContext(): UIContext | undefined;
 
   /**
-   * Gets all currently active UIContext instances.
-   * @returns { UIContext[] } - An array containing all valid UIContext instances,
-   *     returns an empty array if no contexts are available.
-   * @static
+   * Obtains all currently valid UIContext instances.
+   *
+   * @returns { UIContext[] } Array of all currently valid UIContext instances. Returns an empty array if no valid
+   *     UIContext instance exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4794,18 +4838,29 @@ export class UIContext {
   static getAllUIContexts(): UIContext[];
 
   /**
-   * Resolves a UIContext using priority strategy.
+   * Obtains a UIContext instance along with its resolution strategy using a predefined priority order.
    *
-   * Resolves and returns a UIContext instance following a predefined priority sequence.
-   * resolution rules in order:
-   * <br>1. the UIContext with current calling scope
-   * <br>2. Returns the unique UIContext if only one UI instance exists.
-   * <br>3. Returns the UIContext of the last focused UI instance if one exists.
-   * <br>4. Returns the UIContext of the last foregrounded UI instance if one exists.
-   * <br>5. Returns the UIContext of the most recently created UI instance if any UI instance exists.
-   * <br>6. Returns an invalid UIContext instance if none of the above conditions are met.
-   * @returns { ResolvedUIContext } - ResolvedUIContext instance
-   * @static
+   * > **NOTE**
+   * >
+   * > This API resolves and returns a UIContext instance together with the strategy used to determine it,
+   * >
+   * > based on the following priority rules (in order):
+   * >
+   * > 1. UIContext in the current calling scope.
+   * >
+   * > 2. If only one UI instance exists, its UIContext is returned.
+   * >
+   * > 3. If a UI instance has switched to the focused state, and the most recently focused UI instance has not been
+   * > destroyed, the UIContext of that most recently focused instance is returned.
+   * >
+   * > 4. If a UI instance has switched to the foreground state, and the most recently foreground UI instance has not
+   * > been destroyed, the UIContext of that most recently foreground instance is returned.
+   * >
+   * > 5. If multiple UI instances exist, the UIContext with the largest unique instance ID is returned.
+   * >
+   * > 6. If none of the above conditions are met, an invalid UIContext instance is returned.
+   *
+   * @returns { ResolvedUIContext } UIContext instance along with its resolution strategy.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4814,16 +4869,23 @@ export class UIContext {
    */
   static resolveUIContext(): ResolvedUIContext;
 
-/**
-   * Checks whether the UiContext object ia available.
- *
-   * @returns { boolean } Returns true if the UIConetxt object is available.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
+  /**
+   * Checks whether the UI instance corresponding to this **UIContext** object is valid. The **UIContext** object can be
+   * obtained using the [getUIContext](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10) API. A
+   * UI instance is considered valid when the backend UI instance exists. UIContext objects created using
+   * **new UIContext()** have no corresponding UI instance. After multiple
+   * [loadContent](docroot://reference/apis-arkui/arkts-apis-window-Window.md#loadcontent9) operations, old UI instances
+   * become invalid. In multi-window scenarios, when a window is closed, its UI instance becomes invalid. In summary, a
+   * UIContext object is invalid when it has no corresponding backend UI instance.
+   *
+   * @returns { boolean } Whether the UI instance corresponding to the current **UIContext** object is valid. The value
+   *     **true** indicates yes, and the value **false** indicates no.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 20 dynamic
- */
+   */
   isAvailable(): boolean;
 
   /**
@@ -4995,23 +5057,14 @@ export class UIContext {
   getComponentUtils(): ComponentUtils;
 
   /**
-   * Get the UI observer.
+   * Obtains the **UIObserver** object.
    *
-   * @returns { UIObserver } The UI observer.
+   * @returns { UIObserver } **UIObserver** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the UI observer.
-   *
-   * @returns { UIObserver } The UI observer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getUIObserver(): UIObserver;
 
@@ -5299,17 +5352,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Run custom functions inside the UIContext scope.
-   *
-   * @param { function } callback - The function called through UIContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   runScopedTask(callback: () => void): void;
 
@@ -5524,6 +5568,7 @@ export class UIContext {
    * Get FrameNode by uniqueId.
    * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
    * The return value depends on the type of component associated with the uniqueId.
+   *
    * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
    * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
    * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
@@ -5570,11 +5615,15 @@ export class UIContext {
   getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
 
   /**
-   * Dynamic dimming.
+   * Sets the dynamic dimming degree of the component.
    *
-   * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
+   * > **NOTE**
+   * >
+   * > Applying other visual effects after this API is called may result in conflicts.
+   *
+   * @param { string } id - Component ID.
+   * @param { number } value - Dynamic dimming degree of the component. The value range is [0, 1]. The component is
+   *     brighter with a larger value.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -5825,9 +5874,9 @@ export class UIContext {
   px2lpx(value: number): number;
 
   /**
-   * Obtains the LocalStorage instance shared by this stage.
+   * Obtains the **LocalStorage** instance shared by this stage.
    *
-   * @returns { LocalStorage | undefined }
+   * @returns { LocalStorage | undefined } **LocalStorage** instance if it exists; **undefined** if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5837,9 +5886,14 @@ export class UIContext {
   getSharedLocalStorage(): LocalStorage | undefined;
 
   /**
-   * Obtains context of the ability.
+   * Obtains the context of this ability.
    *
-   * @returns { Context | undefined }
+   * @returns { Context | undefined } Context of the ability. The context type depends on the ability type. For example,
+   *     if this API is called in a page within a UIAbility window, the returned context type is
+   *     [UIAbilityContext]{@link UIAbilityContext:UIAbilityContext}. If this API is called in a page within an
+   *     ExtensionAbility window, the returned context type is
+   *     [ExtensionContext]{@link ExtensionContext:ExtensionContext}. If the ability context does not exist,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5849,9 +5903,10 @@ export class UIContext {
   getHostContext(): Context | undefined;
 
   /**
-   * Get the name of current window.
+   * Obtains the name of the window where this instance is located.
    *
-   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @returns { string | undefined } Name of the window where the current instance is located. If the window does not
+   *     exist, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5861,59 +5916,48 @@ export class UIContext {
   getWindowName(): string | undefined;
 
   /**
-   * Get window id to which the current UIContext belongs.
-   * <p>**NOTE**:
-   * If the current UIContext is in a UIExtensionAbility running within the host process,
-   * this method returns the top-level window ID of the host application.
-   * </p>
+   * Obtains the ID of the window to which the current application instance belongs.
    *
-   * @returns { number | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * > **NOTE**
+   * >
+   * > If the UIContext resides inside a
+   * > [UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility} that runs in the main
+   * > application process, the top-level window ID of the main application is returned.
+   *
+   * @returns { number | undefined } ID of the window to which the current application instance belongs. If the window
+   *     does not exist, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
   getWindowId(): number | undefined;
-  
+
   /**
-   * Get the width breakpoint of current window.
+   * Obtains the width breakpoint value of the window where this instance is located. The specific value is determined
+   * by the vp value of the window width. For details, see [WidthBreakpoint]{@link WidthBreakpoint}.
    *
-   * @returns { WidthBreakpoint } - The width breakpoint of current window.
+   * @returns { WidthBreakpoint } Width breakpoint value of the window where the current instance is located. If the
+   *     window width is 0 vp, **WIDTH_XS** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Get the width breakpoint of current window.
-   *
-   * @returns { WidthBreakpoint } - The width breakpoint of current window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
 
   /**
-   * Get the height breakpoint of current window.
+   * Obtains the height breakpoint value of the window where this instance is located. The specific value is determined
+   * based on the window aspect ratio. For details, see [HeightBreakpoint]{@link HeightBreakpoint}.
    *
-   * @returns { HeightBreakpoint } - The height breakpoint of current window.
+   * @returns { HeightBreakpoint } Height breakpoint value of the window where the current instance is located. If the
+   *     window aspect ratio is 0, **HEIGHT_SM** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Get the height breakpoint of current window.
-   *
-   * @returns { HeightBreakpoint } - The height breakpoint of current window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
@@ -6173,10 +6217,12 @@ export class UIContext {
   enableSwipeBack(enabled: Optional<boolean>): void;
 
   /**
-   * Sets the component freezing flag based on the component id to prevent the
-   * UI component from marking and updating dirty areas.
-   * @param { string } id - Id of the frame node.
-   * @param { boolean } isFrozen  - whether the component is frozen.
+   * Sets whether to freeze a specific component by **id** to prevent it from being marked as dirty and triggering
+   * layout updates.
+   *
+   * @param { string } id - ID of the target component.
+   * @param { boolean } isFrozen - Whether to freeze the component.<br>The value **true** means to freeze the component,
+   *     and **false** means the opposite.<br>Default value: **false**.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -6186,10 +6232,12 @@ export class UIContext {
   freezeUINode(id: string, isFrozen: boolean): void;
 
   /**
-   * Sets the component freezing flag based on the component uniqueId to prevent the
-   * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
-   * @param { boolean } isFrozen - whether the component is frozen.
+   * Sets whether to freeze a specific component by **uniqueId** to prevent it from being marked as dirty and triggering
+   * layout updates.
+   *
+   * @param { number } uniqueId - Unique ID of the component.
+   * @param { boolean } isFrozen - Whether to freeze the component.<br>The value **true** means to freeze the component,
+   *     and **false** means the opposite.<br>Default value: **false**.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -6224,15 +6272,22 @@ export class UIContext {
   setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
 
   /**
-   * Create a UI instance singleton without window and get its UIContext object.
+   * Creates a UI instance that does not depend on a window and returns its UI context. The created UI instance is a
+   * singleton.
    *
-   * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
-   * @returns { UIContext | undefined } object UIContext, or undefined when failed.
+   * > **NOTE**
+   * >
+   * > The returned UI context can only be used to create [custom nodes](docroot://ui/arkts-user-defined-node.md). It
+   * > cannot be used for other UI operations.
+   *
+   * @param { common.UIAbilityContext | common.ExtensionContext } context - Context corresponding to
+   *     [UIAbility]{@link @ohos.app.ability.UIAbility} or
+   *     [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}.
+   * @returns { UIContext | undefined } Context of the created UI instance, or **undefined** if creation fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. The number of parameters is incorrect.
-   * <br> 2. Invalid parameter type of context.
+   *     <br> 1. The number of parameters is incorrect.
+   *     <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -6241,9 +6296,9 @@ export class UIContext {
   static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
 
   /**
-   * Destroy the UI instance singleton without window.
+   * Destroys the UI instance created using
+   * [createUIContextWithoutWindow]{@link UIContext#createUIContextWithoutWindow}.
    *
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -6287,9 +6342,10 @@ export class UIContext {
   static setResourceManagerCacheMaxCountForHSP(count: number): void;
 
   /**
-   * Get id of the UI instance.
+   * Obtains the unique ID of a UI instance object. In multi-instance scenarios, you can use this unique ID to
+   * distinguish between different UI instance objects for easier management.
    *
-   * @returns { number } Returns id of the UI instance.
+   * @returns { number } Unique ID of the backend instance. The value range is [-1, +∞).
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6323,10 +6379,11 @@ export class UIContext {
   setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 
   /**
-   * Retrieve the root node of the corresponding page of the UIContext.
+   * Obtains the root node of the page corresponding to the UIContext.
    *
-   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
-   *     or null if no root node exists.
+   * @returns { FrameNode | null } FrameNode of the root node of the page or **null**.
+   *     <br>If no valid FrameNode is available, **null** is returned.
+   *     <br>If no page is loaded in the window, **null** is returned.
    * @throws { BusinessError } 120007 - The UIContext is not available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

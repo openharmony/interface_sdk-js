@@ -19989,9 +19989,10 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
- * Defines the type that can be undefined.
+ * Defines the Optional type. The value can be **undefined**.
  *
- * @typedef { T | undefined } Optional<T>
+ * @unionmember { T } The object can be of any custom type.
+ * @unionmember { undefined } The object can be **undefined**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -20279,12 +20280,17 @@ declare class CommonMethod<T> {
   drawModifier(modifier: DrawModifier | undefined): T;
 
   /**
-   * Sets the custom property of the current component.
-   * This API does not work for custom components.
+   * Sets a custom property for this component.
    *
-   * @param { string } name - the name of the custom property.
-   * @param { Optional<Object> } value - the value of the custom property.
-   * @returns { T }
+   * In versions earlier than API 26.0.0,
+   * [custom components](docroot://ui/state-management/arkts-create-custom-components.md) do not support custom
+   * properties.
+   *
+   * Since API 26.0.0, custom components support setting and reading custom properties.
+   *
+   * @param { string } name - Name of the custom property.
+   * @param { Optional<Object> } value - Value of the custom property.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

@@ -27,23 +27,19 @@ import type { NavigationOperation, NavBar } from '../component/navigation';
 import type { Size } from './@ohos.arkui.node';
 
 /**
- * Register callbacks to observe ArkUI behavior.
+ * Provides APIs for listening for UI component behavior changes.
  *
- * @namespace uiObserver
+ * > **NOTE**
+ * >
+ * > - UIObserver can only listen for relevant information within the current process and does not support obtaining
+ * > information in cross-process scenarios<!--Del--> such as [UIExtensionComponent]{@link ui_extension_component}<!--
+ * > DelEnd-->.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Register callbacks to observe ArkUI behavior.
- *
- * @namespace uiObserver
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare namespace uiObserver {
 
@@ -642,9 +638,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * observer options.
+   * Describes the observer options.
    *
-   * @interface ObserverOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -653,16 +648,15 @@ declare namespace uiObserver {
    */
   export interface ObserverOptions {
     /**
-     * component id.
+     * Component ID.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
      */
-      id: string
+    id: string;
   }
 
   /**
@@ -758,7 +752,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * Density info.
+   * Provides the information contained in the callback when the screen pixel density changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -768,9 +762,8 @@ declare namespace uiObserver {
    */
   export class DensityInfo {
     /**
-     * The context of the changed screen density.
+     * Context corresponding to the page when the screen pixel density changes.
      *
-     * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -780,9 +773,10 @@ declare namespace uiObserver {
     context: UIContext;
 
     /**
-     * The changed screen density.
+     * Screen pixel density after the change.
      *
-     * @type { number }
+     * Value range: [0, +∞)
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -793,9 +787,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * Defines the window size layout breakpoint information.
-   * This class provides the current breakpoint classification of the window's width and height
-   * based on the configured breakpoint thresholds.
+   * Provides information about window size layout breakpoint changes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -805,12 +797,8 @@ declare namespace uiObserver {
    */
   export class WindowSizeLayoutBreakpointInfo {
     /**
-     * The width breakpoint classification of the current window.
-     * This value indicates which width category the window currently falls into based on
-     * the configured width breakpoint thresholds.
+     * Layout breakpoint for window width.
      *
-     * @type { WidthBreakpoint }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform [since 26.0.0]
@@ -820,12 +808,8 @@ declare namespace uiObserver {
     readonly widthBreakpoint: WidthBreakpoint;
 
     /**
-     * The height breakpoint classification of the current window.
-     * This value indicates which height category the window currently falls into based on
-     * the configured height breakpoint thresholds and aspect ratio.
+     * Layout breakpoint for window height.
      *
-     * @type { HeightBreakpoint }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform [since 26.0.0]
@@ -1119,11 +1103,12 @@ declare namespace uiObserver {
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
   /**
-   * Registers a callback function to be called when the screen density is updated.
+   * Listens for screen pixel density changes.
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } callback - The callback function to be called when the screen density is updated.
+   * @param { 'densityUpdate' } type - Event type. Set to **'densityUpdate'** for screen pixel density change events.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<DensityInfo> } callback - Callback used to return the result. It provides information about the
+   *     changed screen pixel density.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1133,12 +1118,12 @@ declare namespace uiObserver {
   export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for screen pixel density changes.
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
+   * @param { 'densityUpdate' } type - Event type. Set to **'densityUpdate'** for screen pixel density change events.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<DensityInfo> } [callback] - Target listener to unregister. If no parameter is provided, all
+   *     listeners for the **densityUpdate** event under the current UI context are unregistered.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1148,11 +1133,11 @@ declare namespace uiObserver {
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 
   /**
-   * Registers a callback function to be called when the draw command will be drawn.
+   * Listens for drawing instruction dispatch in each frame.
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @param { 'willDraw' } type - Event event. The value **'willDraw'** indicates whether drawing is about to occur.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1162,12 +1147,11 @@ declare namespace uiObserver {
   export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for drawing instruction dispatch in each frame.
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
+   * @param { 'willDraw' } type - Event event. The value **'willDraw'** indicates whether drawing is about to occur.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<void> } [callback] - Target listener to unregister.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1177,11 +1161,12 @@ declare namespace uiObserver {
   export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
 
   /**
-   * Registers a callback function to be called when the layout is done.
+   * Listens for layout completion status in each frame.
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @param { 'didLayout' } type - Event type. The value **'didLayout'** indicates whether the layout has been
+   *     completed.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<void> } callback - Callback used to return the result.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1191,12 +1176,12 @@ declare namespace uiObserver {
   export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * Unregisters the listener for layout completion status in each frame.
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
-   * @param { UIContext } context - The context scope of the observer.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                               will be removed.
+   * @param { 'didLayout' } type - Event type. The value **'didLayout'** indicates whether the layout has been
+   *     completed.
+   * @param { UIContext } context - Context information, which is used to specify the target page scope.
+   * @param { Callback<void> } [callback] - Target listener to unregister.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

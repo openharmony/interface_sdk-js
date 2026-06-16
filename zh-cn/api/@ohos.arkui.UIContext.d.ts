@@ -1840,35 +1840,20 @@ export interface OrderOverlayOptions {
 }
 
 /**
- * 提供UI组件行为变化的无感监听能力。
- *
- * > **说明：**
- *
- * > - 以下API需先使用UIContext中的[getUIObserver()]{@link UIContext#getUIObserver}方法获取到UIObserver对象，再通过该对象调用对应方法。
- * >
- * > - UIObserver仅能监听到本进程内的相关信息，不支持获取<!--Del-->[UIExtensionComponent]{@link ui_extension_component}等<!--DelEnd-->跨进程场景的信
- * > 息。
- *
+* 提供UI组件行为变化的无感监听能力。
+*
+* > **说明：**
+*
+* > - 以下API需先使用UIContext中的[getUIObserver()]{@link UIContext#getUIObserver}方法获取到UIObserver对象，再通过该对象调用对应方法。
+* >
+* > - UIObserver仅能监听到本进程内的相关信息，不支持获取<!--Del-->[UIExtensionComponent]{@link ui_extension_component}等<!--DelEnd-->跨进程场景的信
+* > 息。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * 提供UI组件行为变化的无感监听能力。
- *
- * > **说明：**
- *
- * > - 以下API需先使用UIContext中的[getUIObserver()]{@link UIContext#getUIObserver}方法获取到UIObserver对象，再通过该对象调用对应方法。
- * >
- * > - UIObserver仅能监听到本进程内的相关信息，不支持获取<!--Del-->[UIExtensionComponent]{@link ui_extension_component}等<!--DelEnd-->跨进程场景的信
- * > 息。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export class UIObserver {
 
@@ -2120,10 +2105,11 @@ export class UIObserver {
   off(type: 'routerPageUpdate', callback?: Callback<observer.RouterPageInfo>): void;
 
   /**
-   * Registers a callback function to be called when the screen density in a ui context is updated.
+   * 监听屏幕像素密度变化。
    *
-   * @param { 'densityUpdate' } type - The type of event to listen for. Must be 'densityUpdate'.
-   * @param { Callback<observer.DensityInfo> } callback - The callback function to be called when the screen density is updated.
+   * @param { 'densityUpdate' } type - 监听事件，固定为'densityUpdate'，即屏幕像素密度变化。
+   * @param { Callback<observer.DensityInfo> } callback - 回调函数。携带
+   *     [DensityInfo]{@link @ohos.arkui.observer:uiObserver.DensityInfo}，返回变化后的屏幕像素密度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2133,11 +2119,11 @@ export class UIObserver {
   on(type: 'densityUpdate', callback: Callback<observer.DensityInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * 取消监听屏幕像素密度的变化。
    *
-   * @param { 'densityUpdate' } type - The type of event to remove the listener for. Must be 'densityUpdate'.
-   * @param { Callback<observer.DensityInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'densityUpdate' } type - 监听事件，固定为'densityUpdate'，即屏幕像素密度变化。
+   * @param { Callback<observer.DensityInfo> } [callback] - 需要被注销的回调函数。若不指定具体的回调函数，则注销该
+   *     [UIContext]{@link @ohos.arkui.UIContext}下所有屏幕像素密度变化事件监听。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2147,10 +2133,10 @@ export class UIObserver {
   off(type: 'densityUpdate', callback?: Callback<observer.DensityInfo>): void;
 
   /**
-   * Registers a callback function to be called when the draw command will be drawn.
+   * 监听每一帧绘制指令下发情况。
    *
-   * @param { 'willDraw' } type - The type of event to listen for. Must be 'willDraw'.
-   * @param { Callback<void> } callback - The callback function to be called when the draw command will be drawn.
+   * @param { 'willDraw' } type - 监听事件，固定为'willDraw'，即是否将要绘制。
+   * @param { Callback<void> } callback - 回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2160,11 +2146,10 @@ export class UIObserver {
   on(type: 'willDraw', callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * 取消监听每一帧绘制指令下发情况。
    *
-   * @param { 'willDraw' } type - The type of event to remove the listener for. Must be 'willDraw'.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'willDraw' } type - 监听事件，固定为'willDraw'，即是否将要绘制。
+   * @param { Callback<void> } [callback] - 需要被注销的回调函数。不传参数时，取消所有绘制指令下发事件的监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2174,10 +2159,10 @@ export class UIObserver {
   off(type: 'willDraw', callback?: Callback<void>): void;
 
   /**
-   * Registers a callback function to be called when the layout is done.
+   * 监听每一帧布局完成情况。
    *
-   * @param { 'didLayout' } type - The type of event to listen for. Must be 'didLayout'.
-   * @param { Callback<void> } callback - The callback function to be called when the layout is done.
+   * @param { 'didLayout' } type - 监听事件，固定为'didLayout'，即是否布局完成。
+   * @param { Callback<void> } callback - 回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2187,11 +2172,10 @@ export class UIObserver {
   on(type: 'didLayout', callback: Callback<void>): void;
 
   /**
-   * Removes a callback function that was previously registered with `on()`.
+   * 取消监听每一帧布局完成情况。
    *
-   * @param { 'didLayout' } type - The type of event to remove the listener for. Must be 'didLayout'.
-   * @param { Callback<void> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
-   *                                                        will be removed.
+   * @param { 'didLayout' } type - 监听事件，固定为'didLayout'，即是否布局完成。
+   * @param { Callback<void> } [callback] - 需要被注销的回调函数。不传参数时，取消所有布局完成的监听回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2630,14 +2614,11 @@ export class UIObserver {
   off(type: 'tabChange', callback?: Callback<observer.TabContentInfo>): void;
 
   /**
-   * 注册一个回调函数，以便在窗口大小布局断点发生变化时调用。
-   * 此方法可用于观察窗口大小断点的变化，从而
-   * 根据窗口尺寸自适应地调整用户界面布局。
+   * 注册窗口尺寸布局断点变化的回调函数。该方法用于监听窗口尺寸断点变化，可用于根据窗口尺寸自适应调整UI布局。使用callback异步回调。
    *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - 要监听的事件类型。
-   *     必须是 'windowSizeLayoutBreakpointChange'。
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - 当窗口大小布局断点发生变化时，要调用的回调函数。该回调函数接收一个
-   *     {@link WindowSizeLayoutBreakpointInfo} 对象，其中包含当前的宽度和高度断点分类。
+   * @param { 'windowSizeLayoutBreakpointChange' } type - 监听事件，固定为'windowSizeLayoutBreakpointChange'，用于监听窗口尺寸布局断点发生改变。
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } callback - 回调函数。携带WindowSizeLayoutBreakpointinfo，包含窗口宽
+   *     度和高度所在的布局断点枚举。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -2647,13 +2628,11 @@ export class UIObserver {
   on(type: 'windowSizeLayoutBreakpointChange', callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
 
   /**
-   * 移除之前为窗口大小布局断点变化注册的回调函数。
-   * 如果未提供回调函数，则会移除指定上下文的所有回调函数。
+   * 移除之前注册的窗口尺寸布局断点变化回调函数。如果未提供回调函数参数，将移除指定上下文的所有回调函数。使用callback异步回调。
    *
-   * @param { 'windowSizeLayoutBreakpointChange' } type - 要移除监听器的事件类型。
-   *     必须是 'windowSizeLayoutBreakpointChange'
-   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - 要移除的具体回调函数。
-   *     如果未提供，则将移除给定事件类型和上下文下的所有回调。
+   * @param { 'windowSizeLayoutBreakpointChange' } type - 监听事件，固定为'windowSizeLayoutBreakpointChange'，用于监听窗口尺寸布局断点发生改变。
+   * @param { Callback<observer.WindowSizeLayoutBreakpointInfo> } [callback] - 需要被注销的回调函数。若不指定具体的回调函数，则注销该
+   *     [UIContext]{@link @ohos.arkui.UIContext}下所有窗口尺寸布局断点变化事件监听。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 26.0.0]
@@ -3911,9 +3890,8 @@ export declare class ContextMenuController {
 }
 
 /**
-* 当前组件所在Ability的上下文。
-*
- * @typedef { common.Context } Context
+ * 当前组件所在Ability的上下文。
+ *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
  * @StageModelOnly
  * @crossplatform
@@ -4593,9 +4571,8 @@ export class SmartGestureController {
 }
 
 /**
- * UIContext解析策略枚举
- *
- * @enum { number } strategy of resolved UIContext.
+* UIContext对象的解析策略。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4605,7 +4582,7 @@ export class SmartGestureController {
 export const enum ResolveStrategy {
 
   /**
-   * 获取调用作用域的UIContext
+   * 获取调用作用域的UIContext。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4616,7 +4593,7 @@ export const enum ResolveStrategy {
   CALLING_SCOPE = 0,
 
   /**
-   * 获取最后获得焦点的UI实例的UIContext
+   * 获取最近切换到获焦状态的UIContext。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4627,7 +4604,7 @@ export const enum ResolveStrategy {
   LAST_FOCUS = 1,
 
   /**
-   * 获取实例ID最大的UIContext
+   * 获取实例ID最大的UIContext。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4638,7 +4615,7 @@ export const enum ResolveStrategy {
   MAX_INSTANCE_ID = 2,
 
   /**
-   * 获取唯一UI实例的UIContext
+   * 获取唯一UI实例的UIContext。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4649,7 +4626,8 @@ export const enum ResolveStrategy {
   UNIQUE = 3,
 
   /**
-   * 获取最后进入前台的UI实例的UIContext
+   * 获取最近切换到前台状态的UIContext。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4659,7 +4637,7 @@ export const enum ResolveStrategy {
   LAST_FOREGROUND = 4,
 
   /**
-   * 获取未定义调用作用域的UIContext
+   * 获取未定义调用作用域的UIContext。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4671,9 +4649,15 @@ export const enum ResolveStrategy {
 }
 
 /**
- * UIContext.resolveUIContext接口的返回值类型，属于UIContext类型的子类，额外包含获取该UIContext的解析策略。
- *
- * @extends UIContext
+* ResolvedUIContext实例对象。
+*
+* > **说明：**
+* >
+* > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
+* >
+* > - ResolvedUIContext继承自[UIContext]{@link @ohos.arkui.UIContext}，该类对象包含[UIContext]{@link @ohos.arkui.UIContext}实例和
+* > [UIContext]{@link @ohos.arkui.UIContext}的解析策略。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4683,9 +4667,8 @@ export const enum ResolveStrategy {
 export class ResolvedUIContext extends UIContext {
 
   /**
-   * UIContext的解析策略
+   * [UIContext]{@link @ohos.arkui.UIContext}的解析策略。
    *
-   * @type { ResolveStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5090,36 +5073,73 @@ export const enum CustomKeyboardContinueFeature {
 }
 
 /**
- * Class FrameCallback
- *
+* 用于设置下一帧渲染时需要执行的任务。
+*
+* > **说明：**
+* >
+* > - 以下API需要配合[UIContext]{@link @ohos.arkui.UIContext}中的[postFrameCallback]{@link UIContext#postFrameCallback}和
+* > [postDelayedFrameCallback]{@link UIContext#postDelayedFrameCallback}使用。开发者需要继承该类并重写
+* > [onFrame]{@link FrameCallback#onFrame}或[onIdle]{@link FrameCallback#onIdle}方法，实现具体的业务逻辑。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
-export abstract class FrameCallback {}
+export abstract class FrameCallback {
+  /**
+   * 在下一帧进行渲染时，该方法将被执行。
+   *
+   * @param { number } frameTimeInNano - 下一帧渲染开始执行的时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onFrame(frameTimeInNano: number): void;
+
+  /**
+   * 在下一帧渲染结束时，如果距离下一个Vsync信号到来还有1ms以上的剩余时间，该方法将被执行，否则将顺延至后面的帧。
+   *
+   * @param { number } timeLeftInNano - 这一帧剩余的空闲时间，以纳秒为单位。<br/>取值范围：[0, +∞)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onIdle(timeLeftInNano: number): void;
+}
 
 /**
- * UIContext类
- *
+* UIContext实例对象。
+*
+* > **说明：**
+*
+* > - 示例效果请以真机运行为准，当前DevEco Studio预览器不支持。
+* >
+* > - 以下API需要通过对应的UIContext实例调用。获取UIContext分为三种方式，第一种是使用ohos.window中的
+* > [getUIContext()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10)方法获取UIContext实例，第二种是通过自定
+* > 义组件内置方法[getUIContext()](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-api.md#getuicontext)获取UIContext
+* > 实例，第三种是通过UIContext类的静态方法如[getCallingScopeUIContext]{@link UIContext#getCallingScopeUIContext}获取UIContext实例。本文中
+* > UIContext对象以uiContext表示。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * UIContext类
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class UIContext {
   /**
-   * UIContext constructor
+   * 构造UIContext对象。
+   *
+   * > **说明：**
+   * >
+   * > 通过构造函数创建的UIContext对象指向不明确的UI上下文，即不指向任何UI实例。该UIContext对应实例的唯一标识ID为-1。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5129,10 +5149,15 @@ export class UIContext {
   constructor();
 
   /**
-   * Gets the UIContext associated with the current calling scope.
-   * @returns { UIContext | undefined } - The UIContext for the current calling scope,
-   *     or undefined if no context can be determined from the call stack.
-   * @static
+   * 获取当前[调用作用域](docroot://ui/arkts-global-interface.md#基本概念)的UIContext，调用作用域不明确时返回undefined。
+   *
+   * > **说明：**
+   * >
+   * > 返回的UIContext对象可能指向一个已销毁的UI实例，通常在由已销毁的实例抛出异步任务时出现。建议通过[isAvailable]{@link UIContext#isAvailable}接口判断其有效性。
+   *
+   * @returns { UIContext | undefined } UIContext of the current
+   *     [calling scope](docroot://ui/arkts-global-interface.md#basic-concepts). Returns **undefined** if the calling
+   *     scope is ambiguous.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5142,9 +5167,11 @@ export class UIContext {
   static getCallingScopeUIContext(): UIContext | undefined;
 
   /**
-   * Gets the UIContext of the last focused UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
-   * @static
+   * 获取最近一次切换到获焦状态的UI实例的UIContext。
+   *
+   * @returns { UIContext | undefined } UIContext of the UI instance that most recently switched to the focused state.
+   *     Returns **undefined** if the most recently focused instance has been destroyed or if no instance has ever been
+   *     focused.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5154,10 +5181,11 @@ export class UIContext {
   static getLastFocusedUIContext(): UIContext | undefined;
 
   /**
-   * Gets the UIContext of the last foregrounded UI instance if one exists.
-   * @returns { UIContext | undefined } - The UIContext of the last foregrounded UI instance or undefined if no one
-   * exists
-   * @static
+   * 获取最近一次切换到前台状态的UI实例的UIContext。
+   *
+   * @returns { UIContext | undefined } UIContext of the UI instance that most recently switched to the foreground
+   *     state. Returns **undefined** if the most recently foreground UI instance has been destroyed or if no UI
+   *     instance has ever been in the foreground.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5167,10 +5195,10 @@ export class UIContext {
   static getLastForegroundUIContext(): UIContext | undefined;
 
   /**
-   * Gets all currently active UIContext instances.
-   * @returns { UIContext[] } - An array containing all valid UIContext instances,
-   *     returns an empty array if no contexts are available.
-   * @static
+   * 获取所有当前有效的UIContext实例。
+   *
+   * @returns { UIContext[] } Array of all currently valid UIContext instances. Returns an empty array if no valid
+   *     UIContext instance exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5180,18 +5208,27 @@ export class UIContext {
   static getAllUIContexts(): UIContext[];
 
   /**
-   * Resolves a UIContext using priority strategy.
+   * 使用优先级策略获取带有解析策略的UIContext实例对象。
    *
-   * Resolves and returns a UIContext instance following a predefined priority sequence.
-   * resolution rules in order:
-   * <br>1. the UIContext with current calling scope
-   * <br>2. Returns the unique UIContext if only one UI instance exists.
-   * <br>3. Returns the UIContext of the last focused UI instance if one exists.
-   * <br>4. Returns the UIContext of the last foregrounded UI instance if one exists.
-   * <br>5. Returns the UIContext of the most recently created UI instance if any UI instance exists.
-   * <br>6. Returns an invalid UIContext instance if none of the above conditions are met.
-   * @returns { ResolvedUIContext } - ResolvedUIContext instance
-   * @static
+   * > **说明：**
+   * >
+   * > 按照预定义的优先级顺序解析并返回UIContext实例和UIContext的解析策略。
+   * >
+   * > 解析规则按顺序如下：
+   * >
+   * > 1. 当前调用作用域中的UIContext。
+   * >
+   * > 2. 如果只存在一个UI实例，则返回其UIContext。
+   * >
+   * > 3. 如果存在UI实例切换到获焦状态，且最近一次切换到获焦状态的UI实例未销毁，则返回最近一次获焦UI实例的UIContext。
+   * >
+   * > 4. 如果存在UI实例切换到前台状态，且最近一次切换到前台状态的UI实例未销毁，则返回最近一次切换到前台状态的UI实例的UIContext。
+   * >
+   * > 5. 如果存在多个UI实例，则返回实例唯一标识的ID最大的UIContext。
+   * >
+   * > 6. 如果以上条件均不满足，则返回一个无效的UIContext实例。
+   *
+   * @returns { ResolvedUIContext } 返回带有解析策略的UIContext实例对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5200,16 +5237,20 @@ export class UIContext {
    */
   static resolveUIContext(): ResolvedUIContext;
 
-/**
-   * Checks whether the UiContext object ia available.
- *
-   * @returns { boolean } Returns true if the UIConetxt object is available.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
+  /**
+   * 判断UIContext对象对应的UI实例是否有效。使用
+   * [getUIContext](docroot://reference/apis-arkui/arkts-apis-window-Window.md#getuicontext10)方法获取UIContext对象。后端UI实例存在时，
+   * 该UI实例有效。通过new UIContext()创建的UIContext对象无对应的UI实例；多次
+   * [loadContent](docroot://reference/apis-arkui/arkts-apis-window-Window.md#loadcontent9)后，旧的UI实例会失效。多窗口应用场景，当窗口关闭后，该窗
+   * 口的UI实例失效。总而言之，当UIContext对象没有对应的后端UI实例时，该对象是无效的。
+   *
+   * @returns { boolean } 返回UIContext对象对应的UI实例是否有效。true表示有效，false表示无效。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 20 dynamic
- */
+   */
   isAvailable(): boolean;
 
   /**
@@ -5381,23 +5422,14 @@ export class UIContext {
   getComponentUtils(): ComponentUtils;
 
   /**
-   * Get the UI observer.
+   * 获取UIObserver对象。
    *
-   * @returns { UIObserver } The UI observer.
+   * @returns { UIObserver } 返回UIObserver实例对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the UI observer.
-   *
-   * @returns { UIObserver } The UI observer.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getUIObserver(): UIObserver;
 
@@ -5666,23 +5698,14 @@ export class UIContext {
   setImageRawDataCacheSize(value: number): void;
 
   /**
-   * Run custom functions inside the UIContext scope.
+   * 在当前UI上下文执行传入的回调函数。
    *
-   * @param { function } callback - The function called through UIContext.
+   * @param { function } callback - 回调函数
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Run custom functions inside the UIContext scope.
-   *
-   * @param { function } callback - The function called through UIContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   runScopedTask(callback: () => void): void;
 
@@ -5863,9 +5886,9 @@ export class UIContext {
   animateToImmediately(param: AnimateParam, processor: Callback<void>): void;
 
   /**
-   * Get FrameNode by id.
+   * 通过组件的id获取组件树的实体节点。
    *
-   * @param { string } id - The id of FrameNode.
+   * @param { string } id - 节点对应的[组件标识]{@link common}。
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5876,9 +5899,9 @@ export class UIContext {
   getFrameNodeById(id: string): FrameNode | null;
 
   /**
-   * Get the FrameNode attached to current window by id.
+   * 通过组件的id获取当前窗口上的实体节点。
    *
-   * @param { string } id - The id of FrameNode.
+   * @param { string } id - 节点对应的[组件标识]{@link common}。
    * @returns { FrameNode | null } The instance of FrameNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5889,16 +5912,15 @@ export class UIContext {
   getAttachedFrameNodeById(id: string): FrameNode | null;
 
   /**
-   * Get FrameNode by uniqueId.
-   * Obtains the entity node, FrameNode, of a component on the component tree using its uniqueId.
-   * The return value depends on the type of component associated with the uniqueId.
-   * 1. If the uniqueId corresponds to a built-in component, the associated FrameNode is returned.
-   * 2. If the uniqueId corresponds to a custom component: If the component has rendered content, its root node is
-   * returned, with the type __Common__; if the component has no rendered content, the FrameNode of its first child
-   * component is returned.
-   * 3. If the uniqueId does not correspond to any component, null is returned.
+   * 提供getFrameNodeByUniqueId接口通过组件的uniqueId获取组件树的实体节点。
    *
-   * @param { number } id - The uniqueId of the FrameNode.
+   * 1. 当uniqueId对应的是系统组件时，返回组件所对应的FrameNode；
+   * 2. 当uniqueId对应的是自定义组件时：
+   *    - 若其有渲染内容，且没有被[@Reusable装饰器](docroot://ui/state-management/arkts-reusable.md)修饰时，返回该自定义组件的根节点，类型为__Common__。
+   *    - 若其无渲染内容，或者被[@Reusable装饰器](docroot://ui/state-management/arkts-reusable.md)修饰时，在该自定义组件的子组件创建完成前调用此接口，将返回null；在该自定义组件的子组件创建完成后调用，返回其第一个子组件的FrameNode。
+   * 3. 当uniqueId无对应的组件时，返回null。
+   *
+   * @param { number } id - 节点对应的UniqueId
    * @returns { FrameNode | null } - The FrameNode with the target uniqueId, or null if the frameNode is not existed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5938,11 +5960,14 @@ export class UIContext {
   getNavigationInfoByUniqueId(id: number): observer.NavigationInfo | undefined;
 
   /**
-   * Dynamic dimming.
+   * 通过该方法设置组件的压暗程度。
    *
-   * @param { string } id - The id of FrameNode.
-   * @param { number } value - Compared to the original level of dimming.value range [0,1],
-   * set values less than 0 to 0 and values greater than 1 to 1.
+   * > **说明：**
+   * >
+   * > 设置该属性后设置其他效果类属性会导致效果冲突。
+   *
+   * @param { string } id - 组件id。
+   * @param { number } value - 组件压暗程度取值范围[0,1], 由0到1逐渐变亮。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -6193,9 +6218,9 @@ export class UIContext {
   px2lpx(value: number): number;
 
   /**
-   * Obtains the LocalStorage instance shared by this stage.
+   * 获取当前stage共享的LocalStorage实例。
    *
-   * @returns { LocalStorage | undefined }
+   * @returns { LocalStorage | undefined } **LocalStorage** instance if it exists; **undefined** if it does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6205,9 +6230,14 @@ export class UIContext {
   getSharedLocalStorage(): LocalStorage | undefined;
 
   /**
-   * Obtains context of the ability.
+   * 获得当前元能力的Context。
    *
-   * @returns { Context | undefined }
+   * @returns { Context | undefined } Context of the ability. The context type depends on the ability type. For example,
+   *     if this API is called in a page within a UIAbility window, the returned context type is
+   *     [UIAbilityContext]{@link UIAbilityContext:UIAbilityContext}. If this API is called in a page within an
+   *     ExtensionAbility window, the returned context type is
+   *     [ExtensionContext]{@link ExtensionContext:ExtensionContext}. If the ability context does not exist,
+   *     **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6217,9 +6247,10 @@ export class UIContext {
   getHostContext(): Context | undefined;
 
   /**
-   * Get the name of current window.
+   * 获取当前实例所在窗口的名称。
    *
-   * @returns { string | undefined } The name of current window, or undefined if the window doesn't exist.
+   * @returns { string | undefined } Name of the window where the current instance is located. If the window does not
+   *     exist, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6229,59 +6260,43 @@ export class UIContext {
   getWindowName(): string | undefined;
 
   /**
-   * Get window id to which the current UIContext belongs.
-   * <p>**NOTE**:
-   * If the current UIContext is in a UIExtensionAbility running within the host process,
-   * this method returns the top-level window ID of the host application.
-   * </p>
+   * 获取当前应用实例所属的窗口ID。
    *
-   * @returns { number | undefined } - Window id. If the current UIContext is unavailable, return undefined.
+   * > **说明：**
+   * >
+   * > 若UIContext位于主应用程序进程中的[UIExtensionAbility]{@link @ohos.app.ability.UIExtensionAbility:UIExtensionAbility}内，则返回主应用程
+   * > 序的顶层窗口ID。
+   *
+   * @returns { number | undefined } ID of the window to which the current application instance belongs. If the window
+   *     does not exist, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
   getWindowId(): number | undefined;
-  
+
   /**
-   * Get the width breakpoint of current window.
+   * 获取当前实例所在窗口的宽度断点枚举值。具体枚举值根据窗口宽度vp值确定，详见 [WidthBreakpoint]{@link WidthBreakpoint}。
    *
-   * @returns { WidthBreakpoint } - The width breakpoint of current window.
+   * @returns { WidthBreakpoint } 当前实例所在窗口的宽度断点枚举值。若窗口宽度为 0vp，则返回WIDTH_XS。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Get the width breakpoint of current window.
-   *
-   * @returns { WidthBreakpoint } - The width breakpoint of current window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getWindowWidthBreakpoint(): WidthBreakpoint;
 
   /**
-   * Get the height breakpoint of current window.
+   * 获取当前实例所在窗口的高度断点。具体枚举值根据窗口高宽比确定，详见 [HeightBreakpoint]{@link HeightBreakpoint}。
    *
-   * @returns { HeightBreakpoint } - The height breakpoint of current window.
+   * @returns { HeightBreakpoint } 当前实例所在窗口的宽高比对应的高度断点枚举值。若窗口高宽比为0，则返回HEIGHT_SM。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 13 dynamic
-   */
-  /**
-   * Get the height breakpoint of current window.
-   *
-   * @returns { HeightBreakpoint } - The height breakpoint of current window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
@@ -6372,9 +6387,9 @@ export class UIContext {
   closeBindSheet<T extends Object>(bindSheetContent: ComponentContent<T>): Promise<void>;
 
   /**
-   * Post a frame callback to run on the next frame.
+   * 注册一个回调，仅在下一帧渲染时调用。
    *
-   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
+   * @param { FrameCallback } frameCallback - 下一帧需要执行的回调。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6384,10 +6399,10 @@ export class UIContext {
   postFrameCallback(frameCallback: FrameCallback): void;
 
   /**
-   * Post a frame callback to run on the next frame after the specified delay.
+   * 注册一个回调，在延迟一段时间后的下一帧进行渲染时执行。
    *
-   * @param { FrameCallback } frameCallback - The frame callback to run on the next frame.
-   * @param { number } delayTime - The delay time in milliseconds,
+   * @param { FrameCallback } frameCallback - 下一帧需要执行的回调。
+   * @param { number } delayTime - 延迟的时间，以毫秒为单位。传入null、undefined或小于0的值，会按0处理。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6532,10 +6547,10 @@ export class UIContext {
   enableSwipeBack(enabled: Optional<boolean>): void;
 
   /**
-   * Sets the component freezing flag based on the component id to prevent the
-   * UI component from marking and updating dirty areas.
-   * @param { string } id - Id of the frame node.
-   * @param { boolean } isFrozen  - whether the component is frozen.
+   * 通过id设置组件冻结状态，防止组件被标记为脏从而触发布局更新。
+   *
+   * @param { string } id - 组件的id。
+   * @param { boolean } isFrozen - 是否设置冻结。<br/>true表示设置冻结，false表示设置不冻结。<br/>默认值为false。
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -6545,10 +6560,10 @@ export class UIContext {
   freezeUINode(id: string, isFrozen: boolean): void;
 
   /**
-   * Sets the component freezing flag based on the component uniqueId to prevent the
-   * UI component from marking and updating dirty areas.
-   * @param { number } uniqueId - Unique Id of the frame node.
-   * @param { boolean } isFrozen - whether the component is frozen.
+   * 通过uniqueId设置组件的冻结状态，防止组件被标记为脏从而触发布局更新。
+   *
+   * @param { number } uniqueId - 组件的uniqueId。
+   * @param { boolean } isFrozen - 是否设置冻结。<br/>true表示设置冻结，false表示设置不冻结。<br/>默认值为false。
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -6583,15 +6598,19 @@ export class UIContext {
   setKeyboardAppearanceConfig(uniqueId: number, config: KeyboardAppearanceConfig): void;
 
   /**
-   * Create a UI instance singleton without window and get its UIContext object.
+   * 创建一个不依赖窗口的UI实例，并返回其UI上下文。该接口所创建的UI实例是单例。
    *
-   * @param { common.UIAbilityContext | common.ExtensionContext } context - UIAbilityContext or ExtensionContext.
-   * @returns { UIContext | undefined } object UIContext, or undefined when failed.
+   * > **说明：**
+   * >
+   * > 返回的UI上下文只可用于创建[自定义节点](docroot://ui/arkts-user-defined-node.md)，不能执行其他UI操作。
+   *
+   * @param { common.UIAbilityContext | common.ExtensionContext } context -    *     [UIAbility]{@link @ohos.app.ability.UIAbility}或
+   *     [ExtensionAbility]{@link @ohos.app.ability.ExtensionAbility:ExtensionAbility}所对应的上下文环境。
+   * @returns { UIContext | undefined } Context of the created UI instance, or **undefined** if creation fails.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. The number of parameters is incorrect.
-   * <br> 2. Invalid parameter type of context.
+   *     <br> 1. The number of parameters is incorrect.
+   *     <br> 2. Invalid parameter type of context.
    * @throws { BusinessError } 100001 - Internal error.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -6600,9 +6619,8 @@ export class UIContext {
   static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
 
   /**
-   * Destroy the UI instance singleton without window.
+   * 销毁[createUIContextWithoutWindow]{@link UIContext#createUIContextWithoutWindow}创建的UI实例。
    *
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -6646,9 +6664,9 @@ export class UIContext {
   static setResourceManagerCacheMaxCountForHSP(count: number): void;
 
   /**
-   * Get id of the UI instance.
+   * 获取UI实例对象唯一标识，多实例场景下，开发者可使用此唯一标识区分多个UI实例对象，便于管理。
    *
-   * @returns { number } Returns id of the UI instance.
+   * @returns { number } 后端实例的唯一标识。取值范围为[-1, +∞)。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6682,10 +6700,11 @@ export class UIContext {
   setCustomKeyboardContinueFeature(feature: CustomKeyboardContinueFeature): void;
 
   /**
-   * Retrieve the root node of the corresponding page of the UIContext.
+   * 获取UIContext对应页面的根节点。
    *
-   * @returns { FrameNode | null } The root node of the corresponding page of the UIContext,
-   *     or null if no root node exists.
+   * @returns { FrameNode | null } FrameNode of the root node of the page or **null**.
+   *     <br>If no valid FrameNode is available, **null** is returned.
+   *     <br>If no page is loaded in the window, **null** is returned.
    * @throws { BusinessError } 120007 - The UIContext is not available.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
