@@ -60,7 +60,9 @@ declare namespace selectionManager {
    * Registers a callback to listen for the word selection completion event. This API uses an asynchronous callback to 
    * return the result.
    *
-   * @param { Callback<SelectionInfo> } callback - Callback used to listen for the word selection completion event.
+   * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information.
+   *     This callback is triggered only when the user selects text using the mouse or touchpad(by double-clicking,
+   *     triple-clicking, or pressing and sliding the left mouse button) and then presses **Ctrl**.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -87,8 +89,8 @@ declare namespace selectionManager {
    * Unregisters the callback used to listen for the word selection completion event. This API uses an asynchronous
    * callback to return the result.
    *
-   * @param { Callback<SelectionInfo> } [callback] - (Optional) Callback used to listen
-   *     for the word selectioncompletion event.
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return Selectioninfo. If this parameter is not specified, this
+   *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 static
