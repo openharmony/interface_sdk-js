@@ -892,11 +892,20 @@ declare namespace imageGeneration {
  	   * @stagemodelonly
  	   * @since 26.0.0 dynamic
  	   */
- 	  liveViewInfo?: LiveViewInfo;    
+  	liveViewInfo?: LiveViewInfo;
+    /**
+     * Indicates whether to enable minimize during image generation.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    minimizeDuringGeneration?: boolean;
   }
 
   /**
- 	 * Information for LiveView in AI image generation.
+  	 * Information for LiveView in AI image generation.
  	 *
  	 * @interface LiveViewInfo
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
