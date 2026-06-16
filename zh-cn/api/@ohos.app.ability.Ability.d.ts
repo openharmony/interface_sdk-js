@@ -30,6 +30,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  * @since 23 static
@@ -47,6 +48,7 @@ declare class Ability {
    * @param { Configuration } newConfig - 表示更新后的配置信息。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -64,6 +66,7 @@ declare class Ability {
    *     [AbilityConstant.MemoryLevel]{@link @ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static

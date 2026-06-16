@@ -236,6 +236,7 @@ declare class AbilityStage {
    *     with value 2 is triggered when available memory falls below 1600 MB.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static

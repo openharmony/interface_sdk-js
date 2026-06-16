@@ -519,9 +519,11 @@ declare namespace motion {
    * Subscribe to pick up sensor event.
    *
    * @param { Callback<PickupEvent> } callback - The callback to receive pickup status.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly
@@ -533,9 +535,11 @@ declare namespace motion {
    * Subscribe to rotate sensor event.
    *
    * @param { Callback<RotateEvent> } callback - The callback to receive rotate orientation.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly
@@ -547,9 +551,11 @@ declare namespace motion {
    * Subscribe to smart rotate sensor event.
    *
    * @param { Callback<SmartRotateEvent> } callback - The callback to receive smart rotate orientations.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 801 - Capability not supported.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly
@@ -560,9 +566,11 @@ declare namespace motion {
   /**
    * Unsubscribe to pick up sensor event.
    *
-   * @param { Callback<PickupEvent> } [callback] - callback pick up event.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @param { Callback<PickupEvent> } [callback] - Callback used for pick up event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the pick up event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly
@@ -573,9 +581,11 @@ declare namespace motion {
   /**
    * Unsubscribe to rotate sensor event.
    *
-   * @param { Callback<RotateEvent> } [callback] - The callback to receive rotate orientation.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @param { Callback<RotateEvent> } [callback] - Callback used for rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly
@@ -586,9 +596,11 @@ declare namespace motion {
   /**
    * Unsubscribe to smart rotate sensor event.
    *
-   * @param { Callback<SmartRotateEvent> } [callback] - callback smart rotate event.
-   * @throws { BusinessError } 202 - not system application.
-   * @throws { BusinessError } 31500001 - Service exception.
+   * @param { Callback<SmartRotateEvent> } [callback] - Callback used for smart rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the smart rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
    * @syscap SystemCapability.MultimodalAwareness.Motion
    * @systemapi
    * @stagemodelonly

@@ -25,6 +25,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  * EnvironmentCallback模块提供对系统环境变化监听回调的能力。
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @crossplatform [since 26.0.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  */
@@ -37,6 +38,7 @@ export default class EnvironmentCallback {
    * @param { Configuration } config - 变化后的Configuration对象。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -50,6 +52,7 @@ export default class EnvironmentCallback {
    *     [AbilityConstant.MemoryLevel]{@link ./@ohos.app.ability.AbilityConstant:AbilityConstant.MemoryLevel}。
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */

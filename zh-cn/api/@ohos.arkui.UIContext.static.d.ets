@@ -3945,14 +3945,14 @@ export declare class UIContext {
   getOverlayManagerOptions(): OverlayManagerOptions;
 
   /**
-   * Create an animator object for custom animation.
+   * 创建animator动画结果对象（AnimatorResult）。
    *
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
-   * @returns { AnimatorResult }
-      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - 定义动画选项。
+   * @returns { AnimatorResult } Animator结果接口。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -3960,10 +3960,33 @@ export declare class UIContext {
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
   /**
-   * Defining animation function
+   * 提供animateTo接口，用于为闭包代码中的状态变化添加过渡动画效果。
+   * 
+   * > **说明：**
+   * >
+   * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
+   * >
+   * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动
+   * > 画，自定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
+   * >
+   * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)
+   * > 时，组件即将销毁，不能在aboutToDisappear里面做动画。
+   * >
+   * > - 在组件出现和消失时，可以通过[组件内转场]{@link ./@internal/component/ets/common}添加动画效果。
+   * >
+   * > - 组件内转场不支持的属性，可以参考[显式动画]{@link ./@internal/component/ets/common}中的
+   * > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用animateTo实现动画执行结束后组件消失的效
+   * > 果。
+   * >
+   * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，
+   * > 具体可参考：[在状态管理V2中使用animateTo动画效果异常](docroot://ui/state-management/arkts-new-local.md#在状态管理v2中使用animateto动画效果异常)。
+   * >
+   * > - UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，从而触发动画播放完成回调[onFinish]{@link AnimateParam}。
+   * >
+   * > - 在设置的开发者选项中关闭过渡动画，动画会当帧结束，onFinish动画播放完成回调会立即执行，请避免在回调中加入时序相关的功能逻辑。
    *
-   * @param { AnimateParam } value - parameters for animation.
-   * @param { function } event - the closure base on which, the system will create animation automatically
+   * @param { AnimateParam } value - 设置动画效果相关参数。
+   * @param { function } event - 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -4419,13 +4442,24 @@ export declare class UIContext {
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
-   * 打开BindSheet半模态.
+   * 创建并弹出以bindSheetContent作为内容的半模态页面，使用Promise异步回调。通过该接口弹出的半模态页面样式完全按照bindSheetContent中设置的样式显示。
+   * 
+   * > **说明：**
+   * >
+   * > 1. 使用该接口时，若未传入有效的targetId，则不支持设置SheetOptions.preferType为POPUP模式、不支持设置SheetOptions.mode为EMBEDDED模式。
+   * >
+   * > 2. 由于[updateBindSheet]{@link UIContext#updateBindSheet}和[closeBindSheet]{@link UIContext#closeBindSheet}依赖
+   * > bindSheetContent去更新或者关闭指定的半模态页面，开发者需自行维护传入的bindSheetContent。
+   * >
+   * > 3. 不支持设置SheetOptions.UIContext。
    *
-   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容.
-   * @param { SheetOptions } [sheetOptions] - 半模态的选项
-   * @param { int } [targetId] - BindSheet半模态所附着的FrameNode的唯一标识符
-   *     <br>取值范围:(0, +∞)
-   * @returns { Promise<void> } 函数返回的promise对象
+   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
+   * @param { SheetOptions } [sheetOptions] - 半模态页面样式。<br/>**说明：** <br/>1. 不支持设置SheetOptions.uiContext，该属性的值固定为当前实例的
+   *     UIContext。<br/>2. 若不传递targetId，则不支持设置SheetOptions.preferType为POPUP样式，若设置了POPUP样式则使用CENTER样式替代。<br/>3. 若不传递
+   *     targetId，则不支持设置SheetOptions.mode为EMBEDDED模式，默认为OVERLAY模式。<br/>4. 其余属性的默认值参考[SheetOptions]{@link SheetOptions}文
+   *     档。
+   * @param { int } [targetId] - 需要绑定组件的ID，若不指定则不绑定任何组件。id不存在时返回错误码120004。在传入undefined时返回错误码401。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4442,14 +4476,18 @@ export declare class UIContext {
   openBindSheet(bindSheetContent: ComponentContentBase, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
-   * 更新BindSheet半模态的参数选项
+   * 更新bindSheetContent对应的半模态页面的样式，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 不支持更新SheetOptions.UIContext、SheetOptions.mode、回调函数。
    *
-   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容.
-   * @param { SheetOptions } sheetOptions - 待更新的半模态的选项参数.
-   * @param { boolean } [partialUpdate] - 如果为真，则仅更新 sheetOptions 中指定的属性，
-   *     否则其余属性将被默认值覆盖。
-   *     默认值为 false。
-   * @returns { Promise<void> } 函数返回的promise对象
+   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
+   * @param { SheetOptions } sheetOptions - 半模态页面样式。<br/>**说明：** <br/>不支持更新SheetOptions.uiContext、SheetOptions.mode、回调函
+   *     数。
+   * @param { boolean } [partialUpdate] - 半模态页面更新方式, 默认值为false。<br/>**说明：** <br/>1. true为增量更新，保留当前值，更新SheetOptions中的指定属
+   *     性。 <br/>2. false为全量更新，除SheetOptions中的指定属性，其他属性恢复默认值。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4463,10 +4501,14 @@ export declare class UIContext {
   updateBindSheet(bindSheetContent: ComponentContentBase, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
-   * 关闭BindSheet半模态.
+   * 关闭bindSheetContent对应的半模态页面，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 使用此接口关闭半模态页面时，不会触发shouldDismiss回调。
    *
-   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容
-   * @returns { Promise<void> } 函数返回的promise对象
+   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4762,17 +4804,6 @@ export declare class UIContext {
   getSmartGestureController(): SmartGestureController;
 
   /**
-   * 创建动画组。
-   *
-   * @param { AnimationGroupParams } params - 动画组参数。
-   * @returns { AnimationGroup } 动画组对象。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  createAnimationGroup(params: AnimationGroupParams): AnimationGroup;
-
-  /**
    * 获取指定节点的亮度采样器。如果找不到节点，则返回undefined。
    *
    * @param { TargetInfo } target - 目标节点ID。
@@ -5012,382 +5043,6 @@ export const enum CustomKeyboardContinueFeature {
    * @since 23 static
    */
   DISABLED = 1
-}
-
-/**
- * 定义动画组类。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export class AnimationGroup {
-
-  /**
-   * 添加animateTo动画。
-   *
-   * @param { AnimateParam } param - 动画参数。
-   * @param { VoidCallback } processor - 动画闭包。
-   * @param { AnimationChildOptions } [options] - 动画子选项。
-   * @returns { AnimationItem } Animation item.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  addAnimateTo(param: AnimateParam, processor: VoidCallback, options?: AnimationChildOptions): AnimationItem;
-
-  /**
-   * 添加keyframeAnimateto动画。
-   *
-   * @param { KeyframeAnimateParam } param - 关键帧动画参数。
-   * @param { Array<KeyframeState> } keyframes - 关键帧的数组。
-   * @param { AnimationChildOptions } [options] - 子动画选项。
-   * @returns { AnimationItem } Animation item.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  addKeyframeAnimateTo(param: KeyframeAnimateParam, keyframes: Array<KeyframeState>,
-    options?: AnimationChildOptions): AnimationItem;
-
-  /**
-   * 获取所有子动画。
-   *
-   * @returns { Array<AnimationItem> } Array of child animations.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  getAnimations(): Array<AnimationItem>;
-
-  /**
-   * 通过ID获取动画。
-   *
-   * @param { string } id - 动画ID。
-   * @returns { AnimationItem | undefined } Animation with specified ID, or undefined if not found.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  getAnimation(id: string): AnimationItem | undefined;
-
-  /**
-   * 移除动画。
-   *
-   * @param { AnimationItem } animation - 要移除的动画。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  removeAnimation(animation: AnimationItem): void;
-
-  /**
-   * 按ID移除动画。
-   *
-   * @param { string } id - 动画ID。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  removeAnimationById(id: string): void;
-
-  /**
-   * 清除所有子动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  clearAnimations(): void;
-
-  /**
-   * 播放动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  play(): void;
-
-  /**
-   * 暂停动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  pause(): void;
-
-  /**
-   * 停止动画组。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  stop(): void;
-
-  /**
-   * 获取动画组状态。
-   *
-   * @returns { AnimationGroupStatus } Animation group status.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  getStatus(): AnimationGroupStatus;
-}
-
-/**
- * 动画组模式。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export const enum AnimationGroupMode {
-
-  /**
-   * 并行执行模式。所有动画同时开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  PARALLEL = 0,
-
-  /**
-   * 顺序执行模式。动画陆续开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  SEQUENTIAL = 1,
-
-  /**
-   * 自定义执行模式。动画在自定义beginTime开始。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  CUSTOM = 2
-}
-
-/**
- * 动画子选项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export interface AnimationChildOptions {
-
-  /**
-   * 动画ID。如果没有设置，则会自动生成ID。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  id?: string;
-}
-
-/**
- * 动画组状态。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export const enum AnimationGroupStatus {
-
-  /**
-   * 动画组空闲。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  IDLE = 0,
-
-  /**
-   * 动画组正在运行。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  RUNNING = 1,
-
-  /**
-   * 动画组暂停。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  PAUSED = 2,
-
-  /**
-   * 动画组已停止。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  STOPPED = 3,
-
-  /**
-   * 动画组完成。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  FINISHED = 4
-}
-
-/**
- * 定义动画项。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export interface AnimationItem {
-
-  /**
-   * 获取动画ID。
-   *
-   * @returns { string } 动画ID。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  getId(): string;
-
-  /**
-   * 播放动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  play(): void;
-
-  /**
-   * 暂停动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  pause(): void;
-
-  /**
-   * 停止动画。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  stop(): void;
-}
-
-/**
- * 动画组参数。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export interface AnimationGroupParams {
-
-  /**
-   * 动画组执行模式。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  mode: AnimationGroupMode;
-
-  /**
-   * 动画组的总持续时间（以毫秒为单位）。
-   * 如果未设置，子动画使用自己的持续时间。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  duration?: int;
-
-  /**
-   * 以毫秒为单位的开始延迟。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  delay?: int;
-
-  /**
-   * 顺序模式下动画之间的间隔时间，以毫秒为单位。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  interval?: int;
-
-  /**
-   * 重复计数。-1表示无限循环。
-   *
-   * @default 1
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  repeatCount?: int;
-
-  /**
-   * 是否自动回退。
-   *
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  autoreverses?: boolean;
-
-  /**
-   * 完成回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  onFinish?: VoidCallback;
-
-  /**
-   * 开始回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  onStart?: VoidCallback;
-
-  /**
-   * 重复回调。
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  onRepeat?: VoidCallback;
 }
 
 /**

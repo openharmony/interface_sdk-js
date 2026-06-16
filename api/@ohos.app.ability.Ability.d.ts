@@ -32,6 +32,7 @@ import { Configuration } from './@ohos.app.ability.Configuration';
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
  * @stagemodelonly
+ * @crossplatform [since 26.0.0]
  * @atomicservice [since 11]
  * @since 9 dynamic
  * @since 23 static
@@ -52,6 +53,7 @@ declare class Ability {
    * @param { Configuration } newConfig - New configuration.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -77,6 +79,7 @@ declare class Ability {
    *     memory is critically low.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
