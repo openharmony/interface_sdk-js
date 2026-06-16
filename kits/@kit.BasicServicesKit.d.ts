@@ -97,6 +97,7 @@ export {
 import configPolicy from '@ohos.configPolicy';
 import customConfig from '@ohos.customization.customConfig';
 import { AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData } from '@ohos.base';
+import deviceInfo from '@ohos.deviceInfo';
 import zlib from '@ohos.zlib';
 import commonEventManager from '@ohos.commonEventManager';
 import emitter from '@ohos.events.emitter';
@@ -114,7 +115,7 @@ import { Available } from '@ohos.annotation';
 
 export {
   zlib, configPolicy, AsyncCallback, BusinessError, Callback, ErrorCallback, RecordData, customConfig, systemDateTime,
-  systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
+  deviceInfo,systemTimer, systemLoad, request, commonEventManager, emitter, StaticSubscriberExtensionAbility,
   StaticSubscriberExtensionContext, appAccount, distributedAccount, osAccount, intelligentScene, Available
 };
 /*** endif */
