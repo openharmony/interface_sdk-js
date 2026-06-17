@@ -40,6 +40,7 @@
     "SystemCapability.PowerManager.BatteryManager.Core",
     "SystemCapability.PowerManager.BatteryStatistics",
     "SystemCapability.Communication.Bluetooth.Core",
+    "SystemCapability.Communication.NearLink.Base",
     "SystemCapability.BundleManager.BundleFramework",
     "SystemCapability.BundleManager.BundleFramework.AppControl",
     "SystemCapability.BundleManager.BundleFramework.Core",

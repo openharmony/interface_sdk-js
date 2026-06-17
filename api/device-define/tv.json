@@ -169,6 +169,7 @@
     "SystemCapability.Communication.NetManager.Core",
     "SystemCapability.Security.Asset",
     "SystemCapability.Communication.Bluetooth.Core",
+    "SystemCapability.Communication.NearLink.Base",
     "SystemCapability.Communication.IPC.Core",
     "SystemCapability.Security.Cert",
     "SystemCapability.Security.CertificateManager",
