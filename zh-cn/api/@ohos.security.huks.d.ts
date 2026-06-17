@@ -20,6 +20,10 @@
 
 import type { AsyncCallback } from './@ohos.base';
 
+import type {};
+
+import {}
+
 /**
  * 向应用提供密钥库能力，包括密钥管理及密钥的密码学操作等功能。
  *
@@ -30,6 +34,7 @@ import type { AsyncCallback } from './@ohos.base';
  * @since 8
  */
 declare namespace huks {
+
   /**
    * 生成密钥。使用callback异步回调。
    *
@@ -90,7 +95,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
    *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario. [since 26.0.0]
@@ -128,7 +133,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000011 - The queried entity does not exist. This may happen because
    *     the key resource ID specified by keyAlias has not been opened in the external crypto scenario. [since 26.0.0]
@@ -142,45 +147,6 @@ declare namespace huks {
    * @since 9
    */
   function generateKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
-
-  /**
-   * 指定用户身份生成密钥，使用Promise方式异步返回结果。基于密钥不出[TEE](docroot://security/UniversalKeystoreKit/huks-concepts.md#可信执行环境tee)原则，通过
-   * promise不会返回密钥材料内容，只用于表示此次调用是否成功。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
-   * @param { HuksOptions } huksOptions -
-   用于存放生成key所需的
-   *     [属性标签](docroot://reference/apis-universal-keystore-kit/capi-native-huks-type-h.md#枚举)。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function generateKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * 删除密钥。使用callback异步回调。
@@ -268,38 +234,6 @@ declare namespace huks {
   function deleteKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
 
   /**
-   * 指定用户身份删除密钥，使用Promise方式异步返回结果。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名，应为生成key时传入的别名。
-   * @param { HuksOptions } huksOptions - 用于删除时指定密钥的属性TAG，如使用
-   *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需删除密钥的安全级别，<br>可传空，当API version ≥
-   *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The group key is not supported.
-   *     2. The crypto extension key is not supported. [since 23]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function deleteKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
-
-  /**
    * 导入明文密钥，使用Callback方式回调异步返回结果。
    *
    * > **说明：**
@@ -337,11 +271,14 @@ declare namespace huks {
   function importKey(keyAlias: string, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * 导入明文密钥。使用callback异步回调。
+   * Imports a key in plaintext. This API uses an asynchronous callback to return the result.
    *
-   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
-   * @param { HuksOptions } options - 用于导入时所需TAG和需要导入的密钥。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
-   * @param { AsyncCallback<void> } callback - 回调函数。当导入密钥成功时，err为undefined，否则为错误对象。
+   * @param { string } keyAlias - Alias of the key. The value can contain up to 128 bytes and should not include
+   *     sensitive data such as personal information.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   *     key length are mandatory.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -358,7 +295,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @syscap SystemCapability.Security.Huks.Extension [since 9 - 11]
    * @syscap SystemCapability.Security.Huks.Core [since 12]
@@ -368,11 +305,13 @@ declare namespace huks {
   function importKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * 导入明文密钥。使用Promise异步回调。
+   * Imports a key in plaintext. This API uses a promise to return the result.
    *
-   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
-   * @param { HuksOptions } options - 用于导入时所需TAG和需要导入的密钥。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @param { string } keyAlias - Alias of the key. The value can contain up to 128 bytes and should not include
+   *     sensitive data such as personal information.
+   * @param { HuksOptions } options - Tags required for the import and key to import. The algorithm, key purpose, and
+   *     key length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -389,50 +328,13 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @syscap SystemCapability.Security.Huks.Extension
    * @atomicservice [since 11]
    * @since 9
    */
   function importKeyItem(keyAlias: string, options: HuksOptions): Promise<void>;
-
-  /**
-   * 指定用户身份导入明文密钥，使用Promise方式异步返回结果。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
-   * @param { HuksOptions } huksOptions - 用于导入时所需TAG和需要导入的密钥。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
-   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function importKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
 
   /**
    * Imports a wrapped key. This API uses an asynchronous callback to return the result.
@@ -459,7 +361,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000020 - the provider operation failed [since 26.0.0]
    * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 26.0.0]
@@ -479,55 +381,13 @@ declare namespace huks {
   ): void;
 
   /**
-   * Import Wrapped Key As User.
+   * Imports a wrapped key. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - User ID.
    * @param { string } keyAlias - Alias of the wrapped key to import.
-   * @param { string } wrappingKeyAlias - Alias of the key used to decrypt the wrapped key.
-   * @param { HuksOptions } huksOptions - Options for importing the wrapped key. The algorithm, key purpose, and key
-   *     length are mandatory.
+   * @param { string } wrappingKeyAlias - Alias of the data used to unwrap the key imported.
+   * @param { HuksOptions } options - Tags required for the import and the wrapped key to import. The algorithm, key
+   *     purpose, and key length are mandatory.
    * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000013 - queried credential does not exist
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function importWrappedKeyItemAsUser(
-    userId: number, keyAlias: string,
-    wrappingKeyAlias: string,
-    huksOptions: HuksOptions
-  ): Promise<void>;
-
-  /**
-   * 安全导入密钥。使用Promise异步回调。
-   *
-   * @param { string } keyAlias - 密钥别名，存放待导入密钥的别名。
-   * @param { string } wrappingKeyAlias - 密钥别名，对应密钥用于解密加密的密钥数据。
-   * @param { HuksOptions } options - 用于导入时所需TAG和需要导入的加密的密钥数据。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
-   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1. Mandatory parameters are left unspecified.
    *     2. Incorrect parameter types.
@@ -544,7 +404,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000013 - queried credential does not exist
    * @throws { BusinessError } 12000014 - memory is insufficient
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
-   * @throws { BusinessError } 12000017 - the key with same alias is already exist [since 20]
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
    * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
    * @throws { BusinessError } 12000020 - the provider operation failed [since 26.0.0]
    * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 26.0.0]
@@ -627,40 +487,6 @@ declare namespace huks {
    * @since 9
    */
   function exportKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
-
-  /**
-   * 指定用户身份导出密钥，使用Promise方式回调异步返回的结果。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
-   * @param { HuksOptions } huksOptions - 空对象（此处传空即可）。
-   * @returns { Promise<HuksReturnResult> } Promise对象。 当调用成功时，HuksReturnResult的outData成员非空，为从密钥中导出的公钥，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function exportKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * 导出密钥。使用Promise异步回调。
@@ -950,40 +776,6 @@ declare namespace huks {
   function hasKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<boolean>): void;
 
   /**
-   * 指定用户身份判断密钥是否存在，使用Promise回调异步返回结果。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 所需查找的密钥的别名。
-   * @param { HuksOptions } huksOptions - 用于查询时指定密钥的属性TAG，如使用
-   *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需查询密钥的安全级别，<br>可传空，当API version ≥
-   *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
-   * @returns { Promise<boolean> } Promise对象。若密钥存在，返回值为true，若密钥不存在，返回值为false。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The group key is not supported.
-   *     2. The crypto extension key is not supported. [since 23]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function hasKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
-
-  /**
    * 判断密钥是否存在。使用Promise异步回调。
    *
    * 若密钥不存在，则通过Promise返回false。
@@ -1125,41 +917,6 @@ declare namespace huks {
    * @since 9
    */
   function initSession(keyAlias: string, options: HuksOptions): Promise<HuksSessionHandle>;
-
-  /**
-   * 指定用户身份操作密钥接口，使用Promise方式异步返回结果。huks.initSessionAsUser, huks.updateSession, huks.finishSession为三段式接口，需要一起使用。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - initSessionAsUser操作密钥的别名。
-   * @param { HuksOptions } huksOptions - initSessionAsUser参数集合。
-   * @returns { Promise<HuksSessionHandle> } Promise对象。将initSessionAsUser操作返回的handle添加到密钥管理系统的回调。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function initSessionAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksSessionHandle>;
 
   /**
    * update操作密钥接口。使用callback异步回调。
@@ -1371,130 +1128,6 @@ declare namespace huks {
   function finish(handle: number, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * finishSession操作密钥接口。使用callback异步回调。
-   *
-   * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
-   *
-   * @param { long } handle - finishSession操作的uint64类型的handle值。
-   * @param { HuksOptions } options - finishSession的参数集合。
-   * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当密钥操作finish成功时，err为undefined，data为获取到的HuksReturnResult；否
-   *     则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify auth token failed
-   * @throws { BusinessError } 12000009 - auth token is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
-   * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 22]
-   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated [since 22]
-   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
-   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
-   * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice [since 11]
-   * @since 9
-   */
-  function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
-
-  /**
-   * Finishes the key operation. This API uses an asynchronous callback to return the result.
-   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
-   *
-   * @param { number } handle - Handle for the finishSession operation.
-   *     <br>取值限定为整数。
-   * @param { HuksOptions } options - Parameter set used for the **finishSession** operation.
-   * @param { Uint8Array } token - Authentication token for
-   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#refined-key-access-control)
-   *     .
-   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
-   *     an error object.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify auth token failed
-   * @throws { BusinessError } 12000009 - auth token is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
-   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice [since 12]
-   * @since 9
-   */
-  function finishSession(
-    handle: number,
-    options: HuksOptions,
-    token: Uint8Array,
-    callback: AsyncCallback<HuksReturnResult>
-  ): void;
-
-  /**
-   * finishSession操作密钥接口。使用Promise异步回调。
-   *
-   * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
-   *
-   * @param { long } handle - finishSession操作的uint64类型的handle值。
-   * @param { HuksOptions } options - finishSession操作的参数集合。
-   * @param { Uint8Array } token - 密钥
-   *     [二次认证密钥访问控制](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#二次认证密钥访问控制)的用户鉴权证
-   *     明(AuthToken)，不填表示不进行二次认证密钥访问控制。
-   * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为对应操作返回的数据。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - algorithm mode is not supported
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
-   * @throws { BusinessError } 12000008 - verify auth token failed
-   * @throws { BusinessError } 12000009 - auth token is already timeout
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000017 - The key with same alias is already exist [since 20]
-   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
-   * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 22]
-   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated [since 22]
-   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
-   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice [since 11]
-   * @since 9
-   */
-  function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
-
-  /**
    * abort终止密钥操作。使用callback异步回调。
    *
    * > **说明：**
@@ -1532,58 +1165,6 @@ declare namespace huks {
   function abort(handle: number, options: HuksOptions): Promise<HuksResult>;
 
   /**
-   * abortSession终止密钥操作。使用callback异步回调。
-   *
-   * @param { long } handle - abortSession操作的uint64类型的handle值。
-   * @param { HuksOptions } options - abortSession操作的参数集合。
-   * @param { AsyncCallback<void> } callback - 回调函数。当密钥操作abort成功时，err为undefined，否则为错误对象。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
-   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
-   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
-   * @syscap SystemCapability.Security.Huks.Core
-   * @atomicservice [since 11]
-   * @since 9
-   */
-  function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
-
-  /**
-   * abortSession终止密钥操作。使用Promise异步回调。
-   *
-   * @param { long } handle - abortSession操作的uint64类型的handle值。
-   * @param { HuksOptions } options - abortSession操作的参数集合。
-   * @returns { Promise<void> } Promise对象，无返回结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
-   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
-   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
-   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @atomicservice [since 11]
-   * @since 9
-   */
-  function abortSession(handle: number, options: HuksOptions): Promise<void>;
-
-  /**
    * 获取密钥证书。使用callback异步回调。
    *
    * <!--RP6-->
@@ -1615,40 +1196,6 @@ declare namespace huks {
    * @since 9
    */
   function attestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
-
-  /**
-   * 指定用户身份获取密钥证书，使用Promise方式异步返回结果。
-   *
-   * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
-   * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
-   * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function attestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
 
   /**
    * 获取密钥证书。使用Promise异步回调。
@@ -1714,42 +1261,6 @@ declare namespace huks {
   function anonAttestKeyItem(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
 
   /**
-   * 指定用户身份获取匿名化密钥证书，使用Promise方式异步返回结果。
-   *
-   * 该操作需要联网进行，且耗时较长。
-   *
-   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
-   * @param { number } userId - 用户ID。
-   * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
-   * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
-   * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
-   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
-   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
-   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1. Mandatory parameters are left unspecified.
-   *     2. Incorrect parameter types.
-   *     3. Parameter verification failed.
-   * @throws { BusinessError } 801 - api is not supported
-   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
-   *     1. The algorithm mode is not supported.
-   *     2. The group key is not supported.
-   *     3. The crypto extension key is not supported.
-   * @throws { BusinessError } 12000002 - algorithm param is missing
-   * @throws { BusinessError } 12000003 - algorithm param is invalid
-   * @throws { BusinessError } 12000004 - operating file failed
-   * @throws { BusinessError } 12000005 - IPC communication failed
-   * @throws { BusinessError } 12000006 - error occurred in crypto engine
-   * @throws { BusinessError } 12000011 - queried entity does not exist
-   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
-   * @throws { BusinessError } 12000014 - memory is insufficient
-   * @syscap SystemCapability.Security.Huks.Extension
-   * @systemapi this method can be used only by system applications.
-   * @since 12
-   */
-  function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
-
-  /**
    * 离线获取匿名证明证书。该接口使用promise返回结果。此操作不需要每次都需要网络连接，
    * 比anonAttestKeyItemAsUser函数性能高。
    *
@@ -1797,6 +1308,7 @@ declare namespace huks {
    */
   function anonAttestKeyItemOfflineAsUser(userId: number, keyAlias: string,
       params: HuksParam[]): Promise<HuksReturnResult>;
+
   /**
    * 获取匿名化密钥证书。使用Promise异步回调。
    *
@@ -1968,6 +1480,7 @@ declare namespace huks {
    *     如果应用程序自己管理密钥，则忽略此参数
    * @returns { Promise<HuksReturnResult> } 函数返回的promise。
    * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000001 - Algorithm mode is not supported
    * @throws { BusinessError } 12000002 - Algorithm parameters are missing, please check the algorithm parameters.
    * @throws { BusinessError } 12000003 - The algorithm parameters are invalid, please check the algorithm parameters.
    * @throws { BusinessError } 12000004 - File operation failed.
@@ -1975,6 +1488,7 @@ declare namespace huks {
    * @throws { BusinessError } 12000006 - The algorithm engine reported an error, please check the input parameters.
    * @throws { BusinessError } 12000011 - The queried key does not exist, please check the key-related parameters.
    * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
+   * @throws { BusinessError } 12000013 - Queried credential does not exist
    * @throws { BusinessError } 12000014 - Memory is insufficient.
    * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM.
    * @throws { BusinessError } 12000016 - The screen lock password is not set.
@@ -1987,40 +1501,44 @@ declare namespace huks {
    */
   function encapsulate(keyAlias: string, params: HuksParam[],
       sharedKeyAlias?: string, sharedKeyParams?: HuksParam[]): Promise<HuksReturnResult>;
+
   /**
    * Post-Quantum Cryptography密钥解封装操作，支持HUKS密钥管理
    * 或由应用程序本身决定。如果应用程序选择管理密钥，
    * 对称密钥包含在HuksReturnResult的outData字段中。
    *
-   * @param { string } keyAlias  - 后量子加密算法的密钥名称。
-   * @param { HuksParam[] } params  - 表示解封装属性。
-   * @param { Uint8Array } encapData  - 表示封装后的共享密钥。
-   * @param { string } [sharedKeyAlias]  - 表示解封装密钥的密钥别名。
+   * @param { string } keyAlias - 后量子加密算法的密钥名称。
+   * @param { HuksParam[] } params - 表示解封装属性。
+   * @param { Uint8Array } encapData - 表示封装后的共享密钥。
+   * @param { string } [sharedKeyAlias] - 表示解封装密钥的密钥别名。
    *     如果使用HUKS进行密钥管理，则必须指定该参数。
    *     如果应用程序自己管理密钥，则忽略此参数。
-   * @param { HuksParam[] } [sharedKeyParams]  - 表示解封装后的key的属性。
+   * @param { HuksParam[] } [sharedKeyParams] - 表示解封装后的key的属性。
    *     如果使用HUKS进行密钥管理，则必须指定该参数。
    *     如果应用程序自己管理密钥，则忽略此参数。
    * @returns { Promise<HuksReturnResult> } 返回值
-   * @throws { BusinessError } 801  - API is not supported.
-   * @throws { BusinessError } 12000002  - The algorithm parameter is missing. Check the algorithm parameter.
-   * @throws { BusinessError } 12000003  - The algorithm parameter is invalid. Check the algorithm parameter.
-   * @throws { BusinessError } 12000004  - The file operation failed.
-   * @throws { BusinessError } 12000005  - IPC communication failed.
-   * @throws { BusinessError } 12000006  - The algorithm engine reports an error. Check the input parameters.
-   * @throws { BusinessError } 12000011  - The queried key does not exist. Check the key-related parameters.
-   * @throws { BusinessError } 12000012  - The device environment or input parameter is abnormal.
-   * @throws { BusinessError } 12000014  - Insufficient memory.
-   * @throws { BusinessError } 12000015  - Failed to obtain the security information using UserIAM.
-   * @throws { BusinessError } 12000016  - The lock screen password is not set.
-   * @throws { BusinessError } 12000017  - A key with the same alias already exists.
-   * @throws { BusinessError } 12000018  - Invalid input parameter.
+   * @throws { BusinessError } 801 - API is not supported.
+   * @throws { BusinessError } 12000001 - Algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - The algorithm parameter is missing. Check the algorithm parameter.
+   * @throws { BusinessError } 12000003 - The algorithm parameter is invalid. Check the algorithm parameter.
+   * @throws { BusinessError } 12000004 - The file operation failed.
+   * @throws { BusinessError } 12000005 - IPC communication failed.
+   * @throws { BusinessError } 12000006 - The algorithm engine reports an error. Check the input parameters.
+   * @throws { BusinessError } 12000011 - The queried key does not exist. Check the key-related parameters.
+   * @throws { BusinessError } 12000012 - The device environment or input parameter is abnormal.
+   * @throws { BusinessError } 12000013 - Queried credential does not exist
+   * @throws { BusinessError } 12000014 - Insufficient memory.
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information using UserIAM.
+   * @throws { BusinessError } 12000016 - The lock screen password is not set.
+   * @throws { BusinessError } 12000017 - A key with the same alias already exists.
+   * @throws { BusinessError } 12000018 - Invalid input parameter.
    * @syscap SystemCapability.Security.Huks.Core
    * @stagemodelonly
    * @since 26.0.0
    */
   function decapsulate(keyAlias: string, params: HuksParam[], encapData: Uint8Array,
       sharedKeyAlias?: string, sharedKeyParams?:  HuksParam[]): Promise<HuksReturnResult>;
+
   /**
    * 调用接口使用的options中的properties数组中的param。
    *
@@ -2029,6 +1547,7 @@ declare namespace huks {
    * @since 8
    */
   export interface HuksParam {
+
     /**
      * 标签。
      *
@@ -2037,6 +1556,7 @@ declare namespace huks {
      * @since 8
      */
     tag: HuksTag;
+
     /**
      * 标签对应值。
      *
@@ -2060,6 +1580,7 @@ declare namespace huks {
    * @useinstead null
    */
   export interface HuksHandle {
+
     /**
      * 原为预留字段。
      *
@@ -2070,6 +1591,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     errorCode: number;
+
     /**
      * 原为预留字段。
      *
@@ -2080,6 +1602,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     handle: number;
+
     /**
      * 原为预留字段。
      *
@@ -2100,14 +1623,7 @@ declare namespace huks {
    * @since 9
    */
   export interface HuksSessionHandle {
-    /**
-     * 表示无符号整数类型的handle值。
-     *
-     * @syscap SystemCapability.Security.Huks.Core
-     * @atomicservice [since 11]
-     * @since 9
-     */
-    handle: number;
+
     /**
      * 表示
      * [initSession]{@link huks.initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>)}
@@ -2118,6 +1634,15 @@ declare namespace huks {
      * @since 9
      */
     challenge?: Uint8Array;
+
+    /**
+     * 表示无符号整数类型的handle值。
+     *
+     * @syscap SystemCapability.Security.Huks.Core
+     * @atomicservice [since 11]
+     * @since 9
+     */
+    handle: number;
   }
 
   /**
@@ -2128,6 +1653,7 @@ declare namespace huks {
    * @since 8
    */
   export interface HuksOptions {
+
     /**
      * 标签。
      *
@@ -2136,6 +1662,7 @@ declare namespace huks {
      * @since 8
      */
     properties?: Array<HuksParam>;
+
     /**
      * 标签。
      *
@@ -2161,6 +1688,7 @@ declare namespace huks {
    * @useinstead huks.HuksReturnResult
    */
   export interface HuksResult {
+
     /**
      * 原为预留字段。
      *
@@ -2171,6 +1699,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     errorCode: number;
+
     /**
      * 原为预留字段。
      *
@@ -2181,6 +1710,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     outData?: Uint8Array;
+
     /**
      * 原为预留字段。
      *
@@ -2191,6 +1721,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     properties?: Array<HuksParam>;
+
     /**
      * 原为预留字段。
      *
@@ -2211,6 +1742,7 @@ declare namespace huks {
    * @since 9
    */
   export interface HuksReturnResult {
+
     /**
      * 表示
      * [initSession]{@link huks.initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>)}
@@ -2221,6 +1753,7 @@ declare namespace huks {
      * @since 9
      */
     outData?: Uint8Array;
+
     /**
      * 表示
      * [initSession]{@link huks.initSession(keyAlias: string, options: HuksOptions, callback: AsyncCallback<HuksSessionHandle>)}
@@ -2231,6 +1764,7 @@ declare namespace huks {
      * @since 9
      */
     properties?: Array<HuksParam>;
+
     /**
      * 表示证书链数据。默认为undefined。
      *
@@ -2239,6 +1773,7 @@ declare namespace huks {
      * @since 9
      */
     certChains?: Array<string>;
+
     /**
      * 定义共享密钥。
      *
@@ -2282,6 +1817,7 @@ declare namespace huks {
    * @useinstead null
    */
   export enum HuksErrorCode {
+
     /**
      * 原为预留字段。
      *
@@ -2292,6 +1828,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_SUCCESS = 0,
+
     /**
      * 原为预留字段。
      *
@@ -2302,6 +1839,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_FAILURE = -1,
+
     /**
      * 原为预留字段。
      *
@@ -2312,6 +1850,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_BAD_STATE = -2,
+
     /**
      * 原为预留字段。
      *
@@ -2322,6 +1861,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_ARGUMENT = -3,
+
     /**
      * 原为预留字段。
      *
@@ -2332,6 +1872,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_NOT_SUPPORTED = -4,
+
     /**
      * 原为预留字段。
      *
@@ -2342,6 +1883,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_NO_PERMISSION = -5,
+
     /**
      * 原为预留字段。
      *
@@ -2352,6 +1894,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INSUFFICIENT_DATA = -6,
+
     /**
      * 原为预留字段。
      *
@@ -2362,6 +1905,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_BUFFER_TOO_SMALL = -7,
+
     /**
      * 原为预留字段。
      *
@@ -2372,6 +1916,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INSUFFICIENT_MEMORY = -8,
+
     /**
      * 原为预留字段。
      *
@@ -2382,6 +1927,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_COMMUNICATION_FAILURE = -9,
+
     /**
      * 原为预留字段。
      *
@@ -2392,6 +1938,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_STORAGE_FAILURE = -10,
+
     /**
      * 原为预留字段。
      *
@@ -2402,6 +1949,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_HARDWARE_FAILURE = -11,
+
     /**
      * 原为预留字段。
      *
@@ -2412,6 +1960,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_ALREADY_EXISTS = -12,
+
     /**
      * 原为预留字段。
      *
@@ -2422,6 +1971,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_NOT_EXIST = -13,
+
     /**
      * 原为预留字段。
      *
@@ -2432,6 +1982,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_NULL_POINTER = -14,
+
     /**
      * 原为预留字段。
      *
@@ -2442,6 +1993,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_FILE_SIZE_FAIL = -15,
+
     /**
      * 原为预留字段。
      *
@@ -2452,6 +2004,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_READ_FILE_FAIL = -16,
+
     /**
      * 原为预留字段。
      *
@@ -2462,6 +2015,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_PUBLIC_KEY = -17,
+
     /**
      * 原为预留字段。
      *
@@ -2472,6 +2026,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_PRIVATE_KEY = -18,
+
     /**
      * 原为预留字段。
      *
@@ -2482,6 +2037,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_KEY_INFO = -19,
+
     /**
      * 原为预留字段。
      *
@@ -2492,6 +2048,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_HASH_NOT_EQUAL = -20,
+
     /**
      * 原为预留字段。
      *
@@ -2502,6 +2059,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_MALLOC_FAIL = -21,
+
     /**
      * 原为预留字段。
      *
@@ -2512,6 +2070,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_WRITE_FILE_FAIL = -22,
+
     /**
      * 原为预留字段。
      *
@@ -2522,6 +2081,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_REMOVE_FILE_FAIL = -23,
+
     /**
      * 原为预留字段。
      *
@@ -2532,6 +2092,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_OPEN_FILE_FAIL = -24,
+
     /**
      * 原为预留字段。
      *
@@ -2542,6 +2103,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CLOSE_FILE_FAIL = -25,
+
     /**
      * 原为预留字段。
      *
@@ -2552,6 +2114,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_MAKE_DIR_FAIL = -26,
+
     /**
      * 原为预留字段。
      *
@@ -2562,6 +2125,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_KEY_FILE = -27,
+
     /**
      * 原为预留字段。
      *
@@ -2572,6 +2136,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_IPC_MSG_FAIL = -28,
+
     /**
      * 原为预留字段。
      *
@@ -2582,6 +2147,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_REQUEST_OVERFLOWS = -29,
+
     /**
      * 原为预留字段。
      *
@@ -2592,6 +2158,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_PARAM_NOT_EXIST = -30,
+
     /**
      * 原为预留字段。
      *
@@ -2602,6 +2169,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CRYPTO_ENGINE_ERROR = -31,
+
     /**
      * 原为预留字段。
      *
@@ -2612,6 +2180,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_COMMUNICATION_TIMEOUT = -32,
+
     /**
      * 原为预留字段。
      *
@@ -2622,6 +2191,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_IPC_INIT_FAIL = -33,
+
     /**
      * 原为预留字段。
      *
@@ -2632,6 +2202,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_IPC_DLOPEN_FAIL = -34,
+
     /**
      * 原为预留字段。
      *
@@ -2642,6 +2213,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_EFUSE_READ_FAIL = -35,
+
     /**
      * 原为预留字段。
      *
@@ -2652,6 +2224,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_NEW_ROOT_KEY_MATERIAL_EXIST = -36,
+
     /**
      * 原为预留字段。
      *
@@ -2662,6 +2235,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_UPDATE_ROOT_KEY_MATERIAL_FAIL = -37,
+
     /**
      * 原为预留字段。
      *
@@ -2672,6 +2246,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_VERIFICATION_FAILED = -38,
+
     /**
      * 原为预留字段。
      *
@@ -2682,6 +2257,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_ALG_FAIL = -100,
+
     /**
      * 原为预留字段。
      *
@@ -2692,6 +2268,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_KEY_SIZE_FAIL = -101,
+
     /**
      * 原为预留字段。
      *
@@ -2702,6 +2279,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_PADDING_FAIL = -102,
+
     /**
      * 原为预留字段。
      *
@@ -2712,6 +2290,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_PURPOSE_FAIL = -103,
+
     /**
      * 原为预留字段。
      *
@@ -2722,6 +2301,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_DIGEST_FAIL = -104,
+
     /**
      * 原为预留字段。
      *
@@ -2732,6 +2312,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_MODE_FAIL = -105,
+
     /**
      * 原为预留字段。
      *
@@ -2742,6 +2323,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_NONCE_FAIL = -106,
+
     /**
      * 原为预留字段。
      *
@@ -2752,6 +2334,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_AAD_FAIL = -107,
+
     /**
      * 原为预留字段。
      *
@@ -2762,6 +2345,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_IV_FAIL = -108,
+
     /**
      * 原为预留字段。
      *
@@ -2772,6 +2356,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_AE_TAG_FAIL = -109,
+
     /**
      * 原为预留字段。
      *
@@ -2782,6 +2367,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_SALT_FAIL = -110,
+
     /**
      * 原为预留字段。
      *
@@ -2792,6 +2378,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_CHECK_GET_ITERATION_FAIL = -111,
+
     /**
      * 原为预留字段。
      *
@@ -2802,6 +2389,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_ALGORITHM = -112,
+
     /**
      * 原为预留字段。
      *
@@ -2812,6 +2400,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_KEY_SIZE = -113,
+
     /**
      * 原为预留字段。
      *
@@ -2822,6 +2411,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_PADDING = -114,
+
     /**
      * 原为预留字段。
      *
@@ -2832,6 +2422,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_PURPOSE = -115,
+
     /**
      * 原为预留字段。
      *
@@ -2842,6 +2433,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_MODE = -116,
+
     /**
      * 原为预留字段。
      *
@@ -2852,6 +2444,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_DIGEST = -117,
+
     /**
      * 原为预留字段。
      *
@@ -2862,6 +2455,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_SIGNATURE_SIZE = -118,
+
     /**
      * 原为预留字段。
      *
@@ -2872,6 +2466,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_IV = -119,
+
     /**
      * 原为预留字段。
      *
@@ -2882,6 +2477,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_AAD = -120,
+
     /**
      * 原为预留字段。
      *
@@ -2892,6 +2488,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_NONCE = -121,
+
     /**
      * 原为预留字段。
      *
@@ -2902,6 +2499,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_AE_TAG = -122,
+
     /**
      * 原为预留字段。
      *
@@ -2912,6 +2510,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_SALT = -123,
+
     /**
      * 原为预留字段。
      *
@@ -2922,6 +2521,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_ITERATION = -124,
+
     /**
      * 原为预留字段。
      *
@@ -2932,6 +2532,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INVALID_OPERATION = -125,
+
     /**
      * 原为预留字段。
      *
@@ -2942,6 +2543,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_ERROR_INTERNAL_ERROR = -999,
+
     /**
      * 原为预留字段。
      *
@@ -2965,6 +2567,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksExceptionErrCode {
+
     /**
      * 权限错误导致失败。
      *
@@ -2973,6 +2576,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_PERMISSION_FAIL = 201,
+
     /**
      * 非系统应用不可以调用系统API。
      *
@@ -2980,6 +2584,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ERR_CODE_NOT_SYSTEM_APP = 202,
+
     /**
      * 参数错误导致失败。可能原因：1. 必选参数未指定。2. 参数类型不正确。3. 参数校验失败。
      *
@@ -2988,6 +2593,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_ILLEGAL_ARGUMENT = 401,
+
     /**
      * 不支持的API。
      *
@@ -2996,6 +2602,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_NOT_SUPPORTED_API = 801,
+
     /**
      * 不支持的功能/特性。
      *
@@ -3004,6 +2611,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_FEATURE_NOT_SUPPORTED = 12000001,
+
     /**
      * 缺少密钥算法参数。
      *
@@ -3012,6 +2620,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_MISSING_CRYPTO_ALG_ARGUMENT = 12000002,
+
     /**
      * 无效密钥算法参数。
      *
@@ -3020,6 +2629,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_INVALID_CRYPTO_ALG_ARGUMENT = 12000003,
+
     /**
      * 文件操作失败。
      *
@@ -3028,6 +2638,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_FILE_OPERATION_FAIL = 12000004,
+
     /**
      * 通信失败。
      *
@@ -3036,6 +2647,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_COMMUNICATION_FAIL = 12000005,
+
     /**
      * 算法库操作失败。
      *
@@ -3044,6 +2656,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_CRYPTO_FAIL = 12000006,
+
     /**
      * 密钥访问失败-密钥访问失效。
      *
@@ -3052,6 +2665,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_KEY_AUTH_PERMANENTLY_INVALIDATED = 12000007,
+
     /**
      * 密钥访问失败-密钥认证失败。
      *
@@ -3060,6 +2674,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_KEY_AUTH_VERIFY_FAILED = 12000008,
+
     /**
      * 密钥访问失败-密钥访问超时。
      *
@@ -3068,6 +2683,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_KEY_AUTH_TIME_OUT = 12000009,
+
     /**
      * 密钥操作会话数已达上限。
      *
@@ -3076,6 +2692,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_SESSION_LIMIT = 12000010,
+
     /**
      * 目标对象不存在。
      *
@@ -3084,6 +2701,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_ITEM_NOT_EXIST = 12000011,
+
     /**
      * 外部错误。
      *
@@ -3092,6 +2710,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_EXTERNAL_ERROR = 12000012,
+
     /**
      * 缺失所需凭据。
      *
@@ -3100,6 +2719,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_CREDENTIAL_NOT_EXIST = 12000013,
+
     /**
      * 内存不足。
      *
@@ -3108,6 +2728,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_INSUFFICIENT_MEMORY = 12000014,
+
     /**
      * 调用其他系统服务失败。
      *
@@ -3116,6 +2737,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ERR_CODE_CALL_SERVICE_FAILED = 12000015,
+
     /**
      * 需要锁屏密码但未设置。
      *
@@ -3124,6 +2746,7 @@ declare namespace huks {
      * @since 11
      */
     HUKS_ERR_CODE_DEVICE_PASSWORD_UNSET = 12000016,
+
     /**
      * 同名密钥已存在。
      *
@@ -3132,6 +2755,7 @@ declare namespace huks {
      * @since 20
      */
     HUKS_ERR_CODE_KEY_ALREADY_EXIST = 12000017,
+
     /**
      * 输入参数非法。
      *
@@ -3140,6 +2764,7 @@ declare namespace huks {
      * @since 20
      */
     HUKS_ERR_CODE_INVALID_ARGUMENT = 12000018,
+
     /**
      * 同名provider已注册。
      *
@@ -3148,6 +2773,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_ITEM_EXISTS = 12000019,
+
     /**
      * 依赖的外部模块返回错误。
      *
@@ -3156,6 +2782,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_EXTERNAL_MODULE = 12000020,
+
     /**
      * Ukey PIN码被锁。
      *
@@ -3164,6 +2791,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_PIN_LOCKED = 12000021,
+
     /**
      * Ukey PIN码错误。
      *
@@ -3172,6 +2800,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_PIN_INCORRECT = 12000022,
+
     /**
      * Ukey PIN码未认证。
      *
@@ -3180,6 +2809,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_PIN_NO_AUTH = 12000023,
+
     /**
      * 设备或资源繁忙。
      *
@@ -3188,6 +2818,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_BUSY = 12000024,
+
     /**
      * 资源超过限制。
      *
@@ -3196,6 +2827,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_ERR_CODE_EXCEED_LIMIT = 12000025,
+
     /**
      * 安全元件故障。
      *
@@ -3205,6 +2837,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ERR_CODE_SE_FAULT = 12000026,
+
     /**
      * 网络不可用。
      *
@@ -3226,6 +2859,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyPurpose {
+
     /**
      * 表示密钥用于对明文进行加密操作。
      *
@@ -3234,6 +2868,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_ENCRYPT = 1,
+
     /**
      * 表示密钥用于对密文进行解密操作。
      *
@@ -3242,6 +2877,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_DECRYPT = 2,
+
     /**
      * 表示密钥用于对数据进行签名。
      *
@@ -3251,6 +2887,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_SIGN = 4,
+
     /**
      * 表示密钥用于验证签名后的数据。
      *
@@ -3260,6 +2897,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_VERIFY = 8,
+
     /**
      * 表示密钥用于派生密钥。
      *
@@ -3269,6 +2907,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_DERIVE = 16,
+
     /**
      * 表示密钥用于加密导出。
      *
@@ -3278,6 +2917,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_WRAP = 32,
+
     /**
      * 表示密钥用于安全导入。
      *
@@ -3287,6 +2927,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_UNWRAP = 64,
+
     /**
      * 表示密钥用于生成消息验证码。
      *
@@ -3296,6 +2937,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_PURPOSE_MAC = 128,
+
     /**
      * 表示密钥用于进行密钥协商。
      *
@@ -3316,6 +2958,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyDigest {
+
     /**
      * 表示无摘要算法。
      *
@@ -3325,6 +2968,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_NONE = 0,
+
     /**
      * 表示MD5摘要算法。
      *
@@ -3334,6 +2978,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_MD5 = 1,
+
     /**
      * 表示SM3摘要算法。
      *
@@ -3343,6 +2988,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_DIGEST_SM3 = 2,
+
     /**
      * 表示SHA1摘要算法。
      *
@@ -3352,6 +2998,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_SHA1 = 10,
+
     /**
      * 表示SHA224摘要算法。
      *
@@ -3361,6 +3008,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_SHA224 = 11,
+
     /**
      * 表示SHA256摘要算法。
      *
@@ -3370,6 +3018,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_SHA256 = 12,
+
     /**
      * 表示SHA384摘要算法。
      *
@@ -3379,6 +3028,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DIGEST_SHA384 = 13,
+
     /**
      * 表示SHA512摘要算法。
      *
@@ -3398,6 +3048,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyPadding {
+
     /**
      * 表示不使用填充算法。
      *
@@ -3406,6 +3057,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_NONE = 0,
+
     /**
      * 表示使用OAEP填充算法。
      *
@@ -3415,6 +3067,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_OAEP = 1,
+
     /**
      * 表示使用PSS填充算法。
      *
@@ -3424,6 +3077,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PSS = 2,
+
     /**
      * 表示使用PKCS1_V1_5填充算法。
      *
@@ -3433,6 +3087,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PKCS1_V1_5 = 3,
+
     /**
      * 表示使用PKCS5填充算法。
      *
@@ -3442,6 +3097,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PKCS5 = 4,
+
     /**
      * 表示使用PKCS7填充算法。
      *
@@ -3450,6 +3106,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_PADDING_PKCS7 = 5,
+
     /**
      * 表示使用ISO_IEC_9796_2填充算法<!--Del-->（暂不支持）<!--DelEnd-->。
      *
@@ -3458,6 +3115,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_PADDING_ISO_IEC_9796_2 = 6,
+
     /**
      * 表示使用ISO_IEC_9797_1填充算法<!--Del-->（暂不支持）<!--DelEnd-->。
      *
@@ -3476,6 +3134,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksCipherMode {
+
     /**
      * 表示使用ECB加密模式。
      *
@@ -3484,6 +3143,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_MODE_ECB = 1,
+
     /**
      * 表示使用CBC加密模式。
      *
@@ -3492,6 +3152,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_MODE_CBC = 2,
+
     /**
      * 表示使用CTR加密模式。
      *
@@ -3500,6 +3161,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_MODE_CTR = 3,
+
     /**
      * 表示使用OFB加密模式。
      *
@@ -3509,6 +3171,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_MODE_OFB = 4,
+
     /**
      * 表示使用CFB加密模式。
      *
@@ -3517,6 +3180,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_MODE_CFB = 5,
+
     /**
      * 表示使用CCM加密模式。
      *
@@ -3545,6 +3209,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeySize {
+
     /**
      * 表示使用RSA算法的密钥长度为512bit。
      *
@@ -3554,6 +3219,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_RSA_KEY_SIZE_512 = 512,
+
     /**
      * 表示使用RSA算法的密钥长度为768bit。
      *
@@ -3563,6 +3229,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_RSA_KEY_SIZE_768 = 768,
+
     /**
      * 表示使用RSA算法的密钥长度为1024bit。
      *
@@ -3572,6 +3239,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_RSA_KEY_SIZE_1024 = 1024,
+
     /**
      * 表示使用RSA算法的密钥长度为2048bit。
      *
@@ -3581,6 +3249,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_RSA_KEY_SIZE_2048 = 2048,
+
     /**
      * 表示使用RSA算法的密钥长度为3072bit。
      *
@@ -3590,6 +3259,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_RSA_KEY_SIZE_3072 = 3072,
+
     /**
      * 表示使用RSA算法的密钥长度为4096bit。
      *
@@ -3609,6 +3279,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ECC_KEY_SIZE_224 = 224,
+
     /**
      * 表示使用ECC算法的密钥长度为256bit。
      *
@@ -3618,6 +3289,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ECC_KEY_SIZE_256 = 256,
+
     /**
      * 表示使用ECC算法的密钥长度为384bit。
      *
@@ -3627,6 +3299,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ECC_KEY_SIZE_384 = 384,
+
     /**
      * 表示使用ECC算法的密钥长度为521bit。
      *
@@ -3645,6 +3318,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_AES_KEY_SIZE_128 = 128,
+
     /**
      * 表示使用AES算法的密钥长度为192bit。
      *
@@ -3653,6 +3327,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_AES_KEY_SIZE_192 = 192,
+
     /**
      * 表示使用AES算法的密钥长度为256bit。
      *
@@ -3692,6 +3367,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DH_KEY_SIZE_2048 = 2048,
+
     /**
      * 表示使用DH算法的密钥长度为3072bit。
      *
@@ -3701,6 +3377,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_DH_KEY_SIZE_3072 = 3072,
+
     /**
      * 表示使用DH算法的密钥长度为4096bit。
      *
@@ -3720,6 +3397,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_SM2_KEY_SIZE_256 = 256,
+
     /**
      * 表示SM4算法的密钥长度为128bit。
      *
@@ -3729,6 +3407,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_SM4_KEY_SIZE_128 = 128,
+
     /**
      * 表示DES算法的密钥长度为64bit。
      *
@@ -3737,6 +3416,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_DES_KEY_SIZE_64 = 64,
+
     /**
      * 表示3DES算法的密钥长度为128bit。
      *
@@ -3745,6 +3425,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_3DES_KEY_SIZE_128 = 128,
+
     /**
      * 表示3DES算法的密钥长度为192bit。
      *
@@ -3753,6 +3434,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_3DES_KEY_SIZE_192 = 192,
+
     /**
      * ML-DSA-44参数集。
      *
@@ -3762,6 +3444,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ML_DSA_KEY_PARAM_SET_44 = 44,
+
     /**
      * ML-DSA-65参数集。
      *
@@ -3771,6 +3454,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ML_DSA_KEY_PARAM_SET_65 = 65,
+
     /**
      * ML-DSA-87参数集。
      *
@@ -3780,6 +3464,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ML_DSA_KEY_PARAM_SET_87 = 87,
+
     /**
      * ML-KEM-768参数集。
      *
@@ -3789,6 +3474,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ML_KEM_KEY_PARAM_SET_768 = 768,
+
     /**
      * ML-KEM-1024参数集。
      *
@@ -3798,7 +3484,6 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ML_KEM_KEY_PARAM_SET_1024 = 1024
-
   }
 
   /**
@@ -3809,6 +3494,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyAlg {
+
     /**
      * 表示使用RSA算法。
      *
@@ -3818,6 +3504,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_RSA = 1,
+
     /**
      * 表示使用ECC算法。
      *
@@ -3827,6 +3514,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_ECC = 2,
+
     /**
      * 表示使用DSA算法<!--RP5--><!--RP5End-->。
      *
@@ -3845,6 +3533,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_AES = 20,
+
     /**
      * 表示使用HMAC算法。
      *
@@ -3854,6 +3543,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_HMAC = 50,
+
     /**
      * 表示使用HKDF算法。
      *
@@ -3863,6 +3553,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_HKDF = 51,
+
     /**
      * 表示使用PBKDF2算法。
      *
@@ -3882,6 +3573,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_ECDH = 100,
+
     /**
      * 表示使用X25519算法。
      *
@@ -3891,6 +3583,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_X25519 = 101,
+
     /**
      * 表示使用ED25519算法。
      *
@@ -3900,6 +3593,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_ALG_ED25519 = 102,
+
     /**
      * 表示使用DH算法。
      *
@@ -3919,6 +3613,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ALG_SM2 = 150,
+
     /**
      * 表示SM3摘要算法。
      *
@@ -3928,6 +3623,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ALG_SM3 = 151,
+
     /**
      * 表示使用SM4算法。
      *
@@ -3937,6 +3633,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_ALG_SM4 = 152,
+
     /**
      * 表示使用DES算法（API 12开始支持<!--RP4-->轻量级设备<!--RP4End-->，API 18开始支持<!--RP5-->标准设备<!--RP5End-->）。
      *
@@ -3945,6 +3642,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ALG_DES = 160,
+
     /**
      * 表示使用3DES算法（API 12开始支持<!--RP4-->轻量级设备<!--RP4End-->，API 18开始支持<!--RP5-->标准设备<!--RP5End-->）。
      *
@@ -3953,6 +3651,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ALG_3DES = 161,
+
     /**
      * 表示使用CMAC算法（API 12开始支持<!--RP4-->轻量级设备<!--RP4End-->，API 18开始支持<!--RP5-->标准设备<!--RP5End-->）。
      *
@@ -3961,6 +3660,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_ALG_CMAC = 162,
+
     /**
      * ML-KEM算法
      *
@@ -3970,6 +3670,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_ALG_ML_KEM = 200,
+
     /**
      * ML-DSA算法
      *
@@ -3990,6 +3691,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksUnwrapSuite {
+
     /**
      * 安全导入密钥时，X25519密钥协商后使用AES-256 GCM解密。
      *
@@ -3999,6 +3701,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_UNWRAP_SUITE_X25519_AES_256_GCM_NOPADDING = 1,
+
     /**
      * 安全导入密钥时，ECDH密钥协商后使用AES-256 GCM解密。
      *
@@ -4008,6 +3711,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_UNWRAP_SUITE_ECDH_AES_256_GCM_NOPADDING = 2,
+
     /**
      * 安全导入密钥时，使用临时SM4密钥加密导入密钥，使用已导入HUKS的SM2密钥加密SM4密钥。
      *
@@ -4027,6 +3731,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyGenerateType {
+
     /**
      * 默认生成的密钥。
      *
@@ -4036,6 +3741,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_GENERATE_TYPE_DEFAULT = 0,
+
     /**
      * 派生生成的密钥。
      *
@@ -4045,6 +3751,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_GENERATE_TYPE_DERIVE = 1,
+
     /**
      * 协商生成的密钥。
      *
@@ -4064,6 +3771,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyFlag {
+
     /**
      * 表示通过导入公钥接口导入的密钥。
      *
@@ -4072,6 +3780,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_FLAG_IMPORT_KEY = 1,
+
     /**
      * 表示通过生成密钥接口生成的密钥。
      *
@@ -4080,6 +3789,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_FLAG_GENERATE_KEY = 2,
+
     /**
      * 表示通过生成密钥协商接口生成的密钥。
      *
@@ -4088,6 +3798,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_KEY_FLAG_AGREE_KEY = 3,
+
     /**
      * 表示通过生成密钥派生接口生成的密钥。
      *
@@ -4106,6 +3817,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksKeyStorageType {
+
     /**
      * 表示通过本地直接管理密钥。
      *
@@ -4117,6 +3829,7 @@ declare namespace huks {
      * @deprecated since 10
      */
     HUKS_STORAGE_TEMP = 0,
+
     /**
      * 表示通过HUKS service管理密钥。
      *
@@ -4128,6 +3841,7 @@ declare namespace huks {
      * @deprecated since 10
      */
     HUKS_STORAGE_PERSISTENT = 1,
+
     /**
      * 表示主密钥派生的密钥存储于huks中，由HUKS进行托管。
      *
@@ -4137,6 +3851,7 @@ declare namespace huks {
      * @since 10
      */
     HUKS_STORAGE_ONLY_USED_IN_HUKS = 2,
+
     /**
      * 表示主密钥派生的密钥直接导出给业务方，HUKS不对其进行托管服务。
      *
@@ -4157,6 +3872,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksImportKeyType {
+
     /**
      * 表示导入的密钥类型为公钥。
      *
@@ -4166,6 +3882,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_KEY_TYPE_PUBLIC_KEY = 0,
+
     /**
      * 表示导入的密钥类型为私钥。
      *
@@ -4175,6 +3892,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_KEY_TYPE_PRIVATE_KEY = 1,
+
     /**
      * 表示导入的密钥类型为公私钥对。
      *
@@ -4195,6 +3913,7 @@ declare namespace huks {
    * @since 10
    */
   export enum HuksRsaPssSaltLenType {
+
     /**
      * 表示以摘要长度设置salt_len。
      *
@@ -4224,6 +3943,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksUserAuthType {
+
     /**
      * 表示用户认证类型为指纹。
      *
@@ -4232,6 +3952,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_USER_AUTH_TYPE_FINGERPRINT = 1 << 0,
+
     /**
      * 表示用户认证类型为人脸。
      *
@@ -4240,6 +3961,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_USER_AUTH_TYPE_FACE = 1 << 1,
+
     /**
      * 表示用户认证类型为PIN码。
      *
@@ -4248,6 +3970,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_USER_AUTH_TYPE_PIN = 1 << 2,
+
     /**
      * 表示用户认证类型为TUI PIN码。<!--Del-->（暂不支持）<!--DelEnd-->
      *
@@ -4268,6 +3991,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksAuthAccessType {
+
     /**
      * 表示安全访问控制类型为清除密码后密钥无效。
      *
@@ -4276,6 +4000,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_AUTH_ACCESS_INVALID_CLEAR_PASSWORD = 1 << 0,
+
     /**
      * 表示安全访问控制类型为新录入生物特征后密钥无效。
      *
@@ -4284,6 +4009,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL = 1 << 1,
+
     /**
      * 表示安全访问控制类型为该密钥总是有效。
      *
@@ -4302,6 +4028,7 @@ declare namespace huks {
    * @since 12
    */
   export enum HuksUserAuthMode {
+
     /**
      * 本地认证模式。
      *
@@ -4310,6 +4037,7 @@ declare namespace huks {
      * @since 12
      */
     HUKS_USER_AUTH_MODE_LOCAL = 0,
+
     /**
      * 跨端协同认证模式。
      *
@@ -4319,6 +4047,7 @@ declare namespace huks {
      */
     HUKS_USER_AUTH_MODE_COAUTH = 1
   }
+
   /**
    * 表示生成或导入密钥时，指定该密钥的存储安全等级。
    *
@@ -4334,6 +4063,7 @@ declare namespace huks {
    * @since 11
    */
   export enum HuksAuthStorageLevel {
+
     /**
      * 表示密钥仅在开机后可访问。
      *
@@ -4343,6 +4073,7 @@ declare namespace huks {
      * @since 11
      */
     HUKS_AUTH_STORAGE_LEVEL_DE = 0,
+
     /**
      * 表示密钥仅在首次解锁后可访问。
      *
@@ -4352,6 +4083,7 @@ declare namespace huks {
      * @since 11
      */
     HUKS_AUTH_STORAGE_LEVEL_CE = 1,
+
     /**
      * 表示密钥仅在解锁状态时可访问。
      *
@@ -4371,6 +4103,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksChallengeType {
+
     /**
      * 表示challenge为普通类型，默认32字节。
      *
@@ -4379,6 +4112,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_CHALLENGE_TYPE_NORMAL = 0,
+
     /**
      * 表示challenge为用户自定义类型。支持使用多个密钥仅一次认证。
      *
@@ -4387,6 +4121,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_CHALLENGE_TYPE_CUSTOM = 1,
+
     /**
      * 表示免challenge类型。
      *
@@ -4405,6 +4140,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksChallengePosition {
+
     /**
      * 表示0~7字节为当前密钥的有效challenge。
      *
@@ -4413,6 +4149,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_CHALLENGE_POS_0 = 0,
+
     /**
      * 表示8~15字节为当前密钥的有效challenge。
      *
@@ -4421,6 +4158,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_CHALLENGE_POS_1 = 1,
+
     /**
      * 表示16~23字节为当前密钥的有效challenge。
      *
@@ -4429,6 +4167,7 @@ declare namespace huks {
      * @since 9
      */
     HUKS_CHALLENGE_POS_2 = 2,
+
     /**
      * 表示24~31字节为当前密钥的有效challenge。
      *
@@ -4447,6 +4186,7 @@ declare namespace huks {
    * @since 9
    */
   export enum HuksSecureSignType {
+
     /**
      * 表示签名类型为携带认证信息。生成或导入密钥时指定该字段，则在使用密钥进行签名时，对待签名的数据添加认证信息后进行签名。
      *
@@ -4470,6 +4210,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksSendType {
+
     /**
      * 表示异步发送TAG。
      *
@@ -4479,6 +4220,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_SEND_TYPE_ASYNC = 0,
+
     /**
      * 表示同步发送TAG。
      *
@@ -4489,6 +4231,7 @@ declare namespace huks {
      */
     HUKS_SEND_TYPE_SYNC = 1
   }
+
   /**
    * 表示密钥的来源。
    *
@@ -4496,6 +4239,7 @@ declare namespace huks {
    * @since 22
    */
   export enum HuksKeyClassType {
+
     /**
      * 表示HUKS本地管理的密钥。
      *
@@ -4503,6 +4247,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_KEY_CLASS_DEFAULT = 0,
+
     /**
      * 表示外部密钥管理扩展管理的密钥。
      *
@@ -4520,6 +4265,7 @@ declare namespace huks {
    * @since 20
    */
   export enum HuksKeyWrapType {
+
     /**
      * 硬件唯一密钥加密类型。<!--Del-->（暂不支持）<!--DelEnd-->
      *
@@ -4538,6 +4284,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksTagType {
+
     /**
      * 表示非法的Tag类型。
      *
@@ -4546,6 +4293,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_TYPE_INVALID = 0 << 28,
+
     /**
      * 表示该Tag的数据类型为int类型的number。
      *
@@ -4554,6 +4302,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_TYPE_INT = 1 << 28,
+
     /**
      * 表示该Tag的数据类型为uint类型的number。
      *
@@ -4562,6 +4311,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_TYPE_UINT = 2 << 28,
+
     /**
      * 表示该Tag的数据类型为bigint。
      *
@@ -4570,6 +4320,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_TYPE_ULONG = 3 << 28,
+
     /**
      * 表示该Tag的数据类型为boolean。
      *
@@ -4578,6 +4329,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_TYPE_BOOL = 4 << 28,
+
     /**
      * 表示该Tag的数据类型为Uint8Array。
      *
@@ -4597,6 +4349,7 @@ declare namespace huks {
    * @since 26.0.0
    */
   export enum HuksKeySecurityLevel {
+
     /**
      * 密钥在可信执行环境中生成并使用。
      *
@@ -4606,6 +4359,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_KEY_SECURITY_LEVEL_TEE = 0,
+
     /**
      * 密钥在安全环境中生成并使用。
      *
@@ -4616,6 +4370,7 @@ declare namespace huks {
      */
     HUKS_KEY_SECURITY_LEVEL_SE = 1
   }
+
   /**
    * 表示调用参数的Tag。
    *
@@ -4624,6 +4379,7 @@ declare namespace huks {
    * @since 8
    */
   export enum HuksTag {
+
     /**
      * 表示非法的Tag。
      *
@@ -4643,6 +4399,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ALGORITHM = HuksTagType.HUKS_TAG_TYPE_UINT | 1,
+
     /**
      * 表示密钥用途的Tag。
      *
@@ -4651,6 +4408,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_PURPOSE = HuksTagType.HUKS_TAG_TYPE_UINT | 2,
+
     /**
      * 表示密钥长度的Tag，单位：bit。
      *
@@ -4669,6 +4427,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_DIGEST = HuksTagType.HUKS_TAG_TYPE_UINT | 4,
+
     /**
      * 表示填充模式的Tag。
      *
@@ -4677,6 +4436,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_PADDING = HuksTagType.HUKS_TAG_TYPE_UINT | 5,
+
     /**
      * 表示加密模式的Tag。
      *
@@ -4685,6 +4445,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_BLOCK_MODE = HuksTagType.HUKS_TAG_TYPE_UINT | 6,
+
     /**
      * 表示密钥类型的Tag。
      *
@@ -4693,6 +4454,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 7,
+
     /**
      * 表示附加身份验证数据的Tag。
      *
@@ -4710,6 +4472,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_NONCE = HuksTagType.HUKS_TAG_TYPE_BYTES | 9,
+
     /**
      * 表示密钥初始化的向量。
      *
@@ -4727,6 +4490,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 11,
+
     /**
      * 表示密钥派生时的盐值。
      *
@@ -4736,6 +4500,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_SALT = HuksTagType.HUKS_TAG_TYPE_BYTES | 12,
+
     /**
      * 表示操作系统补丁级别的Tag。
      *
@@ -4746,6 +4511,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_PWD = HuksTagType.HUKS_TAG_TYPE_BYTES | 13,
+
     /**
      * 表示密钥派生时的迭代次数。
      *
@@ -4775,6 +4541,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_DERIVE_MAIN_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 16,
+
     /**
      * 原为预留字段。
      *
@@ -4785,6 +4552,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_DERIVE_FACTOR = HuksTagType.HUKS_TAG_TYPE_BYTES | 17,
+
     /**
      * 原为预留字段。
      *
@@ -4795,6 +4563,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_DERIVE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 18,
+
     /**
      * 表示密钥协商时的算法类型。
      *
@@ -4804,6 +4573,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AGREE_ALG = HuksTagType.HUKS_TAG_TYPE_UINT | 19,
+
     /**
      * 表示密钥协商时的公钥别名。
      *
@@ -4813,6 +4583,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AGREE_PUBLIC_KEY_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 20,
+
     /**
      * 表示密钥协商时的私钥别名。
      *
@@ -4822,6 +4593,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AGREE_PRIVATE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 21,
+
     /**
      * 表示密钥协商时的公钥。
      *
@@ -4831,6 +4603,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AGREE_PUBLIC_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 22,
+
     /**
      * 表示密钥别名。
      *
@@ -4839,6 +4612,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 23,
+
     /**
      * 表示派生密钥的大小，单位：byte。
      *
@@ -4899,6 +4673,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ACTIVE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 201,
+
     /**
      * 原为证书业务预留字段，当前证书管理已独立，此字段废弃，不再预留。
      *
@@ -4909,6 +4684,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ORIGINATION_EXPIRE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 202,
+
     /**
      * 原为证书业务预留字段，当前证书管理已独立，此字段废弃，不再预留。
      *
@@ -4919,6 +4695,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_USAGE_EXPIRE_DATETIME = HuksTagType.HUKS_TAG_TYPE_ULONG | 203,
+
     /**
      * 原为证书业务预留字段，当前证书管理已独立，此字段废弃，不再预留。
      *
@@ -4939,6 +4716,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ALL_USERS = HuksTagType.HUKS_TAG_TYPE_BOOL | 301,
+
     /**
      * 表示当前密钥属于哪个userID。
      *
@@ -4948,6 +4726,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_USER_ID = HuksTagType.HUKS_TAG_TYPE_UINT | 302,
+
     /**
      * 预留。
      *
@@ -4957,6 +4736,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_NO_AUTH_REQUIRED = HuksTagType.HUKS_TAG_TYPE_BOOL | 303,
+
     /**
      * 表示用户认证类型。从[HuksUserAuthType]{@link huks.HuksUserAuthType}中选择，需要与安全访问控制类型同时设置。支持同时指定两种用户认证类型，如：安全访问控制类型指定为
      * HUKS_AUTH_ACCESS_INVALID_NEW_BIO_ENROLL时，密钥访问认证类型可以指定以下三种： HUKS_USER_AUTH_TYPE_FACE 、
@@ -4967,6 +4747,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_USER_AUTH_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 304,
+
     /**
      * 表示auth token单次有效期，单位：秒。
      *
@@ -4975,6 +4756,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_AUTH_TIMEOUT = HuksTagType.HUKS_TAG_TYPE_UINT | 305,
+
     /**
      * 用于传入authToken的字段。
      *
@@ -5056,6 +4838,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ATTESTATION_CHALLENGE = HuksTagType.HUKS_TAG_TYPE_BYTES | 501,
+
     /**
      * 表示attestation时拥有该密钥的application的Id。
      *
@@ -5064,6 +4847,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ATTESTATION_APPLICATION_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 502,
+
     /**
      * 原为预留字段。
      *
@@ -5074,6 +4858,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_BRAND = HuksTagType.HUKS_TAG_TYPE_BYTES | 503,
+
     /**
      * 原为预留字段。
      *
@@ -5084,6 +4869,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_DEVICE = HuksTagType.HUKS_TAG_TYPE_BYTES | 504,
+
     /**
      * 原为预留字段。
      *
@@ -5094,6 +4880,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_PRODUCT = HuksTagType.HUKS_TAG_TYPE_BYTES | 505,
+
     /**
      * 原为预留字段。
      *
@@ -5104,6 +4891,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_SERIAL = HuksTagType.HUKS_TAG_TYPE_BYTES | 506,
+
     /**
      * 原为预留字段。
      *
@@ -5114,6 +4902,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_IMEI = HuksTagType.HUKS_TAG_TYPE_BYTES | 507,
+
     /**
      * 原为预留字段。
      *
@@ -5124,6 +4913,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_MEID = HuksTagType.HUKS_TAG_TYPE_BYTES | 508,
+
     /**
      * 原为预留字段。
      *
@@ -5134,6 +4924,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_MANUFACTURER = HuksTagType.HUKS_TAG_TYPE_BYTES | 509,
+
     /**
      * 原为预留字段。
      *
@@ -5144,6 +4935,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_MODEL = HuksTagType.HUKS_TAG_TYPE_BYTES | 510,
+
     /**
      * 表示attestation时的密钥别名。
      *
@@ -5152,6 +4944,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ATTESTATION_ID_ALIAS = HuksTagType.HUKS_TAG_TYPE_BYTES | 511,
+
     /**
      * 原为预留字段。
      *
@@ -5162,6 +4955,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_SOCID = HuksTagType.HUKS_TAG_TYPE_BYTES | 512,
+
     /**
      * 原为预留字段。
      *
@@ -5172,6 +4966,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ATTESTATION_ID_UDID = HuksTagType.HUKS_TAG_TYPE_BYTES | 513,
+
     /**
      * 表示attestation时的安全凭据。
      *
@@ -5180,6 +4975,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ATTESTATION_ID_SEC_LEVEL_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 514,
+
     /**
      * 表示attestation时的版本号。
      *
@@ -5188,6 +4984,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ATTESTATION_ID_VERSION_INFO = HuksTagType.HUKS_TAG_TYPE_BYTES | 515,
+
     /**
      * 表示是否覆写同名密钥。
      *
@@ -5196,6 +4993,7 @@ declare namespace huks {
      * @since 20
      */
     HUKS_TAG_KEY_OVERRIDE = HuksTagType.HUKS_TAG_TYPE_BOOL | 520,
+
     /**
      * 表示指定的AEAD标签长度，单位：byte。
      *
@@ -5204,6 +5002,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_TAG_AE_TAG_LEN = HuksTagType.HUKS_TAG_TYPE_UINT | 521,
+
     /**
      * 表示密钥来源。
      *
@@ -5211,6 +5010,7 @@ declare namespace huks {
      * @since 22
      */
     HUKS_TAG_KEY_CLASS = HuksTagType.HUKS_TAG_TYPE_UINT | 522,
+
     /**
      * 表示指定的分组信息。
      *
@@ -5219,6 +5019,7 @@ declare namespace huks {
      * @since 23
      */
     HUKS_TAG_KEY_ACCESS_GROUP = HuksTagType.HUKS_TAG_TYPE_BYTES | 523,
+
     /**
      * 表示密钥安全级别。
      *
@@ -5234,6 +5035,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_TAG_KEY_SECURITY_LEVEL = HuksTagType.HUKS_TAG_TYPE_UINT | 526,
+
     /**
      * 标记指示GCM或CCM模式的附加验证数据。
      *
@@ -5245,6 +5047,7 @@ declare namespace huks {
      * @since 24
      */
     HUKS_TAG_AAD = HuksTagType.HUKS_TAG_TYPE_BYTES | 527,
+
     /**
      * 标记指示加密操作的上下文，例如ML-DSA等。
      *
@@ -5254,6 +5057,7 @@ declare namespace huks {
      * @since 26.0.0
      */
     HUKS_TAG_CONTEXT = HuksTagType.HUKS_TAG_TYPE_BYTES | 528,
+
     /**
      * 表示是否使用生成key时传入的别名的Tag。
      *
@@ -5262,6 +5066,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_IS_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1001,
+
     /**
      * 表示密钥存储方式的Tag。
      *
@@ -5270,6 +5075,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_STORAGE_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1002,
+
     /**
      * 预留。
      *
@@ -5279,6 +5085,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_IS_ALLOWED_WRAP = HuksTagType.HUKS_TAG_TYPE_BOOL | 1003,
+
     /**
      * 预留。
      *
@@ -5288,6 +5095,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_WRAP_TYPE = HuksTagType.HUKS_TAG_TYPE_UINT | 1004,
+
     /**
      * 预留。
      *
@@ -5296,6 +5104,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_AUTH_ID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1005,
+
     /**
      * 预留。
      *
@@ -5305,6 +5114,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_ROLE = HuksTagType.HUKS_TAG_TYPE_UINT | 1006,
+
     /**
      * 表示密钥标志的Tag。
      *
@@ -5313,6 +5123,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY_FLAG = HuksTagType.HUKS_TAG_TYPE_UINT | 1007,
+
     /**
      * 预留。
      *
@@ -5322,6 +5133,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_IS_ASYNCHRONIZED = HuksTagType.HUKS_TAG_TYPE_UINT | 1008,
+
     /**
      * 表示操作系统补丁级别的Tag。
      *
@@ -5332,6 +5144,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_SECURE_KEY_ALIAS = HuksTagType.HUKS_TAG_TYPE_BOOL | 1009,
+
     /**
      * 原为预留字段。
      *
@@ -5342,6 +5155,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_SECURE_KEY_UUID = HuksTagType.HUKS_TAG_TYPE_BYTES | 1010,
+
     /**
      * 预留。
      *
@@ -5371,6 +5185,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_PROCESS_NAME = HuksTagType.HUKS_TAG_TYPE_BYTES | 10001,
+
     /**
      * 原为预留字段。
      *
@@ -5381,6 +5196,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_PACKAGE_NAME = HuksTagType.HUKS_TAG_TYPE_BYTES | 10002,
+
     /**
      * 原为预留字段。
      *
@@ -5391,6 +5207,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_ACCESS_TIME = HuksTagType.HUKS_TAG_TYPE_UINT | 10003,
+
     /**
      * 原为预留字段。
      *
@@ -5401,6 +5218,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_USES_TIME = HuksTagType.HUKS_TAG_TYPE_UINT | 10004,
+
     /**
      * 原为预留字段。
      *
@@ -5411,6 +5229,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_CRYPTO_CTX = HuksTagType.HUKS_TAG_TYPE_ULONG | 10005,
+
     /**
      * 预留。
      *
@@ -5419,6 +5238,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_KEY = HuksTagType.HUKS_TAG_TYPE_BYTES | 10006,
+
     /**
      * 原为预留字段。
      *
@@ -5429,6 +5249,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_KEY_VERSION = HuksTagType.HUKS_TAG_TYPE_UINT | 10007,
+
     /**
      * 原为预留字段。
      *
@@ -5470,6 +5291,7 @@ declare namespace huks {
      * @deprecated since 9
      */
     HUKS_TAG_OS_VERSION = HuksTagType.HUKS_TAG_TYPE_UINT | 10101,
+
     /**
      * 表示操作系统补丁级别的Tag。
      *
@@ -5494,6 +5316,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_SYMMETRIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20001,
+
     /**
      * 预留。
      *
@@ -5503,6 +5326,7 @@ declare namespace huks {
      * @since 8
      */
     HUKS_TAG_ASYMMETRIC_PUBLIC_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20002,
+
     /**
      * 预留。
      *
@@ -5513,14 +5337,517 @@ declare namespace huks {
      */
     HUKS_TAG_ASYMMETRIC_PRIVATE_KEY_DATA = HuksTagType.HUKS_TAG_TYPE_BYTES | 20003,
   }
+
+  /**
+   * 指定用户身份删除密钥，使用Promise方式异步返回结果。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名，应为生成key时传入的别名。
+   * @param { HuksOptions } huksOptions - 用于删除时指定密钥的属性TAG，如使用
+   *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需删除密钥的安全级别，<br>可传空，当API version ≥
+   *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The group key is not supported.
+   *     2. The crypto extension key is not supported. [since 23]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function deleteKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+
+  /**
+   * 指定用户身份导出密钥，使用Promise方式回调异步返回的结果。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名，应与所用密钥生成时使用的别名相同。
+   * @param { HuksOptions } huksOptions - 空对象（此处传空即可）。
+   * @returns { Promise<HuksReturnResult> } Promise对象。 当调用成功时，HuksReturnResult的outData成员非空，为从密钥中导出的公钥，否则为失败。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function exportKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * 指定用户身份判断密钥是否存在，使用Promise回调异步返回结果。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 所需查找的密钥的别名。
+   * @param { HuksOptions } huksOptions - 用于查询时指定密钥的属性TAG，如使用
+   *     [HuksAuthStorageLevel]{@link @ohos.security.huks:huks.HuksAuthStorageLevel}指定需查询密钥的安全级别，<br>可传空，当API version ≥
+   *     12时，传空默认为CE，当API version ＜ 12时，传空默认为DE。
+   * @returns { Promise<boolean> } Promise对象。若密钥存在，返回值为true，若密钥不存在，返回值为false。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The group key is not supported.
+   *     2. The crypto extension key is not supported. [since 23]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function hasKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<boolean>;
+
+  /**
+   * 指定用户身份操作密钥接口，使用Promise方式异步返回结果。huks.initSessionAsUser, huks.updateSession, huks.finishSession为三段式接口，需要一起使用。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - initSessionAsUser操作密钥的别名。
+   * @param { HuksOptions } huksOptions - initSessionAsUser参数集合。
+   * @returns { Promise<HuksSessionHandle> } Promise对象。将initSessionAsUser操作返回的handle添加到密钥管理系统的回调。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000010 - the number of sessions has reached limit
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function initSessionAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksSessionHandle>;
+
+  /**
+   * abortSession终止密钥操作。使用callback异步回调。
+   *
+   * @param { long } handle - abortSession操作的uint64类型的handle值。
+   * @param { HuksOptions } options - abortSession操作的参数集合。
+   * @param { AsyncCallback<void> } callback - 回调函数。当密钥操作abort成功时，err为undefined，否则为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
+   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice [since 11]
+   * @since 9
+   */
+  function abortSession(handle: number, options: HuksOptions, callback: AsyncCallback<void>): void;
+
+  /**
+   * abortSession终止密钥操作。使用Promise异步回调。
+   *
+   * @param { long } handle - abortSession操作的uint64类型的handle值。
+   * @param { HuksOptions } options - abortSession操作的参数集合。
+   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine or UKey driver
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
+   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice [since 11]
+   * @since 9
+   */
+  function abortSession(handle: number, options: HuksOptions): Promise<void>;
+
+  /**
+   * 指定用户身份获取密钥证书，使用Promise方式异步返回结果。
+   *
+   * @permission ohos.permission.ATTEST_KEY and ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
+   * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
+   * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function attestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * 指定用户身份获取匿名化密钥证书，使用Promise方式异步返回结果。
+   *
+   * 该操作需要联网进行，且耗时较长。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名，存放待获取证书密钥的别名。
+   * @param { HuksOptions } huksOptions - 用于获取证书时指定所需参数与数据。
+   * @returns { Promise<HuksReturnResult> } Promise对象。当调用成功时，HuksReturnResult的certChains成员非空，为获取到的证书链，否则为失败。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function anonAttestKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<HuksReturnResult>;
+
+  /**
+   * 指定用户身份生成密钥，使用Promise方式异步返回结果。基于密钥不出[TEE](docroot://security/UniversalKeystoreKit/huks-concepts.md#可信执行环境tee)原则，通过
+   * promise不会返回密钥材料内容，只用于表示此次调用是否成功。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
+   * @param { HuksOptions } huksOptions -
+   用于存放生成key所需的
+   *     [属性标签](docroot://reference/apis-universal-keystore-kit/capi-native-huks-type-h.md#枚举)。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function generateKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+
+  /**
+   * 指定用户身份导入明文密钥，使用Promise方式异步返回结果。
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - 用户ID。
+   * @param { string } keyAlias - 密钥别名。密钥别名的最大长度为128字节，建议不包含个人信息等敏感词汇。
+   * @param { HuksOptions } huksOptions - 用于导入时所需TAG和需要导入的密钥。其中密钥使用的算法、密钥用途、密钥长度为必选参数。
+   * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function importKeyItemAsUser(userId: number, keyAlias: string, huksOptions: HuksOptions): Promise<void>;
+
+  /**
+   * Import Wrapped Key As User.
+   *
+   * @permission ohos.permission.INTERACT_ACROSS_LOCAL_ACCOUNTS
+   * @param { number } userId - User ID.
+   * @param { string } keyAlias - Alias of the wrapped key to import.
+   * @param { string } wrappingKeyAlias - Alias of the key used to decrypt the wrapped key.
+   * @param { HuksOptions } huksOptions - Options for importing the wrapped key. The algorithm, key purpose, and key
+   *     length are mandatory.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - the application permission is not sufficient, which may be caused by lack of
+   *     <br>cross-account permission, or the system has not been unlocked by user, or the user does not exist.
+   * @throws { BusinessError } 202 - non-system applications are not allowed to use system APIs.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - Feature is not supported. Possible causes:
+   *     1. The algorithm mode is not supported.
+   *     2. The group key is not supported.
+   *     3. The crypto extension key is not supported.
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000013 - queried credential does not exist
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000015 - Failed to obtain the security information via UserIAM
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @systemapi this method can be used only by system applications.
+   * @since 12
+   */
+  function importWrappedKeyItemAsUser(
+    userId: number, keyAlias: string,
+    wrappingKeyAlias: string,
+    huksOptions: HuksOptions
+  ): Promise<void>;
+
+  /**
+   * finishSession操作密钥接口。使用callback异步回调。
+   *
+   * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
+   *
+   * @param { long } handle - finishSession操作的uint64类型的handle值。
+   * @param { HuksOptions } options - finishSession的参数集合。
+   * @param { AsyncCallback<HuksReturnResult> } callback - 回调函数。当密钥操作finish成功时，err为undefined，data为获取到的HuksReturnResult；否
+   *     则为错误对象。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 22]
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated [since 22]
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
+   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
+   * @syscap SystemCapability.Security.Huks.Core
+   * @atomicservice [since 11]
+   * @since 9
+   */
+  function finishSession(handle: number, options: HuksOptions, callback: AsyncCallback<HuksReturnResult>): void;
+
+  /**
+   * Finishes the key operation. This API uses an asynchronous callback to return the result.
+   * huks.initSession, huks.updateSession, and huks.finishSession must be used together.
+   *
+   * @param { number } handle - Handle for the finishSession operation.
+   *     <br>取值限定为整数。
+   * @param { HuksOptions } options - Parameter set used for the **finishSession** operation.
+   * @param { Uint8Array } token - Authentication token for
+   *     [refined key access control](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#refined-key-access-control)
+   *     .
+   * @param { AsyncCallback<HuksReturnResult> } callback - Callback used to return the result. If the operation is
+   *     successful, **err** is **undefined**, and **data** is the obtained **HuksReturnResult**. Otherwise, **err** is
+   *     an error object.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
+   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice [since 12]
+   * @since 9
+   */
+  function finishSession(
+    handle: number,
+    options: HuksOptions,
+    token: Uint8Array,
+    callback: AsyncCallback<HuksReturnResult>
+  ): void;
+
+  /**
+   * finishSession操作密钥接口。使用Promise异步回调。
+   *
+   * huks.initSession、huks.updateSession、huks.finishSession为三段式接口，需要一起使用。
+   *
+   * @param { long } handle - finishSession操作的uint64类型的handle值。
+   * @param { HuksOptions } options - finishSession操作的参数集合。
+   * @param { Uint8Array } token - 密钥
+   *     [二次认证密钥访问控制](docroot://security/UniversalKeystoreKit/huks-identity-authentication-overview.md#二次认证密钥访问控制)的用户鉴权证
+   *     明(AuthToken)，不填表示不进行二次认证密钥访问控制。
+   * @returns { Promise<HuksReturnResult> } Promise对象，返回调用接口的结果。当调用成功时，HuksReturnResult的outData成员为对应操作返回的数据。
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   *     3. Parameter verification failed.
+   * @throws { BusinessError } 801 - api is not supported
+   * @throws { BusinessError } 12000001 - algorithm mode is not supported
+   * @throws { BusinessError } 12000002 - algorithm param is missing
+   * @throws { BusinessError } 12000003 - algorithm param is invalid
+   * @throws { BusinessError } 12000004 - operating file failed
+   * @throws { BusinessError } 12000005 - IPC communication failed
+   * @throws { BusinessError } 12000006 - error occurred in crypto engine
+   * @throws { BusinessError } 12000007 - this credential is already invalidated permanently
+   * @throws { BusinessError } 12000008 - verify auth token failed
+   * @throws { BusinessError } 12000009 - auth token is already timeout
+   * @throws { BusinessError } 12000011 - queried entity does not exist
+   * @throws { BusinessError } 12000012 - Device environment or input parameter abnormal
+   * @throws { BusinessError } 12000014 - memory is insufficient
+   * @throws { BusinessError } 12000017 - The key with the same alias already exists [since 20]
+   * @throws { BusinessError } 12000020 - the provider operation failed [since 22]
+   * @throws { BusinessError } 12000021 - the UKey PIN is locked [since 22]
+   * @throws { BusinessError } 12000023 - the UKey PIN not authenticated [since 22]
+   * @throws { BusinessError } 12000024 - the provider or UKey is busy [since 22]
+   * @throws { BusinessError } 12000018 - the group id specified by the access group tag is invalid [since 23]
+   * @throws { BusinessError } 12000026 - the secure element is not available [since 26.0.0]
+   * @syscap SystemCapability.Security.Huks.Extension
+   * @atomicservice [since 11]
+   * @since 9
+   */
+  function finishSession(handle: number, options: HuksOptions, token?: Uint8Array): Promise<HuksReturnResult>;
 }
 
-/*** if arkts 1.1 */
-import type { AsyncCallback } from './@ohos.base';
-/*** endif */
-
-/*** if arkts 1.2 */
-import { BusinessError, AsyncCallback } from '@ohos.base';
-/*** endif */
-
 export default huks;
+
+/**
+ * 向应用提供密钥库能力，包括密钥管理及密钥的密码学操作等功能。
+ *
+ * HUKS所管理的密钥可以由应用导入或者由应用调用HUKS接口生成。
+ *
+ * @syscap SystemCapability.Security.Huks.Core
+ * @atomicservice [since 11]
+ * @since 8
+ */
+declare namespace huks {}
