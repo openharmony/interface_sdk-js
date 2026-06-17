@@ -25,10 +25,10 @@ import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**
- * Defines item generator function.
- *
- * @param { T } item - item in an array
- * @param { int } index - index corresponding to an array item.
+* 定义组件数据生成函数。
+*
+ * @param { T } item - 数组中的数据项
+ * @param { int } index - 数组中的数据项索引。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 staticonly
@@ -37,10 +37,10 @@ import { DynamicNode } from './common';
 declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Defines key generator function.
- *
- * @param { T } item - item in an array
- * @param { int } index - index corresponding to an array item.
+* 定义键值生成函数。
+*
+ * @param { T } item - array数组中的数据项
+ * @param { int } index - arr数组中的数据项索引。
  * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -49,8 +49,8 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
- * Declare ForEachAttribute.
- *
+* 支持[debugLine](docroot://reference/apis-arkui/arkui-ts/ts-rendering-control-foreach-sta.md#debugline24)属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -59,24 +59,24 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 export interface ForEachAttribute extends DynamicNode {
 
   /**
-   * Set the component's source code redirection information.
+   * 设置组件源码重定向信息。
    *
-   * @param { string } sourceLine - the source code line.
-   * @param { string } [moduleName] - module to which the component belongs.
+   * @param { string } sourceLine - 源码行号。
+   * @param { string } [moduleName] - 组件所属模块名。
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
 
   /**
-   * Sets ForEach options.
+   * 设置ForEach选项。
    *
-   * @param { function } arr - Function that returns array collection to be used in UI.
-   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-   * @returns { this } ForEachAttribute instance
+   * @param { function } arr - 返回用于UI的数组的函数。
+   * @param { ItemGeneratorFunc<T> } itemGenerator - 项生成器函数。
+   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 键生成器函数。
+   * @returns { this } ForEachAttribute实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -86,8 +86,8 @@ export interface ForEachAttribute extends DynamicNode {
         keyGenerator?: KeyGeneratorFunc<T>): this;
 
   /**
-   * Notify ForEach has finished setting up its attributes.
-   *
+     * Notify ForEach已经完成了其属性的设置。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -96,12 +96,12 @@ export interface ForEachAttribute extends DynamicNode {
 }
 
 /**
- * Defines ForEach Component.
- *
- * @param { Array<T> } arr - the array collection to be used in UI.
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function.
- * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function.
- * @returns { ForEachAttribute } The attribute of ForEach.
+* 定义ForEach组件。
+*
+ * @param { Array<T> } arr - 在UI中使用的数组集合。
+ * @param { ItemGeneratorFunc<T> } itemGenerator - 项生成函数。
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - 键生成函数。
+ * @returns { ForEachAttribute } ForEach的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -114,11 +114,10 @@ export declare function ForEach<T = Any>(arr: Array<T>,
 ): ForEachAttribute;
 
 /**
- * Defines ForEachEach Component. It requires call setForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * 定义ForEach组件。需要在组件属性设置开始时调用setForEachOptions，并在组件属性设置结束时调用applyAttributeFinish。
  *
- * @param { CustomBuilderT<ForEachAttribute> } style - callback to set up ForEach's attributes.
- * @returns { ForEachAttribute } The attribute of ForEach.
+ * @param { CustomBuilderT<ForEachAttribute> } style - 用于设置ForEach属性的回调。
+ * @returns { ForEachAttribute } ForEach属性实例。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly

@@ -541,8 +541,8 @@ declare type ItemRestriction<T> = Array<T>;
  * @unionmember { ItemRestriction<SegmentButtonIconTextItem> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @noninterop
  * @since 23 static
+ * @noninterop
  */
 declare type SegmentButtonItemTuple =
   ItemRestriction<SegmentButtonTextItem> |
