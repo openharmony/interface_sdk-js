@@ -210,7 +210,6 @@
     "SystemCapability.FileManagement.StorageService.Backup",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.Communication.Bluetooth.Core",
-    "SystemCapability.Communication.NearLink.Base",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.EfficiencyResourcesApply",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.TransientTask",
     "SystemCapability.ResourceSchedule.BackgroundTaskManager.ContinuousTask",
