@@ -4276,90 +4276,51 @@ declare enum FinishCallbackType {
 }
 
 /**
- * Defines the touch test strategy object.
+ * Event dispatch strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the touch test strategy object.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum TouchTestStrategy {
 
   /**
-   * Do framework touch test.
+   * Custom dispatch has no effect; the system dispatches events based on the hit status of the current node.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Custom dispatch has no effect; the system distributes events based on the hit status of the current node.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DEFAULT = 0,
 
   /**
-   * Specify the component to do touch test and follow the framework touch test
+   * The event is dispatched to a specified child node, and the system determines whether to dispatch events to other
+   * sibling nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * The specified event is forwarded to a particular child node, and the system determines whether to
-   * distribute the event to other sibling nodes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FORWARD_COMPETITION = 1,
 
   /**
-   * Specify the component to do touch test and not follow the framework touch test
+   * The event is dispatched to a specified child node, and the system will not dispatch events to other sibling nodes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * The specified event is forwarded to a particular child node, and the system no longer distributes
-   * the event to other sibling nodes.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FORWARD = 2
 }
@@ -7529,80 +7490,52 @@ declare namespace focusControl {
 }
 
 /**
- * Import the PointerStyle type object for setCursor.
+ * Defines the pointer style.
  *
- * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
+ * > **NOTE**
+ * >
+ * > Directly using **cursorControl** can lead to the issue of
+ * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the
+ * > [UIContext]{@link @ohos.arkui.UIContext} object using the **getUIContext()** API and then obtain the
+ * > **cursorControl** bound to the instance using the
+ * > [getCursorController]{@link @ohos.arkui.UIContext:UIContext#getcursorcontroller} API.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Import the PointerStyle type object for setCursor.
- *
- * @typedef { import('../api/@ohos.multimodalInput.pointer').default.PointerStyle } PointerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type PointerStyle = import('../api/@ohos.multimodalInput.pointer').default.PointerStyle;
 
 /**
- * CursorControl
  *
- * @namespace cursorControl
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * CursorControl
- *
- * @namespace cursorControl
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare namespace cursorControl {
 
   /**
-   * Change the mouse cursor style by param: 'PointerStyle'.
-   *
-   * @param { PointerStyle } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Change the mouse cursor style by param: 'PointerStyle'.
+   * Sets the current mouse cursor style. This API can be used globally in method statements.
    *
    * @param { PointerStyle } value - Cursor style.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   function setCursor(value: PointerStyle): void;
 
   /**
-   * Restore the default mouse cursor style.
+   * Restores the mouse cursor to the default arrow style. This API can be used globally in method statements.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Restore the default mouse cursor style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   function restoreDefault(): void;
 }
@@ -14229,247 +14162,86 @@ declare interface SheetOptions extends BindOptions {
 }
 
 /**
- * Component State Styles.
+ * State-specific styles for the component.
  *
- * @interface StateStyles
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Component State Styles.
- *
- * @interface StateStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Component State Styles.
- *
- * @interface StateStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Component State Styles.
- *
- * @interface StateStyles
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface StateStyles {
+
   /**
-   * Defines normal state styles.
+   * Style of the component when being stateless.
    *
-   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines normal state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines normal state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines normal state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   normal?: any;
 
   /**
-   * Defines pressed state styles.
+   * Style of the component in the pressed state.
    *
-   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines pressed state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines pressed state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines pressed state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   pressed?: any;
 
   /**
-   * Defines disabled state styles.
+   * Style of the component in the disabled state.
    *
-   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines disabled state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines disabled state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines disabled state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   disabled?: any;
 
   /**
-   * Defines focused state styles.
+   * Style of the component in the focused state.
    *
-   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines focused state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines focused state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines focused state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   focused?: any;
 
   /**
-   * Defines clicked state styles.
+   * Style of the component in the clicked state.
    *
-   * @type { ?any }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines clicked state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines clicked state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines clicked state styles.
-   *
-   * @type { ?any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   clicked?: any;
 
   /**
-   * Defines selected state styles.
+   * Style of the component in the selected state.
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 10
-   */
-  /**
-   * Defines selected state styles.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selected?: object;
 
   /**
-   * Defines hovered state styles.
+   * Style of the component in the hovered state.
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18260,249 +18032,152 @@ declare class ProgressMask {
 }
 
 /**
- * Defines TouchTestInfo class.
+ * Provides information about the coordinate system, ID, and size of the component where the current touch point is
+ * located.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines TouchTestInfo class.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class TouchTestInfo {
+
   /**
-   * Get the X-coordinate relative to the window.
+   * X-coordinate of the touch point relative to the upper left corner of the window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the X-coordinate relative to the window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   windowX: number;
 
   /**
-   * Get the Y-coordinate relative to the window.
+   * Y-coordinate of the touch point relative to the upper left corner of the window.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the Y-coordinate relative to the window.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   windowY: number;
 
   /**
-   * Get the X-coordinate relative to the current component.
+   * X-coordinate of the touch point relative to the upper left corner of the parent component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the X-coordinate relative to the current component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   parentX: number;
 
   /**
-   * Get the Y-coordinate relative to the current component.
+   * Y-coordinate of the touch point relative to the upper left corner of the parent component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the Y-coordinate relative to the current component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   parentY: number;
 
   /**
-   * Get the X-coordinate relative to the sub component.
+   * X-coordinate of the touch point relative to the upper left corner of the child component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the X-coordinate relative to the sub component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: number;
 
   /**
-   * Get the Y-coordinate relative to the sub component.
+   * Y-coordinate of the touch point relative to the upper left corner of the child component.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the Y-coordinate relative to the sub component.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: number;
 
   /**
-   * Get the rectangle of sub component.
+   * Position, width, and height of the child component.
    *
-   * @type { RectResult }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the rectangle of sub component.
-   *
-   * @type { RectResult }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   rect: RectResult;
 
   /**
-   * Get the name of sub component.
+   * Unique ID of the child component.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the name of sub component.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   id: string;
 }
 
 /**
- * Defines TouchResult class.
+ * Defines the custom event dispatch result. You can influence event dispatch by returning specific results.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines TouchResult class.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class TouchResult {
+
   /**
-   * Defines the touch test strategy.
+   * Event dispatch strategy.
    *
-   * @type { TouchTestStrategy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the touch test strategy.
-   *
-   * @type { TouchTestStrategy }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   strategy: TouchTestStrategy;
 
   /**
-   * Defines the component's name.
+   * Unique ID of the child component.
    *
-   * @type { ?string }
+   * If **strategy** is set to **TouchTestStrategy.DEFAULT**, **id** is optional. If **strategy** is set to
+   * **TouchTestStrategy.FORWARD_COMPETITION** or **TouchTestStrategy.FORWARD**, **id** is mandatory. If **id** is not
+   * returned, the strategy **TouchTestStrategy.DEFAULT** is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the component's name.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   id?: string;
 }
@@ -19364,121 +19039,69 @@ declare enum OutlineStyle {
 }
 
 /**
- * Defines the drag preview mode.
+ * Sets the display mode of the drag preview.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines the drag preview mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12
- */
-/**
- * Defines the drag preview mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum DragPreviewMode {
+
   /**
-   * Default preview mode, let system process preview scale.
+   * Enables the system to automatically change the position of the dragged point based on the scenario and apply
+   * scaling transformations to the drag preview based on set rules.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Default preview mode, let system process preview scale.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Default preview mode, let system process preview scale.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   AUTO = 1,
+
   /**
-   * Disable system scale to preview panel
+   * Disables the system's scaling behavior for the drag preview.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Disable system scale to preview panel
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Disable system scale to preview panel
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   DISABLE_SCALE = 2,
+
   /**
-   * Enable the default shadow effect of preview.
+   * Enables the default shadow effect for non-text components.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Enable the default shadow effect of preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   ENABLE_DEFAULT_SHADOW = 3,
+
   /**
-   * Enable the default radius effect of preview.
+   * Enables a unified rounded corner effect for non-text components, with the default value of 12 vp. If the custom
+   * rounded corner value set by the application is greater than the default value or the value set by **modifier**, the
+   * custom value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 18]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Enable the default radius effect of preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   ENABLE_DEFAULT_RADIUS = 4,
+
   /**
-   * Enable the default gray effect on the dragging item.
+   * Enables the grayscale effect for the original drag item, which does not apply to text content dragging. When the
+   * user starts dragging, the original item displays a grayscale effect. When released, the original item returns to
+   * its original appearance. After enabling the default grayscale effect, avoid manually modifying the opacity after
+   * dragging starts. Otherwise, the grayscale effect will be overridden, and the original opacity will not be correctly
+   * restored when dragging ends.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19487,8 +19110,12 @@ declare enum DragPreviewMode {
    * @since 18 dynamic
    */
   ENABLE_DRAG_ITEM_GRAY_EFFECT = 5,
+
   /**
-   * Enable the tile effect for multi drag, each dragged graph is display in the original relative position.
+   * Enables multi-tile display for mouse-dragged multi-selected objects, with each drag preview maintaining its
+   * original relative position. Requires multi-select mode with **isMultiSelectionEnabled** set to **true**. Takes
+   * precedence over [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. Does
+   * not support secondary dragging, rounded corners, or scaling effects.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19497,8 +19124,10 @@ declare enum DragPreviewMode {
    * @since 18 dynamic
    */
   ENABLE_MULTI_TILE_EFFECT = 6,
+
   /**
-   * Enable the touch point calculation position based on final preview rect.
+   * Enables touch point calculation based on the initial drag preview size. Used when the floating image differs from
+   * the drag preview. Incompatible with mouse dragging and **DragPreviewMode.ENABLE_MULTI_TILE_EFFECT**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19506,13 +19135,14 @@ declare enum DragPreviewMode {
    * @atomicservice
    * @since 19 dynamic
    */
-  ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7,
+  ENABLE_TOUCH_POINT_CALCULATION_BASED_ON_FINAL_PREVIEW = 7
 }
 
 /**
- * Define drag start animation effect from drag preview to the handle drag image
+ * Enumerates the transition effects for switching between the floating image (set through
+ * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+ * ) and the drag preview when both are configured on a component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19520,8 +19150,9 @@ declare enum DragPreviewMode {
  * @since 19 dynamic
  */
 declare enum DraggingSizeChangeEffect {
+
   /**
-   * Default effect, no transition.
+   * Direct transition from the menu preview to the final drag preview image upon drag initiation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19532,7 +19163,8 @@ declare enum DraggingSizeChangeEffect {
   DEFAULT = 0,
 
   /**
-   * Only scaled transition, this parameter take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   * Smooth size transition from the menu preview to the final drag preview. Disabled when **DISABLE_SCALE** is set in
+   * [DragPreviewMode]{@link DragPreviewMode}. Used when the floating preview matches the drag preview.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19543,7 +19175,9 @@ declare enum DraggingSizeChangeEffect {
   SIZE_TRANSITION = 1,
 
   /**
-   * Scaled and content transition together, this size transition take effect when PREVIEW_MODE is not DISABLE_SCALE.
+   * Gradual transition from the menu preview to the final drag preview with opacity and size animations. Disabled when
+   * **DISABLE_SCALE** is set in [DragPreviewMode]{@link DragPreviewMode}. Suitable for significant visual differences
+   * between preview images.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19551,7 +19185,7 @@ declare enum DraggingSizeChangeEffect {
    * @atomicservice
    * @since 19 dynamic
    */
-  SIZE_CONTENT_TRANSITION = 2,
+  SIZE_CONTENT_TRANSITION = 2
 }
 
 /**
@@ -19633,124 +19267,108 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
 /**
- * Defines the preview options.
+ * Preview image processing mode and badge count during dragging.
  *
- * @interface DragPreviewOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines the preview options.
- *
- * @interface DragPreviewOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12
- */
-/**
- * Defines the preview options.
- *
- * @interface DragPreviewOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface DragPreviewOptions {
+
   /**
-  * Drag preview mode.
-  *
-  * @type { ?DragPreviewMode }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 11
-  */
- /**
-  * Drag preview mode.
-  *
-  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 12
-  */
- /**
-  * Drag preview mode.
-  *
-  * @type { ?(DragPreviewMode | Array<DragPreviewMode>) }
-  * @default DragPreviewMode.AUTO
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * How the background image is processed when the component is dragged.
+   *
+   * Default value: **DragPreviewMode.AUTO**
+   *
+   * If **DragPreviewMode.AUTO** is set concurrently with other enumerated values, **DragPreviewMode.AUTO** takes
+   * precedence and the other values are ignored.
+   *
+   * @type { ?DragPreviewMode } [since 11 - 11]
+   * @type { ?(DragPreviewMode | Array<DragPreviewMode>) } [since 12]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
   mode?: DragPreviewMode | Array<DragPreviewMode>;
 
   /**
-  * Drag preview modifier.
-  *
-  * @type { ?ImageModifier }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 12
-  */
- /**
-  * Drag preview modifier.
-  *
-  * @type { ?ImageModifier }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * Drag preview style modifier. It applies image component attributes and styles to configure preview appearance (see
+   * Example 6). Supported effects: opacity, shadow, background blur, and rounded corners. Text drag previews only
+   * support default styling.
+   *
+   * 1. Opacity
+   *
+   * Use [opacity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-opacity.md#opacity). The value ranges
+   * from 0 to 1. If this parameter is set to **0** or left empty, the default opacity 0.95 is used. If this parameter
+   * is set to **1** or an abnormal value, the opacity is 1.
+   *
+   * 2. Shadow
+   *
+   * Use [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}.
+   *
+   * 3. Background blur
+   *
+   * Use [backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)} or
+   * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}.
+   * If both are set, the latter setting takes precedence.
+   *
+   * 4. Rounded corners
+   *
+   * Use [border](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md#border) or
+   * [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}. Modifier
+   * settings override mode settings.
+   *
+   * Default value: empty (unmodifiable).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice
+   * @noninterop
+   * @since 12 dynamic
+   */
   modifier?: ImageModifier;
 
   /**
-  * The flag for number showing.
-  *
-  * @type { ?(boolean | number) }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 12
-  */
- /**
-  * The flag for number showing.
-  *
-  * @type { ?(boolean | number) }
-  * @default true
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * Whether to display the number badge or the number displayed on the badge. For a number badge, the value range is
+   * [0, 2<sup>31</sup>-1]. Values outside this range will be processed as the default state. If the value specified is
+   * a floating-point number, only the integer part is displayed.
+   *
+   * **NOTE**
+   *
+   * When multiple items are dragged, use this API to set the number of items dragged.
+   *
+   * Default value: **true**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 18]
+   * @atomicservice
+   * @since 12 dynamic
+   */
   numberBadge?: boolean | number;
 
   /**
-  * Drag start animation effect from drag preview to the handle drag image.
-  *
-  * @type { ?DraggingSizeChangeEffect }
-  * @default DraggingSizeChangeEffect.DEFAULT
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 19 dynamic
-  */
+   * Transition effect between the floating image and drag preview.
+   *
+   * Default value: **DraggingSizeChangeEffect.DEFAULT**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 19 dynamic
+   */
   sizeChangeEffect?: DraggingSizeChangeEffect;
 }
 
 /**
- * Defines the drag options.
+ * Interaction behavior for the floating preview image
  *
- * @interface DragInteractionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19758,69 +19376,104 @@ declare interface DragPreviewOptions {
  * @since 12 dynamic
  */
 declare interface DragInteractionOptions {
+
   /**
-  * Define whether to gather selected nodes in grid or list.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Whether to enable multi-select clustering during drag operations. **true** to enable, **false** otherwise. This
+   * parameter takes effect only for the [grid items]{@link ./gridItem} and [list items]{@link ./list_item} in the
+   * [Grid]{@link ./grid} and [List]{@link ./list} containers.
+   *
+   * When this feature is enabled, child components cannot be dragged individually. Preview priority: string in
+   * [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)} > PixelMap in
+   * **dragPreview** > component snapshot. Builder previews not supported.
+   *
+   * This parameter is incompatible with bindContextMenu](ts-universal-attributes-menu.md#bindcontextmenu12) using
+   * **isShown** parameter.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   isMultiSelectionEnabled?: boolean;
 
   /**
-  * Define whether to execute animation before preview floating.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Whether to enable the default press animation (scale-down) during long-press lift phase. **true** to enable,
+   * **false** otherwise.
+   *
+   * Default value: **false**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   defaultAnimationBeforeLifting?: boolean;
 
   /**
-  * Define whether to enable the haptic feedback when dragging, the default value is false.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform [since 26.0.0]
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * Whether to enable haptic feedback during dragging.
+   *
+   * **true**: Enable haptic feedback during dragging.
+   *
+   * **false**: Disable haptic feedback during dragging. This parameter is effective only for previews with masks (
+   * configured using
+   * [bindContextMenu]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+   * ).
+   *
+   * Note: The settings take effect only when the application has the **ohos.permission.VIBRATE** permission and the
+   * user has enabled haptic feedback.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 26.0.0]
+   * @atomicservice
+   * @since 18 dynamic
+   */
   enableHapticFeedback?: boolean;
 
   /**
-  * Config if auto scrolling should be triggered when the drag hovered on a scrollable controller's edge.
-  *
-  * @type { ?boolean }
-  * @default true
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * Whether to trigger automatic scrolling when users drag to the edges of a scrollable container.
+   *
+   * **true**: Trigger automatic scrolling.
+   *
+   * **false**: Do not trigger automatic scrolling.
+   *
+   * Default value: **true**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
   enableEdgeAutoScroll?: boolean;
 
   /**
-  * Define whether to lifting trigger drag by finger.
-  *
-  * @type { ?boolean }
-  * @default false
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 15 dynamic
-  */
+   * Whether to disable the lift animation effect during dragging.
+   *
+   * **true**: Disable the lifting effect during dragging.
+   *
+   * **false**: Enable the lifting effect during dragging.
+   *
+   * With the value **true**, only the custom menu preview (set using
+   * [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   * ), also known as the long-press preview, is displayed if both the long-press preview and drag preview are
+   * configured.
+   *
+   * Default value: **false**
+   *
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
   isLiftingDisabled?: boolean;
 }
 
@@ -20502,10 +20155,12 @@ declare class CommonMethod<T> {
   constraintSize(value: ConstraintSizeOptions): T;
 
   /**
-   * Sets the touchable of the current component
+   * Whether the component can respond to finger interactions such as click and touch events.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether the component can respond to finger interactions such as click and touch events.
+   *     <br>**true** (default): The component can respond to finger interactions. **false**: The component cannot
+   *     respond to finger interactions.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 9
@@ -20517,8 +20172,8 @@ declare class CommonMethod<T> {
    * Sets the hit test mode for a component. If **hitTestBehavior** is not set, the component defaults to
    * **HitTestMode.Default**.
    *
-   * @param { HitTestMode } value - the hit test mode.
-   * @returns { T }
+   * @param { HitTestMode } value - Hit test mode for a component.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -20529,25 +20184,23 @@ declare class CommonMethod<T> {
   hitTestBehavior(value: HitTestMode): T;
 
   /**
-   * Defines the pre-touch test of sub component in touch events.
+   * Allows the current component to customize the hit test and control child component behavior during the test by
+   * setting a callback.
    *
-   * @param { function } event
-   * @returns { T }
+   * > **NOTE**
+   * >
+   * > - The array of child node information only includes information about named nodes, that is, nodes for which the
+   * > **id** attribute is explicitly set.
+   * >
+   * > - This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { function } event - Touch event information. **value**: array of child node information.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Called to specify how to perform the touch test on the children of this component.
-   *
-   * @param { function } event
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onChildTouchTest(event: (value: Array<TouchTestInfo>) => TouchResult): T;
 
@@ -21745,7 +21398,7 @@ declare class CommonMethod<T> {
   /**
    * prompt for current component and descendants unable to handle accessibility hover event
    *
-   * @param { AccessibilityTransparentCallback } callback - A callback instance used when current component and 
+   * @param { AccessibilityTransparentCallback } callback - A callback instance used when current component and
    * descendants not handled accessibility hover event
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -21757,31 +21410,16 @@ declare class CommonMethod<T> {
   onAccessibilityHoverTransparent(callback: AccessibilityTransparentCallback): T;
 
   /**
-   * Set hover effect.
+   * Sets the hover effect for the component. When no hover effect is specified, the component uses the default
+   * **HoverEffect.Auto** effect. For components with hover effects applied, the hover effect is hidden when the mouse
+   * hovers and presses down on the component, and restored when the mouse button is released.
    *
-   * @param { HoverEffect } value
-   * @returns { T }
+   * @param { HoverEffect } value - Hover effect of the component.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set hover effect.
-   *
-   * @param { HoverEffect } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set hover effect.
-   *
-   * @param { HoverEffect } value - Hover effect of the component in hover state.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   hoverEffect(value: HoverEffect): T;
 
@@ -23502,15 +23140,15 @@ declare class CommonMethod<T> {
    *
    * @param { ItemAlign } value - Alignment mode of the child components along the cross axis of the parent container.
    *     The setting overwrites the **alignItems** setting of the parent container ([Flex]{@link Flex}, [Column]{@link
-  *     Column}, [Row]{@link Row}, or [GridRow]{@link GridRow}). [GridCol]{@link GridCol} can have the **alignSelf**
-  *     attribute bound to change its own layout along the cross axis.<br>Default value: **ItemAlign.Auto**
-  * @returns { T } Current component.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @crossplatform [since 10]
-  * @form [since 9]
-  * @atomicservice [since 11]
-  * @since 7 dynamic
-  */
+   *     Column}, [Row]{@link Row}, or [GridRow]{@link GridRow}). [GridCol]{@link GridCol} can have the **alignSelf**
+   *     attribute bound to change its own layout along the cross axis.<br>Default value: **ItemAlign.Auto**
+   * @returns { T } Current component.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   */
   alignSelf(value: ItemAlign): T;
 
   /**
@@ -23794,50 +23432,18 @@ declare class CommonMethod<T> {
   offset(value: Position | Edges | LocalizedEdges): T;
 
   /**
-   * If the value is true, the component is available and can respond to operations such as clicking.
-   * If it is set to false, click operations are not responded.
+   * Sets whether the component responds to user interactions. If **enabled** is not set, the component responds to user
+   * interactions by default.
    *
-   * @param { boolean } value
-   * @returns { T }
+   * @param { boolean } value - Whether the component responds to user interactions, including clicks and touches. The
+   *     value **true** means that the component responds to user interactions, and **false** means the opposite.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * If the value is true, the component is available and can respond to operations such as clicking.
-   * If it is set to false, click operations are not responded.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * If the value is true, the component is available and can respond to operations such as clicking.
-   * If it is set to false, click operations are not responded.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * If the value is true, the component is available and can respond to operations such as clicking.
-   * If it is set to false, click operations are not responded.
-   *
-   * @param { boolean } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   enabled(value: boolean): T;
 
@@ -23976,16 +23582,13 @@ declare class CommonMethod<T> {
   clickEffect(effect: Optional<ClickEffect | null>): T;
 
   /**
-   * Set whether this component should have sound effects enabled for clicking.
+   * Sets whether to enable the default click sound effect for a component. Whether the sound can be played depends on
+   * the sound settings of the device. For example, the sound effect is not played in mute mode.
    *
-   * Prerequisite: Sound effects playback is affected by the audio-related settings
-   * in the device system settings. When the user sets the device to silent mode, sound effects cannot be played.
-   *
-   * @param { boolean | undefined } enabled - indicates whether this component should have sound effects
-   *     enabled for clicking.
-   *     <br>Pass in undefined to reset the default value, default value is true, but
-   *     even it's true, the sound effect is only supported in some specific devices.
-   * @returns { T }
+   * @param { boolean | undefined } enabled - Whether to enable the default click sound effect for a component.<br>The
+   *     value **true** indicates that the default click sound effect is enabled, and **false** indicates the opposite.
+   *     <br>If the value is **undefined**, the default click sound effect is enabled.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -24122,101 +23725,118 @@ declare class CommonMethod<T> {
   onDragEnd(event: (event: DragEvent, extraParams?: string) => void): T;
 
   /**
-   * Allowed drop uniformData type for this node.
+   * Sets the types of data that can be dropped to the component. If **allowDrop** is not set, the component accepts all
+   * data types by default.
    *
-   * @param { Array<UniformDataType> } value - the uniformData type for this node.
-   * @returns { T } property value of type T.
+   * @param { Array<UniformDataType> } value - Types of data that can be dropped to the component. Since API version 12,
+   *     this parameter can be set to **null** to make the component reject all data types. Starting from API version 2
+   *     3, this parameter can be set to an application-defined data type string array Array<string> is supported. While
+   *     there is no strict format requirement for the string, it should not duplicate the format of standard types in
+   *     **UniformDataType**. You are advised to define them based on the principle of being easy to remember and
+   *     distinguish. [since 10 - 11]
+   * @param { Array<UniformDataType> | null } value - Types of data that can be dropped to the component. Since API
+   *     version 12, this parameter can be set to **null** to make the component reject all data types. Starting from
+   *     API version 23, this parameter can be set to an application-defined data type string array Array<string> is
+   *     supported. While there is no strict format requirement for the string, it should not duplicate the format of
+   *     standard types in **UniformDataType**. You are advised to define them based on the principle of being easy to
+   *     remember and distinguish. [since 12 - 22]
+   * @param { Array<UniformDataType> | null | Array<string> } value - Types of data that can be dropped to the
+   *     component. Since API version 12, this parameter can be set to **null** to make the component reject all data
+   *     types. Starting from API version 23, this parameter can be set to an application-defined data type string array
+   *     Array<string> is supported. While there is no strict format requirement for the string, it should not duplicate
+   *     the format of standard types in **UniformDataType**. You are advised to define them based on the principle of
+   *     being easy to remember and distinguish. [since 23]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Allowed drop uniformData type for this node.
-   *
-   * @param { Array<UniformDataType> } value - the uniformData type for this node.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Allowed drop uniformData type for this node.
-   *
-   * @param { Array<UniformDataType> | null } value - the uniformData type for this node.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Allowed drop uniformData type for this node.
-   *
-   * @param { Array<UniformDataType> | null | Array<string> } value - the uniformData type for this node.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   allowDrop(value: Array<UniformDataType> | null | Array<string>): T;
 
   /**
-   * Enable the selectable area can be dragged.
+   * Sets whether the component is draggable. By default, the component is not draggable.
    *
-   * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
-   * @returns { T } property value of type T.
+   * @param { boolean } value - Whether the component is draggable. <br>**true**: The component is draggable.<br>
+   *     **false**: The component is not draggable.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Enable the selectable area can be dragged.
-   *
-   * @param { boolean } value - true means the area can be dragged, false means the area can't be dragged.
-   * The default value is false.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   draggable(value: boolean): T;
 
   /**
-   * Set preview of the component for dragging process
+   * Sets the preview image displayed during component drag operations.
    *
-   * @param { CustomBuilder | DragItemInfo } value - preview of the component for dragging process
-   * @returns { T } property value of type T.
+   * @param { CustomBuilder | DragItemInfo } value - Preview image displayed during component drag operations. It only
+   *    applies to [onDragStart]{@link CommonMethod#onDragStart} drag mode.<br>If the component supports drag and drop
+   *    and a preview is specified through
+   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)},
+   *    that specified preview is displayed when the component is dragged. The priority of the background image
+   *    returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
+   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
+   *    once set, the latter will be used in place of the former. Using
+   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
+   *    and may increase performance overhead and latency. In light of this, you are advised to use
+   *    [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
+   *    an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
+   *    image. If the component assigned the ID cannot be found or its [Visibility]{@link Visibility} attribute is set
+   *    to **None** or **Hidden**, a snapshot of the current component is used as the preview image. Currently,
+   *    snapshots do not support visual effects, such as brightness, shadow, blur, and rotation. [since 11 - 11]
+   * @param { CustomBuilder | DragItemInfo | string } value - Preview image displayed during component drag operations.
+   *    It only applies to [onDragStart]{@link CommonMethod#onDragStart} drag mode.<br>If the component supports drag
+   *    and drop and a preview is specified through
+   *    [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)},
+   *    that specified preview is displayed when the component is dragged. The priority of the background image
+   *    returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
+   *    [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
+   *    once set, the latter will be used in place of the former. Using
+   *    [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
+   *    and may increase performance overhead and latency. In light of this, you are advised to use
+   *    [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
+   *    an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
+   *    image. If the component assigned the ID cannot be found or its [Visibility]{@link Visibility} attribute is set
+   *    to **None** or **Hidden**, a snapshot of the current component is used as the preview image. Currently,
+   *    snapshots do not support visual effects, such as brightness, shadow, blur, and rotation. [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Set preview of the component for dragging process
-   *
-   * @param { CustomBuilder | DragItemInfo | string } value - preview of the component for dragging process
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   dragPreview(value: CustomBuilder | DragItemInfo | string): T;
 
   /**
-   * Set preview of the component for dragging process
+   * Sets the drag preview for the component. This API specifically configures or disables the lift animation effect.
    *
-   * @param { CustomBuilder | DragItemInfo | string } preview - preview of the component for dragging process
-   * @param { PreviewConfiguration } config - drag preview configuration.
-   * @returns { T } property value of type T.
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { CustomBuilder | DragItemInfo | string } preview - Preview image displayed during component drag
+   *     operations. It only applies to [onDragStart]{@link CommonMethod#onDragStart} drag mode.<br>If the component
+   *     supports drag and drop and a preview is specified through
+   *     [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)},
+   *     that specified preview is displayed when the component is dragged. The priority of the background image
+   *     returned in [onDragStart]{@link CommonMethod#onDragStart} is lower than that of the preview set in
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}. This means that,
+   *     once set, the latter will be used in place of the former. Using
+   *     [CustomBuilder](docroot://reference/apis-arkui/arkui-ts/ts-types.md#custombuilder8) requires offline rendering
+   *     and may increase performance overhead and latency. In light of this, you are advised to use
+   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} in [DragItemInfo]{@link DragItemInfo} instead.<br> When
+   *     an ID of the string type is passed in, the snapshot of the component assigned the ID is used as the preview
+   *     image. If the component assigned the ID cannot be found or its [Visibility]{@link Visibility} attribute is set
+   *     to **None** or **Hidden**, a snapshot of the current component is used as the preview image. Currently,
+   *     snapshots do not support visual effects, such as brightness, shadow, blur, and rotation.
+   * @param { PreviewConfiguration } config - Additional settings for the drag preview.<br>This parameter is effective
+   *     only for previews set using
+   *     [dragPreview]{@link CommonMethod#dragPreview(value: CustomBuilder | DragItemInfo | string)}.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -24226,25 +23846,22 @@ declare class CommonMethod<T> {
   dragPreview(preview: CustomBuilder | DragItemInfo | string, config?: PreviewConfiguration): T;
 
   /**
-   * Set the selectable area drag preview options.
+   * Sets the preview image processing mode, badge count, and interaction behavior during drag operations. The
+   * **onItemDragStart** drag mode is not supported.
    *
-   * @param { DragPreviewOptions } value - preview options value.
-   * @returns { T } property value of type T.
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { DragPreviewOptions } value - Preview image processing mode and badge count during dragging.
+   * @param { DragInteractionOptions } options - Interaction behavior for the floating preview image.<br>Default value:
+   *     empty [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Set the selectable area drag preview options.
-   *
-   * @param { DragPreviewOptions } value - preview options value.
-   * @param { DragInteractionOptions } options - drag interaction options value.
-   * @returns { T } property value of type T.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   dragPreviewOptions(value: DragPreviewOptions, options?: DragInteractionOptions): T;
 
@@ -24268,58 +23885,48 @@ declare class CommonMethod<T> {
   onPreDrag(callback: Callback<PreDragStatus>): T;
 
   /**
-   * Add mask text to the current component. The layout is the same as that of the current component.
+   * Adds an overlay to this component, which can be text, a custom component, or
+   * [ComponentContent]{@link ComponentContent}. The overlay is positioned based on the current component. The overlay
+   * is not rendered through the component tree, meaning some APIs (for example,
+   * [getRectangleById]{@link @ohos.arkui.componentUtils:componentUtils.getRectangleById}) cannot access components
+   * within the overlay.
    *
-   * @param { string } value
-   * @param { object } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Add mask text to the current component. The layout is the same as that of the current component.
+   * > **NOTE**
+   * >
+   * > The overlay places the floating layer component above the bound component, blocking all user interactions with
+   * > components beneath it. To enable interaction with underlying components, refer to
+   * > [Example 2: Setting an Overlay Using a Custom Builder](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-overlay.md#example-2-setting-an-overlay-using-a-custom-builder)
+   * > and apply **.hitTestBehavior(HitTestMode.Transparent)** to the outermost component in the overlay builder. This
+   * > configuration is particularly crucial for watermark implementations, where the overlay must not interfere with
+   * > user interaction with the underlying content.
    *
-   * @param { string } value
-   * @param { object } options
-   * @returns { T }
+   * @param { string } value - Content of the overlay, which can be text or a custom component.<br>**NOTE**<br>When the
+   *     overlay is a custom component, it cannot obtain focus through sequential keyboard navigation. Using
+   *     **CustomBuilder** will cause the overlay content to be destroyed and recreated on page refresh, which may incur
+   *     performance overhead. For scenarios with frequent page updates, using **ComponentContent** is
+   *     recommended. [since 7 - 9]
+   * @param { object } options - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than API
+   *     version 12, **options** is defined as follows:<br>{<br>align?: [Alignment]{@link Alignment}, <br>offset?: {x?:
+   *     number, y?: number}<br>} [since 7 - 11]
+   * @param { string | CustomBuilder } value - Content of the overlay, which can be text or a custom component.<br>
+   *     **NOTE**<br>When the overlay is a custom component, it cannot obtain focus through sequential keyboard
+   *     navigation. Using **CustomBuilder** will cause the overlay content to be destroyed and recreated on page
+   *     refresh, which may incur performance overhead. For scenarios with frequent page updates, using
+   *     **ComponentContent** is recommended. [since 10 - 11]
+   * @param { string | CustomBuilder | ComponentContent } value - Content of the overlay, which can be text or a custom
+   *     component.<br>**NOTE**<br>When the overlay is a custom component, it cannot obtain focus through sequential
+   *     keyboard navigation. Using **CustomBuilder** will cause the overlay content to be destroyed and recreated on
+   *     page refresh, which may incur performance overhead. For scenarios with frequent page updates, using
+   *     **ComponentContent** is recommended. [since 12]
+   * @param { OverlayOptions } options - Options for positioning the overlay.<br>**NOTE**<br>In versions earlier than
+   *     API version 12, **options** is defined as follows:<br>{<br>align?: [Alignment]{@link Alignment}, <br>offset?: {
+   *     x?: number, y?: number}<br>} [since 12]
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Add mask text to the current component. The layout is the same as that of the current component.
-   *
-   * @param { string | CustomBuilder } value
-   * @param { object } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Add mask text to the current component. The layout is the same as that of the current component.
-   *
-   * @param { string | CustomBuilder } value
-   * @param { object } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Add mask text to the current component. The layout is the same as that of the current component.
-   *
-   * @param { string | CustomBuilder | ComponentContent } value
-   * @param { OverlayOptions } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   overlay(value: string | CustomBuilder | ComponentContent, options?: OverlayOptions): T;
 
@@ -25208,42 +24815,19 @@ declare class CommonMethod<T> {
   bindSheet(isShow: boolean, builder: CustomBuilder, options?: SheetOptions): T;
 
   /**
-   * Sets styles for component state.
+   * Sets the state-specific styles for the component.
    *
-   * @param { StateStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets styles for component state.
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { StateStyles } value
-   * @returns { T }
+   * @param { StateStyles } State-specific styles for the component.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets styles for component state.
-   *
-   * @param { StateStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets styles for component state.
-   *
-   * @param { StateStyles } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   stateStyles(value: StateStyles): T;
 
@@ -26026,9 +25610,15 @@ declare class CommonMethod<T> {
   attributeModifier(modifier: AttributeModifier<T>): T;
 
   /**
-   * Sets the gesture modifier.
+   * Creates a gesture modifier.
    *
-   * @param { GestureModifier } modifier
+   * >  **NOTE**
+   * >
+   * >  **gestureModifier** does not support custom components.
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   * @param { GestureModifier } modifier for dynamically setting gestures bound to the current component. The if/else syntax is supported.
+   *    modifier: gesture modifier. You need a custom class to implement the GestureModifier API.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26042,7 +25632,7 @@ declare class CommonMethod<T> {
    * Sets the background brightness of the component.
    *
    * @param { BackgroundBrightnessOptions } params - Parameters for setting the background brightness.
-   * @returns { T } Current component.
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -26150,35 +25740,30 @@ declare class CommonMethod<T> {
   shouldRecognizerParallelWith(callback: ShouldRecognizerParallelWithCallback): T;
 
   /**
-   * Events are monopolized by components.
-   *
-   * @param { boolean } monopolize - indicate the monopoly of events
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Sets whether the component exclusively handles events.
-   * true: The component exclusively handles events. false: The component does not exclusively handle events.
    *
-   * @param { boolean } monopolize - indicate the monopoly of events
-   * @default false
+   * @param { boolean } monopolize - Whether the component exclusively handles events. true: The component exclusively handles events. false: The component does not exclusively handle events.
+   *    Default value: false.
+   * NOTE
+   * 1. If a component is exclusively handling events after a finger is pressed on it, and another finger is pressed before the first finger is lifted,
+   * the component continues to exclusively handle events while interacting with the second finger. The same case applies to a third and more fingers.
+   * 2. If a component is bound through [parallelGesture]{@link parallelGesture(gesture: GestureType, mask?: GestureMask)} to a gesture, for example, pan gesture, that can also be triggered by its child component,
+   * and the child component has event monopolization and is the first to respond, then the parent will not respond to the gesture.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   monopolizeEvents(monopolize: boolean): T;
 
   /**
-   * When the component does a touch test, a user-defined callback is triggered.
+   * Binds a custom event interception callback to a component.
    *
-   * @param { Callback<TouchEvent, HitTestMode> } callback - A callback instance used when the component does a touch test.
-   * @returns { T }
+   * @param { Callback<TouchEvent, HitTestMode> } callback - Custom event interception callback.
+   *    Triggered during hit testing and sets the hit test behavior for the component based on the return value.
+   * @returns { T } Current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -26215,7 +25800,7 @@ declare class CommonMethod<T> {
    */
   onSizeChange(event: SizeChangeCallback): T;
 
-   /**
+  /**
    * Accessibility focus draw level, and the default value is FocusDrawLevel.SELF.
    *
    * @param { FocusDrawLevel } drawLevel - indicates accessibility focus draw level.
@@ -26358,26 +25943,31 @@ declare class CommonMethod<T> {
   accessibilityActionOptions(option: AccessibilityActionOptions | undefined): T;
 
   /**
-       * Sets the next accessibility focus ID for the component, with optional detailed parameters.
-       * The detailed parameters can provide additional behavior for the accessibility focus transition.
-       * @param { string } nextId - set component next accessibility focus id
-       * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
-       *     accessibility next focus processing.
-       *     Undefined indicates reverting to the default of the detailed parameters.
-       * @returns { T }
-       * @syscap SystemCapability.ArkUI.ArkUI.Full
-       * @stagemodelonly
-       * @crossplatform
-       * @form
-       * @atomicservice
-       * @since 26.0.0 dynamic
-       */
+   * Sets the next accessibility focus ID for the component, with optional detailed parameters.
+   * The detailed parameters can provide additional behavior for the accessibility focus transition.
+   * @param { string } nextId - set component next accessibility focus id
+   * @param { AccessibilityNextFocusParams | undefined } nextFocusParams - the detailed parameters for
+   *     accessibility next focus processing.
+   *     Undefined indicates reverting to the default of the detailed parameters.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
    * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
    *
    * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
+   * In SmartGestureShortcutOptions:
+   *   enabled is used to configure whether the component responds to smart gestures.
+   *   selectable is used to set whether the component displays and retains a selected state after being selected by a smart gesture operation.
+   *   action is used to set the smart gesture response priority. Currently, only GestureShortcut.PRIMARY is supported, which makes the component the primary response target for smart gesture operations such as swiping and tapping.
+   * It is recommended to explicitly pass these parameters to avoid inconsistencies caused by default configurations. For default configuration handling, please refer to [SmartGestureShortcutOptions]{@link SmartGestureShortcutOptions}.
    * @returns { T } return component instance who call the method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -26411,7 +26001,7 @@ declare class CommonMethod<T> {
   inspectorLabel(label: string | undefined): T;
 
   /**
-   * Sets whether to component is double-sided. 
+   * Sets whether to component is double-sided.
    *
    * @param { Optional<boolean> } value - Whether to draw both sides of component.
    *     **true**: Both front and back sides are visible (default).
@@ -26664,13 +26254,17 @@ declare type CustomBuilder = (() => any) | void;
 declare type CustomBuilderT<T> = (t: T) => void;
 
 /**
- * Defines the OverlayOptions interface.
- * 
- * <strong>NOTE</strong>:<br>
- * When both align and offset are set, the effects are combined.
- * The overlay is first aligned relative to the component and then offset from its current upper left corner.
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 12.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @typedef OverlayOptions
+ * > **NOTE**
+ * >
+ * > When both **align** and **offset** are set, the effects are combined. The overlay is first aligned relative to the
+ * > component and then offset from its current upper left corner.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -26679,85 +26273,43 @@ declare type CustomBuilderT<T> = (t: T) => void;
  * @since 12 dynamic
  */
 declare interface OverlayOptions {
+
   /**
-   * Defines align type.
+   * Alignment of the overlay relative to the component.
    *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines align type.
+   * Default value: **TopStart**
    *
-   * @type { ?Alignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines align type.
-   *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines align type.
-   *
-   * @type { ?Alignment }
-   * @default TopStart
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   align?: Alignment;
 
   /**
-   * Defines offset type.
+   * Offset of the overlay from the upper left corner. By default, the overlay is in the upper left corner of the
+   * component.
    *
-   * @type { ?OverlayOffset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines offset type.
-   *
-   * @type { ?OverlayOffset }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines offset type.
-   *
-   * @type { ?OverlayOffset }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines offset type.
-   *
-   * @type { ?OverlayOffset }
-   * @default - the overlay is in the upper left corner of the component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   offset?: OverlayOffset;
 }
 
 /**
- * Defines the OverlayOffset.
+ * Offset of the overlay from the upper left corner. By default, the overlay is in the upper left corner of the
+ * component.
  *
- * @typedef OverlayOffset
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 12.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -26766,81 +26318,42 @@ declare interface OverlayOptions {
  * @since 12 dynamic
  */
 declare interface OverlayOffset {
+
   /**
-   * Defines x.
+   * Horizontal offset.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines x.
+   * Unit: vp.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines x.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines x.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   x?: number;
+
   /**
-   * Defines y.
+   * Vertical offset.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines y.
+   * Unit: vp.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines y.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines y.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   y?: number;
 }
 
 /**
- * Defines a gradient blur stop.
+ * Defines the segment of blur.
+ * The first element in the tuple means fraction.
+ * The range of this value is [0,1]. A value of 1 means opaque and 0 means completely transparent.
+ * The second element means the stop position.
+ * The range of this value is [0,1]. A value of 1 means region ending position and 0 means region starting position.
  *
+ * @typedef { [ number, number ] } FractionStop
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -28396,9 +27909,8 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 declare type Blender = import('../api/@ohos.graphics.uiEffect').default.Blender;
 
 /**
- * ComponentContent.
+ * Represents a constructor used to create a **ComponentContent** object.
  *
- * @typedef {import('../api/arkui/ComponentContent').ComponentContent<T>} ComponentContent<T = Object>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29162,102 +28674,65 @@ declare class View {
 }
 
 /**
- * Rect info.
+ * Describes the position, width, and height of a component.
  *
- * @interface RectResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Describe the position, width, and height of a component.
- *
- * @interface RectResult
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface RectResult {
+
   /**
-   * x:Horizontal coordinate relative to the component.
+   * X-coordinate.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Horizontal coordinate.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   x: number;
 
   /**
-   * y:Vertical axis coordinate relative to the component.
+   * Y-coordinate.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Vertical coordinate.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   y: number;
 
   /**
-   * Get the width of the current textRect.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
    * Content width.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   width: number;
 
   /**
-   * Get the height of the current textRect.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
    * Content height.
    *
-   * @type { number }
+   * Unit: vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   height: number;
 }
@@ -30650,19 +30125,22 @@ declare interface BackgroundBrightnessOptions {
 }
 
 /**
- * PointLightStyle info
+ * You apply a point light style by setting the light source that emits illumination and the components to be
+ * illuminated.
  *
- * @interface PointLightStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
  */
 declare interface PointLightStyle {
+
   /**
-   * Defines the PointLight light intensity and position.
+   * Light source. The light source affects the surrounding components that are marked as illuminable and creates light
+   * effects on those components.
    *
-   * @type { ?LightSource }
+   * Default value: none
+   *
    * @default undefined
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -30670,10 +30148,12 @@ declare interface PointLightStyle {
    * @since 11 dynamic
    */
   lightSource?: LightSource;
+
   /**
-   * Defines the PointLight illuminated type.
+   * Whether the current component can be illuminated by the light source and the illuminated type.
    *
-   * @type { ?IlluminatedType }
+   * Default value: **IlluminatedType.NONE**
+   *
    * @default IlluminatedType.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -30681,10 +30161,12 @@ declare interface PointLightStyle {
    * @since 11 dynamic
    */
   illuminated?: IlluminatedType;
+
   /**
-   * Defines the PointLight bloom.
+   * Luminous intensity of the component. The recommended value range is 0-1.
    *
-   * @type { ?number }
+   * Default value: **0**
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -30695,65 +30177,67 @@ declare interface PointLightStyle {
 }
 
 /**
- * LightSource info
+ * Each component allows for one light source.
  *
- * @interface LightSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 11 dynamic
  */
 declare interface LightSource {
+
   /**
-   * Defines the PointLight light positionX.
+   * X-coordinate of the light source relative to the current component.
    *
-   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
    */
   positionX: Dimension;
+
   /**
-   * Defines the PointLight light positionX.
+   * Y-coordinate of the light source relative to the current component.
    *
-   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
    */
   positionY: Dimension;
+
   /**
-   * Defines the PointLight light positionX.
+   * Height of the light source. The higher the light source, the broader the light distribution.
    *
-   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
    */
   positionZ: Dimension;
+
   /**
-   * Defines the PointLight light intensity.
+   * Intensity of the light source. The recommended value range is 0-1. When the intensity is **0**, the light source
+   * does not emit light.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 11 dynamic
    */
   intensity: number;
+
   /**
-   * Defines the PointLight light color.
+   * Light source color.
    *
-   * @type { ?ResourceColor }
+   * Default value: **Color.White**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 12 dynamic
    */
-    color?: ResourceColor;
+  color?: ResourceColor;
 }
 
 /**
@@ -31470,9 +30954,8 @@ declare interface UIGestureEvent {
 }
 
 /**
- * Defines the gesture modifier.
+ * You need a custom class to implement the **GestureModifier** API.
  *
- * @interface GestureModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31480,10 +30963,16 @@ declare interface UIGestureEvent {
  * @since 12 dynamic
  */
 declare interface GestureModifier {
+
   /**
-   * Defines the gesture update function.
+   * Applies a gesture.
    *
-   * @param { UIGestureEvent } event
+   * You can customize this API as required. Dynamic configuration using the **if/else** syntax is supported. If gesture
+   * switching is triggered during an active gesture operation, the change takes effect in the next gesture operation
+   * after the current one completes (when all fingers are lifted).
+   *
+   * @param { UIGestureEvent } event - **UIGestureEvent** object, which is used to set the gesture to be bound to the
+   *     component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
