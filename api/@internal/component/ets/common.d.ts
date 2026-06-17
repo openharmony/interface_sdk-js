@@ -55,53 +55,30 @@ declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragCon
 /**
  * Defines the options of Component ClassDecorator.
  *
- * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defines the options of Component ClassDecorator.
- *
- * @interface ComponentOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface ComponentOptions {
   /**
    * freeze UI state.
    *
-   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * freeze UI state.
-   *
-   * @type { boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   freezeWhenInactive : boolean,
 
   /**
    * the reuse type of a custom component.
-   * 
+   *
    * @default perInstance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,7 +91,7 @@ declare interface ComponentOptions {
 
   /**
    * Collection of custom components to be reused.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -127,7 +104,7 @@ declare interface ComponentOptions {
 
 /**
  * Defining the reuse type of a custom component.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -139,7 +116,6 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
 /**
  * Defines a type for memory optimization strategy.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -169,7 +145,6 @@ declare enum ReusableMemOptStrategy {
 /**
  * Defines the options for Reusable ClassDecorator.
  *
- * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -179,7 +154,6 @@ declare interface ReusableOptions {
   /**
    * Memory optimization strategy for CustomComponent reuse
    *
-   * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -192,32 +166,13 @@ declare interface ReusableOptions {
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
  *
- * @interface InputCounterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define the ratio of characters entered by the percentage of InputCounterOptions.
- *
- * @interface InputCounterOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface InputCounterOptions {
-  /**
-   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
-   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
    * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
@@ -235,26 +190,15 @@ declare interface InputCounterOptions {
    * <br>If the value exceeds the valid value range, the character counter is not displayed.
    * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
    * </p>
-   * 
-   * @type { ?number }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   thresholdPercentage?: number;
 
-  /**
-   * If the current input character count reaches the maximum character count and users want to exceed the
-   * normal input, the border will turn red. If this parameter is true, the red border displayed.
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * If the current input character count reaches the maximum character count and users want to exceed the
    * normal input, the border will turn red. If this parameter is true, the red border displayed.
@@ -267,21 +211,19 @@ declare interface InputCounterOptions {
    * the text box border and character counter subscript turn red when the number of entered characters exceeds the limit.
    * <br>The value true (default) means to highlight the text box border and character counter subscript in red.
    * </p>
-   * 
-   * @type { ?boolean }
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   highlightBorder?: boolean;
 
   /**
    * It is the color of counter when the text field has not exceeded the maximum character count.
    *
-   * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -293,7 +235,6 @@ declare interface InputCounterOptions {
   /**
    * It is the color of counter when the text field wants to exceed the maximum character count.
    *
-   * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -306,7 +247,6 @@ declare interface InputCounterOptions {
 /**
  * Defines the options of decoration.
  *
- * @interface TextDecorationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -317,7 +257,6 @@ declare interface TextDecorationOptions {
   /**
    * The decoration type.
    *
-   * @type { TextDecorationType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -329,7 +268,6 @@ declare interface TextDecorationOptions {
   /**
    * Sets the color of decoration.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -341,7 +279,6 @@ declare interface TextDecorationOptions {
   /**
    * The style value of decoration.
    *
-   * @type { ?TextDecorationStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -353,7 +290,6 @@ declare interface TextDecorationOptions {
   /**
    * The scale value of decoration thickness.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -365,166 +301,70 @@ declare interface TextDecorationOptions {
 
 /**
  * Defining Component ClassDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Component ClassDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Component ClassDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Component ClassDecorator
- *
+ * 
  * Component is a ClassDecorator and it supports ComponentOptions as parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defining ComponentV2 ClassDecorator
- *
+ * 
  * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining ComponentV2 ClassDecorator
- *
- * ComponentV2 is a ClassDecorator and it supports ComponentOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const ComponentV2: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 
 /**
  * Defines the options of Entry ClassDecorator.
  *
- * @interface EntryOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 23]
  * @form
- * @since 10
- */
-/**
- * Defines the options of Entry ClassDecorator.
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 11 dynamic
- */
- /**
- * Defines the options of Entry ClassDecorator.
- *
- * @interface EntryOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface EntryOptions {
   /**
    * Named route name.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * Named route name.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Named route name.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   routeName? : string;
 
   /**
    * LocalStorage to be passed.
    *
-   * @type { ?LocalStorage }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @form
-   * @since 10
-   */
-  /**
-   * LocalStorage to be passed.
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * LocalStorage to be passed.
-   *
-   * @type { ?LocalStorage }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   storage? : LocalStorage;
 
   /**
    * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -537,43 +377,15 @@ declare interface EntryOptions {
 
 /**
  * Defines Entry ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Entry ClassDecorator.
- *
- * Entry is a ClassDecorator and it supports LocalStorage as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Entry ClassDecorator.
- *
+ * 
  * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Entry ClassDecorator.
- *
- * Entry is a ClassDecorator and it supports LocalStorage or EntryOptions as parameters.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) => ClassDecorator);
 
@@ -582,34 +394,10 @@ declare const Entry: ClassDecorator & ((options?: LocalStorage | EntryOptions) =
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Observed ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Observed ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Observed ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Observed: ClassDecorator;
 
@@ -630,34 +418,10 @@ declare const ObservedV2: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Preview ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Preview ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Preview ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Preview: ClassDecorator & ((value: PreviewParams) => ClassDecorator);
 
@@ -678,34 +442,10 @@ declare const Require: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining BuilderParam PropertyDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining BuilderParam PropertyDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining BuilderParam PropertyDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const BuilderParam: PropertyDecorator;
 
@@ -715,18 +455,9 @@ declare const BuilderParam: PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Local PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Local: PropertyDecorator;
 
@@ -736,18 +467,9 @@ declare const Local: PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Param PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Param: PropertyDecorator;
 
@@ -757,18 +479,9 @@ declare const Param: PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Once PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Once: PropertyDecorator;
 
@@ -778,18 +491,9 @@ declare const Once: PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Event PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Event: PropertyDecorator;
 
@@ -798,34 +502,10 @@ declare const Event: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining State PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining State PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining State PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const State: PropertyDecorator;
 
@@ -836,17 +516,8 @@ declare const State: PropertyDecorator;
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Defining Track PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare const Track: PropertyDecorator;
 
@@ -867,34 +538,10 @@ declare const Trace: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Prop PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Prop PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Prop PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Prop: PropertyDecorator;
 
@@ -903,34 +550,10 @@ declare const Prop: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Link PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Link PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Link PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Link: PropertyDecorator;
 
@@ -939,41 +562,16 @@ declare const Link: PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining ObjectLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining ObjectLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining ObjectLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const ObjectLink: PropertyDecorator;
 
 /**
  * Defines the options of Provide PropertyDecorator.
  *
- * @interface ProvideOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -986,7 +584,6 @@ declare interface ProvideOptions {
    * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
    * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1002,34 +599,10 @@ declare interface ProvideOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Provide PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Provide PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Provide PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
@@ -1040,19 +613,9 @@ declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Provider PropertyDecorator, aliasName is the only matching key and if
- * aliasName is the default, the default attribute name is regarded as aliasName.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Provider: (aliasName?: string) => PropertyDecorator;
 
@@ -1061,7 +624,6 @@ declare const Provider: (aliasName?: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1071,7 +633,6 @@ declare class SystemEnvKey<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1081,7 +642,6 @@ declare class SystemEnvKey<T> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1092,7 +652,6 @@ declare class SystemEnvKey<T> {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1102,7 +661,6 @@ declare class WritableSystemEnvKey<T> extends SystemEnvKey<T> {}
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1112,7 +670,6 @@ declare class ReadonlySystemEnvKey<T> extends SystemEnvKey<T> {}
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1122,7 +679,6 @@ declare class CustomEnvKey<S> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1133,7 +689,6 @@ declare class CustomEnvKey<S> {
    * @returns { CustomEnvKey<T> } CustomEnvKey
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1144,18 +699,16 @@ declare class CustomEnvKey<S> {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   protected constructor();
 }
 /**
- * Defines the writable system environment key.
+ * Defines the system environment key.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -1165,7 +718,6 @@ declare class WritableEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1175,7 +727,6 @@ declare class WritableEnvKey {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1281,7 +832,6 @@ declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 /**
  * Define Env Decorator type
  *
- * @typedef { function } EnvDecorator
  * @param { SystemProperties } value - key value input by the user
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
@@ -1308,8 +858,7 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
 
 /**
  * Defining Environment variable enumeration value.
- * 
- * @enum { string }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -1317,114 +866,61 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
  */
 declare enum SystemProperties {
  /**
-  * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
-  * 
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 22 dynamic
-  */
-  BREAK_POINT = 'system.arkui.breakpoint',
-  /**
-   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 dynamic
-   */
-  /**
-   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
-   * 
+   * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
-   * @since 26.0.0 dynamic
+   * @since 22 dynamic
+   */
+  BREAK_POINT = 'system.arkui.breakpoint',
+  /**
+   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice [since 26.0.0]
+   * @since 23 dynamic
    */
   WINDOW_AVOID_AREA = 'system.window.avoidarea',
   /**
    * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * System environmental avoidarea key that is used to obtain the avoid area of the window, measured in px.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   WINDOW_AVOID_AREA_PX = 'system.window.avoidarea.px',
   /**
    * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * System environmental windowsize key that is used to obtain the size of the window, measured in vp.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   WINDOW_SIZE = 'system.window.size',
   /**
    * System environmental windowsize key that is used to obtain the size of the window, measured in px.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @atomicservice [since 26.0.0]
    * @since 23 dynamic
-   */
-  /**
-   * System environmental windowsize key that is used to obtain the size of the window, measured in px.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
 };
 
 /**
- * Defines the consumption attribute decorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
-
- * @since 7
- */
-/**
  * Defining Consume PropertyDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Consume PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator);
 
@@ -1436,20 +932,9 @@ declare const Consume: PropertyDecorator & ((value: string) => PropertyDecorator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Consumer PropertyDecorator, aliasName is the only matching key and
- * if aliasName is the default, the default attribute name is regarded as aliasName.
- * And @Consumer will find the nearest @Provider.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Consumer: (aliasName?: string) => PropertyDecorator;
 
@@ -1459,18 +944,9 @@ declare const Consumer: (aliasName?: string) => PropertyDecorator;
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Defining Computed MethodDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare const Computed: MethodDecorator;
 
@@ -1479,24 +955,9 @@ declare const Computed: MethodDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining StorageProp PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Defining StorageProp PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const StorageProp: (value: string) => PropertyDecorator;
 
@@ -1505,24 +966,9 @@ declare const StorageProp: (value: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining StorageLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Defining StorageLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const StorageLink: (value: string) => PropertyDecorator;
 
@@ -1531,34 +977,10 @@ declare const StorageLink: (value: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Watch PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Watch PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Watch PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Watch: (value: string) => PropertyDecorator;
 
@@ -1567,34 +989,10 @@ declare const Watch: (value: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defining Builder MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Builder MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Builder MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Builder: MethodDecorator;
 
@@ -1615,34 +1013,10 @@ declare const LocalBuilder: MethodDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * Defining Styles MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defining Styles MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining Styles MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const Styles: MethodDecorator;
 
@@ -1764,7 +1138,6 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
 /**
  * Defines MonitorDecoratorOptions interface
  *
- * @interface MonitorDecoratorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1778,7 +1151,6 @@ declare interface MonitorDecoratorOptions {
    * Set to true to enable wildcard feature, set to false to disable it.
    * The default value is true.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1792,60 +1164,26 @@ declare interface MonitorDecoratorOptions {
 /**
  * Define IMonitor interface
  *
- * @interface IMonitor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Define IMonitor interface
- *
- * @interface IMonitor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare interface IMonitor {
   /**
    * Array of changed paths(keys)
    *
-   * @type { Array<string> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Array of changed paths(keys)
-   *
-   * @type { Array<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   dirty: Array<string>;
 
-  /**
-   * Return the pair of the value before the most recent change and current value for given path.
-   * If path does not exist, return undefined; If path is not specified, return the value pair corresponding to the first path in dirty.
-   *
-   * @param { string } [path]
-   * @returns { IMonitorValue<T> | undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
   /**
    * Return the pair of the value before the most recent change and current value for given path.
    * If path does not exist, return undefined; If path is not specified, return the value pair
@@ -1856,9 +1194,9 @@ declare interface IMonitor {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
+   * @form [since 23]
    * @atomicservice
-   * @since 23 dynamic
+   * @since 12 dynamic
    */
   value<T>(path?: string): IMonitorValue<T> | undefined;
 }
@@ -1866,91 +1204,47 @@ declare interface IMonitor {
 /**
  * Define IMonitorValue interface
  *
- * @interface IMonitorValue<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 23]
  * @atomicservice
  * @since 12 dynamic
- */
-/**
- * Define IMonitorValue interface
- *
- * @interface IMonitorValue<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
  */
 declare interface IMonitorValue<T> {
   /**
    * Get the previous value.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get the previous value.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   before: T;
 
   /**
    * Get current value.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get current value.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   now: T;
 
   /**
    * Monitored path input by the user.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Monitored path input by the user.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
    */
   path: string;
 }
@@ -1962,9 +1256,9 @@ declare interface IMonitorValue<T> {
  * Path items are either observed attribute names or array item indices.The path in SyncMonitor
  * supports wildcard at the end of a path item, but path items must never appear at the beginning or
  * in the middle of a path. All other paths using one or more wildcard are invalid.
- *
+ * 
  * Functions decorated with @SyncMonitor can be used in @ObservedV2 objects and @ComponentV2.
- * @type { MonitorDecorator }
+ *
  * @throws { BusinessError } 130001 - The path is invalid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2046,31 +1340,21 @@ declare interface AnimatableArithmetic<T> {
  * Defining Concurrent MethodDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defining Concurrent MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defining Concurrent MethodDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare const Concurrent: MethodDecorator;
 
 /**
  * Defining Sendable ClassDecorator
- * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
+ * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class
+ * object can be shared globally.
  * Since 12, the Sendable decorator can be used for function and typeAlias also.
- * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class object.
- * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables,
+ * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class
+ * object.
+ * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables
+ * ,
  * and arguments that need to be assigned with sendable-function.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2085,22 +1369,9 @@ declare const Sendable: ClassDecorator;
  * Defining  CustomDialog ClassDecorator
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defining  CustomDialog ClassDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defining  CustomDialog ClassDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const CustomDialog: ClassDecorator;
 
@@ -2109,24 +1380,9 @@ declare const CustomDialog: ClassDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 9
- */
-/**
- * Defining LocalStorageLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * Defining LocalStorageLink PropertyDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare const LocalStorageLink: (value: string) => PropertyDecorator;
 
@@ -2135,27 +1391,10 @@ declare const LocalStorageLink: (value: string) => PropertyDecorator;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defining LocalStorageProp PropertyDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defining LocalStorageProp PropertyDecorator
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare const LocalStorageProp: (value: string) => PropertyDecorator;
 
@@ -2163,52 +1402,19 @@ declare const LocalStorageProp: (value: string) => PropertyDecorator;
  * Obtains the Context object associated with a component on the page.
  *
  * @param { Object } component - indicate the component on the page.
- * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
- * The default context is the context obtained by tracing the call chain of the API.
- * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
- * instance may fail to be traced. In this case, undefined is returned.
+ *     If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
+ *     The default context is the context obtained by tracing the call chain of the API.
+ *     If this API is used in an asynchronous callback or not initially called on the current page, the context of the
+ *     instance may fail to be traced. In this case, undefined is returned.
  * @returns { Context }
- * The context type depends on the ability type.
- * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
- * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
+ *     The context type depends on the ability type.
+ *     For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
+ *     if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
- * @since 9
- */
-/**
- * Obtains the Context object associated with a component on the page.
- *
- * @param { Object } component - indicate the component on the page.
- * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
- * The default context is the context obtained by tracing the call chain of the API.
- * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
- * instance may fail to be traced. In this case, undefined is returned.
- * @returns { Context }
- * The context type depends on the ability type.
- * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
- * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * Obtains the Context object associated with a component on the page.
- *
- * @param { Object } component - indicate the component on the page.
- * If no component is passed in or the passed-in parameter type is invalid, the default context is returned.
- * The default context is the context obtained by tracing the call chain of the API.
- * If this API is used in an asynchronous callback or not initially called on the current page, the context of the
- * instance may fail to be traced. In this case, undefined is returned.
- * @returns { Context }
- * The context type depends on the ability type.
- * For example, if this API is called on a page of the UIAbility, the return value type is UIAbilityContext;
- * if this API is called on a page of the ExtensionAbility, the return value type is ExtensionContext.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#getHostContext
  */
@@ -2216,75 +1422,47 @@ declare function getContext(component?: Object): Context;
 
 /**
  * Defining Reusable ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * Defining Reusable ClassDecorator.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- * @noninterop
- */
-/**
- * Defining Reusable ClassDecorator.
- *
+ * 
  * Reusable is a ClassDecorator and it supports ReusableOptions as a parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
+ * @noninterop [since 11 - 24]
  */
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
  * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ * 
+ * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 18 dynamic
- * @noninterop
- */
-/**
- * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
- *
- * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
+ * @noninterop [since 18 - 24]
  */
 declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
  /**
-   * ReuseId callback type. It is used to compute reuseId.
-   *
-   * @typedef { function } ReuseIdCallback
-   * @returns { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
+  * ReuseId callback type. It is used to compute reuseId.
+  *
+  * @returns { string }
+  * @syscap SystemCapability.ArkUI.ArkUI.Full
+  * @stagemodelonly
+  * @crossplatform
+  * @atomicservice
+  * @since 18 dynamic
+  */
  declare type ReuseIdCallback = () => string;
 
 /**
  * Defining the reusable configuration parameters.
  *
- * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2295,7 +1473,6 @@ declare interface ReuseOptions {
   /**
    * Defining reuseId function. The default reuseId is the custom component name.
    *
-   * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2308,29 +1485,11 @@ declare interface ReuseOptions {
 /**
  * Get context.
  *
- * @typedef { import('../api/application/Context').default } Context
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
- * @since 9
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @since 10
- */
-/**
- * Get context.
- *
- * @typedef { import('../api/application/Context').default } Context
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare type Context = import('../api/application/Context').default;
 
@@ -2341,146 +1500,42 @@ declare type Context = import('../api/application/Context').default;
  * @param { Object } action - indicate the router, message or call event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @StageModelOnly
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Post Card Action.
- *
- * @param { Object } component - indicate the card entry component.
- * @param { Object } action - indicate the router, message or call event.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @StageModelOnly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare function postCardAction(component: Object, action: Object): void;
 
 /**
  * Defines the data type of the interface restriction.
  *
- * @interface Configuration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the data type of the interface restriction.
- *
- * @interface Configuration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the data type of the interface restriction.
- *
- * @interface Configuration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the data type of the interface restriction.
- *
- * @interface Configuration
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface Configuration {
   /**
    * Set colorMode.
    *
-   * @type { string }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set colorMode.
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set colorMode.
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set colorMode.
-   *
-   * @type { string }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   readonly colorMode: string;
 
   /**
    * Set fontScale.
    *
-   * @type { number }
-   * @readonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set fontScale.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set fontScale.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set fontScale.
-   *
-   * @type { number }
-   * @readonly
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   readonly fontScale: number;
 }
@@ -2724,63 +1779,18 @@ declare interface ExpectedFrameRateRange {
  * global $r function
  *
  * @param { string } value
- * The value format is 'belonging.type.name'.
- * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
- * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
- * 'strarray', 'string', or 'media'.
- * name: resource name, which is determined during resource definition.
+ *     The value format is 'belonging.type.name'.
+ *     belonging: group to which the resource belongs, which can be 'sys' or 'app'.
+ *     type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
+ *     'strarray', 'string', or 'media'.
+ *     name: resource name, which is determined during resource definition.
  * @param { any[] } params
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * global $r function
- *
- * @param { string } value
- * The value format is 'belonging.type.name'.
- * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
- * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
- * 'strarray', 'string', or 'media'.
- * name: resource name, which is determined during resource definition.
- * @param { any[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * global $r function
- *
- * @param { string } value
- * The value format is 'belonging.type.name'.
- * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
- * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
- * 'strarray', 'string', or 'media'.
- * name: resource name, which is determined during resource definition.
- * @param { any[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * global $r function
- *
- * @param { string } value
- * The value format is 'belonging.type.name'.
- * belonging: group to which the resource belongs, which can be 'sys' or 'app'.
- * type: resource type, which can be 'boolean', 'color', 'float', 'intarray', 'integer', 'pattern', 'plural',
- * 'strarray', 'string', or 'media'.
- * name: resource name, which is determined during resource definition.
- * @param { any[] } params
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare function $r(value: string, ...params: any[]): Resource;
 
@@ -2788,60 +1798,23 @@ declare function $r(value: string, ...params: any[]): Resource;
  * global $rawfile function
  *
  * @param { string } value
- * name of the file in the resources/rawfile directory of the project.
- * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
- * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
- * string.
+ *     name of the file in the resources/rawfile directory of the project.
+ *     When referencing resources of the Resource type, make sure the data type is the same as that of the attribute
+ *     method.
+ *     For example, if an attribute method supports the string | Resource types, the data type of the Resource type must
+ *     be
+ *     string.
  * @returns { Resource }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * global $rawfile function
- *
- * @param { string } value
- * name of the file in the resources/rawfile directory of the project.
- * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
- * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
- * string.
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * global $rawfile function
- *
- * @param { string } value
- * name of the file in the resources/rawfile directory of the project.
- * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
- * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
- * string.
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * global $rawfile function
- *
- * @param { string } value
- * name of the file in the resources/rawfile directory of the project.
- * When referencing resources of the Resource type, make sure the data type is the same as that of the attribute method.
- * For example, if an attribute method supports the string | Resource types, the data type of the Resource type must be
- * string.
- * @returns { Resource }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare function $rawfile(value: string): Resource;
 /**
  * Defines the same page mode
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2851,30 +1824,33 @@ declare function $rawfile(value: string): Resource;
  */
 declare enum AccessibilitySamePageMode {
   /**
-  * the first page and root page event is not send.but if application load new page whith navigation,the page event will be sent.
-  * this mode is to solve skipping focus
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * the first page and root page event is not send.but if application load new page whith navigation,the page event 
+   * will be sent.
+   * this mode is to solve skipping focus
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   SEMI_SILENT = 0,
  /**
-  * the all page event is not send
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * the all page event is not send
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   FULL_SILENT = 1,
 }
 /**
  * Enum for accessibility component type
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2884,177 +1860,195 @@ declare enum AccessibilitySamePageMode {
  */
 declare enum AccessibilityRoleType {
   /**
-  * ActionSheet component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * ActionSheet component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   ACTION_SHEET = 0,
   /**
-  * AlertDialog component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * AlertDialog component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   ALERT_DIALOG = 1,
   /**
-  * AlphabetIndexer component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * AlphabetIndexer component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   INDEXER_COMPONENT = 2,
   /**
-  * badge component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * badge component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   BADGE_COMPONENT = 3,
   /**
-  * blank component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * blank component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   BLANK = 4,
   /**
-  * button component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * button component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   BUTTON = 5,
   /**
-  * back button component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * back button component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   BACK_BUTTON = 6,
   /**
-  * sheet drag bar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * sheet drag bar component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   SHEET_DRAG_BAR = 7,
   /**
-  * calendar picker component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * calendar picker component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CALENDAR_PICKER = 8,
   /**
-  * calendar component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * calendar component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CALENDAR = 9,
   /**
-  * canvas component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * canvas component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CANVAS = 10,
   /**
-  * canvas gradient component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * canvas gradient component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CANVAS_GRADIENT = 11,
   /**
-  * canvas pattern component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * canvas pattern component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CANVAS_PATTERN = 12,
   /**
-  * checkbox component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * checkbox component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CHECKBOX = 13,
   /**
-  * checkbox group component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * checkbox group component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CHECKBOX_GROUP = 14,
   /**
-  * circle component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * circle component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   CIRCLE = 15,
   /**
-  * column split component type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 18 dynamic
-  */
+   * column split component type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 18 dynamic
+   */
   COLUMN_SPLIT = 16,
   /**
    * column component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3065,6 +2059,7 @@ declare enum AccessibilityRoleType {
   COLUMN = 17,
   /**
    * canvas rendering context 2d component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3075,6 +2070,7 @@ declare enum AccessibilityRoleType {
   CANVAS_RENDERING_CONTEXT_2D = 18,
   /**
    * chart component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3085,6 +2081,7 @@ declare enum AccessibilityRoleType {
   CHART = 19,
   /**
    * counter component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3095,6 +2092,7 @@ declare enum AccessibilityRoleType {
   COUNTER = 20,
   /**
    * counter modal component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3105,6 +2103,7 @@ declare enum AccessibilityRoleType {
   CONTAINER_MODAL = 21,
   /**
    * data panel component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3115,6 +2114,7 @@ declare enum AccessibilityRoleType {
   DATA_PANEL = 22,
   /**
    * data picker component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3125,6 +2125,7 @@ declare enum AccessibilityRoleType {
   DATE_PICKER = 23,
   /**
    * dialog component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3135,6 +2136,7 @@ declare enum AccessibilityRoleType {
   DIALOG = 24,
   /**
    * divider component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3145,6 +2147,7 @@ declare enum AccessibilityRoleType {
   DIVIDER = 25,
   /**
    * drag bar component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3155,6 +2158,7 @@ declare enum AccessibilityRoleType {
   DRAG_BAR = 26,
   /**
    * effect component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3165,6 +2169,7 @@ declare enum AccessibilityRoleType {
   EFFECT_COMPONENT = 27,
   /**
    * ellipse component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3175,6 +2180,7 @@ declare enum AccessibilityRoleType {
   ELLIPSE = 28,
   /**
    * flex component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3185,6 +2191,7 @@ declare enum AccessibilityRoleType {
   FLEX = 29,
   /**
    * flow item component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3195,6 +2202,7 @@ declare enum AccessibilityRoleType {
   FLOW_ITEM = 30,
   /**
    * form component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3205,6 +2213,7 @@ declare enum AccessibilityRoleType {
   FORM_COMPONENT = 31,
   /**
    * form link component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3215,6 +2224,7 @@ declare enum AccessibilityRoleType {
   FORM_LINK = 32,
   /**
    * gauge component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3225,6 +2235,7 @@ declare enum AccessibilityRoleType {
   GAUGE = 33,
   /**
    * grid component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3235,6 +2246,7 @@ declare enum AccessibilityRoleType {
   GRID = 34,
   /**
    * grid col component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3245,6 +2257,7 @@ declare enum AccessibilityRoleType {
   GRID_COL = 35,
   /**
    * grid container component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3255,6 +2268,7 @@ declare enum AccessibilityRoleType {
   GRID_CONTAINER = 36,
   /**
    * grid item component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3265,6 +2279,7 @@ declare enum AccessibilityRoleType {
   GRID_ITEM = 37,
   /**
    * grid row component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3275,6 +2290,7 @@ declare enum AccessibilityRoleType {
   GRID_ROW = 38,
   /**
    * hyperlink component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3285,6 +2301,7 @@ declare enum AccessibilityRoleType {
   HYPERLINK = 39,
   /**
    * image component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3295,6 +2312,7 @@ declare enum AccessibilityRoleType {
   IMAGE = 40,
   /**
    * image animator component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3305,6 +2323,7 @@ declare enum AccessibilityRoleType {
   IMAGE_ANIMATOR = 41,
   /**
    * image bitmap component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3315,6 +2334,7 @@ declare enum AccessibilityRoleType {
   IMAGE_BITMAP = 42,
   /**
    * image data component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3325,6 +2345,7 @@ declare enum AccessibilityRoleType {
   IMAGE_DATA = 43,
   /**
    * image span component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3335,6 +2356,7 @@ declare enum AccessibilityRoleType {
   IMAGE_SPAN = 44,
   /**
    * label component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3345,6 +2367,7 @@ declare enum AccessibilityRoleType {
   LABEL = 45,
   /**
    * line component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3355,6 +2378,7 @@ declare enum AccessibilityRoleType {
   LINE = 46,
   /**
    * list component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3365,6 +2389,7 @@ declare enum AccessibilityRoleType {
   LIST = 47,
   /**
    * list item component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3375,6 +2400,7 @@ declare enum AccessibilityRoleType {
   LIST_ITEM = 48,
   /**
    * list item group component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3385,6 +2411,7 @@ declare enum AccessibilityRoleType {
   LIST_ITEM_GROUP = 49,
   /**
    * loading progress component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3395,6 +2422,7 @@ declare enum AccessibilityRoleType {
   LOADING_PROGRESS = 50,
   /**
    * marquee component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3405,6 +2433,7 @@ declare enum AccessibilityRoleType {
   MARQUEE = 51,
   /**
    * matrix2d component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3415,6 +2444,7 @@ declare enum AccessibilityRoleType {
   MATRIX2D = 52,
   /**
    * menu component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3425,6 +2455,7 @@ declare enum AccessibilityRoleType {
   MENU = 53,
   /**
    * menu item component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3435,6 +2466,7 @@ declare enum AccessibilityRoleType {
   MENU_ITEM = 54,
   /**
    * menu item group component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3445,6 +2477,7 @@ declare enum AccessibilityRoleType {
   MENU_ITEM_GROUP = 55,
   /**
    * navdestination component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3455,6 +2488,7 @@ declare enum AccessibilityRoleType {
   NAV_DESTINATION = 56,
   /**
    * navrouter component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3465,6 +2499,7 @@ declare enum AccessibilityRoleType {
   NAV_ROUTER = 57,
   /**
    * navigation component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3475,6 +2510,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION = 58,
   /**
    * navigation bar component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3485,6 +2521,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION_BAR = 59,
   /**
    * navigation menu component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3495,6 +2532,7 @@ declare enum AccessibilityRoleType {
   NAVIGATION_MENU = 60,
   /**
    * navigator component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3505,6 +2543,7 @@ declare enum AccessibilityRoleType {
   NAVIGATOR = 61,
   /**
    * offscreen canvas component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3515,6 +2554,7 @@ declare enum AccessibilityRoleType {
   OFFSCREEN_CANVAS = 62,
   /**
    * offscreen canvas rendering context2d component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3525,6 +2565,7 @@ declare enum AccessibilityRoleType {
   OFFSCREEN_CANVAS_RENDERING_CONTEXT2D = 63,
   /**
    * option component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3535,6 +2576,7 @@ declare enum AccessibilityRoleType {
   OPTION = 64,
   /**
    * panel component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3545,6 +2587,7 @@ declare enum AccessibilityRoleType {
   PANEL = 65,
   /**
    * paper page component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3555,6 +2598,7 @@ declare enum AccessibilityRoleType {
   PAPER_PAGE = 66,
   /**
    * path component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3565,6 +2609,7 @@ declare enum AccessibilityRoleType {
   PATH = 67,
   /**
    * path 2d component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3575,6 +2620,7 @@ declare enum AccessibilityRoleType {
   PATH2D = 68,
   /**
    * pattern lock component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3585,6 +2631,7 @@ declare enum AccessibilityRoleType {
   PATTERN_LOCK = 69,
   /**
    * picker component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3595,6 +2642,7 @@ declare enum AccessibilityRoleType {
   PICKER = 70,
   /**
    * picker view component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3605,6 +2653,7 @@ declare enum AccessibilityRoleType {
   PICKER_VIEW = 71,
   /**
    * plugin component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3615,6 +2664,7 @@ declare enum AccessibilityRoleType {
   PLUGIN_COMPONENT = 72,
   /**
    * polygon component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3625,6 +2675,7 @@ declare enum AccessibilityRoleType {
   POLYGON = 73,
   /**
    * polyline component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3635,6 +2686,7 @@ declare enum AccessibilityRoleType {
   POLYLINE = 74,
   /**
    * pop up component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3645,6 +2697,7 @@ declare enum AccessibilityRoleType {
   POPUP = 75,
   /**
    * progress component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3655,6 +2708,7 @@ declare enum AccessibilityRoleType {
   PROGRESS = 76,
   /**
    * qr code component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3665,6 +2719,7 @@ declare enum AccessibilityRoleType {
   QRCODE = 77,
   /**
    * radio component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3675,6 +2730,7 @@ declare enum AccessibilityRoleType {
   RADIO = 78,
   /**
    * rating component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3685,6 +2741,7 @@ declare enum AccessibilityRoleType {
   RATING = 79,
   /**
    * rect component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3695,6 +2752,7 @@ declare enum AccessibilityRoleType {
   RECT = 80,
   /**
    * refresh component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3705,6 +2763,7 @@ declare enum AccessibilityRoleType {
   REFRESH = 81,
   /**
    * relative container component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3715,6 +2774,7 @@ declare enum AccessibilityRoleType {
   RELATIVE_CONTAINER = 82,
   /**
    * remote window component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3725,6 +2785,7 @@ declare enum AccessibilityRoleType {
   REMOTE_WINDOW = 83,
   /**
    * rich editor component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3735,6 +2796,7 @@ declare enum AccessibilityRoleType {
   RICH_EDITOR = 84,
   /**
    * rich text component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3745,6 +2807,7 @@ declare enum AccessibilityRoleType {
   RICH_TEXT = 85,
   /**
    * rolepager component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3755,6 +2818,7 @@ declare enum AccessibilityRoleType {
   ROLE_PAGER = 86,
   /**
    * row component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3765,6 +2829,7 @@ declare enum AccessibilityRoleType {
   ROW = 87,
   /**
    * row split component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3775,6 +2840,7 @@ declare enum AccessibilityRoleType {
   ROW_SPLIT = 88,
   /**
    * scroll component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3785,6 +2851,7 @@ declare enum AccessibilityRoleType {
   SCROLL = 89,
   /**
    * scroll bar component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3795,6 +2862,7 @@ declare enum AccessibilityRoleType {
   SCROLL_BAR = 90,
   /**
    * search component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3805,6 +2873,7 @@ declare enum AccessibilityRoleType {
   SEARCH = 91,
   /**
    * search field component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3815,6 +2884,7 @@ declare enum AccessibilityRoleType {
   SEARCH_FIELD = 92,
   /**
    * select component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3825,6 +2895,7 @@ declare enum AccessibilityRoleType {
   SELECT = 93,
   /**
    * shape component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3835,6 +2906,7 @@ declare enum AccessibilityRoleType {
   SHAPE = 94,
   /**
    * sidebar container component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3845,6 +2917,7 @@ declare enum AccessibilityRoleType {
   SIDEBAR_CONTAINER = 95,
   /**
    * slider component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3855,6 +2928,7 @@ declare enum AccessibilityRoleType {
   SLIDER = 96,
   /**
    * span component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3865,6 +2939,7 @@ declare enum AccessibilityRoleType {
   SPAN = 97,
   /**
    * stack component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3875,6 +2950,7 @@ declare enum AccessibilityRoleType {
   STACK = 98,
   /**
    * stepper component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3885,6 +2961,7 @@ declare enum AccessibilityRoleType {
   STEPPER = 99,
   /**
    * stepper item component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3895,6 +2972,7 @@ declare enum AccessibilityRoleType {
   STEPPER_ITEM = 100,
   /**
    * swiper component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3905,6 +2983,7 @@ declare enum AccessibilityRoleType {
   SWIPER = 101,
   /**
    * swiper indicator component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3915,6 +2994,7 @@ declare enum AccessibilityRoleType {
   SWIPER_INDICATOR = 102,
   /**
    * switch component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3925,6 +3005,7 @@ declare enum AccessibilityRoleType {
   SWITCH = 103,
   /**
    * symbol glyph component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3935,6 +3016,7 @@ declare enum AccessibilityRoleType {
   SYMBOL_GLYPH = 104,
   /**
    * tab content component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3945,6 +3027,7 @@ declare enum AccessibilityRoleType {
   TAB_CONTENT = 105,
   /**
    * tab bar component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3955,6 +3038,7 @@ declare enum AccessibilityRoleType {
   TAB_BAR = 106,
   /**
    * tabs component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3965,6 +3049,7 @@ declare enum AccessibilityRoleType {
   TABS = 107,
   /**
    * text component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3975,6 +3060,7 @@ declare enum AccessibilityRoleType {
   TEXT = 108,
   /**
    * text clock component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3985,6 +3071,7 @@ declare enum AccessibilityRoleType {
   TEXT_CLOCK = 109,
   /**
    * text entry component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3995,6 +3082,7 @@ declare enum AccessibilityRoleType {
   TEXT_ENTRY = 110,
   /**
    * text input component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4005,6 +3093,7 @@ declare enum AccessibilityRoleType {
   TEXT_INPUT = 111,
   /**
    * text picker component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4015,6 +3104,7 @@ declare enum AccessibilityRoleType {
   TEXT_PICKER = 112,
   /**
    * text timer component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4025,6 +3115,7 @@ declare enum AccessibilityRoleType {
   TEXT_TIMER = 113,
   /**
    * text area component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4035,6 +3126,7 @@ declare enum AccessibilityRoleType {
   TEXT_AREA = 114,
   /**
    * text field component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4045,6 +3137,7 @@ declare enum AccessibilityRoleType {
   TEXT_FIELD = 115,
   /**
    * time picker component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4055,6 +3148,7 @@ declare enum AccessibilityRoleType {
   TIME_PICKER = 116,
   /**
    * title bar component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4065,6 +3159,7 @@ declare enum AccessibilityRoleType {
   TITLE_BAR = 117,
   /**
    * toggler component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4075,6 +3170,7 @@ declare enum AccessibilityRoleType {
   TOGGLER = 118,
   /**
    * uiextensioncomponent component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4085,6 +3181,7 @@ declare enum AccessibilityRoleType {
   UI_EXTENSION_COMPONENT = 119,
   /**
    * video component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4095,6 +3192,7 @@ declare enum AccessibilityRoleType {
   VIDEO = 120,
   /**
    * water flow component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4105,6 +3203,7 @@ declare enum AccessibilityRoleType {
   WATER_FLOW = 121,
   /**
    * web component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4115,6 +3214,7 @@ declare enum AccessibilityRoleType {
   WEB = 122,
   /**
    * xcomponent component type
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4125,6 +3225,7 @@ declare enum AccessibilityRoleType {
   XCOMPONENT = 123,
   /**
    * none component type: screen reader will not broadcast the component type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4136,8 +3237,9 @@ declare enum AccessibilityRoleType {
 }
 
 /**
- * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component is focused
- * @typedef {function} AccessibilityFocusCallback
+ * Defines the callback type used in accessibility focus. The value of isFocus indicates whether the current component 
+ * is focused
+ *
  * @param {boolean} isFocus - if component is focused,isFocus will be true. else isFocus is false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4150,7 +3252,7 @@ declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
 
 /**
  * Enum for accessibility action type
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4160,30 +3262,32 @@ declare type AccessibilityFocusCallback = (isFocus: boolean) => void;
  */
 declare enum AccessibilityAction {
   /**
-  * undefined action type
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * undefined action type
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
   UNDEFINED_ACTION = 0,
   /**
-  * accessibility click action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * accessibility click action
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
   ACCESSIBILITY_CLICK = 1,
 }
 
 /**
  * Enum for the result of accessibility action intercept function
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4193,43 +3297,47 @@ declare enum AccessibilityAction {
  */
 declare enum AccessibilityActionInterceptResult {
   /**
-  * intercept the accessibility action
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * intercept the accessibility action
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
   ACTION_INTERCEPT = 0,
   /**
-  * the accessibility action can be continued
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * the accessibility action can be continued
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
   ACTION_CONTINUE = 1,
   /**
-  * the accessibility action need to bubble up for execution
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * the accessibility action need to bubble up for execution
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 20 dynamic
+   */
   ACTION_RISE = 2,
 }
 
 /**
  * Defines the callback type used in accessibility action intercept.
  * The value of action indicates the accessibility action type.
- * @typedef { function } AccessibilityActionInterceptCallback
+ *
  * @param { AccessibilityAction } action - the enum of accessibility action type.
- * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or bubbling up
+ * @returns { AccessibilityActionInterceptResult } the result of continuing to execute the action or interrupting it or
+ *     bubbling up
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5316,84 +4424,30 @@ declare interface ScaleOptions {
  */
 declare interface VerticalAlignParam {
   /**
-   * Specifies the anchor component.
-   *
-   * @type { ?string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies the anchor component.
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies the anchor component.
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Specifies the anchor component
-   *
+   * 
    * Anonymous Object Rectification
    *
-   * @type { string } anchor
+   * @type { ?string } anchor [since 9 - 9]
+   * @type { string } anchor [since 10]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   anchor: string;
   
   /**
    * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
-   * @type { VerticalAlign }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the vertical alignment relative to the anchor component.
-   *
+   * 
    * Anonymous Object Rectification
    *
-   * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   align: VerticalAlign;
 }
@@ -5401,7 +4455,6 @@ declare interface VerticalAlignParam {
 /**
  * Defines the horizontal align rule of relative container.
  *
- * @interface HorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5411,83 +4464,28 @@ declare interface VerticalAlignParam {
  */
 declare interface HorizontalAlignParam {
   /**
-   * Specifies the anchor component.
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies the anchor component.
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies the anchor component.
-   *
-   * @type { string } anchor
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Specifies the anchor component
-   *
+   * 
    * Anonymous Object Rectification
-   * @type { string } anchor
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   anchor: string;
 
   /**
    * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
-   * @type { HorizontalAlign } align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the horizontal alignment relative to the anchor component.
-   *
+   * 
    * Anonymous Object Rectification
    *
-   * @type { HorizontalAlign } align
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   align: HorizontalAlign;
 }
@@ -5604,7 +4602,6 @@ declare interface AlignRuleOption {
 /**
  * Defines the localized horizontal align param of relative container.
  *
- * @interface LocalizedHorizontalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5615,7 +4612,6 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5627,7 +4623,6 @@ declare interface LocalizedHorizontalAlignParam {
   /**
    * Horizontal alignment mode relative to the anchor component.
    *
-   * @type { HorizontalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5640,7 +4635,6 @@ declare interface LocalizedHorizontalAlignParam {
 /**
  * Defines the localized vertical align param of relative container.
  *
- * @interface LocalizedVerticalAlignParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5651,7 +4645,6 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * ID of the component that serves as the anchor.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5663,7 +4656,6 @@ declare interface LocalizedVerticalAlignParam {
   /**
    * Vertical alignment mode relative to the anchor component.
    *
-   * @type { VerticalAlign }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5676,7 +4668,6 @@ declare interface LocalizedVerticalAlignParam {
 /**
  * Defines the Localized align rule options of relative container.
  *
- * @interface LocalizedAlignRuleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5685,9 +4676,9 @@ declare interface LocalizedVerticalAlignParam {
  */
 declare interface LocalizedAlignRuleOptions {
   /**
-   * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal direction.
+   * Left alignment with left-to-right scripts and right alignment with right-to-left scripts in the horizontal 
+   * direction.
    *
-   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5697,9 +4688,9 @@ declare interface LocalizedAlignRuleOptions {
   start?: LocalizedHorizontalAlignParam;
 
   /**
-   * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal direction.
+   * Right alignment with left-to-right scripts and left alignment with right-to-left scripts in the horizontal 
+   * direction.
    *
-   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5711,7 +4702,6 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Center alignment in the horizontal direction.
    *
-   * @type { ?LocalizedHorizontalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5723,7 +4713,6 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Top alignment in the vertical direction.
    *
-   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5735,7 +4724,6 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Bottom alignment in the vertical direction.
    *
-   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5747,7 +4735,6 @@ declare interface LocalizedAlignRuleOptions {
   /**
    * Center alignment in the vertical direction.
    *
-   * @type { ?LocalizedVerticalAlignParam }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5760,7 +4747,6 @@ declare interface LocalizedAlignRuleOptions {
    * Offset of the component under the anchor constraints.
    * <br>The value is the ratio of the distance to the left/upper anchor to the total distance between anchors.
    *
-   * @type { ?Bias }
    * @default {horizontal:0.5,vertical:0.5}
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5774,7 +4760,6 @@ declare interface LocalizedAlignRuleOptions {
 /**
  * Enumerates the chain styles in relative container.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -6338,7 +5323,7 @@ declare class DrawModifier {
    * drawforeground Method. This method is executed after drawing the associated Node and its children.
    * It allows you to perform additional drawing operations on top of the already rendered content.
    * This can be useful for adding visual elements that should appear above the main content.
-   * 
+   *
    * @param { DrawContext } drawContext - The drawContext used to draw.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6350,10 +5335,12 @@ declare class DrawModifier {
 
   /**
    * Draws content in the overlay layer after the associated Node and all its children have been drawn.
-   *
+   * 
    * Custom drawing consists of five layers: Behind, Content, Front, Foreground, and Overlay.
+   * 
    * - The Foreground and Overlay layers are drawn after child nodes.
    * - The Overlay layer differs from Foreground in that it can draw outside the bounds of the component.
+   *
    * @param { DrawContext } drawContext - The drawContext used to draw
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -6612,205 +5599,112 @@ declare class TransitionEffect<
 /**
  * Define Preview property
  *
- * @interface PreviewParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
+ * @crossplatform [since 11]
  * @form
- * @since 9
- */
-/**
- * Define Preview property
- *
- * @interface PreviewParams
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 interface PreviewParams {
   /**
    * Define Preview title
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview title
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   title?: string;
 
   /**
    * Define Preview width
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview width
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   width?: number;
 
   /**
    * Define Preview height
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview height
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   height?: number;
 
   /**
    * Define Preview locale
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview locale
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   locale?: string;
 
   /**
    * Define Preview colorMode
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview colorMode
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   colorMode?: string;
 
   /**
    * Define Preview deviceType
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview deviceType
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   deviceType?: string;
 
   /**
    * Define Preview dpi
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview dpi
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   dpi?: number;
 
   /**
    * Define Preview orientation
    *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview orientation
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   orientation?: string;
 
   /**
    * Define Preview roundScreen
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 11]
    * @form
-   * @since 9
-   */
-  /**
-   * Define Preview roundScreen
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   roundScreen?: boolean;
 }
@@ -6818,77 +5712,29 @@ interface PreviewParams {
 /**
  * ItemDragInfo object description
  *
- * @interface ItemDragInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * ItemDragInfo object description
- *
- * @interface ItemDragInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * ItemDragInfo object description
- *
- * @interface ItemDragInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface ItemDragInfo {
   /**
    * Obtains the X coordinate of the drag window, in vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Obtains the X coordinate of the drag window, in vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the X coordinate of the drag window, in vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   x: number;
 
   /**
    * Obtains the Y coordinate of the drag window, in vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Obtains the Y coordinate of the drag window, in vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the Y coordinate of the drag window, in vp.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   y: number;
 }
@@ -7148,53 +5994,14 @@ declare function animateToImmediately(value: AnimateParam, event: () => void): v
  * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a value in vp units to a value in px.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#vp2px
  */
@@ -7206,53 +6013,14 @@ declare function vp2px(value: number): number;
  * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a number in units of px to a number in units of vp.
- * By default, the virtual pixel ratio of the screen where the current UI instance is located is used for conversion.
- * If no UI instance is available, the virtual pixel ratio of the default screen is used instead.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#px2vp
  */
@@ -7262,47 +6030,14 @@ declare function px2vp(value: number): number;
  * Converts a number in fp units to a number in px.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a number in fp units to a number in px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a number in fp units to a number in px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a number in fp units to a number in px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#fp2px
  */
@@ -7312,47 +6047,14 @@ declare function fp2px(value: number): number;
  * Converts a number in units of px to a number in units of fp.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a number in units of px to a number in units of fp.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a number in units of px to a number in units of fp.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a number in units of px to a number in units of fp.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#px2fp
  */
@@ -7362,47 +6064,14 @@ declare function px2fp(value: number): number;
  * Converts a number in units of lpx to a number in units of px.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a number in units of lpx to a number in units of px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a number in units of lpx to a number in units of px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a number in units of lpx to a number in units of px.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#lpx2px
  */
@@ -7412,47 +6081,14 @@ declare function lpx2px(value: number): number;
  * Converts a number in units of px to a number in units of lpx.
  *
  * @param { number } value
- * Value range of value: (-∞, +∞).
+ *     Value range of value: (-∞, +∞).
  * @returns { number }
- * Value range of the return value: (-∞, +∞).
+ *     Value range of the return value: (-∞, +∞).
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Converts a number in units of px to a number in units of lpx.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Converts a number in units of px to a number in units of lpx.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Converts a number in units of px to a number in units of lpx.
- *
- * @param { number } value
- * Value range of value: (-∞, +∞).
- * @returns { number }
- * Value range of the return value: (-∞, +∞).
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 18
  * @useinstead ohos.arkui.UIContext.UIContext#px2lpx
  */
@@ -7717,132 +6353,54 @@ declare enum SourceTool {
 /**
  * Defines the Border Image Repeat Mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @crossplatform [since 10]
  * @form
- * @since 9
- */
-/**
- * Defines the Border Image Repeat Mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Border Image Repeat Mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum RepeatMode {
-  /**
-   * Repeat mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Repeat mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
   /**
    * The source image's slices are tiled. Tiles beyond the border box will be clipped.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Repeat,
 
   /**
-   * Stretch mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Stretch mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * The source image's slices are stretched to fill the border box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Stretch,
 
   /**
-   * Round mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Round mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * The source image's slices are tiled to fill the border box. Tiles may be compressed when needed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Round,
 
   /**
-   * Space mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Space mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * The source image's slices are tiled to fill the border box. Extra space will be distributed in between tiles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Space,
 }
@@ -8014,7 +6572,6 @@ declare enum BlurStyle {
 /**
  * Enumerates the policies for activating the blur style.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8123,7 +6680,7 @@ declare enum AnchoredColorMode {
 
  /**
   * Defines the mode which is follow up with target.
-  * 
+  *
   * @syscap SystemCapability.ArkUI.ArkUI.Full
   * @stagemodelonly
   * @crossplatform
@@ -8600,7 +7157,6 @@ declare interface PickerTextStyle {
 /**
  * Provide an interface for the button style of picker
  *
- * @interface PickerDialogButtonStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -8611,7 +7167,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button type.
    *
-   * @type { ?ButtonType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8623,7 +7178,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button style.
    *
-   * @type { ?ButtonStyleMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8635,7 +7189,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button role.
    *
-   * @type { ?ButtonRole }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8647,7 +7200,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button text size.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8659,7 +7211,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button text color.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8671,7 +7222,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font weight.
    *
-   * @type { ?(FontWeight | number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8683,7 +7233,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font style.
    *
-   * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8695,7 +7244,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button font family.
    *
-   * @type { ?(Resource | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8707,7 +7255,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button background color.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8719,7 +7266,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Describes the button border radius.
    *
-   * @type { ?(Length | BorderRadiuses) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8731,7 +7277,6 @@ declare interface PickerDialogButtonStyle {
   /**
    * Define whether the button default to responding to the Enter key
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -8993,78 +7538,30 @@ declare enum ShadowStyle {
 /**
  * Defines the options of Shadow.
  *
- * @interface MultiShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the options of Shadow.
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Defines the options of Shadow.
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MultiShadowOptions {
   /**
    * Shadow blur radius.
    * Unit: vp.
+   * 
    * <p>**NOTE**:
    * <br>A value less than or equal to 0 is handled as the default value.
    * </p>
    *
-   * @type { ?(number | Resource) }
-   * @default 5
+   * @default 5 [since 10 - 10]
+   * @default 20 [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Shadow blur radius.
-   * Unit: vp.
-   * <p>**NOTE**:
-   * <br>A value less than or equal to 0 is handled as the default value.
-   * </p>
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Shadow blur radius.
-   * Unit: vp.
-   * <p>**NOTE**:
-   * <br>A value less than or equal to 0 is handled as the default value.
-   * </p>
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radius?: number | Resource;
 
@@ -9156,7 +7653,7 @@ declare interface MultiShadowOptions {
  */
 declare enum SafeAreaType {
   /**
-   * Default area of the system, including the status bar and navigation bar.
+   * Default non-safe area of the system, including the status bar and navigation bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9200,7 +7697,7 @@ declare enum SafeAreaType {
  */
 declare enum SafeAreaEdge {
   /**
-   * Top edge of the safe area.
+   * Top edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9211,7 +7708,7 @@ declare enum SafeAreaEdge {
   TOP = 0,
 
   /**
-   * Bottom edge of the safe area.
+   * Bottom edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9222,7 +7719,7 @@ declare enum SafeAreaEdge {
   BOTTOM = 1,
 
   /**
-   * Start edge of the safe area.
+   * Start edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9233,7 +7730,7 @@ declare enum SafeAreaEdge {
   START = 2,
 
   /**
-   * End edge of the safe area.
+   * End edge.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9270,9 +7767,8 @@ declare enum LayoutSafeAreaType {
 }
 
 /**
- *  Define the edges for expanding the safe area in layout.
+ * Define the edges for expanding the safe area in layout.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10281,7 +8777,6 @@ declare interface HoverEvent extends BaseEvent {
   /**
    * Y coordinate of the point relative to the global display.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10707,8 +9202,6 @@ declare interface MouseHistoricalPoint {
 /**
  * The accessibility hover action triggers this method invocation.
  *
- * @extends BaseEvent
- * @typedef AccessibilityHoverEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -10719,7 +9212,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Type of the accessibility hover event.
    *
-   * @type { AccessibilityHoverType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10731,7 +9223,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the event hit element.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10743,7 +9234,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the event hit element.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10755,7 +9245,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the device screen.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10767,7 +9256,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the device screen.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10779,7 +9267,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * X coordinate of the accessibility hover point relative to the left edge of the current window.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -10791,7 +9278,6 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   /**
    * Y coordinate of the accessibility hover point relative to the upper edge of the current window.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -11576,7 +10062,6 @@ declare type TransitionFinishCallback = (transitionIn: boolean) => void;
  * Defines the callback type used in onNeedSoftkeyboard.
  * Called when component is focused, the return value indicates whether keyboard is needed.
  *
- * @typedef { function } OnNeedSoftkeyboardCallback
  * @returns { boolean } True means keyboard is needed, false means keyboard is not needed.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -11623,30 +10108,15 @@ declare type GestureCollectInterceptCallback = (recognizers: Array<GestureRecogn
  * Defines the PixelMap type object for ui component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the PixelMap type object for ui component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the PixelMap type object for ui component.
- *
- * @typedef { import('../api/@ohos.multimedia.image').default.PixelMap } PixelMap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare type PixelMap = import('../api/@ohos.multimedia.image').default.PixelMap;
 
 /**
  * pixelmap object with release function.
  *
- * @interface PixelMapMock
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
@@ -13132,92 +11602,50 @@ declare interface CrownEvent {
 /**
  * Overlay module options
  *
- * @interface BindOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Overlay module options
- *
- * @interface BindOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface BindOptions {
   /**
    * Background color of the sheet.
    * <br>Default value: **Color.White**.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Background color of the sheet.
-   * <br>Default value: **Color.White**.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   backgroundColor?: ResourceColor;
 
   /**
    * Callback for when the sheet is displayed (after the animation ends).
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback for when the sheet is displayed (after the animation ends).
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onAppear?: () => void;
 
   /**
    * Callback for when the sheet disappears (after the animation ends).
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback for when the sheet disappears (after the animation ends).
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onDisappear?: () => void;
 
   /**
    * Callback for when the sheet is about to be displayed (before the animation starts).
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13229,7 +11657,6 @@ declare interface BindOptions {
   /**
    * Callback function before overlay popAnimation starts.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13447,7 +11874,6 @@ declare enum SheetType {
 /**
  * Define the display mode of the sheet.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13491,7 +11917,6 @@ declare enum SheetMode {
 /**
  * Define the scroll size mode of the sheet.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13525,7 +11950,6 @@ declare enum ScrollSizeMode {
 /**
  * Define the mode of sheet how to avoid keyboard.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13616,7 +12040,6 @@ declare interface SheetDismiss {
 /**
  * Component sheet dismiss
  *
- * @interface DismissSheetAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13628,7 +12051,6 @@ declare interface DismissSheetAction {
   /**
    * Defines sheet dismiss function
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13640,7 +12062,6 @@ declare interface DismissSheetAction {
   /**
    * Dismiss reason type.
    *
-   * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -13653,7 +12074,6 @@ declare interface DismissSheetAction {
 /**
  * Defines sheet spring back action
  *
- * @interface SpringBackAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -13664,7 +12084,6 @@ declare interface SpringBackAction {
   /**
    * Defines spring back function
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14253,72 +12672,46 @@ declare interface StateStyles {
 }
 
 /**
- * Defines the options of popup message.
+ * Describes the popup message text style.
  *
- * @interface PopupMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the options of popup message.
- *
- * @interface PopupMessageOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface PopupMessageOptions {
   /**
-   * Sets the color of popup text.
+   * Text color of the popup message.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the color of popup text.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   textColor?: ResourceColor;
 
   /**
-   * Sets the font of popup text.
+   * Font settings of the popup message.
+   * 
+   * **NOTE**
+   * 
+   * 1. Setting **family** is not supported.
+   * 2. The **weight** attribute in **Font** does not support the number type.
    *
-   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the font of popup text.
-   *
-   * @type { ?Font }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   font?: Font;
 }
 
 /**
- * Dismiss reason type.
+ * Enumerates the reasons for popup dismissal.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14327,70 +12720,73 @@ declare interface PopupMessageOptions {
  */
 declare enum DismissReason {
   /**
-  * Touching the Back button, swiping left or right on the screen, or pressing the Esc key.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Touching the **Back** button, swiping left or right on the screen, or pressing the **Esc** key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   PRESS_BACK = 0,
 
   /**
-  * Touching the mask.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Touching the mask.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   TOUCH_OUTSIDE = 1,
 
   /**
-  * Touching the Close button.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Touching the close button.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   CLOSE_BUTTON = 2,
 
   /**
-  * Slide down
-  * <p><strong>NOTE</strong>:
-  * <br>This API is effective only in sheet transition.
-  * </p>
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Swiping down.
+   * 
+   * **NOTE**
+   * 
+   * This API is effective only in [sheet transition]{@link common}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   SLIDE_DOWN = 3,
 
   /**
-  * Slide, not slide down.
-  * Default means slide right, after mirroring it means slide left.
-  * Choosing to slide left or slide right is not supported.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 20 dynamic
-  */
+   * Swiping left or right on the screen. By default, swiping right dismisses the popup, while swiping left is used in 
+   * the mirror scenario. This setting is not user-defined.
+   * 
+   * **NOTE**
+   * 
+   * This API is effective only in [sheet transition]{@link common}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
   SLIDE = 4,
 }
 
 /**
- * Component popup dismiss
+ * Provides information about the dismissal of the popup.
  *
- * @interface DismissPopupAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14399,9 +12795,8 @@ declare enum DismissReason {
  */
 declare interface DismissPopupAction {
   /**
-   * Defines popup dismiss function
+   * Callback for dismissing the popup. This API is called only when the popup needs to be dismissed.
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14411,9 +12806,8 @@ declare interface DismissPopupAction {
   dismiss: Callback<void>;
 
   /**
-   * Defines popup dismiss reason
+   * Reason why the popup is dismissed.
    *
-   * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14424,9 +12818,8 @@ declare interface DismissPopupAction {
 }
 
 /**
- * Popup state change param
+ * Display state of the popup.
  *
- * @interface PopupStateChangeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14435,10 +12828,9 @@ declare interface DismissPopupAction {
  */
 declare interface PopupStateChangeParam {
   /**
-   * is Visible.
-   * Anonymous Object Rectification.
+   * Display state of the popup. It returns **true** when the popup transitions from closed to open, and **false** when 
+   * the popup transitions from open to closed.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14449,10 +12841,9 @@ declare interface PopupStateChangeParam {
 }
 
 /**
- * Popup state change callback
+ * Represents the callback invoked when the popup state changes.
  *
- * @typedef { function } PopupStateChangeCallback
- * @param { PopupStateChangeParam } event - The parameter of state change callback.
+ * @param { PopupStateChangeParam } event - Display state of the popup.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14462,9 +12853,8 @@ declare interface PopupStateChangeParam {
 declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 /**
- * Popup mask type
+ * Sets the color of the mask.
  *
- * @interface PopupMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14473,10 +12863,8 @@ declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
  */
 declare interface PopupMaskType {
   /**
-   * Color.
-   * Anonymous Object Rectification.
+   * Color of the mask.
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14487,9 +12875,8 @@ declare interface PopupMaskType {
 }
 
 /**
- * Popup border LinearGradient
+ * Sets the color and direction of the linear gradient for the outlines.
  *
- * @interface PopupBorderLinearGradient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14498,9 +12885,14 @@ declare interface PopupMaskType {
  */
 declare interface PopupBorderLinearGradient {
   /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   * Direction of the linear gradient.
+   * 
+   * Default value: **GradientDirection.Bottom**
+   * 
+   * **NOTE**
+   * 
+   * When the direction is set to **GradientDirection.None**, the default value is used.
    *
-   * @type { ?GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14510,10 +12902,24 @@ declare interface PopupBorderLinearGradient {
   direction?: GradientDirection;
 
   /**
-   * Defines color description for gradients.
-   * number: The position of the color stop. The value range is 0 to 1.
+   * Array of color stops, each of which consists of a color and its stop position. Invalid colors are automatically 
+   * skipped.
+   * 
+   * **NOTE**
+   * 
+   * For details about how to set colors, see [ResourceColor]{@link ResourceColor}. Colors that are not within the types
+   * of [ResourceColor]{@link ResourceColor} are invalid.
+   * 
+   * If the color in the array is set to **undefined** or **null**, the default color is black.
+   * 
+   * When using the **colors** parameter, take note of the following:
+   * 
+   * [ResourceColor]{@link ResourceColor} indicates the color, and **number** indicates the color's position, which 
+   * ranges from 0 to 1.0: **0** indicates the start of the gradient color container, and **1.0** indicates the end of 
+   * the container. To create a gradient with multiple color stops, you are advised to set the **number** values in 
+   * ascending order. If a value of **number** in an array is smaller than that in the previous one, the value of 
+   * **number** in the previous array is used.
    *
-   * @type { Array<[ResourceColor, number]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14524,9 +12930,13 @@ declare interface PopupBorderLinearGradient {
 }
 
 /**
- * Popup common options
+ * Configures the parameters of a popup. You can use the 
+ * [getPromptAction()](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getpromptaction) method in 
+ * [UIContext]{@link @ohos.arkui.UIContext} to obtain the [PromptAction]{@link @ohos.arkui.UIContext} object, and then 
+ * call the attributes of **options** when 
+ * [openPopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#openpopup18) or 
+ * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) is called.
  *
- * @interface PopupCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14535,9 +12945,11 @@ declare interface PopupBorderLinearGradient {
  */
 declare interface PopupCommonOptions {
   /**
-   * placement of popup.
+   * Preferred position of the popup. If the set position is insufficient for holding the popup, it will be 
+   * automatically adjusted.
+   * 
+   * Default value: **Placement.Bottom**
    *
-   * @type { ?Placement }
    * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14548,9 +12960,9 @@ declare interface PopupCommonOptions {
   placement?: Placement;
 
   /**
-   * Set the background color of the popup.
+   * Color of the popup. To remove the background blur, set **backgroundBlurStyle** to **BlurStyle.NONE**. Default 
+   * value: [TRANSPARENT]{@link Color} plus [COMPONENT_ULTRA_THICK]{@link BlurStyle}
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14560,9 +12972,14 @@ declare interface PopupCommonOptions {
   popupColor?: ResourceColor;
 
   /**
-   * whether show arrow
+   * Whether to display the arrow. The value **true** means to display the arrow, and **false** means the opposite.
+   * 
+   * If the position set for the popup is not large enough, the arrow will not be displayed. For example, if 
+   * **placement** is set to **Left**, and the popup height is less than the sum of the arrow width (32 vp) and twice 
+   * the popup corner radius (48 vp), that is, 80 vp, the arrow will not be displayed.
+   * 
+   * Default value: **true**
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14573,9 +12990,11 @@ declare interface PopupCommonOptions {
   enableArrow?: boolean;
 
   /**
-   * Whether hide popup when click mask
+   * Whether to automatically dismiss the popup when there is a page operation. The value **true** means to 
+   * automatically dismiss the popup when there is a page operation, and **false** means the opposite.
+   * 
+   * Default value: **true**
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14586,9 +13005,13 @@ declare interface PopupCommonOptions {
   autoCancel?: boolean;
 
   /**
-   * on State Change
+   * Represents the callback invoked when the popup state changes.
+   * 
+   * **NOTE**
+   * 
+   * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) cannot be used for
+   * update.
    *
-   * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14598,9 +13021,26 @@ declare interface PopupCommonOptions {
   onStateChange?: PopupStateChangeCallback;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Offset of the popup arrow relative to the popup.
+   * 
+   * When the arrow is at the top or bottom of the popup: The value **0** indicates that the arrow is located on the 
+   * leftmost, and any other value indicates the distance from the arrow to the leftmost; the arrow is centered by 
+   * default.
+   * 
+   * When the arrow is on the left or right side of the popup: The value indicates the distance from the arrow to the 
+   * top; the arrow is centered by default.
+   * 
+   * When the popup is displayed on either edge of the screen, it automatically adjusts horizontally. When the value is 
+   * **0**, the arrow always points to the bound component.
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. If **arrowOffset** is not set, the distance between the popup arrow and the four corners must be no less than the corner radius.
+   * 2. If **arrowPointPosition** is set, **arrowOffset** does not take effect.
+   * 3. Percentage values are not supported.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14610,9 +13050,16 @@ declare interface PopupCommonOptions {
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * Whether to show the popup in a subwindow. The value **true** means to show the popup in a subwindow, and **false** 
+   * means to show the popup in the main window.
+   * 
+   * Default value: **false**
+   * 
+   * **NOTE**
+   * 
+   * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) cannot be used for
+   * update.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14623,11 +13070,10 @@ declare interface PopupCommonOptions {
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * Whether to apply a mask with the specified color to the popup. The value **false** means that no mask is applied, 
+   * **true** means that a transparent mask is applied, and **PopupMaskType** means that a mask with the specified color
+   * is applied. Default value: **true**
    *
-   * @type { ?(boolean | PopupMaskType) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14637,9 +13083,12 @@ declare interface PopupCommonOptions {
   mask?: boolean | PopupMaskType;
 
   /**
-   * Sets the space of between the popup and target.
+   * Spacing between the popup and the host node. Percentage values are not supported.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14649,9 +13098,16 @@ declare interface PopupCommonOptions {
   targetSpace?: Length;
 
   /**
-   * Sets the position offset of the popup.
+   * Offset of the popup relative to the display position specified by **placement**.
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
+   * 
+   * Default value: **{x:0, y:0}**
+   * 
+   * Unit: vp
    *
-   * @type { ?Position }
    * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14662,9 +13118,8 @@ declare interface PopupCommonOptions {
   offset?: Position;
 
   /**
-   * Set the width of the popup.
+   * Width of the popup.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14674,9 +13129,11 @@ declare interface PopupCommonOptions {
   width?: Dimension;
 
   /**
-   * The position of the sharp corner of popup.
+   * Position of the tooltip arrow relative to its parent component. Available positions are **Start**, **Center**, and 
+   * **End**, in both vertical and horizontal directions. All these positions are within the parent component area.
+   * 
+   * Default value: **ArrowPointPosition.CENTER**
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14686,9 +13143,17 @@ declare interface PopupCommonOptions {
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup rounded 
+   * corner, the arrow is not drawn.
+   * 
+   * Default value: **16**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 16.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14699,9 +13164,16 @@ declare interface PopupCommonOptions {
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * Arrow height.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 8.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14712,9 +13184,12 @@ declare interface PopupCommonOptions {
   arrowHeight?: Dimension;
 
   /**
-   * The round corners of the popup.
+   * Rounded corner radius of the popup.
+   * 
+   * Default value: **20**
+   * 
+   * Unit: vp
    *
-   * @type { ?Dimension }
    * @default 20.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14725,9 +13200,10 @@ declare interface PopupCommonOptions {
   radius?: Dimension;
 
   /**
-   * The style of popup Shadow.
+   * Popup shadow.
+   * 
+   * Default value: **ShadowStyle.OUTER_DEFAULT_MD**
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14738,9 +13214,10 @@ declare interface PopupCommonOptions {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines popup background blur Style
+   * Background blur style of the popup.
+   * 
+   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14751,9 +13228,17 @@ declare interface PopupCommonOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Set popup focusable
+   * Whether the popup obtains focus when displayed.
+   * 
+   * **true**: The popup can obtain the focus; **false**: The popup cannot obtain the focus.
+   * 
+   * Default value: **false**
+   * 
+   * **NOTE**
+   * 
+   * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) cannot be used for
+   * update.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14764,9 +13249,15 @@ declare interface PopupCommonOptions {
   focusable?: boolean;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * Transition animations for the entrance and exit of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If this parameter is not set, the default effect is used.
+   * 2. Touching the back button during the entrance animation interrupts it and starts the exit animation. The final effect is one obtained after the curves of the entrance and exit animations are combined.
+   * 3. Touching the back button during the exit animation does not affect the animation playback; the back button is unresponsive.
+   * 4. [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) cannot be used for update.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14776,10 +13267,17 @@ declare interface PopupCommonOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss.
-   * Use boolean to respond all interactive dismiss event. Use Callback to customize which event should be responded.
+   * Interactive dismissal behavior. The default value is **true**, meaning that the popup responds to clicks, swipes (
+   * left or right), and the back button.
+   * 
+   * 1. For the boolean type, if this parameter is set to **false**, the popup ignores clicks, swipes, back button, route navigation, and **Esc** key events, and can only be dismissed by setting the **show** parameter to **false**; if this parameter is set to **true**, the popup responds to dismissal events.
+   * 2. If this parameter is set to a function, the dismissal event is intercepted and the callback function is executed. For swipes, back button, route navigation, and the **Esc** key, the value of **reason** returned in the callback function is **PRESS_BACK**. For clicks, the value is **TOUCH_OUTSIDE**.
+   * 
+   * **NOTE**
+   * 
+   * 1. No more **onWillDismiss** callback is allowed in an **onWillDismiss** callback.
+   * 2. [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18) cannot be used for update.
    *
-   * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14789,9 +13287,18 @@ declare interface PopupCommonOptions {
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
   /**
-   * Determine if it is compatible popup's half folded.
+   * Whether the popup responds when the device is in hover mode (semi-folded state), that is, whether it triggers 
+   * avoidance of the crease area in hover mode.
+   * 
+   * Default value: **false** (**true** for 2-in-1 devices by default). If this parameter is not set or set to an 
+   * invalid value, the default value is used.
+   * 
+   * **NOTE**
+   * 
+   * 1. If the popup position is within the crease area in hover mode, it will not respond in hover mode.
+   * 2. This parameter is supported on 2-in-1 devices since API version 20.
+   * 3. This parameter only takes effect in window waterfall mode for 2-in-1 devices.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14802,9 +13309,14 @@ declare interface PopupCommonOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * Whether the popup aligns with the transformed position of the target when the target component or its parent 
+   * container has transformations (such as rotation and scaling).
+   * 
+   * **true**: The popup aligns with the transformed position of the target; **false**: The popup does not track such 
+   * transformations, which may result in incorrect display.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14815,9 +13327,10 @@ declare interface PopupCommonOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * Whether the popup covers the pointing component during avoidance.
+   * 
+   * Default value: **AvoidanceMode.COVER_TARGET**
    *
-   * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14828,9 +13341,18 @@ declare interface PopupCommonOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * Width of the outer outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If the outer outline is not set, this parameter must be used together with **outlineLinearGradient**.
+   * 3. For double outlines, it is recommended that the outer outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14840,9 +13362,18 @@ declare interface PopupCommonOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * Width of the inner outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If no inner outline is set, this parameter must be used together with **borderLinearGradient**.
+   * 3. For double outlines, it is recommended that the inner outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14852,9 +13383,13 @@ declare interface PopupCommonOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * Linear gradient color of the outer outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **outlineLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the outer outline does not take effect.
+   * 2. When **outlineLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14864,9 +13399,13 @@ declare interface PopupCommonOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * Linear gradient color of the inner outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **borderLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the inner outline does not take effect.
+   * 2. When **borderLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14877,8 +13416,7 @@ declare interface PopupCommonOptions {
 
   /**
    * Define the popup theme color mode.
-   * 
-   * @type { ?AnchoredColorMode }
+   *
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -14892,10 +13430,8 @@ declare interface PopupCommonOptions {
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -14927,7 +13463,6 @@ declare interface PopupCommonOptions {
   /**
    * Defines the display level of the popup.
    *
-   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14938,9 +13473,8 @@ declare interface PopupCommonOptions {
 }
 
 /**
- * Defines the Tips options.
+ * Defines the parameters of the tooltip.
  *
- * @interface TipsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -14950,9 +13484,12 @@ declare interface PopupCommonOptions {
 declare interface TipsOptions {
 
   /**
-   * Defines the delay time for appearing.
+   * Delay before the tooltip appears. The maximum delay is 4000 ms. Values exceeding 4000 ms are capped at 4000 ms.
+   * 
+   * Default value: **700**.
+   * 
+   * Unit: ms.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14962,9 +13499,12 @@ declare interface TipsOptions {
   appearingTime?: number;
 
   /**
-   * Defines the delay time for disappearing.
+   * Delay before the tooltip disappears. The maximum delay is 4000 ms. Values exceeding 4000 ms are capped at 4000 ms.
+   * 
+   * Default value: **300**.
+   * 
+   * Unit: ms.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14974,9 +13514,13 @@ declare interface TipsOptions {
   disappearingTime?: number;
 
   /**
-   * Define the delay time for the appearance of continuous operations.
+   * Delay before the tooltip appears when multiple tooltips are displayed consecutively. The maximum delay is 4000 ms. 
+   * Values exceeding 4000 ms are capped at 4000 ms.
+   * 
+   * Default value: **300**.
+   * 
+   * Unit: ms.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14986,9 +13530,13 @@ declare interface TipsOptions {
   appearingTimeWithContinuousOperation?: number;
 
   /**
-   * Define the delay time for the disappearance of continuous operations.
+   * Delay before the tooltip disappears when multiple tooltips are displayed consecutively. The maximum delay is 4000 
+   * ms. Values exceeding 4000 ms are capped at 4000 ms.
+   * 
+   * Default value: **0**.
+   * 
+   * Unit: ms.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -14998,9 +13546,17 @@ declare interface TipsOptions {
   disappearingTimeWithContinuousOperation?: number;
 
   /**
-   * whether show arrow
+   * Whether to display the tooltip arrow.
+   * 
+   * Default value: **true**.
+   * 
+   * **true**: yes. **false**: no.
+   * 
+   * **NOTE**
+   * 
+   * If the available space on the screen is insufficient, the tooltip will cover part of the component and the arrow 
+   * will not be displayed.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15011,9 +13567,12 @@ declare interface TipsOptions {
   enableArrow?: boolean;
 
   /**
-   * The position of the sharp corner of Tips.
+   * Position of the tooltip arrow relative to its parent component. Available positions are **Start**, **Center**, and 
+   * **End**, in both vertical and horizontal directions. These positions are within the parent component area and do 
+   * not exceed its boundaries or cover rounded corners.
+   * 
+   * Default value: **ArrowPointPosition.CENTER**.
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15023,9 +13582,17 @@ declare interface TipsOptions {
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * Width of the tooltip arrow. If the set width exceeds the length of the edge minus twice the tooltip's corner 
+   * radius, the arrow is not drawn.
+   * 
+   * Default value: **16**.
+   * 
+   * Unit: vp.
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 16.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15036,9 +13603,16 @@ declare interface TipsOptions {
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * Height of the tooltip arrow.
+   * 
+   * Default value: **8**.
+   * 
+   * Unit: vp.
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 8.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15049,9 +13623,14 @@ declare interface TipsOptions {
   arrowHeight?: Dimension;
 
   /**
-   * The position of the tips.
+   * Anchor type of the tooltip.
+   * 
+   * Default value: **TipsAnchorType.TARGET**.
+   * 
+   * **NOTE**
+   * 
+   * If the anchor type of the tooltip is **TipsAnchorType.CURSOR**, the tooltip does not display an arrow.
    *
-   * @type { ?TipsAnchorType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15073,60 +13652,33 @@ declare interface TipsOptions {
 }
 
 /**
- * Defines the popup options.
+ * Provides the configuration options for the popup.
  *
- * @interface PopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the popup options.
- *
- * @interface PopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the popup options.
- *
- * @interface PopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface PopupOptions {
   /**
-   * Information in the pop-up window.
+   * Content of the popup.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Information in the pop-up window.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Content of the popup message.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   message: string;
 
   /**
-   * placement On Top
+   * Whether to display the popup above the component. The default value is **false**. **true**: The popup is displayed 
+   * above the bound component; **false**: The popup is displayed below the bound component.
+   * 
+   * **NOTE**
+   * 
+   * This parameter is supported since API version 7 and deprecated since API version 10. You are advised to use 
+   * **placement** instead.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -15135,53 +13687,31 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * The placement of popup.
-   * Supports all positions defined in Placement.
+   * Display position of the popup relative to the host node. The default value is **Placement.Bottom**.
+   * 
+   * If both **placementOnTop** and **placement** are set, the latter prevails. If the popup cannot be completely 
+   * displayed in the specified position, the popup automatically adjusts its position to completely show itself.
    *
-   * @type { ?Placement }
    * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The placement of popup.
-   * Supports all positions defined in Placement.
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   placement?: Placement;
 
   /**
-   * The first button.
+   * Primary button.
+   * 
+   * **value**: text of the primary button in the popup.
+   * 
+   * **action**: callback function for clicking of the primary button.
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The first button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The first button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   primaryButton?: {
     /**
@@ -15238,28 +13768,16 @@ declare interface PopupOptions {
   };
 
   /**
-   * The second button.
+   * Secondary button.
+   * 
+   * **value**: text of the secondary button in the popup.
+   * 
+   * **action**: callback function for clicking of the secondary button.
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The second button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The second button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   secondaryButton?: {
     /**
@@ -15316,28 +13834,14 @@ declare interface PopupOptions {
   };
 
   /**
-   * on State Change
+   * Callback for popup visibility state changes. The parameter **isVisible** indicates the visibility of the popup. It 
+   * returns **true** when the popup transitions from closed to open, and **false** when the popup transitions from open
+   * to closed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onStateChange?: (event: {
     /**
@@ -15363,373 +13867,283 @@ declare interface PopupOptions {
   }) => void;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Offset of the popup arrow relative to the popup.
+   * 
+   * When the arrow is at the top or bottom of the popup: The value **0** indicates that the arrow is located on the 
+   * leftmost, and any other value indicates the distance from the arrow to the leftmost; the arrow is centered by 
+   * default.
+   * 
+   * When the arrow is on the left or right side of the popup: The value indicates the distance from the arrow to the 
+   * top; the arrow is centered by default.
+   * 
+   * When the popup is displayed on either edge of the screen, it automatically adjusts horizontally. When the value is 
+   * **0**, the arrow always points to the bound component.
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. If **arrowOffset** is not set, the distance between the popup arrow and the four corners must be no less than the corner radius.
+   * 2. If **arrowPointPosition** is set, **arrowOffset** does not take effect.
+   * 3. Percentage values are not supported.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * Whether the popup is displayed in the created subwindow.
+   * 
+   * **true**: The popup is displayed in the created subwindow; **false**: The popup is displayed in the corresponding 
+   * main window.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
+   * @default false [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * Whether to apply a mask with the specified color to the popup.
+   * 
+   * **true**: A transparent mask is applied; **false**: No mask is applied.
+   * 
+   * **Color**: A mask with the specified color is applied.
+   * 
+   * Default value: **true**
    *
-   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
-   *
-   * @type { ?(boolean | { color: ResourceColor }) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * Sets the options of popup message.
+   * Configuration options of the popup message.
    *
-   * @type { ?PopupMessageOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Parameters of the popup message.
-   *
-   * @type { ?PopupMessageOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   messageOptions?: PopupMessageOptions;
 
   /**
-   * Sets the space of between the popup and target.
+   * Spacing between the popup and the host node. Percentage values are not supported.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the space of between the popup and target.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   targetSpace?: Length;
 
   /**
-   * whether show arrow
+   * Whether to display the arrow.
+   * 
+   * **true**: The arrow is displayed; **false**: The arrow is not displayed.
+   * 
+   * Default value: **true**
+   * 
+   * **NOTE**
+   * 
+   * If the available space on the screen is insufficient, the popup will cover part of the component and the arrow will
+   * not be displayed.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableArrow?: boolean;
   /**
-   * Sets the position offset of the popup.
+   * Offset of the popup relative to the display position specified by **placement**.
+   * 
+   * Default value: **{x:0, y:0}**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Position }
+   * @default { x: 0, y: 0 } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the position offset of the popup.
-   *
-   * @type { ?Position }
-   * @default { x: 0, y: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Set the background color of the popup.
+   * Color of the popup. To remove the background blur, set **backgroundBlurStyle** to **BlurStyle.NONE**.
+   * 
+   * Default value: [TRANSPARENT]{@link Color} plus [COMPONENT_ULTRA_THICK]{@link BlurStyle}
    *
-   * @type { ?(Color | string | Resource | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the background color of the popup.
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   popupColor?: Color | string | Resource | number;
 
   /**
-   * Whether hide popup when click mask.
+   * Whether the popup is automatically closed when an operation is performed on the page.
+   * 
+   * **true**: The popup is automatically closed; **false**: The popup is not automatically closed.
+   * 
+   * Default value: **true**
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether hide popup when click mask.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   autoCancel?: boolean;
 
   /**
-   * Set the width of the popup.
+   * Width of the popup. If this parameter is not set or the value is invalid, the popup width is automatically adjusted
+   * to adapt to the content width.
+   * 
+   * Unit: vp
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the width of the popup.
-   *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: Dimension;
 
   /**
-   * The position of the sharp corner of popup.
+   * Position of the tooltip arrow relative to its parent component. Available positions are **Start**, **Center**, and 
+   * **End**, in both vertical and horizontal directions. All these positions are within the parent component area.
+   * 
+   * Default value: **ArrowPointPosition.CENTER**
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The position of the sharp corner of popup.
-   *
-   * @type { ?ArrowPointPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup rounded 
+   * corner, the arrow is not drawn.
+   * 
+   * Default value: **16**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 16.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The width of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 16.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * Arrow height.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
    * @default 8.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The height of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 8.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowHeight?: Dimension;
 
   /**
-   * The round corners of the popup.
+   * Rounded corner radius of the popup.
+   * 
+   * Default value: **20**
+   * 
+   * Unit: vp
    *
-   * @type { ?Dimension }
    * @default 20.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The round corners of the popup.
-   *
-   * @type { ?Dimension }
-   * @default 20.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: Dimension;
 
   /**
-   * The style of popup Shadow.
+   * Popup shadow.
+   * 
+   * Default value: **ShadowStyle.OUTER_DEFAULT_MD**
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The style of popup Shadow.
-   *
-   * @type { ?(ShadowOptions | ShadowStyle) }
-   * @default ShadowStyle.OUTER_DEFAULT_MD.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines popup background blur Style
+   * Background blur style of the popup.
+   * 
+   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines popup background blur Style
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * Transition animations for the entrance and exit of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If this parameter is not set, the default entrance and exit animations are used.
+   * 2. Touching the back button during the entrance animation interrupts it and starts the exit animation. The final effect is one obtained after the curves of the entrance and exit animations are combined.
+   * 3. Touching the back button during the exit animation does not affect the animation playback; the back button is unresponsive.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15739,9 +14153,16 @@ declare interface PopupOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss
+   * Interactive dismissal behavior. The default value is **true**, meaning that the popup responds to clicks, swipes (
+   * left or right), and the back button.
+   * 
+   * 1. For the boolean type, if this parameter is set to **false**, the popup ignores clicks, swipes, back button, route navigation, and **Esc** key events, and can only be dismissed by setting the **show** parameter to **false**; if this parameter is set to **true**, the popup responds to dismissal events.
+   * 2. If this parameter is set to a function, the dismissal event is intercepted and the callback function is executed. For swipes, back button, route navigation, and the **Esc** key, the value of **reason** returned in the callback function is **PRESS_BACK**. For clicks, the value is **TOUCH_OUTSIDE**.
+   * 
+   * **NOTE**
+   * 
+   * No more **onWillDismiss** callback is allowed in an **onWillDismiss** callback.
    *
-   * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15751,9 +14172,18 @@ declare interface PopupOptions {
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
   /**
-   * Determine if it is compatible popup's half folded.
+   * Whether the popup responds when the device is in hover mode (semi-folded state), that is, whether it triggers 
+   * avoidance of the crease area in hover mode.
+   * 
+   * Default value: **false** (**true** for 2-in-1 devices by default). If this parameter is not set or set to an 
+   * invalid value, the default value is used.
+   * 
+   * **NOTE**
+   * 
+   * 1. If the popup position is within the crease area in hover mode, it will not respond in hover mode.
+   * 2. This parameter is supported on 2-in-1 devices since API version 20.
+   * 3. This parameter only takes effect in window waterfall mode for 2-in-1 devices.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15764,9 +14194,14 @@ declare interface PopupOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * Whether the popup aligns with the transformed position of the target when the target component or its parent 
+   * container has transformations (such as rotation and scaling).
+   * 
+   * **true**: The popup aligns with the transformed position of the target; **false**: The popup does not track such 
+   * transformations, which may result in incorrect display.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15777,9 +14212,13 @@ declare interface PopupOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Define the popup avoid keyboard mode.
+   * Whether to avoid the soft keyboard. By default, the popup does not avoid the soft keyboard. When configured to 
+   * avoid the soft keyboard, if the popup display space is insufficient, the display mode of the popup changes from 
+   * being centered over the parent component to being translated and covering the parent component.. In addition, if 
+   * the popup arrow does not point to the host, the arrow will not be displayed.
+   * 
+   * Default value: **KeyboardAvoidMode.NONE**
    *
-   * @type { ?KeyboardAvoidMode }
    * @default KeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15790,9 +14229,10 @@ declare interface PopupOptions {
   keyboardAvoidMode?: KeyboardAvoidMode;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * Whether the popup covers the pointing component during avoidance.
+   * 
+   * Default value: **AvoidanceMode.COVER_TARGET**
    *
-   * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15803,9 +14243,18 @@ declare interface PopupOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * Width of the outer outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If the outer outline is not set, this parameter must be used together with **outlineLinearGradient**.
+   * 3. For double outlines, it is recommended that the outer outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15815,9 +14264,18 @@ declare interface PopupOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * Width of the inner outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If no inner outline is set, this parameter must be used together with **borderLinearGradient**.
+   * 3. For double outlines, it is recommended that the inner outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15827,9 +14285,13 @@ declare interface PopupOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * Linear gradient color of the outer outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **outlineLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the outer outline does not take effect.
+   * 2. When **outlineLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15839,9 +14301,13 @@ declare interface PopupOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * Linear gradient color of the inner outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **borderLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the inner outline does not take effect.
+   * 2. When **borderLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15852,8 +14318,7 @@ declare interface PopupOptions {
 
   /**
    * Define the popup theme color mode.
-   * 
-   * @type { ?AnchoredColorMode }
+   *
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15867,10 +14332,8 @@ declare interface PopupOptions {
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -15902,7 +14365,6 @@ declare interface PopupOptions {
   /**
    * Defines the display level of the popup.
    *
-   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -15913,98 +14375,51 @@ declare interface PopupOptions {
 }
 
 /**
- * Defines the custom popup options.
+ * Provides information for displaying a custom popup.
  *
- * @interface CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the custom popup options.
- *
- * @interface CustomPopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the custom popup options.
- *
- * @interface CustomPopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface CustomPopupOptions {
   /**
-   * builder of popup
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * builder of popup
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Popup builder.
-   * <p><strong>NOTE</strong>:
-   * <br>The popup attribute is a universal attribute. A custom popup does not support display of another popup.
-   * <br>The position attribute cannot be used for the first-layer container in the builder.
-   * <br>If the position attribute is used, the popup will not be displayed.
-   * <br>If a custom component is used in the builder, the aboutToAppear and aboutToDisappear lifecycle callbacks
-   * of the custom component are irrelevant to the visibility of the popup. As such, the lifecycle of the
-   * custom component cannot be used to determine whether the popup is displayed or not.
-   * </p>
+   * 
+   * **NOTE**
+   * 
+   * 1. The **Popup** attribute is a universal attribute. A custom popup does not support display of another popup. The **position** attribute cannot be used for the first-layer container in the builder. If the **position** attribute is used, the popup will not be displayed.
+   * 2. If a custom component is used in the **builder**, the **aboutToAppear** and **aboutToDisappear** lifecycle callbacks of the custom component are irrelevant to the visibility of the popup. As such, the lifecycle of the custom component cannot be used to determine whether the popup is displayed or not.
+   * 3. The **builder** of this constructor can be defined only in UI components, such as the **Builder** function/method or the [build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build) method.
    *
-   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   builder: CustomBuilder;
 
   /**
-   * placement of popup
+   * Preferred position of the popup. If the set position is insufficient for holding the popup, it will be 
+   * automatically adjusted.
+   * 
+   * Default value: **Placement.Bottom**
    *
-   * @type { ?Placement }
    * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * placement of popup
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Preferred position of the popup. If the set position is insufficient for holding the popup,
-   * it will be automatically adjusted.
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   placement?: Placement;
 
   /**
-   * mask color of popup
+   * Color of the popup mask.
+   * 
+   * **NOTE**
+   * 
+   * This parameter is deprecated since API version 10. You are advised to use **mask** instead.
    *
-   * @type { ?(Color | string | Resource | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -16013,115 +14428,71 @@ declare interface CustomPopupOptions {
   maskColor?: Color | string | Resource | number;
 
   /**
-   * background color of popup
+   * Color of the popup. To remove the background blur, set **backgroundBlurStyle** to **BlurStyle.NONE**.
+   * 
+   * The default value varies by API version.
+   * 
+   * API version 10: **'#4d4d4d'**
+   * 
+   * API version 11 and later: [TRANSPARENT]{@link Color} plus [COMPONENT_ULTRA_THICK]{@link BlurStyle}
    *
-   * @type { ?(Color | string | Resource | number) }
+   * @default '#4d4d4d' [since 10 - 10]
+   * @default TRANSPARENT plus COMPONENT_ULTRA_THICK [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * background color of popup
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @default '#4d4d4d'
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Color of the popup. To remove the background blur, set backgroundBlurStyle to BlurStyle.NONE.
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @default TRANSPARENT plus COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   popupColor?: Color | string | Resource | number;
 
   /**
-   * whether show arrow
+   * Whether to display the arrow.
+   * 
+   * **true**: The arrow is displayed; **false**: The arrow is not displayed.
+   * 
+   * Since API version 9, if the position set for the popup is not large enough, the arrow will not be displayed. For 
+   * example, if **placement** is set to **Left**, and the popup height is less than the sum of the arrow width (32 vp) 
+   * and twice the popup corner radius (48 vp), that is, 80 vp, the arrow will not be displayed.
+   * 
+   * Default value: **true**
    *
-   * @type { ?boolean }
+   * @default true [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   enableArrow?: boolean;
 
   /**
-   * whether hide popup when click mask.
+   * Whether the popup is automatically closed when an operation is performed on the page.
+   * 
+   * **true**: The popup is automatically closed; **false**: The popup is not automatically closed.
+   * 
+   * Default value: **true**
+   * 
+   * **NOTE**
+   * 
+   * To dismiss the popup upon a click on it, place a layout component in the **builder**, place the **Popup** component
+   * in the layout component, and set **show** to **false** in the **onClick** event of the layout component.
    *
-   * @type { ?boolean }
+   * @default true [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * whether hide popup when click mask.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to automatically dismiss the popup when an operation is performed on the page.
-   * <p><strong>NOTE</strong>:
-   * <br>To enable the popup to disappear upon a click on it, place a layout component in the builder place the
-   * <Popup> component in the layout component, and modify the value of the bindPopup variable (show: boolean)
-   * in the onClick event of the layout component.
-   * </p>
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   autoCancel?: boolean;
 
   /**
-   * on State Change
+   * Callback for popup visibility state changes. The parameter indicates the visibility of the popup. It returns 
+   * **true** when the popup transitions from closed to open, and **false** when the popup transitions from open to 
+   * closed.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback for the popup status change event. 
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onStateChange?: (event: {
     /**
@@ -16147,327 +14518,244 @@ declare interface CustomPopupOptions {
   }) => void;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Offset of the popup arrow relative to the popup.
+   * 
+   * When the arrow is at the top or bottom of the popup: The value **0** indicates that the arrow is located on the 
+   * leftmost, and any other value indicates the distance from the arrow to the leftmost; the arrow is centered by 
+   * default.
+   * 
+   * When the arrow is on the left or right side of the popup: The value indicates the distance from the arrow to the 
+   * top; the arrow is centered by default.
+   * 
+   * When the popup is displayed on either edge of the screen, it automatically adjusts horizontally. When the value is 
+   * **0**, the arrow always points to the bound component.
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. If **arrowOffset** is not set, the distance between the popup arrow and the four corners must be no less than the corner radius.
+   * 2. If **arrowPointPosition** is set, **arrowOffset** does not take effect.
+   * 3. Percentage values are not supported.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * Offset of the popup arrow relative to the popup. When the arrow is at the top or bottom of the popup:
-   * <br>The value 0 indicates that the arrow is located on the leftmost, and any other value indicates the distance
-   * from the arrow to the leftmost; the arrow is centered by default. When the arrow is on the left or right
-   * side of the popup: The value indicates the distance from the arrow to the top; the arrow is centered by
-   * default. When the popup is displayed on either edge of the screen, it will automatically deviate leftward
-   * or rightward to stay within the safe area. When the value is 0, the arrow always points to the bound component.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * Whether the popup is displayed in the created subwindow.
+   * 
+   * **true**: The popup is displayed in the created subwindow; **false**: The popup is displayed in the corresponding 
+   * main window.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
+   * @default false [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * Whether to apply a mask with the specified color to the popup. The value **true** means to apply a transparent mask
+   * to the popup, **false** means not to apply a mask to the popup, and a color value means to apply a mask in the 
+   * corresponding color to the popup. Default value: **true**
    *
-   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to apply a mask to the popup.
-   * <br>The value true means to apply a transparent mask to the popup, false means not to apply a mask to the popup,
-   * and a color value means to apply a mask in the corresponding color to the popup.
-   *
-   * @type { ?(boolean | { color: ResourceColor }) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * Sets the space of between the popup and target.
+   * Spacing between the popup and the host node. Percentage values are not supported.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the space of between the popup and target.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   targetSpace?: Length;
 
   /**
-   * Sets the position offset of the popup.
+   * Offset of the popup relative to the display position specified by **placement**.
+   * 
+   * Default value: **{x:0, y:0}**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Position }
+   * @default { x: 0, y: 0 } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the position offset of the popup.
-   *
-   * @type { ?Position }
-   * @default { x: 0, y: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Set the width of the popup.
+   * Width of the popup. If this parameter is not set or the value is invalid, the popup width is automatically adjusted
+   * to adapt to the content width.
+   * 
+   * Unit: vp
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Width of the popup.
-   *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: Dimension;
 
   /**
-   * The position of the sharp corner of popup.
+   * Position of the tooltip arrow relative to its parent component. Available positions are **Start**, **Center**, and 
+   * **End**, in both vertical and horizontal directions. All these positions are within the parent component area.
+   * 
+   * Default value: **ArrowPointPosition.CENTER**
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Position of the popup arrow relative to its parent component. Available positions are Start, Center, and End,
-   * in both vertical and horizontal directions. All these positions are within the parent component area.
-   *
-   * @type { ?ArrowPointPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup rounded 
+   * corner, the arrow is not drawn.
+   * 
+   * Default value: **16**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
+   * @default 16.0_vp. [since 11 - 11]
    * @default 16.0_vp.
+   *     <p><strong>NOTE</strong>:
+   *     <br>This parameter cannot be set in percentage.
+   *     </p> [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup
-   * rounded corner, the arrow is not drawn.
-   *
-   * @type { ?Dimension }
-   * @default 16.0_vp.
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * Arrow height.
+   * 
+   * Default value: **8**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported.
    *
-   * @type { ?Dimension }
+   * @default 8.0_vp. [since 11 - 11]
    * @default 8.0_vp.
+   *     <p><strong>NOTE</strong>:
+   *     <br>This parameter cannot be set in percentage.
+   *     </p> [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The height of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 8.0_vp.
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowHeight?: Dimension;
 
   /**
-   * The round corners of the popup.
-   *
-   * @type { ?Dimension }
-   * @default 20.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Rounded corner radius of the popup.
+   * 
+   * Default value: **20**
+   * 
+   * Unit: vp
    *
-   * @type { ?Dimension }
    * @default 20.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: Dimension;
 
   /**
-   * The style of popup Shadow.
-   *
-   * @type { ?(ShadowOptions | ShadowStyle) }
-   * @default ShadowStyle.OUTER_DEFAULT_MD.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Popup shadow.
+   * 
+   * Default value: **ShadowStyle.OUTER_DEFAULT_MD**
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines popup background blur Style
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Background blur style of the popup.
-   *
-   * @type { ?BlurStyle }
+   * 
+   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+   * 
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Set popup focusable
+   * Whether the popup obtains focus when displayed.
+   * 
+   * **true**: The popup can obtain the focus; **false**: The popup cannot obtain the focus.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
-   * @default true
+   * @default true [since 11 - 11]
+   * @default false [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set popup focusable
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   focusable?: boolean;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * Transition animations for the entrance and exit of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If this parameter is not set, the default entrance and exit animations are used.
+   * 2. Touching the back button during the entrance animation interrupts it and starts the exit animation. The final effect is one obtained after the curves of the entrance and exit animations are combined.
+   * 3. Touching the back button during the exit animation does not affect the animation playback; the back button is unresponsive.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16477,18 +14765,16 @@ declare interface CustomPopupOptions {
   transition?: TransitionEffect;
 
   /**
-   * Whether to perform dismissal event interception and interception callback.
-   * 1. If this parameter is set to false, the system does not respond to the dismissal event initiated by
-   * touching the Back button, swiping left or right on the screen, or pressing the Esc key; and the system
-   * dismisses the popup only when show is set to false. If this parameter is set to true, the system responds
-   * to the dismissal event as expected.
-   * 2. If this parameter is set to a function, the dismissal event is intercepted and the callback function
-   * is executed.
-   * <p><strong>NOTE</strong>:
-   * <br>No more onWillDismiss callback is allowed in an onWillDismiss callback.
-   * </p>
+   * Interactive dismissal behavior. The default value is **true**, meaning that the popup responds to clicks, swipes (
+   * left or right), and the back button.
+   * 
+   * 1. For the boolean type, if this parameter is set to **false**, the popup ignores clicks, swipes, back button, route navigation, and **Esc** key events, and can only be dismissed by setting the **show** parameter to **false**; if this parameter is set to **true**, the popup responds to dismissal events.
+   * 2. If this parameter is set to a function, the dismissal event is intercepted and the callback function is executed. For swipes, back button, route navigation, and the **Esc** key, the value of **reason** returned in the callback function is **PRESS_BACK**. For clicks, the value is **TOUCH_OUTSIDE**.
+   * 
+   * **NOTE**
+   * 
+   * No more **onWillDismiss** callback is allowed in an **onWillDismiss** callback.
    *
-   * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16499,9 +14785,18 @@ declare interface CustomPopupOptions {
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
  /**
-   * Determine if it is compatible popup's half folded.
+   * Whether the popup responds when the device is in hover mode (semi-folded state), that is, whether it triggers 
+   * avoidance of the crease area in hover mode.
+   * 
+   * Default value: **false** (**true** for 2-in-1 devices by default). If this parameter is not set or set to an 
+   * invalid value, the default value is used.
+   * 
+   * **NOTE**
+   * 
+   * 1. If the popup position is within the crease area in hover mode, it will not respond in hover mode.
+   * 2. This parameter is supported on 2-in-1 devices since API version 20.
+   * 3. This parameter only takes effect in window waterfall mode for 2-in-1 devices.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16512,9 +14807,14 @@ declare interface CustomPopupOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * Whether the popup aligns with the transformed position of the target when the target component or its parent 
+   * container has transformations (such as rotation and scaling).
+   * 
+   * **true**: The popup aligns with the transformed position of the target; **false**: The popup does not track such 
+   * transformations, which may result in incorrect display.
+   * 
+   * Default value: **false**
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16525,9 +14825,13 @@ declare interface CustomPopupOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Define the popup avoid keyboard mode.
+   * Whether to avoid the soft keyboard. By default, the popup does not avoid the soft keyboard. When configured to 
+   * avoid the soft keyboard, if the popup display space is insufficient, the display mode of the popup changes from 
+   * being centered over the parent component to being translated and covering the parent component.. In addition, if 
+   * the popup arrow does not point to the host, the arrow will not be displayed.
+   * 
+   * Default value: **KeyboardAvoidMode.NONE**
    *
-   * @type { ?KeyboardAvoidMode }
    * @default KeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16538,9 +14842,10 @@ declare interface CustomPopupOptions {
   keyboardAvoidMode?: KeyboardAvoidMode;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * Whether the popup covers the pointing component during avoidance.
+   * 
+   * Default value: **AvoidanceMode.COVER_TARGET**
    *
-   * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16551,9 +14856,18 @@ declare interface CustomPopupOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * Width of the outer outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If the outer outline is not set, this parameter must be used together with **outlineLinearGradient**.
+   * 3. For double outlines, it is recommended that the outer outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16563,9 +14877,18 @@ declare interface CustomPopupOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * Width of the inner outline of the popup.
+   * 
+   * Default value: **1**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * 1. Percentage values are not supported. If a percentage value is set, the value **0** is used.
+   * 2. If no inner outline is set, this parameter must be used together with **borderLinearGradient**.
+   * 3. For double outlines, it is recommended that the inner outline width should not exceed 10 vp.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16575,9 +14898,13 @@ declare interface CustomPopupOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * Linear gradient color of the outer outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **outlineLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the outer outline does not take effect.
+   * 2. When **outlineLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16587,9 +14914,13 @@ declare interface CustomPopupOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * Linear gradient color of the inner outline of the popup.
+   * 
+   * **NOTE**
+   * 
+   * 1. If **borderLinearGradient** is not set or set to **null** or **undefined**, the linear gradient color of the inner outline does not take effect.
+   * 2. When **borderLinearGradient** is set, the default value of **direction** is **GradientDirection.Bottom**.
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16600,8 +14931,7 @@ declare interface CustomPopupOptions {
 
   /**
    * Define the popup theme color mode.
-   * 
-   * @type { ?AnchoredColorMode }
+   *
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16615,10 +14945,8 @@ declare interface CustomPopupOptions {
    * Set system-styled materials for popup. Different materials have different effects, which can influence
    * the backgroundColor, border, shadow, and other visual attributes of popup.
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -16650,7 +14978,6 @@ declare interface CustomPopupOptions {
   /**
    * Defines the display level of the popup.
    *
-   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16661,130 +14988,88 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the menu preview mode.
+ * Defines the preview style of a menu.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the menu preview mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum MenuPreviewMode {
   /**
-   * No preview content.
+   * No preview is displayed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * No preview content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NONE = 0,
-  /**
-   * Defines image type preview content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * The preview is a screenshot of the component on which a long-press triggers the context menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   IMAGE = 1
 }
 
 /**
- * Defines the animator range of start and end property.
+ * Sets the relative scale ratio at the start and end of the animation compared to the original preview image.
  *
- * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the animator range of start and end property.
- *
- * @typedef { [from: T, to: T] } AnimationRange<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type AnimationRange<T> = [from: T, to: T];
 
 /**
- * Defines the ContextMenu's preview animator options.
+ * Defines the style for displaying a long-press preview.
  *
- * @interface ContextMenuAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the ContextMenu's preview animator options.
- *
- * @interface ContextMenuAnimationOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 interface ContextMenuAnimationOptions {
   /**
-   * Sets the start animator scale and end animator scale.
+   * Relative scale ratio at the start and end of the animation compared to the original preview image.
+   * 
+   * Default value: **[0.95, 1.1]**
+   * 
+   * **NOTE**
+   * 
+   * The scale ratio must be set based on the specific use case. It is recommended that it be less than the width of the
+   * preview image or the maximum constraint of the layout.
    *
-   * @type { ?AnimationRange<number> }
-   * @default [0.95, 1.1]
+   * @default [0.95, 1.1] [since 11 - 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the start animator scale and end animator scale.
-   *
-   * @type { ?AnimationRange<number> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   scale?: AnimationRange<number>;
 
   /**
-   * Defines the transition effect of menu preview opening and closing.
+   * Transition effect for the entrance and exit of the menu.
+   * 
+   * **NOTE**
+   * 
+   * If the screen orientation is switched during the exit animation of a menu, the menu will avoid obstacles. Level-2 
+   * menus do not inherit custom animations. The level-2 menu can be clicked during the display process, but not during 
+   * the execution of the exit animation.
+   * 
+   * For details, see [TransitionEffect]{@link TransitionEffect}.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16794,9 +15079,28 @@ interface ContextMenuAnimationOptions {
   transition?: TransitionEffect;
 
   /**
-   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   * In the custom preview (**preview** is of the CustomBuilder type) and menu displayed in long-press (**responseType**
+   * is set to **LongPress**) scenarios, **hoverScale** is used to set two parameters for the screenshot floating 
+   * animation of the bound component: the start and end scale ratios relative to the original preview image. After 
+   * **hoverScale** is set, the floating animation and preview image are switched with a transition effect.
+   * 
+   * **NOTE**
+   * 
+   * If the value is less than or equal to **0**, this parameter does not take effect.
+   * 
+   * This API does not take effect in 
+   * [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+   * scenarios.
+   * 
+   * This API does not take effect when **transition** is set.
+   * 
+   * If this API and the **scale** API are used at the same time, the start value of the **scale** API does not take 
+   * effect.
+   * 
+   * To ensure the optimal experience, it is not recommended that the final preview image size be smaller than the size 
+   * of the original component snapshot. The width and height of the preview animation are affected by the component 
+   * snapshot and the custom preview size. Verify the display effect based on the actual use case.
    *
-   * @type { ?AnimationRange<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16806,9 +15110,22 @@ interface ContextMenuAnimationOptions {
   hoverScale?: AnimationRange<number>;
 
   /**
-   * Sets whether support to interrupt the process of hover scale.
+   * Whether lifting the finger before triggering the drag effect allows preview menu pop-up cancellation in scenarios 
+   * where **preview** is of the CustomBuilder type (custom preview image), **responseType** is set to **LongPress** (
+   * display is triggered by a long-press action), and **hoverScaleInterruption** is set to **true**. The options are 
+   * **true** (yes) and **false** (no).
+   * 
+   * Default value: **false**
+   * 
+   * **NOTE**
+   * 
+   * If the **hoverScale** API is not set or the **transition** API is set, this parameter does not take effect. If the 
+   * finger is lifted before the long-press duration is sufficient to trigger the drag effect, the **hoverScale** effect
+   * of the preview menu will revert, the preview menu will not pop up, and gesture events such as click bound to the 
+   * original component can still be triggered. If the finger is lifted after the long-press duration is sufficient to 
+   * trigger the drag effect, the preview menu will pop up properly, and gesture events such as click bound to the 
+   * original component will no longer be triggered.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16820,9 +15137,11 @@ interface ContextMenuAnimationOptions {
 }
 
 /**
- * Defines the type of border radius.
+ * Enumerates the border corner radius types.
  *
- * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
+ * @unionmember { Length } Size unit.
+ * @unionmember { BorderRadiuses } Corner radius of a component's border.
+ * @unionmember { LocalizedBorderRadiuses } Localized corner radius of a component's border.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16832,9 +15151,8 @@ interface ContextMenuAnimationOptions {
 type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
 
 /**
- * Defines the menu haptic feedback mode.
+ * Enumerates the haptic feedback modes used when the menu is displayed.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16843,7 +15161,7 @@ type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
  */
 declare enum HapticFeedbackMode {
   /**
-   * No haptic feedback.
+   * The menu is displayed without haptic feedback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16853,7 +15171,7 @@ declare enum HapticFeedbackMode {
    */
   DISABLED = 0,
   /**
-   * Defines menu always haptic feedback.
+   * The menu is displayed with haptic feedback.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16863,7 +15181,7 @@ declare enum HapticFeedbackMode {
    */
   ENABLED = 1,
   /**
-   * Defines menu automatically haptic feedback.
+   * Whether to enable haptic feedback is subject to system settings. It is enabled when the menu has a mask.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16875,9 +15193,8 @@ declare enum HapticFeedbackMode {
 }
 
 /**
- * Define the modal mode of menu.
+ * Enumerates modal modes of the sub-window menu.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16886,7 +15203,8 @@ declare enum HapticFeedbackMode {
  */
 declare enum ModalMode {
   /**
-   * Modal modal automatically.
+   * Automatic mode, which is the default behavior of the menu component on the current device. In the current version, 
+   * the effect on all devices is the same as that of **ModalMode.NONE**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16896,7 +15214,7 @@ declare enum ModalMode {
    */
   AUTO = 0,
   /**
-   * Operation takes effect around menu.
+   * Events can be passed through areas other than the menu itself, allowing underlying controls to respond to events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16906,7 +15224,8 @@ declare enum ModalMode {
    */
   NONE = 1,
   /**
-   * Operation takes no effect around menu in target window.
+   * Events cannot be passed through the application window where the menu is located and the menu area, but can be 
+   * passed through other areas.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16918,9 +15237,8 @@ declare enum ModalMode {
 }
 
 /**
- * Menu mask type
+ * Sets the mask type.
  *
- * @interface MenuMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16929,9 +15247,10 @@ declare enum ModalMode {
  */
 declare interface MenuMaskType {
   /**
-   * Mask color of menu.
+   * Mask color.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_mask_thin')**
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16941,9 +15260,10 @@ declare interface MenuMaskType {
   color?: ResourceColor;
 
   /**
-   * Set menu mask background blur Style.
+   * Blur material of the mask.
+   * 
+   * Default value: **BlurStyle.BACKGROUND_THIN**
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.BACKGROUND_THIN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16955,9 +15275,8 @@ declare interface MenuMaskType {
 }
 
 /**
- * Defines the scaling mode for custom preview of contextMenu.
+ * Enumerates the scale modes of the preview image.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16966,7 +15285,7 @@ declare interface MenuMaskType {
  */
 declare enum PreviewScaleMode {
   /**
-   * Automatically resize preview based on the layout area.
+   * The preview image automatically adjusts its width, height, and scale based on [Placement]{@link Placement}.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16977,7 +15296,8 @@ declare enum PreviewScaleMode {
   AUTO = 0,
 
   /**
-   * Maintain original size of preview content without scaling.
+   * The preview image retains its original size. However, the preview image may still be compressed or cropped due to 
+   * the safe area constraints.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16988,7 +15308,7 @@ declare enum PreviewScaleMode {
   CONSTANT = 1,
 
   /**
-   * Maintain aspect ratio to scale preview.
+   * The preview image maintains its aspect ratio when scaled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17000,9 +15320,9 @@ declare enum PreviewScaleMode {
 }
 
 /**
- * Defines the available layout area.
+ * Enumerates the reference sizes of the available layout area when the preview image width and height are set to 
+ * percentages.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17011,7 +15331,7 @@ declare enum PreviewScaleMode {
  */
 declare enum AvailableLayoutArea {
   /**
-   * Size of safe area.
+   * The reference size of the available layout area is the window size minus the safe margins on all sides.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17035,8 +15355,6 @@ declare class ContentTransitionEffect {
   /**
    * When the content changes, there is no animation effect.
    *
-   * @type { ContentTransitionEffect }
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17048,8 +15366,6 @@ declare class ContentTransitionEffect {
   /**
    * When the content changes, there is a smooth fade-in and fade-out effect.
    *
-   * @type { ContentTransitionEffect }
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17060,9 +15376,8 @@ declare class ContentTransitionEffect {
 }
 
 /**
- * Define the mode of menu how to avoid keyboard.
+ * Enumerates the modes in which the menu avoids the soft keyboard.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17071,7 +15386,7 @@ declare class ContentTransitionEffect {
  */
 declare enum MenuKeyboardAvoidMode {
   /**
-   * Menu will not aovid keyboard.
+   * The menu does not avoid the soft keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17082,8 +15397,8 @@ declare enum MenuKeyboardAvoidMode {
   NONE = 0,
 
   /**
-   * First menu will avoid keyboard by changing its placement.
-   * And then menu will avoid by resizing height when new placement is still not high enough.
+   * The menu avoids the soft keyboard. If the space is insufficient, the menu will be translated or resized to avoid 
+   * the soft keyboard.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17097,7 +15412,6 @@ declare enum MenuKeyboardAvoidMode {
 /**
  * The position of grid in menu.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17130,7 +15444,6 @@ declare enum MenuGridPosition {
 /**
  * Defines the grid style of menu.
  *
- * @interface MenuGridStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -17141,7 +15454,6 @@ declare interface MenuGridStyleOptions {
   /**
    * The count of items in grid.
    *
-   * @type { ?number }
    * @default 3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17153,7 +15465,6 @@ declare interface MenuGridStyleOptions {
   /**
    * The horizontal size of items in grid.
    *
-   * @type { ?number }
    * @default 3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17165,7 +15476,6 @@ declare interface MenuGridStyleOptions {
   /**
    * The position of grid.
    *
-   * @type { ?MenuGridPosition }
    * @default MenuGridPosition.TOP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17177,198 +15487,188 @@ declare interface MenuGridStyleOptions {
 }
 
 /**
- * Defines the context menu options.
+ * Configures menu item information.
  *
- * @interface ContextMenuOptions
+ * **Table 1: Menu offset when both offset and placement are set**
+ * 
+ * | Value of placement                                           | Menu Offset                                            |
+ * | ------------------------------------------------------------ | ------------------------------------------------------------ |
+ * | Placement.TopLeft, Placement.Top, or Placement.TopRight        | If the value of **x** is a positive number for **offset**, the menu shifts to the right relative to the component. If the value of **y** is a positive number, the menu shifts upward relative to the component.|
+ * | Placement.BottomLeft, Placement.Bottom, or Placement.BottomRight| If the value of **x** is a positive number for **offset**, the menu shifts to the left relative to the component. If the value of **y** is a positive number, the menu shifts downward relative to the component.|
+ * | Placement.RightTop, Placement.Right, or Placement.RightBottom  | If the value of **x** is a positive number for **offset**, the menu shifts to the right relative to the component. If the value of **y** is a positive number, the menu shifts downward relative to the component.|
+ * 
+ * **Table 2: Default position of the menu arrow when both arrowOffset and placement are set**
+ * 
+ * | Value of placement                          | Menu Arrow Position                                          |
+ * | ------------------------------------------- | ------------------------------------------------------------ |
+ * | Placement.Top or Placement.Bottom            | The arrow is displayed horizontally and centered by default, with a distance from the left edge of the menu equal to the arrow's safe distance.|
+ * | Placement.Left or Placement.Right            | The arrow is displayed vertically and centered by default, with a distance from the top edge of the menu equal to the arrow's safe distance.|
+ * | Placement.TopLeft or Placement.BottomLeft    | The arrow is displayed horizontally by default, with a distance from the left edge of the menu equal to the arrow's safe distance.|
+ * | Placement.TopRight or Placement.BottomRight  | The arrow is displayed horizontally by default, with a distance from the right edge of the menu equal to the arrow's safe distance.  |
+ * | Placement.LeftTop or Placement.RightTop      | The arrow is displayed vertically by default, with a distance from the top edge of the menu equal to the arrow's safe distance.  |
+ * | Placement.LeftBottom or Placement.RightBottom| The arrow is displayed vertically by default, with a distance from the bottom edge of the menu equal to the arrow's safe distance.  |
+ * 
+ * **Table 3 Default menu position when enableArrow is set to true and placement is not set or set to an invalid value**
+ * | API| Default Menu Position|
+ * |------|-------------|
+ * | [bindMenu]{@link CommonMethod#bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)} | Placement.BottomLeft |
+ * | [bindMenu<sup>11+</sup>]{@link CommonMethod#bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)} | Placement.BottomLeft |
+ * | [bindContextMenu<sup>8+</sup>]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)} | Placement.Top |
+ * | [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)} | Placement.BottomLeft |
+ * | [bindContextMenuWithResponse<sup>23+</sup>]{@link CommonMethod#bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions)} | Placement.Top |
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the context menu options.
- *
- * @interface ContextMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ContextMenuOptions {
   /**
-   * Sets the position offset of the context menu window.
-   *
-   * @type { ?Position }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Offset for showing the context menu, which should not cause the menu to extend beyond the screen.
-   * <p><strong>NOTE</strong>:
-   * <br>When the menu is displayed relative to the parent component area, the width or height of the area is
-   * automatically counted into the offset based on the placement attribute of the menu. When the menu is
-   * displayed above the parent component (that is, placement is set to Placement.TopLeft, Placement.Top, or
-   * Placement.TopRight), a positive value of x indicates rightward movement relative to the parent component,
-   * and a positive value of y indicates upward movement. When the menu is displayed below the parent component
-   * (that is, placement is set to Placement.BottomLeft, Placement.Bottom, or Placement.BottomRight), a positive
-   * value of x indicates rightward movement relative to the parent component, and a positive value of y indicates
-   * downward movement. When the menu is displayed on the left of the parent component (that is, placement is set
-   * to Placement.LeftTop, Placement.Left, or Placement.LeftBottom), a positive value of x indicates leftward
-   * movement relative to the parent component, and a positive value of y indicates downward movement. When the
-   * menu is displayed on the right of the parent component (that is, placement is set to Placement.RightTop,
-   * Placement.Right, or Placement.RightBottom), a positive value of x indicates rightward movement relative to
-   * the parent component, and a positive value of y indicates downward movement. If the display position of the
-   * menu is adjusted (different from the main direction of the initial placement value), the offset value is invalid.
-   * </p>
+   * 
+   * Default value: **{ x: 0, y: 0 }**. Percentage values are not supported.
+   * 
+   * **NOTE**
+   * 
+   * When the menu is displayed relative to the parent component area, the width or height of the area is automatically 
+   * counted into the offset based on the **placement** attribute of the menu.
+   * 
+   * Table 1 describes the relationship between the final **offset** value and the **placement** value.
+   * 
+   * If this parameter is not set, or set to an abnormal value or **undefined**, the default value **{ x: 0, y: 0 }** is
+   * used. If the offset exceeds the screen range, it will be constrained to the nearest point within the screen range.
+   * 
+   * If the display position of the menu is adjusted (different from the main direction of the initial **placement** 
+   * value), the offset value is invalid.
    *
-   * @type { ?Position }
-   * @default {x:0,y:0} - Percentage values are not supported.
+   * @default - [since 10 - 10]
+   * @default {x:0,y:0} - Percentage values are not supported. [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Sets the placement of the context menu window.
-   *
-   * @type { ?Placement }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Preferred position of the context menu. If the set position is insufficient for holding the component, it will be
    * automatically adjusted.
-   * <p><strong>NOTE</strong>:
-   * <br>If a menu is displayed by pressing and holding or right-clicking, the menu is displayed at the clicked
-   * position.
-   * </p>
+   * 
+   * **NOTE**
+   * 
+   * 1. When this parameter is used as the input parameter of [bindMenu]{@link CommonMethod#bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)}, its default value is **Placement.BottomLeft**.
+   * 2. When this parameter is used as the input parameter of [bindContextMenu<sup>8+</sup>]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)} or [bindContextMenuWithResponse<sup>23+</sup>]{@link CommonMethod#bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions)}, the menu is displayed at the click position.
+   * 3. When this parameter is used as the input parameter of [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}, its default value is **Placement.BottomLeft**.
+   * 4. If the value of **placement** is **undefined**, **null**, or empty, the default value is used.
    *
-   * @type { ?Placement }
-   * @default Placement.BottomLeft
+   * @default - [since 10 - 10]
+   * @default Placement.BottomLeft [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   placement?: Placement;
 
   /**
-   * whether show arrow belong to the menu.
+   * Whether to display an arrow. If the size and position of the context menu are insufficient for holding an arrow, no
+   * arrow is displayed.
+   * 
+   * Default value: **false**, indicating that no arrow is displayed.
+   * 
+   * **NOTE**
+   * 
+   * When **enableArrow** is set to **true** and **placement** is not set or set to an invalid value, the arrow is 
+   * displayed above the target object by default. (For details about the relationship between the default menu position
+   * and the API, see Table 3.) Otherwise, the arrow is displayed based on the position specified by **placement**. If 
+   * the position is insufficient for holding the arrow, it is automatically adjusted. When **enableArrow** is 
+   * **undefined**, no arrow is displayed. This API is supported in **bindContextMenu** since API version 10 and 
+   * **bindMenu** since API version 12.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * whether show arrow belong to the menu.
-   * <p><strong>NOTE</strong>:
-   * <br>When enableArrow is true, an arrow is displayed in the position specified by placement.
-   * <br>If placement is not set or its value is invalid, the arrow is displayed above the target.
-   * <br>If the position is insufficient for holding the arrow, it is automatically adjusted.
-   * <br>When enableArrow is undefined, no arrow is displayed.
-   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
-   * </p>
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableArrow?: boolean;
 
   /**
-   * The horizontal offset to the left of menu or vertical offset to the top of menu
+   * Offset of the arrow relative to the context menu. The offset settings take effect only when the value is valid, can
+   * be converted to a number greater than 0, and does not cause the arrow to extend beyond the safe area of the context
+   * menu.
+   * 
+   * Default value: **0**
+   * 
+   * Unit: vp
+   * 
+   * **NOTE**
+   * 
+   * The safe distance of the arrow from the four sides of the menu is the sum of the menu's corner radius and half the 
+   * width of the arrow.
+   * 
+   * The value of **placement** determines whether the offset is horizontal or vertical.
+   * 
+   * When the arrow is in the horizontal direction of the menu, the offset is the distance from the arrow to the 
+   * leftmost arrow's safe distance. When the arrow is in the vertical direction of the menu, the offset is the distance
+   * from the arrow to the topmost arrow's safe distance.
+   * 
+   * The default position where the arrow is displayed varies with the value of **placement**:
+   * 
+   * Table 2 describes the relationship between the final position of the arrow and the value of **placement** in cases 
+   * where the menu does not trigger repositioning.
+   * 
+   * This API is supported in **bindContextMenu** since API version 10 and **bindMenu** since API version 12.
    *
-   * @type { ?Length }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Offset of the arrow relative to the context menu. The offset settings take effect only when the value is valid,
-   * can be converted to a number greater than 0, and does not cause the arrow to extend beyond the safe area of
-   * the context menu.
-   * <p><strong>NOTE</strong>:
-   * <br>The safe distance of the arrow from the four sides of the menu is the sum of the menu's corner radius and
-   * half the width of the arrow. The value of placement determines whether the offset is horizontal or vertical.
-   * When the arrow is in the horizontal direction of the menu, the offset is the distance from the arrow to the
-   * leftmost arrow's safe distance. When the arrow is in the vertical direction of the menu, the offset is the
-   * distance from the arrow to the topmost arrow's safe distance. The default position where the arrow is
-   * displayed varies with the value of placement: Without any avoidance by the menu, when placement is set to
-   * Placement.Top or Placement.Bottom, the arrow is displayed horizontally and is centered by default; when
-   * placement is set to Placement.Left or Placement.Right, the arrow is displayed vertically and is centered by
-   * default; when placement is set to Placement.TopLeft or Placement.BottomLeft, the arrow is displayed
-   * horizontally by default, and the distance from the arrow to the left edge of the menu is the arrow's safe
-   * distance; when placement is set to Placement.TopRight or Placement.BottomRight, the arrow is displayed
-   * horizontally by default, and the distance from the arrow to the right edge of the menu is the arrow's safe
-   * distance; when placement is set to Placement.LeftTop or Placement.RightTop, the arrow is displayed vertically
-   * by default, and the distance from the arrow to the top edge of the menu is the arrow's safe distance; when
-   * placement is set to Placement.LeftBottom or Placement.RightBottom, the arrow is displayed vertically by
-   * default, and the distance from the arrow to the bottom edge of the menu is the arrow's safe distance.
-   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
-   * </p>
-   *
-   * @type { ?Length }
-   * @default 0vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * The preview content of context menu.
+   * Preview displayed when the context menu is triggered by a long-press or by calling 
+   * [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}.
+   * It can be a screenshot of the target component or custom content.
+   * 
+   * Default value: **MenuPreviewMode.NONE**, indicating no preview.
+   * 
+   * **NOTE**
+   * 
+   * - This parameter has no effect when **responseType** is set to **ResponseType.RightClick**.
+   * - If **preview** is set to **MenuPreviewMode.NONE** or is not set, the **enableArrow** parameter is effective.
+   * - If **preview** is set to **MenuPreviewMode.IMAGE** or **CustomBuilder**, no arrow will be displayed even when 
+   * **enableArrow** is **true**.
    *
-   * @type { ?(MenuPreviewMode | CustomBuilder) }
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Preview displayed when the context menu is triggered by a long-press or use the isShown variable of
-   * bindContextMenu to display the preview content style of the menu.
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter has no effect when responseType is set to ResponseType.RightClick.
-   * <br>If preview is set to MenuPreviewMode.NONE or is not set, the enableArrow parameter is effective.
-   * <br>If preview is set to MenuPreviewMode.IMAGE or CustomBuilder, no arrow will be displayed even when
-   * enableArrow is true.
-   * </p>
-   *
-   * @type { ?(MenuPreviewMode | CustomBuilder) }
-   * @default MenuPreviewMode.NONE
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
-   * Defines the border radius for preview of menu.
+   * Border corner radius for the preview image.
+   * 
+   * Default value: **16vp**
+   * 
+   * **NOTE**
+   * 
+   * If the sum of the two corner radii in the horizontal direction exceeds the width of the preview image, or the sum 
+   * of the two corner radii in the vertical direction exceeds the height of the preview image, the maximum allowable 
+   * radius should be used.
+   * 
+   * A larger corner radius results in a faster animation change for the corners.
    *
-   * @type { ?BorderRadiusType }
    * @default 16vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17379,15 +15679,21 @@ declare interface ContextMenuOptions {
   previewBorderRadius?: BorderRadiusType;
 
   /**
-   * Border radius of the menu.
-   * <p><strong>NOTE</strong>:
-   * <br>The value can be in percentage.
-   * <br>If the sum of the two maximum corner radii in the horizontal direction exceeds the menu's width, or if the sum
-   * of the two maximum corner radii in the vertical direction exceeds the menu's height, the default corner radius of
-   * the menu will be used.
-   * </p>
+   * Default value: **8vp** for 2-in-1 devices and **20vp** for other devices
+   * 
+   * **NOTE**
+   * 
+   * The value can be in percentage.
+   * 
+   * If the sum of the two maximum corner radii in the horizontal direction exceeds the menu's width, or if the sum of 
+   * the two maximum corner radii in the vertical direction exceeds the menu's height, the default corner radius of the 
+   * menu will be used.
+   * 
+   * When the Length type is used: Invalid input values will trigger a fallback to the default corner radius.
+   * 
+   * When the BorderRadiuses or LocalizedBorderRadiuses type is used: Invalid input values will result in the menu 
+   * having no rounded corners by default.
    *
-   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @default 8vp for 2-in-1 devices and 20vp for other devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17398,93 +15704,72 @@ declare interface ContextMenuOptions {
   borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Callback function when the context menu appears.
+   * Callback invoked after the menu appears.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback triggered when the menu is displayed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onAppear?: () => void;
 
   /**
-   * Callback triggered when the menu is hidden.
+   * Callback invoked after the menu disappears.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback function when the context menu disappear.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onDisappear?: () => void;
 
   /**
-   * Callback function before the context menu animation starts.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Callback triggered when the menu is about to appear.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToAppear?: () => void;
 
   /**
-   * Callback function before the context menu popAnimation starts.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Callback triggered when the menu is about to disappear.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToDisappear?: () => void;
 
   /**
-   * The margin of menu's layoutRegion.
+   * Minimum margin between the preview and menu layout for top, bottom, left, and right edges.
+   * 
+   * **NOTE**
+   * 
+   * Only vp, px, fp, lpx, and percentage units are supported.
+   * 
+   * Any abnormal or negative values will be treated as the default values.
+   * 
+   * If **preview** is set to **CustomBuilder**, setting **margin.left** or **margin.right** will remove the maximum 
+   * grid width restriction for the preview.
+   * 
+   * Be cautious not to set excessively large margins that are too large, which could reduce the layout area and affect 
+   * the proper layout of the preview and menu.
+   * 
+   * If the sum of horizontal margins exceeds the maximum layout width, **margin.left** and **margin.right** will be 
+   * ignored and default values will be applied.
+   * 
+   * If the sum of vertical margins exceeds the maximum layout width, **margin.top** and **margin.bottom** will be 
+   * ignored and default values will be applied.
+   * 
+   * The default margin values are 16 vp for the left and right, 16 vp for top, and 4 vp for bottom.
    *
-   * @type { ?Margin }
    * @default 12vp for left and right, 16vp for top and bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17495,77 +15780,54 @@ declare interface ContextMenuOptions {
   layoutRegionMargin?: Margin;
 
   /**
-   * The preview animator options.
+   * Display effect of the long-press preview.
+   * 
+   * Default value: **{ scale: [0.95, 1.1], transition: undefined, hoverScale: undefined }**
+   * 
+   * **NOTE**
+   * 
+   * If the value is less than or equal to **0**, this parameter does not take effect.
    *
-   * @type { ?ContextMenuAnimationOptions }
+   * @default { scale: [0.95, 1.1], transition: undefined, hoverScale: undefined } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The preview animator options.
-   *
-   * @type { ?ContextMenuAnimationOptions }
-   * @default { scale: [0.95, 1.1], transition: undefined, hoverScale: undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   previewAnimationOptions?: ContextMenuAnimationOptions;
 
   /**
-   * Defines the menu's background color
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Background color of the menu.
+   * 
+   * Default value: **Color.Transparent**
    *
-   * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
   /**
-   * Defines menu background blur Style
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Background blur style of the menu.
+   * 
+   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the menu's background blur style with options
+   * Background blur style.
    *
-   * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17575,9 +15837,8 @@ declare interface ContextMenuOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Defines the menu's background effect with options
+   * Background effect.
    *
-   * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17587,9 +15848,20 @@ declare interface ContextMenuOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Defines the transition effect of menu opening and closing.
+   * Transition effect for the entrance and exit of the menu.
+   * 
+   * **NOTE**
+   * 
+   * During the exit animation of the menu, if there is a switch between landscape and portrait modes, the menu will 
+   * make way. Level-2 menus do not inherit custom animations. The level-2 menu can be clicked during the pop-up 
+   * process, but not during the execution of the exit animation.
+   * 
+   * For details, see [TransitionEffect]{@link TransitionEffect}.
+   * 
+   * The menu animation uses a spring curve. Due to the rebound and oscillation of the spring curve during the exit of 
+   * the animation, there is a prolonged tail effect, which prevents the menu from responding to other events after it 
+   * disappears.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17599,49 +15871,64 @@ declare interface ContextMenuOptions {
   transition?: TransitionEffect;
 
   /**
-    * Determine if it is compatible menu's half folded.
-    *
-    * @type { ?boolean }
-    * @default true for 2-in-1 devices and false for other devices
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 18 dynamic
-    */
+   * Whether to respond when the device is in hover mode (semi-folded state), that is, whether it triggers avoidance of 
+   * the crease area in hover mode.
+   * 
+   * Default value: **false** (**true** for 2-in-1 devices by default) If this parameter is not set or set to an invalid
+   * value, the default value is used.
+   * 
+   * **NOTE**
+   * 
+   * 1. If the menu display position is within the crease area in hover mode, it will not respond in hover mode.
+   * 2. This parameter is supported on 2-in-1 devices since API version 20.
+   * 3. This parameter only takes effect in window waterfall mode for 2-in-1 devices.
+   *
+   * @default true for 2-in-1 devices and false for other devices
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
   enableHoverMode?: boolean;
 
   /**
-    * The color of menu's outer border.
-    *
-    * @type { ?(ResourceColor | EdgeColors) }
-    * @default '#19ffffff'
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 20 dynamic
-    */
+   * Outline color of the menu border.
+   * 
+   * **NOTE**
+   * 
+   * Default value: **'#19ffffff'**
+   *
+   * @default '#19ffffff'
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
   outlineColor?: ResourceColor | EdgeColors;
 
   /**
-    * The width of menu's outer border.
-    * If outline effects are required, outlineWidth is required.
-    *
-    * @type { ?(Dimension | EdgeOutlineWidths) }
-    * @default 0vp - Percentage values are not supported.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 20 dynamic
-    */
+   * Outline width of the menu border.
+   * 
+   * Default value: **0vp**
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported. **outlineWidth** is mandatory for customizing an outline effect.
+   *
+   * @default 0vp - Percentage values are not supported.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
   /**
    * Define the menu theme color mode.
-   * 
-   * @type { ?AnchoredColorMode }
+   *
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17652,9 +15939,20 @@ declare interface ContextMenuOptions {
   colorMode?: AnchoredColorMode;
 
   /**
-   * Defines the haptic feedback mode of menu.
+   * Haptic feedback mode when the menu is displayed.
+   * 
+   * Default value: **HapticFeedbackMode.DISABLED**, indicating no vibration when the menu is displayed.
+   * 
+   * **NOTE**
+   * 
+   * The haptic feedback mode is only configurable for level-1 menus.
+   * 
+   * This parameter takes effect only when the user enables the haptic feedback function and the 
+   * **ohos.permission.VIBRATE** permission is added to the **requestPermissions** field in the 
+   * [module.json5](docroot://quick-start/module-configuration-file.md) file. The configuration is as follows:
+   * 
+   * ![menuEnableHapticFeedback](docroot://reference/apis-arkui/arkui-ts/figures/menuEnableHapticFeedback.png)
    *
-   * @type { ?HapticFeedbackMode }
    * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17665,9 +15963,18 @@ declare interface ContextMenuOptions {
   hapticFeedbackMode?: HapticFeedbackMode;
 
   /**
-   * Whether it is a menu without mask.
+   * Sets whether a menu has a mask and the mask style.
+   * 
+   * **true**: yes; **false**: no; **MenuMaskType**: custom mask style
+   * 
+   * Default value: If a preview image is displayed for a menu, a mask is displayed by default. Otherwise, no mask is 
+   * displayed.
+   * 
+   * **NOTE**
+   * 
+   * This API does not take effect when the device is configured not to display the menu mask. For example, this API 
+   * does not take effect on 2-in-1 devices.
    *
-   * @type { ?(boolean | MenuMaskType) }
    * @default true when preview is enabled, or is false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17678,9 +15985,12 @@ declare interface ContextMenuOptions {
   mask?: boolean | MenuMaskType;
 
   /**
-   * Defines modal mode of menu.
+   * Modal mode of a menu.
+   * 
+   * **NOTE**
+   * 
+   * Default value: **ModalMode.AUTO**
    *
-   * @type { ?ModalMode }
    * @default ModalMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17691,9 +16001,15 @@ declare interface ContextMenuOptions {
   modalMode?: ModalMode;
 
   /**
-   * Callback function when the menu appears.
+   * Callback invoked after the menu appears.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal sequence is **aboutToAppear** > **onWillAppear** > **onAppear** > **onDidAppear** > **aboutToDisappear** > **onWillDisappear** > **onDisappear** > **onDidDisappear**.
+   * 2. If rapid clicks are triggered to display and then dismiss the menu, there may be cases where **onWillDisappear** is invoked before **onDidAppear**.
+   * 3. If the menu is closed before the menu entrance animation is complete, this callback is not triggered.
+   * 4. **onAppear** and **onDidAppear** are invoked at the same time, but **onDidAppear** takes effect after **onAppear**.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17703,9 +16019,13 @@ declare interface ContextMenuOptions {
   onDidAppear?: Callback<void>;
 
   /**
-   * Callback function when the menu disappears.
+   * Callback invoked after the menu disappears.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal sequence is **aboutToAppear** > **onWillAppear** > **onAppear** > **onDidAppear** > **aboutToDisappear** > **onWillDisappear** > **onDisappear** > **onDidDisappear**.
+   * 2. **onDisappear** and **onDidDisappear** are triggered at the same time, but **onDidDisappear** takes effect after **onDisappear**.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17715,9 +16035,13 @@ declare interface ContextMenuOptions {
   onDidDisappear?: Callback<void>;
 
   /**
-   * Callback function before the menu openAnimation starts.
+   * Callback triggered when the menu is about to appear.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal sequence is **aboutToAppear** > **onWillAppear** > **onAppear** > **onDidAppear** > **aboutToDisappear** > **onWillDisappear** > **onDisappear** > **onDidDisappear**.
+   * 2. **aboutToAppear** is invoked during initialization; **onWillAppear** is invoked before the animation starts but after **aboutToAppear**.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17727,9 +16051,14 @@ declare interface ContextMenuOptions {
   onWillAppear?: Callback<void>;
 
   /**
-   * Callback function before the menu closeAnimation starts.
+   * Callback triggered when the menu is about to disappear.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal sequence is **aboutToAppear** > **onWillAppear** > **onAppear** > **onDidAppear** > **aboutToDisappear** > **onWillDisappear** > **onDisappear** > **onDidDisappear**.
+   * 2. If rapid clicks are triggered to display and then dismiss the menu, there may be cases where **onWillDisappear** is invoked before **onDidAppear**.
+   * 3. **aboutToDisappear** and **onWillDisappear** are invoked at the same time, but **onWillDisappear** takes effect after **aboutToDisappear**.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17739,9 +16068,20 @@ declare interface ContextMenuOptions {
   onWillDisappear?: Callback<void>;
 
   /**
-   * Defines the scaling mode for custom preview of contextMenu.
+   * Preview image scaling mode.
+   * 
+   * Default value: **PreviewScaleMode.AUTO**
+   * 
+   * **NOTE**
+   * 
+   * This parameter applies to the scenarios where the layout space is insufficient. If this parameter is not set or is 
+   * set to **undefined**, the value **PreviewScaleMode.AUTO** will be used. When this parameter is set to 
+   * **PreviewScaleMode.CONSTANT**, if the preview image is too large and the remaining space is insufficient for 
+   * placing the menu, the menu is displayed under the preview image.
+   * 
+   * The maximum width and height of the preview image do not exceed the maximum available layout area of the preview 
+   * image (the window size minus the safe margins on all sides).
    *
-   * @type { ?PreviewScaleMode }
    * @default PreviewScaleMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17752,9 +16092,15 @@ declare interface ContextMenuOptions {
   previewScaleMode?: PreviewScaleMode;
 
   /**
-   * Defines the available layout area of preview.
+   * Available layout area of the preview image. The percentage of the preview image is calculated based on this 
+   * setting. The preview image may be compressed or cropped due to the safe area restriction.
+   * 
+   * **NOTE**
+   * 
+   * If this parameter is not set or is set to **undefined**, the percentage is calculated based on the window size. If 
+   * this parameter is set to **AvailableLayoutArea.SAFE_AREA**, the available layout area of the preview image is the 
+   * window size minus the safe margins on all sides.
    *
-   * @type { ?AvailableLayoutArea }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17764,9 +16110,19 @@ declare interface ContextMenuOptions {
   availableLayoutArea?: AvailableLayoutArea;
 
   /**
-   * Defines the menu position.
+   * Display position of the menu relative to the upper left corner of the bound component by setting the horizontal and
+   * vertical offsets. Unlike using the **offset** API alone, this allows the menu to overlay the bound component.
+   * 
+   * Default value: **{ x: undefined, y: undefined }**. Percentage values are not supported.
+   * 
+   * **NOTE**
+   * 
+   * 1. Offsets do not apply during menu preview state.
+   * 2. The preset value of **placement** does not take effect.
+   * 3. The **offset** parameter is added to determine the exact display position of the menu.
+   * 4. When both horizontal and vertical offsets are set to negative values, the menu is reset to **Placement.BottomLeft** for display.
+   * 5. If the horizontal or vertical offset is **undefined** or **null**, the effect is the same as that of not setting **anchorPosition**. In this case, the preset value of **placement** can take effect.
    *
-   * @type { ?Position }
    * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17777,11 +16133,12 @@ declare interface ContextMenuOptions {
   anchorPosition?: Position;
 
   /**
-   * Determine the mode of menu how to avoid keyboard.
+   * Whether the menu avoids the soft keyboard.
    * 
-   * No avoiding by default
+   * **NOTE**
+   * 
+   * If this parameter is not set or is set to **undefined**, the value **MenuKeyboardAvoidMode.NONE** will be used.
    *
-   * @type { ?MenuKeyboardAvoidMode }
    * @default MenuKeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17792,9 +16149,13 @@ declare interface ContextMenuOptions {
   keyboardAvoidMode?: MenuKeyboardAvoidMode;
 
   /**
-   * Defines the minimum distance between menu and keyboard.
+   * Minimum distance for the menu to avoid the soft keyboard.
+   * 
+   * **NOTE**
+   * 
+   * If this parameter is not set, or set to a negative value or **undefined**, the value will be treated as 8 vp. This 
+   * API is valid only when **keyboardAvoidMode** is set to avoid the soft keyboard.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17818,37 +16179,24 @@ declare interface ContextMenuOptions {
  	targetSpace?: LengthMetrics;
 
   /**
-   * Set system-styled materials for menu. Different materials have different effects, which can influence
-   * the backgroundColor, border, shadow, and other visual attributes of menu.
-   *
-   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
-   * their computing power.
+   * Set system-styled materials for menu. The material effect behaves differently on devices with different
+   * level of computing powers. On devices with lower computing power, it affects attributes such as the
+   * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
+   * at the system material layer, which can produce an effect similar to glass.
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 23 dynamic
    */
-  /**
-    * Set system-styled materials for menu. The material effect behaves differently on devices with different
-    * level of computing powers. On devices with lower computing power, it affects attributes such as the
-    * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
-    * at the system material layer, which can produce an effect similar to glass.
-    *
-    * @type { ?SystemUiMaterial }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
   systemMaterial?: SystemUiMaterial;
   /**
    * Defines the scroll bar state of menu.
    *
-   * @type { ?BarState }
    * @default BarState.Auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17880,7 +16228,7 @@ declare interface ContextMenuOptions {
   distortionMode?: DistortionMode;
   /**
    * Sets the edgeLight animation Mode of the menu.
-   * 
+   *
    * @default EdgeLightMode.EDGELIGHT_DISABLED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -17892,7 +16240,6 @@ declare interface ContextMenuOptions {
    * Define the grid style of menu. Only fixed-style menus are effective.
    * For example, using MenuElement in bindMenu/bindContextMenu or using MenuItemOptions in MenuItem.
    *
-   * @type { ?MenuGridStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17903,67 +16250,51 @@ declare interface ContextMenuOptions {
 }
 
 /**
- * Defines the menu options.
+ * Configues menu item information, which is inherited from [ContextMenuOptions]{@link ContextMenuOptions}.
  *
  * @extends ContextMenuOptions
  * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the menu options.
- *
- * @extends ContextMenuOptions
- * @interface MenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MenuOptions extends ContextMenuOptions {
   /**
-   * Sets the title of the menu window.
+   * Menu title.
+   * 
+   * **NOTE**
+   * 
+   * This parameter is effective only when **content** is set to Array<[MenuElement]{@link MenuElement}>.
    *
    * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the title of the menu window.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title?: ResourceStr;
 
   /**
-   * Whether to display in the sub window.
+   * Whether to show the menu in a subwindow.
+   * 
+   * **true**: yes; **false**: no
+   * 
+   * Default value: **true** for 2-in-1 devices and **false** for other devices
+   * 
+   * **NOTE**
+   * 
+   * This parameter takes effect only for 2-in-1 devices.
    *
    * @type { ?boolean }
+   * @default true for 2-in-1 devices [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default true for 2-in-1 devices
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   showInSubWindow?: boolean;
 }
@@ -18185,7 +16516,6 @@ declare class TouchResult {
 /**
  * 3D vector in depth space.
  *
- * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18196,7 +16526,6 @@ declare interface DepthVector3 {
   /**
    * X component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18208,7 +16537,6 @@ declare interface DepthVector3 {
   /**
    * Y component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18220,7 +16548,6 @@ declare interface DepthVector3 {
   /**
    * Z component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18233,7 +16560,6 @@ declare interface DepthVector3 {
 /**
  * 4D vector in depth space.
  *
- * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18244,7 +16570,6 @@ declare interface DepthVector4 {
   /**
    * X component.
    *
-   * @type { double }
    * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -18257,7 +16582,6 @@ declare interface DepthVector4 {
   /**
    * Y component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18269,7 +16593,6 @@ declare interface DepthVector4 {
   /**
    * Z component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18281,7 +16604,6 @@ declare interface DepthVector4 {
   /**
    * W component.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18294,7 +16616,6 @@ declare interface DepthVector4 {
 /**
  * RGB color in depth space.
  *
- * @interface DepthColorRGB
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18305,7 +16626,6 @@ declare interface DepthColorRGB {
   /**
    * Red component (0-255).
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18317,7 +16637,6 @@ declare interface DepthColorRGB {
   /**
    * Green component (0-255).
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18329,7 +16648,6 @@ declare interface DepthColorRGB {
   /**
    * Blue component (0-255).
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18342,7 +16660,6 @@ declare interface DepthColorRGB {
 /**
  * Spatial corner positions in 3D space.
  *
- * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18353,7 +16670,6 @@ declare interface SpatialPosition {
   /**
    * Left-top corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18365,7 +16681,6 @@ declare interface SpatialPosition {
   /**
    * Right-top corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18377,7 +16692,6 @@ declare interface SpatialPosition {
   /**
    * Left-bottom corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18389,7 +16703,6 @@ declare interface SpatialPosition {
   /**
    * Right-bottom corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18402,7 +16715,6 @@ declare interface SpatialPosition {
 /**
  * Spatial effect params.
  *
- * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -18413,7 +16725,6 @@ declare interface SpatialEffectParams {
   /**
    * Spatial position defined by corner points or depth value.
    *
-   * @type { SpatialPosition | double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18426,7 +16737,6 @@ declare interface SpatialEffectParams {
    * Occlusion weight for spatial effect.
    * <br>Value range:[0, 1].Default value:0
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -18549,7 +16859,6 @@ declare interface ClickEffect {
 /**
  * Defines the fadingEdge options.
  *
- * @typedef FadingEdgeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18560,7 +16869,6 @@ declare interface FadingEdgeOptions {
   /**
    * The length of FadingEdge.
    *
-   * @type { LengthMetrics }
    * @default 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18574,213 +16882,101 @@ declare interface FadingEdgeOptions {
 /**
  * Define nested scroll options
  *
- * @interface NestedScrollOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Define nested scroll options
- *
- * @interface NestedScrollOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Define nested scroll options
- *
- * @interface NestedScrollOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
+ * @crossplatform [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface NestedScrollOptions {
   /**
    * Set NestedScrollMode when the scrollable component scrolls forward
    *
-   * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls forward
-   *
-   * @type { NestedScrollMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   scrollForward: NestedScrollMode;
 
   /**
    * Set NestedScrollMode when the scrollable component scrolls backward
    *
-   * @type { NestedScrollMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set NestedScrollMode when the scrollable component scrolls backward
-   *
-   * @type { NestedScrollMode }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   scrollBackward: NestedScrollMode;
 }
 
 /**
- * Defines the menu element.
+ * Configures icon, text, and interaction information of a menu item.
  *
- * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the menu element.
- *
- * @interface MenuElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the menu element.
- *
- * @interface MenuElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface MenuElement {
   /**
-   * Sets the value of the menu element.
+   * Menu item text.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the value of the menu element.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the value of the menu element.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   value: ResourceStr;
 
   /**
-   * Sets the icon of the menu element.
+   * Menu item icon.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the icon of the menu element.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   icon?: ResourceStr;
 
   /**
-   * Sets the symbol of the menu element.
+   * Icon of a menu item. You can configure the menu item icon using **Modifier**. If both **symbolIcon** and **icon** 
+   * are configured, the icon is not displayed.
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the symbol of the menu element.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
-   * If the value is true, the menu element is available and can respond to operations such as clicking.
-   * If the value is false, the menu element is not available and click operations are not responded.
+   * Whether to enable interactions with the menu item.
+   * 
+   * **true**: yes; **false**: no
+   * 
+   * Default value: **true**.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * If the value is true, the menu element is available and can respond to operations such as clicking.
-   * If the value is false, the menu element is not available and click operations are not responded.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   enabled?: boolean;
 
   /**
-   * Method executed by the callback.
+   * Action triggered when a menu item is clicked.
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Method executed by the callback.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Method executed by the callback.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   action: () => void;
 }
@@ -18788,21 +16984,11 @@ declare interface MenuElement {
 /**
  * Defines the attribute modifier.
  *
- * @interface AttributeModifier<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the attribute modifier.
- *
- * @interface AttributeModifier<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface AttributeModifier<T> {
 
@@ -18813,17 +16999,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the normal update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyNormalAttribute?(instance: T) : void;
 
@@ -18834,17 +17011,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the pressed update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyPressedAttribute?(instance: T) : void;
 
@@ -18855,17 +17023,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the focused update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyFocusedAttribute?(instance: T) : void;
 
@@ -18876,17 +17035,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the disabled update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applyDisabledAttribute?(instance: T) : void;
 
@@ -18897,17 +17047,8 @@ declare interface AttributeModifier<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the selected update attribute function.
-   *
-   * @param { T } instance
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   applySelectedAttribute?(instance: T) : void;
 
@@ -18925,9 +17066,8 @@ declare interface AttributeModifier<T> {
 }
 
 /**
- * Defines the content modifier.
+ * You need a custom class to implement the **ContentModifier** API.
  *
- * @interface ContentModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18937,13 +17077,19 @@ declare interface AttributeModifier<T> {
 declare interface ContentModifier<T> {
 
   /**
-   * Defining applyContent function.
+   * Builder of the custom content area.
+   * 
+   * **Value range of the T parameter:**
+   * 
+   * ButtonConfiguration, CheckBoxConfiguration, DataPanelConfiguration, TextClockConfiguration, ToggleConfiguration, GaugeConfiguration, LoadingProgressConfiguration, RadioConfiguration, ProgressConfiguration, RatingConfiguration, SliderConfiguration
+   * 
+   * **Supported attributes**
+   * 
+   * The universal attribute **enabled** and **contentModifier** are supported.
    *
-   * @returns { WrappedBuilder<[T]> }
-   * Component attribute class, which is used to distinguish different information required by different components
-   * after content areas are customized, for example, ButtonConfiguration for the Button component and
-   * CheckBoxConfiguration of the Checkbox component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @returns { WrappedBuilder<[T]> } Component attribute class, which is used to distinguish different information
+   *     required by different components after content areas are customized, for example, **ButtonConfiguration** for
+   *     the **Button** component and **CheckBoxConfiguration** of the **Checkbox** component.
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -18953,9 +17099,8 @@ declare interface ContentModifier<T> {
 }
 
 /**
- * Defines the common configuration.
+ * You need a custom class to implement the **ContentModifier** API.
  *
- * @interface CommonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18965,10 +17110,10 @@ declare interface ContentModifier<T> {
 declare interface CommonConfiguration<T> {
 
   /**
-   * If the value is true, the contentModifier is available and can respond to operations such as triggerChange.
-   *  If it is set to false, triggerChange operations are not responded.
+   * Whether to enable the content modifier and respond to operations such as **triggerChange**. The value **true** 
+   * means to enable the content modifier and respond to operations such as **triggerChange**, and **false** means the 
+   * opposite.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18978,9 +17123,8 @@ declare interface CommonConfiguration<T> {
   enabled: boolean,
 
   /**
-   * Obtains the contentModifier instance object
+   * Content modifier that sends the component information required by users to the custom content area.
    *
-   * @type { ContentModifier<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19191,7 +17335,6 @@ declare enum DraggingSizeChangeEffect {
 /**
  * Define the menu pop-up policy
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19236,7 +17379,6 @@ declare enum MenuPolicy {
 /**
  * ImageModifier
  *
- * @typedef { import('../api/arkui/ImageModifier').ImageModifier } ImageModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19248,21 +17390,11 @@ declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 /**
  * SymbolGlyphModifier
  *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * SymbolGlyphModifier
- *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
@@ -19656,9 +17788,11 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 declare type Optional<T> = T | undefined;
 
 /**
- * Defines the TipsMessageType property with ResourceStr and StyledString.
+ * Provides information about the tooltip.
  *
- * @typedef { ResourceStr | StyledString } TipsMessageType
+ * @unionmember { ResourceStr } Type used to represent the types that can be used by input parameters of the string
+ *     type.
+ * @unionmember { StyledString } Styled string.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19670,7 +17804,6 @@ declare type TipsMessageType = ResourceStr | StyledString;
 /**
  * Import the Matrix4Transit type object for common method.
  *
- * @typedef { import('../api/@ohos.matrix4').default.Matrix4Transit } Matrix4Transit
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19709,7 +17842,6 @@ interface BackgroundImageOptions {
    * Sets the synchronous or asynchronous mode for background image loading.
    * The default parameter type is bool, and the default value is false.
    *
-   * @type { ?boolean }
    * @param { boolean } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19722,7 +17854,6 @@ interface BackgroundImageOptions {
   /**
    * Set the repeat style of the background image.
    *
-   * @type { ?ImageRepeat }
    * @param { ImageRepeat } value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19737,7 +17868,6 @@ interface BackgroundImageOptions {
 /**
  * Defines background options.
  *
- * @interface BackgroundOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -19747,41 +17877,23 @@ interface BackgroundImageOptions {
 declare interface BackgroundOptions {
   /**
    * Set the alignment of the custom background and component.
-   *
-   * @type { ?Alignment} align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
-   * @type { ?Alignment} align
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the alignment of the custom background and component.
-   *
+   * 
    * Anonymous Object Rectification.
-   * @type { ?Alignment }
-   * @default Alignment.Center
+   *
+   * @default Alignment.Center [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   align?: Alignment;
   /**
-   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass empty edge set.
+   * The set of edges for which to ignore layout safe area. To respect safe area insets on all edges, explicitly pass 
+   * empty edge set.
    *
-   * @type { ?Array<LayoutSafeAreaEdge> }
-   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty array [].
+   * @default The default value is LayoutSafeAreaEdge.ALL when background is ResourceColor, otherwise it is an empty
+   *     array [].
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -19795,34 +17907,10 @@ declare interface BackgroundOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonMethod.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare class CommonMethod<T> {
   /**
@@ -19921,8 +18009,8 @@ declare class CommonMethod<T> {
    * Sets the drawModifier of the current component.
    *
    * @param { DrawModifier | undefined } modifier - drawModifier used to draw, or undefined if it is not available.
-   * Default value: undefined
-   * A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
+   *     Default value: undefined
+   *     A custom modifier applies only to the FrameNode of the currently bound component, not to its subnodes.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -20343,44 +18431,22 @@ declare class CommonMethod<T> {
   margin(value: Margin | Length | LocalizedMargin): T;
 
   /**
-   * Sets the background color of the component.
-   *
-   * @param { CustomBuilder } builder - Custom background.
-   * @param { object } options - Alignment mode between the custom background and the component.
-   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   *     <br>They will all take effect, with **background** at the top layer.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the background color of the component.
-   *
-   * @param { CustomBuilder } builder - Custom background.
-   * @param { object } options - Alignment mode between the custom background and the component.
-   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
-   *     <br>They will all take effect, with **background** at the top layer.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Add a background for the component.
-   *
+   * 
    * Anonymous Object Rectification.
-   * @param { CustomBuilder | ResourceColor } content
-   * @param { BackgroundOptions } [options]
+   *
+   * @param { CustomBuilder } builder - Custom background. [since 10 - 19]
+   * @param { object } options - Alignment mode between the custom background and the component.
+   *     <br>If **background**, **backgroundColor**, and **backgroundImage** are set at the same time
+   *     <br>They will all take effect, with **background** at the top layer. [since 10 - 19]
+   * @param { CustomBuilder | ResourceColor } content [since 20]
+   * @param { BackgroundOptions } [options] [since 20]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   background(content: CustomBuilder | ResourceColor, options?: BackgroundOptions): T;
 
@@ -20390,37 +18456,10 @@ declare class CommonMethod<T> {
    * @param { ResourceColor } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background color
-   *
-   * @param { ResourceColor } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundColor(value: ResourceColor): T;
 
@@ -20497,60 +18536,15 @@ declare class CommonMethod<T> {
    * Background image
    * src: Image address url
    *
-   * @param { ResourceStr } src
+   * @param { ResourceStr } src [since 7 - 11]
    * @param { ImageRepeat } repeat
+   * @param { ResourceStr | PixelMap } src [since 12]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Background image
-   * src: Image address url
-   *
-   * @param { ResourceStr | PixelMap } src
-   * @param { ImageRepeat } repeat
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImage(src: ResourceStr | PixelMap, repeat?: ImageRepeat): T;
 
@@ -20572,40 +18566,13 @@ declare class CommonMethod<T> {
   /**
    * Background image size
    *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image size
-   *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image size
-   *
-   * @param { SizeOptions | ImageSize } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image size
-   *
    * @param { SizeOptions | ImageSize } value - The width and height of the background image.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImageSize(value: SizeOptions | ImageSize): T;
 
@@ -20616,40 +18583,10 @@ declare class CommonMethod<T> {
    * @param { Position | Alignment } value
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Background image position
-   * x:Horizontal coordinate;y:Vertical axis coordinate.
-   *
-   * @param { Position | Alignment } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   backgroundImagePosition(value: Position | Alignment): T;
 
@@ -21074,34 +19011,15 @@ declare class CommonMethod<T> {
   borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses, type?: RenderStrategy): T;
 
   /**
-   * Border image
-   *
-   * @param { BorderImageOption } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Border image
-   *
-   * @param { BorderImageOption } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the border image of the component.
    *
    * @param { BorderImageOption } value - Border image or border gradient.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   borderImage(value: BorderImageOption): T;
 
@@ -21391,7 +19309,8 @@ declare class CommonMethod<T> {
   /**
    * Trigger a accessibility hover event.
    *
-   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after accessibility mode is enabled.
+   * @param { AccessibilityCallback } callback - A callback instance used when the component is touched after
+   *     accessibility mode is enabled.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22417,13 +20336,13 @@ declare class CommonMethod<T> {
    * [EffectComponent](ts-container-effectcomponent-sys.md) or <!--DelEnd-->the window.
    *
    * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by <!--Del-->the parent
-   * **EffectComponent** or <!--DelEnd-->the window.
-   * <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
-   * or <!--DelEnd-->the window.
-   * <br>Default value: **false**.
+   *     **EffectComponent** or <!--DelEnd-->the window.
+   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent **EffectComponent**
+   *     or <!--DelEnd-->the window.
+   *     <br>Default value: **false**.
    * @param { EffectType } effectType - Type of effect to apply to the component, which is defined by
-   * <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   * <br>Default value: **EffectType.DEFAULT**.
+   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
+   *     <br>Default value: **EffectType.DEFAULT**.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22435,18 +20354,20 @@ declare class CommonMethod<T> {
   /**
    * Specifies whether to apply the effect defined by <!--Del-->the parent
    * EffectComponent or
+   * 
    * <!--DelEnd-->the window. Compared to useEffect<sup>14+</sup>,
+   * 
    * this API supports the **undefined** type for the **useEffect** parameter.
    *
    * @param { Optional<boolean> } useEffect - Whether to apply the effect defined by
-   * <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   * <br>The value **true** means to apply the effect defined by <!--Del-->the parent
-   * **EffectComponent** or <!--DelEnd-->the window.
-   * <br>Default value: **false**.
-   * <br>If **useEffect** is set to **undefined**, the previous value is retained.
+   *     <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
+   *     <br>The value **true** means to apply the effect defined by <!--Del-->the parent
+   *     **EffectComponent** or <!--DelEnd-->the window.
+   *     <br>Default value: **false**.
+   *     <br>If **useEffect** is set to **undefined**, the previous value is retained.
    * @param { EffectType } [effectType] - Type of effect to apply to the component, which
-   * is defined by <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
-   * <br>Default value: **EffectType.DEFAULT**.
+   *     is defined by <!--Del-->the parent **EffectComponent** or <!--DelEnd-->the window.
+   *     <br>Default value: **EffectType.DEFAULT**.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22459,9 +20380,9 @@ declare class CommonMethod<T> {
    * Specifies whether to combine the drawing of special effects, such as background blur.
    *
    * @param { boolean } value - Whether the component inherits the special effect settings of the
-   * **EffectComponent** component.<br>The value **true** means that the component inherits the
-   * special effect settings of the **EffectComponent** component, and **false** means the opposite.
-   * <br>Default value: **false**.
+   *     **EffectComponent** component.<br>The value **true** means that the component inherits the
+   *     special effect settings of the **EffectComponent** component, and **false** means the opposite.
+   *     <br>Default value: **false**.
    * @returns { T } return the component attribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -22471,7 +20392,8 @@ declare class CommonMethod<T> {
   useEffect(value: boolean): T;
 
   /**
-   * Specify whether the current component participates in the fusion effect of the ancestor component UnionEffectContainer
+   * Specify whether the current component participates in the fusion effect of the ancestor component 
+   * UnionEffectContainer
    *
    * @param { boolean | undefined } value - Whether the component participates in the fusion effect of
    *     the ancestor component **UnionEffectContainer**.<br>The value **true** means that the component participates
@@ -24109,23 +22031,23 @@ declare class CommonMethod<T> {
   shadow(options: Optional<ShadowOptions | ShadowStyle>): T;
 
   /**
-  * Sets the edge light effect for the component.
-  *
-  * <p><strong>NOTE</strong>:
-  * <br>The edge light effect creates a glowing light effect along the component's edges,
-  * starting from the specified position and extending along the edge.
-  * <br>This effect can enhance the visual appeal and highlight important components.
-  * </p>
-  *
-  * @param { EdgeLightParams | undefined } params - Edge light effect parameters.
-  *     Defines the position, length, intensity, color, and thickness of the light effect.
-  *     If params is undefined, the edge light effect is removed.
-  * @returns { T }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @systemapi
-  * @stagemodelonly
-  * @since 26.0.0 dynamic
-  */
+   * Sets the edge light effect for the component.
+   * 
+   * <p><strong>NOTE</strong>:
+   * <br>The edge light effect creates a glowing light effect along the component's edges,
+   * starting from the specified position and extending along the edge.
+   * <br>This effect can enhance the visual appeal and highlight important components.
+   * </p>
+   *
+   * @param { EdgeLightParams | undefined } params - Edge light effect parameters.
+   *     Defines the position, length, intensity, color, and thickness of the light effect.
+   *     If params is undefined, the edge light effect is removed.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
   edgeLight(params: EdgeLightParams | undefined): T;
 
   /**
@@ -24420,20 +22342,9 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 12 dynamic
-   * @test
-   */
-  /**
-   * Key. User can set an key to the component to identify it.
-   *
-   * @param { string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    * @test
    */
   key(value: string): T;
@@ -24445,40 +22356,10 @@ declare class CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Id. User can set an id to the component to identify it.
-   *
-   * @param { string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Id. User can set an id to the component to identify it.
-   *
-   * @param { string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Id. User can set an id to the component to identify it.
-   *
-   * @param { string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   id(value: string): T;
 
@@ -24528,36 +22409,18 @@ declare class CommonMethod<T> {
 
   /**
    * Popup control
-   *
-   * @param { boolean } show
-   * @param { PopupOptions } popup
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Popup control
-   *
-   * @param { boolean } show
-   * @param { PopupOptions | CustomPopupOptions } popup
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Popup control
    * <p><strong>NOTE</strong>:
    * <br>The popup can be displayed only after the entire page is fully constructed. Therefore, to avoid incorrect
    * display positions and shapes, do not set this parameter to true while the page is still being constructed.
    * </p>
    *
-   * @param { boolean } show - Whether to show the popup, default is false.
-   * @param { PopupOptions | CustomPopupOptions } popup
+   * @param { PopupOptions } popup [since 7 - 7]
+   * @param { PopupOptions | CustomPopupOptions } popup [since 8]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   bindPopup(show: boolean, popup: PopupOptions | CustomPopupOptions): T;
 
@@ -24565,48 +22428,17 @@ declare class CommonMethod<T> {
    * Menu control
    *
    * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
-   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
-   * @param { MenuOptions } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Menu control
-   *
-   * @param { { value: ResourceStr; icon?: ResourceStr; action: () => void }[] | CustomBuilder } content
-   * action: () => void }[] | CustomBuilder } content - Indicates the content of menu.
+   *     action: () => void }[] | CustomBuilder } content - Indicates the content of menu. [since 7 - 10]
    * @param { MenuOptions } options - Indicates the options of menu.
+   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu. [since 11]
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Menu control
-   *
-   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
-   * @param { MenuOptions } options - Indicates the options of menu.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
-  /**
-   * Menu control
-   *
-   * @param { boolean } isShow true means display menu, false means hide menu.
-   * @param { Array<MenuElement> | CustomBuilder } content - Indicates the content of menu.
-   * @param { MenuOptions } options - Indicates the options of menu.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * Menu control
    *
@@ -24617,45 +22449,24 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions): T;
 
-  /**
-   * ContextMenu control
-   *
-   * @param { CustomBuilder } content
-   * @param { ResponseType } responseType
-   * @param { ContextMenuOptions } options
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * ContextMenu control
-   *
-   * @param { CustomBuilder } content - Indicates the content of context menu.
-   * @param { ResponseType } responseType - Indicates response type of context menu.
-   * @param { ContextMenuOptions } options - Indicates the options of context menu.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Binds a context menu to this component, which is displayed when the user long-presses or right-clicks the
    * component. Only custom menu items are supported.
    *
    * @param { CustomBuilder } content - Indicates the content of context menu.
    * @param { ResponseType } responseType - Indicates response type of context menu, Long pressing with a mouse device
-   * is not supported.
+   *     is not supported.
    * @param { ContextMenuOptions } options - Indicates the options of context menu.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions): T;
 
@@ -24714,12 +22525,13 @@ declare class CommonMethod<T> {
    * Binds a context menu to the component, whose visibility is subject to the isShown settings.
    *
    * @param { boolean } isShown - true means display content, false means hide content, default is false.
-   * <p><strong>NOTE</strong>:
-   * <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
-   * to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
-   * up, may occur. To trigger dragging by long presses is not supported.
-   * </p>
-   *
+   *     <p><strong>NOTE</strong>:
+   *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is
+   *     set
+   *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to
+   *     pop
+   *     up, may occur. To trigger dragging by long presses is not supported.
+   *     </p>
    * @param { CustomBuilder } content - Indicates the content of context menu.
    * @param { ContextMenuOptions } [options] - Indicates the options of context menu.
    * @returns { T }
@@ -24736,8 +22548,10 @@ declare class CommonMethod<T> {
    *
    * @param { boolean } isShow - true means display content, false means hide content, default is false.
    *     <p><strong>NOTE</strong>:
-   *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is set
-   *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to pop
+   *     <br>The menu can be displayed properly only when the related page has been constructed. If this parameter is
+   *     set
+   *     to true before the construction is complete, display issues, such as misplacement, distortion, or failure to
+   *     pop
    *     up, may occur. Dragging via long press is not supported.
    *     </p>.
    * @param { CustomBuilder | Array<MenuElement> } content - Indicates the content of context menu.
@@ -25138,9 +22952,9 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   accessibilityGroup(value: boolean): T;
 
@@ -25159,7 +22973,8 @@ declare class CommonMethod<T> {
    * <br>If a child component lacks both, it will be ignored.</p>
    *
    * @param { boolean } isGroup - set group with accessibility, default value is false.
-   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is false.
+   * @param { AccessibilityOptions } accessibilityOptions - accessibilityOptions for accessibility, default value is
+   *     false.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -25172,27 +22987,6 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the accessibility text.
-   *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the accessibility text.
-   *
-   * @param { string } value - set accessibility text, default value is "".
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the accessibility text.
    * When a component does not contain a text attribute, you can use this API to set an accessibility
    * text attribute, so that accessibility services can announce the specified content for the component.
    *
@@ -25201,14 +22995,15 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   accessibilityText(value: string): T;
 
   /**
    * Sets accessibility next focus id
+   *
    * @param { string } nextId - set component next accessibility focus id
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25222,6 +23017,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the accessibility default foucs flag
+   *
    * @param { boolean } focus - if the component is accessibility default focus,focus set true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25235,6 +23031,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibility same page mode
+   *
    * @param { AccessibilitySamePageMode } pageMode - accessibility same page mode
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25248,6 +23045,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibilityScrollTriggerable
+   *
    * @param { boolean } isTriggerable - set property of supporting scroll in accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25261,12 +23059,14 @@ declare class CommonMethod<T> {
 
   /**
    * Sets the accessibility text.
+   * 
    * <p><strong>NOTE</strong>
    * If a component has both text content and accessibility text, only the accessibility text is announced.
    * <br>If a component is grouped for accessibility purposes but lacks both text content and accessibility
    * <br>text, the screen reader will concatenate text from its child components (depth-first traversal).
    * <br>To prioritize accessibility text concatenation, set accessibilityPreferred in accessibilityGroup.
    * </p>
+   *
    * @param { Resource } text - set accessibility text
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25280,6 +23080,7 @@ declare class CommonMethod<T> {
 
   /**
    * Sets accessibility role,role indicates the custom type of the component
+   *
    * @param { AccessibilityRoleType } role - set accessibility component type
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25293,6 +23094,7 @@ declare class CommonMethod<T> {
 
   /**
    * Register accessibility focus callback,when the component is focused or out of focus,the callback will be executed
+   *
    * @param { AccessibilityFocusCallback } callback - accessibility focus callback function
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25307,6 +23109,7 @@ declare class CommonMethod<T> {
   /**
    * Register accessibility action intercept callback,
    * when accessibility action is to be executed,the callback will be executed
+   *
    * @param { AccessibilityActionInterceptCallback } callback - accessibility action intercept callback function
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25340,45 +23143,26 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets accessibilityDescription
-   *
-   * @param { string } value - set description of accessibility, default value is "".
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets accessibilityDescription
-   *
-   * @param { string } value - set description of accessibility, default value is "".
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   accessibilityDescription(value: string): T;
 
   /**
    * Sets accessibilityDescription
-   *
+   * 
    * with support for resource references using Resource.
    * This property provides additional context or explanation for the component,
    * helping users understand the action or function it performs.
+   * 
    * <p><strong>NOTE</strong>:
    * <br>Reference resource of the accessibility description. You can specify further explanation
    * <br>of the current component, for example, possible operation consequences, especially those that
    * <br>cannot be learned from component attributes and accessibility text. If a component contains
    * <br>both text information and the accessibility description, the text is read first and then the
    * <br>accessibility description, when the component is selected.</p>
+   *
    * @param { Resource } description - set description of accessibility
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -25393,29 +23177,7 @@ declare class CommonMethod<T> {
   /**
    * Sets the accessibility level.
    * This property determines whether the component can be recognized by accessibility services.
-   *
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
-   *
-   * @param { string } value - set accessibility level, default value is auto.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets the accessibility level.
-   * This property determines whether the component can be recognized by accessibility services.
+   * 
    * <p>
    * Accessibility level, which is used to decide whether a component can be identified by the accessibility service.
    * <br>The options are as follows:
@@ -25430,14 +23192,15 @@ declare class CommonMethod<T> {
    * <br>not focus on its child components, making them unrecognizable.
    * <br>3. If the parent component's accessibilityLevel is set to "no-hide-descendants", the component will not be
    * <br>recognized by accessibility services.</p>
+   *
    * @param { string } value - set accessibility level, default value is auto.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @form [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   accessibilityLevel(value: string): T;
 
@@ -25449,20 +23212,9 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
+   * @form [since 12]
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Sets accessibilityVirtualNode
-   *
-   * @param { CustomBuilder } builder - set virtual node of accessibility
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @since 11 dynamic
    */
   accessibilityVirtualNode(builder: CustomBuilder): T;
 
@@ -25502,18 +23254,8 @@ declare class CommonMethod<T> {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets obscured
-   *
-   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   obscured(reasons: Array<ObscuredReasons>): T;
 
@@ -25594,24 +23336,14 @@ declare class CommonMethod<T> {
    * Sets the attribute modifier.
    *
    * @param { AttributeModifier<T> } modifier
+   *     The if/else syntax is supported.
+   *     You need a custom class to implement the AttributeModifier API.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the attribute modifier.
-   *
-   * @param { AttributeModifier<T> } modifier
-   * The if/else syntax is supported.
-   * You need a custom class to implement the AttributeModifier API.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   attributeModifier(modifier: AttributeModifier<T>): T;
 
@@ -25877,6 +23609,7 @@ declare class CommonMethod<T> {
   /**
    * Set whether the component enables the ability to invert colors.
    * This interface needs to be set as the first attribute of the component.
+   *
    * @param { boolean } value - value indicates whether the component enables the ability to invert colors.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -26027,112 +23760,35 @@ declare class CommonMethod<T> {
 /**
  * CommonAttribute for ide.
  *
- * @extends CommonMethod<CommonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonAttribute for ide.
- *
- * @extends CommonMethod<CommonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare class CommonAttribute extends CommonMethod<CommonAttribute> {}
 
 /**
  * CommonInterface for ide.
  *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * CommonInterface for ide.
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * CommonInterface for ide.
- *
- * @interface CommonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonInterface for ide.
- *
- * @interface CommonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  */
 interface CommonInterface {
   /**
-   * Constructor.
-   *
-   * @returns { CommonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
    * Constructor
    *
    * @returns { CommonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Constructor
-   *
-   * @returns { CommonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    */
   (): CommonAttribute;
 }
@@ -26142,34 +23798,10 @@ interface CommonInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * CommonInstance for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * CommonInstance for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonInstance for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const CommonInstance: CommonAttribute;
 
@@ -26178,69 +23810,21 @@ declare const CommonInstance: CommonAttribute;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Common for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Common for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Common for ide.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Common: CommonInterface;
 
 /**
  * Defines the CustomBuilder Type.
  *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the CustomBuilder Type.
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the CustomBuilder Type.
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the CustomBuilder Type.
- *
- * @typedef { (() => any) | void } CustomBuilder
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
+ * @typedef { (() => any) | void } CustomBuilder [since 8]
+ * @syscap SystemCapability.ArkUI.ArkUI.Full [since 8]
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
  * @since 11 dynamic
  */
 declare type CustomBuilder = (() => any) | void;
@@ -26248,7 +23832,6 @@ declare type CustomBuilder = (() => any) | void;
 /**
  * Defines the CustomBuilder type with parameter.
  *
- * @typedef { function } CustomBuilderT<T>
  * @param { T } t - the parameter
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -26370,58 +23953,22 @@ declare type FractionStop = [ number, number ];
 /**
  * CommonShapeMethod
  *
- * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * CommonShapeMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare class CommonShapeMethod<T> extends CommonMethod<T> {
   /**
    * constructor.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
    * @systemapi
-   * @since 7
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @systemapi
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   constructor();
 
@@ -26434,46 +23981,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke color.
-   * If this attribute is not set, the component does not have any stroke.
-   * If the value is invalid, no stroke will be drawn.
-   *
-   * @param { ResourceColor } value - Stroke color.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stroke(value: ResourceColor): T;
 
@@ -26486,46 +23997,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the color of the fill area.
-   * An invalid value is handled as the default value.
-   * If this attribute and the universal attribute foregroundColor are both set, whichever is set later takes effect.
-   *
-   * @param { ResourceColor } value - Color of the fill area. Default value: Color.Black.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fill(value: ResourceColor): T;
 
@@ -26534,54 +24009,15 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * An invalid value is handled as the default value.
    *
    * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
+   *     Default value: 0
+   *     Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the offset of the start point for drawing the stroke.
-   * An invalid value is handled as the default value.
-   *
-   * @param { number | string } value - Offset of the start point for drawing the stroke.
-   * Default value: 0
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashOffset(value: number | string): T;
 
@@ -26592,40 +24028,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the cap style of the stroke.
-   *
-   * @param { LineCapStyle } value - Cap style of the stroke. Default value: LineCapStyle.Butt
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineCap(value: LineCapStyle): T;
 
@@ -26637,43 +24043,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the join style of the stroke.
-   * This attribute does not work for the Circle component, which does not have corners.
-   *
-   * @param { LineJoinStyle } value - Join style of the stroke. Default value: LineJoinStyle.Miter
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeLineJoin(value: LineJoinStyle): T;
 
@@ -26684,40 +24057,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Limits for drawing acute angles as bevels
-   *
-   * @param { number | string } value
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeMiterLimit(value: number | string): T;
 
@@ -26731,49 +24074,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke opacity.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Stroke opacity. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeOpacity(value: number | string | Resource): T;
 
@@ -26787,49 +24091,10 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the opacity of the fill area.
-   * The value range is [0.0, 1.0].
-   * A value less than 0.0 evaluates to the value 0.0. A value greater than 1.0 evaluates to the value 1.0.
-   * Any other value evaluates to the value 1.0.
-   *
-   * @param { number | string | Resource } value - Opacity of the fill area. Default value: 1
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fillOpacity(value: number | string | Resource): T;
 
@@ -26838,62 +24103,17 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
    *
    * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
+   *     The value must be greater than or equal to 0.
+   *     Default value: 1.
+   *     Default unit: vp.
+   *     An invalid value is handled as the default value.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the stroke width.
-   * If this attribute is of the string type, percentage values are not supported and will be treated as 1 px.
-   *
-   * @param { Length } value - Stroke width.
-   * The value must be greater than or equal to 0.
-   * Default value: 1.
-   * Default unit: vp.
-   * An invalid value is handled as the default value.
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeWidth(value: Length): T;
 
@@ -26901,55 +24121,16 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * Specifies whether anti-aliasing is enabled.
    *
    * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
+   *     true: Anti-aliasing is enabled.
+   *     false: Anti-aliasing is disabled.
+   *     Default value: true
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Specifies whether anti-aliasing is enabled.
-   *
-   * @param { boolean } value - Whether anti-aliasing is enabled.
-   * true: Anti-aliasing is enabled.
-   * false: Anti-aliasing is disabled.
-   * Default value: true
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   antiAlias(value: boolean): T;
 
@@ -26958,54 +24139,15 @@ declare class CommonShapeMethod<T> extends CommonMethod<T> {
    * The value must be greater than or equal to 0. Invalid values are treated as the default value.
    *
    * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
+   *     Default value: []
+   *     Default unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets stroke dashes.
-   * The value must be greater than or equal to 0. Invalid values are treated as the default value.
-   *
-   * @param { Array<any> } value - Stroke dashes.
-   * Default value: []
-   * Default unit: vp
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeDashArray(value: Array<any>): T;
 }
@@ -27459,7 +24601,6 @@ declare type AreaChangeCallback = (oldValue: Area, newValue: Area) => void;
 /**
  * Sub component info passed from framework when layout and measure happens.
  *
- * @interface LayoutChild
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @form
  * @since 9 dynamiconly
@@ -27470,7 +24611,6 @@ declare interface LayoutChild {
   /**
    * Sub component name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27482,7 +24622,6 @@ declare interface LayoutChild {
   /**
    * Sub component id.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27494,7 +24633,6 @@ declare interface LayoutChild {
   /**
    * Sub component constraint.
    *
-   * @type { ConstraintSizeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27506,7 +24644,6 @@ declare interface LayoutChild {
   /**
    * Sub component border info.
    *
-   * @type { LayoutBorderInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27518,7 +24655,6 @@ declare interface LayoutChild {
   /**
    * Sub component position.
    *
-   * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @form
    * @since 9 dynamiconly
@@ -27851,24 +24987,14 @@ declare type RouterPageInfo = import('../api/@ohos.arkui.observer').default.Rout
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * UIContext
- *
- * @typedef { import('../api/@ohos.arkui.UIContext').UIContext } UIContext
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type UIContext = import('../api/@ohos.arkui.UIContext').UIContext;
 
 /**
  * DrawContext
  *
- * @typedef { import('../api/arkui/Graphics').DrawContext } DrawContext
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -27905,7 +25031,6 @@ declare type Filter = import('../api/@ohos.graphics.uiEffect').default.Filter;
 /**
  * Blender
  *
- * @typedef { import('../api/@ohos.graphics.uiEffect').default.Blender } Blender
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -27939,7 +25064,6 @@ declare type Theme = import('../api/@ohos.arkui.theme').Theme;
 /**
  * Import the DialogController type from promptAction.
  *
- * @typedef { import('../api/@ohos.promptAction').promptAction.DialogController } PromptActionDialogController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -28069,7 +25193,6 @@ declare class CustomComponent extends BaseCustomComponent {
 /**
  * Custom ComponentV2
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28094,7 +25217,6 @@ declare class CustomComponentV2 extends BaseCustomComponent {
 /**
  * Custom Component base class and it is migrated from class CustomComponent.
  *
- * @extends BaseCustomComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28155,58 +25277,13 @@ declare class BaseCustomComponent extends CommonAttribute {
    * The change will take effect when you execute the build() function next time.
    * The aboutToAppear lifecycle callback of a custom component with a custom layout
    * is invoked during the layout process.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Invoked after a new instance of the custom component is created
-   * and before its build() function is executed. You can change state variables in aboutToAppear.
-   * The change will take effect when you execute the build() function next time.
-   * The aboutToAppear lifecycle callback of a custom component with a custom layout
-   * is invoked during the layout process.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Invoked after a new instance of the custom component is created
-   * and before its build() function is executed. You can change state variables in aboutToAppear.
-   * The change will take effect when you execute the build() function next time.
-   * The aboutToAppear lifecycle callback of a custom component with a custom layout
-   * is invoked during the layout process.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Invoked after a new instance of the custom component is created
-   * and before its build() function is executed. You can change state variables in aboutToAppear.
-   * The change will take effect when you execute the build() function next time.
-   * The aboutToAppear lifecycle callback of a custom component with a custom layout
-   * is invoked during the layout process.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Invoked after a new instance of the custom component is created
-   * and before its build() function is executed. You can change state variables in aboutToAppear.
-   * The change will take effect when you execute the build() function next time.
-   * The aboutToAppear lifecycle callback of a custom component with a custom layout
-   * is invoked during the layout process.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   aboutToAppear?(): void;
 
@@ -28504,24 +25581,11 @@ declare class BaseCustomComponent extends CommonAttribute {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getUIContext(): UIContext;
 
-  /**
-   * Get uniqueId of the custom component.
-   * This unique ID is assigned by the system to each component.
-   * If this API is called before the component's corresponding node is created or after it has been destroyed, an
-   * invalid unique ID, which is -1, will be returned.
-   *
-   * @returns { number } - The uniqueId of the custom component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
   /**
    * Get uniqueId of the custom component and it is migrated from class CustomComponent.
    * This unique ID is assigned by the system to each component.
@@ -28643,16 +25707,9 @@ declare class BaseCustomComponent extends CommonAttribute {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
- * @since 7
- */
-/**
- * View
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
  * @FaAndStageModel
- * @form
- * @since 9 dynamic
+ * @form [since 9]
+ * @since 7 dynamic
  */
 declare class View {
   /**
@@ -28663,18 +25720,8 @@ declare class View {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Just use for generate tsbundle
-   *
-   * @param { any } value
-   * @returns { any }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @FaAndStageModel
-   * @form
-   * @since 9 dynamic
+   * @form [since 9]
+   * @since 7 dynamic
    */
   create(value: any): any;
 }
@@ -28746,80 +25793,43 @@ declare interface RectResult {
 /**
  * CaretOffset info.
  *
- * @interface CaretOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * CaretOffset info.
- *
- * @interface CaretOffset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface CaretOffset {
   /**
    * Get the index of the CaretOffset
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the index of the CaretOffset
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   index: number;
 
   /**
    * Get the x of the relative position.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the x of the relative position.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: number;
 
   /**
    * Get the y of the relative position.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the y of the relative position.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: number;
 }
@@ -28827,7 +25837,6 @@ declare interface CaretOffset {
 /**
  * Defines the span options of TextContentController.
  *
- * @interface TextContentControllerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -28838,7 +25847,6 @@ declare interface TextContentControllerOptions {
   /**
    * the offset that add a text at.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28854,30 +25862,13 @@ declare interface TextContentControllerOptions {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * TextContentControllerBase
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare abstract class TextContentControllerBase {
   /**
    * Get the index and relative position of the CaretOffset.
-   *
-   * @returns { CaretOffset } index and relative position of the CaretOffset.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the index and relative position of the CaretOffset.
-   *
+   * 
    * <p><strong>NOTE</strong>:
    * <br>If this API is called when the caret position is updated in the current frame, it will not take effect.
    * <br>For the Search component, the returned position information is the offset of the first character
@@ -28891,23 +25882,14 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getCaretOffset() : CaretOffset;
 
   /**
    * Get the start and end positions of the text content.
-   *
-   * @returns { RectResult } Text content rect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the start and end positions of the text content.
-   *
+   * 
    * <p><strong>NOTE</strong>:
    * <br>If no text is entered, the return value contains the position information, but the size is 0.
    * <br>The position information is the offset of the first character relative to the editable area.
@@ -28920,20 +25902,11 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getTextContentRect() : RectResult;
 
-  /**
-   * Get the lines number of the text content.
-   *
-   * @returns { number } Text content line count
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Get the lines number of the text content.
    * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
@@ -28942,8 +25915,8 @@ declare abstract class TextContentControllerBase {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getTextContentLineCount() : number;
 
@@ -29003,17 +25976,9 @@ declare abstract class TextContentControllerBase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 17 dynamic
-   */
-  /**
-   * Clear the content of preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   clearPreviewText(): void;
 
@@ -29032,7 +25997,7 @@ declare abstract class TextContentControllerBase {
 
   /**
    * Delete the last character of the input field component.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29058,7 +26023,6 @@ declare abstract class TextContentControllerBase {
 /**
  * Enum of scrollable containers' content clip mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29103,30 +26067,20 @@ declare enum ContentClipMode {
 /**
  * CommonScrollableMethod
  *
- * @extends CommonMethod<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
+ * @form [since 12]
  * @atomicservice
- * @since 11
- */
-/**
- * CommonScrollableMethod
- *
- * @extends CommonMethod<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @since 11 dynamic
  */
 declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the scrollbar state.
    *
-   * @param { BarState } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em> for the <em>List</em>, <em>Grid</em>,
-   * and <em>Scroll</em> components and <em>BarState.Off</em> for the <em>WaterFlow</em> component
+   * @param { BarState } barState - Scrollbar state.<br>Default value: <em>BarState.Auto</em> for the <em>List</em>, <em
+   *     >Grid</em>,
+   *     and <em>Scroll</em> components and <em>BarState.Off</em> for the <em>WaterFlow</em> component
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29140,8 +26094,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the scrollbar color.
    *
    * @param { Color | number | string } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
-   * <br>A number value indicates a HEX color in RGB or ARGB format,
-   * for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   *     <br>A number value indicates a HEX color in RGB or ARGB format,
+   *     for example, <em>0xffffff</em>. A string value indicates a color in RGB or ARGB format, for example, <em>'#
+   *     ffffff'</em>.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29154,10 +26109,10 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the scrollbar color.
    *
-   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40% opacity)
-
-   * <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
-   * A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
+   * @param { Color | number | string | Resource } color - Scrollbar color.<br>Default value: <em>'\#182431'</em> (40%
+   *     opacity)
+   *     <br>A number value indicates a HEX color in RGB or ARGB format, for example, <em>0xffffff</em>.
+   *     A string value indicates a color in RGB or ARGB format, for example, <em>'#ffffff'</em>.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29171,9 +26126,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the scrollbar width.
    *
    * @param { number | string } value  - Scrollbar width.<br>Default value: <em>4</em>
-   * <br>Unit: vp
-   * <br>If this parameter is set to a value less than or equal to 0, the default value is used.
-   * The value <em>0</em> means not to show the scrollbar.
+   *     <br>Unit: vp
+   *     <br>If this parameter is set to a value less than or equal to 0, the default value is used.
+   *     The value <em>0</em> means not to show the scrollbar.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29231,12 +26186,17 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets the effect used when the scroll boundary is reached.
    *
-   * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em> components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
-   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
-   * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
-   * <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow</em> components,
-   * and <em>{ alwaysEnabled: true }</em> for the <em>Scroll</em> component
+   * @param { EdgeEffect } edgeEffect - Effect used when the scroll boundary is reached. The spring and shadow effects
+   *     are supported.
+   *     <br>Default value: <em>EdgeEffect.None</em> for the <em>Grid</em>, <em>Scroll</em>, and <em>WaterFlow</em>
+   *     components and <em>EdgeEffect.Spring</em> for the <em>List</em> component
+   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller
+   *     than the component itself.
+   *     The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }<
+   *     /em> means the opposite.
+   *     <br>Default value:<br><em>{ alwaysEnabled: false }</em> for the <em>List</em>, <em>Grid</em>, and <em>WaterFlow
+   *     </em> components,
+   *     and <em>{ alwaysEnabled: true }</em> for the <em>Scroll</em> component
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29303,9 +26263,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the offset from the start of the content to the boundary of the scrollable display area.
    *
    * @param { number | Resource } offset - Offset from the start of the content to the boundary of
-   *    the scrollable display area.
-   *    <br>Default value: <em>0</em>
-   *    <br>Unit: vp
+   *     the scrollable display area.
+   *     <br>Default value: <em>0</em>
+   *     <br>Unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29319,9 +26279,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Sets the offset from the end of the content to the boundary of the scrollable display area.
    *
    * @param { number | Resource } offset - Offset from the end of the content to the boundary of
-   *    the scrollable display area.
-   *    <br>Default value: <em>0</em>
-   *    <br>Unit: vp
+   *     the scrollable display area.
+   *     <br>Default value: <em>0</em>
+   *     <br>Unit: vp
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29349,7 +26309,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
    * Triggered when the scrollable component scrolls.
    *
    * @param { function } event - callback of scrollable,
-   * scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
+   *     scrollOffset is offset per frame scrolling, ScrollState is current scroll state.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29485,7 +26445,8 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onReachEnd(event: () => void): T;
 
   /**
-   * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the component or its scrollbar.
+   * Triggered when the scrollable component starts scrolling initiated by the user's finger dragging the component or 
+   * its scrollbar.
    *
    * @param { function } event - Callback function, triggered when the scrollable starts scrolling.
    * @returns { T }
@@ -29511,12 +26472,14 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   onScrollStop(event: () => void): T;
 
   /**
-   * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling ends.
+   * Sets the maximum initial velocity at the start of the fling animation that occurs after gesture-driven scrolling 
+   * ends.
    *
    * @param { number } speedLimit - Maximum initial velocity at the start of the fling animation.
-   * <br>Default value: <em>9000</em>
-   * <br>Unit: vp/s
-   * <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is used.
+   *     <br>Default value: <em>9000</em>
+   *     <br>Unit: vp/s
+   *     <br>Value range: (0, +∞). If this parameter is set to a value less than or equal to 0, the default value is
+   *     used.
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29555,8 +26518,9 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
   /**
    * Sets whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
    *
-   * @param { boolean } backToTop - Whether to enable the back-to-top feature for a scrollable component when the status bar is touched.
-   * <br>Default value: <em>false</em>
+   * @param { boolean } backToTop - Whether to enable the back-to-top feature for a scrollable component when the status
+   *     bar is touched.
+   *     <br>Default value: <em>false</em>
    * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -29585,6 +26549,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 
 /**
  * The actual offset by which the scrollable scrolls.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29594,7 +26559,7 @@ declare class ScrollableCommonMethod<T> extends CommonMethod<T> {
 declare class ScrollResult {
   /**
    * Actual offset by which the scrollable scrolls in vp.
-   * @type { number }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29607,7 +26572,6 @@ declare class ScrollResult {
 /**
  * Called before scroll to allow developer to control real offset the Scrollable can scroll.
  *
- * @typedef { function } OnWillScrollCallback
  * @param { number } scrollOffset - offset this frame will scroll, which may or may not be reached.
  * @param { ScrollState } scrollState - current scroll state.
  * @param { ScrollSource } scrollSource - source of current scroll.
@@ -29625,7 +26589,6 @@ declare type OnWillScrollCallback =
 /**
  * On scroll callback using in scrollable onDidScroll.
  *
- * @typedef { function } OnScrollCallback
  * @param { number } scrollOffset - offset this frame did scroll.
  * @param { ScrollState } scrollState - current scroll state.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29640,7 +26603,6 @@ declare type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState)
 /**
  * Defines the callback type used in onItemDragStart.
  *
- * @typedef { function } OnItemDragStartCallback
  * @param { ItemDragInfo } event - Information about the dragged item.
  * @param { number } itemIndex - The index number of the dragged item.
  * @returns { CustomBuilder }
@@ -29655,7 +26617,6 @@ declare type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) 
 /**
  * Defines the callback type used in onGetPreviewBadge of EditModeOptions.
  *
- * @typedef { function } OnGetPreviewBadgeCallback
  * @returns { boolean | number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29668,7 +26629,6 @@ declare type OnGetPreviewBadgeCallback = () => boolean | number;
 /**
  * On scroll callback using in scrollable onWillStopDragging.
  *
- * @typedef { function } OnWillStopDraggingCallback
  * @param { number } velocity - The veolicity of the scroll view at the moment the touch was released.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29682,7 +26642,6 @@ declare type OnWillStopDraggingCallback = (velocity: number) => void;
 /**
  * On scroll callback using in scrollable onDidStopDragging.
  *
- * @typedef { function } OnDidStopDraggingCallback
  * @param { boolean } willFling - whether start fling animation.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29696,7 +26655,6 @@ declare type OnDidStopDraggingCallback = (willFling: boolean) => void;
 /**
  * Defines the callback type used in OnVisibleIndexesChange.
  *
- * @typedef {function} OnVisibleIndexesChangeCallback
  * @param { int } start - the first index in visible content.
  * @param { int } end - the last index in visible content.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29710,7 +26668,6 @@ declare type OnVisibleIndexesChangeCallback = (start: int, end: int) => void;
 /**
  * Defines the onMove callback.
  *
- * @typedef { function } OnMoveHandler
  * @param { number } from - Index number for moving elements.
  * @param { number } to - Target index number for moving elements.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -29724,7 +26681,6 @@ declare type OnMoveHandler = (from: number, to: number) => void;
 /**
  * Define item drag event handler.
  *
- * @interface ItemDragEventHandler
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29735,7 +26691,6 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is long pressed.
    *
-   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29747,7 +26702,6 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is dragged.
    *
-   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29759,7 +26713,6 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when an item is moved through other items.
    *
-   * @type { ?OnMoveHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29771,7 +26724,6 @@ declare interface ItemDragEventHandler {
   /**
    * This callback is triggered when the item is dropped.
    *
-   * @type { ?Callback<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29824,48 +26776,27 @@ declare class DynamicNode<T> {
 /**
  * Define EdgeEffect Options.
  *
- * @interface EdgeEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define EdgeEffect Options.
- *
- * @interface EdgeEffectOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface EdgeEffectOptions {
   /**
    * Enable Sliding effect when component does not full screen.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Enable Sliding effect when component does not full screen.
-   *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   alwaysEnabled: boolean;
 
   /**
    * Set the effective edge of the edge effect.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29878,7 +26809,6 @@ declare interface EdgeEffectOptions {
 /**
  * Enumerates the effective edge of the edge effect.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29924,11 +26854,11 @@ declare class ChildrenMainSize {
    * Creates an instance of ChildrenMainSize.
    *
    * @param { number } childDefaultSize - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   *     If the main axis is horizontal, it indicates width.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29941,11 +26871,11 @@ declare class ChildrenMainSize {
    * Set default size.
    *
    * @param { number } value - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   *     If the main axis is horizontal, it indicates width.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29958,7 +26888,7 @@ declare class ChildrenMainSize {
    * Get default size
    *
    * @returns { number } - default main size, in vp. If the main axis is vertical, it indicates height.
-   * If the main axis is horizontal, it indicates width.
+   *     If the main axis is horizontal, it indicates width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -29974,17 +26904,17 @@ declare class ChildrenMainSize {
    * @param { number } [deleteCount] - Indicating the number of children main size to remove from start.
    * @param { Array<number> } [childrenSize] - Add the new children main size, beginning from start.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    * @example splice(1, 0, [100]), Insert a child after first child, the child's main size is 100vp.
-   * splice(1, 1), Delete the second child.
-   * splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
+   *     splice(1, 1), Delete the second child.
+   *     splice(1, 2, [100, 100]), Change the main size of the second and third children to 100vp.
    */
   splice(start: number, deleteCount?: number, childrenSize?: Array<number>): void;
 
@@ -29994,9 +26924,9 @@ declare class ChildrenMainSize {
    * @param { number } index - index of child to be updated.
    * @param { number } childSize - new section options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30009,7 +26939,6 @@ declare class ChildrenMainSize {
 /**
  * Define edit mode options.
  *
- * @interface EditModeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30020,7 +26949,6 @@ declare interface EditModeOptions {
   /**
    * Define whether to gather selected items in grid or list when item is long pressed for context menu.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30037,7 +26965,6 @@ declare interface EditModeOptions {
    * Returning true means using the number of selected items within the display range.
    * Returning a number to include selected items outside the display range.
    *
-   * @type { ?OnGetPreviewBadgeCallback } onGetPreviewBadge
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -30052,7 +26979,6 @@ declare interface EditModeOptions {
    * multi-select state.
    * {@code false} indicates that there is no default style after entering the multi-select state.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30067,7 +26993,6 @@ declare interface EditModeOptions {
    * {@code true} indicates that two-finger swiping can enter edit mode and perform multi-selection.
    * {@code false} indicates that two-finger swiping cannot perform multi-selection.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -30250,31 +27175,20 @@ declare interface LightSource {
  * wrapBuilder is a template function that returns a WrappedBuilder object.
  * wrapBuilder only accepts a global @Builder decorated function as its argument.
  * Of the WrappedBuilder object it returns, the builder attribute method can be used only inside the struct.
+ *
  * @param { function } builder
  * @returns { WrappedBuilder<Args> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * wrapBuilder is a template function that returns a WrappedBuilder object.
- * wrapBuilder only accepts a global @Builder decorated function as its argument.
- * Of the WrappedBuilder object it returns, the builder attribute method can be used only inside the struct.
- * @param { function } builder
- * @returns { WrappedBuilder<Args> }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare function wrapBuilder<Args extends Object[]>(builder: (...args: Args) => void): WrappedBuilder<Args>;
 
 /**
  * Defines the callback type used in mutableBuilder.
  *
- * @typedef { function } BuilderCallback
  * @param { Args } args - The parameter of MutableBuilder.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30286,6 +27200,7 @@ declare type BuilderCallback = (...args: Args) => void
 
 /**
  * Defining mutableBuilder function.
+ *
  * @param { BuilderCallback } builder
  * @returns { MutableBuilder<Args> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30298,60 +27213,40 @@ declare function mutableBuilder<Args extends Object[]>(builder: BuilderCallback)
 
 /**
  * The WrappedBuilder object is also a template class.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * The WrappedBuilder object is also a template class.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class WrappedBuilder<Args extends Object[]> {
   /**
    * global @Builder decorated function.
-   * @type { function }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * global @Builder decorated function.
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   builder: (...args: Args) => void;
 
   /**
+   *
    * @param { function } builder
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * @param { function } builder
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   constructor(builder: (...args: Args) => void);
 }
 
 /**
  * Defines the MutableBuilder class.
- * @extends WrappedBuilder<Args>
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30523,7 +27418,6 @@ declare interface KeyframeState {
 /**
  * Defines the basic callback.
  *
- * @typedef Callback<T, V = void>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30563,7 +27457,6 @@ declare type HoverCallback = (isHover: boolean, event: HoverEvent) => void;
  * The value of isHover indicates whether the touch is hovering over the component.
  * The value of event contains information about AccessibilityHoverEvent.
  *
- * @typedef { function } AccessibilityCallback
  * @param { boolean } isHover
  * @param { AccessibilityHoverEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -30577,7 +27470,6 @@ declare type AccessibilityCallback = (isHover: boolean, event: AccessibilityHove
 /**
  * Defines the callback type used in accessibility hover transparent event.
  *
- * @typedef { function } AccessibilityTransparentCallback
  * @param { TouchEvent } event - The value of event contains information about original accessibility hover event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30824,8 +27716,6 @@ declare interface UICommonEvent {
 /**
  * Defines a UIScrollableCommonEvent which is used to set event to target component.
  *
- * @extends UICommonEvent
- * @interface UIScrollableCommonEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -30991,7 +27881,6 @@ declare interface GestureModifier {
 /**
  * Defines the selection options.
  *
- * @interface SelectionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31002,7 +27891,6 @@ declare interface SelectionOptions {
   /**
    * Menu pop-up policy.
    *
-   * @type { ?MenuPolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31112,9 +28000,8 @@ declare interface FocusMovement {
 }
 
 /**
- * enum keyboard avoid mode
+ * Enumerates modes in which a popup responds when the keyboard is displayed.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31148,7 +28035,6 @@ declare enum KeyboardAvoidMode {
 /**
  * Enumerates the type of area in hover mode.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31183,7 +28069,6 @@ declare enum HoverModeAreaType {
 /**
  * Defines a range of dates.
  *
- * @interface DateRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31194,7 +28079,6 @@ declare interface DateRange {
   /**
    * Defines the start date of the date range.
    *
-   * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -31206,7 +28090,6 @@ declare interface DateRange {
   /**
    * Defines the end date of the date range.
    *
-   * @type { ?Date }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

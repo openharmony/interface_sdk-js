@@ -19,7 +19,7 @@
  */
 
 /**
- * Provides information about the menu item.
+ * Menu中具体item菜单项信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -30,8 +30,7 @@
  */
 declare interface MenuItemOptions {
   /**
-   * Start icon of the menu item. Symbol icons are not supported. If a symbol icon is used, **symbolStartIcon** must be 
-   * used.
+   * MenuItem的起始图标。不支持Symbol图标。使用Symbol图标时，须使用symbolStartIcon。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -42,8 +41,7 @@ declare interface MenuItemOptions {
   startIcon?: ResourceStr;
 
   /**
-   * Symbol icon at the start of a menu item. When this parameter is set, the icon set through **startIcon** is not 
-   * displayed.
+   * MenuItem起始的Symbol图标。配置该项时，原先startIcon图标不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +52,7 @@ declare interface MenuItemOptions {
   symbolStartIcon?: SymbolGlyphModifier;
 
   /**
-   * Content of the menu item.
+   * MenuItem的内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -65,8 +63,7 @@ declare interface MenuItemOptions {
   content?: ResourceStr;
 
   /**
-   * End icon of the menu item. Symbol icons are not supported. If the symbol icon is used, **symbolEndIcon** must be 
-   * used.
+   * MenuItem的末尾图标。不支持Symbol图标。使用Symbol图标时，须使用symbolEndIcon。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -77,8 +74,7 @@ declare interface MenuItemOptions {
   endIcon?: ResourceStr;
 
   /**
-   * Symbol icon at the end of a menu item. When this parameter is set, the icon set through **endIcon** is not 
-   * displayed.
+   * MenuItem末尾的Symbol图标。配置该项时，原先endIcon图标不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,7 +85,7 @@ declare interface MenuItemOptions {
   symbolEndIcon?: SymbolGlyphModifier;
 
   /**
-   * Label information at the end of the menu item, such as shortcut keys like Ctrl+C.
+   * MenuItem结束的标签信息，如快捷方式Ctrl+C等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -100,7 +96,7 @@ declare interface MenuItemOptions {
   labelInfo?: ResourceStr;
 
   /**
-   * Builder for a level-2 menu.
+   * 用于构建二级菜单。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -112,12 +108,11 @@ declare interface MenuItemOptions {
 }
 
 /**
- * The **MenuItem** component represents an item in a menu.
+ * 用来展示菜单中具体的菜单选项。
  * 
- * > **NOTE**
- * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
+ * > **说明：**
+ * 
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -129,7 +124,7 @@ declare interface MenuItemOptions {
 interface MenuItemInterface {
   /**
    *
-   * @param { MenuItemOptions | CustomBuilder } value - Information about the menu item.
+   * @param { MenuItemOptions | CustomBuilder } value - 包含设置MenuItem的各项信息。 如果不传该参数，则创建空的MenuItem对象。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -141,7 +136,7 @@ interface MenuItemInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -152,16 +147,13 @@ interface MenuItemInterface {
  */
 declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   /**
-   * Sets whether the menu item is selected.
+   * 设置菜单项是否选中。
    * 
-   * Since API version 10, this parameter supports two-way binding through 
-   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 从API version 10开始，该参数支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    * 
-   * Since API version 18, this parameter supports two-way binding through 
-   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
+   * 从API version 18开始，该参数支持[!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    *
-   * @param { boolean } value - Whether the menu item is selected.<br>**true**: The menu item is selected. **false**:
-   *     The menu item is not selected.<br>Default value: **false**.
+   * @param { boolean } value - 菜单项是否选中。<br/>true：菜单项被选中；false：菜单项不被选中。<br />默认值：false
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -172,20 +164,14 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   selected(value: boolean): MenuItemAttribute;
 
   /**
-   * Sets whether to display the selected icon when the menu item is selected.
+   * 设置当菜单项被选中时，是否显示被选中的图标。
    *
-   * @param { boolean } value - Whether to display the selected icon when the menu item is selected.<br>**true**:
-   *     Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**: Display the
-   *     specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br>Default
-   *     value: **false**. [since 9 - 9]
-   * @param { boolean | ResourceStr } value - Whether to display the selected icon when the menu item is selected.<br>
-   *     **true**: Display the default check mark icon. **false**: Hide the selected state icon.<br>**ResourceStr**:
-   *     Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified HMSymbol icon.<br
-   *     >Default value: **false**. [since 10 - 11]
-   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - Whether to display the selected icon when the menu
-   *     item is selected.<br>**true**: Display the default check mark icon. **false**: Hide the selected state icon.<br
-   *     >**ResourceStr**: Display the specified custom icon resource.<br>**SymbolGlyphModifier**: Display the specified
-   *     HMSymbol icon.<br>Default value: **false**. [since 12]
+   * @param { boolean } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图标。<br/>
+   *     SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 9 - 9]
+   * @param { boolean | ResourceStr } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<br/>ResourceStr：显示指定的图
+   *     标。<br/>SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 10 - 11]
+   * @param { boolean | ResourceStr | SymbolGlyphModifier } value - 菜单项被选中时，是否显示被选中的图标。<br/>true：显示默认的对勾图标；false：不显示图标。<
+   *     br/>ResourceStr：显示指定的图标。<br/>SymbolGlyphModifier：显示指定的HMSymbol图标。<br/>默认值：false [since 12]
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -196,10 +182,9 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   selectIcon(value: boolean | ResourceStr | SymbolGlyphModifier): MenuItemAttribute;
 
   /**
-   * Triggered when the selection status of the menu item is changed manually.
+   * 当选中状态发生变化时，触发该回调。只有手动触发且MenuItem状态改变时才会触发onChange回调。
    *
-   * @param { function } callback - Invoked when the selected status changes.<br>**true**: selected; **false**:
-   *     unselected.
+   * @param { function } callback - 选中状态发生变化时，触发该回调。<br />true：未选中切换为选中；false：选中切换为未选中。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -210,9 +195,9 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   onChange(callback: (selected: boolean) => void): MenuItemAttribute;
 
   /**
-   * Sets the font style of the menu item content.
+   * 设置菜单项中内容信息的字体样式。
    *
-   * @param { Font } value - Font style of the menu item content.
+   * @param { Font } value - 菜单项中内容信息的字体样式。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -223,9 +208,9 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   contentFont(value: Font): MenuItemAttribute;
 
   /**
-   * Sets the font color of the menu item content.
+   * 设置菜单项中内容信息的字体颜色。
    *
-   * @param { ResourceColor } value - Font color of the menu item content.<br>Default value: **'#E5000000'**
+   * @param { ResourceColor } value - 菜单项中内容信息的字体颜色。<br />默认值：'#E5000000'
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -236,9 +221,9 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   contentFontColor(value: ResourceColor): MenuItemAttribute;
 
   /**
-   * Sets the font style of the menu item label.
+   * 设置菜单项中标签信息的字体样式。
    *
-   * @param { Font } value - Font style of the menu item label.
+   * @param { Font } value - 菜单项中标签信息的字体样式。
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -249,9 +234,9 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
   labelFont(value: Font): MenuItemAttribute;
 
   /**
-   * Sets the font color of the menu item label.
+   * 设置菜单项中标签信息的字体颜色。
    *
-   * @param { ResourceColor } value - Font color of the menu item label.<br>Default value: **'#99000000'**
+   * @param { ResourceColor } value - 菜单项中标签信息的字体颜色。<br />默认值：'#99000000'
    * @returns { MenuItemAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -276,16 +261,15 @@ declare class MenuItemAttribute extends CommonMethod<MenuItemAttribute> {
 }
 
 /**
- * The **MenuItem** component represents an item in a menu.
+ * 用来展示菜单中具体的菜单选项。
  * 
- * > **NOTE**
- * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
+ * > **说明：**
  * 
- * ###### Child Components
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
  * 
- * Not supported
+ * ###### 子组件
+ * 
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

@@ -19,7 +19,8 @@
  */
 
 /**
- * Provides text style settings.
+ * 设置文本样式。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -27,11 +28,10 @@
  * @since 11 dynamic
  */
 
-
 export interface PopupTextOptions {
   /**
-   * Text content.
-   * @type { ResourceStr }.
+   * 设置文本内容。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -41,16 +41,14 @@ export interface PopupTextOptions {
   text: ResourceStr;
 
   /**
-   * Text font size.
+   * 设置文本字体大小。
    * 
-   * Default value: **$r('sys.float.ohos_id_text_size_body2')**
+   * 默认值：`$r('sys.float.ohos_id_text_size_body2')` 
    * 
-   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
-   * **'10px'**); percentage-based strings are not supported.
+   * string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。
    * 
-   * Value range of number values: (0, +∞)
+   * number：取值范围(0,+∞)。为number类型时默认单位：fp。
    *
-   * @type { ?(number | string | Resource) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -60,11 +58,10 @@ export interface PopupTextOptions {
   fontSize?: number | string | Resource;
 
   /**
-   * Text font color.
+   * 设置文本字体颜色。
    * 
-   * Default value: **$r('sys.color.ohos_id_color_text_secondary')**
+   * 默认值：`$r('sys.color.ohos_id_color_text_secondary')`
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -74,18 +71,14 @@ export interface PopupTextOptions {
   fontColor?: ResourceColor;
 
   /**
-   * Text font weight.
+   * 设置文本字体粗细。
    * 
-   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier 
-   * font weight. The default value is **400**.
+   * number类型取值[100,900]，取值间隔为100，默认为400，取值越大，字体越粗。
    * 
-   * For the string type, only strings of the number type are supported, for example, **"400"**, **"bold"**, 
-   * **"bolder"**, **"lighter"**, **"regular"**, and **"medium"**, which correspond to the enumerated values in 
-   * **FontWeight**.
+   * string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular” 、“medium”分别对应FontWeight中相应的枚举值。
    * 
-   * Default value: **FontWeight.Regular**
-   * 
-   * @type { ?(number | FontWeight | string) }.
+   * 默认值：FontWeight.Regular
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -96,7 +89,8 @@ export interface PopupTextOptions {
 }
 
 /**
- * Defines the button attributes and events.
+ * PopupButtonOptions定义按钮的相关属性和事件。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -105,8 +99,8 @@ export interface PopupTextOptions {
  */
 export interface PopupButtonOptions {
   /**
-   * Text of the button.
-   * @type { ResourceStr }.
+   * 设置按钮内容。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -116,11 +110,10 @@ export interface PopupButtonOptions {
   text: ResourceStr;
 
   /**
-   * Click callback of the button.
+   * 设置按钮click回调。 
    * 
-   * By default, no operation is performed.
+   * 默认不执行任何操作。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -130,16 +123,16 @@ export interface PopupButtonOptions {
   action?: () => void;
 
   /**
-   * Font size of the button text.
+   * 设置按钮文本字体大小。 
    * 
-   * Default value: **$r('sys.float.ohos_id_text_size_button2')**
+   * 默认值：`$r('sys.float.ohos_id_text_size_button2')`
    * 
-   * The string value must be convertible to a number (for example, **'10'**) or include a length unit (for example, 
-   * **'10px'**); percentage-based strings are not supported.
-   * 
-   * Invalid values are handled as default values.
+   * string类型可选值：可以转化为数字的字符串（如'10'）或带长度单位的字符串（如'10px'），不支持设置百分比字符串。
    *
-   * @type { ?(number | string | Resource) }.
+   * 为number类型时默认单位：fp。
+   * 
+   * 设置值为异常值时取默认值。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -149,11 +142,10 @@ export interface PopupButtonOptions {
   fontSize?: number | string | Resource;
 
   /**
-   * Font color of the button text.
+   * 设置按钮文本字体颜色。
    * 
-   * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
+   * 默认值：`$r('sys.color.ohos_id_color_text_primary_activated')`
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -164,7 +156,7 @@ export interface PopupButtonOptions {
 }
 
 /**
- * Defines the icon options.
+ * PopupIconOptions定义图标的属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -174,9 +166,8 @@ export interface PopupButtonOptions {
  */
 export interface PopupIconOptions {
   /**
-   * Icon content.
+   * 设置图标内容。
    *
-   * @type { ResourceStr }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -186,11 +177,10 @@ export interface PopupIconOptions {
   image: ResourceStr;
 
   /**
-   * Icon width.
+   * 设置图标宽度。
    * 
-   * Default value: **32VP**
+   * 默认值：32VP
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -200,11 +190,10 @@ export interface PopupIconOptions {
   width?: Dimension;
 
   /**
-   * Icon height.
+   * 设置图标高度。
    * 
-   * Default value: **32VP**
+   * 默认值：32VP
    *
-   * @type { ?Dimension }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -214,11 +203,10 @@ export interface PopupIconOptions {
   height?: Dimension;
 
   /**
-   * Icon fill color. This property applies only to an SVG image.
+   * 设置图标填充颜色。仅针对svg图源生效。 
    * 
-   * By default, the icon color is not changed.
+   * 默认不改变图标颜色。
    *
-   * @type { ?ResourceColor }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -228,11 +216,10 @@ export interface PopupIconOptions {
   fillColor?: ResourceColor;
 
   /**
-   * Rounded corner of the icon.
+   * 设置图标圆角。
    * 
-   * Default value: **$r('sys.float.ohos_id_corner_radius_default_s')**
+   * 默认值：`$r('sys.float.ohos_id_corner_radius_default_s')`
    *
-   * @type { ?(Length | BorderRadiuses) }.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -243,7 +230,7 @@ export interface PopupIconOptions {
 }
 
 /**
- * Defines the style parameters of the popup.
+ * PopupOptions定义Popup的具体样式参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -253,15 +240,14 @@ export interface PopupIconOptions {
  */
 export interface PopupOptions {
   /**
-   * Icon of the popup.
+   * 设置popup图标。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * The icon is not displayed when **width** and **height** are set to an invalid value or **0**.
+   * 当width和height设置异常值或0时不显示。
    * 
-   * By default, no icon is displayed.
-    *
-   * @type { ?PopupIconOptions }
+   * 默认不显示图标。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -271,11 +257,10 @@ export interface PopupOptions {
   icon?: PopupIconOptions;
 
   /**
-   * Title of the popup.
+   * 设置popup标题文本。 
    * 
-   * By default, no title is displayed.
-    *
-   * @type { ?PopupTextOptions }
+   * 默认不显示标题文本。
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -285,15 +270,14 @@ export interface PopupOptions {
   title?: PopupTextOptions;
 
   /**
-   * Message of the popup.
+   * 设置popup内容文本。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * **fontWeight** is not available for messages.
+   * message不支持设置fontWeight。 
    * 
-   * By default, no message is displayed.
+   * 默认不显示内容文本。
    *
-   * @type { PopupTextOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -303,15 +287,14 @@ export interface PopupOptions {
   message: PopupTextOptions;
 
   /**
-   * Whether to show the close button.
+   * 设置popup关闭按钮。
    * 
-   * **true**: Show the close button. **false**: Do not show the close button.
+   * true：显示关闭按钮；false：不显示关闭按钮。
    * 
-   * **Resource**: Show the corresponding icon.
+   * Resource：显示对应的图标。
    * 
-   * Default value: **true**
+   * 默认值：true
    *
-   * @type { ?(boolean | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -321,11 +304,10 @@ export interface PopupOptions {
   showClose?: boolean | Resource;
 
   /**
-   * Callback for the popup close button.
+   * 设置popup关闭按钮回调函数。 
    * 
-   * By default, the callback for the close button is not set.
+   * 默认不设置关闭按钮回调函数。
    *
-   * @type { ?() => void }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -335,11 +317,10 @@ export interface PopupOptions {
   onClose?: () => void;
 
   /**
-   * Buttons of the popup. A maximum of two buttons can be set.
+   * 设置popup操作按钮，按钮最多设置两个。 
    * 
-   * By default, no buttons are displayed.
+   * 默认不显示按钮。
    *
-   * @type { ?[PopupButtonOptions?, PopupButtonOptions?] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -349,31 +330,29 @@ export interface PopupOptions {
   buttons?: [PopupButtonOptions?, PopupButtonOptions?];
 
   /**
-   * Layout direction.
-   * 
-   * Default value: **Direction.Auto**
-   *
-   * @type { ?Direction }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
+    * 布局方向。
+    * 
+    * 默认值：Direction.Auto
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 12 dynamic
+    */
    direction?: Direction;
 
   /**
-   * Maximum width of the popup. This API allows the popup to display with a custom width.
+   * 设置popup的最大宽度，通过此接口popup可以自定义宽度显示。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * 1. When using resource references, ensure that the parameter type matches the attribute method type.
-   * 2. **maxWidth** accepts numeric values (both floating-point and integer values), such as **$r('app.float.maxWidth')** and **$r('app.integer.maxWidth')**.
-   * 3. When the type is Resource, values default to px units if no unit is explicitly specified.
+   * 1. 在使用引用资源类型时，规定其参数类型要与属性方法本身类型一致。
+   * 2. maxWidth是数字类型，支持float和integer，例如`$r('app.float.maxWidth')`、`$r('app.integer.maxWidth')`。
+   * 3. 当类型为Resource时，如果未设置单位，默认单位为px。
    * 
-   * Default value: **400vp**
+   * 默认值：400vp
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -385,7 +364,7 @@ export interface PopupOptions {
 
 /**
  *
- * @param { PopupOptions } options - Parameters of the popup.
+ * @param { PopupOptions } options - 定义Popup组件的类型。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

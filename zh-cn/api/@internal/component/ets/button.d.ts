@@ -18,40 +18,30 @@
  * @kit ArkUI
  */
 /**
- * Enumerates the button types.
+ * 按钮的类型。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > - The corner radius of the rounded rectangle button is set using the universal attribute 
- * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}.
+ * > - 按钮圆角通过
+ * > [通用属性borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}设置。
  * >
- * > - For a button of the **Capsule** type, the **borderRadius** settings do not take effect, and the radius of its 
- * > rounded corner is always half of the button height or width, whichever is smaller.
+ * > - 当按钮类型为Capsule时，borderRadius设置不生效，按钮圆角始终为宽、高中较小值的一半。
  * >
- * > - For a button of the **Circle** type: (1) If both its width and height are set, **borderRadius** does not take 
- * > effect, and the button radius is half of the width or height (whichever is smaller). (2) If either its width or 
- * > height is set, **borderRadius** does not take effect, and the button radius is half of the set width or height. (3)
- * > If neither its width nor height is set, the button radius is as specified by **borderRadius**; if **borderRadius** 
- * > is set to a negative value, the value **0** will be used.
+ * > - 当按钮类型为Circle时，若同时设置了宽和高，则borderRadius不生效，且按钮半径为宽高中较小值的一半；若只设置宽、高中的一个，则borderRadius不生效，且按钮半径为所设宽或所设高值的一半；若不设置宽高，则
+ * > borderRadius为按钮半径；若borderRadius的值为负，则borderRadius的值按照0处理。
  * >
- * > - The button text is set using [fontSize]{@link ButtonAttribute#fontSize}, 
- * > [fontColor]{@link ButtonAttribute#fontColor}, [fontStyle]{@link ButtonAttribute#fontStyle}, 
- * > [fontFamily]{@link ButtonAttribute#fontFamily}, and [fontWeight]{@link ButtonAttribute#fontWeight}.
+ * > - 按钮文本通过[fontSize]{@link ButtonAttribute#fontSize}、[fontColor]{@link ButtonAttribute#fontColor}、
+ * > [fontStyle]{@link ButtonAttribute#fontStyle}、[fontFamily]{@link ButtonAttribute#fontFamily}、
+ * > [fontWeight]{@link ButtonAttribute#fontWeight}进行设置。
  * >
- * > - Before setting the [gradient color]{@link common}, you need to set 
- * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} to transparent.
+ * > - 设置[颜色渐变]{@link common}需先设置[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}为透明色。
  * >
- * > - When **borderRadius** is not set, the corner radius of the rounded rectangle button remains at the default value.
- * > In this case, the corner radius does not change with the button height and is subject to the **controlSize** 
- * > property. When **controlSize** is **NORMAL**, the corner radius is 20 vp; when **controlSize** is **SMALL**, the 
- * > corner radius is 14 vp.
+ * > - 在不设置borderRadius时，圆角矩形按钮的圆角大小保持默认值不变。圆角大小不会随按钮高度变化而变化，和controlSize属性有关，controlSize为NORMAL时圆角大小20vp，controlSize为
+ * > SMALL时圆角大小14vp。
  * >
- * > - When [border]{@link CommonMethod#border(value: BorderOptions)} is set for the 
- * > button, a default 
- * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)} value is 
- * > automatically applied. When both **border** and **borderRadius** attributes are used, **borderRadius** must be 
- * > specified after **border** to prevent the border radius from being overridden by the default radius value in the 
- * > border style.
+ * > - 设置Button的[border]{@link CommonMethod#border}时，会有默认的
+ * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}值。如果同时使用
+ * > `border`和`borderRadius`，需将`borderRadius`放在`border`之后，以确保`borderRadius`不会被`border`中的默认`radius`覆盖。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -62,7 +52,7 @@
  */
 declare enum ButtonType {
   /**
-   * Capsule-type button (the round corner is half of the height by default).
+   * 胶囊型按钮（圆角默认为高度的一半）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -74,7 +64,7 @@ declare enum ButtonType {
   Capsule,
 
   /**
-   * Circular button.
+   * 圆形按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -86,7 +76,7 @@ declare enum ButtonType {
   Circle,
 
   /**
-   * Normal button, with no rounded corners by default.
+   * 普通按钮（默认不带圆角）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -98,8 +88,7 @@ declare enum ButtonType {
   Normal,
 
   /**
-   * Rounded rectangle button (default value: when **controlSize** is **NORMAL**, the corner radius is 20 vp; when 
-   * controlSize is **SMALL**, the corner radius is 14 vp).
+   * 圆角矩形按钮（默认值：controlSize为NORMAL，圆角大小20vp，controlSize为SMALL，圆角大小14vp）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -112,7 +101,7 @@ declare enum ButtonType {
 }
 
 /**
- * Enumerates the button importance levels.
+ * 按钮的重要程度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -123,7 +112,7 @@ declare enum ButtonType {
  */
 declare enum ButtonStyleMode {
     /**
-     * Normal button (used to direct the user to a common task).
+     * 普通按钮（一般界面操作）。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -134,7 +123,7 @@ declare enum ButtonStyleMode {
      */
     NORMAL = 0,
     /**
-     * Emphasized button (used to direct the user to the most important task).
+     * 强调按钮（用于强调当前操作）。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -145,7 +134,7 @@ declare enum ButtonStyleMode {
      */
     EMPHASIZED = 1,
     /**
-     * Text button (displayed as simple text without any background color).
+     * 文本按钮（纯文本，无背景颜色）。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -158,7 +147,7 @@ declare enum ButtonStyleMode {
 }
 
 /**
- * Role of the button.
+ * 按钮的角色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -169,7 +158,7 @@ declare enum ButtonStyleMode {
  */
 declare enum ButtonRole {
     /**
-     * Normal button.
+     * 正常按钮。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -180,7 +169,7 @@ declare enum ButtonRole {
      */
     NORMAL = 0,
     /**
-     * Warning button.
+     * 警示按钮。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -193,10 +182,10 @@ declare enum ButtonRole {
 }
 
 /**
- * Defines the callback type used in **ButtonConfiguration**.
+ * 定义ButtonConfiguration中使用的回调类型。
  *
- * @param { number } xPos - X-coordinate of the click point.<br>Unit: vp
- * @param { number } yPos - Y-coordinate of the click point.<br>Unit: vp
+ * @param { number } xPos - 点击位置x的坐标。<br/>单位：vp
+ * @param { number } yPos - 点击位置y的坐标。<br/>单位：vp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -206,8 +195,7 @@ declare enum ButtonRole {
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
 /**
- * You need a custom class to implement the **ContentModifier** API. Inherits from 
- * [CommonConfiguration]{@link CommonConfiguration}.
+ * 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -218,9 +206,9 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
 declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
     /**
-     * Text label of the button.
+     * Button的文本标签。
      * 
-     * Note: If the text is longer than the width of the button, it is truncated.
+     * **说明**：当文本字符的长度超过按钮本身的宽度时，文本将会被截断。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -230,15 +218,15 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      */
     label: string;
     /**
-     * Whether the button is pressed.
+     * 指示是否按下Button。
      * 
-     * **true**: pressed; **false**: not pressed.
+     * true：按下；false：未按下。
      * 
-     * Default value: **false**
+     * 默认值：false 
      * 
-     * **NOTE**
+     * **说明：**  
      * 
-     * This setting applies to the original button size, not to any new component constructed using the builder.
+     * 此按压属性生效区域大小为原本Button组件的大小，而非build出来的新组件大小。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -248,7 +236,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      */
     pressed: boolean;
     /**
-     * Click event of the new component constructed using the builder.
+     * 使用builder新构建出来组件的点击事件。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -260,7 +248,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
 }
 
 /**
- * Button size.
+ * 按钮的尺寸。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -271,7 +259,7 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
  */
 declare enum ControlSize {
     /**
-     * Small button.
+     * 小尺寸按钮。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -282,7 +270,7 @@ declare enum ControlSize {
      */
     SMALL = 'small',
     /**
-     * Normal button.
+     * 正常尺寸按钮。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -295,7 +283,7 @@ declare enum ControlSize {
 }
 
 /**
- * Describes the button style.
+ * 按钮的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -306,12 +294,12 @@ declare enum ControlSize {
  */
 declare interface ButtonOptions {
     /**
-     * Button display style.
+     * 按钮显示样式。
      * 
-     * Default value: **ButtonType.ROUNDED_RECTANGLE**
+     * 默认值：ButtonType.ROUNDED_RECTANGLE
      * 
-     * API version 18 and later: The default value is **ButtonType.ROUNDED_RECTANGLE**. Versions earlier than API 
-     * version 18: The default value is **ButtonType.Capsule**.
+     * API version 18及之后，ButtonType的默认值修改为ButtonType.ROUNDED_RECTANGLE。API version 18之前的版本，ButtonType的默认值为
+     * ButtonType.Capsule。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -322,17 +310,15 @@ declare interface ButtonOptions {
      */
     type?: ButtonType;
     /**
-     * Whether to enable the pressed state effect when the button is clicked.
+     * 按钮按下时是否开启按压态显示效果。
      * 
-     * **true**: The pressed state effect is enabled. **false**: The pressed state effect is disabled.
+     * true：开启按压效果；false：关闭按压效果。
      * 
-     * Default value: **true**
+     * 默认值：true
      * 
-     * **NOTE**
+     * **说明：** 
      * 
-     * When the pressed state effect is enabled and a custom pressed state style is configured, the resulting color 
-     * displayed after pressing is a composite blend of the original background color and the newly defined pressed 
-     * state color.
+     * 当开启按压态显示效果，且开发者设置状态样式时，会基于状态样式设置完成后的背景色再进行颜色叠加。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -343,17 +329,15 @@ declare interface ButtonOptions {
      */
     stateEffect?: boolean;
     /**
-     * Style and importance of the button. The system automatically adjusts the button background color and text color 
-     * based on the enumerated value. You can also use the 
-     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
-     * [fontColor]{@link ButtonAttribute#fontColor}, and [role]{@link ButtonAttribute#role} APIs to set the background 
-     * color and text color. The actual displayed effect will be determined by the last setting.
+     * 按钮的样式和重要程度，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+     * [fontColor]{@link ButtonAttribute#fontColor}和[role]{@link ButtonAttribute#role}接口设置，实际显示效果以最后一次设置为准。
      * 
-     * Default value: **ButtonStyleMode.EMPHASIZED**
+     * 默认值：ButtonStyleMode.EMPHASIZED 
      * 
-     * **NOTE**
+     * **说明：**  
      * 
-     * The button primacy is as follows, from high to low: emphasized button, normal button, text button.
+     * 按钮重要程度：强调按钮>普通按钮>文字按钮。
      *
      * @default ButtonStyleMode.EMPHASIZED
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -365,9 +349,9 @@ declare interface ButtonOptions {
      */
     buttonStyle?: ButtonStyleMode;
     /**
-     * Button size.
+     * 按钮的尺寸。
      * 
-     * Default value: **ControlSize.NORMAL**
+     * 默认值：ControlSize.NORMAL
      *
      * @default ControlSize.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -379,13 +363,12 @@ declare interface ButtonOptions {
      */
     controlSize?: ControlSize;
     /**
-     * Role of the button. The system automatically adjusts the button background color and text color based on the 
-     * enumerated value. You can also use the 
-     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
-     * [fontColor]{@link ButtonAttribute#fontColor}, and [buttonStyle]{@link ButtonAttribute#buttonStyle} APIs to set 
-     * the background color and text color. The actual displayed effect will be determined by the last setting.
+     * 按钮的角色，根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+     * [fontColor]{@link ButtonAttribute#fontColor}和[buttonStyle]{@link ButtonAttribute#buttonStyle}接口设置，实际显示效果以最后一次设置为
+     * 准。
      * 
-     * Default value: **ButtonRole.NORMAL**
+     * 默认值：ButtonRole.NORMAL
      *
      * @default ButtonRole.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -399,9 +382,9 @@ declare interface ButtonOptions {
 }
 
 /**
- * The **Button** component can be used to create different types of buttons.
+ * 按钮组件，可快速创建不同样式的按钮。
  * 
- * > **NOTE**
+ * > **说明：**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -412,7 +395,7 @@ declare interface ButtonOptions {
  */
 interface ButtonInterface {
     /**
-     * Creates an empty button.
+     * 创建一个空按钮。
      *
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -424,9 +407,9 @@ interface ButtonInterface {
      */
     (): ButtonAttribute;
     /**
-     * Creates a button that can contain a single child component.
+     * 创建可以包含单个子组件的按钮。未通过该接口设置时，则按照ButtonOptions中各参数的默认值配置。
      *
-     * @param { ButtonOptions } options - Button settings.
+     * @param { ButtonOptions } options - 配置按钮的显示样式。
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -437,13 +420,12 @@ interface ButtonInterface {
      */
     (options: ButtonOptions): ButtonAttribute;
     /**
-     * Creates a button based on text content. In this case, the component cannot contain child components.
+     * 使用文本内容创建相应的按钮组件，此时Button无法包含子组件。
      * 
-     * By default, the text content is displayed in a one line.
+     * 文本内容默认单行显示。
      *
-     * @param { ResourceStr } label - Button text.<br>Note: If the text is longer than the width of the button, it is
-     *     truncated.
-     * @param { ButtonOptions } options - Button settings.
+     * @param { ResourceStr } label - 按钮文本内容。<br/>**说明：** 当文本字符的长度超过按钮本身的宽度时，文本将会被截断。
+     * @param { ButtonOptions } options - 配置按钮的显示样式。 <br/> 未设置时，则按照ButtonOptions中各参数的默认值配置。
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -456,7 +438,7 @@ interface ButtonInterface {
 }
 
 /**
- * Label text and font style of the button.
+ * Button组件的label文本及其字体样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -466,10 +448,9 @@ interface ButtonInterface {
  */
 declare interface LabelStyle {
     /**
-     * Display mode when the label text is too long. Text is clipped at the transition between words. To clip text in 
-     * the middle of a word, add zero-width spaces between characters.
+     * 设置label文本超长时的显示方式。文本截断是按字截断。例如，英文以单词为最小单位进行截断，若需要以字母为单位进行截断，可在字母间添加零宽空格。
      * 
-     * Default value: **TextOverflow.Ellipsis**
+     * 默认值：TextOverflow.Ellipsis
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -479,14 +460,13 @@ declare interface LabelStyle {
      */
     overflow?: TextOverflow;
     /**
-     * Maximum number of lines in the label text. If this attribute is specified, the text will not exceed the specified
-     * number of lines. If there is extra text, you can use **overflow** to specify how it is displayed.
+     * 设置label文本的最大行数。如果指定此参数，则文本最多不会超过指定的行。如果有多余的文本，可以通过overflow来指定截断方式。
      * 
-     * Default value: **1**
+     * 默认值：1
      * 
-     * **NOTE**
+     * **说明：** 
      * 
-     * If this parameter is set to a value less than or equal to 0, the default value is used.
+     * 设置小于等于0的值时，按默认值处理。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -496,12 +476,12 @@ declare interface LabelStyle {
      */
     maxLines?: number;
     /**
-     * Minimum font size of the label text. For the setting to take effect, this attribute must be used together with 
-     * **maxFontSize**, **maxLines**, or layout constraint settings.
+     * 设置label文本最小显示字号。需配合maxFontSize以及maxLines或布局大小限制使用。
      * 
-     * **NOTE**
+     * **说明：**  
      * 
-     * If the value of **minFontSize** is less than or equal to 0, the adaptive font size does not take effect.
+     * minFontSize小于或等于0时，自适应字号不生效。
+     * 为number类型时默认单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -511,8 +491,8 @@ declare interface LabelStyle {
      */
     minFontSize?: number | ResourceStr;
     /**
-     * Maximum font size of the label text. For the setting to take effect, this attribute must be used together with 
-     * **minFontSize**, **maxLines**, or layout constraint settings.
+     * 设置label文本最大显示字号。需配合minFontSize以及maxLines或布局大小限制使用。
+     * 为number类型时默认单位：fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -522,9 +502,9 @@ declare interface LabelStyle {
      */
     maxFontSize?: number | ResourceStr;
     /**
-     * How the adaptive height is determined for the label text.
+     * 设置label文本自适应高度的方式。
      * 
-     * Default value: **TextHeightAdaptivePolicy.MAX_LINES_FIRST**
+     * 默认值：TextHeightAdaptivePolicy.MAX_LINES_FIRST
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -534,9 +514,9 @@ declare interface LabelStyle {
      */
     heightAdaptivePolicy?: TextHeightAdaptivePolicy;
     /**
-     * Font of the label text.
+     * 设置label文本字体样式。
      * 
-     * Default value:
+     * 默认值：
      * 
      * {
      * 
@@ -558,11 +538,9 @@ declare interface LabelStyle {
      */
     font?: Font;
     /**
-     * Horizontal alignment of the label text. This attribute does not take effect when the **Text** component of the 
-     * child node is used to set the label. The actual text alignment mode is determined by the **textAlign** attribute 
-     * of the **Text** component of the child node.
+     * 设置label文本在水平方向上的对齐方式，label文本被截断时生效。当使用子节点的Text组件设置label时，此属性不生效，实际的文本对齐方式由子节点Text组件的textAlign属性决定。
      * 
-     * The default value is **TextAlign.Center** for wearables and **TextAlign.Start** for other devices.
+     * Wearable设备默认值为TextAlign.Center，其他设备默认值为TextAlign.Start。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -573,9 +551,9 @@ declare interface LabelStyle {
     textAlign?: TextAlign;
 }
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  * 
- * The [universal events]{@link common} are supported.
+ * 支持[通用事件]{@link common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -586,10 +564,10 @@ declare interface LabelStyle {
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
-   * Sets the button type.
+   * 设置Button样式。
    *
-   * @param { ButtonType } value - Button type.<br>API version 18 and later: The default value is
-   *     **ButtonType.ROUNDED_RECTANGLE**.
+   * @param { ButtonType } value - Button样式。<br/>API version 18及之后，ButtonType的默认值从ButtonType.Capsule变更为
+   *     ButtonType.ROUNDED_RECTANGLE。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -601,10 +579,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   type(value: ButtonType): ButtonAttribute;
 
   /**
-   * Specifies whether to enable the pressed state effect when the button is clicked.
+   * 设置是否开启按压态显示效果。
    *
-   * @param { boolean } value - Whether to enable the pressed state effect when the button is clicked.<br>**true**: The
-   *     pressed state effect is enabled. **false**: The pressed state effect is disabled.<br>Default value: **true**
+   * @param { boolean } value - 按钮按下时是否开启按压态显示效果。<br/>true：开启按压效果；false：关闭按压效果。<br/>默认值：true
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -616,17 +593,15 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   stateEffect(value: boolean): ButtonAttribute;
 
   /**
-   * Sets the style and primacy for the button. The system automatically adjusts the button background color and text 
-   * color based on the enumerated value. You can also use the 
-   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
-   * [fontColor]{@link ButtonAttribute#fontColor}, and [role]{@link ButtonAttribute#role} APIs to set the background 
-   * color and text color. The actual displayed effect will be determined by the last setting.
+   * 设置Button组件的样式和重要程度。根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+   * [fontColor]{@link ButtonAttribute#fontColor}和[role]{@link ButtonAttribute#role}接口设置，实际显示效果以最后一次设置为准。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
    *
-   * @param { ButtonStyleMode } value - Style and primacy of the button<br>Default value: **ButtonStyleMode.EMPHASIZED**
+   * @param { ButtonStyleMode } value - Button组件的样式和重要程度。<br/>默认值：ButtonStyleMode.EMPHASIZED
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -637,14 +612,14 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
 
-  /** 
-   * Sets the size for the button.
+  /**
+   * 设置Button组件的尺寸。
    * 
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
-   * 
-   * @param { ControlSize } value - Size of the button.<br>Default value: **ControlSize.NORMAL**
+   * > 从API version 12开始，该接口支持在[attributeModifier]{@link CommonMethod#attributeModifier}中调用。
+   *
+   * @param { ControlSize } value - Button组件的尺寸。<br/>默认值：ControlSize.NORMAL
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -654,30 +629,27 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
    * @since 11 dynamic
    */
   controlSize(value: ControlSize): ButtonAttribute;
-  
-  /** 
-   * Sets the role of the button. The system automatically adjusts the button background color and text color based on 
-   * the enumerated value. You can also use the 
-   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
-   * [fontColor]{@link ButtonAttribute#fontColor}, and [buttonStyle]{@link ButtonAttribute#buttonStyle} APIs to set the 
-   * background color and text color. The actual displayed effect will be determined by the last setting.
+
+  /**
+   * 设置Button组件的角色。根据设置枚举值的不同，系统自动会调整按钮的背景色和文字颜色。背景色和文字颜色也支持开发者通过
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、
+   * [fontColor]{@link ButtonAttribute#fontColor}和[buttonStyle]{@link ButtonAttribute#buttonStyle}接口设置，实际显示效果以最后一次设置为准。
    *
-   * @param { ButtonRole } value - Role of the button.<br>Default value: **ButtonRole.NORMAL**
+   * @param { ButtonRole } value - 设置Button组件的角色。<br/>默认值：ButtonRole.NORMAL
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice 
+   * @atomicservice
    * @since 12 dynamic
    */
   role(value: ButtonRole): ButtonAttribute;
 
   /**
-   * Sets the font color for the button.
+   * 设置文本显示颜色。
    *
-   * @param { ResourceColor } value - Font color of the button.<br>Default value: **$r('sys.color.font_on_primary')**,
-   *     which means white
+   * @param { ResourceColor } value - 文本显示颜色。<br/>默认值：$r('sys.color.font_on_primary')，显示为白色字体。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -689,11 +661,10 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontColor(value: ResourceColor): ButtonAttribute;
 
   /**
-   * Sets the font size for the button.
+   * 设置文本显示字号。
    *
-   * @param { Length } value - Font size of the button.<br>Default value:<br>**$r('sys.float.Body_L')** when
-   *     **controlSize** is set to **ControlSize.NORMAL**<br>**$r('sys.float.Body_S')** when **controlSize** is set to
-   *     **ControlSize.SMALL**<br>Note: For the string type, percentage values are not supported.
+   * @param { Length } value - 文本显示字号。<br/>默认值：当controlSize为ControlSize.NORMAL时，默认值为`$r('sys.float.Body_L')`。<br/>当
+   *     controlSize为ControlSize.SMALL时，默认值为`$r('sys.float.Body_S')`。<br/>**说明**：设置string类型时，不支持百分比。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -705,13 +676,11 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontSize(value: Length): ButtonAttribute;
 
   /**
-   * Sets the font weight for the button.
+   * 设置文本的字体粗细。
    *
-   * @param { number | FontWeight | string } value - Font weight of the button. For the number type, the value ranges
-   *     from 100 to 900, at an interval of 100. A larger value indicates a thicker font.<br>Default value: **500**<br>
-   *     For the string type, only strings that represent a number, for example, **'400'**, and the following enumerated
-   *     values of **FontWeight** are supported: **'bold'**, **'bolder'**, **'lighter'**, **'regular'**, and
-   *     **'medium'**.<br>If the value is abnormal or invalid, the font weight defaults to 400.
+   * @param { number | FontWeight | string } value - 文本的字体粗细，number类型取值[100, 900]，取值间隔为100，取值越大，字体越粗。<br>默认值：500<br/>
+   *     string类型仅支持number类型取值的字符串形式，例如'400'，以及'bold'、'bolder'、'lighter'、'regular'、'medium'，分别对应FontWeight中相应的枚举值。<br/>当
+   *     值为异常值或非法值时，字体粗细取值为400。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -723,9 +692,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
   /**
-   * Sets the font style for the button.
+   * 设置文本的字体样式。
    *
-   * @param { FontStyle } value - Font style of the button.<br>Default value: **FontStyle.Normal**
+   * @param { FontStyle } value - 文本的字体样式。<br/>默认值：FontStyle.Normal
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -737,10 +706,10 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontStyle(value: FontStyle): ButtonAttribute;
 
   /**
-   * Sets the font family.
+   * 设置字体列表。
    *
-   * @param { string | Resource } value - Font family. The 'HarmonyOS Sans' font and
-   *     [registered custom fonts]{@link @ohos.font:font} are supported.
+   * @param { string | Resource } value - 字体列表。默认字体'HarmonyOS Sans'，当前支持'HarmonyOS Sans'字体和
+   *     [注册自定义字体]{@link @ohos.font:font}。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -752,10 +721,10 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   fontFamily(value: string | Resource): ButtonAttribute;
 
   /**
-   * Creates a content modifier.
+   * 定制Button内容区的方法。
    *
-   * @param { ContentModifier<ButtonConfiguration> } modifier - Content modifier to apply to the button.<br>
-   *     **modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
+   * @param { ContentModifier<ButtonConfiguration> } modifier - 在Button组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需要自定义class实现
+   *     ContentModifier接口。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -766,9 +735,9 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
   /**
-   * Sets the label style for the button.
+   * 设置Button组件label文本和字体的样式。
    *
-   * @param { LabelStyle } value - Label style of the button.
+   * @param { LabelStyle } value - Button组件label文本和字体的样式。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -779,11 +748,10 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   labelStyle(value: LabelStyle): ButtonAttribute;
   
   /**
-   * Sets the minimum font scale factor for text.
+   * 设置文本最小的字体缩放倍数。
    *
-   * @param { number | Resource } scale - Minimum font scale factor for text.<br>Value range: [0, 1]<br>**NOTE**<br>A
-   *     value less than 0 is handled as **0**. A value greater than 1 is handled as **1**. Abnormal values are
-   *     ineffective by default.
+   * @param { number | Resource } scale - 文本最小的字体缩放倍数。<br/>取值范围：[0, 1]<br/>**说明：** <br/>设置的值小于0时，按值为0处理，设置的值大于1，按值为1处理，异
+   *     常值默认不生效。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -794,10 +762,10 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   minFontScale(scale: number | Resource): ButtonAttribute;
 
   /**
-   * Sets the maximum font scale factor for text.
+   * 设置文本最大的字体缩放倍数。
    *
-   * @param { number | Resource  } scale - Maximum font scale factor for text.<br>Value range:
-   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.<br>If this parameter is not configured, the maximum scale for a circular button is 1x, while the maximum scale for capsule-type buttons, standard buttons, and rounded rectangle buttons defaults to the system-defined value.
+   * @param { number | Resource  } scale - 文本最大的字体缩放倍数。<br/>取值范围：
+   *     [1, +∞)<br/>**说明：** <br/>设置的值小于1时，按值为1处理，异常值默认不生效。<br/>未设置最大缩放倍数时，圆形按钮最大缩放倍数为1倍，胶囊型按钮、普通按钮、圆角矩形按钮最大缩放倍数跟随系统设置。
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -809,13 +777,13 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
 }
 
 /**
- * The **Button** component can be used to create different types of buttons.
+ * 按钮组件，可快速创建不同样式的按钮。
  * 
- * > **NOTE**
+ * > **说明：**
  * 
- * ###### Child Components
+ * ###### 子组件
  * 
- * This component can contain only one child component.
+ * 可以包含单个子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

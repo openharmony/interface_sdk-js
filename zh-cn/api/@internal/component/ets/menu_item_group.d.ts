@@ -18,7 +18,7 @@
  * @kit ArkUI
  */
 /**
- * Describes the header and footer of the menu item group.
+ * 菜单MenuItem分组的标题和尾部信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -28,7 +28,9 @@
  */
 declare interface MenuItemGroupOptions {
     /**
-     * Header of the menu item group.
+     * 设置对应group的标题显示信息。 
+     * 
+     * 未设置时，不显示标题信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -38,7 +40,9 @@ declare interface MenuItemGroupOptions {
      */
     header?: ResourceStr | CustomBuilder;
     /**
-     * Footer of the menu item group.
+     * 设置对应group的尾部显示信息。 
+     * 
+     * 未设置时，不显示尾部信息。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -50,12 +54,11 @@ declare interface MenuItemGroupOptions {
 }
 
 /**
- * The **MenuItemGroup** component represents a group of menu items.
+ * 该组件用来展示菜单MenuItem的分组。
  * 
- * > **NOTE**
- * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
+ * > **说明：**
+ * 
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -67,7 +70,7 @@ declare interface MenuItemGroupOptions {
 interface MenuItemGroupInterface {
     /**
      *
-     * @param { MenuItemGroupOptions } value - Header and footer of the menu item group.
+     * @param { MenuItemGroupOptions } value - 包含设置MenuItemGroup的标题和尾部显示信息。<br/> 未设置时，不显示标题和尾部信息。
      * @returns { MenuItemGroupAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
@@ -90,20 +93,15 @@ interface MenuItemGroupInterface {
 declare class MenuItemGroupAttribute extends CommonMethod<MenuItemGroupAttribute> {}
 
 /**
- * The **MenuItemGroup** component represents a group of menu items.
+ * 该组件用来展示菜单MenuItem的分组。
  * 
- * > **NOTE**
- * >
- * > This component is supported since API version 9. Newly added APIs will be marked with a superscript to indicate 
- * > their 
+ * > **说明：**
  * 
- * ###### Child Components
+ * > - 该组件从API版本26.0.0开始支持[WithTheme]{@link with_theme}。
  * 
- * This component contains the [MenuItem]{@link menu_item} child component.
+ * ###### 子组件
  * 
- * ###### Sample
- * 
- * For details, see [Example in Menu](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-menu.md#example).
+ * 包含[MenuItem]{@link menu_item}子组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -122,6 +120,6 @@ declare const MenuItemGroup: MenuItemGroupInterface;
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 9 dynamic
- * @noninterop
+ * @noninterop [since 11]
  */
 declare const MenuItemGroupInstance: MenuItemGroupAttribute;

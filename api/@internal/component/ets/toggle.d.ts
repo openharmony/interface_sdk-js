@@ -19,145 +19,99 @@
  */
 
 /**
- * Declare the type of status button
+ * Enumerates toggle types.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Declare the type of status button
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declare the type of status button
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declare the type of status button
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum ToggleType {
   /**
-   * Checkbox
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Checkbox
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Checkbox
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Checkbox
+   * Checkbox type.
+   * 
+   * **NOTE**
+   * 
+   * Since API version 11, the default style of the **Checkbox** component is changed from rounded square to circle.
+   * 
+   * The default value of the universal attribute [margin]{@link CommonMethod#margin} is as follows:
+   * 
+   * {
+   * 
+   *  top: '14px',
+   * 
+   *  right: '14px',
+   * 
+   *  bottom: '14px',
+   * 
+   *  left: '14px'
+   * 
+   * }.
+   * 
+   * Default size:
+   * 
+   * {width:'20vp', height:'20vp'}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Checkbox,
 
   /**
-   * Switch
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Switch
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Switch
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Switch
+   * Switch type.
+   * 
+   * **NOTE**
+   * 
+   * The default value of the universal attribute [margin]{@link CommonMethod#margin} is as follows:
+   * 
+   * {
+   * 
+   *  top: '6px',
+   * 
+   *  right: '14px',
+   * 
+   *  bottom: '6px',
+   * 
+   *  left: '14px'
+   * 
+   * }.
+   * 
+   * Default size:
+   * 
+   * {width:'36vp', height:'20vp'}
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Switch,
 
   /**
-   * Button
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Button
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Button
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Button
+   * Status button type. If child content contains text, the text is displayed on the button. The default height is 28 
+   * vp, and there is no default width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Button,
 }
 
 /**
- * Defines the switch style.
+ * Sets the style for the component of the **Switch** type.
  *
- * @interface SwitchStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -166,9 +120,16 @@ declare enum ToggleType {
  */
 declare interface SwitchStyle {
   /**
-   * Set the radius of the point of the switch.
+   * Radius of the circular slider when the component is of the **Switch** type. The unit is vp.
+   * 
+   * **NOTE**
+   * 
+   * Percentage values are not supported. The value specified is used only when it is greater than or equal to 0.
+   * 
+   * If the value is not specified or the specified one is less than 0, the radius is set using the following formula:
+   * 
+   * (Component height (in vp)/2) - (2 vp x Component height (in vp)/20 vp)
    *
-   * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -178,9 +139,13 @@ declare interface SwitchStyle {
   pointRadius?: number | Resource;
 
   /**
-   * Set the color of the unselected switch.
+   * Background color of the component when it is of the **Switch** type and is disabled.
+   * 
+   * Default value: **0x337F7F7F** (applies to both dark and light modes). Since API version 20, when 
+   * [optimizing color mode switching overhead](docroot://ui/ui-dark-light-color-adaptation.md#optimizing-color-mode-switching-overhead)
+   * is enabled, the default value is **0x19000000** (black with 10% opacity) in light mode and **0x19FFFFFF** (white 
+   * with 10% opacity) in dark mode.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -190,9 +155,10 @@ declare interface SwitchStyle {
   unselectedColor?: ResourceColor;
 
   /**
-   * Set the color of the point of the switch.
+   * Color of the circular slider when the component is of the **Switch** type.
+   * 
+   * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -202,9 +168,19 @@ declare interface SwitchStyle {
   pointColor?: ResourceColor;
 
   /**
-   * Set the border radius of the track of the switch.
+   * Radius of the slider track border corners when the component is of the **Switch** type. The unit is vp.
+   * 
+   * **NOTE**
+   * 
+   * This parameter cannot be set in percentage. If the value specified is less than 0, the radius is set using the 
+   * default value formula. If the value specified is greater than half of the component height, the latter is used. In 
+   * other cases, the value specified is used.
+   * 
+   * If the value is not specified or the specified one is less than 0, the radius is set using the default value 
+   * formula.
+   * 
+   * Default value formula: Component height (in vp)/2
    *
-   * @type { ?(number | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -215,10 +191,9 @@ declare interface SwitchStyle {
 }
 
 /**
- * ToggleConfiguration used by toggle Modifier
+ * You need a custom class to implement the **ContentModifier** API. This API inherits from 
+ * [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<ToggleConfiguration>
- * @interface ToggleConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -228,9 +203,12 @@ declare interface SwitchStyle {
 declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfiguration> {
 
   /**
-   * Indicates whether the Toggle is on.
+   * Whether the toggle is turned on.
+   * 
+   * **true**: The toggle is turned on. **false**: The toggle is turned off.
+   * 
+   * Default value: **false**
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -240,9 +218,12 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
   isOn: boolean;
 
   /**
-   * Indicates whether the Toggle is enabled.
+   * Whether the toggle is enabled for state switching.
+   * 
+   * **true**: The state can be changed. **false**: The state cannot be changed.
+   * 
+   * Default value: **true**
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -252,9 +233,10 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
   enabled: boolean;
 
   /**
-   * Trigger toggle select change
+   * Callback invoked when the toggle's state changes.
+   * 
+   * **true**: The toggle is turned on. **false**: The toggle is turned off.
    *
-   * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -265,9 +247,14 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 }
 
 /**
- * Defines the toggle options.
+ * Options of the toggle.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is larger than inner elements'. This does not affect interface usability.
  *
- * @interface ToggleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -278,274 +265,102 @@ declare interface ToggleConfiguration extends CommonConfiguration<ToggleConfigur
 declare interface ToggleOptions {
   /**
    * Type of the toggle.
+   * 
+   * Default value: **ToggleType.Switch**
    *
-   * @type { ToggleType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Type of the toggle.
-   *
-   * @type { ToggleType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Type of the toggle.
-   *
-   * @type { ToggleType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Type of the toggle.
-   *
-   * @type { ToggleType }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Type of the toggle.
-   * Anonymous Object Rectification.
-   *
-   * @type { ToggleType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   type: ToggleType;
 
   /**
-   * Whether the toggle is on.
+   * Whether the toggle is turned on.
+   * 
+   * **true**: on. **false**: off.
+   * 
+   * Default value: **false**
+   * 
+   * This parameter supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 
+   * This property supports two-way binding through 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Whether the toggle is on.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Whether the toggle is on.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Whether the toggle is on.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Whether the toggle is on.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   isOn?: boolean
 }
 
 /**
- * Defines the toggle interface.
+ * The **Toggle** component provides a clickable element of the checkbox, button, or switch type.
+ * 
+ * > **NOTE**
  *
- * @interface ToggleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the toggle interface.
- *
- * @interface ToggleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the toggle interface.
- *
- * @interface ToggleInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the toggle interface.
- *
- * @interface ToggleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 interface ToggleInterface {
   /**
-   * Set parameters to obtain the toggle.
    *
-   * @param { object } options
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set parameters to obtain the toggle.
-   *
-   * @param { object } options
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set parameters to obtain the toggle.
-   *
-   * @param { object } options
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set parameters to obtain the toggle.
-   *
-   * @param { object } options
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set parameters to obtain the toggle.
-   * Anonymous Object Rectification.
-   *
-   * @param { ToggleOptions } options - toggle options
+   * @param { object } options - Options of the toggle. [since 8 - 17]
+   * @param { ToggleOptions } options - Options of the toggle. [since 18]
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (options: ToggleOptions): ToggleAttribute;
 }
 
 /**
- * Defines the toggle attribute functions
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<ToggleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the toggle attribute functions
- *
- * @extends CommonMethod<ToggleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the toggle attribute functions
- *
- * @extends CommonMethod<ToggleAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the toggle attribute functions
- *
- * @extends CommonMethod<ToggleAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   /**
-   * Called when the selected state of the component changes.
-   *
-   * @param { function } callback
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the selected state of the component changes.
-   *
-   * @param { function } callback
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the selected state of the component changes.
-   *
-   * @param { function } callback
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the selected state of the component changes.
+   * Triggered when the toggle status changes.
    *
    * @param { function } callback
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onChange(callback: (isOn: boolean) => void): ToggleAttribute;
 
   /**
-   * Set the content modifier of toggle.
+   * Creates a content modifier.
    *
-   * @param { ContentModifier<ToggleConfiguration> } modifier - The content modifier of toggle.
+   * @param { ContentModifier<ToggleConfiguration> } modifier - Content modifier to apply to the current component.<br>
+   *     **modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -556,91 +371,44 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
   contentModifier(modifier: ContentModifier<ToggleConfiguration>): ToggleAttribute;
 
   /**
-   * Called when the color of the selected button is set.
+   * Sets the background color of the component when it is turned on.
    *
-   * @param { ResourceColor } value
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color of the component when it is turned on.<br>Default value:<br>When
+   *     **ToggleType** is set to **Switch**, the default value is **$r('sys.color.ohos_id_color_emphasize')**.<br>When
+   *     **ToggleType** is set to **Checkbox**, the default value is **$r('sys.color.ohos_id_color_emphasize')**.<br>
+   *     When **ToggleType** is set to **Button**, the default value is **$r('sys.color.ohos_id_color_emphasize')** with
+   *     the opacity of **$r('sys.float.ohos_id_alpha_highlight_bg')**.
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   selectedColor(value: ResourceColor): ToggleAttribute;
 
   /**
-   * Called when the color of the selected button is set.
+   * Sets the color of the circular slider when the component is of the **Switch** type. This attribute is valid only 
+   * when **type** is set to **ToggleType.Switch**.
    *
-   * @param { ResourceColor } color
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } color
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } color
-   * @returns { ToggleAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the color of the selected button is set.
-   *
-   * @param { ResourceColor } color
+   * @param { ResourceColor } color - Color of the circular slider when the component is of the **Switch** type.<br>
+   *     Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   switchPointColor(color: ResourceColor): ToggleAttribute;
 
   /**
-   * Set the style of the switch.
+   * Sets the style for the component of the **Switch** type. This attribute is valid only when **type** is set to 
+   * **ToggleType.Switch**.
    *
-   * @param { SwitchStyle } value
+   * @param { SwitchStyle } value - Style of the component of the **Switch** type.
    * @returns { ToggleAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -652,35 +420,20 @@ declare class ToggleAttribute extends CommonMethod<ToggleAttribute> {
 }
 
 /**
- * Defines Toggle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Toggle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Toggle Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Toggle Component.
+ * The **Toggle** component provides a clickable element of the checkbox, button, or switch type.
+ * 
+ * > **NOTE**
+ * 
+ * ###### Child Components
+ * 
+ * This component can contain child components only when **ToggleType** is set to **Button**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const Toggle: ToggleInterface;
 
@@ -688,31 +441,10 @@ declare const Toggle: ToggleInterface;
  * Defines Toggle Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Toggle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Toggle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Toggle Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const ToggleInstance: ToggleAttribute;
