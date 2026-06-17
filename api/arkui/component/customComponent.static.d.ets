@@ -35,6 +35,8 @@ import { CustomDialogController } from './customDialogController';
 
 import { RecordData } from '@ohos.base';
 
+export { STATE_MGMT_FACTORY } from './../stateManagement/decorator';
+
 /**
  * Define ReuseObject for aboutToReuse method.
  *
