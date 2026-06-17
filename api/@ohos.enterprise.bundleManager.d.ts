@@ -995,7 +995,11 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
    *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
@@ -1011,7 +1015,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+  function getAllowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * Adds the applications that cannot be installed by the current user. This API uses an asynchronous callback to
@@ -1309,7 +1313,11 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
    *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
@@ -1325,7 +1333,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
-  function getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+  function getDisallowedInstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * Adds the applications that cannot be uninstalled by the current user. This API uses an asynchronous callback to
@@ -1626,7 +1634,11 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { number } [accountId] - Account ID, which must be greater than or equal to 0.<br> You can call
    *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId()} of
    *     **@ohos.account.osAccount** to obtain the account ID.<br> - If **accountId** is passed in, this API applies to the
@@ -1642,7 +1654,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 12
    */
-  function getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array<string>;
+  function getDisallowedUninstallBundlesSync(admin: Want | null, accountId?: number): Array<string>;
 
   /**
    * Uninstalls an application of the current user without retaining the bundle data. This API uses an asynchronous
@@ -1995,7 +2007,11 @@ declare namespace bundleManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<AppDistributionType> } Distribution types of the application signing certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -2005,7 +2021,7 @@ declare namespace bundleManager {
    * @stagemodelonly
    * @since 20
    */
-  function getInstallationAllowedAppDistributionTypes(admin: Want): Array<AppDistributionType>;
+  function getInstallationAllowedAppDistributionTypes(admin: Want | null): Array<AppDistributionType>;
 
   /**
    * Obtains the applications installed by a specified user on a device. This API uses a promise to return the result.

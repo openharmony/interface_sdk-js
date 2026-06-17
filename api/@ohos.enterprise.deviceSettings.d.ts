@@ -1062,6 +1062,7 @@ declare namespace deviceSettings {
    *     <br>The maximum length is 43 and cannot be empty.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured. [since 26.0.0]
    * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 9200016 - Service timeout.
    * @throws { BusinessError } 201 - Permission verification failed.

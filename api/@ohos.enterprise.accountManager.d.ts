@@ -237,7 +237,11 @@ declare namespace accountManager {
    *
    * @permission ohos.permission.ENTERPRISE_SET_ACCOUNT_POLICY
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @param { number } [accountId] - User ID, which specifies a user. If this parameter is not specified, the system
    *     queries whether all users are not allowed to add accounts. If this parameter is specified, the system queries
    *     whether specified users are not allowed to add accounts. The value must be greater than or equal to 0.<br>You
@@ -256,7 +260,7 @@ declare namespace accountManager {
    * @stagemodelonly
    * @since 12
    */
-  function isOsAccountAdditionDisallowed(admin: Want, accountId?: number): boolean;
+  function isOsAccountAdditionDisallowed(admin: Want | null, accountId?: number): boolean;
 
   /**
    * Adds an account in the background. This API uses a promise to return the result.

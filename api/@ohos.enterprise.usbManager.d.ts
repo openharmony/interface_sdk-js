@@ -352,6 +352,7 @@ declare namespace usbManager {
    *     there are already 300 USB device IDs, only 700 more can be added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -388,7 +389,11 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<UsbDeviceId> } Allowed USB devices obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -400,7 +405,7 @@ declare namespace usbManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAllowedUsbDevices(admin: Want): Array<UsbDeviceId>;
+  function getAllowedUsbDevices(admin: Want | null): Array<UsbDeviceId>;
 
   /**
    * Sets the access policy of the USB storage device.
@@ -433,6 +438,7 @@ declare namespace usbManager {
    * @param { UsbPolicy } usbPolicy - Access policy of the USB storage device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
@@ -450,7 +456,11 @@ declare namespace usbManager {
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB [since 12 - 24]
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB  or ohos.permission.PERSONAL_MANAGE_RESTRICTIONS [since 26.0.0]
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { UsbPolicy } Access policy of the USB storage device.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -462,7 +472,7 @@ declare namespace usbManager {
    * @stagemodelonly
    * @since 12
    */
-  function getUsbStorageDeviceAccessPolicy(admin: Want): UsbPolicy;
+  function getUsbStorageDeviceAccessPolicy(admin: Want | null): UsbPolicy;
 
   /**
    * Adds disallowed USB device types.
@@ -517,7 +527,11 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_USB
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 14 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<UsbDeviceType> } Disallowed USB device types obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -529,7 +543,7 @@ declare namespace usbManager {
    * @stagemodelonly
    * @since 14
    */
-  function getDisallowedUsbDevices(admin: Want): Array<UsbDeviceType>;
+  function getDisallowedUsbDevices(admin: Want | null): Array<UsbDeviceType>;
 }
 
 export default usbManager;
