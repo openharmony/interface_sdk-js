@@ -284,8 +284,8 @@ declare interface DepthComponentOptions {
   depthSpace?: DepthSpaceType;
 
   /**
-   * Scale factor for 3D rendering window, applied to both width and height.
-   * Value range: [0.0, 1.0]. Values outside this range are invalid and the default value is used.
+   * Scale factor for 3D rendering window, applied to both width and height. The value range is (0.0, 1.0]. Values
+   * outside this range are invalid and the default value is used.
    *
    * @default 1.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
