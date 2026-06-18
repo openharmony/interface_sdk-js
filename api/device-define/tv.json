@@ -54,6 +54,7 @@
     "SystemCapability.Notification.CommonEvent",
     "SystemCapability.Customization.ConfigPolicy",
     "SystemCapability.Customization.CustomConfig",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Cipher",
     "SystemCapability.Security.CryptoFramework.Kdf",

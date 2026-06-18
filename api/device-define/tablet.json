@@ -175,6 +175,7 @@
     "SystemCapability.Advertising.Ads",
     "SystemCapability.Security.CertificateManager",
     "SystemCapability.Security.CertificateManagerDialog",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework",
     "SystemCapability.Security.CryptoFramework.Key",
     "SystemCapability.Security.CryptoFramework.Key.SymKey",
