@@ -25,8 +25,8 @@ import { ComponentBuilder } from './builder';
 import { DynamicNode } from './common';
 
 /**
- * Defines the types of data source operations.
- *
+* 枚举类型，数据操作说明。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -34,7 +34,7 @@ import { DynamicNode } from './common';
 export enum DataOperationType {
 
   /**
-   * Add data.
+   * 数据添加。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -43,7 +43,7 @@ export enum DataOperationType {
   ADD = 'add',
 
   /**
-   * Delete data.
+   * 数据删除。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ export enum DataOperationType {
   DELETE = 'delete',
 
   /**
-   * Exchange data.
+   * 数据交换。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -61,7 +61,7 @@ export enum DataOperationType {
   EXCHANGE = 'exchange',
 
   /**
-   * Move data.
+   * 数据移动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -70,7 +70,7 @@ export enum DataOperationType {
   MOVE = 'move',
 
   /**
-   * Change data.
+   * 数据改变。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -79,7 +79,7 @@ export enum DataOperationType {
   CHANGE = 'change',
 
   /**
-   * Reload data.
+   * 全部数据重载。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,7 +89,7 @@ export enum DataOperationType {
 }
 
 /**
- * Enumerates the release strategies for LazyForEach discarded nodes.
+ * 资源释放策略枚举，用于配置LazyForEach待销毁节点的资源释放策略。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -98,7 +98,7 @@ export enum DataOperationType {
 export enum LazyForEachReleaseStrategy {
 
   /**
-   * Release all discarded nodes during the next idle period.
+   * 在下一次空闲时段内释放所有被丢弃的节点。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -107,9 +107,7 @@ export enum LazyForEachReleaseStrategy {
   BATCH = 0,
 
   /**
-   * Release discarded nodes one by one during the next idle period based on the
-   * remaining time of the current frame. Unreleased nodes will continue to be
-   * released in subsequent idle periods based on the available idle time.
+   * 在下一次空闲时段内，根据当前帧剩余时间逐个释放被丢弃的节点。未释放的节点将在后续空闲时段根据可用空闲时间继续释放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -119,8 +117,7 @@ export enum LazyForEachReleaseStrategy {
 }
 
 /**
- * Enumerates the freeze modes for cached custom nodes that have been removed
- * from the component tree in LazyForEach.
+ * 冻结模式枚举，用于配置LazyForEach中已移出组件树的缓存自定义节点的冻结行为。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -129,8 +126,7 @@ export enum LazyForEachReleaseStrategy {
 export enum LazyForEachCustomComponentFreezeMode {
 
   /**
-   * Follow the enableCustomComponentFreeze field in Metadata to determine
-   * whether freezing takes effect.
+   * 遵循Metadata中enableCustomComponentFreeze字段的配置来决定是否启用冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -139,7 +135,7 @@ export enum LazyForEachCustomComponentFreezeMode {
   AUTO = 0,
 
   /**
-   * Freezing is disabled for cached custom nodes removed from the component tree.
+   * 禁用已移出组件树的缓存自定义节点的冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -148,8 +144,7 @@ export enum LazyForEachCustomComponentFreezeMode {
   DISABLED = 1,
 
   /**
-   * Freezing is enabled for cached custom nodes removed from the component tree.
-   * State updates of cached custom components will be frozen.
+   * 启用已移出组件树的缓存自定义节点的冻结。开启后，缓存自定义组件的状态更新将被冻结。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -159,7 +154,7 @@ export enum LazyForEachCustomComponentFreezeMode {
 }
 
 /**
- * Options for LazyForEach.
+ * 配置LazyForEach的参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -168,9 +163,8 @@ export enum LazyForEachCustomComponentFreezeMode {
 export interface LazyForEachOptions {
 
   /**
-   * Freeze mode for cached custom nodes that have been removed from the
-   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
-   *
+     * 已移出组件树的缓存自定义节点的冻结模式。默认值：LazyForEachCustomComponentFreezeMode.AUTO。
+     *
    * @default LazyForEachCustomComponentFreezeMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -179,9 +173,9 @@ export interface LazyForEachOptions {
   customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
 
   /**
-   * Resource release strategy for LazyForEach discarded nodes.
-   * Default value:LazyForEachReleaseStrategy.BATCH.
-   *
+     * LazyForEach缓存节点的资源释放策略。默认值：LazyForEachReleaseStrategy.BATCH。
+     * <br>默认值:默认值：LazyForEachReleaseStrategy.BATCH。
+     *
    * @default LazyForEachReleaseStrategy.BATCH
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -190,8 +184,9 @@ export interface LazyForEachOptions {
   releaseStrategy?: LazyForEachReleaseStrategy;
 
   /**
-   * Memory optimization strategy for LazyForEach.
-   *
+     * LazyForEach的内存优化策略。该参数在创建LazyForEach时设定，不支持动态修改。
+     * 默认值：[DEFAULT]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -200,8 +195,8 @@ export interface LazyForEachOptions {
 }
 
 /**
- * Defines add operation.
- *
+* 添加单个数据。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -209,7 +204,7 @@ export interface LazyForEachOptions {
 export interface DataAddOperation {
 
   /**
-   * How to operate added data.
+   * 数据添加类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,8 +213,8 @@ export interface DataAddOperation {
   type: DataOperationType;
 
   /**
-   * Index of added data.
-   *
+     * 插入数据索引值。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -227,8 +222,7 @@ export interface DataAddOperation {
   index: int;
 
   /**
-   * Count of added data in one operation.
-   * Only validate for ADD and DELETE.
+   * 插入数量，默认为1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -238,7 +232,7 @@ export interface DataAddOperation {
   count?: int;
 
   /**
-   * Key of added data.
+   * 为插入的数据分配键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -248,8 +242,8 @@ export interface DataAddOperation {
 }
 
 /**
- * Defines delete operation.
- *
+* 删除单个数据。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -257,7 +251,7 @@ export interface DataAddOperation {
 export interface DataDeleteOperation {
 
   /**
-   * How to operate deleted data.
+   * 数据删除类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -266,8 +260,8 @@ export interface DataDeleteOperation {
   type: DataOperationType;
 
   /**
-   * Index of deleted data.
-   *
+     * 起始删除位置索引值。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -275,8 +269,7 @@ export interface DataDeleteOperation {
   index: int;
 
   /**
-   * Count of deleted data in one operation.
-   * Only validate for ADD and DELETE.
+   * 删除数据数量，默认为1。
    *
    * @default 1
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -287,8 +280,8 @@ export interface DataDeleteOperation {
 }
 
 /**
- * Defines change operation.
- *
+* 执行单个数据的插入、更新或删除。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -296,7 +289,7 @@ export interface DataDeleteOperation {
 export interface DataChangeOperation {
 
   /**
-   * How to operate changed data.
+   * 数据改变类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -305,8 +298,8 @@ export interface DataChangeOperation {
   type: DataOperationType;
 
   /**
-   * Index of changed data.
-   *
+     * 改变的数据的索引值。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -314,7 +307,7 @@ export interface DataChangeOperation {
   index: int;
 
   /**
-   * Key of changed data.
+   * 为改变的数据分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -324,8 +317,8 @@ export interface DataChangeOperation {
 }
 
 /**
- * Defines position of moved data.
- *
+* 定义移动数据的位置。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -333,8 +326,8 @@ export interface DataChangeOperation {
 export interface MoveIndex {
 
   /**
-   * Index of moved data.
-   *
+     * 移动位置。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -342,8 +335,8 @@ export interface MoveIndex {
   from: int;
 
   /**
-   * Destination of moved data.
-   *
+     * 目的移动位置。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -352,8 +345,8 @@ export interface MoveIndex {
 }
 
 /**
- * Defines position of exchange data.
- *
+* 定义交换数据的位置。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -361,8 +354,8 @@ export interface MoveIndex {
 export interface ExchangeIndex {
 
   /**
-   * Index of the first exchange data.
-   *
+     * 第一个交换位置。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -370,8 +363,8 @@ export interface ExchangeIndex {
   start: int;
 
   /**
-   * Index of the second exchange data.
-   *
+     * 第二个交换位置。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -380,8 +373,8 @@ export interface ExchangeIndex {
 }
 
 /**
- * Defines new key of exchange data.
- *
+* 定义交换数据的新键值。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -389,7 +382,7 @@ export interface ExchangeIndex {
 export interface ExchangeKey {
 
   /**
-   * Key of the first exchange data.
+   * 为第一个交换的位置分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -398,7 +391,7 @@ export interface ExchangeKey {
   start: string;
 
   /**
-   * Key of the second exchange data.
+   * 为第二个交换的位置分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -408,8 +401,8 @@ export interface ExchangeKey {
 }
 
 /**
- * Defines move&exchange operation.
- *
+* 移动数据操作。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -417,7 +410,7 @@ export interface ExchangeKey {
 export interface DataMoveOperation {
 
   /**
-   * How to operate moved data.
+   * 数据移动类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -426,8 +419,8 @@ export interface DataMoveOperation {
   type: DataOperationType;
 
   /**
-   * Index of moved data.
-   *
+     * 移动位置。取值范围是[0, 数据源长度-1]。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -435,7 +428,7 @@ export interface DataMoveOperation {
   index: MoveIndex;
 
   /**
-   * Key of moved data.
+   * 为被移动的数据分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -445,8 +438,8 @@ export interface DataMoveOperation {
 }
 
 /**
- * Defines exchange operation.
- *
+* 交换单个数据。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -454,7 +447,7 @@ export interface DataMoveOperation {
 export interface DataExchangeOperation {
 
   /**
-   * How to operate exchange data.
+   * 数据交换类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -463,7 +456,7 @@ export interface DataExchangeOperation {
   type: DataOperationType;
 
   /**
-   * Index of exchange data.
+   * 交换位置。取值范围是[0, 数据源长度-1]。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -472,7 +465,7 @@ export interface DataExchangeOperation {
   index: ExchangeIndex;
 
   /**
-   * Key of exchange data.
+   * 分配新的键值，默认使用原键值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -482,8 +475,8 @@ export interface DataExchangeOperation {
 }
 
 /**
- * Defines reload operation.
- *
+* 重载所有数据操作。当onDatasetChange含有DataOperationType.RELOAD操作时，其余操作全部失效，框架会自己调用keyGenerator进行键值比对。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -491,7 +484,7 @@ export interface DataExchangeOperation {
 export interface DataReloadOperation {
 
   /**
-   * How to operate reload data.
+   * 数据全部重载类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,7 +494,7 @@ export interface DataReloadOperation {
 }
 
 /**
- * All data operation types.
+ * 定义数据操作类型。
  *
  * @unionmember { DataAddOperation }
  * @unionmember { DataDeleteOperation }
@@ -517,8 +510,13 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
     DataExchangeOperation | DataReloadOperation;
 
 /**
- * Data Change Listener.
- *
+* 数据变化监听器。
+*
+* > **说明：**
+* >
+* > DataChangeListener除onDatasetChange以外的方法中，当参数包含index且值为负数时，会默认用0来替换。onDatasetChange中，当单个DataOperation参数包含index且值在数据源
+* > 索引范围之外（DataAddOperation中index可以等于数据源长度），则对应DataOperation不会生效。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -526,7 +524,7 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
 export interface DataChangeListener {
 
   /**
-   * Data ready.
+   * 通知组件重新加载所有数据。键值没有变化的数据项会使用原先的子组件，键值发生变化的会重建子组件。重新加载数据完成后调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -535,7 +533,7 @@ export interface DataChangeListener {
   onDataReloaded(): void;
 
   /**
-   * Data added.
+   * 通知组件index的位置有数据添加。添加数据完成后调用
    *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -545,7 +543,11 @@ export interface DataChangeListener {
   onDataAdd(index: int): void;
 
   /**
-   * Data moved.
+   * 通知组件数据有移动。将from和to位置的数据进行交换。数据移动起始位置与数据移动目标位置交换完成后调用。
+   *
+   * > **说明：**
+   * >
+   * > 数据移动前后键值要保持不变，如果键值有变化，应使用删除数据和新增数据接口。
    *
    * @param { int } from
    * @param { int } to
@@ -556,7 +558,11 @@ export interface DataChangeListener {
   onDataMove(from: int, to: int): void;
 
   /**
-   * Data deleted.
+   * 通知组件删除index位置的数据并重新加载LazyForEach的展示内容。删除数据完成后调用。
+   *
+   * > **说明：**
+   * >
+   * > 需要保证dataSource中的对应数据已经在调用onDataDelete前删除，否则页面渲染将出现未定义的行为。
    *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -566,7 +572,7 @@ export interface DataChangeListener {
   onDataDelete(index: int): void;
 
   /**
-   * Called when there is a data change.
+   * 通知组件index的位置有数据有变化。改变数据完成后调用。
    *
    * @param { int } index
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -576,7 +582,14 @@ export interface DataChangeListener {
   onDataChange(index: int): void;
 
   /**
-   * Called when multiple data changes occur.
+   * 批量数据处理后，调用onDatasetChange接口，通知组件按照dataOperations刷新。
+   *
+   * > **说明：**
+   * >
+   * > onDatasetChange接口不能与其他DataChangeListener的更新接口混用。如在同一个LazyForEach中，调用过onDataAdd接口后，不能再调用onDatasetChange接口；反之，调用过
+   * > onDatasetChange接口后，也不能调用onDataAdd等其他更新接口。页面中不同LazyForEach之间互不影响。
+   *
+   * 使用`onDatasetChange()`进行批量数据修改时，`DataOperation`每一个数组项需要转换为对应的类型。
    *
    * @param { Array<DataOperation> } dataOperations
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -587,8 +600,8 @@ export interface DataChangeListener {
 }
 
 /**
- * Developers need to implement this interface to provide data to LazyForEach component.
- *
+* LazyForEach的数据源。ArkTS-Sta中IDataSource强制要求声明`<T>`类型。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -596,28 +609,28 @@ export interface DataChangeListener {
 export interface IDataSource<T> {
 
   /**
-   * Total data count.
+   * 获得数据总数。
    *
    * @returns { int }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   获得数据总数，由数据源决定实际大小。
    * @stagemodelonly
    * @since 23 static
    */
   totalCount(): int;
 
   /**
-   * Return the data of index.
+   * 获取索引值index对应的数据。
    *
    * @param { int } index
    * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   获取索引值index对应的数据，由数据源决定具体类型。
    * @stagemodelonly
    * @since 23 static
    */
   getData(index: int): T;
 
   /**
-   * Register data change listener.
+   * 注册数据改变的监听器。
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -627,7 +640,7 @@ export interface IDataSource<T> {
   registerDataChangeListener(listener: DataChangeListener): void;
 
   /**
-   * Unregister data change listener.
+   * 注销数据改变的监听器。
    *
    * @param { DataChangeListener } listener
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -638,8 +651,9 @@ export interface IDataSource<T> {
 }
 
 /**
- * Declare LazyForEachAttribute.
- *
+* 支持[拖拽排序]{@link common}和
+* [debugLine](docroot://reference/apis-arkui/arkui-ts/ts-rendering-control-lazyforeach-sta.md#debugline24)属性。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -648,24 +662,24 @@ export interface IDataSource<T> {
 export interface LazyForEachAttribute extends DynamicNode {
 
   /**
-   * Set the component's source code redirection information.
-   *
-   * @param { string } sourceLine - the source code line.
-   * @param { string } [moduleName] - module to which the component belongs.
+     * 设置组件源码重定向信息。
+     *
+   * @param { string } sourceLine - 源码行号。
+   * @param { string } [moduleName] - 组件所属模块名。
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
    */
   debugLine(sourceLine: string, moduleName?: string): this;
 
   /**
-   * Sets LazyForEach options.
+   * 设置LazyForEach选项。
    *
-   * @param { IDataSource<T> } dataSource - Data source to provide data.
-   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-   * @returns { this } LazyForEachAttribute instance
+   * @param { IDataSource<T> } dataSource - 数据源提供数据
+   * @param { ItemGeneratorFunc<T> } itemGenerator - 项目生成器函数
+   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 密钥生成器函数
+   * @returns { this } LazyForEachAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -675,13 +689,13 @@ export interface LazyForEachAttribute extends DynamicNode {
         keyGenerator?: KeyGeneratorFunc<T>): this;
 
   /**
-   * Sets LazyForEach options.
+   * 设置LazyForEach选项。
    *
-   * @param { IDataSource<T> } dataSource - Data source to provide data.
-   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-   * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
-   * @returns { this } LazyForEachAttribute instance
+   * @param { IDataSource<T> } dataSource - 提供数据的数据源。
+   * @param { ItemGeneratorFunc<T> } itemGenerator - 项生成器函数。
+   * @param { KeyGeneratorFunc<T> } [keyGenerator] - 键生成器函数。
+   * @param { LazyForEachOptions } [options] - LazyForEach可选参数选项。
+   * @returns { this } LazyForEachAttribute实例
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -692,8 +706,8 @@ export interface LazyForEachAttribute extends DynamicNode {
         options?: LazyForEachOptions): this;
 
   /**
-   * Notify LazyForEach has finished setting up its attributes.
-   *
+     * 通知LazyForEach已完成属性设置。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -702,10 +716,11 @@ export interface LazyForEachAttribute extends DynamicNode {
 }
 
 /**
- * Defines item generator function.
- *
+* Define item generator function.
+*
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
+*     取值限定为整数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -714,10 +729,11 @@ export interface LazyForEachAttribute extends DynamicNode {
 declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 
 /**
- * Defines key generator function.
- *
+* Define key generator function.
+*
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
+*     取值限定为整数。
  * @returns { string } Character string generated based on item and index
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -726,12 +742,12 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 
 /**
- * Enter the value to obtain the LazyForEach.
+ * 输入值以获取带有选项的LazyForEach。
  *
- * @param { IDataSource<T> } dataSource - the array collection to be used in UI.
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function.
- * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
- * @returns { LazyForEachAttribute } LazyForEach attribute
+ * @param { IDataSource<T> } dataSource - 要在UI中使用的数组集合。
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item生成器函数。
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - 密钥生成器函数。
+ * @returns { LazyForEachAttribute } LazyForEach组件。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -744,13 +760,13 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 ): LazyForEachAttribute;
 
 /**
- * Enter the value to obtain the LazyForEach.
- *
- * @param { IDataSource<T> } dataSource - the array collection to be used in UI.
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function.
- * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function.
- * @param { LazyForEachOptions } [options] - options for LazyForEach behavior.
- * @returns { LazyForEachAttribute } LazyForEach attribute
+* 输入值以获取带有选项的LazyForEach。
+*
+ * @param { IDataSource<T> } dataSource - 要在UI中使用的数组集合。
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item生成器函数。
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - 密钥生成器函数。
+ * @param { LazyForEachOptions } [options] - LazyForEach可选参数选项。
+ * @returns { LazyForEachAttribute } LazyForEach组件
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -764,11 +780,11 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 ): LazyForEachAttribute;
 
 /**
- * Defines LazyForEach Component. It requires call setLazyForEachOptions at start of component attribute set-up,
- * and it requires call applyAttributeFinish at end of component attribute set-up.
+ * 定义LazyForEach组件。它需要在组件属性设置开始时调用setLazyForEachOptions。
+ * 并且它需要在组件属性设置结束时调用applyAttributeFinish。
  *
- * @param { CustomBuilderT<LazyForEachAttribute> } style - callback to set up LazyForEach's attributes.
- * @returns { LazyForEachAttribute } The attribute of LazyForEach.
+ * @param { CustomBuilderT<LazyForEachAttribute> } style - 回调来设置LazyForEach的属性
+ * @returns { LazyForEachAttribute } LazyForEach的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
@@ -779,8 +795,8 @@ export declare function LazyForEach<T = Any>(
 ): LazyForEachAttribute;
 
 /**
- * Defines type for memory optimization strategy.
- *
+* 定义内存优化策略的类型。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -788,7 +804,7 @@ export declare function LazyForEach<T = Any>(
 export enum LazyForEachMemOptStrategy {
 
   /**
-   * No memory optimization.
+   * 没有内存优化。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -797,8 +813,8 @@ export enum LazyForEachMemOptStrategy {
   DEFAULT = 0,
 
   /**
-   * LazyForEach handles memory optimization.
-   *
+     * LazyForEach处理内存优化。
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static

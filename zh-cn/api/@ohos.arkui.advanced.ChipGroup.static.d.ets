@@ -31,7 +31,7 @@ import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
-* Defines icon options.
+* IconOptions定义图标的共通属性。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -41,7 +41,7 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 export interface IconOptions {
 
   /**
-   * Image resource.
+   * 图标图片或图片地址引用请参考[Image](docroot://reference/apis-arkui-static/arkui-ts/ts-basic-components-image.md#image-1)。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,7 +51,9 @@ export interface IconOptions {
   src: ResourceStr;
 
   /**
-   * Image size option.
+   * 图标大小，不支持百分比。
+   *
+   * 默认值：undefined
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -62,7 +64,9 @@ export interface IconOptions {
 }
 
 /**
-* Defines suffix icon options.
+* 后缀图标选项的类型。
+*
+* 继承自[IconOptions]{@link IconOptions}。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -72,7 +76,9 @@ export interface IconOptions {
 export interface SuffixImageIconOptions extends IconOptions {
 
   /**
-   * Called when the suffix image icon is clicked.
+   * 后缀图标响应事件。
+   *
+   * 值为undefined时，无后缀图标响应事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -82,7 +88,12 @@ export interface SuffixImageIconOptions extends IconOptions {
   action?: VoidCallback;
 
   /**
-   * Set accessibility text for icon.
+   * 后缀图标的无障碍文本属性。用于为用户进一步说明后缀图标，开发人员可为后缀图标的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从后缀图标本身属性与无障碍
+   * 文本中了解到时。若后缀图标既拥有文本属性又拥有无障碍说明属性，则后缀图标被选中时，先播报后缀图标的文本属性，再播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -92,7 +103,12 @@ export interface SuffixImageIconOptions extends IconOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description for icon.
+   * 后缀图标的无障碍描述。此描述用于向用户详细解释后缀图标，开发人员应为后缀图标的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从后缀图标的属性和无障碍文本中直接获知时。如果后缀
+   * 图标同时具备文本属性和无障碍说明属性，当后缀图标被选中时，系统将首先播报后缀图标的文本属性，随后播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -102,7 +118,21 @@ export interface SuffixImageIconOptions extends IconOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for icon.
+   * 后缀图标无障碍重要性。用于控制后缀图标是否可被无障碍辅助服务所识别。
+   *
+   * 支持的值为:
+   *
+   * "auto"：后缀图标存在action时转化为“yes”，不存在action时，转化为“no”。
+   *
+   * "yes"：后缀图标可被无障碍辅助服务所识别。
+   *
+   * "no"：后缀图标不可被无障碍辅助服务所识别。
+   *
+   * "no-hide-descendants"：后缀图标及其所有子组件不可被无障碍辅助服务所识别。
+   *
+   * 默认值："auto"
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @default auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -114,7 +144,7 @@ export interface SuffixImageIconOptions extends IconOptions {
 }
 
 /**
-* 定义子chip的label属性
+* [ChipGroup]{@link ChipGroup}定义标签选项。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -124,7 +154,7 @@ export interface SuffixImageIconOptions extends IconOptions {
 export interface ChipItemLabelOptions {
 
   /**
-   * label的文本内容。
+   * 文本内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -135,7 +165,11 @@ export interface ChipItemLabelOptions {
 }
 
 /**
-* Defines chipItem options.
+* ChipGroupItemOptions定义每个Chip的非通用属性。
+*
+* > **说明：**
+* >
+* > 当传入`suffixIcon`参数时，`allowClose`不生效；未传入`suffixIcon`参数时，`allowClose`决定是否显示移除图标。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -145,7 +179,11 @@ export interface ChipItemLabelOptions {
 export interface ChipGroupItemOptions {
 
   /**
-   * Prefix icon.
+   * 前缀Image图标属性。
+   *
+   * 默认值：没有前缀Image图标。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -155,7 +193,11 @@ export interface ChipGroupItemOptions {
   prefixIcon?: IconOptions;
 
   /**
-   * Prefix symbol.
+   * 前缀SymbolGlyph图标属性。
+   *
+   * 默认值：没有前缀SymbolGlyph图标。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,7 +207,7 @@ export interface ChipGroupItemOptions {
   prefixSymbol?: ChipSymbolGlyphOptions;
 
   /**
-   * Chip文字标签
+   * 文本属性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -175,7 +217,11 @@ export interface ChipGroupItemOptions {
   label: ChipItemLabelOptions;
 
   /**
-   * Suffix icon.
+   * 后缀Image图标属性。
+   *
+   * 默认值：不显示后缀Image图标。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,7 +231,11 @@ export interface ChipGroupItemOptions {
   suffixImageIcon?: SuffixImageIconOptions;
 
   /**
-   * suffix symbol.
+   * 后缀SymbolGlyph图标属性。
+   *
+   * 默认值：不显示后缀SymbolGlyph图标。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -195,7 +245,11 @@ export interface ChipGroupItemOptions {
   suffixSymbol?: ChipSymbolGlyphOptions;
 
   /**
-   * Set options for suffix symbol.
+   * 后缀Symbol图标属性。
+   *
+   * 默认值：后缀Symbol图标无功能。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -205,7 +259,13 @@ export interface ChipGroupItemOptions {
   suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
 
   /**
-   * Allow close.
+   * 删除图标是否显示。
+   *
+   * false表示删除图标不显示，true表示删除图标显示。
+   *
+   * 默认值：false
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -215,7 +275,9 @@ export interface ChipGroupItemOptions {
   allowClose?: boolean;
 
   /**
-   * Set options for default close icon when 'allowaClose' is true.
+   * 默认删除图标的无障碍朗读功能属性。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -225,7 +287,13 @@ export interface ChipGroupItemOptions {
   closeOptions?: CloseOptions;
 
   /**
-   * Set accessibility description for ChipGroup item.
+   * ChipGroup中Chip项的无障碍描述。此描述用于向用户详细解释ChipGroup中Chip项，开发人员应为ChipGroup中Chip项的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的结果。特别是
+   * 当这些结果无法仅从ChipGroup中Chip项的属性和无障碍文本中直接获知时。如果ChipGroup中Chip项同时具备文本属性和无障碍说明属性，当ChipGroup中Chip项被选中时，系统将首先播报ChipGroup中
+   * Chip项的文本属性，随后播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,7 +303,21 @@ export interface ChipGroupItemOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for ChipGroup item.
+   * ChipGroup中Chip项无障碍重要性。用于控制ChipGroup中Chip项是否可被无障碍辅助服务所识别。
+   *
+   * 支持的值为:
+   *
+   * "auto"：ChipGroup中Chip项会转换为“yes”。
+   *
+   * "yes"：ChipGroup中Chip项可被无障碍辅助服务所识别。
+   *
+   * "no"：ChipGroup中Chip项不可被无障碍辅助服务所识别。
+   *
+   * "no-hide-descendants"：ChipGroup中Chip项及其所有子组件不可被无障碍辅助服务所识别。
+   *
+   * 默认值："auto"
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -247,7 +329,13 @@ export interface ChipGroupItemOptions {
 }
 
 /**
-* Defines ChipItemStyle.
+* ChipItemStyle定义了Chip的共通属性。
+*
+* > **说明：**
+* >
+* > 1. 操作块的大小有两种类型，一种是ChipSize，提供NORMAL和SMALL两种尺寸供选择；另一种是SizeOptions。
+* >
+* > 2. backgroundColor、selectedBackgroundColor传入undefined时，显示默认背景颜色，传入非法值时，背景色透明。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -257,7 +345,11 @@ export interface ChipGroupItemOptions {
 export interface ChipItemStyle {
 
   /**
-   * Chip size.
+   * Chip尺寸，使用时需要从Chip组件引入ChipSize类型。
+   *
+   * 默认值：ChipSize.NORMAL或{ height: 0, width: 0 }
+   *
+   * 为undefined时，使用默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -267,7 +359,11 @@ export interface ChipItemStyle {
   size?: ChipSize | SizeOptions;
 
   /**
-   * ChipItem background color.
+   * Chip背景颜色。
+   *
+   * 默认值：$r('sys.color.ohos_id_color_button_normal')
+   *
+   * 为undefined时，backgroundColor走默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -277,7 +373,11 @@ export interface ChipItemStyle {
   backgroundColor?: ResourceColor;
 
   /**
-   * Text font color.
+   * Chip文字颜色。
+   *
+   * 默认值：$r('sys.color.ohos_id_color_text_primary')
+   *
+   * 为undefined时，fontColor走默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -287,7 +387,11 @@ export interface ChipItemStyle {
   fontColor?: ResourceColor;
 
   /**
-   * Selected Text font color.
+   * Chip激活时的文字颜色。
+   *
+   * 默认值：$r('sys.color.ohos_id_color_text_primary_contrary')
+   *
+   * 为undefined时，selectedFontColor走默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -297,7 +401,11 @@ export interface ChipItemStyle {
   selectedFontColor?: ResourceColor;
 
   /**
-   * Selected chip item background color.
+   * Chip激活时的背景颜色。
+   *
+   * 默认值：$r('sys.color.ohos_id_color_emphasize')
+   *
+   * 为undefined时，selectedBackgroundColor走默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -308,7 +416,7 @@ export interface ChipItemStyle {
 }
 
 /**
-* Defines chip group space.
+* ChipGroupSpaceOptions 定义了ChipGroup左右内边距，以及Chip与Chip之间的间距。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -318,7 +426,23 @@ export interface ChipItemStyle {
 export interface ChipGroupSpaceOptions {
 
   /**
-   * Space between items.
+   * Chip与Chip之间的间距（不支持百分比）。
+   *
+   * 取值范围：
+   *
+   * number类型: ≥ 0 的数值（如：0、8、16、24.5）。
+   *
+   * string类型: 单位为fp|vp|px|lpx且数值部分 ≥ 0 的字符串（如："8vp"、"16fp"、"12px"、"10lpx"）。
+   *
+   * double类型: ≥ 0 的数值（如：0、8、16、24.5）。
+   *
+   * 不支持: 负数、百分比单位、无效字符串格式。
+   *
+   * 默认值：8
+   *
+   * 单位：vp
+   *
+   * 为undefined时，itemSpace采取默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -328,7 +452,13 @@ export interface ChipGroupSpaceOptions {
   itemSpace?: string | double;
 
   /**
-   * Start space.
+   * 左侧内边距（不支持百分比）。
+   *
+   * 默认值：16
+   *
+   * 单位：vp
+   *
+   * 为undefined时，startSpace取默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -338,7 +468,13 @@ export interface ChipGroupSpaceOptions {
   startSpace?: Length;
 
   /**
-   * End space.
+   * 右侧内边距（不支持百分比）。
+   *
+   * 默认值：16
+   *
+   * 单位：vp
+   *
+   * 如果为undefined，则使用默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -349,7 +485,7 @@ export interface ChipGroupSpaceOptions {
 }
 
 /**
-* Defines IconItemOptions.
+* 定义了尾部builder接口，针对背板大小及颜色设置限制。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -359,7 +495,16 @@ export interface ChipGroupSpaceOptions {
 export interface IconItemOptions {
 
   /**
-   * IconOptions.
+   * 自定义Builder icon。
+   *
+   * Chip大小是ChipSize.SMALL时，suffix默认值：{width: 16,height: 16}。
+   *
+   * Chip大小是ChipSize.NORMAL时，suffix默认值：{width: 24,height: 24}。</br> 如果想动态修改size，那么必须在引入
+   * [IconGroupSuffix]{@link IconGroupSuffix}时，使用
+   * [SymbolGlyphModifier](docroot://reference/apis-arkui-static/arkui-ts/ts-universal-attributes-attribute-symbolglyphmodifier.md#symbolglyphmodifier)
+   * 类型。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -369,7 +514,9 @@ export interface IconItemOptions {
   icon: IconOptions;
 
   /**
-   * Icon Action.
+   * 自定义Builder items的回调，尾部图标被点击时触发。
+   *
+   * 为undefined时，表示解绑事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -379,7 +526,12 @@ export interface IconItemOptions {
   action: VoidCallback;
 
   /**
-   * Set accessibility text for icon.
+   * 后缀图标的无障碍文本属性。用于为用户进一步说明后缀图标，开发人员可为后缀图标的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从后缀图标本身属性与无障碍
+   * 文本中了解到时。若后缀图标既拥有文本属性又拥有无障碍说明属性，则后缀图标被选中时，先播报后缀图标的文本属性，再播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -389,7 +541,12 @@ export interface IconItemOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description for icon.
+   * 后缀图标的无障碍描述。此描述用于向用户详细解释后缀图标，开发人员应为后缀图标的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从后缀图标的属性和无障碍文本中直接获知时。如果后缀
+   * 图标同时具备文本属性和无障碍说明属性，当后缀图标被选中时，系统将首先播报后缀图标的文本属性，随后播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -399,7 +556,21 @@ export interface IconItemOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for icon.
+   * 尾部图标无障碍重要性。用于控制尾部图标是否可被无障碍辅助服务所识别。
+   *
+   * 支持的值为:
+   *
+   * "auto"：尾部图标转化为“yes”。
+   *
+   * "yes"：尾部图标可被无障碍辅助服务所识别。
+   *
+   * "no"：尾部图标不可被无障碍辅助服务所识别。
+   *
+   * "no-hide-descendants"：尾部图标及其所有子组件不可被无障碍辅助服务所识别。
+   *
+   * 默认值："auto"
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -411,7 +582,7 @@ export interface IconItemOptions {
 }
 
 /**
-* Defines symbol item options.
+* ChipGroup的尾部图标选项类型。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -421,7 +592,7 @@ export interface IconItemOptions {
 export interface SymbolItemOptions {
 
   /**
-   * Set symbol.
+   * 尾部图标的SymbolGlyphModifier配置对象，用于设置图标的显示样式、渲染模式等。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -431,7 +602,7 @@ export interface SymbolItemOptions {
   symbol: SymbolGlyphModifier;
 
   /**
-   * Called when the symbol item is clicked.
+   * 尾部图标响应事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -441,7 +612,12 @@ export interface SymbolItemOptions {
   action: VoidCallback;
 
   /**
-   * Set accessibility text for symbol.
+   * 尾部图标的无障碍文本属性。用于为用户进一步说明尾部图标，开发人员可为尾部图标的该属性设置相对较详细的解释文本，帮助用户理解将要执行的操作。如帮助用户理解将要执行的操作可能导致什么后果，尤其是当这些后果无法从尾部图标本身属性与无障碍
+   * 文本中了解到时。若尾部图标既拥有文本属性又拥有无障碍说明属性，则尾部图标被选中时，先播报尾部图标的文本属性，再播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -451,7 +627,12 @@ export interface SymbolItemOptions {
   accessibilityText?: ResourceStr;
 
   /**
-   * Set accessibility description for symbol.
+   * 尾部图标的无障碍描述。此描述用于向用户详细解释尾部图标，开发人员应为尾部图标的这一属性提供较为详尽的文本说明，以协助用户理解即将执行的操作及其可能产生的后果。特别是当这些后果无法仅从尾部图标的属性和无障碍文本中直接获知时。如果尾部
+   * 图标同时具备文本属性和无障碍说明属性，当尾部图标被选中时，系统将首先播报尾部图标的文本属性，随后播报无障碍说明属性的内容。
+   *
+   * 默认值：空字符串。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -461,7 +642,21 @@ export interface SymbolItemOptions {
   accessibilityDescription?: ResourceStr;
 
   /**
-   * Set accessibility level for symbol.
+   * 尾部图标无障碍重要性。用于控制尾部图标是否可被无障碍辅助服务所识别。
+   *
+   * 支持的值为:
+   *
+   * "auto"：尾部图标转化为“yes”。
+   *
+   * "yes"：尾部图标可被无障碍辅助服务所识别。
+   *
+   * "no"：尾部图标不可被无障碍辅助服务所识别。
+   *
+   * "no-hide-descendants"：尾部图标及其所有子组件不可被无障碍辅助服务所识别。
+   *
+   * 默认值："auto"。
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @default "auto"
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -473,7 +668,7 @@ export interface SymbolItemOptions {
 }
 
 /**
-* Defines ChipGroupPaddingOptions.
+* ChipGroupPaddingOptions定义了ChipGroup的上下内边距，用于控制其整体高度。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -483,7 +678,11 @@ export interface SymbolItemOptions {
 export interface ChipGroupPaddingOptions {
 
   /**
-   * Top of chip group padding.
+   * ChipGroup的上方内边距（不支持百分比）。 单位：vp
+   *
+   * 默认值：14
+   *
+   * 为undefined时，top取默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -493,7 +692,11 @@ export interface ChipGroupPaddingOptions {
   top: Length;
 
   /**
-   * Bottom of chip group padding.
+   * ChipGroup的下方内边距（不支持百分比）。 单位：vp
+   *
+   * 默认值：14
+   *
+   * 为undefined时，bottom取默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -515,7 +718,7 @@ export interface ChipGroupPaddingOptions {
 export declare struct IconGroupSuffix {
 
   /**
-   * 选项集合。
+   * 尾部区域显示的自定义项数组，支持IconItemOptions（Image图标）、SymbolGlyphModifier（Symbol图标）或SymbolItemOptions（Symbol图标配置）类型。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -538,7 +741,7 @@ export declare struct IconGroupSuffix {
   iconBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * 组件创建方法。
+   * build函数用于构造ChipGroup高级组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -549,7 +752,7 @@ export declare struct IconGroupSuffix {
 }
 
 /**
-* Defines the suffix builder of the Chip Group.
+* 用于构造chipGroup尾部图标的构造器。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -560,7 +763,7 @@ export declare struct IconGroupSuffix {
 export type ChipGroupSuffixBuilder = () => void;
 
 /**
-* Defines chipGroup.
+* ChipGroup组件提供操作块群组，用于文件或资源内容的分类等场景。
 *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -571,7 +774,10 @@ export type ChipGroupSuffixBuilder = () => void;
 export declare struct ChipGroup {
 
   /**
-   * Chip item.
+   * 每个[Chip](docroot://reference/apis-arkui-static/arkui-ts/ohos-arkui-advanced-Chip.md)的特定属性，参考
+   * [ChipGroupItemOptions[]]{@link ChipGroupItemOptions}类型。
+   *
+   * 若为undefined时，ChipGroup默认为空。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -583,7 +789,15 @@ export declare struct ChipGroup {
   items: ChipGroupItemOptions[];
 
   /**
-   * Chip item style.
+   * `Chip`的`style`属性，如颜色，大小等，参考[ChipItemStyle]{@link ChipItemStyle}类型。
+   *
+   * 默认值：
+   *
+   * {  size: ChipSize.NORMAL, backgroundColor: $r('sys.color.ohos_id_color_button_normal'), fontColor: $r('
+   * sys.color.ohos_id_color_text_primary'), selectedFontColor: $r('sys.color.ohos_id_color_text_primary_contrary'),
+   * selectedBackgroundColor: $r('sys.color.ohos_id_color_emphasize') }
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -594,7 +808,11 @@ export declare struct ChipGroup {
   itemStyle?: ChipItemStyle;
 
   /**
-   * Default selected chip item indexes.
+   * 被选中Chip的索引。
+   *
+   * 默认值：[0]
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -605,7 +823,13 @@ export declare struct ChipGroup {
   selectedIndexes?: Array<int>;
 
   /**
-   * Support multiple chip item selection.
+   * 是否选中多个`Chip`。
+   *
+   * `true`：支持多个`Chip`选中；`false`：仅支持单个`Chip`选中。
+   *
+   * 默认值：`false`
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -616,7 +840,13 @@ export declare struct ChipGroup {
   multiple?: boolean;
 
   /**
-   * Chip group space.
+   * 左右内边距及Chip之间间距。参考[ChipGroupSpaceOptions]{@link ChipGroupSpaceOptions}类型。
+   *
+   * 默认值：{ itemSpace: 8, startSpace: 16, endSpace: 16 }
+   *
+   * 单位：vp
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -627,7 +857,13 @@ export declare struct ChipGroup {
   chipGroupSpace?: ChipGroupSpaceOptions;
 
   /**
-   * Chip group padding (only support top and bottom).
+   * 设置ChipGroup的上下内边距，以控制整体高度。类型为[ChipGroupPaddingOptions]{@link ChipGroupPaddingOptions}。
+   *
+   * 默认值：{ top: 14, bottom: 14 }
+   *
+   * 单位：vp
+   *
+   * 值为undefined时，按默认值处理。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -661,7 +897,9 @@ export declare struct ChipGroup {
   selectedBackgroundSystemMaterial?: uiMaterial.Material;
 
   /**
-   * Chip group callback. when chip status is changed, this onChange is called.
+   * Chip状态改变时的回调方法。
+   *
+   * 若为undefined，表示解绑事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -671,7 +909,11 @@ export declare struct ChipGroup {
   onChange?: Callback<Array<int>>;
 
   /**
-   * The builder function which will be rendered in the suffix of ChipGroup.
+   * 支持开发者自定义builder，如需在组件最右侧显示自定义内容可配置suffix属性，使用属性suffix需引用[IconGroupSuffix]{@link IconGroupSuffix}接口。
+   *
+   * 默认不传入时，没有suffix。
+   *
+   * 值为undefined时，没有suffix。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -682,7 +924,7 @@ export declare struct ChipGroup {
   suffix?: ChipGroupSuffixBuilder;
 
   /**
-   * 组件创建方法。
+   * build函数用于构造ChipGroup高级组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -690,4 +932,4 @@ export declare struct ChipGroup {
    */
   @Builder
   build(): void;
-}
+}
