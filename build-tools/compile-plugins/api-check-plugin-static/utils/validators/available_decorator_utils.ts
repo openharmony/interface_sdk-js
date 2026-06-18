@@ -113,6 +113,10 @@ export function getValidAnnotationFromNode(
     annotationArray.push(...node.annotations);
   }
 
+  if (arkts.isMethodDefinition(node) && !!node.function) {
+    annotationArray.push(...node.function.annotations);
+  }
+
   const validAnnotation = annotationArray.find(annotation => predicate(annotation));
   if (validAnnotation) {
     return validAnnotation;
