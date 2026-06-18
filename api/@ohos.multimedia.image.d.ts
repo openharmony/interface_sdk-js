@@ -14674,7 +14674,7 @@ function createUnpremultipliedPixelMap(src: PixelMap, dst: PixelMap): Promise<vo
      *     2.Incorrect parameter types. 3.Parameter verification failed.
      * @throws { BusinessError } 7700301 - Decode failed.
      * @throws { BusinessError } 7700203 - Unsupported options. For example, unsupported desiredPixelFormat causes
-     *     a failure in converting an image into the desired pixel format.
+     *     a failure in converting an image into the desired pixel format. [since 24]
      * @syscap SystemCapability.Multimedia.Image.ImageSource
      * @since 13 dynamic
      */
