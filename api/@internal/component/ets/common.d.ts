@@ -55,24 +55,47 @@ declare type DragSpringLoadingConfiguration = import('../api/@ohos.arkui.dragCon
 /**
  * Defines the options of Component ClassDecorator.
  *
+ * @interface ComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @atomicservice [since 12]
- * @since 11 dynamic
+ * @since 11
+ */
+/**
+ * Defines the options of Component ClassDecorator.
+ *
+ * @interface ComponentOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 12 dynamic
  */
 declare interface ComponentOptions {
   /**
    * freeze UI state.
    *
+   * @type { boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
+   */
+  /**
+   * freeze UI state.
+   *
+   * @type { boolean }
+   * @default false
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
    */
   freezeWhenInactive : boolean,
 
@@ -166,13 +189,32 @@ declare interface ReusableOptions {
 /**
  * Define the ratio of characters entered by the percentage of InputCounterOptions.
  *
+ * @interface InputCounterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice [since 12]
- * @since 11 dynamic
+ * @since
+ */
+/**
+ * Define the ratio of characters entered by the percentage of InputCounterOptions.
+ *
+ * @interface InputCounterOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
  */
 declare interface InputCounterOptions {
+  /**
+   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
+   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
+   * @type { ?number }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 11
+   */
   /**
    * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
    * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
@@ -190,15 +232,27 @@ declare interface InputCounterOptions {
    * <br>If the value exceeds the valid value range, the character counter is not displayed.
    * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
    * </p>
+   * 
+   * @type { ?number }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @atomicservice
+   * @since 12 dynamic
    */
   thresholdPercentage?: number;
 
+  /**
+   * If the current input character count reaches the maximum character count and users want to exceed the
+   * normal input, the border will turn red. If this parameter is true, the red border displayed.
+   * @type { ?boolean }
+   * @default true
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @since 11
+   */
   /**
    * If the current input character count reaches the maximum character count and users want to exceed the
    * normal input, the border will turn red. If this parameter is true, the red border displayed.
@@ -211,13 +265,15 @@ declare interface InputCounterOptions {
    * the text box border and character counter subscript turn red when the number of entered characters exceeds the limit.
    * <br>The value true (default) means to highlight the text box border and character counter subscript in red.
    * </p>
+   * 
+   * @type { ?boolean }
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @atomicservice
+   * @since 12 dynamic
    */
   highlightBorder?: boolean;
 
@@ -301,15 +357,39 @@ declare interface TextDecorationOptions {
 
 /**
  * Defining Component ClassDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @since 7
+ */
+/**
+ * Defining Component ClassDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @form
+ * @since 9
+ */
+/**
+ * Defining Component ClassDecorator
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @FaAndStageModel
+ * @crossplatform
+ * @form
+ * @since 10
+ */
+/**
+ * Defining Component ClassDecorator
  * 
  * Component is a ClassDecorator and it supports ComponentOptions as parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform [since 10]
- * @form [since 9]
- * @atomicservice [since 11]
- * @since 7 dynamic
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 11 dynamic
  */
 declare const Component: ClassDecorator & ((options: ComponentOptions) => ClassDecorator);
 

@@ -56,9 +56,18 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @since 10
  */
+/**
+* Register a customized font in the FontManager.
+*
+* @param { font.FontOptions } options - FontOptions
+* @syscap SystemCapability.ArkUI.ArkUI.Full
+* @stagemodelonly
+* @crossplatform
+* @atomicservice
+* @since 11 dynamic
+*/
 export class Font {
   /**
    * Register a customized font in the FontManager.
@@ -893,6 +902,7 @@ export class LuminanceSampler {
  * > **UIContext** to obtain a **PromptAction** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @crossplatform
  * @atomicservice [since 11]
  * @since 10 dynamic
@@ -908,6 +918,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -925,6 +936,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -942,6 +954,7 @@ export class PromptAction {
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -961,6 +974,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -978,6 +992,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -1015,6 +1030,7 @@ export class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 11 dynamic
@@ -1032,6 +1048,7 @@ export class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 11]
    * @since 10 dynamic
@@ -1056,6 +1073,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1081,6 +1099,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1102,6 +1121,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1120,6 +1140,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1140,6 +1161,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1164,6 +1186,7 @@ export class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1181,6 +1204,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
@@ -1195,6 +1219,7 @@ export class PromptAction {
    *
    * @returns { LevelOrder } Order of the topmost dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1207,6 +1232,7 @@ export class PromptAction {
    *
    * @returns { LevelOrder } Order of the topmost dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1241,6 +1267,7 @@ export class PromptAction {
    * @throws { BusinessError } 103304 - The targetId does not exist.
    * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1275,6 +1302,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1293,6 +1321,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1331,6 +1360,7 @@ export class PromptAction {
    * @throws { BusinessError } 103304 - The targetId does not exist.
    * @throws { BusinessError } 103305 - The node of targetId is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1370,6 +1400,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1388,6 +1419,7 @@ export class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 18 dynamic
@@ -1700,8 +1732,8 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @atomicservice
+   * @since 12 dynamic
    */
   on(type: 'navDestinationUpdate', callback: Callback<observer.NavDestinationInfo>): void;
 
@@ -1714,9 +1746,20 @@ export class UIObserver {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 12]
-   * @since 11 dynamic
+   * @since 11
    */
+   /**
+    * Removes a callback function that was previously registered with `on()`.
+    *
+    * @param { 'navDestinationUpdate'} type - The type of event to remove the listener for. Must be 'navDestinationUpdate'.
+    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+    *                                                               will be removed.
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 12 dynamic
+    */
   off(type: 'navDestinationUpdate', callback?: Callback<observer.NavDestinationInfo>): void;
 
   /**
@@ -1736,12 +1779,10 @@ export class UIObserver {
   /**
    * Removes a callback function that was previously registered with `on()`.
    *
-   * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be '
-   *     navDestinationUpdateByUniqueId'.
+    * @param { 'navDestinationUpdateByUniqueId'} type - The type of event to remove the listener for. Must be 'navDestinationUpdateByUniqueId'.
    * @param { number } navigationUniqueId - The uniqueId of the navigation.
-   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all
-   *     callbacks for the given event type
-   *     will be removed.
+    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided, all callbacks for the given event type
+    *                                                      will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1755,8 +1796,7 @@ export class UIObserver {
    *
    * @param { 'scrollEvent' } type - The type of event to listen for. Must be 'scrollEvent'.
    * @param { observer.ObserverOptions } options - The options object.
-   * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event
-   *     start or stop.
+    * @param { Callback<observer.ScrollEventInfo> } callback - The callback function to be called when the scroll event start or stop.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5124,8 +5164,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice [since 11]
-   * @since 10 dynamic
+   * @atomicservice
+   * @since 11 dynamic
    */
   showActionSheet(value: ActionSheetOptions): void;
 

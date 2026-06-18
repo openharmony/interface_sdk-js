@@ -759,6 +759,7 @@ declare namespace promptAction {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
+         * @crossplatform
          * @atomicservice
          * @since 26.0.0 dynamic
          */
@@ -1289,6 +1290,7 @@ declare namespace promptAction {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
+         * @crossplatform
          * @atomicservice
          * @since 26.0.0 dynamic
          */
@@ -1841,6 +1843,7 @@ declare namespace promptAction {
          *
          * @syscap SystemCapability.ArkUI.ArkUI.Full
          * @stagemodelonly
+         * @crossplatform
          * @atomicservice
          * @since 26.0.0 dynamic
          */
