@@ -184,7 +184,7 @@ NONE_IMMERSIVE = 0,
 IMMERSIVE = 1,
 
 /**
-*Light immersive style.
+* Light immersive style.
 *
 * @syscap SystemCapability.Web.Webview.Core
 * @stagemodelonly
@@ -193,7 +193,7 @@ IMMERSIVE = 1,
 LIGHT_IMMERSIVE = 2,
 
 /**
-*Dark immersive style.
+* Dark immersive style.
 *
 * @syscap SystemCapability.Web.Webview.Core
 * @stagemodelonly
