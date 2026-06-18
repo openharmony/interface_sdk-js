@@ -357,6 +357,7 @@ declare interface ChainAnimationOptions {
 
   /**
    * Minimum space for chain animation.
+   * <br>Unit: same as **Length**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -367,6 +368,7 @@ declare interface ChainAnimationOptions {
 
   /**
    * Maximum space for chain animation.
+   * <br>Unit: same as **Length**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -787,6 +789,8 @@ interface ListOptions {
 
   /**
    * Spacing between list items along the main axis.
+   * <br>Default value: **0**
+   * <br>If the parameter type is number, the unit is vp.
    * Anonymous Object Rectification.
    *
    * <p><strong>NOTE</strong>
@@ -986,6 +990,7 @@ declare interface ListDividerOptions {
 
   /**
    * Width of the divider.
+   * <br>Unit: vp
    * Anonymous Object Rectification.
    *
    * <p><strong>NOTE</strong>
@@ -1023,7 +1028,7 @@ declare interface ListDividerOptions {
    * Distance between the divider and the start edge of the list.
    * Anonymous Object Rectification.
    *
-   * <p><strong>Default value</strong>: 0vp
+   * <p><strong>Default value</strong>: **0**<br>Unit: vp
    * <br><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a percentage, the default value will be used.
    * <br>If <strong>endMargin</strong> and <strong>startMargin</strong> add up to a value that exceeds the column
@@ -1044,7 +1049,7 @@ declare interface ListDividerOptions {
    * Distance between the divider and the end edge of the list.
    * Anonymous Object Rectification.
    *
-   * <p><strong>Default value</strong>: 0vp
+   * <p><strong>Default value</strong>: **0**<br>Unit: vp
    * <br><strong>NOTE</strong>
    * <br>If this parameter is set to a negative number or a percentage, the default value will be used.
    * <br>If <strong>endMargin</strong> and <strong>startMargin</strong> add up to a value that exceeds the column
@@ -1789,7 +1794,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   /**
    * Triggered when the list scrolls.
    *
-   * @param { function } event
+   * @param { function } event - Callback when scroll,
+   * scrollOffset: Offset relative to the previous frame.
+   * The offset is positive when the list content scrolls up and negative when the list content scrolls down.
+   * <br>Unit: vp
+   * scrollState: Current scroll state.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

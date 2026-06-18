@@ -148,8 +148,10 @@ declare interface ListItemGroupOptions {
   footerComponent?: ComponentContent;
 
   /**
-   * Spacing between list items. This parameter only affects the spacing between list items,
+   * Spacing between list items.
+   * This parameter only affects the spacing between list items,
    * but not spacing between the header and list items or between the footer and list items.
+   * <br>Default value: **0**<br>Unit: vp
    *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -161,17 +163,15 @@ declare interface ListItemGroupOptions {
   space?: number | string;
 
   /**
-   * Spacing between list items along the main axis.
-   * Unit: vp
-   * <p><strong>NOTE</strong>.
-   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
-   * content area, the default value is used.
-   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider
-   * is used as the spacing.
-   * <br> Child components of <em>ListItemGroup</em> whose <em>visibility</em> attribute is set to <em>None</em>
-   * are not displayed, but the spacing above and below them still takes effect.
-   * <br> If both spaceWidth and space are set, spaceWidth will take precedence.
-   * </p>
+   * Spacing between list items.
+   * This parameter only affects the spacing between list items,
+   * but not spacing between the header and list items or between the footer and list items.
+   * <br>Default value: **0**<br>Unit: vp
+   * <br>**NOTE**
+   * <br>If this parameter is set to a negative number
+   * or a value greater than or equal to the length of the list content area, the default value is used.
+   * If both **spaceWidth** and **space** are set, **spaceWidth** takes precedence.
+   * When **spaceWidth** is **undefined** or **null**, **space** takes effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

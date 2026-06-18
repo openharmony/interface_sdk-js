@@ -24,7 +24,7 @@ import { ListDividerOptions } from "./list";
 import { AttributeModifier, CommonMethod } from "./common";
 import { Resource, Dimension} from './units';
 /**
- * Defines the list item group style.
+ * ListItemGroup组件卡片样式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -33,7 +33,7 @@ import { Resource, Dimension} from './units';
 export declare enum ListItemGroupStyle {
 
   /**
-   * Show custom style.
+   * 无样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -52,7 +52,7 @@ export declare enum ListItemGroupStyle {
 }
 
 /**
- * Defines the list item group header/footer style.
+ * ListItemGroup头部和尾部样式枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -61,7 +61,7 @@ export declare enum ListItemGroupStyle {
 export declare enum ListItemGroupHeaderFooterStyle {
 
   /**
-   * Show none style.
+   * 无样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -70,7 +70,7 @@ export declare enum ListItemGroupHeaderFooterStyle {
   NONE = 0,
 
   /**
-   * Show floating style.
+   * 悬浮样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -80,7 +80,7 @@ export declare enum ListItemGroupHeaderFooterStyle {
 }
 
 /**
- * Defines the list item group options.
+ * ListItemGroup组件参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -89,7 +89,7 @@ export declare enum ListItemGroupHeaderFooterStyle {
 export declare interface ListItemGroupOptions {
 
   /**
-   * Describes the ListItemGroup header.
+   * 设置ListItemGroup头部组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -98,7 +98,7 @@ export declare interface ListItemGroupOptions {
   header?: CustomBuilder;
 
   /**
-   * Describes the ListItemGroup headerComponent.
+   * 使用ComponentContent类型参数设置ListItemGroup头部组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -107,7 +107,7 @@ export declare interface ListItemGroupOptions {
   headerComponent?: ComponentContentBase;
 
   /**
-   * Describes the ListItemGroup footer.
+   * 设置ListItemGroup尾部组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -116,7 +116,7 @@ export declare interface ListItemGroupOptions {
   footer?: CustomBuilder;
 
   /**
-   * Describes the ListItemGroup footerComponent.
+   * 使用ComponentContent类型参数设置ListItemGroup尾部组件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -125,7 +125,7 @@ export declare interface ListItemGroupOptions {
   footerComponent?: ComponentContentBase;
 
   /**
-   * Describes the ListItemGroup space.
+   * 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -134,16 +134,11 @@ export declare interface ListItemGroupOptions {
   space?: double | string;
 
   /**
-   * Spacing between list items along the main axis.
-   * <p><strong>NOTE</strong>.
-   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
-   * content area, the default value is used.
-   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider
-   * is used as the spacing.
-   * <br> Child components of <em>ListItemGroup</em> whose <em>visibility</em> attribute is set to <em>None</em>
-   * are not displayed, but the spacing above and below them still takes effect.
-   * <br> If both spaceWidth and space are set, spaceWidth will take precedence.
-   * </p>
+   * 列表项间距。只作用于ListItem与ListItem之间，不作用于header与ListItem、footer与ListItem之间。
+   * <p><strong>说明：</strong>
+   * <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。
+   * <br/>如果同时设置了spaceWidth和space，则spaceWidth优先生效。当spaceWidth为undefined或null时，space生效。
+   * </p>。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -152,7 +147,7 @@ export declare interface ListItemGroupOptions {
   spaceWidth?: Dimension;
 
   /**
-   * Describes the ListItemGroup style.
+   * 设置List组件卡片样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -161,7 +156,7 @@ export declare interface ListItemGroupOptions {
   style?: ListItemGroupStyle;
 
   /**
-   * Describes the ListItemGroup header style.
+   * 设置ListItemGroup头部样式。
    *
    * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -171,7 +166,7 @@ export declare interface ListItemGroupOptions {
   headerStyle?: ListItemGroupHeaderFooterStyle;
 
   /**
-   * Describes the ListItemGroup footer style.
+   * 设置ListItemGroup尾部样式。
    *
    * @default ListItemGroupHeaderFooterStyle.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -192,8 +187,11 @@ export declare interface ListItemGroupOptions {
 export declare interface ListItemGroupAttribute extends CommonMethod {
 
   /**
-   * Called when the ListItemGroup split line style is set.
-   * Anonymous Object Rectification.
+   * 设置ListItem分割线样式，默认无分割线。
+   *
+   * strokeWidth，startMargin和endMargin不支持设置百分比。
+   *
+   * ListItem设置[多态样式]{@link common}时，被按压的子组件上下的分割线不绘制。
    *
    * @param { ListDividerOptions | null | undefined } value
    * @returns { this }
@@ -204,10 +202,14 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
   default divider(value: ListDividerOptions | null | undefined): this;
 
   /**
-   * Set children main size for ListItemGroup.
+   * 设置ListItemGroup组件的子组件在主轴方向的大小信息。
    *
-   * @param { ChildrenMainSize | undefined } value - children main size for ListItemGroup
-   * @returns { this } the attribute of the ListItemGroup.
+   * > **说明：**
+   * >
+   * > - 必须同时给所在的List组件设置childrenMainSize属性才可以正常生效。
+   *
+   * @param { ChildrenMainSize | undefined } value - 该对象用来维护子组件在主轴方向的大小信息。<br/>取值undefined时，没有childrenMainSize。
+   * @returns { this }    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -215,10 +217,10 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
   default childrenMainSize(value: ChildrenMainSize | undefined): this;
 
   /**
-   * Set ListItemGroup options.
+   * 设置ListItemGroup选项。
    *
-   * @param { ListItemGroupOptions } [options] - ListItemGroup constructor options
-   * @returns { ListItemGroupAttribute } Returns the instance of the ListItemGroupAttribute.
+   * @param { ListItemGroupOptions } [options] - ListItemGroup构造函数选项
+   * @returns { ListItemGroupAttribute } 返回ListItemGroupAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -226,7 +228,7 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
   default setListItemGroupOptions(options?: ListItemGroupOptions): this;
 
   /**
-   * Called attributeModifier.
+   * 动态设置ListItemGroup组件的属性方法。
    *
    * @param { AttributeModifier<ListItemGroupAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
@@ -238,10 +240,10 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
 }
 
 /**
- * Defines ListItemGroup Component.
+ * 创建ListItemGroup组件。
  *
- * @param { ListItemGroupOptions } [options] - options
- * @param { CustomBuilder } [content_] - container
+ * @param { ListItemGroupOptions } [列表item分组组件参数。] - 列表item分组组件参数。
+ * @param { CustomBuilder } [content_] - 容器内容。
  * @returns { ListItemGroupAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -252,14 +254,14 @@ export declare interface ListItemGroupAttribute extends CommonMethod {
 export declare function ListItemGroup(
     options?: ListItemGroupOptions, 
     content_?: CustomBuilder,
-): ListItemGroupAttribute
+): ListItemGroupAttribute;
 
 /**
- * Defines ListItemGroup Component.
+ * 定义ListItemGroup组件。
  *
- * @param { CustomBuilderT<ListItemGroupAttribute> } style_ - The style to create a ListItemGroup.
+ * @param { CustomBuilderT<ListItemGroupAttribute> } style_ - 创建ListItemGroup的样式
  * @param { CustomBuilder } [content_]
- * @returns { ListItemGroupAttribute } The attribute of the ListItemGroup.
+ * @returns { ListItemGroupAttribute } ListItemGroup的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly

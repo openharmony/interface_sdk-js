@@ -25,7 +25,7 @@ import { ComponentBuilder } from './builder';
 import { AttributeModifier, CommonMethod } from "./common";
 import { FrameNode } from '../FrameNode';
 /**
- * Sliding effect
+ * 滑动效果枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -34,8 +34,7 @@ import { FrameNode } from '../FrameNode';
 export declare enum SwipeEdgeEffect {
 
   /**
-   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or
-   * touch event, and spring back when released.
+   * Elastic physical action, sliding to the edge can continue to slide for a distance based on the initial speed or touch event, and spring back when released.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -54,7 +53,7 @@ export declare enum SwipeEdgeEffect {
 }
 
 /**
- * Declare enum SwipeActionState.
+ * 列表项滑动状态枚举。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -91,7 +90,7 @@ export declare enum SwipeActionState {
 }
 
 /**
- * Declare enum ListItemSwipeActionDirection.
+ * ListItem划出菜单的展开方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -100,8 +99,7 @@ export declare enum SwipeActionState {
 export declare enum ListItemSwipeActionDirection {
 
   /**
-   * When the List direction is vertical, it indicates the left in LTR mode and right in RTL mode.
-   * When the List direction is horizontal, it indicates the top.
+   * 当列表方向是垂直方向时，LTR模式下表示ListItem的左边，RTL模式下表示ListItem的右边。当列表是水平方向时，表示ListItem的上边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,8 +108,7 @@ export declare enum ListItemSwipeActionDirection {
   START = 0,
 
   /**
-   * When the List direction is vertical, it indicates the right in LTR mode and left in RTL mode.
-   * When the List direction is horizontal, it indicates the bottom.
+   * 当列表方向是垂直方向时，LTR模式下表示ListItem的右边，RTL模式下表示ListItem的左边。当列表是水平方向时，表示ListItem的下边。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -121,7 +118,7 @@ export declare enum ListItemSwipeActionDirection {
 }
 
 /**
- * The swipe action manager.
+ * ListItem划出菜单的管理器。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -130,10 +127,10 @@ export declare enum ListItemSwipeActionDirection {
 export declare class ListItemSwipeActionManager {
 
   /**
-   * Expand the swipe action
+   * 展开指定ListItem的划出菜单。
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
-   * @param { ListItemSwipeActionDirection } direction - The direction to expand.
+   * @param { FrameNode } node - ListItem节点对象。
+   * @param { ListItemSwipeActionDirection } direction - ListItem划出菜单的展开方向。
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -143,9 +140,9 @@ export declare class ListItemSwipeActionManager {
   static expand(node: FrameNode, direction: ListItemSwipeActionDirection): void;
 
   /**
-   * Collapse the swipe action
+   * 收起指定ListItem的划出菜单。
    *
-   * @param { FrameNode } node - The ListItem FrameNode.
+   * @param { FrameNode } node - ListItem节点对象。
    * @throws { BusinessError } 100023 - The component type of the node is incorrect.
    * @throws { BusinessError } 106203 - The node not mounted to component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -156,7 +153,7 @@ export declare class ListItemSwipeActionManager {
 }
 
 /**
- * Defines the swipe action item for SwipeActionOptions.
+ * SwipeActionOptions的滑动操作项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -165,8 +162,7 @@ export declare class ListItemSwipeActionManager {
 export declare interface SwipeActionItem {
 
   /**
-   * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）时显示的操作项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -175,8 +171,7 @@ export declare interface SwipeActionItem {
   builder?: CustomBuilder;
 
   /**
-   * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）时显示的操作项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -185,7 +180,7 @@ export declare interface SwipeActionItem {
   builderComponent?: ComponentContentBase;
 
   /**
-   * Defines distance for the delete area.
+   * 设置组件长距离滑动删除距离阈值。
    *
    * @default 56vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -195,7 +190,7 @@ export declare interface SwipeActionItem {
   actionAreaDistance?: Length;
 
   /**
-   * Called when ListItem need to be deleted.
+   * 组件进入长距删除区后抬手时触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -204,7 +199,7 @@ export declare interface SwipeActionItem {
   onAction?: () => void;
 
   /**
-   * Called when swipe entry delete area.
+   * 在滑动条目进入删除区域时调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -213,7 +208,7 @@ export declare interface SwipeActionItem {
   onEnterActionArea?: () => void;
 
   /**
-   * Called when swipe exit delete area.
+   * 当滑动条目退出删除区域时调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -222,7 +217,7 @@ export declare interface SwipeActionItem {
   onExitActionArea?: () => void;
 
   /**
-   * Called when component swipe action state changed.
+   * 当列表项滑动状态变化时候触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -232,7 +227,7 @@ export declare interface SwipeActionItem {
 }
 
 /**
- * Defines the SwipeActionOption of swipeAction attribute method.
+ * swipeAction属性的滑动操作选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -241,8 +236,7 @@ export declare interface SwipeActionItem {
 export declare interface SwipeActionOptions {
 
   /**
-   * An action item that appears when a list item slides right (when list direction is Vertical) or
-   * slides down (when list direction Horizontal).
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）时显示的操作项。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -251,8 +245,7 @@ export declare interface SwipeActionOptions {
   start?: CustomBuilder | SwipeActionItem;
 
   /**
-   * An action item that appears when a list item slides left (when list direction is Vertical) or
-   * slides up (when list direction Horizontal).
+   * ListItem向左划动时item右边的组件（List垂直布局时）或ListItem向上划动时item下方的组件（List水平布局时）。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -261,7 +254,7 @@ export declare interface SwipeActionOptions {
   end?: CustomBuilder | SwipeActionItem;
 
   /**
-   * Sets whether sliding to a boundary has a spring effect.
+   * 滑动效果。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -270,7 +263,7 @@ export declare interface SwipeActionOptions {
   edgeEffect?: SwipeEdgeEffect;
 
   /**
-   * Called when swipe action offset changed.
+   * 当列表项向左或向右滑动（当列表方向为"垂直"时），向上或向下滑动（当列表方向为"水平"时）位置发生变化触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -280,8 +273,8 @@ export declare interface SwipeActionOptions {
 }
 
 /**
- * Defines the list item style.
- *
+* List组件卡片样式枚举。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -289,7 +282,7 @@ export declare interface SwipeActionOptions {
 export declare enum ListItemStyle {
 
   /**
-   * Show custom style.
+   * 无样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -298,7 +291,7 @@ export declare enum ListItemStyle {
   NONE = 0,
 
   /**
-   * Show default style.
+   * 显示默认卡片样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -308,7 +301,7 @@ export declare enum ListItemStyle {
 }
 
 /**
- * Defines the list item options.
+ * ListItem组件参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -317,7 +310,7 @@ export declare enum ListItemStyle {
 export declare interface ListItemOptions {
 
   /**
-   * Describes the ListItem style.
+   * 设置List组件卡片样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -327,7 +320,7 @@ export declare interface ListItemOptions {
 }
 
 /**
- * The ListItemAttribute.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -337,9 +330,9 @@ export declare interface ListItemOptions {
 export declare interface ListItemAttribute extends CommonMethod {
 
   /**
-   * Called when judging whether it is selectable.
+   * 设置当前ListItem元素是否可以被鼠标框选。外层List容器的鼠标框选开启时，ListItem的框选才生效。
    *
-   * @param { boolean | undefined } value
+   * @param { boolean } value
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,11 +341,13 @@ export declare interface ListItemAttribute extends CommonMethod {
   default selectable(value: boolean | undefined): this;
 
   /**
-   * Called when judging whether it is selected.
-   * This parameter supports $ for two-way binding of variables.
+   * 设置当前ListItem选中状态。该属性需要在设置[多态样式]{@link common}前使用才能生效选中态样式。
    *
-   * @param { boolean | Bindable<boolean> | undefined } value - if the listItem is selected.
-   * @returns { this } the attribute of the listItem.
+   * 从API version 22开始，该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
+   *
+   * @param { boolean | Bindable<boolean> } value - 当前ListItem选中状态。设置为true时为选中状态，设置为false时为默认状态。<br/>默认值：
+   *     false <br/>Bindable<boolean>时，支持双向绑定。取值undefined时，按默认值处理。
+   * @returns { this }    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -360,9 +355,9 @@ export declare interface ListItemAttribute extends CommonMethod {
   default selected(value: boolean | Bindable<boolean> | undefined): this;
 
   /**
-   * Sets the action item that appears when the list item slides in the cross axis direction of the list.
+   * 用于设置ListItem的划出组件。
    *
-   * @param { SwipeActionOptions | undefined } value - items defines in the SwipeActionOption.
+   * @param { SwipeActionOptions } value - ListItem的划出组件。 <br/>取值为undefined时，恢复默认行为，没有ListItem划出组件。
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -371,9 +366,9 @@ export declare interface ListItemAttribute extends CommonMethod {
   default swipeAction(value: SwipeActionOptions | undefined): this;
 
   /**
-   * Called when the listItem is selected.
+   * ListItem元素被鼠标框选的状态改变时触发回调。
    *
-   * @param { function | undefined } event
+   * @param { function } event
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -382,10 +377,10 @@ export declare interface ListItemAttribute extends CommonMethod {
   default onSelect(event: ((isSelected: boolean) => void) | undefined): this;
 
   /**
-   * Set the ListItem Options.
+   * 设置ListItem选项。
    *
-   * @param { ListItemOptions } [value] - ListItem constructor options
-   * @returns { ListItemAttribute } Returns the instance of the ListItemAttribute.
+   * @param { ListItemOptions } [value] - ListItem构造函数选项
+   * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -393,7 +388,7 @@ export declare interface ListItemAttribute extends CommonMethod {
   default setListItemOptions(value?: ListItemOptions): this;
 
   /**
-   * Called attributeModifier.
+   * 动态设置ListItem组件的属性方法。
    *
    * @param { AttributeModifier<ListAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
@@ -405,7 +400,7 @@ export declare interface ListItemAttribute extends CommonMethod {
 }
 
 /**
- * Defines ListItem Component.
+ * 创建ListItem组件。
  *
  * @param { ListItemOptions } [value]
  * @param { CustomBuilder } [content_]
@@ -419,10 +414,10 @@ export declare interface ListItemAttribute extends CommonMethod {
 export declare function ListItem(
     value?: ListItemOptions, 
     content_?: CustomBuilder,
-): ListItemAttribute
+): ListItemAttribute;
 
 /**
- * Defines ListItem Component.
+ * 可扩展的ListItem组件的入口。
  *
  * @param { CustomBuilderT<ListItemAttribute> } style_ - The style to create a ListItem.
  * @param { CustomBuilder } [content_]
@@ -439,7 +434,7 @@ export declare function ListItem(
 ): ListItemAttribute;
 
 /**
- * Defines the Extendable ListItem.
+ * 可扩展的ListItem组件。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -448,7 +443,7 @@ export declare function ListItem(
 export declare abstract class ExtendableListItem implements ListItemAttribute {
 
   /**
-   * Constructor of Extendable ListItem.
+   * 可扩展的ListItem组件的构造函数。
    *
    * @param { ConstructorT<T> } factory
    * @param { ListItemOptions } [value]
@@ -466,7 +461,7 @@ export declare abstract class ExtendableListItem implements ListItemAttribute {
   ): T;
 
   /**
-   * Entry of Extendable ListItem.
+   * 扩展列表项组件入口
    *
    * @param { CustomBuilderT<T> } styles
    * @param { ConstructorT<T> } factory
@@ -483,7 +478,7 @@ export declare abstract class ExtendableListItem implements ListItemAttribute {
   ): void;
 
   /**
-   * Set the ListItem Options.
+   * 设置ListItem组件参数。
    *
    * @param { ListItemOptions } [value]
    * @returns { ExtendableListItem }

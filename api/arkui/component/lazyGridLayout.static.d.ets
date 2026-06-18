@@ -24,119 +24,126 @@ import { StickyStyle } from './list';
 
 /**
  * The LazyGridLayoutAttribute.
- * 
- * @extends CommonMethod
- * @interface LazyGridLayoutAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface LazyGridLayoutAttribute extends CommonMethod {
-    /**
-     * The spacing between rows.
-     *
-     * @param { LengthMetrics | undefined } value
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default rowsGap(value: LengthMetrics | undefined): this;
-    /**
-     * The spacing between columns.
-     *
-     * @param { LengthMetrics | undefined } value
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default columnsGap(value: LengthMetrics | undefined): this;
-    /**
-     * Sets the header of the lazy grid layout.
-     *
-     * @param { CustomBuilder | undefined } builder - The header builder function
-     *     <br>Passing undefined will remove the header.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default header(builder: CustomBuilder | undefined): this;
-    /**
-     * Sets the footer of the lazy grid layout.
-     *
-     * @param { CustomBuilder | undefined } builder - The footer builder function
-     *     <br>Passing undefined will remove the footer.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default footer(builder: CustomBuilder | undefined): this;
-    /**
-     * Sets sticky style for header and footer.
-     *
-     * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default sticky(sticky: StickyStyle | undefined): this;
-    /**
-     * Triggered when the index of child components in the visible area changes.
-     *
-     * @param { OnVisibleIndexesChangeCallback  | undefined } callback - callback function, triggered
-     *     when the index of child components in the visible area changes.
-     *     Passing undefined will unregister the callback.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    default onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): this;
+
+  /**
+   * The spacing between rows.
+   *
+   * @param { LengthMetrics | undefined } value
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default rowsGap(value: LengthMetrics | undefined): this;
+
+  /**
+   * The spacing between columns.
+   *
+   * @param { LengthMetrics | undefined } value
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default columnsGap(value: LengthMetrics | undefined): this;
+
+  /**
+   * Sets the header of the lazy grid layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The header builder function
+   *     <br>Passing undefined will remove the header.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default header(builder: CustomBuilder | undefined): this;
+
+  /**
+   * Sets the footer of the lazy grid layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The footer builder function
+   *     <br>Passing undefined will remove the footer.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default footer(builder: CustomBuilder | undefined): this;
+
+  /**
+   * Sets sticky style for header and footer.
+   *
+   * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default sticky(sticky: StickyStyle | undefined): this;
+
+  /**
+   * Triggered when the index of child components in the visible area changes.
+   *
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   *     when the index of child components in the visible area changes.
+   *     Passing undefined will unregister the callback.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): this;
 }
 
 /**
  * The LazyVGridLayoutAttribute
- * 
- * @extends LazyGridLayoutAttribute
- * @interface LazyVGridLayoutAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribute {
-    /**
-     * This parameter specifies the number of columns in the current grid layout.
-     *
-     * @param { string | undefined } value
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default columnsTemplate(value: string | undefined): this;
-    /**
-     * Set LazyVGrid options.
-     *
-     * @returns { LazyVGridLayoutAttribute } Returns the instance of the LazyVGridLayoutAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setLazyVGridLayoutOptions(): this;
-    /**
-     * Called attributeModifier.
-     *
-     * @param { AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default attributeModifier(modifier: AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * This parameter specifies the number of columns in the current grid layout.
+   *
+   * @param { string | undefined } value
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default columnsTemplate(value: string | undefined): this;
+
+  /**
+   * Set LazyVGrid options.
+   *
+   * @returns { LazyVGridLayoutAttribute } Returns the instance of the LazyVGridLayoutAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setLazyVGridLayoutOptions(): this;
+
+  /**
+   * Called attributeModifier.
+   *
+   * @param { AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default attributeModifier(modifier: AttributeModifier<LazyVGridLayoutAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -147,6 +154,7 @@ export declare interface LazyVGridLayoutAttribute extends LazyGridLayoutAttribut
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function LazyVGridLayout(

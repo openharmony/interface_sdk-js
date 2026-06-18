@@ -19,8 +19,8 @@
  */
 
 /**
- * Enumerates the scrolling directions.
- *
+* 滚动条方向枚举。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -30,7 +30,7 @@
 declare enum ScrollBarDirection {
 
   /**
-   * Vertical scrollbar.
+   * 纵向滚动条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -38,10 +38,10 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Vertical,
+  Vertical = 0,
 
   /**
-   * Horizontal scrollbar.
+   * 横向滚动条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -49,28 +49,23 @@ declare enum ScrollBarDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Horizontal,
+  Horizontal = 1
 }
 
 /**
- * Parameters of the **ScrollBar** component.
- *
- * > **NOTE**
- * >
- * > - The **ScrollBar** component defines the behavior style of the scrollable area, and its child nodes define the
- * > behavior style of the scrollbar.
- * >
- * > - This component is bound to a scrollable component through **scroller**, and can be used to scroll the scrollable
- * > component only when their directions are the same. The **ScrollBar** component can be bound to only one scrollable
- * > component, and vice versa.
- * >
- * > - Since API version 12, the **ScrollBar** component displays a default scrollbar style when without child nodes.
- * >
- * > - The visibility of the **ScrollBar** component is set through **BarState**. The component automatically adjusts
- * > **opacity** based on the **BarState** setting to control its visibility. Therefore, setting the
- * > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)} attribute for the **ScrollBar**
- * > component does not take effect.
- *
+* 滚动条组件参数。
+*
+* > **说明：**
+* >
+* > - ScrollBar组件负责定义可滚动区域的行为样式，ScrollBar的子节点负责定义滚动条的行为样式。
+* >
+* > - 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动，ScrollBar与可滚动组件仅支持一对一绑定。
+* >
+* > - 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。
+* >
+* > - ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置
+* > [opacity]{@link CommonMethod#opacity(opacity: Optional<number | Resource>)}属性不生效。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -80,7 +75,7 @@ declare enum ScrollBarDirection {
 declare interface ScrollBarOptions {
 
   /**
-   * Scroller, which can be bound to scrollable components for scrolling control.
+   * 可滚动组件的控制器。用于与可滚动组件进行绑定。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -91,7 +86,7 @@ declare interface ScrollBarOptions {
   scroller: Scroller;
 
   /**
-   * Scrollbar direction in which scrollable components scroll.<br>Default value: **ScrollBarDirection.Vertical**
+   * 滚动条的方向，控制可滚动组件对应方向的滚动。<br/>默认值：ScrollBarDirection.Vertical
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -102,7 +97,7 @@ declare interface ScrollBarOptions {
   direction?: ScrollBarDirection;
 
   /**
-   * Scrollbar state.<br>Default value: **BarState.Auto**
+   * 滚动条状态。<br/>默认值：BarState.Auto
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -114,22 +109,17 @@ declare interface ScrollBarOptions {
 }
 
 /**
- * The **ScrollBar** component is designed to be used together with scrollable components such as
- * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, and
- * [WaterFlow]{@link water_flow}.
- *
- * > **NOTE**
- * >
- * > - This component is supported since API version 8. Updates will be marked with a superscript to indicate their
- * > earliest API version.
- * >
- * > - If the size of the main axis direction is not set for **ScrollBar**, the **maxSize** value in the
- * > [layout constraints]{@link FrameNode:LayoutConstraint} of the parent component is used. If the parent component of
- * > the **ScrollBar** component contains a scrollable component, such as [ArcList]{@link @ohos.arkui.ArcList},
- * > [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, or [WaterFlow]{@link water_flow}, you are advised
- * > to set the size in the main axis direction of the **ScrollBar**; otherwise, the size in the main axis direction of
- * > **ScrollBar** may become infinite.
- *
+* 滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、
+* [Scroll]{@link scroll}、[WaterFlow]{@link water_flow}。
+*
+* > **说明：**
+* >
+* > - 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+* >
+* > - ScrollBar主轴方向不设置大小时，采用父组件[布局约束]{@link FrameNode:LayoutConstraint}中的maxSize作为主轴方向大小。如果ScrollBar的父组件存在可滚动组件，如
+* > [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、[Scroll]{@link scroll}、
+* > [WaterFlow]{@link water_flow}，建议设置ScrollBar主轴方向大小，否则ScrollBar主轴方向大小可能为无穷大。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -140,11 +130,10 @@ declare interface ScrollBarOptions {
 interface ScrollBarInterface {
 
   /**
-   * Creates a scroll bar.
    *
-   * @param { ScrollBarOptions } value - Parameters of the **ScrollBar** component.
+   * @param { ScrollBarOptions } value - 
    * @returns { ScrollBarAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -154,8 +143,8 @@ interface ScrollBarInterface {
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
- *
+* 除支持[通用属性]{@link common}外，还支持以下属性：
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]
@@ -166,26 +155,18 @@ interface ScrollBarInterface {
 declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 
   /**
-   * Sets whether nested scrolling is enabled.
+   * 设置滚动条是否嵌套滚动。
    *
-   * > **NOTE**
+   * > **说明：**
    * >
-   * > When nested scrolling is enabled, the scroll offset is first passed to the inner scrollable component, which
-   * > then passes it to the outer parent scrollable component based on the set nested scrolling priority.
+   * > 滚动条使能嵌套滚动时，滚动条的滚动偏移量会先发送给绑定的内层滚动组件，内层滚动组件再根据设置的嵌套滚动优先级依次传递给外层父滚动组件。
    * >
-   * > Nested scrolling is not supported when the **WaterFlow** component is in
-   * > [WaterFlowLayoutMode.SLIDING_WINDOW](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#waterflowlayoutmode12)
-   * > layout mode.
+   * > WaterFlow组件的布局模式为移动窗口式（[WaterFlowLayoutMode.SLIDING_WINDOW](docroot://reference/apis-arkui/arkui-ts/ts-container-waterflow.md#waterflowlayoutmode12)）时，不支持嵌套滚动。
    * >
-   * > When the nested scrolling mode is set to
-   * > [PARALLEL](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#nestedscrollmode10), both the parent
-   * > and child components scroll simultaneously. You need to manage the scroll order in the
-   * > [onScrollFrameBegin](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md#onscrollframebegin9) event
-   * > according to the desired logic.
+   * > 设置嵌套滚动模式为[PARALLEL](docroot://reference/apis-arkui/arkui-ts/ts-appendix-enums.md#nestedscrollmode10)时，父子组件同时滚动，需要开发者在[onScrollFrameBegin](docroot://reference/apis-arkui/arkui-ts/ts-container-scroll.md#onscrollframebegin9)中按照所需逻辑，自行设置父子组件滚动顺序。
    *
-   * @param { Optional<boolean> } enabled - Whether nested scrolling is enabled. The value **true** means that nested
-   *     scrolling is enabled, and **false** means the opposite.<br>Default value: **false**
-   * @returns { ScrollBarAttribute } The attribute of the scroll bar
+   * @param { Optional<boolean> } enabled - 是否执行嵌套滚动。设置为true执行嵌套滚动，设置为false不嵌套滚动。 <br/>默认值：false
+   * @returns { ScrollBarAttribute } 滚动条的属性。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -195,12 +176,11 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
   enableNestedScroll(enabled: Optional<boolean>): ScrollBarAttribute;
 
   /**
-   * Sets the color of the scrollbar slider. This parameter is valid only when the scrollbar does not contain child
-   * components.
+   * 设置滚动条滑块的颜色，仅滚动条不放置子组件时生效。
    *
-   * @param { Optional<ColorMetrics> } color - Scrollbar color.<br>Default value: **ColorMetrics.numeric(0x66182431)**
+   * @param { Optional<ColorMetrics> } color - 滚动条的颜色。<br/>默认值：ColorMetrics.numeric(0x66182431)
    * @returns { ScrollBarAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
@@ -210,32 +190,65 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 }
 
 /**
- * The **ScrollBar** component is designed to be used together with scrollable components such as
- * [ArcList]{@link @ohos.arkui.ArcList}, [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, and
- * [WaterFlow]{@link water_flow}.
- *
- * > **NOTE**
- * >
- * > - This component is supported since API version 8. Updates will be marked with a superscript to indicate their
- * > earliest API version.
- * >
- * > - If the size of the main axis direction is not set for **ScrollBar**, the **maxSize** value in the
- * > [layout constraints]{@link FrameNode:LayoutConstraint} of the parent component is used. If the parent component of
- * > the **ScrollBar** component contains a scrollable component, such as [ArcList]{@link @ohos.arkui.ArcList},
- * > [List]{@link list}, [Grid]{@link grid}, [Scroll]{@link scroll}, or [WaterFlow]{@link water_flow}, you are advised
- * > to set the size in the main axis direction of the **ScrollBar**; otherwise, the size in the main axis direction of
- * > **ScrollBar** may become infinite.
- *
- * ###### Child Components
- *
- * This component can contain a single child component.
- *
- * ###### Example 1: Implementing a ScrollBar Component with Child Components
- *
- * This example illustrates the style of a **ScrollBar** component with child components.
- *
- * ```ts
- * // xxx.ets
+* 滚动条组件ScrollBar，用于配合可滚动组件使用，如[ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、
+* [Scroll]{@link scroll}、[WaterFlow]{@link water_flow}。
+*
+* > **说明：**
+* >
+* > - 该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+* >
+* > - ScrollBar主轴方向不设置大小时，采用父组件[布局约束]{@link FrameNode:LayoutConstraint}中的maxSize作为主轴方向大小。如果ScrollBar的父组件存在可滚动组件，如
+* > [ArcList]{@link @ohos.arkui.ArcList}、[List]{@link list}、[Grid]{@link grid}、[Scroll]{@link scroll}、
+* > [WaterFlow]{@link water_flow}，建议设置ScrollBar主轴方向大小，否则ScrollBar主轴方向大小可能为无穷大。
+*
+* ###### 子组件
+*
+* 可以包含单个子组件。
+*
+* ###### ScrollBarOptions对象说明
+*
+* 滚动条组件参数。
+*
+* > **说明：**
+* >
+* > - ScrollBar组件负责定义可滚动区域的行为样式，ScrollBar的子节点负责定义滚动条的行为样式。
+* >
+* > - 滚动条组件与可滚动组件通过Scroller进行绑定，且只有当两者方向相同时，才能联动，ScrollBar与可滚动组件仅支持一对一绑定。
+* >
+* > - 从API version 12开始，ScrollBar组件没有子节点时，支持显示默认样式的滚动条。
+* >
+* > - ScrollBar组件的显隐是通过BarState设置，组件内部会自动根据BarState设置调整opacity来控制显隐，因此ScrollBar组件设置
+* > [opacity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-opacity.md#opacity18)属性不生效。
+*
+* **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
+*
+* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+*
+* | 名称 | 类型 | 只读 | 可选 | 说明 |
+* | -------- | -------- | -------- | -- | -------- |
+* | scroller | [Scroller]{@link scroll:Scroller} | 否 | 否 | 可滚动组件的控制器。用于与可滚动组件进行绑定。 |
+* | direction | [ScrollBarDirection](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-scrollbar.md#scrollbardirection枚举说明) | 否 | 是 | 滚动条的方向，控制可滚动组件对应方向的滚动。<br/>默认值：ScrollBarDirection.Vertical |
+* | state | [BarState]{@link enums:BarState} | 否 | 是 | 滚动条状态。<br/>默认值：BarState.Auto |
+*
+* ###### ScrollBarDirection枚举说明
+*
+* 滚动条方向枚举。
+*
+* **原子化服务API：** 从API version 11开始，该接口支持在原子化服务中使用。
+*
+* **系统能力：** SystemCapability.ArkUI.ArkUI.Full
+*
+* | 名称 | 值 | 说明 |
+* | -------- | ---- | -------- |
+* | Vertical | 0 | 纵向滚动条。 |
+* | Horizontal | 1 | 横向滚动条。 |
+*
+* ###### 示例1（设置子节点）
+*
+* 该示例为ScrollBar组件有子节点时的滚动条样式。
+*
+* ```ts
+* // xxx.ets
  * @Entry
  * @Component
  * struct ScrollBarExample {
@@ -402,8 +415,8 @@ declare class ScrollBarAttribute extends CommonMethod<ScrollBarAttribute> {
 declare const ScrollBar: ScrollBarInterface;
 
 /**
- * Defines ScrollBar Component instance.
- *
+* ScrollBar组件实例。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @crossplatform [since 10]

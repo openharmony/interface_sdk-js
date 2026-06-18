@@ -49,7 +49,8 @@ declare interface StartLineInfo {
   startLine: int;
 
   /**
-   * Define the offset between the top of the item with startIndex and the top of the grid.
+   * Offset between the top of the **GridItem** corresponding to **startIndex** and the top of the **Grid**.
+   * <br>Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -59,7 +60,9 @@ declare interface StartLineInfo {
   startOffset: double;
 
   /**
-   * Define the offset between the top of the first item and the top of the grid.
+   * Total scrolling offset,
+   * that is, the offset between the top of the first **GridItem** in the **Grid** component
+   * and the top of the **Grid** component.<br>Unit: vp
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -72,7 +75,10 @@ declare interface StartLineInfo {
 /**
  * Defines the callback type used in onGetStartIndexByOffset of GridLayoutOptions.
  *
- * @param { double } totalOffset - The total offset to scroll to.
+ * @param { double } totalOffset - Total scrolling offset,
+ *     that is, the offset between the top of the first **GridItem** in the **Grid** component
+ *     and the top of the **Grid** component.
+ *     <br>Unit:vp.
  * @returns { StartLineInfo }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -650,11 +656,14 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
   scrollBar(value: BarState): GridAttribute;
 
   /**
-   * Set scrollbar position. This API is intended solely for setting the scroll position. Avoid implementing service
-   * logic within this API.
+   * Triggered at the end of each frame layout in the grid.
+   * You can use the callback to set the position and length of the scrollbar.
+   * This API is intended solely for setting the scroll position of the grid.
+   * Avoid implementing service logic within this API.
    *
    * @param { function } event - callback of grid scroll,
-   *     index is the current first displayed item, offset is the grid offset,
+   *     index: Index of the first item of the grid.
+   *     offset: Offset of the displayed first item relative to the start position of the grid, in vp.
    *     return ComputedBarAttribute to update scrollbar position and height.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1148,7 +1157,10 @@ declare class GridAttribute extends ScrollableCommonMethod<GridAttribute> {
    * Called When sliding the grid.
    *
    * @param { function } event - callback of grid scroll,
-   *     scrollOffset is offset per frame scrolling, ScrollState is current sliding state.
+   *     scrollOffset: Offset relative to the previous frame.
+   *     The offset is positive when the **Grid** component is scrolled up and negative when it is scrolled down.
+   *     <br>Unit: vp
+   *     scrollState: Current scroll state.
    * @returns { GridAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

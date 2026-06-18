@@ -154,6 +154,7 @@ declare interface OffsetResult {
 
   /**
    * Horizontal scrolling offset.
+   * <br>The unit of the return value is vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,6 +166,7 @@ declare interface OffsetResult {
 
   /**
    * Vertical scrolling offset.
+   * <br>The unit of the return value is vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -238,7 +240,8 @@ declare interface ScrollAnimationOptions {
    * Scrolling duration.
    *
    * <p><strong>NOTE</strong>
-   * <br>A value less than 0 evaluates to the default value.
+   * <br>Scrolling duration.<br>Default value: **1000**<br>Unit: ms
+   * <br>**NOTE**<br>A value less than 0 evaluates to the default value.
    * </p>
    *
    * @default 1000
@@ -611,7 +614,7 @@ declare class Scroller {
    * </p>
    *
    * @param { number } index - Index of the target child component.
-   * @returns { RectResult } Returns the size and position.
+   * @returns { RectResult } Size and position of the child component relative to the component.<br>Unit: vp
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -651,7 +654,8 @@ declare class Scroller {
   /**
    * Obtains the content size.
    *
-   * @returns { SizeResult } Returns the content size.
+   * @returns { SizeResult } Total size of the scrollable component's content, including the content width and height.
+   *     <br>Unit: vp
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -692,11 +696,12 @@ declare interface ScrollOptions {
    *
    * <p><strong>NOTE</strong>
    * <br>This parameter cannot be set in percentage.
-   * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
-   * Animated scrolling stops at the starting position by default.
-   * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling
-   * goes beyond the boundary.
    * <br>This parameter takes effect only when the scroll axis is the x-axis.
+   * <br>Value range: Values less than 0 are treated as 0, and scrolling occurs without animation.
+   * Animated scrolling stops at the starting position by default.
+   * By setting the **animation** parameter, you can enable a bounce effect when the scrolling
+   * goes beyond the boundary.
+   * <br>If the parameter type is number, the unit is vp.
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -713,11 +718,11 @@ declare interface ScrollOptions {
    *
    * <p><strong>NOTE</strong>
    * <br>This parameter cannot be set in percentage.
-   * <br>If the value is less than 0, the offset will be 0 for non-animated scrolling.
-   * Animated scrolling stops at the starting position by default.
-   * By setting the <em>animation</em> parameter, you can enable a bounce effect when the scrolling
-   * goes beyond the boundary.
    * <br>This parameter takes effect only when the scroll axis is the y-axis.
+   * <br>Value range: Values less than 0 are treated as 0, and scrolling occurs without animation.
+   * Animated scrolling stops at the starting position by default.
+   * By setting the **animation** parameter, you can enable a bounce effect when the scrolling
+   * goes beyond the boundary.<br>If the parameter type is number, the unit is vp.
    * </p>
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -938,7 +943,7 @@ declare type OnScrollEdgeCallback = (side: Edge) => void;
 interface OnScrollFrameBeginHandlerResult {
 
   /**
-   * Actual scroll offset.
+   * Actual scroll offset relative to the previous frame.<br>Unit: vp
    * Anonymous Object Rectification.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1064,7 +1069,10 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * <br>3. This event supports the out-of-bounds bounce effect.
    * </p>
    *
-   * @param { function } event
+   * @param { function } event - callback when scroll,
+   *     xOffset: Actual scroll offset relative to the previous frame.<br>Unit: vp
+   *     yOffset: Vertical offset relative to the previous frame.
+   *     A positive offset indicates scrolling upward, and a negative offset indicates scrolling downward.<br>Unit: vp
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
