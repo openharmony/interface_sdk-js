@@ -27,23 +27,20 @@ import type { NavigationOperation, NavBar } from '../component/navigation';
 import type { Size } from './@ohos.arkui.node';
 
 /**
- * 注册回调函数来观测ArkUI的行为。
- *
- * @namespace uiObserver
+* 提供UI组件行为变化的无感监听能力。
+*
+* > **说明：**
+*
+* > - 以下API需先使用UIContext中的{@link getUIObserver()}方法获取到UIObserver对象，再通过该对象调用对应方法。
+*
+* > - UIObserver仅能监听到本进程内的相关信息，不支持获取<!--Del-->[UIExtensionComponent]{@link ui_extension_component}等<!--DelEnd-->跨进程场景的信
+* > 息。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * 注册回调函数来观测ArkUI的行为。
- *
- * @namespace uiObserver
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare namespace uiObserver {
 
@@ -642,9 +639,8 @@ declare namespace uiObserver {
   }
 
   /**
-   * observer options.
+   * Observer选项。
    *
-   * @interface ObserverOptions
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -654,9 +650,8 @@ declare namespace uiObserver {
   export interface ObserverOptions {
 
     /**
-     * component id.
+     * 组件的id。
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -759,7 +754,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * 密度信息。
+   * 屏幕像素密度变化回调包含的信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -770,9 +765,8 @@ declare namespace uiObserver {
   export class DensityInfo {
 
     /**
-     * 变化的屏幕密度的上下文。
+     * 屏幕像素密度变化时页面对应的上下文信息。
      *
-     * @type { UIContext }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -782,9 +776,10 @@ declare namespace uiObserver {
     context: UIContext;
 
     /**
-     * 变化的屏幕密度。
+     * 变化后的屏幕像素密度。
      *
-     * @type { number }
+     * 取值范围：[0, +∞)
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -795,8 +790,7 @@ declare namespace uiObserver {
   }
 
   /**
-   * 定义窗口尺寸布局断点信息。
-   * 此类基于配置的断点阈值，提供窗口宽度和高度的当前断点类别。
+   * 窗口尺寸布局断点变化回调的信息。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -807,10 +801,8 @@ declare namespace uiObserver {
   export class WindowSizeLayoutBreakpointInfo {
 
     /**
-     * 当前窗口的宽度断点分类。该值根据已配置的宽度断点阈值，指示窗口当前处于哪个宽度类别。
+     * 窗口宽度所在的布局断点枚举。
      *
-     * @type { WidthBreakpoint }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform [since 26.0.0]
@@ -820,10 +812,8 @@ declare namespace uiObserver {
     readonly widthBreakpoint: WidthBreakpoint;
 
     /**
-     * 当前窗口的高度断点分类。该值根据已配置的高度断点阈值，指示窗口当前处于哪个高度类别。
+     * 窗口高度所在的布局断点枚举。
      *
-     * @type { HeightBreakpoint }
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform [since 26.0.0]
@@ -1103,11 +1093,11 @@ declare namespace uiObserver {
   export function off(type: 'routerPageUpdate', context: UIAbilityContext | UIContext, callback?: Callback<RouterPageInfo>): void;
 
   /**
-   * 注册一个回调函数，当屏幕密度更新时被调用。
+   * 监听屏幕像素密度变化。
    *
-   * @param { 'densityUpdate' } type - 要监听的事件类型。必须为 'densityUpdate'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<DensityInfo> } callback - 当屏幕密度更新时要调用的回调函数。
+   * @param { 'densityUpdate' } type - 监听事件，固定为'densityUpdate'，即屏幕像素密度变化。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<DensityInfo> } callback - 回调函数。携带DensityInfo，返回变化后的屏幕像素密度。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1117,11 +1107,11 @@ declare namespace uiObserver {
   export function on(type: 'densityUpdate', context: UIContext, callback: Callback<DensityInfo>): void;
 
   /**
-   * 移除先前通过 on() 注册的回调函数。
+   * 取消监听屏幕像素密度的变化。
    *
-   * @param { 'densityUpdate' } type - 要移除监听器的事件类型。必须为 'densityUpdate'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<DensityInfo> } [callback] - 要移除的回调函数。如果未提供，将移除给定事件类型的所有回调函数。
+   * @param { 'densityUpdate' } type - 监听事件，固定为'densityUpdate'，即屏幕像素密度变化。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<DensityInfo> } [callback] - 需要被注销的回调函数。若不指定具体的回调函数，则注销指定UIContext下所有densityUpdate事件监听。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1131,11 +1121,11 @@ declare namespace uiObserver {
   export function off(type: 'densityUpdate', context: UIContext, callback?: Callback<DensityInfo>): void;
 
   /**
-   * 注册一个回调函数，当绘制命令即将被绘制时被调用。
+   * 监听每一帧绘制指令下发情况。
    *
-   * @param { 'willDraw' } type - 要监听的事件类型。必须为 'willDraw'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<void> } callback - 当绘制命令即将被绘制时要调用的回调函数。
+   * @param { 'willDraw' } type - 监听事件，固定为'willDraw'，即是否将要绘制。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<void> } callback - 回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1145,11 +1135,11 @@ declare namespace uiObserver {
   export function on(type: 'willDraw', context: UIContext, callback: Callback<void>): void;
 
   /**
-   * 移除先前通过 on() 注册的回调函数。
+   * 取消监听每一帧绘制指令下发情况。
    *
-   * @param { 'willDraw' } type - 要移除监听器的事件类型。必须为 'willDraw'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<void> } [callback] - 要移除的回调函数。如果未提供，将移除给定事件类型的所有回调函数。
+   * @param { 'willDraw' } type - 监听事件，固定为'willDraw'，即是否将要绘制。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<void> } [callback] - 需要被注销的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1159,11 +1149,11 @@ declare namespace uiObserver {
   export function off(type: 'willDraw', context: UIContext, callback?: Callback<void>): void;
 
   /**
-   * 注册一个回调函数，当布局完成时被调用。
+   * 监听每一帧布局完成情况。
    *
-   * @param { 'didLayout' } type - 要监听的事件类型。必须为 'didLayout'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<void> } callback - 当布局完成时要调用的回调函数。
+   * @param { 'didLayout' } type - 监听事件，固定为'didLayout'，即是否布局完成。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<void> } callback - 回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1173,11 +1163,11 @@ declare namespace uiObserver {
   export function on(type: 'didLayout', context: UIContext, callback: Callback<void>): void;
 
   /**
-   * 移除先前通过 on() 注册的回调函数。
+   * 取消监听每一帧布局完成情况。
    *
-   * @param { 'didLayout' } type - 要移除监听器的事件类型。必须为 'didLayout'。
-   * @param { UIContext } context - observer的上下文作用域。
-   * @param { Callback<void> } [callback] - 要移除的回调函数。如果未提供，将移除给定事件类型的所有回调函数。
+   * @param { 'didLayout' } type - 监听事件，固定为'didLayout'，即是否布局完成。
+   * @param { UIContext } context - 上下文信息，用以指定监听页面的范围。
+   * @param { Callback<void> } [callback] - 需要被注销的回调函数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

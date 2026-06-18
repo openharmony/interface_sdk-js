@@ -19,8 +19,8 @@
  */
 
 /**
- * Defines the application response information.
- *
+* 定义AppResponse信息。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @FaAndStageModel
  * @atomicservice [since 12]
@@ -28,7 +28,7 @@
  */
 export interface AppResponse {
   /**
-   * Bundle name of an application. It uniquely identifies the application.
+   * 表示应用的包名，用于标识应用的唯一性。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -38,7 +38,7 @@ export interface AppResponse {
   appID: string;
 
   /**
-   * Application name.
+   * 表示应用的名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
@@ -48,7 +48,7 @@ export interface AppResponse {
   appName: string;
 
   /**
-   * Application version name.
+   * 表示应用的版本名称。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
@@ -58,7 +58,7 @@ export interface AppResponse {
   versionName: string;
 
   /**
-   * Application version number.
+   * 表示应用的版本号。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
@@ -69,8 +69,8 @@ export interface AppResponse {
 }
 
 /**
- * Defines the options of the visible interface on the screen.
- *
+* 定义屏幕上可见接口的选项。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @atomicservice [since 11]
@@ -78,7 +78,7 @@ export interface AppResponse {
  */
 export interface ScreenOnVisibleOptions {
   /**
-   * Whether to keep the application visible. The default value is **false**.
+   * 是否启动保活，默认值false。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -88,7 +88,7 @@ export interface ScreenOnVisibleOptions {
   visible?: boolean;
 
   /**
-   * Callback upon success.
+   * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -98,7 +98,7 @@ export interface ScreenOnVisibleOptions {
   success?: () => void;
 
   /**
-   * Callback upon failure.
+   * 接口调用失败的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -108,7 +108,7 @@ export interface ScreenOnVisibleOptions {
   fail?: (data: string, code: number) => void;
 
   /**
-   * Called when the API call is complete.
+   * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -119,8 +119,8 @@ export interface ScreenOnVisibleOptions {
 }
 
 /**
- * Defines the option of RequestFullWindow interface.
- *
+* 定义RequestFullWindow接口的选项。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
  * @atomicservice [since 11]
@@ -128,7 +128,7 @@ export interface ScreenOnVisibleOptions {
  */
 export interface RequestFullWindowOptions {
   /**
-   * Defines the number of animation options.
+   * 定义动画选项的持续时间，单位为毫秒。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -139,8 +139,8 @@ export interface RequestFullWindowOptions {
 }
 
 /**
- * Defines static functions of App class
- *
+* 定义App类的静态函数
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Lite
  * @FaAndStageModel
  * @atomicservice [since 12]
@@ -148,14 +148,13 @@ export interface RequestFullWindowOptions {
  */
 export default class App {
   /**
-   * Obtains the declared information in the **config.json** file of an application. In the stage model, this API
-   * returns **null**.
+   * 获取当前应用配置文件中声明的信息。在Stage模型下接口返回值为null。
    *
-   * This API is deprecated since API version 9. You are advised to use
+   * 从API version9开始，推荐使用
    * [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
-   * instead.
+   * 。
    *
-   * @returns { AppResponse } Application response information.
+   * @returns { AppResponse } 定义AppResponse信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
    * @atomicservice [since 12]
@@ -164,10 +163,9 @@ export default class App {
   static getInfo(): AppResponse;
 
   /**
-   * Terminates the current ability. In the stage model, this API has no effect.
+   * 退出当前Ability。在Stage模型下接口功能不生效。
    *
-   * This API is deprecated since API version 7. You are advised to use
-   * [@ohos.ability.featureAbility]{@link @ohos.ability.featureAbility:featureAbility} instead.
+   * 从API version 7开始，推荐使用[`@ohos.ability.featureAbility`]{@link @ohos.ability.featureAbility:featureAbility}。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @FaAndStageModel
@@ -177,12 +175,11 @@ export default class App {
   static terminate(): void;
 
   /**
-   * Defines whether to keep the application visible when the screen is woken up.
+   * 定义屏幕唤醒时是否保持应用可见。
    *
-   * This API is deprecated since API version 8.
+   * 该接口从API version 8 开始废弃。
    *
-   * @param { ScreenOnVisibleOptions } options - With keep-alive, the system is prevented from returning to the home
-   *     screen when the screen is locked, so that the application is visible when the screen is woken up.
+   * @param { ScreenOnVisibleOptions } options - 当启动保活时，锁屏时将阻止系统返回桌面显示，以保持屏幕唤醒时应用可见。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 3 dynamiconly
    * @deprecated since 8
@@ -211,17 +208,8 @@ export default class App {
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of decoded image count.
-   * if not set, the application will not cache any decoded image.
-   *
-   * @param { number } value - capacity of decoded image count.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageCacheCount(value: number): void;
 
@@ -232,38 +220,21 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of raw image data size in bytes before decode.
-   * if not set, the application will not cache any raw image data.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageRawDataCacheSize(value: number): void;
 
   /**
-   * Set image file cache size in bytes on disk before decode.
-   * if not set, the application will cache 100MB image files on disk.
+   * 设置图像文件在解码前在磁盘上的缓存大小（字节）。
    *
-   * @param { number } value - capacity of raw image data size in bytes.
+   * 如果未设置，应用程序将在磁盘上缓存 100MB 的图像文件。
+   *
+   * @param { number } value - 原始图像数据大小的容量，单位为字节。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image file cache size in bytes on disk before decode.
-   * if not set, the application will cache 100MB image files on disk.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 7 dynamiconly
    */
   static setImageFileCacheSize(value: number): void;
 }

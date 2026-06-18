@@ -21338,9 +21338,10 @@ declare type PathShape = import('../api/@ohos.arkui.shape').PathShape;
 declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 
 /**
- * Defines the type that can be undefined.
- *
- * @typedef { T | undefined } Optional<T>
+* 定义可选类型，其值可以是undefined。
+*
+ * @unionmember { T } The object can be of any custom type.
+ * @unionmember { undefined } The object can be **undefined**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -21645,12 +21646,16 @@ declare class CommonMethod<T> {
   drawModifier(modifier: DrawModifier | undefined): T;
 
   /**
-   * Sets the custom property of the current component.
+   * 设置组件的自定义属性。
    *
-   * @param { string } name - the name of the custom property.
-   * @param { Optional<Object> } value - the value of the custom property.
-   * @returns { T }
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * API版本26.0.0之前，[自定义组件](docroot://ui/state-management/arkts-create-custom-components.md)不支持设置自定义属性。
+   *
+   * 从API版本26.0.0开始，自定义组件支持设置并读取自定义属性。
+   *
+   * @param { string } name - 自定义属性的名称。
+   * @param { Optional<Object> } value - 自定义属性的值。
+   * @returns { T } 当前控件
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
