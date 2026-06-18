@@ -7595,7 +7595,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * Mouse.
@@ -7605,7 +7605,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Mouse = 1,
+  Mouse,
 
   /**
    * Touchscreen.
@@ -7615,7 +7615,7 @@ declare enum SourceType {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  TouchScreen = 2,
+  TouchScreen,
 
   /**
    * Key.
@@ -7658,7 +7658,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Unknown = 0,
+  Unknown,
 
   /**
    * Finger.
@@ -7668,7 +7668,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Finger = 1,
+  Finger,
 
   /**
    * Stylus.
@@ -7678,7 +7678,7 @@ declare enum SourceTool {
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
-  Pen = 2,
+  Pen,
 
   /**
    * Mouse device.
@@ -7689,7 +7689,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  MOUSE = 3,
+  MOUSE,
 
   /**
    * Touchpad. Single-finger input on the touchpad is treated as a mouse input operation.
@@ -7700,7 +7700,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  TOUCHPAD = 4,
+  TOUCHPAD,
 
   /**
    * Joystick.
@@ -7711,7 +7711,7 @@ declare enum SourceTool {
    * @atomicservice
    * @since 12 dynamic
    */
-  JOYSTICK = 5
+  JOYSTICK
 }
 
 /**
@@ -9466,7 +9466,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisHorizontal ?: number;
+  axisHorizontal?: number;
 
   /**
    * Vertical axis value.
@@ -9485,7 +9485,7 @@ declare interface BaseEvent {
    * @atomicservice
    * @since 12 dynamic
    */
-  axisVertical ?: number;
+  axisVertical?: number;
 
   /**
    * Two-finger pinch scaling ratio.
@@ -10004,10 +10004,10 @@ declare interface ClickEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the touch point in the
+   * Y coordinate of the click position in the
    * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * Unit: vp.
+   * Unit: vp
    *
    * Value range: [0, +∞).
    *
@@ -10279,9 +10279,13 @@ declare interface HoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the point relative to the global display.
+   * Y coordinate of the cursor or stylus position in the
+   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * @type { ?number }
+   * Unit: vp.
+   *
+   * Value range: [0, +∞).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10343,10 +10347,10 @@ declare interface MouseEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the cursor in the
+   * Y coordinate of the mouse position in the
    * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * Unit: vp
+   * Unit: vp.
    *
    * Value range: [0, +∞).
    *
@@ -10812,13 +10816,9 @@ declare interface AccessibilityHoverEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the mouse position in the
-   * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
+   * Y coordinate of the point relative to the global display.
    *
-   * Unit: vp.
-   *
-   * Value range: [0, +∞).
-   *
+   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -10874,10 +10874,10 @@ declare interface TouchObject {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the click position in the
+   * Y coordinate of the touch point in the
    * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * Unit: vp
+   * Unit: vp.
    *
    * Value range: [0, +∞).
    *
@@ -11290,10 +11290,10 @@ declare interface AxisEvent extends BaseEvent {
   globalDisplayX?: number;
 
   /**
-   * Y coordinate of the cursor or stylus position in the
+   * Y coordinate of the cursor in the
    * [global coordinate system](docroot://windowmanager/window-terminology.md#global-coordinate-system).
    *
-   * Unit: vp.
+   * Unit: vp
    *
    * Value range: [0, +∞).
    *
@@ -11521,7 +11521,8 @@ declare type SizeChangeCallback = (oldValue: SizeOptions, newValue: SizeOptions)
  * @atomicservice
  * @since 12 dynamic
  */
-declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>, touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
+declare type GestureRecognizerJudgeBeginCallback = (event: BaseGestureEvent, current: GestureRecognizer, recognizers: Array<GestureRecognizer>,
+  touchRecognizers?: Array<TouchRecognizer>) => GestureJudgeResult;
 
 /**
  * Represents the callback used to set the parallel relationship between built-in gestures and gestures of other
@@ -25960,6 +25961,20 @@ declare class CommonMethod<T> {
   accessibilityNextFocusId(nextId: string, nextFocusParams : AccessibilityNextFocusParams | undefined): T;
 
   /**
+   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
+   *
+   * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
+   * @returns { T } return component instance who call method.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
+
+  /**
    * Enable or disable specific smart gesture shortcuts, and set response priorities for them.
    *
    * @param { SmartGestureShortcutOptions } [options] - Options for configuring smart gesture shortcuts.
@@ -25976,19 +25991,6 @@ declare class CommonMethod<T> {
    */
   smartGestureShortcut(options?: SmartGestureShortcutOptions): T;
 
-  /**
-   * Sets AccessibilityCustomActions that can be processed in custom action processing under accessibility.
-   *
-   * @param { Array<AccessibilityCustomAction> | undefined } actions - set accessibility custom action.
-   * @returns { T } return component instance who call method.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  accessibilityCustomActions(actions: Array<AccessibilityCustomAction> | undefined): T;
   /**
    * Set the component's inspector label which only display on DevEco Studio.
    * @param { string | undefined } label - the inspector label.
