@@ -682,7 +682,6 @@ export interface LayoutCallbacks {
 /**
  * Defining interface for _invokeImpl options.
  *
- * @typedef CustomComponentInvokeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
