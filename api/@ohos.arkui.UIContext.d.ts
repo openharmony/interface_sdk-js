@@ -56,18 +56,9 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
+ * @atomicservice
+ * @since 11 dynamic
  */
-/**
-* Register a customized font in the FontManager.
-*
-* @param { font.FontOptions } options - FontOptions
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 11 dynamic
-*/
 export class Font {
   /**
    * Register a customized font in the FontManager.
@@ -1000,10 +991,11 @@ export class PromptAction {
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
-   * Creates and displays an action menu. This API uses an asynchronous callback to return the result.
+   * Shows an action menu in the given settings. This API uses an asynchronous callback to return the result.
    *
    * @param { promptAction.ActionMenuOptions } options - Action menu options.
-   * @param { promptAction.ActionMenuSuccessResponse } callback - Callback used to return the menu response.
+   * @param { promptAction.ActionMenuSuccessResponse } callback - Callback used to return the action menu
+   * response result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    * <br> 1. Mandatory parameters are left unspecified.
    * <br> 2. Incorrect parameters types.

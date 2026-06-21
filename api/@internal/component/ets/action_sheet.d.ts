@@ -873,9 +873,13 @@ interface ActionSheetOptions
   levelOrder?: LevelOrder;
 
   /**
-   * System material of the dialog box. Different materials have different effects and can affect visual attributes such
-   * as the background color, border, and shadow of the dialog box.
+   * Set system-styled materials for dialog. Different materials have different effects, which can influence
+   * backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 
+   * Device Behavior Differences:The effect of same material may vary across different devices depending on
+   * their computing power.
    *
+   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
