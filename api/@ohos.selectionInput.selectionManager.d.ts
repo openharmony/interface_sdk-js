@@ -76,7 +76,7 @@ declare namespace selectionManager {
    * callback to return the result.
    *
    * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback used to return Selectioninfo. If this parameter is not specified, this
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
    *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -89,7 +89,7 @@ declare namespace selectionManager {
    * Unregisters the callback used to listen for the word selection completion event. This API uses an asynchronous
    * callback to return the result.
    *
-   * @param { Callback<SelectionInfo> } [callback] - Callback used to return Selectioninfo. If this parameter is not specified, this
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
    *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
