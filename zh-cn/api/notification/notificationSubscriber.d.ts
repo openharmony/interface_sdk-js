@@ -279,7 +279,8 @@ export interface SubscribeCallbackData {
 
   /**
    * 通知分类信息。
-   * 仅在NotificationSubscribeInfo中enableClassification为true时存在。
+   * 仅在[NotificationSubscribeInfo]{@link
+   * notificationSubscribeInfo:NotificationSubscribeInfo}中的enableClassification为true时存在。
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
