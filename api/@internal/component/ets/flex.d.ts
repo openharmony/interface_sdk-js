@@ -44,9 +44,10 @@ declare interface FlexOptions {
   /**
    * Whether the **Flex** component has a single line or multiple lines.
    * If an invalid value is passed, the default value will be used.
-   * **NOTE**
-   * When wrapped onto multiple lines, the child elements on the new line are stacked in the direction based on the
-   * cross axis direction. Default value: **FlexWrap.NoWrap**.
+   * > **NOTE**
+   * >
+   * > When wrapped onto multiple lines, the child elements on the new line are stacked in the direction based on the
+   * > cross axis direction. Default value: **FlexWrap.NoWrap**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -95,10 +96,10 @@ declare interface FlexOptions {
 
   /**
    * Spacing between child components along the main axis or cross axis of the **Flex** component.
-   * Invalid values are treated as the default value.This parameter does not take effect if the value specified is a
+   * Invalid values are treated as the default value. This parameter does not take effect if the value specified is a
    * negative number or percentage, or if **justifyContent** is set to **FlexAlign.SpaceBetween**,
    * **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
-   * Default value: {main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}.
+   * Default value: **{main: LengthMetrics.px(0), cross: LengthMetrics.px(0)}**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -147,7 +148,7 @@ declare interface FlexSpaceOptions {
 }
 
 /**
- * Provides a monthly view component to display information such as date, shift break, and schedule.
+ * Provides a Flex component that uses the flexible box model for layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -213,7 +214,7 @@ declare class FlexAttribute extends CommonMethod<FlexAttribute> {
  * >
  * > - If the main axis length of the **Flex** component is unspecified, it follows the size of the parent container by
  * > default. If the **Flex** component contains child components for which
- * > [position](@link CommonMethod#position) is set, the
+ * > [position]{@link CommonMethod#position} is set, the
  * > **Flex** component does not follow the size of the parent container. If the main axis length of the **Column** or
  * > **Row** component is unspecified, it follows the size of the child nodes by default.
  * >

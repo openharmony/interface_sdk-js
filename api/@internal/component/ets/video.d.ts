@@ -195,8 +195,7 @@ declare enum PlaybackSpeed {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -226,8 +225,7 @@ interface FullscreenInfo {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -238,7 +236,7 @@ interface FullscreenInfo {
 interface PreparedInfo {
   /**
    * Duration of the video.
-   * Unit: second, The value range is all integers, Value range: [0, +∞).
+   * Unit: second. The value range is all integers. Value range: [0, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -255,8 +253,7 @@ interface PreparedInfo {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -352,16 +349,16 @@ declare interface VideoOptions {
    * - Network video URLs are supported.
    * - Strings with the **file://** prefix, that is, 
    * [application sandbox URIs]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}: 
-   * **file://<bundleName>/<sandboxPath>**, are supported. They are used to access resources in the application sandbox 
+   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application sandbox 
    * path. Ensure that the application has the read permission to the files in the specified path.
    * 
    * The default value is an empty string.
    * 
    * If an invalid value is passed, the default value will be used.
    * 
-   * **NOTE**
-   * 
-   * The supported video formats are MP4, MKV, and TS.
+   * > **NOTE**
+   * >
+   * > The supported video formats are MP4, MKV, and TS.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -374,10 +371,10 @@ declare interface VideoOptions {
   /**
    * Video playback speed.
    * 
-   * **NOTE**
-   * 
-   * The value of the number type can only be **0.75**, **1.0**, **1.25**, **1.75**, or **2.0**. Values **0.5**, **1.5**
-   * , **3**, **0.25**, and **0.125** are supported since API version 22.
+   * > **NOTE**
+   * >
+   * > The value of the number type can only be **0.75**, **1.0**, **1.25**, **1.75**, or **2.0**. Values **0.5**,
+   * > **1.5**, **3**, **0.25**, and **0.125** are supported since API version 22.
    * 
    * For the string type, numeric string values, for example, **0.75**, **1.0**, **1.25**, **1.75**, and **2.0**, are 
    * supported. Values **"0.5"**, **"1.5"**, **"3"**, **"0.25"**, and **"0.125"** are supported since API version 22.
@@ -406,7 +403,7 @@ declare interface VideoOptions {
    * an image referenced using a relative path, the component cannot be called across bundles or modules.
    * - Strings with the **file://** prefix, that is, 
    * [application sandbox URIs]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}: 
-   * **file://<bundleName>/<sandboxPath>**, are supported. They are used to access resources in the application sandbox 
+   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application sandbox 
    * path. Ensure that the application has the read permission to the files in the specified path.
    * 
    * The Resource type allows cross-package and cross-module access to resource files.
@@ -685,7 +682,7 @@ declare class VideoControllerAsync {
    * Sets the current playback time with specified seek mode.
    *
    * @param { double } value - The target time in seconds
-   *     <br>Unit: Seconds, The value must be greater than or equal to 0, The maximum value is the total duration of the
+   *     <br>Unit: Seconds. The value must be greater than or equal to 0, The maximum value is the total duration of the
    *     video. If the duration exceeds the maximum value, the system jumps to the end of the video.
    * @param { SeekMode } [seekMode] - The seek mode to use for time adjustment.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -749,8 +746,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * Sets whether to mute the video. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { boolean } value - - Whether to mute the video.<br>**true**: Mute the video.<br>**false**: Unmute the video.<
-   *     br>Default value: **false**.
+   * @param { boolean } value - Whether to mute the video.<br>**true**: Mute the video.<br>**false**: Unmute the
+   *     video.<br>Default value: **false**.
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -764,7 +761,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * Sets whether to enable autoplay. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { boolean } value - - Whether to enable autoplay.<br>**true**: Enable autoplay.<br>**false**: Disable
+   * @param { boolean } value - Whether to enable autoplay.<br>**true**: Enable autoplay.<br>**false**: Disable
    *     autoplay.<br>Default value: **false**.
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -779,7 +776,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * Sets whether to display the video playback control bar. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { boolean } value - - Whether to display the video playback control bar.<br>**true**: Display the video
+   * @param { boolean } value - Whether to display the video playback control bar.<br>**true**: Display the video
    *     playback control bar.<br>**false**: Do not display the video playback control bar.<br>Default value: **true**
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -791,10 +788,10 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   controls(value: boolean): VideoAttribute;
 
   /**
-   * Sets whether to repeat the video.. This attribute can be dynamically set using
+   * Sets whether to repeat the video. This attribute can be dynamically set using
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { boolean } value - - Whether to repeat the video.<br>**true**: Repeat the video.<br>**false**: Do not repeat
+   * @param { boolean } value - Whether to repeat the video.<br>**true**: Repeat the video.<br>**false**: Do not repeat
    *     the video.<br>Default value: **false**.
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -987,7 +984,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * playback is paused, and exits the analysis state when playback is resumed.
    *
    * @param { boolean } enable - Whether to enable the AI image analyzer.<br>**true**: Enable the AI image analyzer.
-   *     **false**: Disable the AI imageanalyzer.<br>Default value: **false**
+   *     **false**: Disable the AI image analyzer.<br>Default value: **false**
    * @returns { VideoAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1014,7 +1011,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
 
   /**
-   * Set background color of the surface holden by Video(only support Color.Black and Color.Transparent). The default 
+   * Sets the background color of the surface held by Video (only supports Color.Black and Color.Transparent). The default
    * value is Color.Black.
    *
    * @param { ColorMetrics } color
@@ -1034,7 +1031,7 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
    * video, up or down arrow key for adjusting the video volume, and left or right arrow key for fast forwarding or
    * rewinding the video.
    *
-   * @param { boolean } enabled - - Whether the component responds to keyboard shortcuts when it has focus.<br>**true**:
+   * @param { boolean } enabled - Whether the component responds to keyboard shortcuts when it has focus.<br>**true**:
    *     The component responds to keyboard shortcuts when it has focus.<br>**false**: The component does not respond to
    *     keyboard shortcuts when it has focus.<br>Default value: **false**.
    * @returns { VideoAttribute }
