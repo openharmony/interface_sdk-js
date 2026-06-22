@@ -235,6 +235,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead usbManager.setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy, callback: AsyncCallback<void>): void;
 
@@ -256,6 +258,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead usbManager.setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy): Promise<void>;
 
@@ -277,6 +281,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function disableUsb(admin: Want, disable: boolean): void;
 
@@ -297,6 +303,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isUsbDisabled(admin: Want): boolean;
 
@@ -316,6 +324,7 @@ declare namespace usbManager {
    *     添加700个。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -390,6 +399,7 @@ declare namespace usbManager {
    * @param { UsbPolicy } usbPolicy - USB存储设备访问策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 9200010 - A conflict policy has been configured.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.

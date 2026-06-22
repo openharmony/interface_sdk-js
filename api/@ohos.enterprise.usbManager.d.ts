@@ -264,6 +264,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead usbManager.setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy, callback: AsyncCallback<void>): void;
 
@@ -287,6 +289,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead usbManager.setUsbStorageDeviceAccessPolicy
    */
   function setUsbPolicy(admin: Want, usbPolicy: UsbPolicy): Promise<void>;
 
@@ -310,6 +314,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function disableUsb(admin: Want, disable: boolean): void;
 
@@ -332,6 +338,8 @@ declare namespace usbManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isUsbDisabled(admin: Want): boolean;
 

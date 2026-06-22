@@ -188,6 +188,8 @@ declare namespace bluetoothManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setBluetoothDisabled(admin: Want, disabled: boolean): void;
 
@@ -209,6 +211,8 @@ declare namespace bluetoothManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isBluetoothDisabled(admin: Want): boolean;
 
