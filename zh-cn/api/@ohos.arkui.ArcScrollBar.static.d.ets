@@ -24,14 +24,19 @@ import { CommonMethod } from '@ohos.arkui.component';
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 import { AttributeModifier, CommonMethod } from '@ohos.arkui.component';
 /**
- * Defines the arc scroll bar options.
+ * ArcScrollBar的构造函数参数。
+ *
+ * > **说明：**
+ * >
+ * > ArcScrollBar与可滚动组件需通过scroller进行绑定后方能实现联动，且ArcScrollBar与可滚动组件仅限于一对一的绑定方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  */
 export declare interface ArcScrollBarOptions {
+
   /**
-   * Describes the controller for scrollable container.
+   * 可滚动组件的控制器，用于与可滚动组件进行绑定。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
@@ -39,7 +44,7 @@ export declare interface ArcScrollBarOptions {
   scroller: Scroller;
 
   /**
-   * Sets the state of scroll bar.
+   * 滚动条状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @since 23 static
@@ -48,18 +53,19 @@ export declare interface ArcScrollBarOptions {
 }
 
 /**
- * The ArcScrollBarAttribute
+ * 弧形滚动条属性。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  * @noninterop
  */
 export declare interface ArcScrollBarAttribute extends CommonMethod {
+
   /**
-   * Set ArcScrollBar options.
+   * 设置ArcScrollBar选项。
    *
    * @param { ArcScrollBarOptions } options - ArcScrollBar constructor options
-   * @returns { ArcScrollBarAttribute } Returns the instance of the ArcScrollBarAttribute.
+   * @returns { ArcScrollBarAttribute } 返回ArcScrollBarAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -67,7 +73,7 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
   default setArcScrollBarOptions(options: ArcScrollBarOptions): this;
 
   /**
-   * Called attributeModifier.
+   * 设置属性修饰器。
    *
    * @param { AttributeModifier<ArcScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
@@ -78,7 +84,7 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
 }
 
 /**
- * Defines ArcScrollBar Component.
+ * 定义ArcScrollBar组件。
  *
  * @param { ArcScrollBarOptions } options
  * @param { CustomBuilder } [content_]
@@ -89,16 +95,16 @@ export declare interface ArcScrollBarAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ArcScrollBar(
-    options: ArcScrollBarOptions,
+    options: ArcScrollBarOptions, 
     content_?: CustomBuilder,
 ): ArcScrollBarAttribute;
 
 /**
- * Defines ArcScrollBar Component.
+ * 定义ArcScrollBar组件。
  *
- * @param { CustomBuilderT<ArcScrollBarAttribute> } style_ - The style to create an ArcScrollBar.
+ * @param { CustomBuilderT<ArcScrollBarAttribute> } style_ - 用于创建ArcScrollBar的样式
  * @param { CustomBuilder } [content_]
- * @returns { ArcScrollBarAttribute } The attribute of the ArcScrollBar.
+ * @returns { ArcScrollBarAttribute } ArcScrollBar的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
  * @since 26.0.0 staticonly

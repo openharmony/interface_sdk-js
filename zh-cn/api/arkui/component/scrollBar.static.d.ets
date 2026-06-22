@@ -24,7 +24,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier, CommonMethod } from "./common";
 import { ColorMetrics } from '../Graphics';
 /**
- * Content scroll direction.
+ * 内容滚动方向。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -42,8 +42,8 @@ export declare enum ScrollBarDirection {
   Vertical,
 
   /**
-   * Horizontal scrolling is supported.
-   *
+     * Horizontal scrolling is supported.
+     *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -52,7 +52,7 @@ export declare enum ScrollBarDirection {
 }
 
 /**
- * Defines the options of ScrollBar.
+ * 定义滚动条的参数选项。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -61,7 +61,7 @@ export declare enum ScrollBarDirection {
 export declare interface ScrollBarOptions {
 
   /**
-   * Sets the scroller of scroll bar.
+   * 设置滚动条的控制器。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -70,7 +70,7 @@ export declare interface ScrollBarOptions {
   scroller: Scroller;
 
   /**
-   * Sets the direction of scroll bar.
+   * 设置滚动条的方向。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -79,7 +79,7 @@ export declare interface ScrollBarOptions {
   direction?: ScrollBarDirection;
 
   /**
-   * Sets the state of scroll bar.
+   * 设置滚动条的状态。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -89,7 +89,7 @@ export declare interface ScrollBarOptions {
 }
 
 /**
- * The ScrollBarAttribute
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -99,9 +99,10 @@ export declare interface ScrollBarOptions {
 export declare interface ScrollBarAttribute extends CommonMethod {
 
   /**
-   * Called when setting whether to enable nested scroll.
+   * 设置滚动条是否嵌套滚动。
    *
-   * @param { boolean | undefined } enabled - Whether to enable nested scroll.
+   * @param { boolean | undefined } enabled - 是否执行嵌套滚动。设置为true执行嵌套滚动，设置为false不嵌套滚动。 <br/>默认值：false <br/>取值为undefined时，
+   *     按默认值处理。
    * @returns { this } The attribute of the scroll bar
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -110,23 +111,22 @@ export declare interface ScrollBarAttribute extends CommonMethod {
   default enableNestedScroll(enabled: boolean | undefined): this;
 
   /**
-   * Color of the scrollbar.
+   * 设置滚动条滑块的颜色，仅滚动条不放置子组件时生效。
    *
-   * @param { ColorMetrics | undefined } color - Color of the scrollbar.
-   *     Passing undefined will restore the default value.
-   *     Default value: <em>'\#182431'</em>(40% opacity).
+   * @param { ColorMetrics | undefined } color - 滚动条的颜色。<br/>取值为undefined时，滚动条的颜色为'#66182431'。<br/>默认值：
+   *     ColorMetrics.numeric(0x66182431)
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
    */
   default scrollBarColor(color: ColorMetrics | undefined): this;
 
   /**
-   * Set ScrollBar options.
+   * 设置滚动条选项。
    *
    * @param { ScrollBarOptions } value - ScrollBar constructor options
-   * @returns { ScrollBarAttribute } Returns the instance of the ScrollBarAttribute.
+   * @returns { ScrollBarAttribute } 返回ScrollBarAttribute的实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -134,11 +134,11 @@ export declare interface ScrollBarAttribute extends CommonMethod {
   default setScrollBarOptions(value: ScrollBarOptions): this;
 
   /**
-   * Called attributeModifier.
+   * 动态设置ScrollBar组件的属性方法。
    *
    * @param { AttributeModifier<ScrollBarAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
    * @returns { this }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -146,10 +146,10 @@ export declare interface ScrollBarAttribute extends CommonMethod {
 }
 
 /**
- * Defines ScrollBar Component.
+ * 定义滚动条组件。
  *
- * @param { ScrollBarOptions } value - value
- * @param { CustomBuilder } [content_] - container
+ * @param { ScrollBarOptions } 滚动条参数 - 滚动条参数
+ * @param { CustomBuilder } [content_] - 子组件
  * @returns { ScrollBarAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -158,16 +158,16 @@ export declare interface ScrollBarAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function ScrollBar(
-    value: ScrollBarOptions,
+    value: ScrollBarOptions, 
     content_?: CustomBuilder,
 ): ScrollBarAttribute;
 
 /**
- * Defines ScrollBar Component.
+ * 定义滚动条组件。
  *
  * @param { CustomBuilderT<ScrollBarAttribute> } style_ - The style to create a ScrollBar.
  * @param { CustomBuilder } [content_]
- * @returns { ScrollBarAttribute } The attribute of the ScrollBar.
+ * @returns { ScrollBarAttribute } ScrollBar的属性。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 staticonly
@@ -175,6 +175,6 @@ export declare function ScrollBar(
  */
 @Builder
 export declare function ScrollBar(
-    style_: CustomBuilderT<ScrollBarAttribute>,
+    style_: CustomBuilderT<ScrollBarAttribute>, 
     content_?: CustomBuilder
 ): ScrollBarAttribute;
