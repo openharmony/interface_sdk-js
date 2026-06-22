@@ -32,7 +32,8 @@ import type Want from './@ohos.app.ability.Want';
  * > superscript to indicate their earliest API version.
  * >
  * > - The kit to which **@ohos.dlpPermission** belongs has been changed from `DataLossPreventionKit` to `
- * > DataProtectionKit`. You are advised to use the new module name `@kit.DataProtectionKit` to import the module. If `@
+ * > DataProtectionKit`. You are advised to use the new module name `@
+ * > kit.DataProtectionKit` to import the module. If `@
  * > kit.DataLossPreventionKit` is imported, only the APIs before the change can be called and the APIs after the change
  * > cannot be used.
  *
@@ -1231,7 +1232,7 @@ declare namespace dlpPermission {
      * or [openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)} to obtain a **DLPFile** 
      * instance. The **DLPFile** object represents an opened DLP file handle, which encapsulates all operation APIs for 
      * DLP files. After using the object, the system must call the 
-     * [closeDLPFile]{@link dlpPermission.DLPFile.closeDLPFile()} API to release resources to prevent file handle leaks. 
+     * [closeDLPFile]{@link dlpPermission.DLPFile.closeDLPFile()} API to release resources to prevent file handle leaks.
      * Authorization is required when the **DLPFile** object is transferred across processes.
      *
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1254,7 +1255,7 @@ declare namespace dlpPermission {
          * return the result.
          * 
          * After calling **addDLPLinkFile** to add a link file, the system needs to call 
-         * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP
+         * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP 
          * link file.
          * 
          * When a DLP application needs to access a DLP file using a standard file API, it can add a link file as the 
@@ -1283,7 +1284,7 @@ declare namespace dlpPermission {
          * successfully called, a virtual file used to map the DLP file is created in the FUSE.
          * 
          * After calling **addDLPLinkFile** to add a link file, the system needs to call 
-         * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP
+         * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP 
          * link file.
          * 
          * This API is called when a DLP application needs to access a DLP file using a standard file API.
@@ -1694,7 +1695,7 @@ declare namespace dlpPermission {
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
      *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
-     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.  If the value is out of range,
+     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
      *     error code 19100001 is returned.
      * @returns { Promise<DLPFile> } Promise If the value is **resolve**, a **DLPFile** object is returned, indicating
      *     that a DLP file is successfully opened. If the value is **reject**, an error is returned, indicating that the
