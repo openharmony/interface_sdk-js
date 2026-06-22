@@ -160,6 +160,115 @@ export interface AnimatorOptions {
 }
 
 /**
+ * Defines a simple animation parameter object. Unlike **AnimatorOptions**, this object comes with some default values 
+ * for certain animation parameters, so you do not have to set them manually.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 18 dynamic
+ */
+export declare class SimpleAnimatorOptions {
+  /**
+   * A constructor used to create a **SimpleAnimatorOptions** instance.
+   *
+   * @param { number } begin - Start point of the animation interpolation.
+   * @param { number } end - End point of animation interpolation.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  constructor(begin: number, end: number);
+
+  /**
+   * Sets the animation duration.
+   *
+   * @param { number } duration - Animation duration, in milliseconds.<br>Default value: **1000**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  duration(duration: number): SimpleAnimatorOptions;
+
+  /**
+   * Sets the interpolation curve for this animation.
+   *
+   * @param { string } curve - Interpolation curve. For details, see [AnimatorOptions]{@link AnimatorOptions}.<br>
+   *     Default value: **"ease"**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  easing(curve: string): SimpleAnimatorOptions;
+
+  /**
+   * Sets the playback delay for this animation.
+   *
+   * @param { number } delay - Playback delay, in milliseconds. The value **0** indicates no delay. If the value
+   *     specified is a negative number, the animation starts playing ahead of its scheduled time. If the amount of time
+   *     by which the playback is advanced exceeds the total duration of the animation, the animation immediately skips
+   *     to its end state.<br>Default value: **0**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  delay(delay: number): SimpleAnimatorOptions;
+
+  /**
+   * Sets the fill mode for this animation.
+   *
+   * @param { FillMode } fillMode - Fill mode, which affects how the animation behaves during the delay period and after
+   *     it ends.<br>Default value: **FillMode.Forwards**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  fill(fillMode: FillMode): SimpleAnimatorOptions;
+
+  /**
+   * Sets the playback direction for this animator animation.
+   *
+   * @param { PlayMode } direction - Playback direction.<br>Default value: **PlayMode.Normal**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  direction(direction: PlayMode): SimpleAnimatorOptions;
+
+  /**
+   * Sets the number of times that this animation is played.
+   *
+   * @param { number } iterations - Number of times that the animation is played. The value **0** means the animation is
+   *     not played, and **-1** means the animation is played for an unlimited number of times.<br>Default value: **1**
+   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  iterations(iterations: number): SimpleAnimatorOptions;
+}
+
+/**
  * Defines the animator result.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -194,6 +303,25 @@ export interface AnimatorResult {
    * @since 9 dynamic
    */
   reset(options: AnimatorOptions): void;
+
+  /**
+   * Resets the animation parameters of this animator. Compared with 
+   * [reset]{@link AnimatorResult.reset(options: AnimatorOptions)}, this API accepts parameters of the 
+   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
+   *
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Animator options.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 18 dynamic
+   */
+  reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 
   /**
    * Plays this animation. The animation retains the previous playback state. For example, if the animation is set to 
@@ -366,25 +494,6 @@ export interface AnimatorResult {
    * @since 12 dynamic
    */
   setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange): void;
-
-  /**
-   * Resets the animation parameters of this animator. Compared with 
-   * [reset]{@link AnimatorResult.reset(options: AnimatorOptions)}, this API accepts parameters of the 
-   * [SimpleAnimatorOptions]{@link SimpleAnimatorOptions} type.
-   *
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Animator options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The specified page is not found or the object property list is not obtained.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  reset(options: AnimatorOptions | SimpleAnimatorOptions): void;
 }
 
 /**
@@ -450,114 +559,4 @@ export default class Animator {
    * @since 18 dynamic
    */
   static create(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
-}
-
-/**
- * Defines a simple animation parameter object. Unlike **AnimatorOptions**, this object comes with some default values 
- * for certain animation parameters, so you do not have to set them manually.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
- */
-export declare class SimpleAnimatorOptions {
-
-  /**
-   * Sets the number of times that this animation is played.
-   *
-   * @param { number } iterations - Number of times that the animation is played. The value **0** means the animation is
-   *     not played, and **-1** means the animation is played for an unlimited number of times.<br>Default value: **1**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  iterations(iterations: number): SimpleAnimatorOptions;
-
-  /**
-   * Sets the playback direction for this animator animation.
-   *
-   * @param { PlayMode } direction - Playback direction.<br>Default value: **PlayMode.Normal**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  direction(direction: PlayMode): SimpleAnimatorOptions;
-
-  /**
-   * A constructor used to create a **SimpleAnimatorOptions** instance.
-   *
-   * @param { number } begin - Start point of the animation interpolation.
-   * @param { number } end - End point of animation interpolation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  constructor(begin: number, end: number);
-
-  /**
-   * Sets the fill mode for this animation.
-   *
-   * @param { FillMode } fillMode - Fill mode, which affects how the animation behaves during the delay period and after
-   *     it ends.<br>Default value: **FillMode.Forwards**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  fill(fillMode: FillMode): SimpleAnimatorOptions;
-
-  /**
-   * Sets the playback delay for this animation.
-   *
-   * @param { number } delay - Playback delay, in milliseconds. The value **0** indicates no delay. If the value
-   *     specified is a negative number, the animation starts playing ahead of its scheduled time. If the amount of time
-   *     by which the playback is advanced exceeds the total duration of the animation, the animation immediately skips
-   *     to its end state.<br>Default value: **0**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  delay(delay: number): SimpleAnimatorOptions;
-
-  /**
-   * Sets the interpolation curve for this animation.
-   *
-   * @param { string } curve - Interpolation curve. For details, see [AnimatorOptions]{@link AnimatorOptions}.<br>
-   *     Default value: **"ease"**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  easing(curve: string): SimpleAnimatorOptions;
-
-  /**
-   * Sets the animation duration.
-   *
-   * @param { number } duration - Animation duration, in milliseconds.<br>Default value: **1000**
-   * @returns { SimpleAnimatorOptions } **SimpleAnimatorOptions** object for animation parameters.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  duration(duration: number): SimpleAnimatorOptions;
 }

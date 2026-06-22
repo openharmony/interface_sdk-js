@@ -19,9 +19,8 @@
  */
 
 /**
- * Enum for ArcSliderPosition
+ * Defines the position of the arc slider on the screen.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -31,7 +30,7 @@
 export declare enum ArcSliderPosition {
 
   /**
-   * The position is on the left
+   * The arc slider is displayed on the left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -41,7 +40,7 @@ export declare enum ArcSliderPosition {
   LEFT = 0,
 
   /**
-   * The position is on the right.
+   * The arc slider is displayed on the right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -52,9 +51,8 @@ export declare enum ArcSliderPosition {
 }
 
 /**
- * Construct parameter types for ArcSliderValueOptions.
+ * Defines the constructor information for **ArcSliderValueOptions**.
  *
- * @typedef ArcSliderValueOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -62,9 +60,12 @@ export declare enum ArcSliderPosition {
  */
 interface ArcSliderValueOptionsConstructorOptions {
   /**
-   * Set current progress value.
+   * Current progress.
+   * 
+   * Default value: same as the value of **min**.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -73,9 +74,12 @@ interface ArcSliderValueOptionsConstructorOptions {
   progress?: number;
 
   /**
-   * Set the minimum progress value.
+   * Minimum value.
+   * 
+   * Default value: **0**.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -85,9 +89,18 @@ interface ArcSliderValueOptionsConstructorOptions {
   min?: number;
 
   /**
-   * Set the maximum progress value.
+   * Maximum value.
+   * 
+   * Default value: **100**
+   * 
+   * **NOTE**
+   * 
+   * If the value of **min** is greater than or equal to that of **max**, **min** is set to **0** and **max** **100**.
+   * 
+   * If the value is not within the [min, max] range, the value of **min** or **max** is used, whichever is closer.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 100
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -98,7 +111,7 @@ interface ArcSliderValueOptionsConstructorOptions {
 }
 
 /**
- * The options for ArcSlider progress value.
+ * Defines the value of the arc slider.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -108,9 +121,12 @@ interface ArcSliderValueOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderValueOptions {
   /**
-   * Set current progress value.
+   * Current progress.
+   * 
+   * Default value: same as the value of **min**.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -120,9 +136,12 @@ declare class ArcSliderValueOptions {
   progress?: number;
 
   /**
-   * Set the minimum progress value.
+   * Minimum value.
+   * 
+   * Default value: **0**.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -133,9 +152,18 @@ declare class ArcSliderValueOptions {
   min?: number;
 
   /**
-   * Set the maximum progress value.
+   * Maximum value.
+   * 
+   * Default value: **100**
+   * 
+   * **NOTE**
+   * 
+   * If the value of **min** is greater than or equal to that of **max**, **min** is set to **0** and **max** **100**.
+   * 
+   * If the value is not within the [min, max] range, the value of **min** or **max** is used, whichever is closer.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 100
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -146,9 +174,9 @@ declare class ArcSliderValueOptions {
   max?: number;
 
   /**
-   * The constructor used to create a ArcSliderValueOptions object.
+   * A constructor used to create an **ArcSliderValueOptions** instance.
    *
-   * @param { ArcSliderValueOptionsConstructorOptions } options
+   * @param { ArcSliderValueOptionsConstructorOptions } options - Constructor information for **ArcSliderValueOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -158,9 +186,8 @@ declare class ArcSliderValueOptions {
 }
 
 /**
- * Construct parameter types for ArcSliderLayoutOptions.
+ * Defines the construction information for **ArcSliderLayoutValueOptions**.
  *
- * @typedef ArcSliderLayoutOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -168,9 +195,12 @@ declare class ArcSliderValueOptions {
  */
 interface ArcSliderLayoutOptionsConstructorOptions {
   /**
-   * Set whether the component's arc direction is counterclockwise.
+   * Whether the value range of the arc slider is reversed. **false**: top-to-bottom sliding.
+   * 
+   * **true** (default): bottom-to-top sliding.
+   * 
+   * @Trace
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -179,9 +209,12 @@ interface ArcSliderLayoutOptionsConstructorOptions {
    */
   reverse?: boolean;
   /**
-   * Set the component's position on the screen.
+   * Position of the arc slider on the screen.
+   * 
+   * Default value: **ArcSliderPosition.RIGHT**
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderPosition }
    * @default ArcSliderPosition.RIGHT
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -192,7 +225,8 @@ interface ArcSliderLayoutOptionsConstructorOptions {
 }
 
 /**
- * The options for ArcSlider layout.
+ * Defines the layout of the arc slider.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -201,9 +235,12 @@ interface ArcSliderLayoutOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderLayoutOptions {
   /**
-   * Set whether the component's arc direction is counterclockwise.
+   * Whether the value range of the arc slider is reversed. **false**: top-to-bottom sliding.
+   * 
+   * **true** (default): bottom-to-top sliding.
+   * 
+   * @Trace
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -214,9 +251,12 @@ declare class ArcSliderLayoutOptions {
   reverse?: boolean;
 
   /**
-   * Set the component's position on the screen.
+   * Position of the arc slider on the screen.
+   * 
+   * Default value: **ArcSliderPosition.RIGHT**
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderPosition }
    * @default ArcSliderPosition.RIGHT
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -227,9 +267,10 @@ declare class ArcSliderLayoutOptions {
   position?: ArcSliderPosition;
 
   /**
-   * The constructor used to create a ArcSliderLayoutOptions object.
+   * A constructor used to create an **ArcSliderLayoutOptions** instance.
    *
-   * @param { ArcSliderLayoutOptionsConstructorOptions } options
+   * @param { ArcSliderLayoutOptionsConstructorOptions } options - Construction information for
+   *     **ArcSliderLayoutOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -239,9 +280,8 @@ declare class ArcSliderLayoutOptions {
 }
 
 /**
- * Construct parameter types for ArcSliderStyleOptions.
+ * Defines the constructor information for **ArcSliderStyleOptions**.
  *
- * @typedef ArcSliderStyleOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -249,9 +289,14 @@ declare class ArcSliderLayoutOptions {
  */
 interface ArcSliderStyleOptionsConstructorOptions {
   /**
-   * Set the track thickness of the component under normal status, unit is vp.
+   * Stroke width of the arc slider in the normal state, in vp.
+   * 
+   * Default value: **5**
+   * 
+   * Value range: [5, 16]. If the value is invalid, the default value is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -261,9 +306,14 @@ interface ArcSliderStyleOptionsConstructorOptions {
   trackThickness?: number;
 
   /**
-   * Set the track thickness of the component under active status, unit is vp.
+   * Stroke width of the arc slider when it is in an enlarged state, in vp.
+   * 
+   * Default value: **24**
+   * 
+   * Value range: [24, 36]. If the value is invalid, the default value is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 24
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -273,9 +323,12 @@ interface ArcSliderStyleOptionsConstructorOptions {
   activeTrackThickness?: number;
 
   /**
-   * Set the track color of the component.
+   * Background color of the stroke.
+   * 
+   * Default value: **#33FFFFFF**
+   * 
+   * @Trace
    *
-   * @type { ?string  }
    * @default #33FFFFFF
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -285,9 +338,12 @@ interface ArcSliderStyleOptionsConstructorOptions {
   trackColor?: string;
 
   /**
-   * Set the selected color of the component.
+   * Highlight color of the stroke.
+   * 
+   * Default value: **#FF5EA1FF**
+   * 
+   * @Trace
    *
-   * @type { ?string }
    * @default #FF5EA1FF
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -297,9 +353,14 @@ interface ArcSliderStyleOptionsConstructorOptions {
   selectedColor?: string;
 
   /**
-   * Set the track blur of the component, unit is vp.
+   * Blur effect applied to the stroke background, in vp.
+   * 
+   * Default value: **20**
+   * 
+   * If a value less than 0 is set, the default is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -310,7 +371,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
 }
 
 /**
- * The options for ArcSlider style.
+ * Defines the style of the arc slider.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -320,9 +381,14 @@ interface ArcSliderStyleOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderStyleOptions {
   /**
-   * Set the track thickness of the component under normal status, unit is vp.
+   * Stroke width of the arc slider in the normal state, in vp.
+   * 
+   * Default value: **5**
+   * 
+   * Value range: [5, 16]. If the value is invalid, the default value is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -333,9 +399,14 @@ declare class ArcSliderStyleOptions {
   trackThickness?: number;
 
   /**
-   * Set the track thickness of the component under active status, unit is vp.
+   * Stroke width of the arc slider when it is in an enlarged state, in vp.
+   * 
+   * Default value: **24**
+   * 
+   * Value range: [24, 36]. If the value is invalid, the default value is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 24
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -346,9 +417,12 @@ declare class ArcSliderStyleOptions {
   activeTrackThickness?: number;
 
   /**
-   * Set the track color of the component.
+   * Background color of the stroke.
+   * 
+   * Default value: **#33FFFFFF**
+   * 
+   * @Trace
    *
-   * @type { ?string }
    * @default #33FFFFFF
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -359,9 +433,12 @@ declare class ArcSliderStyleOptions {
   trackColor?: string;
 
   /**
-   * Set the selected color of the component.
+   * Highlight color of the stroke.
+   * 
+   * Default value: **#FF5EA1FF**
+   * 
+   * @Trace
    *
-   * @type { ?string }
    * @default #FF5EA1FF
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -372,9 +449,14 @@ declare class ArcSliderStyleOptions {
   selectedColor?: string;
 
   /**
-   * Set the track blur of the component, unit is vp.
+   * Blur effect applied to the stroke background, in vp.
+   * 
+   * Default value: **20**
+   * 
+   * If a value less than 0 is set, the default is used.
+   * 
+   * @Trace
    *
-   * @type { ?number }
    * @default 20
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -385,9 +467,9 @@ declare class ArcSliderStyleOptions {
   trackBlur?: number;
 
   /**
-   * The constructor used to create a ArcSliderStyleOptions object.
+   * A constructor used to create an **ArcSliderStyleOptions** instance.
    *
-   * @param { ArcSliderStyleOptionsConstructorOptions } options
+   * @param { ArcSliderStyleOptionsConstructorOptions } options - Constructor information for **ArcSliderStyleOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -397,10 +479,9 @@ declare class ArcSliderStyleOptions {
 }
 
 /**
- * Handler of ArcSlider, used in onTouch.
+ * Defines the callback invoked to notify the application when the arc slider is touched.
  *
- * @typedef { function } ArcSliderTouchHandler
- * @param { TouchEvent } event - the TouchEvent when ArcSlider is touched.
+ * @param { TouchEvent } event - **TouchEvent** object.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -409,10 +490,9 @@ declare class ArcSliderStyleOptions {
 declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 
 /**
- * Handler of ArcSlider, used in OnChange.
+ * Defines the callback invoked to notify the application when the progress value of the arc slider changes.
  *
- * @typedef { function } ArcSliderChangeHandler
- * @param { number } progress - the progress value of the ArcSlider.
+ * @param { number } progress - Current progress of the slider.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -421,10 +501,10 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
 /**
- * Handler of ArcSlider, used in OnEnlarge.
+ * Defines the callback invoked to notify the application when the arc slider is enlarged or reduced.
  *
- * @typedef { function } ArcSliderEnlargeHandler
- * @param { boolean } isEnlarged - the enlarged type of the ArcSlider.
+ * @param { boolean } isEnlarged - Whether the arc slider is enlarged.<br>**false**: The arc slider is in a reduced
+ *     state.<br>**true**: The arc slider is in an enlarged state.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -433,9 +513,8 @@ declare type ArcSliderChangeHandler = (progress: number) => void;
 declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
 
 /**
- * Construct parameter types for ArcSliderOptions.
+ * Defines the constructor information for **ArcSliderOptions**.
  *
- * @typedef ArcSliderOptionsConstructorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -443,9 +522,12 @@ declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
  */
 interface ArcSliderOptionsConstructorOptions {
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderValueOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -454,9 +536,12 @@ interface ArcSliderOptionsConstructorOptions {
   valueOptions?: ArcSliderValueOptions;
 
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderLayoutOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -465,9 +550,12 @@ interface ArcSliderOptionsConstructorOptions {
   layoutOptions?: ArcSliderLayoutOptions;
 
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -476,9 +564,12 @@ interface ArcSliderOptionsConstructorOptions {
   styleOptions?: ArcSliderStyleOptions;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * Sensitivity to the digital crown rotation.
+   * 
+   * Default value: **CrownSensitivity.MEDIUM**
+   * 
+   * @Trace
    *
-   * @type { ?CrownSensitivity }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -487,9 +578,12 @@ interface ArcSliderOptionsConstructorOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * Touching triggers the callback.
+   * Callback invoked to notify the application when the arc slider is touched.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderTouchHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -498,9 +592,12 @@ interface ArcSliderOptionsConstructorOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * Value changing triggers the callback.
+   * Callback invoked to notify the application when the progress value of the arc slider changes.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderChangeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -509,9 +606,12 @@ interface ArcSliderOptionsConstructorOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Enlarged type changing triggers the callback.
+   * Callback invoked to notify the application when the arc slider is enlarged or reduced.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderEnlargeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -521,7 +621,7 @@ interface ArcSliderOptionsConstructorOptions {
 }
 
 /**
- * The options for ArcSlider.
+ * Defines the properties of the arc slider.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -531,9 +631,12 @@ interface ArcSliderOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderOptions {
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderValueOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -543,9 +646,12 @@ declare class ArcSliderOptions {
   valueOptions?: ArcSliderValueOptions;
 
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderLayoutOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -555,9 +661,12 @@ declare class ArcSliderOptions {
   layoutOptions?: ArcSliderLayoutOptions;
 
   /**
-   * Configure parameters for component.
+   * Style of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -567,9 +676,12 @@ declare class ArcSliderOptions {
   styleOptions?: ArcSliderStyleOptions;
 
   /**
-   * Set the sensitivity of rotating crown.
+   * Sensitivity to the digital crown rotation.
+   * 
+   * Default value: **CrownSensitivity.MEDIUM**
+   * 
+   * @Trace
    *
-   * @type { ?CrownSensitivity }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -579,9 +691,12 @@ declare class ArcSliderOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * Touching triggers the callback.
+   * Callback invoked to notify the application when the arc slider is touched.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderTouchHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -591,9 +706,12 @@ declare class ArcSliderOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * Value changing triggers the callback.
+   * Callback invoked to notify the application when the progress value of the arc slider changes.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderChangeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -603,9 +721,12 @@ declare class ArcSliderOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Enlarged type changing triggers the callback.
+   * Callback invoked to notify the application when the arc slider is enlarged or reduced.
+   * 
+   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 
+   * @Trace
    *
-   * @type { ?ArcSliderEnlargeHandler }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -615,9 +736,9 @@ declare class ArcSliderOptions {
   onEnlarge?: ArcSliderEnlargeHandler;
 
   /**
-   * The constructor used to create a ArcSliderOptions object.
+   * A constructor used to create an **ArcSliderOptions** instance.
    *
-   * @param { ArcSliderOptionsConstructorOptions } options
+   * @param { ArcSliderOptionsConstructorOptions } options - Constructor information for **ArcSliderOptions**.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -627,7 +748,10 @@ declare class ArcSliderOptions {
 }
 
 /**
- * Defines ArcSlider Component.
+ * The **ArcSlider** component is designed for circular screens on wearables to quickly adjust settings, such as the 
+ * volume and brightness.
+ * 
+ * > **NOTE**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -637,9 +761,10 @@ declare class ArcSliderOptions {
 @Component
 declare struct ArcSlider {
   /**
-   * The options of a ArcSlider component.
+   * Parameters of the arc slider.
+   * 
+   * Default value: default values of all properties of [ArcSliderOptions]{@link ArcSliderOptions}
    *
-   * @type { ArcSliderOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
