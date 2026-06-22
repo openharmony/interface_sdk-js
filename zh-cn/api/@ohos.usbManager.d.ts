@@ -135,7 +135,7 @@ declare namespace usbManager {
    * 在设备模式下，将字符串形式的USB功能列表转化为数字掩码。
    *
    * @param { string } funcs - 字符串形式的功能列表。
-   * @returns { number } 转化后的数字掩码。
+   * @returns { number } 转化后的功能列表对应的数字掩码。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
    *     <br>1.Mandatory parameters are left unspecified.
@@ -152,7 +152,7 @@ declare namespace usbManager {
   /**
    * 在设备模式下，将数字掩码形式的USB功能列表转化为字符串。
    *
-   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @param { FunctionType } funcs - 功能列表对应的数字掩码。
    * @returns { string } 转化后的字符串形式的功能列表。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
@@ -170,7 +170,7 @@ declare namespace usbManager {
   /**
    * 在设备模式下，设置当前的USB功能列表。使用Promise异步回调。
    *
-   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @param { FunctionType } funcs - 功能列表对应的数字掩码。
    * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *
@@ -257,7 +257,7 @@ declare namespace usbManager {
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
    * @param { string } funcs - 字符串形式的功能列表。
-   * @returns { int } 转化后的数字掩码。
+   * @returns { int } 转化后的功能列表对应的数字掩码。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18].
    * @throws { BusinessError } 202 - Permission denied. Normal application do not have permission to use system api.
@@ -278,7 +278,7 @@ declare namespace usbManager {
    * 在设备模式下，将数字掩码形式的USB功能列表转化为字符串。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @param { FunctionType } funcs - 功能列表对应的数字掩码。
    * @returns { string } 转化后的字符串形式的功能列表。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
@@ -314,7 +314,7 @@ declare namespace usbManager {
    * 在设备模式下，设置当前的USB功能列表。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_USB_CONFIG
-   * @param { FunctionType } funcs - USB功能数字掩码。
+   * @param { FunctionType } funcs - 功能列表对应的数字掩码。
    * @returns { Promise<void> } Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to
    *     call the API. [since 18]
@@ -938,7 +938,7 @@ declare namespace usbManager {
     attributes: int;
 
     /**
-     * 端点间隔。
+     * 端点间隔。（单位：毫秒）
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
@@ -947,7 +947,7 @@ declare namespace usbManager {
     interval: int;
 
     /**
-     * 端点最大数据包大小。
+     * 端点最大数据包大小。（单位：字节）
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 9 dynamic
