@@ -520,7 +520,7 @@ export declare abstract class SoftShadowConfig {
  */
 export declare class PCFConfig extends SoftShadowConfig {
   /**
-   * get sample radius around the shadow edge at pixel-level.
+   * get sample radius around the shadow edge, the unit is pixel.
    *
    * @returns { double | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -541,7 +541,7 @@ export declare class PCFConfig extends SoftShadowConfig {
   set shadowSampleRadius(value: double | undefined);
 
   /**
-   * get the sample count number from shadow map used to render a shadow pixel.
+   * get the sample count number from shadow map used to render a shadow pixel. Range: [0, +inf).
    *
    * @returns { int | undefined }
    * @syscap SystemCapability.ArkUi.Graphics3D
@@ -552,6 +552,7 @@ export declare class PCFConfig extends SoftShadowConfig {
 
   /**
    * set the sample count number from shadow map used to render a shadow pixel.
+   * Values outside the range are ignored and the previous value is retained.
    *
    * @param { int | undefined } value
    * @default 16
