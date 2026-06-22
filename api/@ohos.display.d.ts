@@ -2044,8 +2044,6 @@ declare namespace display {
      * @param { Callback<Rect> } callback - Callback used to return the new available area.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2057,8 +2055,6 @@ declare namespace display {
      * Register the callback for available area changes.
      *
      * @param { Callback<Rect> } callback - Callback used to return the available area
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
@@ -2074,8 +2070,6 @@ declare namespace display {
      *     specified, all subscriptions to the specified event are canceled.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
      *     <br>2. Incorrect parameter types.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
@@ -2088,8 +2082,6 @@ declare namespace display {
      *
      * @param { Callback<Rect> } [callback] - Unregister the callback function.
      *     If not provided, all callbacks for the given event type will be removed.
-     * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
-     *     capabilities.
      * @throws { BusinessError } 1400003 - This display manager service works abnormally.
      * @syscap SystemCapability.Window.SessionManager
      * @since 23 static
