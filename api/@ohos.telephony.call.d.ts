@@ -3166,7 +3166,7 @@ declare namespace call {
   /**
    * Unload callUI.
    *
-   * @permission ohos.permission.PLACE_CALL
+   * @permission ohos.permission.SET_TELEPHONY_STATE
    * @returns { Promise<boolean> } The promise returned by the unloadCallUI.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications use system APIs.
