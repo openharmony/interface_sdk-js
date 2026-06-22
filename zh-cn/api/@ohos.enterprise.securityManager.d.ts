@@ -220,6 +220,8 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead securityManager.getSecurityStatus
    */
   function getSecurityPatchTag(admin: Want): string;
 
@@ -240,6 +242,8 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead securityManager.getSecurityStatus
    */
   function getDeviceEncryptionStatus(admin: Want): DeviceEncryptionStatus;
 
@@ -351,6 +355,7 @@ declare namespace securityManager {
    * @param { PasswordPolicy } policy - 设备锁屏口令策略。
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

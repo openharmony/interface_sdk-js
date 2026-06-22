@@ -110,6 +110,8 @@ declare namespace accountManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
 
@@ -133,6 +135,8 @@ declare namespace accountManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean): Promise<void>;
 
@@ -156,6 +160,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddOsAccountByUser(admin: Want, userId: number, disallow: boolean): void;
 
@@ -179,6 +185,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.isOsAccountAdditionDisallowed
    */
   function isAddOsAccountByUserDisallowed(admin: Want, userId: number): boolean;
 
@@ -190,7 +198,7 @@ declare namespace accountManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { string } name - User ID, which must be greater than or equal to 0.
    * @param { osAccount.OsAccountType } type - Type of the account to add.<br>The value can be any of the following:<br>
-   *     �� **ADMIN**: administrator account.<br>�� **NORMAL**: normal account.<br>�� **GUEST**: guest account.
+   *     · **ADMIN**: administrator account.<br>· **NORMAL**: normal account.<br>· **GUEST**: guest account.
    * @returns { osAccount.OsAccountInfo } Information about the account added.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -204,6 +212,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.addOsAccountAsync
    */
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
 

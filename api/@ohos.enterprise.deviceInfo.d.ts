@@ -56,6 +56,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -77,6 +79,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceSerial(admin: Want): Promise<string>;
 
@@ -100,6 +104,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDisplayVersion(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -121,6 +127,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDisplayVersion(admin: Want): Promise<string>;
 
@@ -144,6 +152,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceName(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -165,6 +175,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceName(admin: Want): Promise<string>;
 

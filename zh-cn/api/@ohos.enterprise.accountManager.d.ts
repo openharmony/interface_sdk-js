@@ -98,6 +98,8 @@ declare namespace accountManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
 
@@ -119,6 +121,8 @@ declare namespace accountManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddLocalAccount(admin: Want, disallow: boolean): Promise<void>;
 
@@ -140,6 +144,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.disallowOsAccountAddition
    */
   function disallowAddOsAccountByUser(admin: Want, userId: number, disallow: boolean): void;
 
@@ -161,6 +167,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.isOsAccountAdditionDisallowed
    */
   function isAddOsAccountByUserDisallowed(admin: Want, userId: number): boolean;
 
@@ -185,6 +193,8 @@ declare namespace accountManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead accountManager.addOsAccountAsync
    */
   function addOsAccount(admin: Want, name: string, type: osAccount.OsAccountType): osAccount.OsAccountInfo;
 

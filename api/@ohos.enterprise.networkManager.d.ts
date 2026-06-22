@@ -724,6 +724,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getAllNetworkInterfacesSync
    */
   function getAllNetworkInterfaces(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -745,6 +747,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getAllNetworkInterfacesSync
    */
   function getAllNetworkInterfaces(admin: Want): Promise<Array<string>>;
 
@@ -789,6 +793,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getIpAddressSync
    */
   function getIpAddress(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
 
@@ -811,6 +817,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getIpAddressSync
    */
   function getIpAddress(admin: Want, networkInterface: string): Promise<string>;
 
@@ -856,6 +864,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getMacSync
    */
   function getMac(admin: Want, networkInterface: string, callback: AsyncCallback<string>): void;
 
@@ -878,6 +888,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getMacSync
    */
   function getMac(admin: Want, networkInterface: string): Promise<string>;
 
@@ -923,6 +935,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.isNetworkInterfaceDisabledSync
    */
   function isNetworkInterfaceDisabled(admin: Want, networkInterface: string, callback: AsyncCallback<boolean>): void;
 
@@ -946,6 +960,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.isNetworkInterfaceDisabledSync
    */
   function isNetworkInterfaceDisabled(admin: Want, networkInterface: string): Promise<boolean>;
 
@@ -995,6 +1011,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.setNetworkInterfaceDisabledSync
    */
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -1020,6 +1038,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.setNetworkInterfaceDisabledSync
    */
   function setNetworkInterfaceDisabled(admin: Want, networkInterface: string, isDisabled: boolean): Promise<void>;
 
@@ -1064,6 +1084,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.setGlobalProxySync
    */
   function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy, callback: AsyncCallback<void>): void;
 
@@ -1086,6 +1108,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.setGlobalProxySync
    */
   function setGlobalProxy(admin: Want, httpProxy: connection.HttpProxy): Promise<void>;
 
@@ -1151,6 +1175,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getGlobalProxySync
    */
   function getGlobalProxy(admin: Want, callback: AsyncCallback<connection.HttpProxy>): void;
 
@@ -1172,6 +1198,8 @@ declare namespace networkManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead networkManager.getGlobalProxySync
    */
   function getGlobalProxy(admin: Want): Promise<connection.HttpProxy>;
 

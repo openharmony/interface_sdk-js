@@ -55,6 +55,8 @@ declare namespace browser {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead browser.setPolicySync
    */
   function setPolicies(admin: Want, appId: string, policies: string, callback: AsyncCallback<void>): void;
 
@@ -77,6 +79,8 @@ declare namespace browser {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead browser.setPolicySync
    */
   function setPolicies(admin: Want, appId: string, policies: string): Promise<void>;
 
@@ -94,6 +98,8 @@ declare namespace browser {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead browser.getPolicySync
    */
   function getPolicies(admin: Want, appId: string, callback: AsyncCallback<string>): void;
 
@@ -111,6 +117,8 @@ declare namespace browser {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead browser.getPolicySync
    */
   function getPolicies(admin: Want, appId: string): Promise<string>;
 

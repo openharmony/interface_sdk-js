@@ -52,6 +52,8 @@ declare namespace deviceControl {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceControl.operateDevice(admin: Want, operation: Operation, addition?: string)
    */
   function resetFactory(admin: Want, callback: AsyncCallback<void>): void;
 
@@ -72,6 +74,8 @@ declare namespace deviceControl {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceControl.operateDevice(admin: Want, operation: Operation, addition?: string)
    */
   function resetFactory(admin: Want): Promise<void>;
 
@@ -91,6 +95,8 @@ declare namespace deviceControl {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceControl.operateDevice(admin: Want, operation: Operation, addition?: string)
    */
   function shutdown(admin: Want): void;
 
@@ -110,6 +116,8 @@ declare namespace deviceControl {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceControl.operateDevice(admin: Want, operation: Operation, addition?: string)
    */
   function reboot(admin: Want): void;
 
@@ -129,6 +137,8 @@ declare namespace deviceControl {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead deviceControl.operateDevice(admin: Want, operation: Operation, addition?: string)
    */
   function lockScreen(admin: Want): void;
 
