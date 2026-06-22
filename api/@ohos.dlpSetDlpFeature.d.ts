@@ -31,8 +31,6 @@
  * > - The initial APIs of this module are supported since API version 26. Newly added APIs will be marked with a 
  * > - superscript to indicate their earliest API version.
  * > - The APIs provided by this module are system APIs.
- * 
- * **Since:** 26.0.0
  *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @systemapi
