@@ -793,7 +793,7 @@ declare namespace dlpPermission {
      * application but can access only authorized DLP files. This API uses a promise to return the result.
      * 
      * After calling **installDLPSandbox** to install a sandbox, the system must call 
-     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)} 
+     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
      * to uninstall the sandbox after using it.
      * 
      * Before a DLP file management application opens a protected file, the system needs to install a DLP sandbox for 
@@ -805,8 +805,8 @@ declare namespace dlpPermission {
      * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
      *     scope of the file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, 
-     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is 
+     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range,
+     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
      *     generated.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
      *     error code 19100001 is thrown.
@@ -829,7 +829,7 @@ declare namespace dlpPermission {
      * information.
      * 
      * After calling **installDLPSandbox** to install a sandbox, the system must call 
-     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)} 
+     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
      * to uninstall the sandbox after using it.
      * 
      * Before a DLP file management application opens a protected file, the system needs to install a DLP sandbox for 
@@ -841,13 +841,13 @@ declare namespace dlpPermission {
      * @param { DLPFileAccess } access - Permission on the DLP file. The permissions on a DLP file determine the access
      *     scope of the file.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, 
-     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is 
+     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range,
+     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
      *     generated.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
      *     error code 19100001 is thrown.
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox is 
-     *     installed successfully, **err** is **undefined** and **data** is the sandbox information obtained; otherwise, 
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox is
+     *     installed successfully, **err** is **undefined** and **data** is the sandbox information obtained; otherwise,
      *     **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -866,7 +866,7 @@ declare namespace dlpPermission {
      * 
      * Use this API to clear the corresponding sandbox environment.
      * 
-     * This API can be called only after a DLP sandbox is installed by calling
+     * This API can be called only after a DLP sandbox is installed by calling 
      * [installDLPSandbox]{@link dlpPermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
      * .
      *
@@ -874,11 +874,11 @@ declare namespace dlpPermission {
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
      *     out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, 
-     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is 
+     *     default super user ID is **100**.<br>The value range is [0, 2<sup>31</sup>-1]. If the value is out of range,
+     *     the excess part will be truncated. If the value of the passed parameter is less than 0, an error log is
      *     generated.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
-     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If 
+     *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
      *     the value is out of range, an error log is generated.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
@@ -899,7 +899,7 @@ declare namespace dlpPermission {
      * 
      * Use this API to clear the sandbox environment.
      * 
-     * This API can be called only after a DLP sandbox is installed by calling
+     * This API can be called only after a DLP sandbox is installed by calling 
      * [installDLPSandbox]{@link dlpPermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
      * .
      *
@@ -907,12 +907,12 @@ declare namespace dlpPermission {
      * @param { string } bundleName - Bundle name of the application. The value contains 7 to 128 bytes. If the value is
      *     out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
-     *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, 
+     *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, the
      *     the excess part will be truncated.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
      *     the value is out of range, an error log is generated.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DLP sandbox is uninstalled 
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DLP sandbox is uninstalled
      *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -943,7 +943,7 @@ declare namespace dlpPermission {
          */
         bundleName: string;
         /**
-         * Index of the DLP sandbox application. The value range is [1000, 1100]. If the value is out of range, an error 
+         * Index of the DLP sandbox application. The value range is [1000, 1100]. If the value is out of range, an error
          * log is generated.
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -957,8 +957,8 @@ declare namespace dlpPermission {
      * environment. After the registration, the system notifies the application using a callback when the DLP sandbox is
      * uninstalled.
      * 
-     * After a listener is registered by calling **on**, you are advised to call
-     * **[off]{@link dlpPermission.off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxInfo>)}** to 
+     * After a listener is registered by calling **on**, you are advised to call 
+     * **[off]{@link dlpPermission.off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>)}** to 
      * unregister the listener and release resources when the listener is no longer needed.
      * 
      * The DLP management application needs to track the creation and destruction status of the sandbox to maintain the 
@@ -1253,7 +1253,7 @@ declare namespace dlpPermission {
          * read and write on the link file will be synchronized to the actual DLP file. This API uses a promise to 
          * return the result.
          * 
-         * After calling addDLPLinkFile to add a link file, the system needs to call 
+         * After calling **addDLPLinkFile** to add a link file, the system needs to call 
          * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP
          * link file.
          * 
@@ -1282,7 +1282,7 @@ declare namespace dlpPermission {
          * Adds a link file to the FUSE. This API uses an asynchronous callback to return the result. After this API is 
          * successfully called, a virtual file used to map the DLP file is created in the FUSE.
          * 
-         * After calling addDLPLinkFile to add a link file, the system needs to call 
+         * After calling **addDLPLinkFile** to add a link file, the system needs to call 
          * [deleteDLPLinkFile]{@link dlpPermission.DLPFile.deleteDLPLinkFile(linkFileName: string)} to remove the DLP
          * link file.
          * 
@@ -1381,7 +1381,7 @@ declare namespace dlpPermission {
          * After the link file is replaced, the read and write need to be resumed.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { AsyncCallback<void> } callback - Callback used to receive the result of resuming the read and write on
+         * @param { AsyncCallback<void> } callback - Callback used to receive the result of resuming the read and write
          *     on the FUSE.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1501,9 +1501,9 @@ declare namespace dlpPermission {
          * common file for free sharing.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { number } plaintextFd - FD of the target plaintext file. The value range is [0, 2<sup>31</sup>-1]. If 
-         *     the value of **fd** is less than 0, an error log is generated, and the function stops running. If the 
-         *     value of **fd** is greater than 231-1, the excess part will be truncated.
+         * @param { number } plaintextFd - FD of the target plaintext file. The value range is [0, 2<sup>31</sup>-1]. If
+         *     the value of **fd** is less than 0, an error log is generated, and the function stops running. If the
+         *     value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
          * @returns { Promise<void> } Promise that returns no value.
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1530,9 +1530,9 @@ declare namespace dlpPermission {
          * This API is used when the file owner decides to disable the DLP protection for a file.
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
-         * @param { number } plaintextFd - FD of the target plaintext file. The value range is [0, 2<sup>31</sup>-1]. If 
-         *     the value of **fd** is less than 0, an error log is generated, and the function stops running. If the 
-         *     value of **fd** is greater than 231-1, the excess part will be truncated.
+         * @param { number } plaintextFd - FD of the target plaintext file. The value range is [0, 2<sup>31</sup>-1]. If
+         *     the value of **fd** is less than 0, an error log is generated, and the function stops running. If the
+         *     value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
          * @param { AsyncCallback<void> } callback - Callback used to receive the result of recovering the plaintext of
          *     a DLP file. The callback parameter is **err**. **err** is **undefined** when the operation is successful;
          *     otherwise, **err** is an error object.
@@ -1616,10 +1616,10 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
-     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function 
+     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function
      *     stops running. If the value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
@@ -1653,14 +1653,14 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } plaintextFd - FD of the plaintext file to be encrypted. The value range is
-     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function 
+     *     [0, 2<sup>31</sup>-1]. If the value of **fd** is less than 0, an error log is generated, and the function
      *     stops running. If the value of **fd** is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file is generated 
+     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file is generated
      *     successfully, **err** is **undefined** and **data** is the DLP file information obtained; otherwise, **err**
      *     is an error object.
      * @throws { BusinessError } 201 - Permission denied.
@@ -1692,9 +1692,9 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
-     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.  If the value is out of range, 
+     * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes.  If the value is out of range,
      *     error code 19100001 is returned.
      * @returns { Promise<DLPFile> } Promise If the value is **resolve**, a **DLPFile** object is returned, indicating
      *     that a DLP file is successfully opened. If the value is **reject**, an error is returned, indicating that the
@@ -1727,7 +1727,7 @@ declare namespace dlpPermission {
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { number } ciphertextFd - FD of the encrypted file. The value range is [0, 2<sup>31</sup>-1]. If the value
-     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd** 
+     *     of **fd** is less than 0, an error log is generated, and the function stops running. If the value of **fd**
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { string } appId - ID of the caller. The value contains 8 to 1024 bytes. If the value is out of range,
      *     error code 19100001 is returned.
