@@ -2715,6 +2715,74 @@ declare namespace media {
      * @since 23 dynamic&static
      */
     AV_METRICS_EVENT_STALLING = 1,
+
+    /**
+     * It is reported when the video sending and rendering time deviation is greater than expected,
+     * for example, video frame alignment or display in advance.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LIP_ASYNC = 2,
+
+    /**
+     * Load rate change event. This event is triggered when the difference
+     * between the data loading rate and the previous data loading rate is greater than 10%.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LOADINGRATE_CHANGE = 3,
+
+    /**
+     * Data loading failure event, which carries the error information returned during data loading,
+     * such as connection timeout, access error, and server rejection.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_LOADING_ERROR = 4,
+
+    /**
+     * Reported when the played media content changes, for example, advertisement insertion.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_CONTENT_CHANGED = 5,
+
+    /**
+     * Content discontinuity event.
+     * This event is triggered when audio and video parameter changes are detected.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_CONTENT_DISCONTINUITY = 6,
+
+    /**
+     * Audio/video decoder exception event, which is reported when an exception occurs in the decoder.
+     * The carried information includes the decoder type and exception type.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_CODEC_ABNORMAL = 7,
+
+    /**
+     * Audio device status change event, including underload or out-of-focus.
+     *
+     * @syscap SystemCapability.Multimedia.Media.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    AV_METRICS_EVENT_AUDIO_ABNORMAL = 8,
   }
 
   /**
