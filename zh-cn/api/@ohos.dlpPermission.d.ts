@@ -835,7 +835,8 @@ declare namespace dlpPermission {
     /**
      * 取消监听DLP沙箱卸载事件。调用成功后，应用不再接收DLP沙箱卸载事件的回调通知。
      * 
-     * 必须在调用[on]{@link dlppermission.on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>)}注册监听后才能调用此方法取消监听。
+     * 必须在调用[on]{@link dlppermission.on(type: 'uninstallDLPSandbox', listener: Callback<DLPSandboxState>)}注册监听后才能调用此方法取消
+     * 监听。
      * 
      * DLP管理应用退出或不再需要追踪沙箱状态变化时，取消事件订阅以释放监听资源。
      *
@@ -1055,7 +1056,6 @@ declare namespace dlpPermission {
         countdown?: number;
         /**
          * 表示DLP文件的扩展属性，默认为空。
-         * **模型约束：**此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @stagemodelonly
