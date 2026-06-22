@@ -21,7 +21,7 @@
 import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
 
  /**
- * Enumerates the types of arc buttons that can be set for **ArcButton**.
+ * 定义ArcButton可设置的弧形按钮的类型。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -30,7 +30,7 @@ import { ColorMetrics, LengthMetrics } from '@ohos.arkui.node';
  */
 export declare enum ArcButtonPosition {
     /**
-     * Upper arc button located at the top of the circular screen.
+     * 上弧形按钮，位于圆形屏幕上方。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -39,7 +39,7 @@ export declare enum ArcButtonPosition {
      */
     TOP_EDGE = 0,
     /**
-     * Lower arc button located at the bottom of the circular screen.
+     * 底部弧形按钮，位于圆形屏幕底部。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -50,7 +50,7 @@ export declare enum ArcButtonPosition {
 }
 
 /**
- * Enumerates the style modes that can be set for **ArcButton**.
+ * 定义ArcButton可设置弧形按钮样式模式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -59,7 +59,7 @@ export declare enum ArcButtonPosition {
  */
 export declare enum ArcButtonStyleMode {
     /**
-     * Emphasized style in light color mode. Displayed as a blue background with white text.
+     * 强调样式，亮色，表现为蓝色背景、白色文字。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -68,7 +68,7 @@ export declare enum ArcButtonStyleMode {
      */
     EMPHASIZED_LIGHT = 0,
     /**
-     * Warning style in dark color mode. Displayed as a red background with white text.
+     * 警告样式，暗色，表现为红色背景、白色文字。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -77,7 +77,7 @@ export declare enum ArcButtonStyleMode {
      */
     EMPHASIZED_DARK = 1,
     /**
-     * Normal style in light color mode. Displayed as a dark blue background with blue text.
+     * 常规样式，亮色，表现为深蓝色背景、蓝色文字。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -86,7 +86,7 @@ export declare enum ArcButtonStyleMode {
      */
     NORMAL_LIGHT = 2,
     /**
-     * Normal style in dark color mode. Displayed as a dark gray background with blue text.
+     * 常规样式，暗色，表现为深灰色背景、蓝色文字。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -96,7 +96,7 @@ export declare enum ArcButtonStyleMode {
     NORMAL_DARK = 3,
     
     /**
-     * Custom button color and font color.
+     * 自定义按钮颜色和字体颜色。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -107,7 +107,7 @@ export declare enum ArcButtonStyleMode {
 }
 
 /**
- * Enumerates the states that can be set for **ArcButton**.
+ * 定义ArcButton可设置的弧形按钮状态。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -116,7 +116,7 @@ export declare enum ArcButtonStyleMode {
  */
 export declare enum ArcButtonStatus {
     /**
-     * Normal state.
+     * 正常状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -125,7 +125,7 @@ export declare enum ArcButtonStatus {
      */
     NORMAL = 0,
     /**
-     * Pressed state.
+     * 按压状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -134,7 +134,7 @@ export declare enum ArcButtonStatus {
      */
     PRESSED = 1,
     /**
-     * Disabled state.
+     * 禁用状态。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -145,7 +145,7 @@ export declare enum ArcButtonStatus {
 }
 
 /**
- * Defines the progress indicator configuration options of the **ArcButton** component.
+ * ArcButton内进度条的参数配置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
@@ -155,12 +155,11 @@ export declare enum ArcButtonStatus {
  */
 export declare class ArcButtonProgressConfig {
   /**
-   * Current progress value. Values less than 0 are adjusted to **0**, and values greater than the **total** value are 
-   * capped at the **total** value.
+   * 进度条当前值。设置小于0的数值时置为0，设置大于total的数值时置为total。
    * 
-   * Default value: **0**.
+   * 默认值：0
    * 
-   * Value range: [0, total]
+   * 取值范围：[0, total]
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
@@ -170,11 +169,11 @@ export declare class ArcButtonProgressConfig {
    */
   value: number;
   /**
-   * Maximum progress value.
+   * 进度的最大值。
    * 
-   * Default value: **100**
+   * 默认值：100
    * 
-   * Value range: [0, 2147483647]. If the value is 0 or out of the range, the default value 100 is used.
+   * 取值范围：[0, 2147483647]，设置0或超出取值范围取默认值为100。
    *
    * @default 100
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
@@ -185,13 +184,10 @@ export declare class ArcButtonProgressConfig {
    */
   total?: number;
   /**
-   * Foreground color of the progress indicator. If the component's background color (
-   * [backgroundColor]{@link ArcButtonOptions}) is set, it is used as the default foreground color of the progress 
-   * indicator. The foreground color of the progress indicator is not affected by the button style (
-   * [ArcButtonStyleMode]{@link ArcButtonStyleMode}). The progress indicator's background color is derived solely from 
-   * its foreground color, with an opacity value of 25%.
+   * 进度条前景色。如果组件设置了背景色（[backgroundColor]{@link ArcButtonOptions}），进度条前景色默认值取组件背景色。进度条前景色不受按钮样式（
+   * [ArcButtonStyleMode]{@link ArcButtonStyleMode}）设置影响。进度条背景色仅依赖进度条前景色设置，取进度条前景色的25%透明度。 
    * 
-   * Default value: **"#1F71FF"**, which is blue.
+   * 默认值："#1F71FF"，显示为蓝色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
@@ -203,7 +199,7 @@ export declare class ArcButtonProgressConfig {
 }
 
 /**
- * Defines the default or custom style parameters for the **ArcButton** component.
+ * ArcButton的默认样式或自定义样式参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -212,9 +208,9 @@ export declare class ArcButtonProgressConfig {
  */
 interface CommonArcButtonOptions {
     /**
-     * Type of the arc button.
+     * 上下弧形按钮类型属性。
      * 
-     * Default value: **ArcButtonPosition.BOTTOM_EDGE**
+     * 默认值：ArcButtonPosition.BOTTOM_EDGE。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -223,10 +219,9 @@ interface CommonArcButtonOptions {
      */
     position?: ArcButtonPosition;
     /**
-     * Style mode for the arc button. This style cannot be used together with the 
-     * [ArcButtonProgressConfig]{@link ArcButtonProgressConfig} style.
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
      * 
-     * Default value: **ArcButtonStyleMode.EMPHASIZED_LIGHT**
+     * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -235,9 +230,9 @@ interface CommonArcButtonOptions {
      */
     styleMode?: ArcButtonStyleMode;
     /**
-     * Status of the arc button.
+     * 弧形按钮状态。
      * 
-     * Default value: **ArcButtonStatus.NORMAL**
+     * 默认值：ArcButtonStatus.NORMAL。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -246,7 +241,7 @@ interface CommonArcButtonOptions {
      */
     status?: ArcButtonStatus;
     /**
-     * Text displayed on the arc button.
+     * 弧形按钮显示文本。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -255,9 +250,9 @@ interface CommonArcButtonOptions {
      */
     label?: ResourceStr;
     /**
-     * Background blur style of the arc button.
+     * 弧形按钮背景模糊能力。
      * 
-     * Default value: **BlurStyle.NONE**
+     * 默认值：BlurStyle.NONE。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -266,11 +261,11 @@ interface CommonArcButtonOptions {
      */
     backgroundBlurStyle?: BlurStyle;
     /**
-     * Background color of the arc button.
+     * 弧形按钮背景颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.Black**
+     * 默认值：Color.Black。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -279,9 +274,9 @@ interface CommonArcButtonOptions {
      */
     backgroundColor?: ColorMetrics;
     /**
-     * Shadow color of the arc button.
+     * 弧形按钮阴影颜色。
      * 
-     * Default value: **Color.Black**
+     * 默认值：Color.Black。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -290,11 +285,11 @@ interface CommonArcButtonOptions {
      */
     shadowColor?: ColorMetrics;
     /**
-     * Whether to enable the shadow for the arc button.
+     * 弧形按钮阴影开关。
      * 
-     * Default value: **false**
+     * 默认值：false
      * 
-     * The value **true** means to enable the shadow, and **false** means the opposite.
+     * 值为true时，显示阴影。值为false时，不显示阴影。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -303,9 +298,9 @@ interface CommonArcButtonOptions {
      */
     shadowEnabled?: boolean;
     /**
-     * Font size of the arc button.
+     * 弧形按钮文本大小。
      * 
-     * Default value: **19fp**
+     * 默认值：19fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -314,11 +309,11 @@ interface CommonArcButtonOptions {
      */
     fontSize?: LengthMetrics;
     /**
-     * Font color of the arc button.
+     * 弧形按钮文本颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.White**
+     * 默认值：Color.White。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -327,11 +322,11 @@ interface CommonArcButtonOptions {
      */
     fontColor?: ColorMetrics;
     /**
-     * Font color of the arc button when pressed.
+     * 弧形按钮按下文本颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.White**
+     * 默认值：Color.White。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -340,9 +335,9 @@ interface CommonArcButtonOptions {
      */
     pressedFontColor?: ColorMetrics;
     /**
-     * Font style of the arc button.
+     * 弧形按钮文本样式。
      * 
-     * Default value: **FontStyle.Normal**
+     * 默认值：FontStyle.Normal。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -351,7 +346,7 @@ interface CommonArcButtonOptions {
      */
     fontStyle?: FontStyle;
     /**
-     * Font family of the arc button.
+     * 弧形按钮字体名。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -360,9 +355,9 @@ interface CommonArcButtonOptions {
      */
     fontFamily?: string | Resource;
     /**
-     * Margin of the arc button text.
+     * 弧形按钮文本边距。
      * 
-     * Default value: **{start:24vp, top: 10vp,end: 24vp, bottom:16vp }**
+     * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -372,15 +367,12 @@ interface CommonArcButtonOptions {
     fontMargin?: LocalizedMargin;
     
     /**
-     * Parameters for the progress indicator of the **ArcButton** component. If this property is not set, the 
-     * **ArcButton** component is displayed as a button (see 
-     * [Example 1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-1-setting-an-arc-button)
-     * ). If this property is set, the component is displayed as a progress indicator (see 
-     * [Example 2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-2-setting-a-device-progress-indicator-button)
-     * ). The progress indicator style is not affected by the settings of the 
-     * [ArcButtonStyleMode]{@link ArcButtonStyleMode} attribute.
+     * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
+     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
+     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
-     * Default value: default values of all properties of [ArcButtonProgressConfig]{@link ArcButtonProgressConfig}
+     * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @stagemodelonly
@@ -391,7 +383,7 @@ interface CommonArcButtonOptions {
     progressConfig?: ArcButtonProgressConfig;
     
     /**
-     * Callback triggered by touch actions on the arc button.
+     * 弧形按钮手指触摸动作触发该回调。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -401,7 +393,7 @@ interface CommonArcButtonOptions {
     onTouch?: Callback<TouchEvent>;
     
     /**
-     * Callback triggered by click actions on the arc button.
+     * 弧形按钮点击动作触发该回调。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -411,7 +403,7 @@ interface CommonArcButtonOptions {
     onClick?: Callback<ClickEvent>;
 }
 /**
- * Defines the default or custom style parameters for the **ArcButton** component.
+ * 定义ArcButton的默认样式或自定义样式参数。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -420,9 +412,9 @@ interface CommonArcButtonOptions {
  */
 export declare class ArcButtonOptions {
     /**
-     * Type of the arc button.
+     * 上下弧形按钮类型属性。
      * 
-     * Default value: **ArcButtonPosition.BOTTOM_EDGE**
+     * 默认值：ArcButtonPosition.BOTTOM_EDGE。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -431,10 +423,9 @@ export declare class ArcButtonOptions {
      */
     position: ArcButtonPosition;
     /**
-     * Style mode for the arc button. This style cannot be used together with the 
-     * [ArcButtonProgressConfig]{@link ArcButtonProgressConfig} style.
+     * 弧形按钮样式模式。该样式不支持与[ArcButtonProgressConfig]{@link ArcButtonProgressConfig}样式同时使用。
      * 
-     * Default value: **ArcButtonStyleMode.EMPHASIZED_LIGHT**
+     * 默认值：ArcButtonStyleMode.EMPHASIZED_LIGHT。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -443,9 +434,9 @@ export declare class ArcButtonOptions {
      */
     styleMode: ArcButtonStyleMode;
     /**
-     * Status of the arc button.
+     * 弧形按钮状态。
      * 
-     * Default value: **ArcButtonStatus.NORMAL**
+     * 默认值：ArcButtonStatus.NORMAL。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -454,7 +445,7 @@ export declare class ArcButtonOptions {
      */
     status: ArcButtonStatus;
     /**
-     * Text displayed on the arc button.
+     * 弧形按钮显示文本。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -463,9 +454,9 @@ export declare class ArcButtonOptions {
      */
     label: ResourceStr;
     /**
-     * Background blur style of the arc button.
+     * 弧形按钮背景模糊能力。
      * 
-     * Default value: **BlurStyle.NONE**
+     * 默认值：BlurStyle.NONE。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -474,11 +465,11 @@ export declare class ArcButtonOptions {
      */
     backgroundBlurStyle: BlurStyle;
     /**
-     * Background color of the arc button.
+     * 弧形按钮背景颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.Black**
+     * 默认值：Color.Black。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -487,9 +478,9 @@ export declare class ArcButtonOptions {
      */
     backgroundColor: ColorMetrics;
     /**
-     * Shadow color of the arc button.
+     * 弧形按钮阴影颜色。
      * 
-     * Default value: **Color.Black**
+     * 默认值：Color.Black。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -498,11 +489,11 @@ export declare class ArcButtonOptions {
      */
     shadowColor: ColorMetrics;
     /**
-     * Whether to enable the shadow for the arc button.
+     * 弧形按钮阴影开关。
      * 
-     * Default value: **false**
+     * 默认值：false
      * 
-     * The value **true** means to enable the shadow, and **false** means the opposite.
+     * 值为true时，显示阴影。值为false时，不显示阴影。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -511,9 +502,9 @@ export declare class ArcButtonOptions {
      */
     shadowEnabled: boolean;
     /**
-     * Font size of the arc button.
+     * 弧形按钮文本大小。
      * 
-     * Default value: **19fp**
+     * 默认值：19fp。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -522,11 +513,11 @@ export declare class ArcButtonOptions {
      */
     fontSize: LengthMetrics;
     /**
-     * Font color of the arc button.
+     * 弧形按钮文本颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.White**
+     * 默认值：Color.White。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -535,11 +526,11 @@ export declare class ArcButtonOptions {
      */
     fontColor: ColorMetrics;
     /**
-     * Font color of the arc button when pressed.
+     * 弧形按钮按下文本颜色。
      * 
-     * This property takes effect only when **ArcButtonStyleMode** is set to **CUSTOM**.
+     * ArcButtonStyleMode需要设置为CUSTOM。
      * 
-     * Default value: **Color.White**
+     * 默认值：Color.White。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -548,9 +539,9 @@ export declare class ArcButtonOptions {
      */
     pressedFontColor: ColorMetrics;
     /**
-     * Font style of the arc button.
+     * 弧形按钮文本样式。
      * 
-     * Default value: **FontStyle.Normal**
+     * 默认值：FontStyle.Normal。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -559,7 +550,7 @@ export declare class ArcButtonOptions {
      */
     fontStyle: FontStyle;
     /**
-     * Font family of the arc button.
+     * 弧形按钮字体名。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -568,9 +559,9 @@ export declare class ArcButtonOptions {
      */
     fontFamily: string | Resource;
     /**
-     * Margin of the arc button text.
+     * 弧形按钮文本边距。
      * 
-     * Default value: **{start:24vp, top: 10vp,end: 24vp, bottom:16vp }**
+     * 默认值：{start:24vp, top: 10vp,end: 24vp, bottom:16vp }。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -580,15 +571,12 @@ export declare class ArcButtonOptions {
     fontMargin: LocalizedMargin;
 
     /**
-     * Parameters for the progress indicator of the **ArcButton** component. If this property is not set, the 
-     * **ArcButton** component is displayed as a button (see 
-     * [Example 1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-1-setting-an-arc-button)
-     * ). If this property is set, the component is displayed as a progress indicator (see 
-     * [Example 2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#example-2-setting-a-device-progress-indicator-button)
-     * ). The progress indicator style is not affected by the settings of the 
-     * [ArcButtonStyleMode]{@link ArcButtonStyleMode} attribute.
+     * ArcButton进度条参数。不设置该属性时ArcButton组件表现为按钮样式（
+     * [示例1](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例1-设置弧形按钮)），设置后表现为进度条样式（
+     * [示例2](docroot://reference/apis-arkui/arkui-ts/ohos-arkui-advanced-ArcButton.md#示例2-设置设备进度条按钮)），进度条样式不受
+     * [ArcButtonStyleMode]{@link ArcButtonStyleMode}属性设置影响。 
      * 
-     * Default value: default values of all properties of [ArcButtonProgressConfig]{@link ArcButtonProgressConfig}
+     * 默认值：[ArcButtonProgressConfig]{@link ArcButtonProgressConfig} 的各项子属性均取其默认值。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @stagemodelonly
@@ -599,7 +587,7 @@ export declare class ArcButtonOptions {
     progressConfig?: ArcButtonProgressConfig;
     
     /**
-     * Callback triggered by touch actions on the arc button.
+     * 弧形按钮手指触摸动作触发该回调。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -609,7 +597,7 @@ export declare class ArcButtonOptions {
     onTouch?: Callback<TouchEvent>;
     
     /**
-     * Callback triggered by click actions on the arc button.
+     * 弧形按钮点击动作触发该回调。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
@@ -619,10 +607,9 @@ export declare class ArcButtonOptions {
     onClick?: Callback<ClickEvent>;
     
     /**
-     * A constructor used to create an **ArcButton** component.
+     * 弧形按钮的构造函数。
      *
-     * @param { CommonArcButtonOptions } options - Text, background color, shadow, and other parameters of the
-     *     **ArcButton** component.
+     * @param { CommonArcButtonOptions } options - 定义ArcButton组件的文本、背景色、阴影等参数。
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform
      * @atomicservice
@@ -631,14 +618,11 @@ export declare class ArcButtonOptions {
     constructor(options: CommonArcButtonOptions);
 }
 /**
- * The **ArcButton** component offers various button styles, such as emphasized, normal, and warning. It is recommended 
- * for devices with circular screens.
+ * 弧形按钮组件提供强调、普通、警告等样式按钮，推荐用于圆形屏幕的设备。
  * 
- * > **NOTE**
+ * > **说明：**
  * 
- * > - This component can be used on phones, PCs, 2-in-1 devices, tablets, TVs, and wearables. In API version 22 and 
- * > earlier versions, a compilation warning will be reported when this component is used on phones, PCs, 2-in-1 
- * > devices, tablets, and TVs, but the component can still run properly.
+ * > - 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -648,7 +632,7 @@ export declare class ArcButtonOptions {
 @Component
 export declare struct ArcButton {
     /**
-     * Text, background color, shadow, and other parameters of the **ArcButton** component.
+     * 定义ArcButton组件的文本、背景色、阴影等参数。
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Circle
      * @crossplatform

@@ -19,7 +19,7 @@
  */
 
 /**
- * Enumerates the alignment modes of the alert dialog boxes.
+ * 警告弹窗的对齐方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -29,7 +29,7 @@
  */
 declare enum DialogAlignment {
   /**
-   * Vertical top alignment.
+   * 垂直顶部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -40,7 +40,7 @@ declare enum DialogAlignment {
   Top,
 
   /**
-   * Vertical center alignment.
+   * 垂直居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -51,7 +51,7 @@ declare enum DialogAlignment {
   Center,
 
   /**
-   * Vertical bottom alignment.
+   * 垂直底部对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -62,7 +62,7 @@ declare enum DialogAlignment {
   Bottom,
 
   /**
-   * Default alignment.
+   * 默认对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -73,7 +73,7 @@ declare enum DialogAlignment {
   Default,
 
   /**
-   * Top left alignment.
+   * 左上对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -84,7 +84,7 @@ declare enum DialogAlignment {
   TopStart,
 
   /**
-   * Top right alignment.
+   * 右上对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -95,7 +95,7 @@ declare enum DialogAlignment {
   TopEnd,
 
   /**
-   * Center left alignment.
+   * 左中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -106,7 +106,7 @@ declare enum DialogAlignment {
   CenterStart,
 
   /**
-   * Center right alignment.
+   * 右中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -117,7 +117,7 @@ declare enum DialogAlignment {
   CenterEnd,
 
   /**
-   * Bottom left alignment.
+   * 左下对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -128,7 +128,7 @@ declare enum DialogAlignment {
   BottomStart,
 
   /**
-   * Bottom right alignment.
+   * 右下对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -140,7 +140,7 @@ declare enum DialogAlignment {
 }
 
 /**
- * Enumerates the alignment modes of the buttons in the alert dialog box.
+ * 警告弹窗中按钮的对齐方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -150,7 +150,7 @@ declare enum DialogAlignment {
  */
 declare enum DialogButtonDirection {
   /**
-   * Buttons are laid out horizontally when there are two or fewer buttons and vertically otherwise.
+   * 两个及以下按钮水平排布，两个以上为竖直排布。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -161,7 +161,7 @@ declare enum DialogButtonDirection {
   AUTO = 0,
 
   /**
-   * Buttons are laid out horizontally.
+   * 按钮水平布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -172,7 +172,7 @@ declare enum DialogButtonDirection {
   HORIZONTAL = 1,
 
   /**
-   * Buttons are laid out vertically.
+   * 按钮竖直布局。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -184,13 +184,11 @@ declare enum DialogButtonDirection {
 }
 
 /**
- * Defines the button style of the alert dialog box.
+ * 警告弹窗中按钮的样式。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -200,11 +198,9 @@ declare enum DialogButtonDirection {
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
-   * Whether to respond when the button is clicked.
+   * 点击Button是否响应，默认值true。
    * 
-   * Default value: **true**
-   * 
-   * **true**: Respond when the button is clicked. **false**: Do not respond when the button is clicked.
+   * 值为true时，Button可以响应。值为false时，Button不可以响应。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -216,8 +212,7 @@ declare interface AlertDialogButtonBaseOptions {
   enabled?: boolean;
 
   /**
-   * Whether the button is the default focus. Default value: **false**. **true**: The button is the default focus. 
-   * **false**: The button is not the default focus.
+   * 设置Button是否是默认焦点，默认值false。值为true表示Button为默认焦点，值为false表示Button不为默认焦点。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -229,9 +224,7 @@ declare interface AlertDialogButtonBaseOptions {
   defaultFocus?: boolean;
 
   /**
-   * Style of the button.
-   * 
-   * Default value: **DialogButtonStyle.DEFAULT**
+   * 设置Button的风格样式，默认值DialogButtonStyle.DEFAULT。
    *
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -243,7 +236,7 @@ declare interface AlertDialogButtonBaseOptions {
   style?: DialogButtonStyle;
 
   /**
-   * Text of the button. If the value is null, the button is not displayed.
+   * Button的文本内容，若值为null，则该按钮不显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -254,7 +247,7 @@ declare interface AlertDialogButtonBaseOptions {
   value: ResourceStr;
 
   /**
-   * Font color of the button.
+   * Button的文本颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -265,7 +258,7 @@ declare interface AlertDialogButtonBaseOptions {
   fontColor?: ResourceColor;
 
   /**
-   * Background color of the button.
+   * Button背景颜色。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -276,7 +269,7 @@ declare interface AlertDialogButtonBaseOptions {
   backgroundColor?: ResourceColor;
 
   /**
-   * Callback upon button clicking.
+   * Button选中时的回调。
    *
    * @type { function } [since 10 - 17]
    * @type { VoidCallback } [since 18]
@@ -290,7 +283,7 @@ declare interface AlertDialogButtonBaseOptions {
 }
 
 /**
- * Inherits from [AlertDialogButtonBaseOptions]{@link AlertDialogButtonBaseOptions}.
+ * 继承自[AlertDialogButtonBaseOptions]{@link AlertDialogButtonBaseOptions}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -300,14 +293,10 @@ declare interface AlertDialogButtonBaseOptions {
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
-   * Whether the button responds to the **Enter** key by default when the dialog box has focus and the **Tab** key is 
-   * not pressed for sequential focus navigation. If there are multiple buttons, set this parameter to **true** for only
-   * one button. Otherwise, no button will respond. Multiple dialog boxes can automatically gain focus and respond to 
-   * user interactions in a sequential manner. This parameter does not take effect when **defaultFocus** is set to 
-   * **true**. **true**: The button responds to the **Enter** key by default. **false**: The button does not respond to 
-   * the **Enter** key by default.
+   * 在弹窗获焦且未进行tab键走焦时，按钮是否默认响应Enter键。多个Button时，只允许一个Button的该字段配置为true，否则所有Button均不响应。多重弹窗可自动获焦连续响应。在defaultFocus为true时不生
+   * 效。值为true表示按钮默认响应Enter键，值为false时，按钮不默认响应Enter键。
    * 
-   * Default value: **false**.
+   * 默认值：false
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -319,7 +308,7 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
 }
 
 /**
- * Describes the word break rule of the message in the dialog box.
+ * 弹窗中message的截断方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -329,9 +318,9 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  */
 declare interface TextStyle {
   /**
-   * Word break rule.
+   * 弹窗message内容的文本截断方式。
    * 
-   * Default value: **WordBreak.BREAK_ALL**
+   * 默认值：WordBreak.BREAK_ALL
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -343,7 +332,7 @@ declare interface TextStyle {
 }
 
 /**
- * Defines the display order of the dialog box.
+ * 弹窗的显示顺序。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -354,7 +343,7 @@ declare interface TextStyle {
 declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
 
 /**
- * Enumerates the alert dialog box styles.
+ * 警告弹窗的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -364,11 +353,11 @@ declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
  */
 declare interface AlertDialogParam {
   /**
-   * Title of the dialog box.
+   * 弹窗标题。
    * 
-   * Prior to API version 20: The title of the dialog box is left-aligned.
+   * API version 20之前，弹窗标题的对齐方式为左对齐。
    * 
-   * API version 20 and later: The title of the dialog box is center-aligned.
+   * API version 20及之后，弹窗标题的对齐方式为居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -379,11 +368,11 @@ declare interface AlertDialogParam {
   title?: ResourceStr;
   
   /**
-   * Subtitle of the dialog box.
+   * 弹窗副标题。
    * 
-   * Prior to API version 20: The subtitle of the dialog box is left-aligned.
+   * API version 20之前，弹窗副标题的对齐方式为左对齐。
    * 
-   * API version 20 and later: The subtitle of the dialog box is center-aligned.
+   * API version 20及之后，弹窗副标题的对齐方式为居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -394,11 +383,11 @@ declare interface AlertDialogParam {
   subtitle?: ResourceStr;
 
   /**
-   * Content of the dialog box.
+   * 弹窗内容。
    * 
-   * Prior to API version 20: The content of the dialog box is left-aligned.
+   * API version 20之前，弹窗内容的对齐方式为左对齐。
    * 
-   * API version 20 and later: The content of the dialog box is center-aligned.
+   * API version 20及之后，弹窗内容的对齐方式为居中对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -409,10 +398,9 @@ declare interface AlertDialogParam {
   message: ResourceStr;
 
   /**
-   * Whether to dismiss the dialog box when the mask is touched. The value **true** means to dismiss the dialog box when
-   * the mask is touched, and **false** means the opposite.
+   * 点击遮障层时，是否关闭弹窗，true表示关闭弹窗。false表示不关闭弹窗。
    * 
-   * Default value: **true**.
+   * 默认值：true
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -423,7 +411,7 @@ declare interface AlertDialogParam {
   autoCancel?: boolean;
 
   /**
-   * Callback invoked when the dialog box is closed after the overlay is clicked.
+   * 点击遮障层关闭dialog时的回调。
    *
    * @type { ?function } [since 7 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -436,14 +424,13 @@ declare interface AlertDialogParam {
   cancel?: VoidCallback;
 
   /**
-   * Alignment mode of the dialog box in the vertical direction.
+   * 弹窗在竖直方向上的对齐方式。
    * 
-   * Default value: **DialogAlignment.Default**
+   * 默认值：DialogAlignment.Default 
    * 
-   * **NOTE**
+   * **说明**：
    * 
-   * If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window based 
-   * on **UIExtension**.
+   * 若在UIExtension中设置showInSubWindow为true，弹窗将基于UIExtension的宿主窗口对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -454,9 +441,9 @@ declare interface AlertDialogParam {
   alignment?: DialogAlignment;
 
   /**
-   * Offset of the dialog box based on the **alignment** settings.
+   * 弹窗相对alignment所在位置的偏移量。
    * 
-   * Default value: **{ dx: 0 , dy: 0 }**
+   * 默认值：{ dx: 0 , dy: 0 }
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -467,11 +454,11 @@ declare interface AlertDialogParam {
   offset?: Offset;
 
   /**
-   * Number of grid columns occupied by the width of the dialog box.
+   * 弹窗容器宽度所占用栅格数。
    * 
-   * Default value: **4**
+   * 默认值：4 
    * 
-   * Value range: an integer no less than 0
+   * 取值范围：大于等于0的整数。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -482,14 +469,13 @@ declare interface AlertDialogParam {
   gridCount?: number;
 
   /**
-   * Mask area of the dialog box. Events outside the mask area are transparently transmitted, and events within the mask
-   * area are not.
+   * 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。
    * 
-   * Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**
+   * 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * **maskRect** does not take effect when **showInSubWindow** is set to **true**.
+   * showInSubWindow为true时，maskRect不生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -500,16 +486,11 @@ declare interface AlertDialogParam {
   maskRect?: Rectangle;
   
   /**
-   * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
+   * 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
    * 
-   * **true**: The dialog box is shown in a subwindow.
+   * 默认值：false，弹窗显示在应用内，而非独立子窗口。
    * 
-   * Default value: **false**, meaning the dialog box is displayed within the application, not in a separate subwindow
-   * 
-   * **NOTE**
-   * 
-   * A dialog box whose **showInSubWindow** attribute is **true** cannot trigger the display of another dialog box whose
-   * **showInSubWindow** attribute is also **true**.
+   * **说明**：showInSubWindow为true的弹窗无法触发显示另一个showInSubWindow为true的弹窗。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -521,10 +502,9 @@ declare interface AlertDialogParam {
   showInSubWindow?: boolean;
 
   /**
-   * Whether the dialog box is a modal. A modal dialog box has a mask applied, while a non-modal dialog box does not. 
-   * **false**: The dialog box is not a modal.
+   * 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为false时，弹窗为非模态窗口，无蒙层。
    * 
-   * Default value: **true**.
+   * 默认值：true，此时弹窗有蒙层。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -536,15 +516,13 @@ declare interface AlertDialogParam {
   isModal?: boolean;
 
   /**
-   * Background color of the dialog box.
+   * 弹窗背板颜色。
    * 
-   * Default value: **Color.Transparent**
+   * 默认值：Color.Transparent
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * The background color will be visually combined with the blur effect when both properties are set. If the resulting 
-   * effect does not match your design requirements, you can disable the blur effect entirely by explicitly setting the 
-   * **backgroundBlurStyle** property to **BlurStyle.NONE**.
+   * backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -556,15 +534,13 @@ declare interface AlertDialogParam {
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the dialog box.
+   * 弹窗背板模糊材质。
    * 
-   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+   * 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set to a
-   * value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce the 
-   * expected visual effect.
+   * 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。
    *
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -576,8 +552,7 @@ declare interface AlertDialogParam {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Options for customizing the background blur style. For details about the default value, see 
-   * **BackgroundBlurStyleOptions**.
+   * 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -588,8 +563,7 @@ declare interface AlertDialogParam {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Options for customizing the background effect. For details about the default value, see 
-   * **BackgroundEffectOptions**.
+   * 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -600,12 +574,14 @@ declare interface AlertDialogParam {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Callback for interactive dismissal of the dialog box.
+   * 交互式关闭回调函数。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. If this callback is registered, the dialog box will not be dismissed immediately after the user touches the mask or the Back button, presses the **Esc** key, or swipes left or right on the screen. The **reason** parameter in the callback is used to determine whether the dialog box can be dismissed. The reason returned by the component does not support the value **CLOSE_BUTTON**.
-   * 2. In the **onWillDismiss** callback, another **onWillDismiss** callback is not allowed.
+   * 1.当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件
+   * 返回的reason中，暂不支持CLOSE_BUTTON的枚举值。
+   * 
+   * 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -616,13 +592,15 @@ declare interface AlertDialogParam {
   onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
-   * Transition effect for the appearance and disappearance of the dialog box.
+   * 设置弹窗显示和退出的过渡效果。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. If this parameter is not set, the default effect is used.
-   *  2. Touching the Back button during the appearance animation pauses the appearance animation and starts the disappearance animation. The final effect is one obtained after the curves of the appearance and disappearance animations are combined.
-   *  3. Touching the Back button during the exit animation does not affect the animation playback. Touching the Back button again closes the application.
+   * 1.如果不设置，则使用默认的显示/退出动效。
+   * 
+   * 2.显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+   * 
+   * 3.退出动效中按back键，不会打断退出动效，退出动效继续执行，继续按back键退出应用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -633,21 +611,19 @@ declare interface AlertDialogParam {
   transition?: TransitionEffect;
 
   /**
-   * Corner radius of the background.
+   * 设置背板的圆角半径。
    * 
-   * You can set separate radii for the four corners.
+   * 可分别设置4个圆角的半径。
    * 
-   * Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
+   * 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }
    * 
-   * The radius of the rounded corners is subject to the component size. Its maximum value is half of the component 
-   * width or height. If the value is negative, the default value is used.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 
    * 
-   * When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
+   * 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **cornerRadius** is of type LocalizedBorderRadiuses, the layout order can be dynamically adjusted based on the
-   * user's language settings.
+   * 当cornerRadius属性类型为LocalizedBorderRadiuses时，支持随语言习惯改变布局顺序。
    *
    * @default { topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -659,13 +635,12 @@ declare interface AlertDialogParam {
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Width of the dialog box.
+   * 设置弹窗背板的宽度。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default maximum width of the dialog box: 400 vp
-   * - When this parameter is set to a percentage, the reference width of the dialog box is the width of the window 
-   * where the dialog box is located. You can decrease or increase the width as needed.
+   * - 弹窗宽度默认最大值：400vp。
+   * - 百分比参数方式：弹窗参考宽度为所在窗口的宽度，在此基础上调小或调大。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -676,13 +651,12 @@ declare interface AlertDialogParam {
   width?: Dimension;
 
   /**
-   * Height of the dialog box.
+   * 设置弹窗背板的高度。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
-   * - When this parameter is set to a percentage, the reference height of the dialog box is the height of the window 
-   * where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
+   * - 弹窗高度默认最大值：0.9 *（窗口高度 - 安全区域）。
+   * - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -693,19 +667,17 @@ declare interface AlertDialogParam {
   height?: Dimension;
 
   /**
-   * You can set the width for all four sides or set separate widths for individual sides.
+   * 可分别设置4个边框宽度。
    * 
-   * Default value: **0**
+   * 默认值：0
    * 
-   * When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
+   * 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。
    * 
-   * If the left and right borders are greater than its width, or the top and bottom borders are greater than its 
-   * height, the dialog box may not display as expected.
+   * 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **borderWidth** is of type LocalizedEdgeWidths, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   * 当borderWidth属性类型为LocalizedEdgeWidths时，支持随语言习惯改变布局顺序。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -716,16 +688,15 @@ declare interface AlertDialogParam {
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border color of the dialog box.
+   * 设置弹窗背板的边框颜色。
    * 
-   * Default value: **Color.Black**
+   * 默认值：Color.Black
    * 
-   * **borderColor** must be used with **borderWidth** in pairs.
+   * 如果使用borderColor属性，需要和borderWidth属性一起使用。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **borderColor** is of type LocalizedEdgeColors, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   * 当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -736,11 +707,11 @@ declare interface AlertDialogParam {
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
-   * Border style of the dialog box.
+   * 设置弹窗背板的边框样式。
    * 
-   * Default value: **BorderStyle.Solid**.
+   * 默认值：BorderStyle.Solid
    * 
-   * **borderStyle** must be used with **borderWidth** in pairs.
+   * 如果使用borderStyle属性，需要和borderWidth属性一起使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -751,10 +722,9 @@ declare interface AlertDialogParam {
   borderStyle?: BorderStyle | EdgeStyles;
 
   /**
-   * Shadow of the dialog box.
+   * 设置弹窗背板的阴影。 
    * 
-   * Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused and 
-   * **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
+   * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -765,7 +735,7 @@ declare interface AlertDialogParam {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Text style of the message in the dialog box.
+   * 设置弹窗message内容的文本样式。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -776,18 +746,14 @@ declare interface AlertDialogParam {
   textStyle?: TextStyle;
 
   /**
-   * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device is 
-   * in semi-folded mode.
+   * 是否响应悬停态，值为true时，响应悬停态。
    * 
-   * Default value: **false**, meaning not to respond when the device is in semi-folded mode.
+   * 默认值：false，默认不响应。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * For a PC or 2-in-1 device, the dialog box is displayed on the upper half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the lower half 
-   * of the screen. For other devices, the dialog box is displayed on the lower half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the upper half 
-   * of the screen.
+   * PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通
+   * 过设置hoverModeArea参数显示在上半屏。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -799,9 +765,9 @@ declare interface AlertDialogParam {
   enableHoverMode?: boolean;
 
   /**
-   * Display area of the dialog box in the hover state.
+   * 悬停态下弹窗默认展示区域。
    * 
-   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**
+   * 默认值：HoverModeAreaType.BOTTOM_SCREEN。
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -813,14 +779,17 @@ declare interface AlertDialogParam {
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Event callback after the dialog box appears.
+   * 弹窗弹出后的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. The settings take effect next time the dialog box appears.
-   * 3. When a dialog box is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
-   * 4. If the dialog box is dismissed before its entrance animation is finished, the animation will be interrupted, and **onDidAppear** will not be triggered.
+   * 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
+   * 
+   * 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
+   * 
+   * 3.快速点击弹出，关闭弹窗时，onWillDisappear在onDidAppear前生效。
+   * 
+   * 4.弹窗入场动效未完成时彻底关闭弹窗，动效打断，onDidAppear不会触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -831,11 +800,11 @@ declare interface AlertDialogParam {
   onDidAppear?: Callback<void>;
 
   /**
-   * Event callback after the dialog box disappears.
+   * 弹窗消失后的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -846,12 +815,13 @@ declare interface AlertDialogParam {
   onDidDisappear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to appear.
+   * 弹窗显示动效前的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. The settings take effect next time the dialog box appears.
+   * 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
+   * 
+   * 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -862,11 +832,11 @@ declare interface AlertDialogParam {
   onWillAppear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to disappear.
+   * 弹窗退出动效前的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -877,12 +847,12 @@ declare interface AlertDialogParam {
   onWillDisappear?: Callback<void>;
 
   /**
-   * Display level of the dialog box.
+   * 设置弹窗显示层级。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **LevelMode.OVERLAY**
-   * - This parameter takes effect only when **showInSubWindow** is set to **false**.
+   * - 默认值：LevelMode.OVERLAY。
+   * - 当且仅当showInSubWindow属性设置为false时生效。
    *
    * @default LevelMode.OVERLAY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -894,10 +864,9 @@ declare interface AlertDialogParam {
   levelMode?: LevelMode;
 
   /**
-   * [Unique ID]{@link FrameNode:FrameNode#getUniqueId} of the node under the display level for the page-level dialog 
-   * box. This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * 设置页面级弹窗需要显示的层级下的[getUniqueId]{@link FrameNode:FrameNode#getUniqueId}。仅在levelMode属性设置为LevelMode.EMBEDDED时生效。
    * 
-   * Value range: a number no less than 0
+   * 取值范围：大于等于0的数字。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -908,12 +877,12 @@ declare interface AlertDialogParam {
   levelUniqueId?: number;
 
   /**
-   * Overlay effect for the page-level dialog box.
+   * 设置页面内弹窗蒙层效果。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **ImmersiveMode.DEFAULT**
-   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * - 默认值：ImmersiveMode.DEFAULT 
+   * - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
    *
    * @default ImmersiveMode.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -925,12 +894,12 @@ declare interface AlertDialogParam {
   immersiveMode?: ImmersiveMode;
 
   /**
-   * Display order of the dialog box.
+   * 设置弹窗显示的顺序。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **LevelOrder.clamp(0)**
-   * - Dynamic updating is not supported.
+   * - 默认值：LevelOrder.clamp(0) 
+   * - 不支持动态刷新顺序。
    *
    * @default The value returns by LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -942,13 +911,20 @@ declare interface AlertDialogParam {
   levelOrder?: LevelOrder;
 
   /**
-   * Set system-styled materials for dialog. Different materials have different effects, which can influence
-   * backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 设置弹窗的系统材质。
    * 
-   * Device Behavior Differences:The effect of same material may vary across different devices depending on
-   * their computing power.
+   * **说明：**
+   * 
+   * - 默认值：[ImmersiveOptions](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersiveoptions)的style为
+   * ImmersiveStyle.ULTRA_THICK的
+   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持
+   * 一致。
+   * - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
+   * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
+   * 、背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -980,9 +956,9 @@ declare interface AlertDialogParam {
 }
 
 /**
- * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
+ * 继承自[AlertDialogParam]{@link AlertDialogParam}。
  * 
- * Priorities of the **confirm** parameters: **fontColor** and **backgroundColor** > **style** > **defaultFocus**
+ * confirm参数优先级：fontColor、backgroundColor  > style > defaultFocus
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -992,10 +968,8 @@ declare interface AlertDialogParam {
  */
 declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
-   * Information about the confirm button. When the dialog box has focus and the **Tab** key is not pressed for 
-   * sequential focus navigation, the button responds to the **Enter** key by default. Multiple dialog boxes can 
-   * automatically gain focus and respond to user interactions in a sequential manner. The default response to the 
-   * **Enter** key does not work when **defaultFocus** is set to **true**.
+   * 确认Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在
+   * defaultFocus为true时不生效。
    *
    * @type { ?object } [since 7 - 17]
    * @type { ?AlertDialogButtonBaseOptions } [since 18]
@@ -1009,7 +983,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
 }
 
 /**
- * Provides information about the action to dismiss the dialog box.
+ * Dialog关闭的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1019,7 +993,7 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  */
 declare interface DismissDialogAction {
   /**
-   * Callback for dismissing the dialog box. This API is called only when the dialog box needs to be exited.
+   * Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1030,8 +1004,7 @@ declare interface DismissDialogAction {
   dismiss: Callback<void>;
   
   /**
-   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the 
-   * listed actions.
+   * Dialog无法关闭原因。根据开发者需要选择不同操作下，Dialog是否需要关闭。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1043,7 +1016,7 @@ declare interface DismissDialogAction {
 }
 
 /**
- * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
+ * 继承自[AlertDialogParam]{@link AlertDialogParam}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -1053,12 +1026,8 @@ declare interface DismissDialogAction {
  */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
-   * Information about the primary button, including the enabling status, default focus, button style, text content, 
-   * text color, button background color, and click callback. When the dialog box has focus and focus has not been 
-   * shifted using the **Tab** key, the button responds to the **Enter** key by default, and multiple dialog boxes can 
-   * gain focus consecutively to respond automatically. The default response to the **Enter** key does not work when 
-   * **defaultFocus** is set to **true**. For details, see 
-   * [Example 7](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#example-7-customizing-the-background-blur-effect).
+   * 主要Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键，且多重弹窗可自动获焦连续响应。默认响应Enter键能力在defaultFocus
+   * 为true时不生效。 具体使用方式请参考[示例7](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#示例7自定义背景模糊效果参数) 。
    *
    * @type { object } [since 7 - 17]
    * @type { AlertDialogButtonBaseOptions } [since 18]
@@ -1071,8 +1040,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   primaryButton: AlertDialogButtonBaseOptions;
 
   /**
-   * Information about the secondary button, including the enabling status, default focus, button style, text content, 
-   * text color, button background color, and click callback.
+   * 次要Button的使能状态、默认焦点、按钮风格、文本内容、文本色、按钮背景色和点击回调。
    *
    * @type { object } [since 7 - 17]
    * @type { AlertDialogButtonBaseOptions } [since 18]
@@ -1086,7 +1054,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
 }
 
 /**
- * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
+ * 继承自[AlertDialogParam]{@link AlertDialogParam}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1096,7 +1064,7 @@ declare interface AlertDialogParamWithButtons extends AlertDialogParam {
  */
 declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   /**
-   * Buttons in the dialog box.
+   * 弹窗容器中的多个按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1107,10 +1075,8 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   buttons: Array<AlertDialogButtonOptions>;
 
   /**
-   * Button layout direction. The default value is **DialogButtonDirection.AUTO**. You are advised to use the auto mode 
-   * for more than three buttons. (Vertical layout is used for more than two buttons, typically accommodating more 
-   * buttons.) In non-auto mode, more than three buttons may not be completely displayed, and the buttons that exceed 
-   * the display range will be truncated.
+   * 按钮排布方向默认为DialogButtonDirection.AUTO。建议3个以上按钮使用Auto模式（两个以上按钮会切换为纵向模式，通常能显示更多按钮）。非Auto模式下，3个以上按钮可能会显示不全，超出显示范围的按钮会被截
+   * 断。
    *
    * @default DialogButtonDirection.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1134,19 +1100,18 @@ declare interface AlertDialogParamWithOptions extends AlertDialogParam {
  */
 declare class AlertDialog {
   /**
-   * Shows an alert dialog box.
+   * 定义警告弹窗并弹出。
    * 
-   * > **NOTE**
-   * >
-   * > Since API version 10, you can use the 
-   * > [showAlertDialog]{@link @ohos.arkui.UIContext:UIContext#showAlertDialog} API in 
-   * > [UIContext]{@link @ohos.arkui.UIContext}, which ensures that the alert dialog box is shown in the intended UI 
-   * > instance.
+   * > **说明：**
+   * 
+   * showAlertDialog需先获取[UIContext]{@link @ohos.arkui.UIContext}实例后再进行调用。
+   * 
+   * > 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [showAlertDialog]{@link @ohos.arkui.UIContext:UIContext#showAlertDialog}来明确UI的执行上下文。
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value - Defines and displays the
-   *     **AlertDialog** component. [since 7 - 9]
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value - Defines
-   *     and displays the **AlertDialog** component. [since 10]
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value - 定义并显示AlertDialog组件。 [since 7 - 9]
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value - 定义并显示
+   *     AlertDialog组件。 [since 10]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]

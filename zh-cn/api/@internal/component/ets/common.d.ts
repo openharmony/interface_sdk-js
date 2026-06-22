@@ -8732,7 +8732,8 @@ declare enum ThemeColorMode {
 }
 
 /**
- * @enum { number }
+ * 配置组件主题跟随的颜色模式。
+ * 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -15792,7 +15793,7 @@ declare interface StateStyles {
  * @since 10
  */
 /**
- * Defines the options of popup message.
+ * 气泡文本的样式。
  *
  * @interface PopupMessageOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15804,44 +15805,29 @@ declare interface StateStyles {
 declare interface PopupMessageOptions {
 
   /**
-   * Sets the color of popup text.
+   * 设置气泡信息文本颜色。
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the color of popup text.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   textColor?: ResourceColor;
 
   /**
-   * Sets the font of popup text.
+   * 设置气泡信息字体属性。
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置family。
+   * 2. Font中的weight属性不支持传入number类型。
    *
-   * @type { ?Font }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the font of popup text.
-   *
-   * @type { ?Font }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   font?: Font;
 }
@@ -15859,7 +15845,7 @@ declare interface PopupMessageOptions {
 declare enum DismissReason {
 
   /**
-   * Press back
+   * 点击三键back、侧滑（左滑/右滑）、键盘ESC。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15870,7 +15856,7 @@ declare enum DismissReason {
   PRESS_BACK = 0,
 
   /**
-   * Touch component outside
+   * 点击遮障层时。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15881,7 +15867,7 @@ declare enum DismissReason {
   TOUCH_OUTSIDE = 1,
 
   /**
-   * Close button
+   * 点击关闭按钮。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15892,7 +15878,11 @@ declare enum DismissReason {
   CLOSE_BUTTON = 2,
 
   /**
-   * Slide down
+   * 下拉关闭。
+   * 
+   * **说明：** 
+   * 
+   * 该接口仅支持在[半模态转场]{@link common}中使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -15917,7 +15907,7 @@ declare enum DismissReason {
 }
 
 /**
- * Popup关闭时的回调对象类型。
+ * 气泡关闭的信息。
  *
  * @interface DismissPopupAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15929,7 +15919,7 @@ declare enum DismissReason {
 declare interface DismissPopupAction {
 
   /**
-   * Defines popup dismiss function
+   * Popup关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
    *
    * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15941,7 +15931,7 @@ declare interface DismissPopupAction {
   dismiss: Callback<void>;
 
   /**
-   * Defines popup dismiss reason
+   * 关闭原因，返回本次拦截Popup消失的事件原因。
    *
    * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15954,7 +15944,7 @@ declare interface DismissPopupAction {
 }
 
 /**
- * Popup state change param
+ * 气泡的显示状态。
  *
  * @interface PopupStateChangeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15966,8 +15956,7 @@ declare interface DismissPopupAction {
 declare interface PopupStateChangeParam {
 
   /**
-   * is Visible.
-   * Anonymous Object Rectification.
+   * 气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
    *
    * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -15980,10 +15969,9 @@ declare interface PopupStateChangeParam {
 }
 
 /**
- * Popup state change callback
+ * 气泡状态变化事件回调。
  *
- * @typedef { function } PopupStateChangeCallback
- * @param { PopupStateChangeParam } event - The parameter of state change callback.
+ * @param { PopupStateChangeParam } event - 气泡当前的显示状态。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -15993,9 +15981,8 @@ declare interface PopupStateChangeParam {
 declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 
 /**
- * Popup mask type
+ * 设置遮罩层颜色。
  *
- * @interface PopupMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -16005,10 +15992,8 @@ declare type PopupStateChangeCallback = (event: PopupStateChangeParam) => void;
 declare interface PopupMaskType {
 
   /**
-   * Color.
-   * Anonymous Object Rectification.
+   * 设置遮罩层颜色。
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16031,7 +16016,13 @@ declare interface PopupMaskType {
 declare interface PopupBorderLinearGradient {
 
   /**
-   * direction: Direction of Linear Gradient. The default value is GradientDirection.Bottom;
+   * 线性渐变的方向。
+   * 
+   * 默认值：GradientDirection.Bottom 
+   * 
+   * **说明：** 
+   * 
+   * 当线性渐变的方向设置为GradientDirection.None时，显示默认值。
    *
    * @type { ?GradientDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16043,8 +16034,18 @@ declare interface PopupBorderLinearGradient {
   direction?: GradientDirection;
 
   /**
-   * Defines color description for gradients.
-   * number: The position of the color stop. The value range is 0 to 1.
+   * 指定渐变色颜色和其对应的百分比位置的数组，设置非法颜色直接跳过。
+   * 
+   * **说明：** 
+   * 
+   * 颜色设置方式可参考：[ResourceColor]{@link ResourceColor}，非[ResourceColor]{@link ResourceColor}范围内的颜色值即为非法颜色。
+   * 
+   * 数组内颜色设置为undefined或者null时，默认为黑色。
+   * 
+   * colors参数的约束：
+   * 
+   * [ResourceColor]{@link ResourceColor}表示填充的颜色，number表示指定颜色所处的位置，取值范围为[0,1.0]，0表示需要设置渐变色的容器的起始位置，1.0表示容器的结束位置。为实现多个颜色渐
+   * 变效果，建议多个数组中number参数递增设置，如后一个数组number参数比前一个数组number小时，按照等于前一个数组number的值处理。
    *
    * @type { Array<[ResourceColor, number]> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16057,7 +16058,11 @@ declare interface PopupBorderLinearGradient {
 }
 
 /**
- * Popup common options
+ * 配置弹出气泡的参数。使用[UIContext]{@link @ohos.arkui.UIContext}中的
+ * [getPromptAction()]{@link @ohos.arkui.UIContext#getPromptAction}方法获取到
+ * [PromptAction]{@link @ohos.arkui.UIContext#PromptAction}对象，再通过该对象调用
+ * [openPopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#openpopup18)和
+ * [updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)时传入的options参数。
  *
  * @interface PopupCommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16069,7 +16074,9 @@ declare interface PopupBorderLinearGradient {
 declare interface PopupCommonOptions {
 
   /**
-   * placement of popup.
+   * 气泡组件优先显示的位置，当前位置显示不下时，会自动调整位置。
+   * 
+   * 默认值：Placement.Bottom
    *
    * @type { ?Placement }
    * @default Placement.Bottom
@@ -16082,7 +16089,8 @@ declare interface PopupCommonOptions {
   placement?: Placement;
 
   /**
-   * Set the background color of the popup.
+   * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。默认值：透明色[TRANSPARENT]{@link Color}加模糊背景填充效果
+   * [COMPONENT_ULTRA_THICK]{@link BlurStyle}。
    *
    * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16094,7 +16102,11 @@ declare interface PopupCommonOptions {
   popupColor?: ResourceColor;
 
   /**
-   * whether show arrow
+   * 是否显示箭头。值为true时显示箭头，值为false时不显示箭头。
+   * 
+   * 如果箭头所在方位侧的气泡长度不足以显示下箭头，则会默认不显示箭头。比如：placement设置为Left，此时如果气泡高度小于箭头的宽度（32vp）与气泡圆角两倍（48vp）之和（80vp），则实际不会显示箭头。
+   * 
+   * 默认值：true
    *
    * @type { ?boolean }
    * @default true
@@ -16107,7 +16119,9 @@ declare interface PopupCommonOptions {
   enableArrow?: boolean;
 
   /**
-   * Whether hide popup when click mask
+   * 页面有操作时，值为true表示自动关闭气泡，值为false表示气泡不会自动关闭。
+   * 
+   * 默认值：true
    *
    * @type { ?boolean }
    * @default true
@@ -16120,7 +16134,11 @@ declare interface PopupCommonOptions {
   autoCancel?: boolean;
 
   /**
-   * on State Change
+   * 气泡状态变化事件回调。
+   * 
+   * **说明：**
+   * 
+   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
    *
    * @type { ?PopupStateChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16132,7 +16150,21 @@ declare interface PopupCommonOptions {
   onStateChange?: PopupStateChangeCallback;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Popup箭头在气泡处的偏移。
+   * 
+   * 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。
+   * 
+   * 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。
+   * 
+   * 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。
+   * 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。
+   * 3. 不支持设置百分比。
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16144,7 +16176,13 @@ declare interface PopupCommonOptions {
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * 取值为true时，气泡会显示在创建的子窗里，取值为false时，气泡会显示在对应的主窗中。
+   * 
+   * 默认值：false
+   * 
+   * **说明：**
+   * 
+   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -16157,9 +16195,7 @@ declare interface PopupCommonOptions {
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * 设置气泡是否有遮罩层及遮罩颜色。设置为false时不显示遮罩层，设置为true时显示透明色遮罩层，设置为PopupMaskType时显示指定颜色的遮罩层。默认值：true
    *
    * @type { ?(boolean | PopupMaskType) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16171,7 +16207,11 @@ declare interface PopupCommonOptions {
   mask?: boolean | PopupMaskType;
 
   /**
-   * Sets the space of between the popup and target.
+   * 设置Popup与宿主节点的间隙。不支持设置百分比。
+   * 
+   * 默认值：8
+   * 
+   * 单位：vp
    *
    * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16183,7 +16223,15 @@ declare interface PopupCommonOptions {
   targetSpace?: Length;
 
   /**
-   * Sets the position offset of the popup.
+   * 设置Popup组件相对于placement设置的显示位置的偏移。
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
+   * 
+   * 默认值：{ x: 0, y: 0 }
+   * 
+   * 单位：vp
    *
    * @type { ?Position }
    * @default { x: 0, y: 0 }
@@ -16285,7 +16333,15 @@ declare interface PopupCommonOptions {
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Set popup focusable
+   * 设置气泡弹出后是否获焦。
+   * 
+   * true：气泡可以获焦；false：气泡不会获焦。
+   * 
+   * 默认值：false
+   * 
+   * **说明：**
+   * 
+   * 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
    *
    * @type { ?boolean }
    * @default false
@@ -16298,7 +16354,15 @@ declare interface PopupCommonOptions {
   focusable?: boolean;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * 自定义设置Popup气泡显示和退出的动画效果。
+   * 
+   * **说明：**
+   * 
+   * 1. 如果不设置，则使用默认的显示/退出动效。
+   * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+   * 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。
+   * 
+   * 4.不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
    *
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16310,8 +16374,15 @@ declare interface PopupCommonOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss.
-   * Use boolean to respond all interactive dismiss event. Use Callback to customize which event should be responded.
+   * 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。
+   * 
+   * 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件；
+   * 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。
+   * 
+   * **说明：**
+   * 
+   * 1. 在onWillDismiss回调中，不能再做onWillDismiss拦截。
+   * 2. 不支持通过[updatePopup](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction.md#updatepopup18)进行更新。
    *
    * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16322,10 +16393,17 @@ declare interface PopupCommonOptions {
    */
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
-  /**
-   * Determine if it is compatible popup's half folded.
+ /**
+   * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+   * 
+   * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+   * 
+   * **说明：** 
+   * 
+   * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+   * 2. 2in1设备从API version 20开始生效。
+   * 3. 2in1设备仅在窗口瀑布模式下生效。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16336,9 +16414,12 @@ declare interface PopupCommonOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
+   * 
+   * true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。
+   * 
+   * 默认值：false
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16349,7 +16430,9 @@ declare interface PopupCommonOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * 设置Popup避让时是否覆盖指向组件。
+   * 
+   * 默认值：AvoidanceMode.COVER_TARGET
    *
    * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
@@ -16362,9 +16445,18 @@ declare interface PopupCommonOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * 设置Popup组件外描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。
+   * 3. 当设置双描边时，建议外描边宽度不超过10vp。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16374,9 +16466,18 @@ declare interface PopupCommonOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * 设置Popup组件内描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。
+   * 3. 当设置双描边时，建议内描边宽度不超过10vp。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16386,9 +16487,13 @@ declare interface PopupCommonOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * 设置Popup组件外描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。
+   * 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16398,9 +16503,13 @@ declare interface PopupCommonOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * 设置Popup组件内描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。
+   * 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16410,9 +16519,16 @@ declare interface PopupCommonOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * 定义popup主题颜色模式
+   * 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。
+   * 
+   * 默认值：AnchoredColorMode.FOLLOW_TARGET
+   * 
+   * **说明：**
+   * 
+   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
+   * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
-   * @type { ?AnchoredColorMode }
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16423,12 +16539,18 @@ declare interface PopupCommonOptions {
   colorMode?: AnchoredColorMode;
 
   /**
-   * 为气泡Popup设置系统风格的材质。不同的材质会产生不同的效果，这些效果会影响菜单的背景颜色、边框、阴影和其他视觉属性。
+   * 设置组件的系统材质。
+   * 
+   * 默认值：undefined，会清除由该接口设置的材质效果。 
+   * 
+   * **说明：** 
+   * 
+   * 不同系统材质对应不同的属性影响效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -16459,9 +16581,10 @@ declare interface PopupCommonOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * 定义气泡的显示层级。
+   * 设置气泡的显示层级模式。
+   * 
+   * 默认值：LevelMode.OVERLAY
    *
-   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -16472,7 +16595,7 @@ declare interface PopupCommonOptions {
 }
 
 /**
- * Defines the Tips options.
+ * 悬浮气泡自定义参数。
  *
  * @interface TipsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16484,7 +16607,11 @@ declare interface PopupCommonOptions {
 declare interface TipsOptions {
 
   /**
-   * Defines the delay time for appearing.
+   * 设置悬浮气泡的显示时延。显示时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。
+   * 
+   * 默认值：700
+   * 
+   * 单位：ms
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16496,7 +16623,11 @@ declare interface TipsOptions {
   appearingTime?: number;
 
   /**
-   * Defines the delay time for disappearing.
+   * 设置悬浮气泡的隐藏时延。隐藏时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。
+   * 
+   * 默认值：300
+   * 
+   * 单位：ms
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16508,7 +16639,11 @@ declare interface TipsOptions {
   disappearingTime?: number;
 
   /**
-   * Define the delay time for the appearance of continuous operations.
+   * 多个组件连续弹出悬浮气泡时，悬浮气泡的显示时延。显示时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。 
+   * 
+   * 默认值：300
+   * 
+   * 单位：ms
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16520,7 +16655,11 @@ declare interface TipsOptions {
   appearingTimeWithContinuousOperation?: number;
 
   /**
-   * Define the delay time for the disappearance of continuous operations.
+   * 多个组件连续弹出悬浮气泡时，悬浮气泡的隐藏时延。隐藏时延的最大值为4000ms，设置超过4000ms的值以4000ms为准。 
+   * 
+   * 默认值：0
+   * 
+   * 单位：ms
    *
    * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16532,7 +16671,15 @@ declare interface TipsOptions {
   disappearingTimeWithContinuousOperation?: number;
 
   /**
-   * whether show arrow
+   * 设置是否显示气泡箭头。
+   * 
+   * 默认值：true
+   * 
+   * true：显示箭头；false：不显示箭头。
+   * 
+   * **说明：** 
+   * 
+   * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示气泡箭头。
    *
    * @type { ?boolean }
    * @default true
@@ -16545,7 +16692,9 @@ declare interface TipsOptions {
   enableArrow?: boolean;
 
   /**
-   * The position of the sharp corner of Tips.
+   * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有 “Start”、“Center”、“End”三个位置点可选。所有位置点均位于父组件区域范围内，不会超出父组件的边界范围，也不会覆盖圆角范围。
+   * 
+   * 默认值：ArrowPointPosition.CENTER
    *
    * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16583,7 +16732,13 @@ declare interface TipsOptions {
   arrowHeight?: Dimension;
 
   /**
-   * Set the tips posistion.
+   * 设置Tips跟随类型。
+   * 
+   * 默认值：TipsAnchorType.TARGET
+   * 
+   * **说明：**
+   * 
+   * Tips的跟随类型为TipsAnchorType.CURSOR时，Tips不显示箭头。
    *
    * @type { ?TipsAnchorType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -16595,7 +16750,15 @@ declare interface TipsOptions {
   showAtAnchor?: TipsAnchorType;
 
   /**
-   * 为组件设置系统风格的材料。不同的材料会产生不同的效果，这些效果会影响组件的背景颜色、边框、阴影和其他视觉属性。
+   * 设置组件的系统材质。
+   * 
+   * 默认值：undefined，会清除由该接口设置的材质效果。 
+   * 
+   * **说明：** 
+   * 
+   * 不同系统材质对应不同的属性影响效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -16607,61 +16770,32 @@ declare interface TipsOptions {
 }
 
 /**
- * Defines the popup options.
+ * 基础气泡的信息。
  *
- * @interface PopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the popup options.
- *
- * @interface PopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the popup options.
- *
- * @interface PopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface PopupOptions {
 
   /**
-   * Information in the pop-up window.
+   * 气泡信息内容。
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Information in the pop-up window.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Content of the popup message.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   message: string;
 
   /**
-   * placement On Top
+   * 是否在组件上方显示，默认值为false。取值为true：气泡显示到绑定组件的上方，取值false：气泡显示到绑定组件的下方。
+   * 
+   * **说明：**
+   * 
+   * 从API version 7开始支持，从API version 10开始废弃，建议使用`placement`替代。
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 10
@@ -16670,53 +16804,30 @@ declare interface PopupOptions {
   placementOnTop?: boolean;
 
   /**
-   * The placement of popup.
-   * Supports all positions defined in Placement.
+   * 设置Popup组件相对于宿主节点的显示位置，默认值为Placement.Bottom。
+   * 
+   * 如果同时设置了`placementOnTop`和`placement`，则以`placement`的设置为准。如果开发者设置的位置上无法完整显示气泡，气泡会自动避让至可以完整显示的位置
    *
-   * @type { ?Placement }
    * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The placement of popup.
-   * Supports all positions defined in Placement.
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   placement?: Placement;
 
-  /**
-   * The first button.
+ /**
+   * 第一个按钮。
+   * 
+   * value：气泡里主按钮的文本。
+   * 
+   * action：点击主按钮的回调函数。
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The first button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The first button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   primaryButton?: {
     /**
@@ -16773,28 +16884,16 @@ declare interface PopupOptions {
   }
 
   /**
-   * The second button.
+   * 第二个按钮。
+   * 
+   * value：气泡里辅助按钮的文本。
+   * 
+   * action：点击辅助按钮的回调函数。
    *
-   * @type { ?object }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The second button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The second button.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   secondaryButton?: {
     /**
@@ -16851,28 +16950,12 @@ declare interface PopupOptions {
   }
 
   /**
-   * on State Change
+   * 气泡状态变化事件回调，参数isVisible为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onStateChange?: (event: {
     /**
@@ -16898,374 +16981,275 @@ declare interface PopupOptions {
   }) => void;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Popup箭头在气泡处的偏移。
+   * 
+   * 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。
+   * 
+   * 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。
+   * 
+   * 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。
+   * 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。
+   * 3. 不支持设置百分比。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * 气泡是否显示在创建的子窗里。
+   * 
+   * true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。
+   * 
+   * 默认值：false
    *
-   * @type { ?boolean }
+   * @default false [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * 设置气泡是否有遮罩层及遮罩颜色。
+   * 
+   * true：显示透明色遮罩层；false：不显示遮罩层。
+   * 
+   * Color：显示指定颜色的遮罩层。
+   * 
+   * 默认值：true
    *
-   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
-   *
-   * @type { ?(boolean | { color: ResourceColor }) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * Sets the options of popup message.
+   * 设置气泡信息文本参数。
    *
-   * @type { ?PopupMessageOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Parameters of the popup message.
-   *
-   * @type { ?PopupMessageOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   messageOptions?: PopupMessageOptions;
 
   /**
-   * Sets the space of between the popup and target.
+   * 设置Popup与宿主节点的间距。不支持设置百分比。
+   * 
+   * 默认值：8
+   * 
+   * 单位：vp
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the space of between the popup and target.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   targetSpace?: Length;
 
   /**
-   * whether show arrow
+   * 设置是否显示箭头。
+   * 
+   * true：显示箭头；false：不显示箭头。
+   * 
+   * 默认值：true
+   * 
+   * **说明：** 
+   * 
+   * 当页面可用空间无法让气泡完全避让时，气泡会覆盖到组件上并且不显示箭头。
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableArrow?: boolean;
 
   /**
-   * Sets the position offset of the popup.
+   * 设置Popup组件相对于placement设置的显示位置的偏移。
+   * 
+   * 默认值：{ x: 0, y: 0 }
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Position }
+   * @default { x: 0, y: 0 } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the position offset of the popup.
-   *
-   * @type { ?Position }
-   * @default { x: 0, y: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Set the background color of the popup.
+   * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。
+   * 
+   * 默认值：透明色[TRANSPARENT]{@link Color}加模糊背景填充效果[COMPONENT_ULTRA_THICK]{@link BlurStyle}。
    *
-   * @type { ?(Color | string | Resource | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the background color of the popup.
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   popupColor?: Color | string | Resource | number;
 
   /**
-   * Whether hide popup when click mask
+   * 页面有操作时，气泡是否自动关闭。
+   * 
+   * true：自动关闭气泡；false：气泡不会自动关闭。
+   * 
+   * 默认值：true
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether hide popup when click mask
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   autoCancel?: boolean;
 
   /**
-   * Set the width of the popup.
+   * 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。
+   * 
+   * 单位：vp
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the width of the popup.
-   *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: Dimension;
 
   /**
-   * The position of the sharp corner of popup.
+   * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。
+   * 
+   * 默认值：ArrowPointPosition.CENTER
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The position of the sharp corner of popup.
-   *
-   * @type { ?ArrowPointPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * 设置气泡箭头宽度。若所设置的宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+   * 
+   * 默认值：16
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Dimension }
    * @default 16.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The width of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 16.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * 设置气泡箭头高度。
+   * 
+   * 默认值：8
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Dimension }
    * @default 8.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The height of the arrow.
-   *
-   * @type { ?Dimension }
-   * @default 8.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowHeight?: Dimension;
 
   /**
-   * The round corners of the popup.
+   * 设置气泡圆角半径。
+   * 
+   * 默认值：20
+   * 
+   * 单位：vp
    *
-   * @type { ?Dimension }
    * @default 20.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The round corners of the popup.
-   *
-   * @type { ?Dimension }
-   * @default 20.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: Dimension;
 
   /**
-   * The style of popup Shadow.
+   * 设置气泡阴影。
+   * 
+   * 默认值：ShadowStyle.OUTER_DEFAULT_MD
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The style of popup Shadow.
-   *
-   * @type { ?(ShadowOptions | ShadowStyle) }
-   * @default ShadowStyle.OUTER_DEFAULT_MD.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines popup background blur Style
+   * 设置气泡模糊背景参数。
+   * 
+   * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines popup background blur Style
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * 自定义设置Popup气泡显示和退出的动画效果。
+   * 
+   * **说明：**
+   * 
+   * 1. 不设置时使用默认的显示/退出动效。
+   * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+   * 3. 退出动效中按back键，不会打断退出动效，back键不被响应。
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17275,9 +17259,15 @@ declare interface PopupOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss
+   * 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。
+   * 
+   * 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件；
+   * 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。
+   * 
+   * **说明：**
+   * 
+   * 在onWillDismiss回调中，不能再做onWillDismiss拦截。
    *
-   * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17287,9 +17277,16 @@ declare interface PopupOptions {
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
   /**
-   * Determine if it is compatible popup's half folded.
+   * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+   * 
+   * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+   * 
+   * **说明：** 
+   * 
+   * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+   * 2. 2in1设备从API version 20开始生效。
+   * 3. 2in1设备仅在窗口瀑布模式下生效。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17300,9 +17297,12 @@ declare interface PopupOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
+   * 
+   * true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。
+   * 
+   * 默认值：false
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17313,9 +17313,10 @@ declare interface PopupOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Define the popup avoid keyboard mode.
+   * 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。
+   * 
+   * 默认值：KeyboardAvoidMode.NONE
    *
-   * @type { ?KeyboardAvoidMode }
    * @default KeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17326,9 +17327,10 @@ declare interface PopupOptions {
   keyboardAvoidMode?: KeyboardAvoidMode;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * 设置Popup避让时是否覆盖指向组件。
+   * 
+   * 默认值：AvoidanceMode.COVER_TARGET
    *
-   * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17339,9 +17341,18 @@ declare interface PopupOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * 设置Popup组件外描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。
+   * 3. 当设置双描边时，建议外描边宽度不超过10vp。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17351,9 +17362,18 @@ declare interface PopupOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * 设置Popup组件内描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。
+   * 3. 当设置双描边时，建议内描边宽度不超过10vp。
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17363,9 +17383,13 @@ declare interface PopupOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * 设置Popup组件外描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。
+   * 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17375,9 +17399,13 @@ declare interface PopupOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * 设置Popup组件内描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。
+   * 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
-   * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17387,9 +17415,16 @@ declare interface PopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * 定义popup主题颜色模式
+   * 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。
+   * 
+   * 默认值：AnchoredColorMode.FOLLOW_TARGET
+   * 
+   * **说明：**
+   * 
+   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
+   * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
-   * @type { ?AnchoredColorMode }
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -17401,12 +17436,18 @@ declare interface PopupOptions {
   colorMode?: AnchoredColorMode;
 
   /**
-   * 为气泡Popup设置系统风格的材质。不同的材质会产生不同的效果，这些效果会影响菜单的背景颜色、边框、阴影和其他视觉属性。
+   * 设置组件的系统材质。
+   * 
+   * 默认值：undefined，会清除由该接口设置的材质效果。 
+   * 
+   * **说明：** 
+   * 
+   * 不同系统材质对应不同的属性影响效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -17437,9 +17478,10 @@ declare interface PopupOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * 定义气泡的显示层级。
+   * 设置气泡的显示层级模式。
+   * 
+   * 默认值：LevelMode.OVERLAY
    *
-   * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -17450,99 +17492,51 @@ declare interface PopupOptions {
 }
 
 /**
- * 定义CustomPopup入参选项。
+ * 弹出自定义气泡的信息。
  *
- * @interface CustomPopupOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * 定义CustomPopup入参选项。
- *
- * @interface CustomPopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * 定义CustomPopup入参选项。
- *
- * @interface CustomPopupOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface CustomPopupOptions {
 
   /**
-   * builder of popup
+   * 提示气泡内容的构造器。
+   * 
+   * **说明：**
+   * 
+   * 1. Popup为通用属性，自定义Popup中不支持再次弹出Popup。对builder下的第一层容器组件不支持使用position属性，如果使用将导致气泡不显示。
+   * 2. builder中若使用自定义组件，自定义组件的aboutToAppear和aboutToDisappear生命周期与Popup气泡的显隐无关，不能使用其生命周期判断Popup气泡的显隐。
+   * 3. 该构造器的builder仅支持定义在UI组件中，例如可以定义在Builder函数、方法或者[build](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#build)方法里。
    *
-   * @type { CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * builder of popup
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Popup builder.
-   * <p><strong>NOTE</strong>:
-   * <br>The popup attribute is a universal attribute. A custom popup does not support display of another popup.
-   * <br>The position attribute cannot be used for the first-layer container in the builder.
-   * <br>If the position attribute is used, the popup will not be displayed.
-   * <br>If a custom component is used in the builder, the aboutToAppear and aboutToDisappear lifecycle callbacks
-   * of the custom component are irrelevant to the visibility of the popup. As such, the lifecycle of the
-   * custom component cannot be used to determine whether the popup is displayed or not.
-   * </p>
-   *
-   * @type { CustomBuilder }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   builder: CustomBuilder;
 
   /**
-   * placement of popup
+   * 气泡组件优先显示的位置，当前位置显示不下时，会自动调整位置。
+   * 
+   * 默认值：Placement.Bottom
    *
-   * @type { ?Placement }
    * @default Placement.Bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * placement of popup
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Preferred position of the popup. If the set position is insufficient for holding the popup,
-   * it will be automatically adjusted.
-   *
-   * @type { ?Placement }
-   * @default Placement.Bottom
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   placement?: Placement;
 
   /**
-   * mask color of popup
+   * 设置气泡遮罩层颜色。
+   * 
+   * **说明：**
+   * 
+   * 从 API version 10 开始废弃，建议使用`mask`替代。
    *
-   * @type { ?(Color | string | Resource | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 10
@@ -17551,115 +17545,65 @@ declare interface CustomPopupOptions {
   maskColor?: Color | string | Resource | number;
 
   /**
-   * background color of popup
+   * 气泡的颜色。如需去除模糊背景填充效果，需将backgroundBlurStyle设置为BlurStyle.NONE。
+   * 
+   * API version 10，默认值：'#4d4d4d'
+   * 
+   * API version 11及以后，默认值：透明色[TRANSPARENT]{@link Color}加模糊背景填充效果[COMPONENT_ULTRA_THICK]{@link BlurStyle}
    *
-   * @type { ?(Color | string | Resource | number) }
+   * @default '#4d4d4d' [since 10 - 10]
+   * @default TRANSPARENT plus COMPONENT_ULTRA_THICK [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * background color of popup
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @default '#4d4d4d'
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Color of the popup. To remove the background blur, set backgroundBlurStyle to BlurStyle.NONE.
-   *
-   * @type { ?(Color | string | Resource | number) }
-   * @default TRANSPARENT plus COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   popupColor?: Color | string | Resource | number;
 
   /**
-   * whether show arrow
+   * 是否显示箭头。
+   * 
+   * true：显示箭头；false：不显示箭头。
+   * 
+   * 从API version 9开始，如果箭头所在方位侧的气泡长度不足以显示下箭头，则会默认不显示箭头。比如：placement设置为Left，此时如果气泡高度小于箭头的宽度（32vp）与气泡圆角两倍（48vp）之和（80vp），则实
+   * 际不会显示箭头。
+   * 
+   * 默认值：true
    *
-   * @type { ?boolean }
+   * @default true [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * whether show arrow
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   enableArrow?: boolean;
 
   /**
-   * whether hide popup when click mask
+   * 页面有操作时，气泡是否自动关闭。
+   * 
+   * true：自动关闭气泡；false：气泡不会自动关闭。
+   * 
+   * 默认值：true
+   * 
+   * **说明：**
+   * 
+   * 如果要实现点击气泡内消失需要在builder中先放一个布局组件，然后再将Popup高级组件放在布局组件里面，再在布局组件的onClick事件中修改控制显隐的状态变量show为false。
    *
-   * @type { ?boolean }
+   * @default true [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * whether hide popup when click mask
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to automatically dismiss the popup when an operation is performed on the page.
-   * <p><strong>NOTE</strong>:
-   * <br>To enable the popup to disappear upon a click on it, place a layout component in the builder place the
-   * <Popup> component in the layout component, and modify the value of the bindPopup variable (show: boolean)
-   * in the onClick event of the layout component.
-   * </p>
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   autoCancel?: boolean;
 
   /**
-   * on State Change
+   * 气泡状态变化事件回调，参数为气泡的显示状态。返回true时，表示气泡从关闭到打开，返回false时，表示气泡从打开到关闭。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * on State Change
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback for the popup status change event.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onStateChange?: (event: {
     /**
@@ -17685,218 +17629,154 @@ declare interface CustomPopupOptions {
   }) => void;
 
   /**
-   * The offset of the sharp corner of popup.
+   * Popup箭头在气泡处的偏移。
+   * 
+   * 箭头在气泡上下方时，数值为0表示箭头居最左侧，偏移量为箭头至最左侧的距离，默认居中。
+   * 
+   * 箭头在气泡左右侧时，偏移量为箭头至最上侧的距离，默认居中。
+   * 
+   * 显示在屏幕边缘时，气泡会自动左右偏移，数值为0时箭头始终指向绑定组件。
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 没设置arrowOffset的情况下，气泡箭头与四个角的距离不能小于圆角半径。
+   * 2. 只有arrowPointPosition不设置或者设置为null、undefined时，arrowOffset属性才生效。
+   * 3. 不支持设置百分比。
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The offset of the sharp corner of popup.
-   *
-   * Offset of the popup arrow relative to the popup. When the arrow is at the top or bottom of the popup:
-   * <br>The value 0 indicates that the arrow is located on the leftmost, and any other value indicates the distance
-   * from the arrow to the leftmost; the arrow is centered by default. When the arrow is on the left or right
-   * side of the popup: The value indicates the distance from the arrow to the top; the arrow is centered by
-   * default. When the popup is displayed on either edge of the screen, it will automatically deviate leftward
-   * or rightward to stay within the safe area. When the value is 0, the arrow always points to the bound component.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * Whether to display in the sub window.
+   * 气泡是否显示在创建的子窗里。
+   * 
+   * true：气泡会显示在创建的子窗里；false：气泡会显示在对应的主窗中。
+   * 
+   * 默认值：false
    *
-   * @type { ?boolean }
+   * @default false [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   showInSubWindow?: boolean;
 
   /**
-   * The mask to block gesture events of popup.
-   * When mask is set false, gesture events are not blocked.
-   * When mask is set true, gesture events are blocked and mask color is transparent.
+   * 设置气泡是否有遮罩层及遮罩颜色。如果设置为false，则没有遮罩层；如果设置为true，则设置有遮罩层并且颜色为透明色；
+   * 如果设置为Color，则为遮罩层的颜色。
+   * 默认值：true
    *
-   * @type { ?(boolean | { color: ResourceColor }) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Whether to apply a mask to the popup.
-   * <br>The value true means to apply a transparent mask to the popup, false means not to apply a mask to the popup,
-   * and a color value means to apply a mask in the corresponding color to the popup.
-   *
-   * @type { ?(boolean | { color: ResourceColor }) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mask?: boolean | { color: ResourceColor };
 
   /**
-   * Sets the space of between the popup and target.
+   * 设置Popup与宿主节点的间距。不支持设置百分比。
+   * 
+   * 默认值：8
+   * 
+   * 单位：vp
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the space of between the popup and target.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   targetSpace?: Length;
 
   /**
-   * Sets the position offset of the popup.
+   * 设置Popup组件相对于placement设置的显示位置的偏移。
+   * 
+   * 默认值：{ x: 0, y: 0 }
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Position }
+   * @default { x: 0, y: 0 } [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the position offset of the popup.
-   *
-   * @type { ?Position }
-   * @default { x: 0, y: 0 }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Set the width of the popup.
+   * 气泡宽度，未设置或者异常值场景下，气泡自适应内容宽度。
+   * 
+   * 单位：vp
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Width of the popup.
-   *
-   * @type { ?Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width?: Dimension;
 
   /**
-   * The position of the sharp corner of popup.
+   * 气泡箭头相对于父组件显示位置，气泡箭头在垂直和水平方向上有Start、Center、End三个位置点可选。以上所有位置点均位于父组件区域的范围内，不会超出父组件的边界范围。
+   * 
+   * 默认值：ArrowPointPosition.CENTER
    *
-   * @type { ?ArrowPointPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Position of the popup arrow relative to its parent component. Available positions are Start, Center, and End,
-   * in both vertical and horizontal directions. All these positions are within the parent component area.
-   *
-   * @type { ?ArrowPointPosition }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowPointPosition?: ArrowPointPosition;
 
   /**
-   * The width of the arrow.
+   * 设置箭头宽度。若所设置的箭头宽度超过所在边的长度减去两倍的气泡圆角大小，则不绘制气泡箭头。
+   * 
+   * 默认值：16
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Dimension }
+   * @default 16.0_vp. [since 11 - 11]
    * @default 16.0_vp.
+   *     <p><strong>NOTE</strong>:
+   *     <br>This parameter cannot be set in percentage.
+   *     </p> [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Arrow thickness. If the arrow thickness exceeds the length of the edge minus twice the size of the popup
-   * rounded corner, the arrow is not drawn.
-   *
-   * @type { ?Dimension }
-   * @default 16.0_vp.
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowWidth?: Dimension;
 
   /**
-   * The height of the arrow.
+   * 设置箭头高度。
+   * 
+   * 默认值：8
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 不支持设置百分比。
    *
-   * @type { ?Dimension }
-   * @default 8.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * The height of the arrow.
-   *
-   * @type { ?Dimension }
+   * @default 8.0_vp. [since 11 - 11]
    * @default 8.0_vp.
    * <p><strong>NOTE</strong>:
    * <br>This parameter cannot be set in percentage.
@@ -17905,105 +17785,80 @@ declare interface CustomPopupOptions {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   arrowHeight?: Dimension;
 
   /**
-   * The round corners of the popup.
+   * 设置气泡圆角半径。
+   * 
+   * 默认值：20
+   * 
+   * 单位：vp
    *
-   * @type { ?Dimension }
    * @default 20.0_vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Rounded corner radius of the popup.
-   *
-   * @type { ?Dimension }
-   * @default 20.0_vp.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   radius?: Dimension;
 
   /**
-   * The style of popup Shadow.
+   * 设置气泡阴影。
+   * 
+   * 默认值：ShadowStyle.OUTER_DEFAULT_MD
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @default ShadowStyle.OUTER_DEFAULT_MD.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Popup shadow.
-   *
-   * @type { ?(ShadowOptions | ShadowStyle) }
-   * @default ShadowStyle.OUTER_DEFAULT_MD.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Defines popup background blur Style
+   * 设置气泡模糊背景参数。
+   * 
+   * 默认值：BlurStyle.COMPONENT_ULTRA_THICK
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Background blur style of the popup.
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Set popup focusable
+   * 设置气泡弹出后是否获焦。
+   * 
+   * true：气泡可以获焦；false：气泡不会获焦。
+   * 
+   * 默认值：false
    *
-   * @type { ?boolean }
-   * @default true
+   * @default true [since 11 - 11]
+   * @default false [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set popup focusable
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   focusable?: boolean;
 
   /**
-   * Defines the transition effect of popup opening and closing
+   * 自定义设置Popup气泡显示和退出的动画效果。
+   * 
+   * **说明：**
+   * 
+   * 1. 如果不设置，则使用默认的显示/退出动效。
+   * 2. 显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+   * 3. 退出动效中按back键，不会打断退出动效，退出动效继续执行，back键不被响应。
    *
    * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18015,9 +17870,15 @@ declare interface CustomPopupOptions {
   transition?: TransitionEffect;
 
   /**
-   * Callback function when the popup interactive dismiss
+   * 设置Popup交互式关闭拦截开关及拦截回调函数，默认值为true，Popup响应点击、侧滑（左滑/右滑）、三键back。
+   * 
+   * 1. 当为boolean类型时，如果设置为false，则不响应点击、侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC退出事件，仅当设置“气泡显示状态”参数show值为false时才退出；如果设置为true，则正常响应退出事件；
+   * 2. 如果设置为函数类型，则拦截退出事件且执行回调函数。侧滑（左滑/右滑）、三键back、路由跳转或键盘ESC在回调函数中返回的reason为PRESS_BACK，点击为TOUCH_OUTSIDE。
+   * 
+   * **说明：**
+   * 
+   * 在onWillDismiss回调中，不能再做onWillDismiss拦截。
    *
-   * @type { ?(boolean | Callback<DismissPopupAction>) }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18028,7 +17889,15 @@ declare interface CustomPopupOptions {
   onWillDismiss?: boolean | Callback<DismissPopupAction>;
 
   /**
-   * Determine if it is compatible popup's half folded.
+   * Popup组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+   * 
+   * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+   * 
+   * **说明：** 
+   * 
+   * 1. 如果Popup的弹出位置在悬停态折痕区域，Popup组件不会响应悬停态。
+   * 2. 2in1设备从API version 20开始生效。
+   * 3. 2in1设备仅在窗口瀑布模式下生效。
    *
    * @type { ?boolean }
    * @default false
@@ -18041,7 +17910,11 @@ declare interface CustomPopupOptions {
   enableHoverMode?: boolean;
 
   /**
-   * Determine if popup can follow the target node when it has rotation or scale.
+   * 气泡绑定的宿主组件或其宿主组件的父容器添加了旋转、缩放等变换时，气泡是否跟随宿主组件变换。
+   * 
+   * true：气泡可以拿到变换后宿主的位置，显示到相应位置；false：气泡拿不到宿主变换后的位置，可能显示异常。
+   * 
+   * 默认值：false
    *
    * @type { ?boolean }
    * @default false
@@ -18054,9 +17927,10 @@ declare interface CustomPopupOptions {
   followTransformOfTarget?: boolean;
 
   /**
-   * Define the popup avoid keyboard mode.
+   * 气泡是否避让软键盘，默认不避让。设置为避让后，气泡显示空间不足时，由原先居中覆盖父组件的方式改为平移覆盖父组件，且气泡箭头不指向宿主时，不再显示箭头。
+   * 
+   * 默认值：KeyboardAvoidMode.NONE
    *
-   * @type { ?KeyboardAvoidMode }
    * @default KeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18067,9 +17941,10 @@ declare interface CustomPopupOptions {
   keyboardAvoidMode?: KeyboardAvoidMode;
 
   /**
-   * Determine if popup can avoid the target when the display space is insufficient.
+   * 设置Popup避让时是否覆盖指向组件。
+   * 
+   * 默认值：AvoidanceMode.COVER_TARGET
    *
-   * @type { ?AvoidanceMode }
    * @default AvoidanceMode.COVER_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18080,7 +17955,17 @@ declare interface CustomPopupOptions {
   avoidTarget?: AvoidanceMode;
 
   /**
-   * The width of popup's outline.
+   * 设置Popup组件外描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件外描边的情况下，该接口需要和outlineLinearGradient配合使用。
+   * 3. 当设置双描边时，建议外描边宽度不超过10vp。
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18092,7 +17977,17 @@ declare interface CustomPopupOptions {
   outlineWidth?: Dimension;
 
   /**
-   * The width of popup's border.
+   * 设置Popup组件内描边的宽度。
+   * 
+   * 默认值：1 
+   * 
+   * 单位：vp
+   * 
+   * **说明：** 
+   * 
+   * 1. 不支持设置百分比，设置百分比时按0处理。
+   * 2. 在没有设置Popup组件内描边的情况下，该接口需要和borderLinearGradient配合使用。
+   * 3. 当设置双描边时，建议内描边宽度不超过10vp。
    *
    * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18104,7 +17999,12 @@ declare interface CustomPopupOptions {
   borderWidth?: Dimension;
 
   /**
-   * The LinearGradient of popup's outline.
+   * 设置Popup组件外描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. outlineLinearGradient不设置或者设置为null、undefined时，外描边没有线性渐变效果。
+   * 2. outlineLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
    * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18116,7 +18016,12 @@ declare interface CustomPopupOptions {
   outlineLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * The LinearGradient of popup's innerline.
+   * 设置Popup组件内描边线性渐变的颜色。
+   * 
+   * **说明：** 
+   * 
+   * 1. borderLinearGradient不设置或者设置为null、undefined时，内描边没有线性渐变效果。
+   * 2. borderLinearGradient设置时，direction默认值是：GradientDirection.Bottom。
    *
    * @type { ?PopupBorderLinearGradient }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18128,7 +18033,15 @@ declare interface CustomPopupOptions {
   borderLinearGradient?: PopupBorderLinearGradient;
 
   /**
-   * 定义popup主题颜色模式
+   * 设置气泡深浅色模式，默认跟随绑定组件深浅色模式。
+   * 
+   * 默认值：AnchoredColorMode.FOLLOW_TARGET
+   * 
+   * **说明：**
+   * 
+   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
+   * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
    * @type { ?AnchoredColorMode }
    * @default AnchoredColorMode.FOLLOW_TARGET
@@ -18141,7 +18054,15 @@ declare interface CustomPopupOptions {
   colorMode?: AnchoredColorMode;
 
   /**
-   * 为气泡Popup设置系统风格的材质。不同的材质会产生不同的效果，这些效果会影响菜单的背景颜色、边框、阴影和其他视觉属性。
+   * 设置组件的系统材质。
+   * 
+   * 默认值：undefined，会清除由该接口设置的材质效果。 
+   * 
+   * **说明：** 
+   * 
+   * 不同系统材质对应不同的属性影响效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
    * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18177,7 +18098,9 @@ declare interface CustomPopupOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * 定义气泡的显示层级。
+   * 设置气泡的显示层级模式。
+   * 
+   * 默认值：LevelMode.OVERLAY
    *
    * @type { ?LevelMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -18190,133 +18113,88 @@ declare interface CustomPopupOptions {
 }
 
 /**
- * Defines the menu preview mode.
+ * 菜单的预览样式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the menu preview mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum MenuPreviewMode {
 
   /**
-   * No preview content.
+   * 不显示预览内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * No preview content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NONE = 0,
 
   /**
-   * Defines image type preview content.
+   * 预览内容为触发长按悬浮菜单组件的截图。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The preview is a screenshot of the component on which a long-press triggers the context menu.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   IMAGE = 1
 }
 
 /**
- * Defines the animator range of start and end property.
+ * 动画开始和结束时相对预览原图缩放比例。
  *
- * @typedef { [from: T, to: T] } AnimationRange<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the animator range of start and end property.
- *
- * @typedef { [from: T, to: T] } AnimationRange<T>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare type AnimationRange<T> = [from: T, to: T];
 
 /**
- * Defines the ContextMenu's preview animator options.
+ * 长按预览时显示的样式信息。
  *
- * @interface ContextMenuAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the ContextMenu's preview animator options.
- *
- * @interface ContextMenuAnimationOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 interface ContextMenuAnimationOptions {
 
   /**
-   * Sets the start animator scale and end animator scale.
+   * 动画开始和结束时相对预览原图缩放比例。
+   * 
+   * 默认值：[0.95, 1.1]
+   * 
+   * **说明：** 
+   * 
+   * 缩放比例需要根据实际开发场景设置，建议设置值为小于预览图宽度或布局的最大限制。
    *
-   * @type { ?AnimationRange<number> }
-   * @default [0.95, 1.1]
+   * @default [0.95, 1.1] [since 11 - 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets the start animator scale and end animator scale.
-   *
-   * @type { ?AnimationRange<number> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   scale?: AnimationRange<number>;
 
   /**
-   * Defines the transition effect of menu preview opening and closing.
+   * 设置菜单显示和退出的过渡效果。
+   * 
+   * **说明：** 
+   * 
+   * 在菜单退出动效过程中，横竖屏切换时，菜单会避让。二级菜单不继承自定义动效。弹出过程中可以点击二级菜单，但在退出动效执行过程中不允许点击二级菜单。
+   * 
+   * 详细描述见[TransitionEffect]{@link TransitionEffect}对象说明。
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18326,9 +18204,22 @@ interface ContextMenuAnimationOptions {
   transition?: TransitionEffect;
 
   /**
-   * Sets the scale start and end animator of the image displayed before the custom builder preview is displayed.
+   * 在自定义预览图（preview为CustomBuilder类型）以及长按弹出（responseType指定为LongPress）菜单的场景下，hoverScale用于为绑定组件的截图浮起动画设置两个参数：相对于预览原图的起始与结束
+   * 缩放比例。hoverScale设置后，浮起动画和预览图之间会有切换过渡动效。 
+   * 
+   * **说明：**
+   * 
+   * 倍率设置参数小于等于0时，不生效。
+   * 
+   * [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+   * 场景下，不生效。
+   * 
+   * 设置transition接口时，不生效。 
+   * 
+   * 使用此接口且同时使用scale接口时，scale接口起始值不生效。
+   * 
+   * 为保障最佳体验，最终预览图尺寸不建议小于原组件截图尺寸。当前预览动效宽高会受组件截图和自定义预览大小影响，请根据实际使用情况自行保障展示效果。
    *
-   * @type { ?AnimationRange<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18338,9 +18229,16 @@ interface ContextMenuAnimationOptions {
   hoverScale?: AnimationRange<number>;
 
   /**
-   * 设置是否支持打断hoverScale
+   * 在自定义预览图（preview为CustomBuilder类型）以及长按弹出（responseType指定为LongPress）菜单的场景下，且hoverScaleInterruption为true时，在触发拖拽效果前抬起手是否允
+   * 许取消预览菜单弹出。true表示允许取消预览菜单弹出，false表示不允许取消预览菜单弹出。
+   * 
+   * 默认值：false 
+   * 
+   * **说明：** 
+   * 
+   * 未设置hoverScale接口或设置了transition接口时，该参数不生效。长按时长不足以触发拖拽效果时抬起手，预览菜单hoverScale效果回退，预览菜单不弹出，并可触发原组件上绑定的click等手势事件。长按时长足以触发
+   * 拖拽效果后抬起手，预览菜单正常弹出，并不再触发原组件上绑定的click等手势事件。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18352,9 +18250,11 @@ interface ContextMenuAnimationOptions {
 }
 
 /**
- * 定义边框圆角的类型。
+ * 圆角类型。
  *
- * @typedef { Length | BorderRadiuses | LocalizedBorderRadiuses }
+ * @unionmember { Length } 长度类型，用于描述尺寸单位。
+ * @unionmember { BorderRadiuses } 圆角类型，用于描述组件边框圆角半径。
+ * @unionmember { LocalizedBorderRadiuses } 圆角类型，用于描述组件边框圆角半径
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18364,9 +18264,8 @@ interface ContextMenuAnimationOptions {
 type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
 
 /**
- * 定义菜单触摸反馈模式。
+ * 菜单弹出时振动效果。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18376,7 +18275,7 @@ type BorderRadiusType = Length | BorderRadiuses | LocalizedBorderRadiuses;
 declare enum HapticFeedbackMode {
 
   /**
-   * No haptic feedback.
+   * 菜单弹出时不振动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18387,7 +18286,7 @@ declare enum HapticFeedbackMode {
   DISABLED = 0,
 
   /**
-   * Defines menu always haptic feedback.
+   * 菜单弹出时振动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18398,7 +18297,7 @@ declare enum HapticFeedbackMode {
   ENABLED = 1,
 
   /**
-   * Defines menu automatically haptic feedback.
+   * 菜单振动效果跟随系统，当前为菜单有蒙层时振动。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18410,9 +18309,8 @@ declare enum HapticFeedbackMode {
 }
 
 /**
- * 定义菜单的模态模式
+ * 子窗菜单的模态模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18420,9 +18318,8 @@ declare enum HapticFeedbackMode {
  * @since 20 dynamic
  */
 declare enum ModalMode {
-
   /**
-   * Modal modal automatically.
+   * 自动模式，菜单组件在当前设备的默认行为。当前版本在所有设备上的效果等同于ModalMode.NONE。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18433,7 +18330,7 @@ declare enum ModalMode {
   AUTO = 0,
 
   /**
-   * Operation takes effect around menu.
+   * 除菜单自身区域外，其他区域均可传递事件，下层控件可响应事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18444,7 +18341,7 @@ declare enum ModalMode {
   NONE = 1,
 
   /**
-   * Operation takes no effect around menu in target window
+   * 菜单所在应用的窗口与菜单区域不可传递事件，其他区域可传递事件。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18456,9 +18353,8 @@ declare enum ModalMode {
 }
 
 /**
- * 菜单遮罩类型
+ * 设置蒙层样式。
  *
- * @interface MenuMaskType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18468,9 +18364,10 @@ declare enum ModalMode {
 declare interface MenuMaskType {
 
   /**
-   * Mask color of menu.
+   * 设置蒙层颜色。
+   * 
+   * 默认值：$r('sys.color.ohos_id_color_mask_thin')
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -18480,9 +18377,10 @@ declare interface MenuMaskType {
   color?: ResourceColor;
 
   /**
-   * Set menu mask background blur Style.
+   * 设置蒙层模糊材质。
+   * 
+   * 默认值：BlurStyle.BACKGROUND_THIN
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.BACKGROUND_THIN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18494,9 +18392,8 @@ declare interface MenuMaskType {
 }
 
 /**
- * Defines the scaling mode for custom preview of contextMenu.
+ * 预览图的缩放方式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18506,7 +18403,7 @@ declare interface MenuMaskType {
 declare enum PreviewScaleMode {
 
   /**
-   * 系统自动对预览图做布局
+   * 预览图根据[Placement]{@link Placement}自动调整预览图宽高及缩放。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18517,7 +18414,7 @@ declare enum PreviewScaleMode {
   AUTO = 0,
 
   /**
-   * 保持预览图设置的尺寸不变
+   * 预览图不缩放，大小保持不变。最终仍会受到安全区的限制而出现压缩、裁剪。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18528,7 +18425,7 @@ declare enum PreviewScaleMode {
   CONSTANT = 1,
 
   /**
-   * 保持宽高比进行缩放
+   * 预览图缩放时保持宽高比。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18540,9 +18437,8 @@ declare enum PreviewScaleMode {
 }
 
 /**
- * Defines the available layout area.
+ * 预览图宽高设置为百分比时的参考可布局区域大小。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18552,14 +18448,14 @@ declare enum PreviewScaleMode {
 declare enum AvailableLayoutArea {
 
   /**
-   * Size of safe area.
+   * 参考可布局区域大小为窗口大小减去上下左右安全边距。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 20 dynamic
-   */
+   */  
   SAFE_AREA = 0
 }
 
@@ -18602,9 +18498,8 @@ declare class ContentTransitionEffect {
 }
 
 /**
- * Menu避让键盘的模式
+ * 菜单避让软键盘的模式。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18614,7 +18509,7 @@ declare class ContentTransitionEffect {
 declare enum MenuKeyboardAvoidMode {
 
   /**
-   * Menu不避让键盘
+   * 菜单不避让软键盘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18625,7 +18520,7 @@ declare enum MenuKeyboardAvoidMode {
   NONE = 0,
 
   /**
-   * Menu首先改变位置避让键盘，如果避让后的位置高度仍不够大则压缩高度
+   * 菜单避让软键盘。如果空间不足，会平移或重新调整菜单大小避让软键盘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18637,9 +18532,8 @@ declare enum MenuKeyboardAvoidMode {
 }
 
 /**
- * 宫格在菜单中的位置。
+ * 栅格菜单在菜单中的位置枚举值。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18649,7 +18543,7 @@ declare enum MenuKeyboardAvoidMode {
 declare enum MenuGridPosition {
 
   /**
-   * 宫格位于菜单的顶部。
+   * 栅格在上方。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18660,7 +18554,7 @@ declare enum MenuGridPosition {
   TOP = 0,
 
   /**
-   * 宫格位于菜单的底部。
+   * 栅格在下方。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18672,9 +18566,8 @@ declare enum MenuGridPosition {
 }
 
 /**
- * 定义菜单的宫格样式。
+ * 菜单栅格样式选项。
  *
- * @interface MenuGridStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -18684,9 +18577,18 @@ declare enum MenuGridPosition {
 declare interface MenuGridStyleOptions {
 
   /**
-   * 宫格的数量。
+   * 栅格中元素的数量。
+   * 
+   * 默认值：3
+   * 
+   * 取值范围：
+   * 
+   * 当为上图下文形的栅格样式时，元素数量范围为[0, 6]。
+   * 
+   * 当为纯图标形的栅格样式时，元素数量范围[0, 4]。 
+   * 
+   * 未设置、异常值按照默认值处理。
    *
-   * @type { ?number }
    * @default 3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18697,9 +18599,18 @@ declare interface MenuGridStyleOptions {
   count?: number;
 
   /**
-   * 宫格中每行的数量
+   * 栅格中元素的水平尺寸，表示栅格内每行可显示的元素数量。
+   * 
+   * 默认值：3
+   * 
+   * **说明：** 
+   * 
+   * 当为上图下文形的栅格样式时，水平尺寸范围为[1, 3]，即栅格行数为[1, 2]。
+   * 
+   * 当为纯图标形的栅格样式时，水平尺寸范围为[1, 4]，即栅格行数为1。
+   * 
+   * 未设置、异常值按照默认值处理。
    *
-   * @type { ?number }
    * @default 3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18710,9 +18621,10 @@ declare interface MenuGridStyleOptions {
   horizontalSize?: number;
 
   /**
-   * 宫格的位置。
+   * 栅格在菜单中的位置。
+   * 
+   * 默认值：MenuGridPosition.TOP
    *
-   * @type { ?MenuGridPosition }
    * @default MenuGridPosition.TOP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18724,199 +18636,172 @@ declare interface MenuGridStyleOptions {
 }
 
 /**
- * Defines the context menu options.
+ * 菜单项的信息。
+ * 
+ * **表1：同时设置offset与placement时菜单的偏移位置** 
+ * 
+ * | placement设置的值                                            | 菜单的偏移量说明                                             |
+ * | ------------------------------------------------------------ | ------------------------------------------------------------ |
+ * | Placement.TopLeft、Placement.Top、Placement.TopRight         | offset的x为正数，菜单相对组件向右进行偏移，offset的y为正数，菜单相对组件向上进行偏移。 |
+ * | Placement.BottomLeft、Placement.Bottom、Placement.BottomRight | offset的x为正数，菜单相对组件向左进行偏移，offset的y为正数，菜单相对组件向下进行偏移。 |
+ * | Placement.RightTop、Placement.Right、Placement.RightBottom   | offset的x为正数，菜单相对组件向右进行偏移，offset的y为正数，菜单相对组件向下进行偏移。 |
+ * 
+ * **表2：同时设置arrowOffset与placement时菜单箭头的默认位置** 
+ * 
+ * | placement设置的值                           | 菜单箭头的位置说明                                           |
+ * | ------------------------------------------- | ------------------------------------------------------------ |
+ * | Placement.Top、Placement.Bottom             | 箭头显示在水平方向且默认居中，且距离菜单左侧边缘距离为箭头安全距离。 |
+ * | Placement.Left、Placement.Right             | 箭头显示在垂直方向且默认居中，且距离菜单上侧距离为箭头安全距离。 |
+ * | Placement.TopLeft、Placement.BottomLeft     | 箭头默认显示在水平方向，且距离菜单左侧边缘距离为箭头安全距离。 |
+ * | Placement.TopRight、Placement.BottomRight   | 箭头默认显示在水平方向，且距离菜单右侧距离为箭头安全距离。   |
+ * | Placement.LeftTop、Placement.RightTop       | 箭头默认显示在垂直方向，且距离菜单上侧距离为箭头安全距离。   |
+ * | Placement.LeftBottom、Placement.RightBottom | 箭头默认显示在垂直方向，且距离菜单下侧距离为箭头安全距离。   |
+ * 
+ * **表3：enableArrow为true且placement未设置或者值为非法值的菜单默认位置** 
+ * | 接口 | 菜单默认位置 |
+ * |------|-------------|
+ * | [bindMenu]{@link CommonMethod#bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)} | Placement.BottomLeft |
+ * | [bindMenu<sup>11+</sup>]{@link CommonMethod#bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)} | Placement.BottomLeft |
+ * | [bindContextMenu<sup>8+</sup>]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)} | Placement.Top |
+ * | [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)} | Placement.BottomLeft |
+ * | [bindContextMenuWithResponse<sup>23+</sup>]{@link CommonMethod#bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions)} | Placement.Top |
  *
- * @interface ContextMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the context menu options.
- *
- * @interface ContextMenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ContextMenuOptions {
 
   /**
-   * Sets the position offset of the context menu window.
+   * 菜单弹出位置的偏移量，不会导致菜单显示超出屏幕范围。
+   * 
+   * 默认值：{ x: 0, y: 0 }，不支持设置百分比。
+   * 
+   * **说明：** 
+   * 
+   * 菜单类型为相对父组件区域弹出时，自动根据菜单位置属性 (placement)将区域的宽或高计入偏移量中。
+   * 
+   * offset最终取值与placement设置值的关系参见表1：同时设置offset与placement时菜单的偏移位置。
+   * 
+   * 未设置、异常值或者undefined时按默认{ x: 0, y: 0 }处理。若传入偏移量超出屏幕范围外，则会就近约束到屏幕范围内。
+   * 
+   * 如果菜单调整了显示位置（与placement初始值主方向不一致），则偏移值 (offset) 失效。
    *
-   * @type { ?Position }
-   * @default -
+   * @default - [since 10 - 10]
+   * @default {x:0,y:0} - Percentage values are not supported. [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Offset for showing the context menu, which should not cause the menu to extend beyond the screen.
-   * <p><strong>NOTE</strong>:
-   * <br>When the menu is displayed relative to the parent component area, the width or height of the area is
-   * automatically counted into the offset based on the placement attribute of the menu. When the menu is
-   * displayed above the parent component (that is, placement is set to Placement.TopLeft, Placement.Top, or
-   * Placement.TopRight), a positive value of x indicates rightward movement relative to the parent component,
-   * and a positive value of y indicates upward movement. When the menu is displayed below the parent component
-   * (that is, placement is set to Placement.BottomLeft, Placement.Bottom, or Placement.BottomRight), a positive
-   * value of x indicates rightward movement relative to the parent component, and a positive value of y indicates
-   * downward movement. When the menu is displayed on the left of the parent component (that is, placement is set
-   * to Placement.LeftTop, Placement.Left, or Placement.LeftBottom), a positive value of x indicates leftward
-   * movement relative to the parent component, and a positive value of y indicates downward movement. When the
-   * menu is displayed on the right of the parent component (that is, placement is set to Placement.RightTop,
-   * Placement.Right, or Placement.RightBottom), a positive value of x indicates rightward movement relative to
-   * the parent component, and a positive value of y indicates downward movement. If the display position of the
-   * menu is adjusted (different from the main direction of the initial placement value), the offset value is invalid.
-   * </p>
-   *
-   * @type { ?Position }
-   * @default {x:0,y:0} - Percentage values are not supported.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offset?: Position;
 
   /**
-   * Sets the placement of the context menu window.
+   * 菜单组件优先显示的位置，当前位置显示不下时，会自动调整位置。
+   * 
+   * **说明：**
+   * 
+   * 1. 作为[bindMenu]{@link CommonMethod#bindMenu(isShow: boolean, content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)}入参时，默认值为Placement.BottomLeft。
+   * 2. 作为[bindContextMenu<sup>8+</sup>]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}或[bindContextMenuWithResponse<sup>23+</sup>]{@link CommonMethod#bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions)}入参时，默认效果为菜单跟随点击位置弹出。
+   * 3. 作为[bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}入参时，默认值为Placement.BottomLeft。
+   * 4. placement值设置为undefined、null或缺省时，按默认值处理。
    *
-   * @type { ?Placement }
-   * @default -
+   * @default - [since 10 - 10]
+   * @default Placement.BottomLeft [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Preferred position of the context menu. If the set position is insufficient for holding the component, it will be
-   * automatically adjusted.
-   * <p><strong>NOTE</strong>:
-   * <br>If a menu is displayed by pressing and holding or right-clicking, the menu is displayed at the clicked
-   * position.
-   * </p>
-   *
-   * @type { ?Placement }
-   * @default Placement.BottomLeft
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   placement?: Placement;
 
   /**
-   * whether show arrow belong to the menu, default: false, not show arrow
+   * 是否显示箭头。如果菜单的大小和位置不足以放置箭头时，不会显示箭头。 
+   * 
+   * 默认值：false，不显示箭头。
+   * 
+   * **说明：**
+   * 
+   * enableArrow为true时，placement未设置或者值为非法值，默认在目标物上方显示（此时菜单默认位置与接口的关系参见表3：enableArrow为true且placement未设置或者值为非法值的菜单默认位置），否则
+   * 按照placement的位置优先显示。当前位置显示不下时，会自动调整位置，enableArrow为undefined时，不显示箭头。bindContextMenu从API version 10开始支持该属性；bindMenu从
+   * API version 12开始支持该属性。
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * whether show arrow belong to the menu, default: false, not show arrow
-   * <p><strong>NOTE</strong>:
-   * <br>When enableArrow is true, an arrow is displayed in the position specified by placement.
-   * <br>If placement is not set or its value is invalid, the arrow is displayed above the target.
-   * <br>If the position is insufficient for holding the arrow, it is automatically adjusted.
-   * <br>When enableArrow is undefined, no arrow is displayed.
-   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
-   * </p>
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableArrow?: boolean;
 
   /**
-   * The horizontal offset to the left of menu or vertical offset to the top of menu
+   * 箭头在菜单处的偏移。偏移量必须合法且转换为具体数值时大于0才会生效，另外该值生效时不会导致箭头超出菜单四周的安全距离。
+   * 
+   * 默认值：0
+   * 
+   * 单位：vp
+   * 
+   * **说明：**
+   * 
+   * 箭头距菜单四周的安全距离为菜单圆角大小与箭头宽度的一半之和。
+   * 
+   * 根据配置的placement来计算是在水平还是垂直方向上偏移。
+   * 
+   * 箭头在菜单水平方向时，偏移量为箭头至最左侧箭头安全距离处的距离。箭头在菜单垂直方向时，偏移量为箭头至最上侧箭头安全距离处的距离。
+   * 
+   * 根据配置的placement的不同，箭头展示的默认位置不同：
+   * 
+   * 在菜单不发生避让的情况下，箭头最终位置与placement设置值的关系参见表2：同时设置arrowOffset与placement时菜单箭头的默认位置。
+   * 
+   * bindContextMenu从API version 10开始支持该属性；bindMenu从API version 12开始支持该属性。
    *
-   * @type { ?Length }
    * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Offset of the arrow relative to the context menu. The offset settings take effect only when the value is valid,
-   * can be converted to a number greater than 0, and does not cause the arrow to extend beyond the safe area of
-   * the context menu.
-   * <p><strong>NOTE</strong>:
-   * <br>The safe distance of the arrow from the four sides of the menu is the sum of the menu's corner radius and
-   * half the width of the arrow. The value of placement determines whether the offset is horizontal or vertical.
-   * When the arrow is in the horizontal direction of the menu, the offset is the distance from the arrow to the
-   * leftmost arrow's safe distance. When the arrow is in the vertical direction of the menu, the offset is the
-   * distance from the arrow to the topmost arrow's safe distance. The default position where the arrow is
-   * displayed varies with the value of placement: Without any avoidance by the menu, when placement is set to
-   * Placement.Top or Placement.Bottom, the arrow is displayed horizontally and is centered by default; when
-   * placement is set to Placement.Left or Placement.Right, the arrow is displayed vertically and is centered by
-   * default; when placement is set to Placement.TopLeft or Placement.BottomLeft, the arrow is displayed
-   * horizontally by default, and the distance from the arrow to the left edge of the menu is the arrow's safe
-   * distance; when placement is set to Placement.TopRight or Placement.BottomRight, the arrow is displayed
-   * horizontally by default, and the distance from the arrow to the right edge of the menu is the arrow's safe
-   * distance; when placement is set to Placement.LeftTop or Placement.RightTop, the arrow is displayed vertically
-   * by default, and the distance from the arrow to the top edge of the menu is the arrow's safe distance; when
-   * placement is set to Placement.LeftBottom or Placement.RightBottom, the arrow is displayed vertically by
-   * default, and the distance from the arrow to the bottom edge of the menu is the arrow's safe distance.
-   * <br>This API is supported in bindContextMenu since API version 10 and bindMenu since API version 12.
-   * </p>
-   *
-   * @type { ?Length }
-   * @default 0vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   arrowOffset?: Length;
 
   /**
-   * The preview content of context menu.
+   * 长按悬浮菜单或使用
+   * [bindContextMenu<sup>12+</sup>]{@link CommonMethod#bindContextMenu(isShown: boolean, content: CustomBuilder, options?: ContextMenuOptions)}
+   * 显示菜单的预览内容样式，可以为目标组件的截图，也可以为用户自定义的内容。
+   * 
+   * 默认值：MenuPreviewMode.NONE，无预览内容。
+   * 
+   * **说明：**
+   * 
+   * - 不支持responseType为ResponseType.RightClick时触发，如果responseType为ResponseType.RightClick，则不会显示预览内容。
+   * - 当未设置preview参数或preview参数设置为MenuPreviewMode.NONE时，enableArrow参数生效。
+   * - 当preview参数设置为MenuPreviewMode.IMAGE或CustomBuilder时，enableArrow为true时也不显示箭头。
    *
-   * @type { ?(MenuPreviewMode | CustomBuilder) }
    * @default MenuPreviewMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Preview displayed when the context menu is triggered by a long-press or use the isShown variable of
-   * bindContextMenu to display the preview content style of the menu.
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter has no effect when responseType is set to ResponseType.RightClick.
-   * <br>If preview is set to MenuPreviewMode.NONE or is not set, the enableArrow parameter is effective.
-   * <br>If preview is set to MenuPreviewMode.IMAGE or CustomBuilder, no arrow will be displayed even when
-   * enableArrow is true.
-   * </p>
-   *
-   * @type { ?(MenuPreviewMode | CustomBuilder) }
-   * @default MenuPreviewMode.NONE
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   preview?: MenuPreviewMode | CustomBuilder;
 
   /**
-   * Defines the border radius for preview of menu.
+   * 设置预览图边框圆角半径。
+   * 
+   * 默认值：16vp 
+   * 
+   * **说明：** 
+   * 
+   * 当水平方向上两个圆角半径之和的最大值超过预览图的宽度，或者垂直方向上两个圆角半径之和的最大值超过预览图的高度时，应采用预览图所能允许的最大圆角半径值。
+   * 
+   * 圆角设置越大，圆角动画变化越快。
    *
-   * @type { ?BorderRadiusType }
    * @default 16vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18927,9 +18812,20 @@ declare interface ContextMenuOptions {
   previewBorderRadius?: BorderRadiusType;
 
   /**
-   * Defines the border radius of menu.
+   * 设置菜单的边框圆角半径。
+   * 
+   * 默认值：2in1设备上默认值8vp，其他设备上默认值20vp。
+   * 
+   * **说明：** 
+   * 
+   * 支持百分比。
+   * 
+   * 当水平方向两个圆角半径之和的最大值超出菜单宽度或垂直方向两个圆角半径之和的最大值超出菜单高度时，采用菜单默认圆角半径值。
+   * 
+   * 当设置Length类型且传参为异常值时，菜单圆角取默认值。
+   * 
+   * 当设置BorderRadiuses或LocalizedBorderRadiuses类型且传参为异常值时，菜单默认没有圆角。
    *
-   * @type { ?(Length | BorderRadiuses | LocalizedBorderRadiuses) }
    * @default 8vp for 2-in-1 devices and 20vp for other devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -18940,93 +18836,68 @@ declare interface ContextMenuOptions {
   borderRadius?: Length | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Callback function when the context menu appears.
+   * 菜单弹出后的事件回调。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback triggered when the menu is displayed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onAppear?: () => void;
 
   /**
-   * Callback function when the context menu disappear.
+   * 菜单消失后的事件回调。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback function when the context menu disappear.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onDisappear?: () => void;
 
   /**
-   * Callback function before the context menu animation starts.
+   * 菜单显示动效前的事件回调。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Callback triggered when the menu is about to appear.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToAppear?: () => void;
 
   /**
-   * Callback function before the context menu popAnimation starts.
+   * 菜单退出动效前的事件回调。
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Callback triggered when the menu is about to disappear.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   aboutToDisappear?: () => void;
 
   /**
-   * The margin of menu's layoutRegion.
+   * 设置预览图与菜单布局时距上下左右边界的最小边距。
+   * 
+   * **说明：** 
+   * 
+   * 仅支持vp、px、fp、lpx、百分比。
+   * 
+   * 当margin设置异常值或负值时，按默认值处理。
+   * 
+   * 若preview为CustomBuilder，设置margin.left或margin.right时，预览图取消最大栅格的宽度限制。
+   * 
+   * 注意应避免设置过大的margin导致布局区域变小，使得预览图和菜单无法正常布局。
+   * 
+   * 当水平方向上margin之和超过布局最大宽度时，margin.left和margin.right均不生效，按默认值处理。
+   * 
+   * 当垂直方向上margin之和超过布局最大高度时，margin.top和margin.bottom均不生效，按默认值处理。
+   * 
+   * 边距默认值为左右边距16vp，上边距16vp, 下边距为4vp。
    *
-   * @type { ?Margin }
    * @default 12vp for left and right, 16vp for top and bottom
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19037,77 +18908,54 @@ declare interface ContextMenuOptions {
   layoutRegionMargin?: Margin;
 
   /**
-   * The preview animator options.
+   * 控制长按预览的显示效果。
+   * 
+   * 默认值：{ scale: [0.95, 1.1], transition: undefined, hoverScale: undefined }。
+   * 
+   * **说明：**
+   * 
+   * 倍率设置参数小于等于0时，不生效。
    *
-   * @type { ?ContextMenuAnimationOptions }
+   * @default { scale: [0.95, 1.1], transition: undefined, hoverScale: undefined } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The preview animator options.
-   *
-   * @type { ?ContextMenuAnimationOptions }
-   * @default { scale: [0.95, 1.1], transition: undefined, hoverScale: undefined }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   previewAnimationOptions?: ContextMenuAnimationOptions;
 
   /**
-   * Defines the menu's background color
+   * 菜单背板颜色。
+   * 
+   * 默认值：Color.Transparent。
    *
-   * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Background color of the menu.
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
   /**
-   * Defines menu background blur Style
+   * 菜单背板模糊材质。
+   * 
+   * 默认值：BlurStyle.COMPONENT_ULTRA_THICK。
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Background blur style of the menu.
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the menu's background blur style with options
+   * 背景模糊效果。
    *
-   * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19117,9 +18965,8 @@ declare interface ContextMenuOptions {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Defines the menu's background effect with options
+   * 背景效果参数。
    *
-   * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19129,9 +18976,18 @@ declare interface ContextMenuOptions {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Defines the transition effect of menu opening and closing.
+   * 设置菜单显示和退出的过渡效果。
+   * 
+   * **说明：**
+   * 
+   * 菜单退出动效过程中，进行横竖屏切换，菜单会避让。二级菜单不继承自定义动效。弹出过程可以点击二级菜单，退出动效执行过程不允许点击二级菜单。
+   * 
+   * 详细描述见[TransitionEffect]{@link TransitionEffect}对象说明。 
+   * 
+   * 动效曲线使用弹簧曲线，在动效退出时，由于弹簧曲线的回弹震荡，菜单消失后有较长的拖尾，使得其他事件无法响应。
+   * 
+   * 当设置transition自定义动效时，菜单的默认显示和退出动效不生效。
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19141,9 +18997,16 @@ declare interface ContextMenuOptions {
   transition?: TransitionEffect;
 
   /**
-   * Determine if it is compatible menu's half folded.
+   * 菜单组件是否响应悬停态（半折叠状态）变化，即在悬停态下是否触发避让折痕区域。
+   * 
+   * 默认值：false，2in1设备默认为true。未设置或者值为非法值时，生效默认值。
+   * 
+   * **说明：** 
+   * 
+   * 1. 如果菜单的弹出位置在悬停态折痕区域，菜单组件不会响应悬停态。
+   * 2. 2in1设备从API version 20开始生效。
+   * 3. 2in1设备仅在窗口瀑布模式下生效。
    *
-   * @type { ?boolean }
    * @default true for 2-in-1 devices and false for other devices
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19154,9 +19017,12 @@ declare interface ContextMenuOptions {
   enableHoverMode?: boolean;
 
   /**
-   * The color of menu's outer border.
+   * 设置菜单边框外描边颜色。
+   * 
+   * **说明：**
+   * 
+   * 默认值：'#19ffffff'
    *
-   * @type { ?(ResourceColor | EdgeColors) }
    * @default '#19ffffff'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19167,9 +19033,14 @@ declare interface ContextMenuOptions {
   outlineColor?: ResourceColor | EdgeColors;
 
   /**
-   * The width of menu's outer border.
+   * 设置菜单边框外描边宽度。
+   * 
+   * 默认值：0vp
+   * 
+   * **说明：**
+   * 
+   * 不支持百分比，若需要外描边效果，outlineWidth为必填项。
    *
-   * @type { ?(Dimension | EdgeOutlineWidths) }
    * @default 0vp - Percentage values are not supported.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19180,9 +19051,16 @@ declare interface ContextMenuOptions {
   outlineWidth?: Dimension | EdgeOutlineWidths;
 
   /**
-   * 定义menu主题颜色模式
+   * 设置菜单深浅色模式，默认跟随绑定组件深浅色模式。
+   * 
+   * 默认值：AnchoredColorMode.FOLLOW_TARGET
+   * 
+   * **说明：**
+   * 
+   * 1. 仅当绑定组件使用了[WithTheme](docroot://reference/apis-arkui/arkui-ts/ts-container-with-theme.md#接口)标签时，该属性才会生效。
+   * 2. 该属性仅影响组件的默认样式，以及开发者设置的涉及深浅色资源的属性。
+   * 3. 设置为AnchoredColorMode.FOLLOW_SYSTEM时，模糊材质可以跟随，文字颜色以及涉及深浅色资源的属性仍保持跟随绑定组件的深浅色配置。
    *
-   * @type { ?AnchoredColorMode }
    * @default AnchoredColorMode.FOLLOW_TARGET
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19193,9 +19071,19 @@ declare interface ContextMenuOptions {
   colorMode?: AnchoredColorMode;
 
   /**
-   * Defines the haptic feedback mode of menu.
+   * 菜单弹出时振动效果。
+   * 
+   * 默认值：HapticFeedbackMode.DISABLED，菜单弹出时不振动。
+   * 
+   * **说明：**
+   * 
+   * 只有一级菜单可配置弹出时振动效果。
+   * 
+   * 仅当用户启用系统触感反馈且在工程的[module.json5](docroot://quick-start/module-configuration-file.md)中配置requestPermissions字段开启
+   * ohos.permission.VIBRATE振动权限时，方可生效。配置如下：
+   * 
+   * ![menuEnableHapticFeedback](docroot://reference/apis-arkui/arkui-ts/figures/menuEnableHapticFeedback.png)
    *
-   * @type { ?HapticFeedbackMode }
    * @default HapticFeedbackMode.DISABLED
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19206,9 +19094,16 @@ declare interface ContextMenuOptions {
   hapticFeedbackMode?: HapticFeedbackMode;
 
   /**
-   * Whether it is a menu without mask.
+   * 设置菜单是否有蒙层及蒙层样式。
+   * 
+   * true：有蒙层；false：没有蒙层；MenuMaskType：自定义蒙层的样式。
+   * 
+   * 默认值：菜单有预览图时默认显示蒙层，否则不显示。
+   * 
+   * **说明：** 
+   * 
+   * 当设备配置不显示菜单蒙层时，该接口不生效。如当前在2in1设备上该接口不生效。
    *
-   * @type { ?(boolean | MenuMaskType) }
    * @default true when preview is enabled, or is false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19219,9 +19114,12 @@ declare interface ContextMenuOptions {
   mask?: boolean | MenuMaskType;
 
   /**
-   * Defines modal mode of menu.
+   * 设置菜单的模态模式。
+   * 
+   * **说明：**
+   * 
+   * 默认值：ModalMode.AUTO
    *
-   * @type { ?ModalMode }
    * @default ModalMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19232,9 +19130,16 @@ declare interface ContextMenuOptions {
   modalMode?: ModalMode;
 
   /**
-   * Callback function when the menu appears.
+   * 菜单弹出后的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1. 正常时序依次为：aboutToAppear>>onWillAppear>>onAppear>>onDidAppear>>aboutToDisappear>>onWillDisappear>>onDisappear>>onDidDisappear。
+   * 2. 快速点击弹出，消失菜单时，存在onWillDisappear在onDidAppear前生效。
+   * 3. 当菜单入场动效未完成时关闭菜单，该回调不会触发。
+   * 
+   * 4.onAppear和onDidAppear触发时机相同，onDidAppear在onAppear后生效。
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19244,9 +19149,13 @@ declare interface ContextMenuOptions {
   onDidAppear?: Callback<void>;
 
   /**
-   * Callback function when the menu disappears.
+   * 菜单消失后的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1. 正常时序依次为：aboutToAppear>>onWillAppear>>onAppear>>onDidAppear>>aboutToDisappear>>onWillDisappear>>onDisappear>>onDidDisappear。
+   * 2. onDisappear和onDidDisappear触发时机相同，onDidDisappear在onDisappear后生效。
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19256,9 +19165,13 @@ declare interface ContextMenuOptions {
   onDidDisappear?: Callback<void>;
 
   /**
-   * Callback function before the menu openAnimation starts.
+   * 菜单显示动效前的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1. 正常时序依次为：aboutToAppear>>onWillAppear>>onAppear>>onDidAppear>>aboutToDisappear>>onWillDisappear>>onDisappear>>onDidDisappear。
+   * 2. aboutToAppear是初始化时触发调用，onWillAppear是在动画执行前触发调用，onWillAppear在aboutToAppear之后执行。
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19268,9 +19181,14 @@ declare interface ContextMenuOptions {
   onWillAppear?: Callback<void>;
 
   /**
-   * Callback function before the menu closeAnimation starts.
+   * 菜单退出动效前的事件回调。
+   * 
+   * **说明：**
+   * 
+   * 1. 正常时序依次为：aboutToAppear>>onWillAppear>>onAppear>>onDidAppear>>aboutToDisappear>>onWillDisappear>>onDisappear>>onDidDisappear。
+   * 2. 快速点击弹出，消失菜单时，存在onWillDisappear在onDidAppear前生效。
+   * 3. aboutToDisappear和onWillDisappear触发时机相同，onWillDisappear在aboutToDisappear后生效。
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19280,9 +19198,17 @@ declare interface ContextMenuOptions {
   onWillDisappear?: Callback<void>;
 
   /**
-   * Defines the scaling mode for custom preview of contextMenu.
+   * 预览图缩放方式。
+   * 
+   * 默认值：PreviewScaleMode.AUTO
+   * 
+   * **说明：**
+   * 
+   * 布局空间不足时，控制预览图的缩放方式。未设置或设置undefined按照PreviewScaleMode.AUTO处理。当设置成PreviewScaleMode.CONSTANT时，如果预览图过大，剩余的空间不足以放置菜单时，菜单
+   * 将重叠显示在预览图之下。
+   * 
+   * 预览图的最大宽高不会超过预览图最大可布局区域（窗口大小减去上下左右的安全边距）。
    *
-   * @type { ?PreviewScaleMode }
    * @default PreviewScaleMode.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19293,9 +19219,12 @@ declare interface ContextMenuOptions {
   previewScaleMode?: PreviewScaleMode;
 
   /**
-   * Defines the available layout area of preview.
+   * 设置预览图宽高的可布局区域，预览图的百分比依据此设置计算，最终可能因安全区限制而被压缩或裁剪。
+   * 
+   * **说明：** 
+   * 
+   * 未设置或设置为undefined时，百分比依据窗口大小计算。若设置为AvailableLayoutArea.SAFE_AREA，预览图的可布局区域为窗口大小减去上下左右的安全边距。
    *
-   * @type { ?AvailableLayoutArea }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19305,9 +19234,18 @@ declare interface ContextMenuOptions {
   availableLayoutArea?: AvailableLayoutArea;
 
   /**
-   * Defines the menu position.
+   * 通过设定水平与垂直偏移量，控制菜单相对于绑定组件左上角的弹出位置，与单独使用offset接口不同的是可以覆盖显示在绑定组件上。
+   * 
+   * 默认值：{ x: undefined, y: undefined }，不支持设置百分比。
+   * 
+   * **说明：**
+   * 
+   * 1. 当菜单处于预览状态时，设定的偏移量将无法生效。
+   * 2. 预设的placement对齐参数将不再生效。
+   * 3. 叠加offset参数的偏移量，最终确定菜单的精确弹出位置。
+   * 4. 当水平与垂直偏移量均设为负值时，菜单重置到Placement.BottomLeft进行显示。
+   * 5. 当水平或垂直偏移量存在undefined或null时，效果等同于不设置anchorPosition，此时预设的placement对齐参数可以生效。
    *
-   * @type { ?Position }
    * @default { x: 0, y: 0 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19318,11 +19256,12 @@ declare interface ContextMenuOptions {
   anchorPosition?: Position;
 
   /**
-   * 设置Menu如何避让键盘
+   * 设置菜单是否避让软键盘。
+   * 
+   * **说明：** 
+   * 
+   * 未设置或设置为undefined时，按照MenuKeyboardAvoidMode.NONE处理。
    *
-   * 默认不避让
-   *
-   * @type { ?MenuKeyboardAvoidMode }
    * @default MenuKeyboardAvoidMode.NONE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19333,9 +19272,12 @@ declare interface ContextMenuOptions {
   keyboardAvoidMode?: MenuKeyboardAvoidMode;
 
   /**
-   * 设置menu和键盘的避让的最小间距
+   * 设置菜单避让软键盘的最小距离。
+   * 
+   * **说明：** 
+   * 
+   * 未设置、设置为负数或undefined时，按照8vp处理。仅在keyboardAvoidMode设置为避让软键盘时生效。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19345,11 +19287,17 @@ declare interface ContextMenuOptions {
   minKeyboardAvoidDistance?: LengthMetrics;
 
   /**
-   * 设置菜单与目标之间的间距。
-   * 当同时设置targetSpace和offset时，它们是相加的。建议使用targetSpace
-   * 来设置菜单和目标之间的间距，并使用offset来设置额外的偏移量。
+   * 设置菜单与目标组件之间的间距。
+   * 
+   * **说明：** 
+   * 
+   * - 同时使用targetSpace与offset时，两者会叠加生效。推荐使用targetSpace设置菜单与目标的间距，使用offset设置菜单弹出位置的偏移量。
+   * - 二级菜单会避让targetSpace范围。
+   * - 设置为负数或undefined时，菜单与目标组件之间的间距为默认8vp，且子菜单不避让targetSpace。
+   * - targetSpace属性在存在默认placement时可直接生效，无默认placement的场景，需配合placement属性使用才可生效。
+   * - anchorPosition的优先级要高于targetSpace。
+   * - 不支持设置百分比。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19359,34 +19307,30 @@ declare interface ContextMenuOptions {
   targetSpace?: LengthMetrics;
 
   /**
-   * 为菜单设置系统风格的材质。不同的材质会产生不同的效果，这些效果会影响菜单的背景颜色、边框、阴影和其他视觉属性。
+   * 设置菜单的系统材质。不同系统材质对应不同的属性影响效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、边框颜
+   * 色[borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。材质设置为非法值、undefined时，按照不设置系统材质处
+   * 理。
+   * 
+   * 默认值： undefined
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
+   * @systemapi [since 23 - 24]
+   * @publicapi [since 26.0.0]
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 23 dynamic
-   */
-  /**
-   * Set system-styled materials for menu. The material effect behaves differently on devices with different
-   * level of computing powers. On devices with lower computing power, it affects attributes such as the
-   * backgroundColor, borderWidth, borderColor, shadow. On devices with higher computing power, it adds a filter effect
-   * at the system material layer, which can produce an effect similar to glass.
-   *
-   * @type { ?SystemUiMaterial }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
 
   /**
-   * 设置菜单的滚动条状态。
+   * 设置菜单滚动条状态。 
+   * 
+   * 默认值：BarState.Auto 
+   * 
+   * 未设置或者设置为undefined时，按照BarState.Auto处理。
    *
-   * @type { ?BarState }
    * @default BarState.Auto
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19397,9 +19341,16 @@ declare interface ContextMenuOptions {
   scrollBar?: BarState;
 
   /**
-   * 定义菜单的最大高度
+   * 设置菜单显示的最大高度。
+   * 
+   * **说明：** 默认最大高度是可用高度的80%。
+   * 
+   * 设置为0或负数以及设置为undefined时，按照默认最大高度处理。设置的菜单最大高度不能超过可用高度的100%。
+   * 
+   * 预览图场景下不支持此能力，菜单按默认最大高度显示。
+   * 
+   * 如果菜单所有选项的实际高度之和小于设定的高度，菜单的高度按实际高度显示。
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19431,10 +19382,14 @@ declare interface ContextMenuOptions {
   edgeLightMode?: EdgeLightMode;
 
   /**
-   * 定义菜单的宫格样式。只有固定风格的菜单才有效。
-   * 例如，在bindMenu/bindContextMenu中使用MenuElement，或者在MenuItem中使用MenuItemOptions。
+   * 设置菜单的栅格样式。仅固定样式菜单生效，例如在
+   * [bindMenu]{@link CommonMethod#bindMenu(content: Array<MenuElement> | CustomBuilder, options?: MenuOptions)}、
+   * [bindContextMenu]{@link CommonMethod#bindContextMenu(content: CustomBuilder, responseType: ResponseType, options?: ContextMenuOptions)}
+   * 、[bindContextMenuByResponseType]{@link CommonMethod#bindContextMenuByResponseType}、
+   * [bindContextMenuByIsShow]{@link CommonMethod#bindContextMenuByIsShow}、
+   * [bindContextMenuWithResponse]{@link CommonMethod#bindContextMenuWithResponse(content: CustomBuilderT<ResponseType> | undefined, options?: ContextMenuOptions)}
+   * 中使用[MenuElement]{@link MenuElement}或在[MenuItem]{@link menu_item}中使用MenuItemOptions。
    *
-   * @type { ?MenuGridStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -19445,68 +19400,48 @@ declare interface ContextMenuOptions {
 }
 
 /**
- * Defines the menu options.
+ * 菜单项的信息，继承自[ContextMenuOptions]{@link ContextMenuOptions}。
  *
- * @extends ContextMenuOptions
- * @interface MenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the menu options.
- *
- * @extends ContextMenuOptions
- * @interface MenuOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MenuOptions extends ContextMenuOptions {
 
   /**
-   * Sets the title of the menu window.
+   * 菜单标题。
+   * 
+   * **说明：**
+   * 
+   * 仅在content设置为Array<[MenuElement]{@link MenuElement}> 时生效。
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the title of the menu window.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   title?: ResourceStr;
 
   /**
-   * Whether to display in the sub window.
+   * 是否在子窗口显示菜单。
+   * 
+   * true：在子窗口显示菜单；false：不在子窗显示菜单。
+   * 
+   * 默认值：2in1设备上为true，其他设备为false。
+   * 
+   * **说明：** 
+   * 
+   * 仅对2in1设备生效。
    *
-   * @type { ?boolean }
+   * @default true for 2-in-1 devices [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether to display in the sub window.
-   *
-   * @type { ?boolean }
-   * @default true for 2-in-1 devices
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   showInSubWindow?: boolean;
 }
@@ -20258,147 +20193,70 @@ declare interface NestedScrollOptions {
 }
 
 /**
- * Defines the menu element.
+ * 菜单项的图标、文本和交互信息。
  *
- * @interface MenuElement
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the menu element.
- *
- * @interface MenuElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the menu element.
- *
- * @interface MenuElement
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface MenuElement {
 
   /**
-   * Sets the value of the menu element.
+   * 菜单项文本。
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the value of the menu element.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the value of the menu element.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   value: ResourceStr;
 
   /**
-   * Sets the icon of the menu element.
+   * 菜单项图标。
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the icon of the menu element.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   icon?: ResourceStr;
 
   /**
-   * Sets the symbol of the menu element.
+   * 设置菜单项图标。通过Modifier配置菜单项图标，若同时配置symbolIcon和icon的情况下，icon图标不显示。
    *
-   * @type { ?SymbolGlyphModifier }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the symbol of the menu element.
-   *
-   * @type { ?SymbolGlyphModifier }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   symbolIcon?: SymbolGlyphModifier;
 
   /**
-   * If the value is true, the menu element is available and can respond to operations such as clicking.
-   * If the value is false, the menu element is not available and click operations are not responded.
+   * 菜单条目是否可进行交互。
+   * 
+   * true：菜单条目可以进行交互；false：菜单条目不可以进行交互。
+   * 
+   * 默认值：true
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * If the value is true, the menu element is available and can respond to operations such as clicking.
-   * If the value is false, the menu element is not available and click operations are not responded.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   enabled?: boolean;
 
   /**
-   * Method executed by the callback.
+   * 点击菜单项的事件回调。
    *
-   * @type { function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Method executed by the callback.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Method executed by the callback.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   action: () => void;
 }
@@ -20543,9 +20401,8 @@ declare interface AttributeModifier<T> {
 }
 
 /**
- * 定义组件内容修改器
+ * 开发者需要自定义class实现ContentModifier接口。
  *
- * @interface ContentModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -20555,12 +20412,18 @@ declare interface AttributeModifier<T> {
 declare interface ContentModifier<T> {
 
   /**
-   * Defining applyContent function.
+   * 定制内容区的Builder。
+   * 
+   * **T参数支持范围:**
+   * 
+   * ButtonConfiguration、CheckBoxConfiguration、DataPanelConfiguration、TextClockConfiguration、ToggleConfiguration、GaugeConfiguration、LoadingProgressConfiguration、RadioConfiguration、ProgressConfiguration、RatingConfiguration、SliderConfiguration
+   * 
+   * **属性支持范围:**
+   * 
+   * 支持通用属性enabled，contentModifier。
    *
-   * @returns { WrappedBuilder<[T]> }
-   * Component attribute class, which is used to distinguish different information required by different components
-   * after content areas are customized, for example, ButtonConfiguration for the Button component and
-   * CheckBoxConfiguration of the Checkbox component.
+   * @returns { WrappedBuilder<[T]> } 组件的属性类，用来区别不同组件自定义内容区后所需要的不同信息，比如Button组件的ButtonConfiguration，Checkbox组件的
+   *     CheckBoxConfiguration等。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -20571,9 +20434,8 @@ declare interface ContentModifier<T> {
 }
 
 /**
- * Defines the common configuration.
+ * 开发者需要自定义class实现ContentModifier接口。
  *
- * @interface CommonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -20583,10 +20445,8 @@ declare interface ContentModifier<T> {
 declare interface CommonConfiguration<T> {
 
   /**
-   * If the value is true, the contentModifier is available and can respond to operations such as triggerChange.
-   *  If it is set to false, triggerChange operations are not responded.
+   * 如果该值为true，则contentModifier可用，并且可以响应triggerChange等操作，如果设置为false，则不会响应triggerChange等操作。
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -20596,9 +20456,8 @@ declare interface CommonConfiguration<T> {
   enabled: boolean;
 
   /**
-   * Obtains the contentModifier instance object
+   * 用于将用户需要的组件信息发送到自定义内容区。
    *
-   * @type { ContentModifier<T> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -21352,9 +21211,10 @@ declare type RectShape = import('../api/@ohos.arkui.shape').RectShape;
 declare type Optional<T> = T | undefined;
 
 /**
- * 使用ResourceStr和StyledString定义TipsMessageType属性。
+ * 悬浮气泡弹窗信息。
  *
- * @typedef { ResourceStr | StyledString } TipsMessageType
+ * @unionmember { ResourceStr } 字符串类型，用于描述字符串入参可以使用的类型。
+ * @unionmember { StyledString } 属性字符串。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32702,9 +32562,8 @@ declare interface FocusMovement {
 }
 
 /**
- * enum keyboard avoid mode
+ * 弹窗避让键盘时，避让模式的枚举类型。
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32714,7 +32573,7 @@ declare interface FocusMovement {
 declare enum KeyboardAvoidMode {
 
   /**
-   * Defines avoid keyboard when keyboard shows.
+   * 默认避让软键盘并在到达极限高度之后进行高度压缩。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -32725,7 +32584,7 @@ declare enum KeyboardAvoidMode {
   DEFAULT = 0,
 
   /**
-   * Defines not avoid keyboard when keyboard shows.
+   * 不避让软键盘。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

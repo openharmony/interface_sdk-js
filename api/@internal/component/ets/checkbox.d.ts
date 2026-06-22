@@ -19,119 +19,49 @@
  */
 
 /**
- * Defines the options of Checkbox.
+ * Provides information about the check box.
  *
- * @interface CheckboxOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the options of Checkbox.
- *
- * @interface CheckboxOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the options of Checkbox.
- *
- * @interface CheckboxOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the options of Checkbox.
- *
- * @interface CheckboxOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface CheckboxOptions {
   /**
-   * Current name of Checkbox.
+   * Name of the check box.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Current name of Checkbox.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Current name of Checkbox.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Current name of Checkbox.
-   *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   name?: string;
 
   /**
-   * Sets the group of Checkbox.
+   * Group name of the check box (that is, the name of the check box group to which the check box belongs).
+   * 
+   * **NOTE**
+   * 
+   * For the settings to take effect, this parameter must be used with the [CheckboxGroup]{@link checkboxgroup} 
+   * component.
    *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the group of Checkbox.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the group of Checkbox.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the group of Checkbox.
-   *
-   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   group?: string;
 
   /**
-   * Custom builder function.
+   * Custom component to indicate that the check box is selected. This custom component is center aligned with the check
+   * box. When **indicatorBuilder** is set to **undefined** or **null**, it defaults to the state where it is not set.
    *
-   * @type { ?CustomBuilder }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -142,10 +72,9 @@ declare interface CheckboxOptions {
 }
 
 /**
- * CheckBoxConfiguration used by content modifier.
+ * You need a custom class to implement the **ContentModifier** API. Inherits from 
+ * [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<CheckBoxConfiguration>
- * @interface CheckBoxConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -154,9 +83,8 @@ declare interface CheckboxOptions {
  */
 declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConfiguration> {
   /**
-   * Current name of checkbox.
+   * Name of the check box.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -166,9 +94,16 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
   name: string;
 
   /**
-   * Indicates whether the checkbox is selected.
+   * Whether the check box is selected.
+   * 
+   * **true**: The check box is selected. 
+   * 
+   * **false**: The check box is not selected.
+   * 
+   * If the **select** attribute is not set, the default value **false** is used.
+   * 
+   * If the **select** attribute is set, the attribute value is used here.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -178,9 +113,11 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
   selected: boolean;
 
   /**
-   * Trigger checkbox select change.
+   * Triggers a change in the check box selection state. 
+   * 
+   * The value **true** indicates a change from unselected to selected, and **false** indicates a change from selected 
+   * to unselected.
    *
-   * @type { Callback<boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -191,94 +128,41 @@ declare interface CheckBoxConfiguration extends CommonConfiguration<CheckBoxConf
 }
 
 /**
- * Provides an interface for the Checkbox component.
+ * **Checkbox** is a component that is used to enable or disable an option.
+ * 
+ * > **NOTE**
+ * >
+ * > Since API version 11, the default style of the **Checkbox** component is changed from rounded square to circle.
  *
- * @interface CheckboxInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides an interface for the Checkbox component.
- *
- * @interface CheckboxInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides an interface for the Checkbox component.
- *
- * @interface CheckboxInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides an interface for the Checkbox component.
- *
- * @interface CheckboxInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 interface CheckboxInterface {
   /**
-   * Construct the Checkbox component.
-   * Called when the Checkbox component is used.
+   * Creates a check box.
    *
-   * @param { CheckboxOptions } options
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Construct the Checkbox component.
-   * Called when the Checkbox component is used.
-   *
-   * @param { CheckboxOptions } options
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Construct the Checkbox component.
-   * Called when the Checkbox component is used.
-   *
-   * @param { CheckboxOptions } options
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Construct the Checkbox component.
-   * Called when the Checkbox component is used.
-   *
-   * @param { CheckboxOptions } options
+   * @param { CheckboxOptions } options - Check box parameters.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (options?: CheckboxOptions): CheckboxAttribute;
 }
 
 /**
- * Defines a Checkbox callback when onChange.
- * Anonymous Object Rectification.
+ * Represents the callback invoked when the selected state of the check box changes.
  *
- * @typedef { function } OnCheckboxChangeCallback
- * @param { boolean } value - selected status
+ * @param { boolean } value - Whether the check box is selected. The value **true** means that the check box is
+ *     selected, and **false** means the opposite.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -289,87 +173,50 @@ interface CheckboxInterface {
 declare type OnCheckboxChangeCallback = (value: boolean) => void;
 
 /**
- * Defines the attribute functions of Checkbox.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<CheckboxAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the attribute functions of Checkbox.
- *
- * @extends CommonMethod<CheckboxAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the attribute functions of Checkbox.
- *
- * @extends CommonMethod<CheckboxAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the attribute functions of Checkbox.
- *
- * @extends CommonMethod<CheckboxAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  * @noninterop
  */
 declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   /**
-   * setting whether checkbox is selected.
+   * Sets whether the check box is selected.
+   * 
+   * Since API version 10, this attribute supports two-way binding through 
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 
+   * Since API version 18, this attribute supports two-way binding through 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { boolean } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * setting whether checkbox is selected.
-   *
-   * @param { boolean } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * setting whether checkbox is selected.
-   *
-   * @param { boolean } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * setting whether checkbox is selected.
-   *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the check box is selected.<br>Default value: **false**<br>**true**: The check
+   *     box is selected. <br>**false**: The check box is not selected.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   select(value: boolean): CheckboxAttribute;
 
   /**
-   * setting whether checkbox is selected.
+   * Sets whether the check box is selected. Compared with [select]{@link CheckboxAttribute#select(value: boolean)}, 
+   * this API supports the **undefined** type for the **isSelected** parameter.
+   * 
+   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and 
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
    *
-   * @param { Optional<boolean> } isSelected
+   * @param { Optional<boolean> } isSelected - Whether the check box is selected.<br>If **isSelected** is set to
+   *     **undefined**, the default value **false** is used.<br>**true**: The check box is selected. <br>**false**: The
+   *     check box is not selected.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,50 +228,28 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   select(isSelected: Optional<boolean>): CheckboxAttribute;
 
   /**
-   * setting the display color of checkbox.
+   * Sets the color of the check box when it is selected.
    *
-   * @param { ResourceColor } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * setting the display color of checkbox.
-   *
-   * @param { ResourceColor } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * setting the display color of checkbox.
-   *
-   * @param { ResourceColor } value
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * setting the display color of checkbox.
-   *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the check box when it is selected.<br>Default value:
+   *     **$r('sys.color.ohos_id_color_text_primary_activated')**.<br>An invalid value is handled as the default value.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   selectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
-   * setting the display color of checkbox.
+   * Sets the color of the check box when it is selected. Compared with 
+   * [selectedColor]{@link CheckboxAttribute#selectedColor(value: ResourceColor)}, this API supports the **undefined** 
+   * type for the **resColor** parameter.
    *
-   * @param { Optional<ResourceColor> } resColor
+   * @param { Optional<ResourceColor> } resColor - Color of the check box when it is selected.<br>If **resColor** is set
+   *     to **undefined**, the default value **$r('sys.color.ohos_id_color_text_primary_activated')** is used.<br>An
+   *     invalid value is handled as the default value.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -436,34 +261,27 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   selectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
   /**
-   * setting the shape of checkbox.
+   * Sets the check box shape. To adjust the style of the current check box, use 
+   * [contentModifier]{@link CheckboxAttribute#contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)}.
    *
-   * @param { CheckBoxShape } value - The configuration of checkbox shape.
+   * @param { CheckBoxShape } value - Shape of the check box.<br>Default value: **CheckBoxShape.CIRCLE**
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-   /**
-   * setting the shape of checkbox.
-   *
-   * @param { CheckBoxShape } value - The configuration of checkbox shape.
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   shape(value: CheckBoxShape): CheckboxAttribute;
 
    /**
-   * setting the shape of checkbox.
+   * Sets the check box shape. Compared with [shape]{@link CheckboxAttribute#shape(value: CheckBoxShape)}<sup>11+</sup>,
+   * this API supports the **undefined** type for the **shape** parameter. To adjust the style of the current check box,
+   * use [contentModifier]{@link CheckboxAttribute#contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)}.
    *
-   * @param { Optional<CheckBoxShape> } shape - The configuration of checkbox shape.
+   * @param { Optional<CheckBoxShape> } shape - Shape of the check box.<br>If **shape** is set to **undefined**, the
+   *     default value **CheckBoxShape.CIRCLE** is used.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -475,32 +293,27 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   shape(shape: Optional<CheckBoxShape>): CheckboxAttribute;
 
   /**
-   * Set the display border color of unselected checkbox.
+   * Sets the border color of the check box when it is not selected.
    *
-   * @param { ResourceColor } value - The color of border when checkbox unselected.
+   * @param { ResourceColor } value - Border color of the check box when it is not selected.<br>Default value:
+   *     **$r('sys.color.ohos_id_color_switch_outline_off')**.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the display border color of unselected checkbox.
-   *
-   * @param { ResourceColor } value - The color of border when checkbox unselected.
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   unselectedColor(value: ResourceColor): CheckboxAttribute;
 
   /**
-   * Set the display border color of unselected checkbox.
+   * Sets the border color of the check box when it is not selected. Compared with 
+   * [unselectedColor]{@link CheckboxAttribute#unselectedColor(value: ResourceColor)}<sup>10+</sup>, this API supports 
+   * the **undefined** type for the **resColor** parameter.
    *
-   * @param { Optional<ResourceColor> } resColor - The color of border when checkbox unselected.
+   * @param { Optional<ResourceColor> } resColor - Border color of the check box when it is not selected.<br>If
+   *     **resColor** is set to **undefined**, the default value **$r('sys.color.ohos_id_color_switch_outline_off')** is
+   *     used.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -511,32 +324,29 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   unselectedColor(resColor: Optional<ResourceColor>): CheckboxAttribute;
 
   /**
-   * Set the mark style of checkbox.
+   * Sets the check mark style of the check box.
    *
-   * @param { MarkStyle } value - The style configuration of checkbox mark.
+   * @param { MarkStyle } value - Check mark style of the check box. Since API version 12, if **indicatorBuilder** is
+   *     set, the style is determined by **indicatorBuilder**.<br>Default value: {<br>strokeColor :
+   *     `$r('sys.color.ohos_id_color_foreground_contrary')`,<br>strokeWidth:
+   *     `$r('sys.float.ohos_id_checkbox_stroke_width')`,<br>size: '20vp'<br>}
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the mark style of checkbox.
-   *
-   * @param { MarkStyle } value - The style configuration of checkbox mark.
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   mark(value: MarkStyle): CheckboxAttribute;
 
   /**
-   * Set the mark style of checkbox.
+   * Sets the check mark style of the check box. Compared with [mark]{@link CheckboxAttribute#mark(value: MarkStyle)}<
+   * sup>10+</sup>, this API supports the **undefined** type for the **style** parameter.
    *
-   * @param { Optional<MarkStyle> } style - The style configuration of checkbox mark.
+   * @param { Optional<MarkStyle> } style - Check mark style of the check box. If **indicatorBuilder** is set, the style
+   *     is determined by **indicatorBuilder**.<br>If **style** is set to **undefined**, the default value is used: {<br
+   *     >strokeColor : `$r('sys.color.ohos_id_color_foreground_contrary')`,<br>strokeWidth:
+   *     `$r('sys.float.ohos_id_checkbox_stroke_width')`,<br>size: '20vp'<br>}
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -547,62 +357,27 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   mark(style: Optional<MarkStyle>): CheckboxAttribute;
 
   /**
-   * Called when the selection status changes.
+   * Invoked when the selected state of the check box changes.
    *
-   * @param { function } callback
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the selection status changes.
-   *
-   * @param { function } callback
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the selection status changes.
-   *
-   * @param { function } callback
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the selection status changes.
-   *
-   * @param { function } callback
-   * @returns { CheckboxAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the selection status changes.
-   * Anonymous Object Rectification.
-   *
-   * @param { OnCheckboxChangeCallback } callback
+   * @param { function } callback - Callback used to return the selected state. [since 8 - 17]
+   * @param { OnCheckboxChangeCallback } callback - Callback used to return the selected state. [since 18]
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onChange(callback: OnCheckboxChangeCallback): CheckboxAttribute;
 
   /**
-   * Called when the selection status changes.
+   * Invoked when the selected state of the check box changes. Compared with 
+   * [onChange]{@link CheckboxAttribute#onChange(callback: OnCheckboxChangeCallback)}, this API supports the 
+   * **undefined** type for the **callback** parameter.
    *
-   * @param { Optional<OnCheckboxChangeCallback> } callback
+   * @param { Optional<OnCheckboxChangeCallback> } callback - Callback used to return the selected state.<br>If
+   *     **callback** is set to **undefined**, the callback function is not used.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -614,9 +389,11 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   onChange(callback: Optional<OnCheckboxChangeCallback>): CheckboxAttribute;
 
   /**
-   * Set the content modifier of checkbox.
+   * Creates a content modifier for the **Checkbox** component. Setting this attribute will invalidate other attribute 
+   * settings.
    *
-   * @param { ContentModifier<CheckBoxConfiguration> } modifier - The content modifier of checkbox.
+   * @param { ContentModifier<CheckBoxConfiguration> } modifier - Content modifier to apply to the **Checkbox**
+   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -627,9 +404,14 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
   contentModifier(modifier: ContentModifier<CheckBoxConfiguration>): CheckboxAttribute;
 
   /**
-   * Set the content modifier of checkbox.
+   * Creates a content modifier for the **Checkbox** component. Compared with 
+   * [contentModifier]{@link CheckboxAttribute#contentModifier(modifier: ContentModifier<CheckBoxConfiguration>)}<sup>12
+   * +</sup>, this API supports the **undefined** type for the **modifier** parameter. Setting this attribute will 
+   * invalidate other attribute settings.
    *
-   * @param { Optional<ContentModifier<CheckBoxConfiguration>> } modifier - The content modifier of checkbox.
+   * @param { Optional<ContentModifier<CheckBoxConfiguration>> } modifier - Content modifier to apply to the
+   *     **Checkbox** component.<br>**modifier**: content modifier. You need a custom class to implement the
+   *     **ContentModifier** API.<br>If **modifier** is set to **undefined**, no content modifier is used.
    * @returns { CheckboxAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -641,35 +423,22 @@ declare class CheckboxAttribute extends CommonMethod<CheckboxAttribute> {
 }
 
 /**
- * Defines Checkbox Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Checkbox Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Checkbox Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Checkbox Component.
+ * **Checkbox** is a component that is used to enable or disable an option.
+ * 
+ * > **NOTE**
+ * >
+ * > Since API version 11, the default style of the **Checkbox** component is changed from rounded square to circle.
+ * 
+ * ###### Child Components
+ * 
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const Checkbox: CheckboxInterface;
 
@@ -677,31 +446,10 @@ declare const Checkbox: CheckboxInterface;
  * Defines Checkbox Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Checkbox Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Checkbox Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Checkbox Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare const CheckboxInstance: CheckboxAttribute;

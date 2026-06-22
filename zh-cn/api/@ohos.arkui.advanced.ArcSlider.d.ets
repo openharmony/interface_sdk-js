@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the position of the arc slider on the screen.
+ * 配置弧形Slider的屏幕显示位置。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -30,7 +30,7 @@
 export declare enum ArcSliderPosition {
 
   /**
-   * The arc slider is displayed on the left.
+   * 弧形Slider的屏幕显示位置在左侧。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -40,7 +40,7 @@ export declare enum ArcSliderPosition {
   LEFT = 0,
 
   /**
-   * The arc slider is displayed on the right.
+   * 弧形Slider的屏幕显示位置在右侧。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
@@ -51,7 +51,7 @@ export declare enum ArcSliderPosition {
 }
 
 /**
- * Defines the constructor information for **ArcSliderValueOptions**.
+ * ArcSliderValueOptions的构造信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -60,9 +60,9 @@ export declare enum ArcSliderPosition {
  */
 interface ArcSliderValueOptionsConstructorOptions {
   /**
-   * Current progress.
+   * 设置当前进度值。
    * 
-   * Default value: same as the value of **min**.
+   * 默认值：与参数min的取值一致
    * 
    * @Trace
    *
@@ -74,9 +74,9 @@ interface ArcSliderValueOptionsConstructorOptions {
   progress?: number;
 
   /**
-   * Minimum value.
+   * 设置最小值。
    * 
-   * Default value: **0**.
+   * 默认值：0
    * 
    * @Trace
    *
@@ -89,15 +89,15 @@ interface ArcSliderValueOptionsConstructorOptions {
   min?: number;
 
   /**
-   * Maximum value.
+   * 设置最大值。
    * 
-   * Default value: **100**
+   * 默认值：100
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * If the value of **min** is greater than or equal to that of **max**, **min** is set to **0** and **max** **100**.
+   * 当出现异常情况min >= max时，min取默认值0，max取默认值100。
    * 
-   * If the value is not within the [min, max] range, the value of **min** or **max** is used, whichever is closer.
+   * progress不在[min, max]范围之内，取min或者max，靠近min取min，靠近max取max。
    * 
    * @Trace
    *
@@ -111,7 +111,7 @@ interface ArcSliderValueOptionsConstructorOptions {
 }
 
 /**
- * Defines the value of the arc slider.
+ * 配置弧形Slider的数值信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -121,9 +121,9 @@ interface ArcSliderValueOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderValueOptions {
   /**
-   * Current progress.
+   * 设置当前进度值。
    * 
-   * Default value: same as the value of **min**.
+   * 默认值：与参数min的取值一致
    * 
    * @Trace
    *
@@ -136,9 +136,9 @@ declare class ArcSliderValueOptions {
   progress?: number;
 
   /**
-   * Minimum value.
+   * 设置最小值。
    * 
-   * Default value: **0**.
+   * 默认值：0
    * 
    * @Trace
    *
@@ -152,15 +152,15 @@ declare class ArcSliderValueOptions {
   min?: number;
 
   /**
-   * Maximum value.
+   * 设置最大值。
    * 
-   * Default value: **100**
+   * 默认值：100
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * If the value of **min** is greater than or equal to that of **max**, **min** is set to **0** and **max** **100**.
+   * 当出现异常情况min >= max时，min取默认值0，max取默认值100。
    * 
-   * If the value is not within the [min, max] range, the value of **min** or **max** is used, whichever is closer.
+   * progress不在[min, max]范围之内，取min或者max，靠近min取min，靠近max取max。
    * 
    * @Trace
    *
@@ -174,9 +174,9 @@ declare class ArcSliderValueOptions {
   max?: number;
 
   /**
-   * A constructor used to create an **ArcSliderValueOptions** instance.
+   * ArcSliderValueOptions的构造函数。
    *
-   * @param { ArcSliderValueOptionsConstructorOptions } options - Constructor information for **ArcSliderValueOptions**.
+   * @param { ArcSliderValueOptionsConstructorOptions } options - ArcSliderValueOptions的构造信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -186,7 +186,7 @@ declare class ArcSliderValueOptions {
 }
 
 /**
- * Defines the construction information for **ArcSliderLayoutValueOptions**.
+ * ArcSliderLayoutValueOptions的构造信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -195,9 +195,9 @@ declare class ArcSliderValueOptions {
  */
 interface ArcSliderLayoutOptionsConstructorOptions {
   /**
-   * Whether the value range of the arc slider is reversed. **false**: top-to-bottom sliding.
+   * 设置弧形Slider取值范围是否反向。值为false时表示从上往下滑。
    * 
-   * **true** (default): bottom-to-top sliding.
+   * 默认值：true，表示从下往上滑动。
    * 
    * @Trace
    *
@@ -209,9 +209,9 @@ interface ArcSliderLayoutOptionsConstructorOptions {
    */
   reverse?: boolean;
   /**
-   * Position of the arc slider on the screen.
+   * 弧形Slider的屏幕显示位置。
    * 
-   * Default value: **ArcSliderPosition.RIGHT**
+   * 默认值：ArcSliderPosition.RIGHT
    * 
    * @Trace
    *
@@ -225,7 +225,7 @@ interface ArcSliderLayoutOptionsConstructorOptions {
 }
 
 /**
- * Defines the layout of the arc slider.
+ * 配置弧形Slider的布局信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -235,9 +235,9 @@ interface ArcSliderLayoutOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderLayoutOptions {
   /**
-   * Whether the value range of the arc slider is reversed. **false**: top-to-bottom sliding.
+   * 设置弧形Slider取值范围是否反向。值为false时表示从上往下滑。
    * 
-   * **true** (default): bottom-to-top sliding.
+   * 默认值：true，表示从下往上滑动。
    * 
    * @Trace
    *
@@ -251,9 +251,9 @@ declare class ArcSliderLayoutOptions {
   reverse?: boolean;
 
   /**
-   * Position of the arc slider on the screen.
+   * 弧形Slider的屏幕显示位置。
    * 
-   * Default value: **ArcSliderPosition.RIGHT**
+   * 默认值：ArcSliderPosition.RIGHT
    * 
    * @Trace
    *
@@ -267,10 +267,9 @@ declare class ArcSliderLayoutOptions {
   position?: ArcSliderPosition;
 
   /**
-   * A constructor used to create an **ArcSliderLayoutOptions** instance.
+   * ArcSliderLayoutOptions的构造函数。
    *
-   * @param { ArcSliderLayoutOptionsConstructorOptions } options - Construction information for
-   *     **ArcSliderLayoutOptions**.
+   * @param { ArcSliderLayoutOptionsConstructorOptions } options - ArcSliderLayoutOptions的构造信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -280,7 +279,7 @@ declare class ArcSliderLayoutOptions {
 }
 
 /**
- * Defines the constructor information for **ArcSliderStyleOptions**.
+ * ArcSliderStyleOptions的构造信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -289,11 +288,11 @@ declare class ArcSliderLayoutOptions {
  */
 interface ArcSliderStyleOptionsConstructorOptions {
   /**
-   * Stroke width of the arc slider in the normal state, in vp.
+   * 正常状态下弧形Slider的描边粗细，单位：vp。
    * 
-   * Default value: **5**
+   * 默认值：5
    * 
-   * Value range: [5, 16]. If the value is invalid, the default value is used.
+   * 取值范围：[5, 16]，异常值按默认值处理。
    * 
    * @Trace
    *
@@ -306,11 +305,11 @@ interface ArcSliderStyleOptionsConstructorOptions {
   trackThickness?: number;
 
   /**
-   * Stroke width of the arc slider when it is in an enlarged state, in vp.
+   * 放大状态下弧形Slider的描边粗细，单位：vp。
    * 
-   * Default value: **24**
+   * 默认值：24
    * 
-   * Value range: [24, 36]. If the value is invalid, the default value is used.
+   * 取值范围：[24, 36]，异常值按默认值处理。
    * 
    * @Trace
    *
@@ -323,9 +322,9 @@ interface ArcSliderStyleOptionsConstructorOptions {
   activeTrackThickness?: number;
 
   /**
-   * Background color of the stroke.
+   * 设置描边背景色。
    * 
-   * Default value: **#33FFFFFF**
+   * 默认值：#33FFFFFF
    * 
    * @Trace
    *
@@ -338,9 +337,9 @@ interface ArcSliderStyleOptionsConstructorOptions {
   trackColor?: string;
 
   /**
-   * Highlight color of the stroke.
+   * 设置描边高亮色。
    * 
-   * Default value: **#FF5EA1FF**
+   * 默认值：#FF5EA1FF
    * 
    * @Trace
    *
@@ -353,11 +352,11 @@ interface ArcSliderStyleOptionsConstructorOptions {
   selectedColor?: string;
 
   /**
-   * Blur effect applied to the stroke background, in vp.
+   * 设置描边背景模糊值，单位：vp。
    * 
-   * Default value: **20**
+   * 默认值：20
    * 
-   * If a value less than 0 is set, the default is used.
+   * 设置小于0的值时，按照默认值处理。
    * 
    * @Trace
    *
@@ -371,7 +370,7 @@ interface ArcSliderStyleOptionsConstructorOptions {
 }
 
 /**
- * Defines the style of the arc slider.
+ * 配置弧形Slider的样式信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -381,11 +380,11 @@ interface ArcSliderStyleOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderStyleOptions {
   /**
-   * Stroke width of the arc slider in the normal state, in vp.
+   * 正常状态下弧形Slider的描边粗细，单位：vp。
    * 
-   * Default value: **5**
+   * 默认值：5
    * 
-   * Value range: [5, 16]. If the value is invalid, the default value is used.
+   * 取值范围：[5, 16]，异常值按默认值处理。
    * 
    * @Trace
    *
@@ -399,11 +398,11 @@ declare class ArcSliderStyleOptions {
   trackThickness?: number;
 
   /**
-   * Stroke width of the arc slider when it is in an enlarged state, in vp.
+   * 放大状态下弧形Slider的描边粗细，单位：vp。
    * 
-   * Default value: **24**
+   * 默认值：24
    * 
-   * Value range: [24, 36]. If the value is invalid, the default value is used.
+   * 取值范围：[24, 36]，异常值按默认值处理。
    * 
    * @Trace
    *
@@ -417,9 +416,9 @@ declare class ArcSliderStyleOptions {
   activeTrackThickness?: number;
 
   /**
-   * Background color of the stroke.
+   * 设置描边背景色。
    * 
-   * Default value: **#33FFFFFF**
+   * 默认值：#33FFFFFF
    * 
    * @Trace
    *
@@ -433,9 +432,9 @@ declare class ArcSliderStyleOptions {
   trackColor?: string;
 
   /**
-   * Highlight color of the stroke.
+   * 设置描边高亮色。
    * 
-   * Default value: **#FF5EA1FF**
+   * 默认值：#FF5EA1FF
    * 
    * @Trace
    *
@@ -449,11 +448,11 @@ declare class ArcSliderStyleOptions {
   selectedColor?: string;
 
   /**
-   * Blur effect applied to the stroke background, in vp.
+   * 设置描边背景模糊值，单位：vp。
    * 
-   * Default value: **20**
+   * 默认值：20
    * 
-   * If a value less than 0 is set, the default is used.
+   * 设置小于0的值时，按照默认值处理。
    * 
    * @Trace
    *
@@ -467,9 +466,9 @@ declare class ArcSliderStyleOptions {
   trackBlur?: number;
 
   /**
-   * A constructor used to create an **ArcSliderStyleOptions** instance.
+   * ArcSliderStyleOptions的构造函数。
    *
-   * @param { ArcSliderStyleOptionsConstructorOptions } options - Constructor information for **ArcSliderStyleOptions**.
+   * @param { ArcSliderStyleOptionsConstructorOptions } options - ArcSliderStyleOptions的构造信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -479,9 +478,9 @@ declare class ArcSliderStyleOptions {
 }
 
 /**
- * Defines the callback invoked to notify the application when the arc slider is touched.
+ * 弧形Slider被触摸时，告知应用。
  *
- * @param { TouchEvent } event - **TouchEvent** object.
+ * @param { TouchEvent } event - 获得TouchEvent对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -490,9 +489,9 @@ declare class ArcSliderStyleOptions {
 declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 
 /**
- * Defines the callback invoked to notify the application when the progress value of the arc slider changes.
+ * 弧形Slider的进度值发生变化时，告知应用。
  *
- * @param { number } progress - Current progress of the slider.
+ * @param { number } progress - Slider当前的进度值。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -501,10 +500,10 @@ declare type ArcSliderTouchHandler = (event: TouchEvent) => void;
 declare type ArcSliderChangeHandler = (progress: number) => void;
 
 /**
- * Defines the callback invoked to notify the application when the arc slider is enlarged or reduced.
+ * 弧形Slider放大或缩小时，告知应用。
  *
- * @param { boolean } isEnlarged - Whether the arc slider is enlarged.<br>**false**: The arc slider is in a reduced
- *     state.<br>**true**: The arc slider is in an enlarged state.
+ * @param { boolean } isEnlarged - ArcSlider当前是否放大。<br/>isEnlarged为false时，ArcSlider组件处于缩小状态。<br/>isEnlarged为true时，
+ *     ArcSlider组件处于放大状态。
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
  * @atomicservice
@@ -513,7 +512,7 @@ declare type ArcSliderChangeHandler = (progress: number) => void;
 declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
 
 /**
- * Defines the constructor information for **ArcSliderOptions**.
+ * ArcSliderOptions的构造信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -522,9 +521,9 @@ declare type ArcSliderEnlargeHandler = (isEnlarged: boolean) => void;
  */
 interface ArcSliderOptionsConstructorOptions {
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -536,9 +535,9 @@ interface ArcSliderOptionsConstructorOptions {
   valueOptions?: ArcSliderValueOptions;
 
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -550,9 +549,9 @@ interface ArcSliderOptionsConstructorOptions {
   layoutOptions?: ArcSliderLayoutOptions;
 
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -564,9 +563,9 @@ interface ArcSliderOptionsConstructorOptions {
   styleOptions?: ArcSliderStyleOptions;
 
   /**
-   * Sensitivity to the digital crown rotation.
+   * 设置旋转表冠的灵敏度。
    * 
-   * Default value: **CrownSensitivity.MEDIUM**
+   * 默认值：CrownSensitivity.MEDIUM
    * 
    * @Trace
    *
@@ -578,9 +577,9 @@ interface ArcSliderOptionsConstructorOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * Callback invoked to notify the application when the arc slider is touched.
+   * 弧形Slider被触摸时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -592,9 +591,9 @@ interface ArcSliderOptionsConstructorOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * Callback invoked to notify the application when the progress value of the arc slider changes.
+   * 弧形Slider的进度值发生变化时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -606,9 +605,9 @@ interface ArcSliderOptionsConstructorOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Callback invoked to notify the application when the arc slider is enlarged or reduced.
+   * 弧形Slider放大或缩小时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -621,7 +620,7 @@ interface ArcSliderOptionsConstructorOptions {
 }
 
 /**
- * Defines the properties of the arc slider.
+ * 配置弧形Slider的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -631,9 +630,9 @@ interface ArcSliderOptionsConstructorOptions {
 @ObservedV2
 declare class ArcSliderOptions {
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -646,9 +645,9 @@ declare class ArcSliderOptions {
   valueOptions?: ArcSliderValueOptions;
 
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -661,9 +660,9 @@ declare class ArcSliderOptions {
   layoutOptions?: ArcSliderLayoutOptions;
 
   /**
-   * Style of the arc slider.
+   * 配置弧形Slider的样式信息。
    * 
-   * Default value: default values of all properties of [ArcSliderStyleOptions]{@link ArcSliderStyleOptions}
+   * 默认值：[ArcSliderStyleOptions]{@link ArcSliderStyleOptions}的各项子属性均取其默认值。
    * 
    * @Trace
    *
@@ -676,9 +675,9 @@ declare class ArcSliderOptions {
   styleOptions?: ArcSliderStyleOptions;
 
   /**
-   * Sensitivity to the digital crown rotation.
+   * 设置旋转表冠的灵敏度。
    * 
-   * Default value: **CrownSensitivity.MEDIUM**
+   * 默认值：CrownSensitivity.MEDIUM
    * 
    * @Trace
    *
@@ -691,9 +690,9 @@ declare class ArcSliderOptions {
   digitalCrownSensitivity?: CrownSensitivity;
 
   /**
-   * Callback invoked to notify the application when the arc slider is touched.
+   * 弧形Slider被触摸时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -706,9 +705,9 @@ declare class ArcSliderOptions {
   onTouch?: ArcSliderTouchHandler;
 
   /**
-   * Callback invoked to notify the application when the progress value of the arc slider changes.
+   * 弧形Slider的进度值发生变化时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -721,9 +720,9 @@ declare class ArcSliderOptions {
   onChange?: ArcSliderChangeHandler;
 
   /**
-   * Callback invoked to notify the application when the arc slider is enlarged or reduced.
+   * 弧形Slider放大或缩小时，告知应用。
    * 
-   * Default value: If this parameter is not provided, no callback will be invoked.
+   * 默认值：不传入的情况，无回调。
    * 
    * @Trace
    *
@@ -736,9 +735,9 @@ declare class ArcSliderOptions {
   onEnlarge?: ArcSliderEnlargeHandler;
 
   /**
-   * A constructor used to create an **ArcSliderOptions** instance.
+   * ArcSliderOptions的构造函数。
    *
-   * @param { ArcSliderOptionsConstructorOptions } options - Constructor information for **ArcSliderOptions**.
+   * @param { ArcSliderOptionsConstructorOptions } options - ArcSliderOptions的构造信息。
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform
    * @atomicservice
@@ -748,10 +747,13 @@ declare class ArcSliderOptions {
 }
 
 /**
- * The **ArcSlider** component is designed for circular screens on wearables to quickly adjust settings, such as the 
- * volume and brightness.
+ * 弧形滑动条组件，通常用于在圆形屏幕的穿戴设备中快速调节设置值，如音量调节、亮度调节等应用场景。
  * 
- * > **NOTE**
+ * > **说明：**
+ * >
+ * > -
+ * >
+ * > - 该组件支持在Phone、PC/2in1、Tablet、TV、Wearable设备上使用。API version 22及以前版本，在Phone、PC/2in1、Tablet、TV上使用会编译告警，但可以正常运行。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @crossplatform
@@ -761,9 +763,9 @@ declare class ArcSliderOptions {
 @Component
 declare struct ArcSlider {
   /**
-   * Parameters of the arc slider.
+   * 配置弧形滑动条的参数。
    * 
-   * Default value: default values of all properties of [ArcSliderOptions]{@link ArcSliderOptions}
+   * 默认值：[ArcSliderOptions]{@link ArcSliderOptions}的各项子属性均取其默认值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

@@ -19,7 +19,7 @@
  */
 
 /**
- * Radio button style.
+ * 单选框的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -30,7 +30,7 @@
  */
 declare enum RadioIndicatorType {
   /**
-   * Default tick icon.
+   * 选中样式为系统默认TICK图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -41,7 +41,7 @@ declare enum RadioIndicatorType {
    */
   TICK = 0,
   /**
-   * Default dot icon.
+   * 选中样式为系统默认DOT图标。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -51,8 +51,8 @@ declare enum RadioIndicatorType {
    * @since 12 dynamic
    */
   DOT = 1,
-    /**
-   * Custom component.
+  /**
+   * 选中样式为indicatorBuilder中的内容。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -65,7 +65,7 @@ declare enum RadioIndicatorType {
 }
 
 /**
- * Radio button information.
+ * 单选框的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -76,8 +76,7 @@ declare enum RadioIndicatorType {
  */
 declare interface RadioOptions {
   /**
-   * Name of the group to which the radio button belongs. Only one radio button in a given group can be selected at a 
-   * time.
+   * 当前单选框的所属群组名称，相同group的Radio只能有一个被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -89,7 +88,7 @@ declare interface RadioOptions {
   group: string;
 
   /**
-   * Current value of the radio button.
+   * 当前单选框的值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -100,7 +99,7 @@ declare interface RadioOptions {
    */
   value: string;
   /**
-   * Indicator type of the radio button. If no value is specified, the value of **RadioIndicatorType.TICK** is used.
+   * 配置单选框的选中样式。未设置时按照RadioIndicatorType.TICK进行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -111,9 +110,7 @@ declare interface RadioOptions {
    */
   indicatorType?: RadioIndicatorType;
   /**
-   * Custom component to indicate that the radio button is selected. This custom component is center aligned with the 
-   * radio button. If this parameter is set to **undefined**, the value of **RadioIndicatorType.TICK** is used as the 
-   * indicator type.
+   * 配置单选框的选中样式为自定义组件。自定义组件与Radio组件为中心点对齐显示。indicatorBuilder设置为undefined时，按照RadioIndicatorType.TICK进行显示。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -126,7 +123,7 @@ declare interface RadioOptions {
 }
 
 /**
- * Radio button color.
+ * 单选框的颜色。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -136,9 +133,9 @@ declare interface RadioOptions {
  */
 declare interface RadioStyle {
   /**
-   * Color of the background when the radio button is selected.
+   * 开启状态底板颜色。
    * 
-   * Default value: **$r('sys.color.ohos_id_color_text_primary_activated')**
+   * 默认值：`$r('sys.color.ohos_id_color_text_primary_activated')`
    *
    * @default #007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,9 +147,9 @@ declare interface RadioStyle {
   checkedBackgroundColor?: ResourceColor;
 
   /**
-   * Color of the border when the radio button is deselected.
+   * 关闭状态描边颜色。
    * 
-   * Default value: **$r('sys.color.ohos_id_color_switch_outline_off')**
+   * 默认值：`$r('sys.color.ohos_id_color_switch_outline_off')`
    *
    * @default #182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,10 +161,10 @@ declare interface RadioStyle {
   uncheckedBorderColor?: ResourceColor;
 
   /**
-   * Color of the indicator when the radio button is selected. Since API version 12, this parameter takes effect only 
-   * when **indicatorType** is set to **RadioIndicatorType.TICK** or **RadioIndicatorType.DOT**.  
+   * 开启状态内部圆饼颜色。从API version 12开始，indicatorType设置为RadioIndicatorType.TICK和RadioIndicatorType.DOT时，支持修改内部颜色。indicatorType
+   * 设置为RadioIndicatorType.CUSTOM时，不支持修改内部颜色。
    * 
-   * Default value: **$r('sys.color.ohos_id_color_foreground_contrary')**
+   * 默认值：`$r('sys.color.ohos_id_color_foreground_contrary')`
    *
    * @default #FFFFFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -180,12 +177,14 @@ declare interface RadioStyle {
 }
 
 /**
- * The **Radio** component allows users to select from a set of mutually exclusive options.
+ * 单选框，提供相应的用户交互选择项。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > Since API version 12, the default indicator type for the **Radio** component changes from 
- * > **RadioIndicatorType.DOT** to **RadioIndicatorType.TICK**.
+ * > - API version 12开始，Radio选中默认样式由RadioIndicatorType.DOT变为RadioIndicatorType.TICK。
+ * 
+ * > - 该组件默认有[margin]{@link CommonMethod#margin}间距，默认值为：{&nbsp;top: '14px',&nbsp;right: '14px',&nbsp;bottom: '14px',&
+ * > nbsp;left: '14px' }。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -197,9 +196,9 @@ declare interface RadioStyle {
  */
 interface RadioInterface {
   /**
-   * Creates a radio button.
+   * 创建单选框组件。
    *
-   * @param { RadioOptions } options - Parameters of the radio button.
+   * @param { RadioOptions } options - 配置单选框的参数。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -212,7 +211,7 @@ interface RadioInterface {
 }
 
 /**
- * Defines the callback type for radio button selected state changes.
+ * 单选框选中状态改变时触发的回调函数类型定义。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -223,9 +222,9 @@ interface RadioInterface {
 declare type OnRadioChangeCallback = (isChecked: boolean) => void;
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 除支持[通用属性]{@link common}外，还支持以下属性：
  * 
- * In addition to the [universal events]{@link common}, the following events are supported.
+ * 除支持[通用事件]{@link common}外，还支持以下事件：
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -237,16 +236,13 @@ declare type OnRadioChangeCallback = (isChecked: boolean) => void;
  */
 declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   /**
-   * Sets whether the radio button is selected.
+   * 设置单选框的选中状态。
    * 
-   * Since API version 10, this attribute supports two-way binding through 
-   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   * 从API version 10开始，该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)双向绑定变量。
    * 
-   * Since API version 18, this attribute supports two-way binding through 
-   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
+   * 从API version 18开始，该属性支持[!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    *
-   * @param { boolean } value - Whether the radio button is selected.<br>Default value: **false**<br>**true**: The radio
-   *     button is selected. **false**: The radio button is not selected.
+   * @param { boolean } value - 单选框的选中状态。<br/>默认值：false<br/>值为true时，单选框被选中。值为false时，单选框不被选中。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -258,15 +254,13 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   checked(value: boolean): RadioAttribute;
 
   /**
-   * Sets whether the radio button is selected. Compared with [checked]{@link RadioAttribute#checked(value: boolean)}, 
-   * this API supports the **undefined** type for the **isChecked** parameter.
+   * 设置单选框的选中状态。与[checked]{@link RadioAttribute#checked(value: boolean)}相比，isChecked参数新增了对undefined类型的支持。
    * 
-   * This attribute supports two-way binding through [$$](docroot://ui/state-management/arkts-two-way-sync.md) and 
-   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
+   * 该属性支持[$$](docroot://ui/state-management/arkts-two-way-sync.md)、
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#系统组件参数双向绑定)双向绑定变量。
    *
-   * @param { Optional<boolean> } isChecked - Whether the radio button is selected.<br>If **isChecked** is set to
-   *     **undefined**, the default value **false** is used.<br>**true**: The radio button is selected. **false**: The
-   *     radio button is not selected.
+   * @param { Optional<boolean> } isChecked - 单选框的选中状态。<br/>当isChecked的值为undefined时取默认值false。<br/>值为true时，单选框被选中。值为false
+   *     时，单选框不被选中。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -278,11 +272,9 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   checked(isChecked: Optional<boolean>): RadioAttribute;
 
   /**
-   * Triggered when the selected state of the radio button changes.
+   * 单选框选中状态改变时触发的回调。
    *
-   * @param { function } callback - Selected state of the radio button.<br>The value **true** means that the radio
-   *     button changes from unselected to selected, and **false** means that the radio button changes from selected to
-   *     unselected.
+   * @param { function } callback - 单选框选中状态改变时触发该回调。<br/>值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -294,12 +286,10 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   onChange(callback: (isChecked: boolean) => void): RadioAttribute;
 
   /**
-   * Triggered when the selected state of the radio button changes. Compared with 
-   * [onChange]{@link RadioAttribute#onChange(callback: (isChecked: boolean) => void)}, this API supports the 
-   * **undefined** type for the **callback** parameter.
+   * 单选框选中状态改变时触发的回调。与[onChange]{@link RadioAttribute#onChange(callback: (isChecked: boolean) => void)}相比，callback参数新增了对
+   * undefined类型的支持。
    *
-   * @param { Optional<OnRadioChangeCallback> } callback - Callback for radio button selection state changes.<br>If
-   *     **callback** is set to **undefined**, the callback function is not used.
+   * @param { Optional<OnRadioChangeCallback> } callback - 单选框选中状态改变时触发该回调。<br/>当callback的值为undefined时，不使用回调函数。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,11 +301,11 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   onChange(callback: Optional<OnRadioChangeCallback>): RadioAttribute;
 
   /**
-   * Sets the style of the radio button in selected or deselected state.
+   * 设置单选框选中状态和非选中状态的样式。 
    * 
-   * Since API version 10, this API is supported in ArkTS widgets.
+   * 从API version 10开始，该接口支持在ArkTS组件中使用。
    *
-   * @param { RadioStyle } value - Style of the radio button in selected or deselected state.
+   * @param { RadioStyle } value - 单选框选中状态和非选中状态的样式。 <br/> 未设置时，则按照RadioStyle中各参数的默认值配置。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -326,10 +316,10 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   radioStyle(value?: RadioStyle): RadioAttribute;
 
     /**
-   * Creates a content modifier.
+   * 定制Radio内容区的方法。
    *
-   * @param { ContentModifier<RadioConfiguration> } modifier - Content modifier to apply to the current component.<br>
-   *     **modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
+   * @param { ContentModifier<RadioConfiguration> } modifier - 在Radio组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需要自定义class实现
+   *     ContentModifier接口。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -340,13 +330,12 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
   contentModifier(modifier: ContentModifier<RadioConfiguration>): RadioAttribute;
 
     /**
-   * Creates a content modifier. Compared with 
+   * 定制Radio内容区的方法。与
    * [contentModifier]{@link RadioAttribute#contentModifier(modifier: ContentModifier<RadioConfiguration>)}<sup>12+</sup
-   * >, this API supports the **undefined** type for the **modifier** parameter.
+   * >相比，modifier参数新增了对undefined类型的支持。
    *
-   * @param { Optional<ContentModifier<RadioConfiguration>> } modifier - Content modifier to apply to the current
-   *     component.<br>**modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
-   *     <br>If **modifier** is set to **undefined**, no content modifier is used.
+   * @param { Optional<ContentModifier<RadioConfiguration>> } modifier - 在Radio组件上，定制内容区的方法。<br/>modifier：内容修改器，开发者需要自定义
+   *     class实现ContentModifier接口。<br/>当modifier的值为undefined时，不使用内容修改器。
    * @returns { RadioAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -358,8 +347,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
 }
 
 /**
- * You need a custom class to implement the **ContentModifier** API. Inherits from 
- * [CommonConfiguration]{@link CommonConfiguration}.
+ * 开发者需要自定义class实现ContentModifier接口。继承自[CommonConfiguration]{@link CommonConfiguration}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -369,7 +357,7 @@ declare class RadioAttribute extends CommonMethod<RadioAttribute> {
  */
 declare interface RadioConfiguration extends CommonConfiguration<RadioConfiguration> {
     /**
-   * Current value of the radio button.
+   * 当前单选框的值。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -380,11 +368,11 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
   value: string;
   
     /**
-   * Whether the radio button is selected.
+   * 设置单选框的选中状态。
    * 
-   * Default value: **false**
+   * 默认值：false
    * 
-   * **true**: The radio button is selected. **false**: The radio button is not selected.
+   * 值为true时，单选框被选中。值为false时，单选框不被选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -395,10 +383,9 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
   checked: boolean;
 
   /**
-   * Changes the selected state of the radio button.
+   * 触发单选框选中状态变化。
    * 
-   * The value **true** means that the radio button changes from unselected to selected, and **false** means that the 
-   * radio button changes from selected to unselected.
+   * 值为true时，表示从未选中变为选中。值为false时，表示从选中变为未选中。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -410,16 +397,18 @@ declare interface RadioConfiguration extends CommonConfiguration<RadioConfigurat
 }
 
 /**
- * The **Radio** component allows users to select from a set of mutually exclusive options.
+ * 单选框，提供相应的用户交互选择项。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > Since API version 12, the default indicator type for the **Radio** component changes from 
- * > **RadioIndicatorType.DOT** to **RadioIndicatorType.TICK**.
+ * > - API version 12开始，Radio选中默认样式由RadioIndicatorType.DOT变为RadioIndicatorType.TICK。
  * 
- * ###### Child Components
+ * > - 该组件默认有[margin]{@link CommonMethod#margin}间距，默认值为：{&nbsp;top: '14px',&nbsp;right: '14px',&nbsp;bottom: '14px',&
+ * > nbsp;left: '14px' }。
  * 
- * Not supported
+ * ###### 子组件
+ * 
+ * 无
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel

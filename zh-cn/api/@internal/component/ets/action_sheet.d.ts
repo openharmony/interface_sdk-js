@@ -19,7 +19,7 @@
  */
 
 /**
- * Defines the option content in the dialog box. You can configure the text, icon, and callback for each option.
+ * 弹窗中的选项内容，每一项支持设置文本、图标以及选中的回调。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -29,9 +29,9 @@
  */
 interface SheetInfo {
   /**
-   * Sheet text.
+   * 选项的文本内容。
    * 
-   * If the text is too long to display, a scrollbar is displayed.
+   * 文本超长时会触发滚动条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -42,10 +42,9 @@ interface SheetInfo {
   title: string | Resource;
 
   /**
-   * Sheet icon. By default, no icon is displayed.
+   * 选项的图标，默认无图标显示。
    * 
-   * The string type can be used to load local images and, more frequently, online images. The value can be a relative 
-   * path to a local image, for example, **Image("common/test.jpg")**.
+   * string格式可用于加载网络图片和本地图片，常用于加载网络图片。当使用相对路径引用本地图片时，例如Image("common/test.jpg")。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -56,7 +55,7 @@ interface SheetInfo {
   icon?: string | Resource;
 
   /**
-   * Callback when the sheet is selected.
+   * 选项选中的回调。
    *
    * @type { function } [since 8 - 17]
    * @type { VoidCallback } [since 18]
@@ -70,7 +69,7 @@ interface SheetInfo {
 }
 
 /**
- * Provides information about the action to dismiss the dialog box.
+ * Dialog关闭的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -80,7 +79,7 @@ interface SheetInfo {
  */
 declare interface DismissDialogAction {
   /**
-   * Callback for dismissing the dialog box. This API is called only when the dialog box needs to be exited.
+   * Dialog关闭回调函数。开发者需要退出时调用，不需要退出时无需调用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -91,8 +90,7 @@ declare interface DismissDialogAction {
   dismiss: Callback<void>;
   
   /**
-   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the 
-   * listed actions.
+   * Dialog无法关闭原因。根据开发者需求选择不同操作下，Dialog是否关闭。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,13 +102,11 @@ declare interface DismissDialogAction {
 }
 
 /**
- * Provides button style configuration for the dialog box.
+ * 弹窗中按钮的样式。
  * 
- * > **NOTE**
+ * > **说明：**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > 为规范匿名对象的定义，API 18版本修改了此处的元素定义。其中，保留了历史匿名对象的起始版本信息，会出现外层元素@since版本号高于内层元素版本号的情况，但这不影响接口的使用。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -120,10 +116,9 @@ declare interface DismissDialogAction {
  */
 interface ActionSheetButtonOptions {
   /**
-   * Whether to respond when the button is clicked. The value **true** means to respond when the button is clicked, and 
-   * **false** means the opposite.
+   * 点击Button是否响应，true表示Button可以响应，false表示Button不可以响应。
    * 
-   * Default value: **true**
+   * 默认值：true
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -135,10 +130,9 @@ interface ActionSheetButtonOptions {
   enabled?: boolean;
 
   /**
-   * Whether the button is the default focus. The value **true** means that the button is the default focus, and 
-   * **false** means the opposite.
+   * 设置Button是否是默认焦点，true表示Button是默认焦点，false表示Button不是默认焦点。
    * 
-   * Default value: **false**
+   * 默认值：false
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -150,9 +144,9 @@ interface ActionSheetButtonOptions {
   defaultFocus?: boolean;
 
   /**
-   * Button style.
+   * 设置Button的风格样式。
    * 
-   * Default value: **DialogButtonStyle.DEFAULT**
+   * 默认值：DialogButtonStyle.DEFAULT
    *
    * @default DialogButtonStyle.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,9 +158,9 @@ interface ActionSheetButtonOptions {
   style?: DialogButtonStyle;
 
   /**
-   * Button text.
+   * Button文本内容。
    * 
-   * If the text is too long to display, it is truncated with an ellipsis (...).
+   * 当文本内容过长无法显示时，用省略号代替未显示的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -177,7 +171,7 @@ interface ActionSheetButtonOptions {
   value: string | Resource;
 
   /**
-   * Callback invoked when the button is selected.
+   * Button选中时的回调。
    *
    * @type { function } [since 8 - 17]
    * @type { VoidCallback } [since 18]
@@ -191,7 +185,7 @@ interface ActionSheetButtonOptions {
 }
 
 /**
- * Alignment mode of the dialog box.
+ * 弹窗的对齐方式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -201,14 +195,13 @@ interface ActionSheetButtonOptions {
  */
 interface ActionSheetOffset {
   /**
-   * Offset of the action sheet along the x-axis relative to the alignment position.
+   * 弹出窗口相对于对齐位置dx的偏移量。
    * 
-   * Explicitly specify the length unit explicitly, for example, **'10px'**, or provide the length in percentage, for 
-   * example, **'100%'**.
+   * 需要显式指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * If the unit is not specified, the default unit vp is used, in which case **'10'** is equivalent to **10**.
+   * 不指定像素单位时，默认单位vp，如'10'，等同于10。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -218,14 +211,13 @@ interface ActionSheetOffset {
    */
   dx: number | string | Resource;
   /**
-   * Offset of the action sheet along the y-axis relative to the alignment position.
+   * 弹出窗口相对于对齐位置dy的偏移量。
    * 
-   * Explicitly specify the length unit explicitly, for example, **'10px'**, or provide the length in percentage, for 
-   * example, **'100%'**.
+   * 需要显式指定像素单位，如'10px'，也可设置百分比字符串，如'100%'。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * If the unit is not specified, the default unit vp is used, in which case **'10'** is equivalent to **10**.
+   * 不指定像素单位时，默认单位vp，如'10'，等同于10。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -237,7 +229,7 @@ interface ActionSheetOffset {
 }
 
 /**
- * Defines the display level mode for the dialog box.
+ * 弹窗的显示层级。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -248,7 +240,7 @@ interface ActionSheetOffset {
 declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 
 /**
- * Defines the overlay effect for the dialog box.
+ * 弹窗的蒙层效果。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -259,7 +251,7 @@ declare type LevelMode = import('../api/@ohos.promptAction').LevelMode;
 declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 
 /**
- * Provides **ActionSheet** configuration options.
+ * 列表选择弹窗的样式。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -270,9 +262,9 @@ declare type ImmersiveMode = import('../api/@ohos.promptAction').ImmersiveMode;
 interface ActionSheetOptions
 {
   /**
-   * Title of the dialog box.
+   * 弹窗标题。
    * 
-   * If the text is too long to display, it is truncated with an ellipsis (...).
+   * 当文本内容过长无法显示时，用省略号代替未显示的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -283,9 +275,9 @@ interface ActionSheetOptions
   title: string | Resource;
   
   /**
-   * Subtitle of the dialog box.
+   * 弹窗副标题。
    * 
-   * If the text is too long to display, it is truncated with an ellipsis (...).
+   * 当文本内容过长无法显示时，用省略号代替未显示的部分。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -296,9 +288,9 @@ interface ActionSheetOptions
   subtitle?: ResourceStr;
 
   /**
-   * Content of the dialog box.
+   * 弹窗内容。
    * 
-   * If the text is too long to display, a scrollbar is displayed.
+   * 文本超长时会触发滚动条。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -309,10 +301,8 @@ interface ActionSheetOptions
   message: string | Resource;
 
   /**
-   * Information about the confirm button. When the dialog box has focus and the **Tab** key is not pressed for 
-   * sequential focus navigation, the button responds to the **Enter** key by default. Multiple dialog boxes can 
-   * automatically gain focus and respond to user interactions in a sequential manner. The default response to the 
-   * **Enter** key does not work when **defaultFocus** is set to **true**.
+   * 确认Button的使能状态、默认焦点、按钮风格、文本内容和点击回调。在弹窗获焦且未进行tab键走焦时，该按钮默认响应Enter键。多重弹窗情况下，可自动获焦并连续响应。默认响应Enter键能力在defaultFocus为true时
+   * 不生效。
    *
    * @type { ?object } [since 8 - 17]
    * @type { ?ActionSheetButtonOptions } [since 18]
@@ -325,7 +315,7 @@ interface ActionSheetOptions
   confirm?: ActionSheetButtonOptions;
 
   /**
-   * Callback invoked when the dialog box is closed after the overlay is clicked.
+   * 点击遮障层关闭dialog时的回调。
    *
    * @type { ?function } [since 8 - 17]
    * @type { ?VoidCallback } [since 18]
@@ -338,7 +328,7 @@ interface ActionSheetOptions
   cancel?: VoidCallback;
 
   /**
-   * Options in the dialog box. Each option supports the image, text, and callback.
+   * 设置选项内容，每个选择项支持设置图片、文本和选中的回调。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -349,11 +339,11 @@ interface ActionSheetOptions
   sheets: Array<SheetInfo>;
 
   /**
-   * Whether to close the dialog box when the overlay is clicked.
+   * 点击遮障层时，是否关闭弹窗。
    * 
-   * Default value: **true**
+   * 默认值：true
    * 
-   * The value **true** means to close the dialog box when the overlay is clicked, and **false** means the opposite.
+   * 值为true时，点击遮障层关闭弹窗，值为false时，点击遮障层不关闭弹窗。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -364,14 +354,13 @@ interface ActionSheetOptions
   autoCancel?: boolean;
 
   /**
-   * Alignment mode of the dialog box in the vertical direction.
+   * 弹窗在竖直方向上的对齐方式。
    * 
-   * Default value: **DialogAlignment.Bottom**
+   * 默认值：DialogAlignment.Bottom  
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window based 
-   * on **UIExtension**.
+   * 若在UIExtension中设置showInSubWindow为true，弹窗将基于UIExtension的宿主窗口对齐。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -382,12 +371,13 @@ interface ActionSheetOptions
   alignment?: DialogAlignment;
 
   /**
-   * Offset of the dialog box relative to the alignment position.
+   * 弹窗相对alignment所在位置的偏移量。
    * 
-   * Default value:
+   * 默认值：
    * 
-   * 1. If **alignment** is set to **Top**, **TopStart**, or **TopEnd**, the default offset value is **{dx: 0,dy: "40vp"}**.
-   * 2. If **alignment** is set to other values, the default offset value is **{dx: 0,dy: "-40vp"}**.
+   * 1.alignment设置为Top、TopStart、TopEnd时默认值为{dx: 0,dy: "40vp"} 
+   * 
+   * 2.alignment设置为其他时默认值为{dx: 0,dy: "-40vp"}
    *
    * @type { ?object } [since 8 - 17]
    * @type { ?ActionSheetOffset } [since 18]
@@ -400,14 +390,13 @@ interface ActionSheetOptions
   offset?: ActionSheetOffset;
 
   /**
-   * Mask area of the dialog box. Events outside the mask area are transparently transmitted, and events within the mask
-   * area are not.
+   * 弹窗遮蔽层区域，在遮蔽层区域内的事件不透传，在遮蔽层区域外的事件透传。
    * 
-   * Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**
+   * 默认值：{ x: 0, y: 0, width: '100%', height: '100%' } 
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * **maskRect** does not take effect when **showInSubWindow** is set to **true**.
+   * showInSubWindow为true时，maskRect不生效。
    *
    * @default - {x:0,y:0, width:'100%', height:'100%'} [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -419,15 +408,13 @@ interface ActionSheetOptions
   maskRect?: Rectangle;
     
   /**
-   * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
-   * **true**: The dialog box is shown in a subwindow.
+   * 某弹窗需要显示在主窗口之外时，是否在子窗口显示此弹窗。值为true表示在子窗口显示弹窗。
    * 
-   * Default value: **false**, meaning the dialog box is displayed within the application, not in a separate subwindow.
+   * 默认值：false，弹窗显示在应用内，而非独立子窗口。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * A dialog box whose **showInSubWindow** attribute is **true** cannot trigger the display of another dialog box whose
-   * **showInSubWindow** attribute is also **true**.
+   * showInSubWindow为true的弹窗无法触发显示另一个showInSubWindow为true的弹窗。
    *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -439,10 +426,9 @@ interface ActionSheetOptions
   showInSubWindow?: boolean;
 
   /**
-   * Whether the dialog box is a modal. A modal dialog box has a mask applied, while a non-modal dialog box does not. 
-   * **false**: The dialog box is not a modal.
+   * 弹窗是否为模态窗口，模态窗口有蒙层，非模态窗口无蒙层。值为false时，弹窗为非模态窗口，无蒙层。
    * 
-   * Default value: **true**
+   * 默认值：true，此时弹窗有蒙层。
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -454,15 +440,13 @@ interface ActionSheetOptions
   isModal?: boolean;
 
   /**
-   * Background color of the dialog box.
+   * 弹窗背板颜色。
    * 
-   * Default value: **Color.Transparent**
+   * 默认值：Color.Transparent
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * The background color will be visually combined with the blur effect when both properties are set. If the resulting 
-   * effect does not match your design requirements, you can disable the blur effect entirely by explicitly setting the 
-   * **backgroundBlurStyle** property to **BlurStyle.NONE**.
+   * backgroundColor会与模糊属性backgroundBlurStyle叠加产生效果，如果不符合预期，可将backgroundBlurStyle设置为BlurStyle.NONE，即可取消模糊。
    *
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -474,15 +458,13 @@ interface ActionSheetOptions
   backgroundColor?: ResourceColor;
 
   /**
-   * Background blur style of the dialog box.
+   * 弹窗背板模糊材质。
    * 
-   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+   * 默认值：从API版本26.0.0开始，为BlurStyle.NONE，API版本26.0.0之前，为BlurStyle.COMPONENT_ULTRA_THICK。
    * 
-   * **NOTE**
+   * **说明：** 
    * 
-   * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set to a
-   * value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce the 
-   * expected visual effect.
+   * 设置为BlurStyle.NONE即可关闭背景虚化。当设置了backgroundBlurStyle为非NONE值时，则不要设置backgroundColor，否则颜色显示将不符合预期效果。
    *
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -494,8 +476,7 @@ interface ActionSheetOptions
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Options for customizing the background blur style. For details about the default value, see 
-   * **BackgroundBlurStyleOptions**.
+   * 背景模糊效果。默认值请参考BackgroundBlurStyleOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -506,8 +487,7 @@ interface ActionSheetOptions
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Options for customizing the background effect. For details about the default value, see 
-   * **BackgroundEffectOptions**.
+   * 背景效果参数。默认值请参考BackgroundEffectOptions类型说明。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -518,12 +498,14 @@ interface ActionSheetOptions
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Callback for interactive closure of the dialog box.
+   * 交互式关闭回调函数。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. If this callback is registered, the dialog box will not be dismissed immediately after the user touches the mask or the Back button, presses the Esc key, or swipes left or right on the screen. The **reason** parameter in the callback is used to determine whether the dialog box can be closed. The reason returned by the component does not support the value **CLOSE_BUTTON**.
-   * 2. In the **onWillDismiss** callback, another **onWillDismiss** callback is not allowed.
+   * 1.当用户执行点击遮障层关闭、侧滑（左滑/右滑）、三键back、键盘ESC关闭交互操作时，如果注册该回调函数，则不会立刻关闭弹窗。在回调函数中可以通过reason得到阻拦关闭弹窗的操作类型，从而根据原因选择是否能关闭弹窗。当前组件
+   * 返回的reason中，暂不支持CLOSE_BUTTON的枚举值。
+   * 
+   * 2.在onWillDismiss回调中，不能再做onWillDismiss拦截。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -534,13 +516,15 @@ interface ActionSheetOptions
   onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
-   * Transition effect for the entrance and exit of the dialog box.
+   * 设置弹窗显示和退出的过渡效果。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. If this parameter is not set, the default effect is used.
-   * 2. Touching the Back button during the entrance animation pauses the entrance animation and starts the exit animation. The final effect is one obtained after the curves of the entrance and exit animations are combined.
-   * 3. Touching the Back button during the exit animation does not affect the animation playback. Touching the Back button again closes the application.
+   * 1.如果不设置，则使用默认的显示/退出动效。
+   * 
+   * 2.显示动效中按back键，打断显示动效，执行退出动效，动画效果为显示动效与退出动效的曲线叠加后的效果。
+   * 
+   * 3.退出动效中按back键，不会打断退出动效，退出动效继续执行，继续按back键退出应用。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -551,21 +535,19 @@ interface ActionSheetOptions
   transition?: TransitionEffect;
 
   /**
-   * Corner radius of the background.
+   * 设置背板的圆角半径。
    * 
-   * You can set the radius for each of the four corners individually.
+   * 可分别设置4个圆角的半径。
    * 
-   * Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
+   * 默认值：{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }
    * 
-   * The corner radius is subject to the component size, with the maximum value being half of the component width or 
-   * height. If the value is negative, the default value is used.
+   * 圆角大小受组件尺寸限制，最大值为组件宽或高的一半，若值为负，则按照默认值处理。 
    * 
-   * When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
+   * 百分比参数方式：以父元素弹窗宽和高的百分比来设置弹窗的圆角。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **cornerRadius** is of type LocalizedBorderRadiuses, the layout order can be dynamically adjusted based on the
-   * user's language settings.
+   * 当cornerRadius属性类型为LocalizedBorderRadiuses时，支持随语言习惯改变布局顺序。
    *
    * @default - {topLeft:'32vp', topRight:'32vp', bottomLeft:'32vp', bottomRight:'32vp'}, The corner radius is subject
    *     to the component size, with the maximum value being half of the component width or height. If the value is
@@ -581,13 +563,12 @@ interface ActionSheetOptions
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Width of the dialog box.
+   * 设置弹窗背板的宽度。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default maximum width of the dialog box: 400 vp
-   * - When this parameter is set to a percentage, the reference width of the dialog box is the width of the window 
-   * where the dialog box is located. You can decrease or increase the width as needed.
+   * - 弹窗宽度默认最大值：400vp。
+   * - 百分比参数方式：弹窗参考宽度为所在窗口的宽度，在此基础上调小或调大。
    *
    * @default - Default maximum width of the dialog box: 400 vp,
    *     When this parameter is set to a percentage, the reference width of the dialog box is the width of the window
@@ -601,13 +582,12 @@ interface ActionSheetOptions
   width?: Dimension;
 
   /**
-   * Height of the dialog box.
+   * 设置弹窗背板的高度。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
-   * - When this parameter is set to a percentage, the reference height of the dialog box is the height of the window 
-   * where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
+   * - 弹窗高度默认最大值：0.9 *（窗口高度 - 安全区域）。
+   * - 百分比参数方式：弹窗参考高度为（窗口高度 - 安全区域），在此基础上调小或调大。
    *
    * @default - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
    *     <br>When this parameter is set to a percentage, the reference height of the dialog box is the height of the
@@ -621,21 +601,19 @@ interface ActionSheetOptions
   height?: Dimension;
 
   /**
-   * Border width of the dialog box.
+   * 设置弹窗背板的边框宽度。
    * 
-   * You can set the width for all four sides or set separate widths for individual sides.
+   * 可分别设置4个边框宽度。
    * 
-   * Default value: **0**
+   * 默认值：0
    * 
-   * When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
+   * 百分比参数方式：以父元素弹窗宽的百分比来设置弹窗的边框宽度。
    * 
-   * If the left and right borders are greater than its width, or the top and bottom borders are greater than its 
-   * height, the dialog box may not display as expected.
+   * 当弹窗左边框和右边框大于弹窗宽度，弹窗上边框和下边框大于弹窗高度，显示可能不符合预期。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **borderWidth** is of type LocalizedEdgeWidths, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   * 当borderWidth属性类型为LocalizedEdgeWidths时，支持随语言习惯改变布局顺序。
    *
    * @default 0 - When set to a percentage, the value defines the border width as a percentage of the parent dialog
    *     box's width. If the left and right borders are greater than its width, or the top and bottom borders are
@@ -650,16 +628,15 @@ interface ActionSheetOptions
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Border color of the dialog box.
+   * 设置弹窗背板的边框颜色。
    * 
-   * Default value: **Color.Black**
+   * 默认值：Color.Black
    * 
-   * **borderColor** must be used with **borderWidth** in pairs.
+   * 如果使用borderColor属性，需要和borderWidth属性一起使用。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * When **borderColor** is of type LocalizedEdgeColors, the layout order can be dynamically adjusted based on the user
-   * 's language settings.
+   * 当borderColor属性类型为LocalizedEdgeColors时，支持随语言习惯改变布局顺序。
    *
    * @default Color.Black - borderColor must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -671,11 +648,11 @@ interface ActionSheetOptions
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
-   * Border style of the dialog box.
+   * 设置弹窗背板的边框样式。
    * 
-   * Default value: **BorderStyle.Solid**
+   * 默认值：BorderStyle.Solid。
    * 
-   * **borderStyle** must be used with **borderWidth** in pairs.
+   * 如果使用borderStyle属性，需要和borderWidth属性一起使用。
    *
    * @default BorderStyle.Solid - borderStyle must be used with borderWidth in pairs.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -687,10 +664,9 @@ interface ActionSheetOptions
   borderStyle?: BorderStyle | EdgeStyles;
 
   /**
-   * Shadow of the dialog box.
+   * 设置弹窗背板的阴影。 
    * 
-   * Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused and 
-   * **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
+   * 当设备为2in1时，默认场景下获焦阴影值为ShadowStyle.OUTER_FLOATING_MD，失焦为ShadowStyle.OUTER_FLOATING_SM。其他设备默认无阴影。
    *
    * @default - Default value on 2-in-1 devices: ShadowStyle.OUTER_FLOATING_MD when the dialog box is focused and
    *     ShadowStyle.OUTER_FLOATING_SM otherwise.
@@ -703,18 +679,14 @@ interface ActionSheetOptions
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device is 
-   * in semi-folded mode.
+   * 是否响应悬停态，值为true表示响应悬停态。
    * 
-   * Default value: **false**, meaning not to enable the hover mode.
+   * 默认值：false，默认不响应。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * For a PC or 2-in-1 device, the dialog box is displayed on the upper half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the lower half 
-   * of the screen. For other devices, the dialog box is displayed on the lower half of the screen by default when 
-   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the upper half 
-   * of the screen.
+   * PC/2in1设备弹窗默认显示在上半屏，在enableHoverMode设置为true时，可以通过设置hoverModeArea参数显示在下半屏。其他设备弹窗在enableHoverMode设置为true时默认显示在下半屏，可以通
+   * 过设置hoverModeArea参数显示在上半屏。
    *
    * @default false - meaning not to enable the hover mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -726,9 +698,9 @@ interface ActionSheetOptions
   enableHoverMode?: boolean;
 
   /**
-   * Display area of the dialog box in hover mode.
+   * 悬停态下弹窗默认展示区域。
    * 
-   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**
+   * 默认值：HoverModeAreaType.BOTTOM_SCREEN。
    *
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -740,14 +712,17 @@ interface ActionSheetOptions
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Event callback after the dialog box appears.
+   * 弹窗弹出后的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. The settings take effect next time the dialog box appears.
-   * 3. When a dialog box is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
-   * 4. If the dialog box is dismissed before its entrance animation is finished, the animation will be interrupted, and **onDidAppear** will not be triggered.
+   * 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
+   * 
+   * 2.在onDidAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
+   * 
+   * 3.快速点击弹出，关闭弹窗时，onWillDisappear在onDidAppear前生效。
+   * 
+   * 4.弹窗入场动效未完成时彻底关闭弹窗，动效打断，onDidAppear不会触发。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -758,11 +733,11 @@ interface ActionSheetOptions
   onDidAppear?: Callback<void>;
 
   /**
-   * Event callback after the dialog box disappears.
+   * 弹窗消失后的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -773,12 +748,13 @@ interface ActionSheetOptions
   onDidDisappear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to appear.
+   * 弹窗显示动效前的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
-   * 2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. The settings take effect next time the dialog box appears.
+   * 1.正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
+   * 
+   * 2.在onWillAppear内设置改变弹窗显示效果的回调事件，二次弹出生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -789,11 +765,11 @@ interface ActionSheetOptions
   onWillAppear?: Callback<void>;
 
   /**
-   * Event callback when the dialog box is about to disappear.
+   * 弹窗退出动效前的事件回调。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 正常时序依次为：onWillAppear >> onDidAppear >> onWillDisappear >> onDidDisappear。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -804,12 +780,12 @@ interface ActionSheetOptions
   onWillDisappear?: Callback<void>;
 
   /**
-   * Display level of the dialog box.
+   * 设置弹窗显示层级。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **LevelMode.OVERLAY**
-   * - This parameter takes effect only when **showInSubWindow** is set to **false**.
+   * - 默认值：LevelMode.OVERLAY 
+   * - 仅当showInSubWindow属性设置为false时生效。
    *
    * @default LevelMode.OVERLAY - This parameter takes effect only when showInSubWindow is set to false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -821,14 +797,13 @@ interface ActionSheetOptions
   levelMode?: LevelMode;
 
   /**
-   * [Unique ID]{@link FrameNode:FrameNode#getUniqueId} of the node under the display level for the page-level dialog 
-   * box.
+   * 设置页面级弹窗需要显示的层级下的[getUniqueId]{@link FrameNode:FrameNode#getUniqueId}。
    * 
-   * Value range: a number no less than 0
+   * 取值范围：大于等于0的数字。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -839,12 +814,12 @@ interface ActionSheetOptions
   levelUniqueId?: number;
 
   /**
-   * Overlay effect for the page-level dialog box.
+   * 设置页面内弹窗蒙层效果。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **ImmersiveMode.DEFAULT**
-   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * - 默认值：ImmersiveMode.DEFAULT 
+   * - 当且仅当levelMode属性设置为LevelMode.EMBEDDED时生效。
    *
    * @default ImmersiveMode.DEFAULT - This parameter takes effect only when levelMode is set to LevelMode.EMBEDDED.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -856,12 +831,12 @@ interface ActionSheetOptions
   immersiveMode?: ImmersiveMode;
 
   /**
-   * Display order of the dialog box.
+   * 设置弹窗显示的顺序。
    * 
-   * **NOTE**
+   * **说明：**
    * 
-   * - Default value: **LevelOrder.clamp(0)**
-   * - Dynamic updating is not supported.
+   * - 默认值：LevelOrder.clamp(0) 
+   * - 不支持动态刷新顺序。
    *
    * @default The value returns by LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -873,13 +848,20 @@ interface ActionSheetOptions
   levelOrder?: LevelOrder;
 
   /**
-   * Set system-styled materials for dialog. Different materials have different effects, which can influence
-   * backgroundColor, border, shadow, and other visual attributes of dialog.
+   * 设置弹窗的系统材质。
    * 
-   * Device Behavior Differences:The effect of same material may vary across different devices depending on
-   * their computing power.
+   * **说明：**
+   * 
+   * - 默认值：[ImmersiveOptions](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersiveoptions)的style为
+   * ImmersiveStyle.ULTRA_THICK的
+   * [ImmersiveMaterial](docroot://reference/apis-arkui/arkts-apis-uimaterial.md#immersivematerial)对象。设置undefined时与默认值保持
+   * 一致。
+   * - 不同的材质具有不同的效果，该接口影响背景色[backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}、背景模糊
+   * [backgroundBlurStyle]{@link CommonMethod#backgroundBlurStyle(value: BlurStyle, options?: BackgroundBlurStyleOptions)}
+   * 、背景效果[backgroundEffect]{@link CommonMethod#backgroundEffect(options: BackgroundEffectOptions)}、边框颜色
+   * [borderColor]{@link CommonMethod#borderColor}、边框宽度[borderWidth]{@link CommonMethod#borderWidth}、阴影
+   * [shadow]{@link CommonMethod#shadow(value: ShadowOptions | ShadowStyle)}，不建议与上述接口一起使用。
    *
-   * @type { ?SystemUiMaterial }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -922,15 +904,16 @@ interface ActionSheetOptions
  */
 declare class ActionSheet {
   /**
-   * Shows an action sheet in the given settings.
+   * 定义列表弹窗并弹出。
    * 
-   * > **NOTE**
-   * >
-   * > Since API version 10, you can use 
-   * > [showActionSheet]{@link @ohos.arkui.UIContext:UIContext#showActionSheet} in 
-   * > [UIContext]{@link @ohos.arkui.UIContext} to specify the UI execution context.
+   * > **说明：**
+   * 
+   * showActionSheet需先获取[UIContext]{@link @ohos.arkui.UIContext}实例后再进行调用。
+   * 
+   * > 从API version 10开始，可以通过使用[UIContext]{@link @ohos.arkui.UIContext}中的
+   * > [showActionSheet]{@link @ohos.arkui.UIContext:UIContext#showActionSheet}来明确UI的执行上下文。
    *
-   * @param { ActionSheetOptions } value - Parameters of the action sheet.
+   * @param { ActionSheetOptions } value - 配置列表选择弹窗的参数。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
