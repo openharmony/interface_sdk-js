@@ -7398,26 +7398,6 @@ declare class WebAttribute extends CommonMethod<WebAttribute> {
   onInterceptKeyEvent(callback: (event: KeyEvent) => boolean): WebAttribute;
 
   /**
-   * Set the font of webview standard font library. The default font is "sans serif".
-   *
-   * @param { string } family Standard font set series.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @since 9
-   */
-  /**
-   * Sets the standard font family for the web page.
-   *
-   * @param { string } family Sets the standard font family for the web page.
-   *    Default value: sans-serif.
-   * @returns { WebAttribute }
-   * @syscap SystemCapability.Web.Webview.Core
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  webStandardFont(family: string): WebAttribute;
-
-  /**
    * Sets the standard font family of the web page to render HTML elements whose font style is not specified.
    * 
    * When this attribute is not explicitly called, the default standard font family of the web page is **sans-serif**.
