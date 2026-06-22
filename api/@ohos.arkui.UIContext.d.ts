@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -120,18 +120,8 @@ export class MediaQuery {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the media query criteria and returns the corresponding listening handle
-   *
-   * @param { string } condition - media conditions
-   * @returns { mediaQuery.MediaQueryListener } the corresponding listening handle
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   matchMediaSync(condition: string): mediaQuery.MediaQueryListener;
 }
@@ -4864,17 +4854,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * get object mediaQuery.
-   *
-   * @returns { MediaQuery } object MediaQuery.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getMediaQuery(): MediaQuery;
 

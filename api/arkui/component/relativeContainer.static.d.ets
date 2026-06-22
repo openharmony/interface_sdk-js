@@ -88,8 +88,9 @@ export declare interface GuideLineStyle {
 /**
  * Specifies the direction value of Barrier.
  *
- * @enum {number}
- * @syscap SystemCapability.Test.UiTest
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
  * @since 23 static
  */
 export declare enum BarrierDirection {
@@ -265,17 +266,18 @@ export declare interface RelativeContainerAttribute extends CommonMethod {
      */
     default guideLine(value: Array<GuideLineStyle> | undefined): this;
     /**
-    * Specifies barriers of relativeContainer
-    *
-    * @param { Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined } barrierStyle
-    * @returns { RelativeContainerAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Specifies barriers of relativeContainer
+     *
+     * @param { Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined } barrierStyle
+     * @returns { RelativeContainerAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default barrier(barrierStyle: Array<BarrierStyle> | Array<LocalizedBarrierStyle> | undefined): this;
     /**
      * Set RelativeContainer options.
+     *
      * @returns { RelativeContainerAttribute } Returns the instance of the RelativeContainerAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -337,46 +339,46 @@ export declare function RelativeContainer(
  * @since 26.0.0 staticonly
  */
 export declare abstract class ExtendableRelativeContainer implements RelativeContainerAttribute {
-    /**
-     * Constructor of Extendable RelativeContainer.
-     *
-     * @param { ConstructorT<T> } factory
-     * @param { CustomBuilder } [content_]
-     * @returns { T }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    @ComponentBuilder
-    static $_instantiate<T extends ExtendableRelativeContainer>(
-        factory: ConstructorT<T>, 
-        content_?: CustomBuilder
-    ): T;
+  /**
+   * Constructor of Extendable RelativeContainer.
+   *
+   * @param { ConstructorT<T> } factory
+   * @param { CustomBuilder } [content_]
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @ComponentBuilder
+  static $_instantiate<T extends ExtendableRelativeContainer>(
+    factory: ConstructorT<T>,
+    content_?: CustomBuilder
+  ): T;
 
-    /**
-     * Entry of Extendable RelativeContainer.
-     *
-     * @param { CustomBuilderT<T> } styles
-     * @param { ConstructorT<T> } factory
-     * @param { CustomBuilder } [content_]
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    @Builder
-    static _instantiateImpl<T extends ExtendableRelativeContainer>(
-        styles: CustomBuilderT<T>, 
-        factory: ConstructorT<T>, 
-        content_?: CustomBuilder
-    ): void;
-    
-    /**
-     * Set the RelativeContainer Options.
-     *
-     * @returns { ExtendableRelativeContainer }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    public setRelativeContainerOptions(): this;
+  /**
+   * Entry of Extendable RelativeContainer.
+   *
+   * @param { CustomBuilderT<T> } styles
+   * @param { ConstructorT<T> } factory
+   * @param { CustomBuilder } [content_]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  @Builder
+  static _instantiateImpl<T extends ExtendableRelativeContainer>(
+    styles: CustomBuilderT<T>,
+    factory: ConstructorT<T>,
+    content_?: CustomBuilder
+  ): void;
+
+  /**
+   * Set the RelativeContainer Options.
+   *
+   * @returns { ExtendableRelativeContainer }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  public setRelativeContainerOptions(): this;
 }

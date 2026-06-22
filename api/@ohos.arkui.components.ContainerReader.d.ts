@@ -24,6 +24,7 @@ import { Size } from './arkui/Graphics';
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -35,6 +36,7 @@ export interface ContainerReaderInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -46,6 +48,7 @@ export interface ContainerReaderInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -57,6 +60,7 @@ export interface ContainerReaderInfo {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -70,6 +74,7 @@ export interface ContainerReaderInfo {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -81,6 +86,7 @@ export interface BreakpointOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -92,6 +98,7 @@ export interface BreakpointOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -106,6 +113,7 @@ export interface BreakpointOptions {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -119,6 +127,7 @@ export interface ContainerReaderInterface {
    * @returns { ContainerReaderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -133,6 +142,7 @@ export interface ContainerReaderInterface {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @since 26.0.0 dynamic
@@ -146,6 +156,7 @@ export declare class ContainerReaderAttribute extends CommonMethod<ContainerRead
    * @returns { ContainerReaderAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @form
    * @atomicservice
    * @since 26.0.0 dynamic
@@ -158,6 +169,7 @@ export declare class ContainerReaderAttribute extends CommonMethod<ContainerRead
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @uicomponent
@@ -170,6 +182,7 @@ export declare const ContainerReader: ContainerReaderInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @form
  * @atomicservice
  * @uicomponent
