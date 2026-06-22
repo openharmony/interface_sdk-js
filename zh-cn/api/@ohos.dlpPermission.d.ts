@@ -26,8 +26,9 @@ import type Want from './@ohos.app.ability.Want';
  * > **说明：**
  * >
  * > - 本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
- * > - @ohos.dlpPermission归属的Kit已由`DataLossPreventionKit`变更为`DataProtectionKit`，建议开发者使用新模块名`@kit.DataProtectionKit`完成模块导
- * > 入。如果使用`@kit.DataLossPreventionKit`导入，仅能调用改名前的接口，无法使用新增接口。
+ * > - @ohos.dlpPermission归属的Kit已由`DataLossPreventionKit`变更为`DataProtectionKit`，建议开发者使用新模块名`@
+ * > kit.DataProtectionKit`完成模块导入。如果使用`@
+ * > kit.DataLossPreventionKit`导入，仅能调用改名前的接口，无法使用新增接口。
  *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @since 10
@@ -671,7 +672,6 @@ declare namespace dlpPermission {
         tokenID: number;
         /**
          * 表示被绑定的DLP沙箱应用的应用索引。默认不返回，仅当沙箱应用是预览时返回。
-         * **模型约束**：此接口仅可在Stage模型下使用。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use.
@@ -684,7 +684,7 @@ declare namespace dlpPermission {
      * 安装一个应用的DLP沙箱。DLP沙箱为受保护的DLP文件创建独立的运行环境，与原应用进程隔离，确保数据在授权范围内安全流转。沙箱应用继承原应用的功能但仅能访问授权的DLP文件。使用Promise异步回调。
      * 
      * 调用installDLPSandbox成功后必须在使用完毕后调用
-     * [uninstallDLPSandbox]{@link dlppermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
+     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
      * 卸载沙箱。
      * 
      * DLP文件管理应用打开受保护文件前，需要先为目标应用安装DLP沙箱。
@@ -710,11 +710,11 @@ declare namespace dlpPermission {
     /**
      * 安装一个应用的DLP沙箱。使用callback异步回调。调用成功后，系统为应用创建DLP沙箱环境并返回沙箱信息。
      * 
-     * 调用installDLPSandbox成功后必须在使用完毕后调用uninstallDLPSandbox卸载沙箱。
-     * 
      * 调用installDLPSandbox成功后必须在使用完毕后调用
-     * [uninstallDLPSandbox]{@link dlppermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
+     * [uninstallDLPSandbox]{@link dlpPermission.uninstallDLPSandbox(bundleName: string, userId: number, appIndex: number)}
      * 卸载沙箱。
+     * 
+     * DLP文件管理应用打开受保护文件前，需要先为目标应用安装DLP沙箱。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
@@ -740,12 +740,12 @@ declare namespace dlpPermission {
      * 需要清理对应的沙箱环境时使用此接口。
      * 
      * 必须在调用
-     * [installDLPSandbox]{@link dlppermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
+     * [installDLPSandbox]{@link dlpPermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
      * 安装沙箱后才能调用此方法卸载。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
-     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
+     * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。<br>取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。当传入参数值小于0
      *     时，输出错误日志。
      * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
      * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
@@ -766,13 +766,13 @@ declare namespace dlpPermission {
      * 需要清理沙箱环境时使用此接口。
      * 
      * 必须在调用
-     * [installDLPSandbox]{@link dlppermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
+     * [installDLPSandbox]{@link dlpPermission.installDLPSandbox(bundleName: string, access: DLPFileAccess, userId: number, uri: string)}
      * 安装沙箱后才能调用此方法卸载。
      *
      * @permission ohos.permission.ACCESS_DLP_FILE
      * @param { string } bundleName - 应用包名。最小7字节，最大128字节。超出范围时抛出错误码19100001。
      * @param { number } userId - 当前的用户ID，通过账号子系统获取的系统账号ID，默认主用户ID：100。取值范围为[0, 2<sup>31</sup>-1]，超出范围将被截断。
-     * @param { number } appIndex -  DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
+     * @param { number } appIndex - DLP沙箱号，即installDLPSandbox接口调用成功后的返回值，用于标识已安装的DLP沙箱。取值范围为[1000, 1100]，超出范围时输出错误日志。
      * @param { AsyncCallback<void> } callback - 回调函数。当卸载DLP沙箱成功，err为undefined，否则为错误对象。
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -814,7 +814,7 @@ declare namespace dlpPermission {
      * 注册监听DLP沙箱卸载事件，用于感知沙箱环境的变化。注册成功后，当DLP沙箱被卸载时，系统会通过回调函数通知应用。
      * 
      * 调用on注册监听后，建议在不需要监听时调用
-     * [off]{@link dlppermission.off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>)}取消监听释放资源。
+     * [off]{@link dlpPermission.off(type: 'uninstallDLPSandbox', listener?: Callback<DLPSandboxState>)}取消监听释放资源。
      * 
      * DLP管理应用需要追踪沙箱的创建和销毁状态，以便维护沙箱列表或执行相关的清理操作。
      *
@@ -1067,7 +1067,7 @@ declare namespace dlpPermission {
      * 管理DLPFile的实例，表示一个DLP文件对象，需要通过
      * [generateDLPFile]{@link dlpPermission.generateDLPFile(plaintextFd: number, ciphertextFd: number, property: DLPProperty)}
      * /[openDLPFile]{@link dlpPermission.openDLPFile(ciphertextFd: number, appId: string)}获取DLPFile的实例。DLPFile对象代表一个已打开
-     * 的DLP文件句柄，封装了对DLP文件的所有操作接口。对象在使用完毕后必须调用[closeDLPFile]{@link dlppermission.DLPFile.closeDLPFile()}方法释放资源，避免文件句柄泄漏。
+     * 的DLP文件句柄，封装了对DLP文件的所有操作接口。对象在使用完毕后必须调用[closeDLPFile]{@link dlpPermission.DLPFile.closeDLPFile()}方法释放资源，避免文件句柄泄漏。
      * DLPFile对象在跨进程传递时，需要进行授权。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
@@ -1307,7 +1307,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { number } plaintextFd - 目标明文文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup
-         *     >-1，fd的值被截断。
+         *     >-1时，fd的值被截断。
          * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1335,7 +1335,7 @@ declare namespace dlpPermission {
          *
          * @permission ohos.permission.ACCESS_DLP_FILE
          * @param { number } plaintextFd - 目标明文文件的fd。取值范围为[0, 2<sup>31</sup>-1]。当fd小于0时，打印错误日志，函数停止运行；当fd大于2<sup>31</sup
-         *     >-1，fd的值被截断。
+         *     >-1时，fd的值被截断。
          * @param { AsyncCallback<void> } callback - 回调函数，用于接收恢复明文文件的结果。回调参数包括：err（错误对象，成功时为undefined）。
          * @throws { BusinessError } 201 - Permission denied.
          * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1624,7 +1624,7 @@ declare namespace dlpPermission {
      */
     export interface CustomProperty {
         /**
-         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>-1字节，超出此范围抛出错误码19100001。
+         * 表示企业定制策略的JSON字符串。长度不超过2<sup>22</sup>字节，超出此范围抛出错误码19100001。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @systemapi Hide this for inner system use. [since 20 - 20]
