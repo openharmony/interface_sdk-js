@@ -909,7 +909,7 @@ declare namespace dlpPermission {
      *     out of range, error code 19100001 is thrown.
      * @param { number } userId - Current user ID, which is the system account ID obtained by the account subsystem. The
      *     default super user ID is **100**. The value range is [0, 2<sup>31</sup>-1]. If the value is out of range, the
-     *     the excess part will be truncated.
+     *     excess part will be truncated.
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
      *     the value is out of range, an error log is generated.
