@@ -195,7 +195,8 @@ declare enum PlaybackSpeed {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -225,7 +226,8 @@ interface FullscreenInfo {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -253,7 +255,8 @@ interface PreparedInfo {
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -349,8 +352,8 @@ declare interface VideoOptions {
    * - Network video URLs are supported.
    * - Strings with the **file://** prefix, that is, 
    * [application sandbox URIs]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}: 
-   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application sandbox 
-   * path. Ensure that the application has the read permission to the files in the specified path.
+   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application
+   * sandbox path. Ensure that the application has the read permission to the files in the specified path.
    * 
    * The default value is an empty string.
    * 
@@ -403,8 +406,8 @@ declare interface VideoOptions {
    * an image referenced using a relative path, the component cannot be called across bundles or modules.
    * - Strings with the **file://** prefix, that is, 
    * [application sandbox URIs]{@link @ohos.file.fileuri:fileUri.FileUri.constructor}: 
-   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application sandbox 
-   * path. Ensure that the application has the read permission to the files in the specified path.
+   * **file://`<bundleName>`/`<sandboxPath>`**, are supported. They are used to access resources in the application
+   * sandbox path. Ensure that the application has the read permission to the files in the specified path.
    * 
    * The Resource type allows cross-package and cross-module access to resource files.
    * 
@@ -681,9 +684,10 @@ declare class VideoControllerAsync {
   /**
    * Sets the current playback time with specified seek mode.
    *
-   * @param { double } value - The target time in seconds
-   *     <br>Unit: Seconds. The value must be greater than or equal to 0, The maximum value is the total duration of the
-   *     video. If the duration exceeds the maximum value, the system jumps to the end of the video.
+   * @param { double } value - The target time in seconds.
+   *     <br>Unit: Seconds. The value must be greater than or equal to 0. Value constraint: The maximum value is the
+   *     total duration of the video. If the duration exceeds the maximum value, the system jumps to the end of the
+   *     video.
    * @param { SeekMode } [seekMode] - The seek mode to use for time adjustment.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1011,8 +1015,8 @@ declare class VideoAttribute extends CommonMethod<VideoAttribute> {
   analyzerConfig(config: ImageAnalyzerConfig): VideoAttribute;
 
   /**
-   * Sets the background color of the surface held by Video (only supports Color.Black and Color.Transparent). The default
-   * value is Color.Black.
+   * Sets the background color of the surface held by Video (only supports Color.Black and Color.Transparent).
+   * The default value is Color.Black.
    *
    * @param { ColorMetrics } color
    * @returns { VideoAttribute }
