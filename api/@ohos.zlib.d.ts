@@ -534,6 +534,15 @@ declare namespace zlib {
      * @since 23 static
      */
     pathSeparatorStrategy?: PathSeparatorStrategy;
+    /**
+     * Indicates whether to keep the top-level source folder in the compressed file.The default value is false.
+     *
+     * @syscap SystemCapability.BundleManager.Zlib
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.1.0 dynamic&static
+     */
+    keepTopLevelFolder?: boolean;
   }
 
   /**
