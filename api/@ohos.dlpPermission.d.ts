@@ -1662,7 +1662,7 @@ declare namespace dlpPermission {
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file generation is
-     *     successfully, **err** is **undefined** and **data** is the DLP file information obtained. Otherwise, **err**
+     *     successful, **err** is **undefined** and **data** is the DLP file information obtained. Otherwise, **err**
      *     is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
