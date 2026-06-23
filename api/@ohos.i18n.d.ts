@@ -2143,7 +2143,6 @@ declare namespace i18n {
 
     /**
      * Detects the encoding information of the input byte stream.
-     * It is recommended to check the encoding format before performing data conversion operations.
      *
      * @param { Uint8Array } bytes - Input byte stream. To detect the encoding of a text string,
      *     convert the text to a byte stream first while preserving its original format.
