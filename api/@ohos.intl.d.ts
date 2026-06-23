@@ -1577,7 +1577,7 @@ declare namespace intl {
   }
 
   /**
-   * Enable language-sensitive string comparison.
+   * Provides the string collation capability.
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 10]
@@ -1764,7 +1764,7 @@ declare namespace intl {
   }
 
   /**
-   * Enables plural-sensitive formatting and plural-related language rules.
+   * Provides the capability for obtaining the plural rule type.
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 10]
@@ -1960,8 +1960,7 @@ declare namespace intl {
   }
 
   /**
-   * Given a Time period length value and a unit, RelativeTimeFormat object enables
-   * language-sensitive relative time formatting.
+   * Provides the relative time formatting capability.
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 10]
