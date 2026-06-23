@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,8 +19,15 @@
  * @kit ArkUI
  */
 
+/*
+ * 定义ReadableState接口用于监听数据变化
+ *
+ * @file
+ * @kit ArkUI
+ */
+
 /**
- * Define the ReadableState interface to observed data changes.
+ * Define the ReadableState interface to observed date changes.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -29,7 +36,7 @@
 export declare interface ReadableState<T> {
 
   /**
-   * Get state variable value.
+   * 获取状态变量值
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -40,11 +47,10 @@ export declare interface ReadableState<T> {
 
 /**
  * Determine whether two values are equal.
- *
  * @param { T } oldV - the old value
  * @param { T } newV - the new value
  * @returns { boolean } - Returns the comparison result between old value and new value,
- *     if they are equal, return true; otherwise, return false.
+ * if they are equal, return true; otherwise, return false.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -64,7 +70,7 @@ export declare interface IncrementalScope<Value> {
    * Get the flag whether the state variable is changed, true if internal value can be returned as is
    *
    * @returns { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -74,7 +80,7 @@ export declare interface IncrementalScope<Value> {
    * State variable cache, internal value if it is already computed
    *
    * @returns { Value }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -92,10 +98,10 @@ export declare interface IncrementalScope<Value> {
   recache(newValue?: Value): Value;
 
   /**
-   * Internal state for parameter.
+   * 创建状态变量参数
    *
-   * @param { int } index - index
-   * @param { T } value - the value to be updated
+   * @param { int } 指数 - 指数
+   * @param { T } value - 初始值
    * @returns { ReadableState<T> } return state variable Value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -113,17 +119,17 @@ export declare interface IncrementalScope<Value> {
  */
 export declare interface StateContext {
 
-    /**
-     * The scope which is used to track the changes of state context.
-     *
-     * @param { int } id - state context id
-     * @param { int } paramCount - the count of param
-     * @returns { IncrementalScope<T> } return state scope
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    scope<T>(id: int, paramCount: int): IncrementalScope<T>;
+  /**
+   * The scope which is used to track the changes of state context.
+   *
+   * @param { int } id - state cotext id
+   * @param { int } paramCount - the count of param
+   * @returns { IncrementalScope<T> } return state scope
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  scope<T>(id: int, paramCount: int): IncrementalScope<T>;
 }
 
 /**
