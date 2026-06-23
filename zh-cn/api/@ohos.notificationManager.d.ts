@@ -2410,6 +2410,7 @@ declare namespace notificationManager {
    *     （true：使能，false：禁止）。未创建渠道的应用不会出现在返回结果中。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 1600001 - Internal error.
    * @throws { BusinessError } 1600003 - Failed to connect to the service.
    * @syscap SystemCapability.Notification.Notification
