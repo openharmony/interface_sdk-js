@@ -963,6 +963,10 @@ declare interface TextMetrics {
   /**
    * Width of the text. Read-only.
    *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -974,6 +978,10 @@ declare interface TextMetrics {
 
   /**
    * Height of the text. Read-only.
+   *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **CanvasRenderingContext2D** object is set to px, the unit is px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3472,6 +3480,10 @@ declare interface Size {
    * Width of the **DrawingRenderingContext** object, which corresponds to the width of the
    * associated **Canvas** component.
    *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3483,6 +3495,10 @@ declare interface Size {
   /**
    * Height of the **DrawingRenderingContext** object, which corresponds to the height of the
    * associated **Canvas** component.
+   *
+   * Default unit: vp.
+   *
+   * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3800,4 +3816,3 @@ declare const Canvas: CanvasInterface;
  * @noninterop [since 11]
  */
 declare const CanvasInstance: CanvasAttribute;
-
