@@ -24,8 +24,8 @@
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -37,7 +37,7 @@
 declare interface RectOptions {
   /**
    * Width.
-   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
    * @type { ?(number | string) } [since 18 - 19]
@@ -53,7 +53,7 @@ declare interface RectOptions {
 
   /**
    * Height.
-   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
    * @type { ?(number | string) } [since 7 - 19]
@@ -71,7 +71,7 @@ declare interface RectOptions {
    * Radius of the rounded corner. You can set separate radii for the four rounded corners. The value must be greater
    * than or equal to 0.
    * This attribute takes precedence over **radiusWidth** and **radiusHeight** when used together.
-   * Unit: vp, Default  The **undefined**, **null**, **NaN**, and **Infinity** values are invalid and treated as the
+   * Unit: vp, The **undefined**, **null**, **NaN**, and **Infinity** values are invalid and treated as the
    * default value. Default value: **0**.
    *
    * @type { ?(number | string | Array<any>) } [since 18 - 19]
@@ -91,9 +91,9 @@ declare interface RectOptions {
  * 
  * > **NOTE**
  * >
- * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -121,7 +121,7 @@ declare interface RoundedRectOptions {
 
   /**
    * Height. The value must be greater than or equal to 0.
-   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
    * @type { ?(number | string) } [since 18 - 19]
@@ -137,7 +137,7 @@ declare interface RoundedRectOptions {
 
   /**
    * Width of the rounded corner. The value must be greater than or equal to 0.
-   * Unit: vp, Default  Invalid values are treated as the default value.
+   * Unit: vp, Invalid values are treated as the default value.
    * Default value: **0**.
    *
    * @type { ?(number | string) } [since 18 - 19]
@@ -153,7 +153,7 @@ declare interface RoundedRectOptions {
 
   /**
    * Height of the rounded corner. The value must be greater than or equal to 0.
-   * Unit: vp, Default  Invalid values are treated as the default value.Default value: **0**.
+   * Unit: vp, Invalid values are treated as the default value. Default value: **0**.
    *
    * @type { ?(number | string) } [since 18 - 19]
    * @type { ?Length } [since 20]
@@ -203,7 +203,7 @@ interface RectInterface {
    * @param { {width?: number | string;height?: number | string;radius?: number | string | Array<any>;} |
    *     {width?: number | string;height?: number | string;radiusWidth?: number | string;radiusHeight?: number | string;
    *     } } value - [since 7 - 17]
-   * @param { RectOptions | RoundedRectOptions } [options] - - Options of the rectangle.
+   * @param { RectOptions | RoundedRectOptions } [options] - Options of the rectangle.
    *     <br>The **undefined** and **null** values are treated as invalid and will not take effect. [since 18]
    * @returns { RectAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

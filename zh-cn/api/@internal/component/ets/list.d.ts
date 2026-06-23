@@ -753,7 +753,14 @@ interface ListOptions {
   initialIndex?: number;
 
   /**
-   * Set space.
+   * 子组件主轴方向的间隔。
+   *
+   * <br/>默认值：0
+   * <br/>参数类型为number时单位为vp。
+   * <br/>**说明：**
+   * <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。
+   * <br/>space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。
+   * <br/> List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。<br/>
    *
    * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1572,7 +1579,9 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * > 从API version 7开始支持，从API version 12开始废弃，建议使用
    * > [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12)替代。
    *
-   * @param { function } event
+   * @param { function } event - Callback when scroll,
+   * scrollOffset: 相对于上一帧的偏移量，List的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
+   * scrollState: 当前滑动状态。
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

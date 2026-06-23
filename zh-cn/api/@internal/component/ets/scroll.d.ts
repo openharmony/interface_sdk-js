@@ -569,7 +569,7 @@ declare class Scroller {
    * </p>
    *
    * @param { number } index - 子组件的索引值。
-   * @returns { RectResult } 返回子组件的大小和相对于容器组件的位置。
+   * @returns { RectResult } 子组件的大小和相对于组件的位置。<br/>单位：vp。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -609,7 +609,7 @@ declare class Scroller {
   /**
    * 获取内容大小。
    *
-   * @returns { SizeResult } 返回内容大小。
+   * @returns { SizeResult } 滚动组件内容总大小，包括内容宽度和高度。<br/>单位：vp
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -989,7 +989,9 @@ declare class ScrollAttribute extends ScrollableCommonMethod<ScrollAttribute> {
    * <br>3、越界回弹。
    * </p>
    *
-   * @param { function } event
+   * @param { function } event - callback when scroll,
+   *     xOffset: 相对于上一帧水平方向的偏移量，Scroll中的内容向左滚动时偏移量为正，向右滚动时偏移量为负。<br/>单位vp。
+   *     yOffset: 相对于上一帧竖直方向的偏移量，Scroll中的内容向上滚动时偏移量为正，向下滚动时偏移量为负。<br/>单位vp。
    * @returns { ScrollAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel

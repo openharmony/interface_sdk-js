@@ -216,7 +216,7 @@ export declare class ArcListAttribute extends CommonMethod<ArcListAttribute> {
    * width in its pressed state.
    *
    * @param { Optional<LengthMetrics> } width - Width of the scrollbar.<br/>
-   *     Default value: **LengthMetrics.vp(24)**.<br/>Minimum value: **LengthMetrics.vp(4)**
+   *     Default value: **LengthMetrics.vp(24)**.<br/>Minimum value: **LengthMetrics.vp(4)**<br>Unit: vp
    * @returns { ArcListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @crossplatform

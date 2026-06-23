@@ -173,6 +173,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setPrinterDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -194,6 +196,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setPrinterDisabled(admin: Want, disabled: boolean): Promise<void>;
 
@@ -214,6 +218,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isPrinterDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
 
@@ -234,6 +240,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isPrinterDisabled(admin: Want): Promise<boolean>;
 
@@ -255,6 +263,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setHdcDisabled(admin: Want, disabled: boolean, callback: AsyncCallback<void>): void;
 
@@ -276,6 +286,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setHdcDisabled(admin: Want, disabled: boolean): Promise<void>;
 
@@ -296,6 +308,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isHdcDisabled(admin: Want, callback: AsyncCallback<boolean>): void;
 
@@ -316,6 +330,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isHdcDisabled(admin: Want): Promise<boolean>;
 
@@ -336,6 +352,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function disableMicrophone(admin: Want, disable: boolean): void;
 
@@ -356,6 +374,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isMicrophoneDisabled(admin: Want): boolean;
 
@@ -376,6 +396,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setFingerprintAuthDisabled(admin: Want, disabled: boolean): void;
 
@@ -396,6 +418,8 @@ declare namespace restrictions {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isFingerprintAuthDisabled(admin: Want): boolean;
 

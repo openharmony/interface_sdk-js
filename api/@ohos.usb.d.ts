@@ -24,6 +24,8 @@
  *
  * > **NOTE**
  * >
+ * > The initial APIs of this module are supported since API version 8. Newly added APIs will be marked with
+ * > a superscript to indicate their earliest API version.
  * > The APIs provided by this module are no longer maintained since API version 9. You are advised to use
  * > [@ohos.usbManager]{@link @ohos.usbManager:usbManager}.
  *
@@ -91,7 +93,7 @@ declare namespace usb {
    * Converts the USB function list in the string format to a numeric mask in Device mode.
    *
    * @param { string } funcs - Function list in string format.
-   * @returns { number } Function list in numeric mask format.
+   * @returns { number } Function list in numeric mask format after conversion.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
@@ -104,7 +106,7 @@ declare namespace usb {
    * Converts the USB function list in the numeric mask format to a string in Device mode.
    *
    * @param { FunctionType } funcs - USB function list in numeric mask format.
-   * @returns { string } Function list in string format.
+   * @returns { string } Function list in string format after conversion.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly

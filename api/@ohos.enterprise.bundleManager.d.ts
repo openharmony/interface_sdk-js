@@ -722,6 +722,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addAllowedInstallBundlesSync
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -749,6 +751,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addAllowedInstallBundlesSync
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -777,6 +781,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addAllowedInstallBundlesSync
    */
   function addAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -831,6 +837,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeAllowedInstallBundlesSync
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -859,6 +867,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeAllowedInstallBundlesSync
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -888,6 +898,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeAllowedInstallBundlesSync
    */
   function removeAllowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -937,6 +949,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getAllowedInstallBundlesSync
    */
   function getAllowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -961,6 +975,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getAllowedInstallBundlesSync
    */
   function getAllowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -987,6 +1003,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getAllowedInstallBundlesSync
    */
   function getAllowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
@@ -1040,6 +1058,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedInstallBundlesSync
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1067,6 +1087,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedInstallBundlesSync
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1095,6 +1117,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedInstallBundlesSync
    */
   function addDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -1149,6 +1173,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedInstallBundlesSync
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1177,6 +1203,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedInstallBundlesSync
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1206,6 +1234,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedInstallBundlesSync
    */
   function removeDisallowedInstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -1255,6 +1285,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedInstallBundlesSync
    */
   function getDisallowedInstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -1279,6 +1311,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedInstallBundlesSync
    */
   function getDisallowedInstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -1305,6 +1339,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedInstallBundlesSync
    */
   function getDisallowedInstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
@@ -1358,6 +1394,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedUninstallBundlesSync
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1385,6 +1423,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedUninstallBundlesSync
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1413,6 +1453,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.addDisallowedUninstallBundlesSync
    */
   function addDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -1468,6 +1510,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedUninstallBundlesSync
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1496,6 +1540,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedUninstallBundlesSync
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1525,6 +1571,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.removeDisallowedUninstallBundlesSync
    */
   function removeDisallowedUninstallBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -1576,6 +1624,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedUninstallBundlesSync
    */
   function getDisallowedUninstallBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -1600,6 +1650,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedUninstallBundlesSync
    */
   function getDisallowedUninstallBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -1626,6 +1678,8 @@ declare namespace bundleManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.getDisallowedUninstallBundlesSync
    */
   function getDisallowedUninstallBundles(admin: Want, userId?: number): Promise<Array<string>>;
 
@@ -1684,6 +1738,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean)
    */
   function uninstall(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
 
@@ -1716,6 +1772,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean)
    */
   function uninstall(admin: Want, bundleName: string, userId: number, callback: AsyncCallback<void>): void;
 
@@ -1749,6 +1807,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean)
    */
   function uninstall(admin: Want, bundleName: string, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
@@ -1783,6 +1843,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean)
    */
   function uninstall(admin: Want, bundleName: string, userId: number, isKeepData: boolean, callback: AsyncCallback<void>): void;
 
@@ -1841,6 +1903,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam)
    */
   function install(admin: Want, hapFilePaths: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -1866,6 +1930,8 @@ declare namespace bundleManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead bundleManager.install(admin: Want, hapFilePaths: Array<string>, installParam?: InstallParam)
    */
   function install(admin: Want, hapFilePaths: Array<string>, installParam: InstallParam, callback: AsyncCallback<void>): void;
 

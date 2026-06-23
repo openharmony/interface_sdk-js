@@ -310,6 +310,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -339,6 +341,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -368,6 +372,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.addDisallowedRunningBundlesSync
    */
   function addDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -428,6 +434,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, callback: AsyncCallback<void>): void;
 
@@ -457,6 +465,8 @@ declare namespace applicationManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId: number, callback: AsyncCallback<void>): void;
 
@@ -486,6 +496,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.removeDisallowedRunningBundlesSync
    */
   function removeDisallowedRunningBundles(admin: Want, appIds: Array<string>, userId?: number): Promise<void>;
 
@@ -537,6 +549,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, callback: AsyncCallback<Array<string>>): void;
 
@@ -561,6 +575,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, userId: number, callback: AsyncCallback<Array<string>>): void;
 
@@ -585,6 +601,8 @@ declare namespace applicationManager {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead applicationManager.getDisallowedRunningBundlesSync
    */
   function getDisallowedRunningBundles(admin: Want, userId?: number): Promise<Array<string>>;
 

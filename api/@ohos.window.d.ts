@@ -294,7 +294,7 @@ declare namespace window {
      */
     TYPE_FLOAT_CAMERA = 15,
     /**
-     * Dialog window.
+     * Modal window.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly

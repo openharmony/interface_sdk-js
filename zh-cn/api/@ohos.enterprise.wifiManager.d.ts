@@ -726,6 +726,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.isWifiActiveSync
    */
   function isWifiActive(admin: Want, callback: AsyncCallback<boolean>): void;
 
@@ -746,6 +748,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.isWifiActiveSync
    */
   function isWifiActive(admin: Want): Promise<boolean>;
 
@@ -785,6 +789,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.setWifiProfileSync
    */
   function setWifiProfile(admin: Want, profile: WifiProfile, callback: AsyncCallback<void>): void;
 
@@ -806,6 +812,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.setWifiProfileSync
    */
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
 
@@ -844,6 +852,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setWifiDisabled(admin: Want, disabled: boolean): void;
 
@@ -864,6 +874,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isWifiDisabled(admin: Want): boolean;
 

@@ -22,33 +22,34 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
 import { AttributeModifier, CommonMethod } from "./common";
 /**
  * The FlowItemAttribute.
- * 
- * @extends CommonMethod
- * @interface FlowItemAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface FlowItemAttribute extends CommonMethod {
-    /**
-     * Set FlowItem options.
-     *
-     * @returns { FlowItemAttribute } Returns the instance of the FlowItemAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setFlowItemOptions(): this;
-    /**
-     * Call attributeModifier.
-     *
-     * @param { AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    default attributeModifier(modifier: AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Set FlowItem options.
+   *
+   * @returns { FlowItemAttribute } Returns the instance of the FlowItemAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setFlowItemOptions(): this;
+
+  /**
+   * Call attributeModifier.
+   *
+   * @param { AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  default attributeModifier(modifier: AttributeModifier<FlowItemAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 }
 
 /**
@@ -59,6 +60,7 @@ export declare interface FlowItemAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function FlowItem(

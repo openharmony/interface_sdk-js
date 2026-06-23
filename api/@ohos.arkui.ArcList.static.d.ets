@@ -30,10 +30,12 @@ import { SwipeActionOptions } from '@ohos.arkui.component';
 /**
  * Called when the start, end and center positions of the display change.
  *
- * @typedef { function } ArcScrollIndexHandler
  * @param { int } start - the start index of the display area.
+ *     <br>The value should be an integer.
  * @param { int } end - the end index of the display area.
+ *     <br>The value should be an integer.
  * @param { int } center - the center index of the display area.
+ *     <br>The value should be an integer.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  */
@@ -41,41 +43,40 @@ export type ArcScrollIndexHandler = (start: int, end: int, center: int) => void;
 /**
  * Defines the arc list options.
  *
- * @interface ArkListOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  */
 export declare interface ArkListOptions {
-    /**
-     * Describes the index of initial item, the default value is 0.
-     *
-     * @type { ?int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 23 static
-     */
-    initialIndex?: int;
-    /**
-     * Describes the controller for scrollable container.
-     *
-     * @type { ?Scroller }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 23 static
-     */
-    scroller?: Scroller;
-    /**
-     * Describes the header.
-     *
-     * @type { ?ComponentContentBase }
-     * @syscap SystemCapability.ArkUI.ArkUI.Circle
-     * @since 23 static
-     */
-    header?: ComponentContentBase;
+
+  /**
+   * Describes the index of initial item, the default value is 0.
+   * The value should be an integer.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @since 23 static
+   */
+  initialIndex?: int;
+
+  /**
+   * Describes the controller for scrollable container.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @since 23 static
+   */
+  scroller?: Scroller;
+
+  /**
+   * Describes the header.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Circle
+   * @since 23 static
+   */
+  header?: ComponentContentBase;
 }
+
 /**
  * The ArcListAttribute
- * 
- * @extends CommonMethod
- * @interface ArcListAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  * @noninterop
@@ -276,9 +277,7 @@ export declare interface ArcListAttribute extends CommonMethod {
 }
 /**
  * The ArcListItemAttribute
- * 
- * @extends CommonMethod
- * @interface ArcListItemAttribute
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @since 23 static
  * @noninterop

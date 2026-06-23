@@ -210,6 +210,8 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead securityManager.getSecurityStatus
    */
   function getSecurityPatchTag(admin: Want): string;
 
@@ -232,6 +234,8 @@ declare namespace securityManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead securityManager.getSecurityStatus
    */
   function getDeviceEncryptionStatus(admin: Want): DeviceEncryptionStatus;
 

@@ -127,12 +127,11 @@ declare interface GuideLineStyle {
    * guideline position in that direction must be declared in **start** mode, and the value cannot be a percentage.
    * 
    * Default value:
-   * 
+   * ```
    * {
-   * 
-   * start: 0
-   * 
-   * } 
+   *   start: 0
+   * }
+   * ``` 
    * 
    * Invalid values are treated as the default value.
    *

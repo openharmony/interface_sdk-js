@@ -24,8 +24,8 @@
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -53,7 +53,7 @@ declare interface PolygonOptions {
 
   /**
    * Height.
-   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
    * @type { ?(string | number) } [since 18 - 19]
@@ -99,7 +99,7 @@ interface PolygonInterface {
    * Defines the constructor of Polygon component.
    *
    * @param { object } value - [since 7 - 17]
-   * @param { PolygonOptions } [options] - - Options of the polygon.<br>The **undefined** and **null** values are
+   * @param { PolygonOptions } [options] - Options of the polygon.<br>The **undefined** and **null** values are
    *     treated as invalid and will not take effect. [since 18]
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -130,8 +130,8 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
    * . Invalid values are treated as the default value.
    *
    * @param { Array<any> } value - Vertex coordinates of the polygon. A two-dimensional array is passed, and each
-   *     subarray indicates the [x, y] coordinates of a vertex.<br>Default value: **[]** (empty array)
-   *     <br>Default unit:vp<br>The **undefined** and **null** values are invalid and treated as the default value.
+   *     subarray indicates the `[x, y]` coordinates of a vertex.<br>Default value: **[]** (empty array)
+   *     <br>Default unit: vp<br>The **undefined** and **null** values are invalid and treated as the default value.
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -145,7 +145,7 @@ declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
 
 /**
  * The **Polygon** component is used to draw a polygon.
- * > **Note**
+ * > **NOTE**
  * >
  * > This component supports dynamic constructor parameter updates using the
  * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the

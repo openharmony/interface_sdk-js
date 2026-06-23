@@ -683,6 +683,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -706,6 +708,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -729,6 +733,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -752,6 +758,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
