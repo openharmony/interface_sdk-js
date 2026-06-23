@@ -21,8 +21,8 @@
 import { Callback } from './@ohos.base';
 
 /**
- * Used to do observer layout and draw event for component.
- *
+* Used to do observer layout and draw event for component.
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -32,7 +32,7 @@ import { Callback } from './@ohos.base';
 declare namespace inspector {
 
   /**
-   * The ComponentObserver is used to listen for layout, draw and drawChildren events.
+   * The ComponentObserver is used to listen for layout and draw events.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -107,11 +107,11 @@ declare namespace inspector {
     off(type: 'draw', callback?: () => void): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the child of component draw complete.
+     * 使用句柄注册具有相应查询条件的回调。
+     * 当组件的子级绘制完成时，会触发此回调。
      *
-     * @param { 'drawChildren' } type - type of the listened event.
-     * @param { Callback<void> } callback - callback of the listened event.
+     * @param { 'drawChildren' } type - 监听事件的类型。
+     * @param { Callback<void> } callback - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -121,11 +121,11 @@ declare namespace inspector {
     on(type: 'drawChildren', callback: Callback<void>): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the child of component draw complete.
+     * 使用句柄注销具有相应查询条件的回调。
+     * 当组件的子级绘制完成时，不会触发此回调。
      *
-     * @param { 'drawChildren' } type - type of the listened event.
-     * @param { Callback<void> } callback - callback of the listened event.
+     * @param { 'drawChildren' } type - 监听事件的类型。
+     * @param { Callback<void> } callback - 监听事件的回调。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -135,10 +135,9 @@ declare namespace inspector {
     off(type: 'drawChildren', callback?: Callback<void>): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback is triggered when the child of component draw complete.
+     * 使用监听句柄注册指定事件的回调函数，当组件的任一子节点绘制送显完成时会触发回调。
      *
-     * @param { Callback<int[]> } callback - callback of the listened event.
+     * @param { Callback<int[]> } callback - 监听事件的回调函数，回调函数的参数为发生绘制送显节点的UniqueId。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -148,10 +147,9 @@ declare namespace inspector {
     onDrawChildren(callback: Callback<int[]>): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback is not triggered when the child of component draw complete.
+     * 使用监听句柄取消注册指定事件的回调函数，当组件的任一子节点绘制送显完成时不再触发回调。
      *
-     * @param { Callback<int[]> } [callback] - callback of the listened event.
+     * @param { Callback<int[]> } [callback] - 监听事件的回调函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -161,10 +159,9 @@ declare namespace inspector {
     offDrawChildren(callback?: Callback<int[]>): void;
 
     /**
-     * Registers a callback with the corresponding query condition by using the handle.
-     * This callback will be triggered when the child of component layout is complete.
+     * 使用监听句柄注册指定事件的回调函数，当组件的任一子节点布局完成时会触发回调。
      *
-     * @param { Callback<void> } callback - callback of the listened event.
+     * @param { Callback<void> } callback - 事件触发时的回调方法。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -174,8 +171,7 @@ declare namespace inspector {
     onLayoutChildren(callback: Callback<void>): void;
 
     /**
-     * Deregisters a callback with the corresponding query condition by using the handle.
-     * This callback will not be triggered when the child of component layout is complete.
+     * 使用监听句柄取消注册指定事件的回调函数，当组件的任一子节点布局完成时不再触发回调。
      *
      * @param { Callback<void> } [callback] - callback of the listened event.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -188,7 +184,6 @@ declare namespace inspector {
   }
 
   /**
-   * Sets the component after layout or draw criteria and returns the corresponding listening handle
    *
    * @param { string } id - component id.
    * @returns { ComponentObserver } create listener for observer component event.
