@@ -5560,7 +5560,9 @@ declare namespace audio {
      *     1.Mandatory parameters unspecified.
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 6800101 - Parameter verification failed.
-     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.Focus preemption failure.
+     *     2.System processing exception.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5573,7 +5575,9 @@ declare namespace audio {
      * Deactivates this audio session. This API uses a promise to return the result.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws { BusinessError } 6800301 - System error. Returned by promise.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.The audio session is not existed or has been released.
+     *     2.System processing exception.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5799,7 +5803,10 @@ declare namespace audio {
      * @returns { Promise<void> } Promise used to return the result.
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device type is not supported.
-     * @throws { BusinessError } 6800301 - Audio client call audio service error, System error.
+     * @throws { BusinessError } 6800301 - System error. Possible causes:
+     *     1.Internal variable exception.
+     *     2.SetMediaOutputDevice execution failure.
+     *     3.Audio server crash.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
