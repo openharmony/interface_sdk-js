@@ -230,6 +230,51 @@ export @interface ComponentV2 {
   poolAccepts: string[] = [];
 }
 
+ /**
+ * Defines type for memory optimization strategy.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum ReusableMemOptStrategy {
+    /**
+    * No memory optimization.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    DEFAULT = 0,
+    /**
+    * CustomComponent handle the memory optimization.
+    *
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0,
+}
+
+/**
+ * Defines the options of Custom Component.
+ *
+ * @interface CustomComponentBaseOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CustomComponentBaseOptions {
+    /**
+    * Memory optimization strategy for CustomComponent Reuse
+    *
+    * @type { ?ReusableMemOptStrategy }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    memoryOptimizationStrategy? : ReusableMemOptStrategy;
+}
 /**
  * Defining Reusable Annotation that is used to decorate @Component.
  *
@@ -238,7 +283,17 @@ export @interface ComponentV2 {
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface Reusable {}
+export @interface Reusable {
+    /**
+    * Memory optimization strategy for CustomComponent Reuse
+    *
+    * @type { ?ReusableMemOptStrategy }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    memoryOptimizationStrategy: ReusableMemOptStrategy = ReusableMemOptStrategy.DEFAULT
+}
 
 /**
  * Defining ReusableV2 Annotation that is used to decorate @ComponentV2.
@@ -248,7 +303,17 @@ export @interface Reusable {}
  * @since 23 static
  */
 @Retention({policy: "SOURCE"})
-export @interface ReusableV2 {}
+export @interface ReusableV2 {
+    /**
+    * Memory optimization strategy for CustomComponent Reuse
+    *
+    * @type { ?ReusableMemOptStrategy }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @since 26.0.0 static
+    */
+    memoryOptimizationStrategy: ReusableMemOptStrategy = ReusableMemOptStrategy.DEFAULT
+}
 
 /**
  * Defining CustomLayout Annotation that is used to decorate @Component and @ComponentV2.
@@ -393,15 +458,37 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
         content?: CustomBuilder
     ): void;
 
-  /**
-   * aboutToReuse Method
-   *
-   * @param { ReuseObject } params - Custom component init params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  aboutToReuse(params: ReuseObject): void;
+    /**
+     * Implementation for creating a custom component
+     * @param { function | undefined } styles - styles of custom component
+     * @param { function } factory - factory to create instance of custom component
+     * @param { function } [initializers] - initial data for all the fields in custom component
+     * @param { string } [reuseId] - reuse id for reusable. Only valid if custom component decorated with @Reusable
+     * @param { CustomBuilder } [content] - tail closure for custom component
+     * @param { CustomBuilder } [options] - additional invoke options
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    @Builder
+    static _invokeImpl<S extends CustomComponent<S, S_Options>, S_Options>(
+        @Builder styles: ((instance: S) => void) | undefined,
+        factory: () => S,
+        initializers?: () => S_Options,
+        reuseId?: string,
+        content?: CustomBuilder,
+        options?: CustomComponentV1InvokeOptions
+    ): void;
+
+    /**
+     * aboutToReuse Method
+     *
+     * @param { ReuseObject } params - Custom component init params.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
+    aboutToReuse(params: ReuseObject): void;
 
   /**
    * ReInitialize @Consume variable.
@@ -592,26 +679,36 @@ export interface LayoutCallbacks {
     };
 }
 
-/** 
- * Defining interface for _invokeImpl options. 
- * 
- * @typedef CustomComponentInvokeOptions 
- * @syscap SystemCapability.ArkUI.ArkUI.Full 
- * @stagemodelonly 
- * @since 24 static 
- */ 
-export interface CustomComponentInvokeOptions { 
-    /** 
-     * CustomComponent Class object. Used to generate default reuse key. 
-     * 
-     * @type { ?Class } 
-     * @syscap SystemCapability.ArkUI.ArkUI.Full 
-     * @stagemodelonly 
-     * @since 24 static 
-     */ 
-    sClass?: Class; 
+/**
+ * Defining interface for _invokeImpl options.
+ *
+ * @typedef CustomComponentInvokeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export interface CustomComponentInvokeOptions extends CustomComponentBaseOptions {
+    /**
+     * CustomComponent Class object. Used to generate default reuse key.
+     *
+     * @type { ?Class }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 24 static
+     */
+    sClass?: Class;
 }
 
+/**
+ * Defining interface for _invokeImpl options.
+ *
+ * @typedef CustomComponentV1InvokeOptions
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export interface CustomComponentV1InvokeOptions extends CustomComponentBaseOptions {}
+ 
 /**
  * CustomComponent Lifecycle. It is used to monitor changes in the lifecycle of the custom component.
  *
