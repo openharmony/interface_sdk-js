@@ -848,7 +848,7 @@ declare namespace dlpPermission {
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
      *     error code 19100001 is thrown.
      * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox
-     *     installation is successful, **err** is **undefined** and **data** is the sandbox information obtained.
+     *     installation is successful, **err** is **undefined**, and **data** is the sandbox information obtained.
      *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
@@ -1662,7 +1662,7 @@ declare namespace dlpPermission {
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
      * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file generation is
-     *     successful, **err** is **undefined** and **data** is the DLP file information obtained. Otherwise, **err**
+     *     successful, **err** is **undefined**, and **data** is the DLP file information obtained. Otherwise, **err**
      *     is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
