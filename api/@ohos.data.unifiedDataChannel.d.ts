@@ -213,6 +213,7 @@ declare namespace unifiedDataChannel {
      * Customized tag. The default value is an empty string.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
