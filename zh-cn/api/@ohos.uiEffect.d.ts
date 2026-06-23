@@ -29,14 +29,6 @@ import { LinearGradientBlurOptions} from '@ohos.arkui.component';
 /*** endif */
 
 /**
- * The uiEffect module provides basic capabilities to apply an effect, for example, blur, pixel stretch, and brightness,
- * to a component. Effects are classified into filters and visual effects. Effects of the same category can be cascaded
- * in an effect instance of the corresponding category. In actual development, the blur effect can be used for
- * background blurring, and the brightness effect can be used for screen-on display.
- *
- * - [Filter](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#filter): applies a filter to a component.
- * - [VisualEffect](docroot://reference/apis-arkgraphics2d/js-apis-uiEffect.md#visualeffect): applies a visual effect to
- * a component.
  *
  * @syscap SystemCapability.Graphics.Drawing
  * @form [since 22]
@@ -46,7 +38,6 @@ import { LinearGradientBlurOptions} from '@ohos.arkui.component';
 declare namespace uiEffect {
 
   /**
-   * The Filter for Component.
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @since 12 dynamic
@@ -60,7 +51,7 @@ declare namespace uiEffect {
      * @param { Array<double> } stretchSizes
      * @param { TileMode } tileMode
      * @returns { Filter }
-     * @syscap SystemCapability.Graphics.Drawing
+          * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 12 dynamic
      * @since 23 static
@@ -72,7 +63,7 @@ declare namespace uiEffect {
      *
      * @param { double } blurRadius
      * @returns { Filter }
-     * @syscap SystemCapability.Graphics.Drawing
+          * @syscap SystemCapability.Graphics.Drawing
      * @since 12 dynamic
      * @since 23 static
      */
@@ -310,10 +301,9 @@ declare namespace uiEffect {
     maskTransition(alphaMask: Mask, factor?: double, inverse?: boolean): Filter;
 
     /**
-     * Applies heat distortion effect to simulate hot air distortion.
-     * This effect creates a wavy distortion similar to heat shimmer or hot air rising.
+     * 创建热浪扭曲特效滤镜
      *
-     * @param { HeatDistortionEffectParam } param - the heat distortion effect parameters.
+     * @param { HeatDistortionEffectParam } param - 热浪扭曲特效参数结构体
      * @returns { Filter } - Returns the heat distortion Filter.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -323,11 +313,11 @@ declare namespace uiEffect {
     heatDistortion(param: HeatDistortionEffectParam): Filter;
 
     /**
-     * Applies blur bubbles rise effect to simulate rising bubbles with blur.
-     * This effect creates a dreamy, bubbly distortion similar to rising bubbles in liquid.
+     * 应用模糊气泡上升效果以模拟具有模糊的上升气泡。
+     * 这种效应产生了梦幻般的、气泡般的扭曲，类似于液体中上升的气泡。
      *
-     * @param { BlurBubblesRiseEffectParam } param - the blur bubbles rise effect parameters.
-     * @returns { Filter } - Returns the blur bubbles rise Filter.
+     * @param { BlurBubblesRiseEffectParam } param - 模糊气泡上升效果参数。
+     * @returns { Filter } - 返回模糊气泡上升滤镜。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -527,7 +517,7 @@ declare namespace uiEffect {
       alphaMask?: Mask): VisualEffect;
 
     /**
-     * Sets the liquid material effect.
+     * 设置液态材质效果
      *
      * @param { LiquidMaterialEffectParam } param - the liquid material effect parameters.
      * @param { Mask } useEffectMask - the mask determines the use effect flag.
@@ -544,24 +534,16 @@ declare namespace uiEffect {
       brightnessParam?: BrightnessParam): VisualEffect;
 
     /**
-     * Sets distortion collapse effect.
+     * 此方法为组件添加非线性形变效果。
      *
-     * NOTE
-     * 1. This visual effect supports drawing outside the bounds of the control,
-     *    but it is still subject to the clipping (Clip) of the parent control.
-     * 2. Because it contains a foreground Filter, some visual effects of the component itself and its child components
-     *    (e.g., BrightnessBlender or systemMaterial) are incompatible when not used in combination
-     *    with the EffectComponent.
-     * 3. It supports distorting the system material, but when used in combination with the EffectComponent,
-     *    it will cause the background of the system material to be distorted.
-     * 4. When calling distortionCollapse, an offscreen canvas equal in size to the deformed area will be created.
-     *    The content of the current component (including child components) is then drawn onto this offscreen canvas,
-     *    and the existing content on the canvas is drawn with deformation. When using this implementation in
-     *    combination with the EffectComponent, interfaces that require screen capture, such as systemMaterial,
-     *    backgroundEffect, brightness, and blur, will not be able to capture the correct screen.
+     * 1. 该视效支持控件范围外的绘制，但仍会受到父控件Clip的影响。
+     * 2. 因包含前景Filter，未与EffectComponent组合使用时不兼容组件自身及子组件的部分视效（如BrightnessBlender或systemMaterial）。
+     * 3. 支持对系统材质进行扭曲，但是与EffectComponent组合使用时，会导致系统材质的背景扭曲。
+     * 4. 调用distortionCollapse时，会创建与形变后区域等大的离屏画布，再将当前组件（含子组件）的内容绘制到离屏画布上，再对画布上的已有内容进行形变绘制。
+     * 5. 使用该实现方式时，如果与EffectComponent组合使用，将导致systemMaterial、backgroundEffect、brightness、blur等需要截屏的接口无法截取到正确的画面。
      *
-     * @param { DistortionParam } distortionParam - the distortion params of distortion effect.
-     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @param { DistortionParam } distortionParam - 非线性形变效果的参数。
+     * @returns { VisualEffect } - 返回添加了非线性形变效果的VisualEffect。
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
@@ -571,7 +553,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of brightness.
+   * 提亮的参数
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -581,7 +563,7 @@ declare namespace uiEffect {
   interface BrightnessParam {
 
     /**
-     * Defines rate of brightness.
+     * 灰度调整线性系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -591,7 +573,7 @@ declare namespace uiEffect {
     rate : double;
 
     /**
-     * Defines lightUpDegree of brightness.
+     * 灰度调整比例
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -601,7 +583,7 @@ declare namespace uiEffect {
     lightUpDegree : double;
 
     /**
-     * Defines cubicCoeff of brightness.
+     * 灰度调整三阶系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -611,7 +593,7 @@ declare namespace uiEffect {
     cubicCoeff : double;
 
     /**
-     * Defines quadCoeff of brightness.
+     * 灰度调整二阶系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -621,7 +603,7 @@ declare namespace uiEffect {
     quadCoeff : double;
 
     /**
-     * Defines saturation of brightness.
+     * 提亮基准饱和度
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -631,7 +613,7 @@ declare namespace uiEffect {
     saturation : double;
 
     /**
-     * Defines positive RGB of brightness.
+     * 基于基准饱和度的正向调整系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -641,7 +623,7 @@ declare namespace uiEffect {
     posRgb : [double, double, double];
 
     /**
-     * Defines negative RGB of brightness.
+     * 基于基准饱和度的负向调整系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -651,7 +633,7 @@ declare namespace uiEffect {
     negRgb : [double, double, double];
 
     /**
-     * Defines fraction of brightness.
+     * 提亮效果混合比例
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -662,7 +644,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of heat distortion effect.
+   * 热浪扭曲特效参数结构体
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -672,9 +654,8 @@ declare namespace uiEffect {
   interface HeatDistortionEffectParam {
 
     /**
-     * Defines distortion intensity for heat distortion effect.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * 0 means no distortion, and 1 represents the maximum distortion level.
+     * 整体扰动强度
+     * <br>取值范围:[0.0, 5.0]。单位:double。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -684,9 +665,8 @@ declare namespace uiEffect {
     intensity: double;
 
     /**
-     * Defines noise scale for heat distortion effect, controls the fineness of the noise texture.
-     * Value range [0.1, 5.0], and values outside the range will be clamped.
-     * The larger the value, the finer the noise texture.
+     * 噪波缩放比例
+     * <br>取值范围:[0.1, 5.0]。单位:double。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -696,9 +676,8 @@ declare namespace uiEffect {
     noiseScale: double;
 
     /**
-     * Defines rise weight for heat distortion effect, controls the rising speed of bubbles.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * The larger the value, the more obvious the upward movement.
+     * 上升流动权重
+     * <br>取值范围:[0.0, 1.0]。单位:double。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -708,9 +687,8 @@ declare namespace uiEffect {
     riseWeight: double;
 
     /**
-     * Defines animation progress for heat distortion effect.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 定义热变形效果的动画进度
+     * <br>取值范围:[0.0, 1.0]。单位:double。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -721,7 +699,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of blur bubbles rise effect.
+   * 模糊气泡的参数上升效果。
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -731,9 +709,7 @@ declare namespace uiEffect {
   interface BlurBubblesRiseEffectParam {
 
     /**
-     * Defines gaussian blur intensity for blur bubbles rise effect.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * 0 means no blur, and 1 represents the maximum blur level.
+     * 定义模糊气泡上升效果的高斯模糊半径。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -743,9 +719,7 @@ declare namespace uiEffect {
     blurIntensity: double;
 
     /**
-     * Defines mix strength between original and blurred images.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * 0 corresponds to the original image, and 1 corresponds to the blurred image.
+     * 定义原始图像和模糊图像之间的混合强度。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -755,9 +729,7 @@ declare namespace uiEffect {
     mixStrength: double;
 
     /**
-     * Defines animation progress for blur bubbles rise effect.
-     * Value range [0, 1], and values outside the range will be clamped.
-     * 0 corresponds to the start of the animation, and 1 corresponds to the end of the animation.
+     * 定义模糊气泡上升效果的动画进度。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -767,8 +739,7 @@ declare namespace uiEffect {
     progress: double;
 
     /**
-     * Defines mask image for blur bubbles rise effect, controls the blur bubbles area.
-     * The masked area has a blur effect, while the unmasked area has no blur effect.
+     * 定义模糊气泡上升效果的遮罩图像。
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -779,7 +750,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The parameters of liquid material effect.
+   * 材质所需参数描述
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -789,7 +760,7 @@ declare namespace uiEffect {
   interface LiquidMaterialEffectParam {
 
     /**
-     * Defines enable switch for material effect.
+     * 控制液态材质开启
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -799,7 +770,7 @@ declare namespace uiEffect {
     enable : boolean;
 
     /**
-     * Defines distort progress for material effect.
+     * 扰动进度
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -809,7 +780,7 @@ declare namespace uiEffect {
     distortProgress : double;
 
     /**
-     * Defines distort factor for material effect.
+     * 扰动系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -819,7 +790,7 @@ declare namespace uiEffect {
     distortFactor : double;
 
     /**
-     * Defines ripple animation progress for material effect.
+     * 水波进度
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -829,7 +800,7 @@ declare namespace uiEffect {
     rippleProgress : double;
 
     /**
-     * Defines ripple animation position for material effect.
+     * 水波位置
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -839,7 +810,7 @@ declare namespace uiEffect {
     ripplePosition?: Array<[double, double]>;
 
     /**
-     * Defines refraction factor for material effect.
+     * 折射系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -849,7 +820,7 @@ declare namespace uiEffect {
     refractionFactor : double;
 
     /**
-     * Defines reflection factor for material effect.
+     * 反射系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -859,7 +830,7 @@ declare namespace uiEffect {
     reflectionFactor : double;
 
     /**
-     * Defines material factor for material effect.
+     * 材质系数
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -869,7 +840,7 @@ declare namespace uiEffect {
     materialFactor : double;
 
     /**
-     * Defines tint color for material effect.
+     * 材质附色
      *
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
@@ -880,7 +851,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * Defines the blending effect.
+   * 混合器类型，用于描述混合效果。
    *
    * @unionmember { BrightnessBlender } Base brightness blender
    * @unionmember { HdrBrightnessBlender } HDR brightness blender
@@ -1005,7 +976,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The HDR enabled Blender of backgroundColorEffect.
+   * The HDR enabled Blender of backgroundColorEffect .
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1015,7 +986,9 @@ declare namespace uiEffect {
   interface HdrBrightnessBlender extends BrightnessBlender {  }
 
   /**
-   * The HDR-adaptive darken blender.
+   * HDR自适应的变暗混合器
+   *
+   *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
@@ -1024,7 +997,7 @@ declare namespace uiEffect {
   interface HdrDarkenBlender {
 
     /**
-     * Defines the HDR brightness ratio of src.
+     * 定义HDR的提亮比例
      *
      * @property { double }
      * @syscap SystemCapability.Graphics.Drawing
@@ -1035,8 +1008,7 @@ declare namespace uiEffect {
     hdrBrightnessRatio: double;
 
     /**
-     * Defines the grayscale factor for converting dst's RGB channels to grayscale.
-     * Formula: grayscale = dot(grayscaleFactor, dst).
+     * 定义darken时RGB颜色转灰阶的变换系数
      *
      * @property { ?[double, double, double] }
      * @default [0.299, 0.587, 0.114]
@@ -1049,7 +1021,7 @@ declare namespace uiEffect {
   }
 
   /**
-   * The Color of Light.
+   * The Color of Light .
    *
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
@@ -1117,7 +1089,7 @@ declare namespace uiEffect {
      * @param { double } width
      * @param { double } [offset]
      * @returns { Mask }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+          * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
@@ -1133,7 +1105,7 @@ declare namespace uiEffect {
      * @param { common2D.Rect } dstRect
      * @param { Color } [fillColor]
      * @returns { Mask }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+          * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
@@ -1143,7 +1115,7 @@ declare namespace uiEffect {
       fillColor?: Color): Mask;
 
     /**
-     * Create a Mask of pixelMap to use directly.
+     * 输入pixelMap创建Mask实例
      *
      * @param { image.PixelMap } pixelMap - The pixelMap of PixelMapMask.
      * @returns { Mask } - Returns pixelMap mask.
@@ -1163,7 +1135,7 @@ declare namespace uiEffect {
      * @param { double } radiusY
      * @param { Array<[double, double]> } gradients
      * @returns { Mask }
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+          * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @since 20 dynamic
@@ -1191,7 +1163,7 @@ declare namespace uiEffect {
       blurRadius: double, turbulenceStrength?: double): Mask;
 
     /**
-     * Create a Mask of use effect.
+     * 通过useEffect标记创建Mask实例
      *
      * @param { boolean } useEffect - The use effect flag of UseEffectMask.
      * @returns { Mask } - Returns use effect mask.
@@ -1205,7 +1177,6 @@ declare namespace uiEffect {
   }
 
   /**
-   * Create a Filter to add multiple effects to the component.
    *
    * @returns { Filter } Returns the head node of Filter.
    * @syscap SystemCapability.Graphics.Drawing
@@ -1215,7 +1186,6 @@ declare namespace uiEffect {
   function createFilter(): Filter;
 
   /**
-   * Create a VisualEffect to add multiple effects to the component.
    *
    * @returns { VisualEffect } Returns the head node of visualEffect.
    * @syscap SystemCapability.Graphics.Drawing
@@ -1252,10 +1222,11 @@ declare namespace uiEffect {
   function createHdrBrightnessBlender(param: BrightnessBlenderParam): HdrBrightnessBlender;
 
   /**
-   * Create an HdrDarkenBlender, which is used to apply HDR-adaptive darken blender on UI components.
-   * @param { double } hdrBrightnessRatio - The HDR brightness ratio of the src.
-   * @param { [double, double, double] } [grayscaleFactor] - The grayscale factor for converting dst's RGB channels to
-   *     grayscale. Formula: grayscale = dot(grayscaleFactor, dst).
+   * 创建一个HdrDarkenBlender用于在UI组件上应用HDR自适应暗混频器。
+   *
+   * @param { double } hdrBrightnessRatio - src的HDR亮度比。
+   * @param { [double, double, double] } [grayscaleFactor] - 将dst的RGB通道转换为
+   *     灰度。公式：灰度=点（灰度因子，dst）。
    * @returns { HdrDarkenBlender } Returns the blender.
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
