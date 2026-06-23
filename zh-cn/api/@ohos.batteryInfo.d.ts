@@ -72,7 +72,6 @@ declare namespace batteryInfo {
   /**
    * 表示当前设备剩余电池电量百分比，取值范围是[0，100]。
    *
-   * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice [since 12]
    * @since 6 dynamic
@@ -82,7 +81,6 @@ declare namespace batteryInfo {
   /**
    * 表示当前设备电池的充电状态。
    *
-   * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice [since 12]
    * @since 6 dynamic
