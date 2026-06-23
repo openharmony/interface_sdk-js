@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,7 +24,7 @@ import { ExtendableComponent } from './extendableComponent';
 import { IDecoratedV1Variable } from '../stateManagement/decorator';
 
 /**
- * Defines the info of compatible custom component.
+ * 在ArkTS-Dyn中创建的自定义组件对象的信息。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -32,8 +32,8 @@ import { IDecoratedV1Variable } from '../stateManagement/decorator';
  */
 export interface CompatibleComponentInfo {
     /**
-     * the name of compatible custom component
-     *
+       * 在ArkTS-Dyn中创建的自定义组件对象的名称。
+       *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -41,8 +41,8 @@ export interface CompatibleComponentInfo {
     name: string;
 
     /**
-     * the compatible custom component
-     *
+       * 在ArkTS-Dyn中创建的自定义组件对象。
+       *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -51,10 +51,10 @@ export interface CompatibleComponentInfo {
 }
 
 /**
- * Defines the callback for initializing compatible custom component.
+ * 初始化占位组件的回调函数类型。
  *
  * @param { ESValue } parent - the parent of compatible custom component
- * @returns { CompatibleComponentInfo } the info of compatible custom component
+ * @returns { CompatibleComponentInfo } 占位组件的信息。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -62,9 +62,9 @@ export interface CompatibleComponentInfo {
 export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInfo;
 
 /**
- * Defines the callback for updating compatible custom component.
+ * 更新占位组件的回调函数类型。
  *
- * @param { ESValue } component - the compatible custom component
+ * @param { ESValue } component - 在ArkTS-Dyn上下文创建的自定义组件对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -72,11 +72,11 @@ export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInf
 export type CompatibleUpdateCallback = (component: ESValue) => void;
 
 /**
- * Obtains the compatible custom component.
+ * 在ArkTS-Sta中引用ArkTS-Dyn自定义组件的占位组件。
  *
- * @param { CompatibleInitCallback } init - the callback for initializing compatible custom component
- * @param { CompatibleUpdateCallback } update - the callback for updating compatible custom component
- * @param { ExtendableComponent } [component] - the custom component
+ * @param { CompatibleInitCallback } init - 初始化占位组件的回调函数。
+ * @param { CompatibleUpdateCallback } update - 更新占位组件的回调函数。
+ * @param { ExtendableComponent } [component] - 当前ArkTS-Sta自定义组件。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -89,10 +89,10 @@ export declare function compatibleComponent(
 ): void;
 
 /**
- * Obtains the compatible state.
+ * 为ArkTS-Sta的状态变量获取一个ArkTS-Dyn的@State代理对象，用于与ArkTS-Dyn的状态变量进行互操作。
  *
- * @param { IDecoratedV1Variable<T> } state - the source state
- * @returns { ESValue } the compatible state
+ * @param { IDecoratedV1Variable<T> } state - ArkTS-Sta的状态变量。
+ * @returns { ESValue } ArkTS-Dyn的@State对象。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -100,10 +100,10 @@ export declare function compatibleComponent(
 export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): ESValue;
 
 /**
- * Obtains the compatible WrappedBuilder.
+ * 为ArkTS-Sta提供使用ArkTS-Dyn WrappedBuilder对象的互操作方法。
  *
- * @param { Any } builder - the WrappedBuilder
- * @param { FixedArray<ESValue> } args - the parameters of WrappedBuilder
+ * @param { Any } builder - ArkTS-Dyn WrappedBuilder对象。
+ * @param { FixedArray<ESValue> } args - ArkTS-Dyn WrappedBuilder对象使用时的参数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -112,10 +112,10 @@ export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): E
 export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArray<ESValue>): void;
 
 /**
- * Transfer compatible Builder.
+ * 在ArkTS-Sta中给ArkTS-Dyn的@BuilderParam传递@Builder函数（适用于非字面量更新场景）。
  *
- * @param { T } builder - the source builder
- * @returns { ESValue } the compatible builder
+ * @param { T } builder - 自定义构建函数。
+ * @returns { ESValue } 可互操作的自定义构建函数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -123,9 +123,9 @@ export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArr
 export declare function transferCompatibleBuilder<T extends Function>(@Builder builder: T): ESValue;
 
 /**
- * Defines the source builder for updating compatible builder.
+ * 自定义构建函数的类型。
  *
- * @param { T } arg - the argument of the source builder
+ * @param { T } arg - 自定义构建函数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -134,10 +134,10 @@ export declare function transferCompatibleBuilder<T extends Function>(@Builder b
 export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
 
 /**
- * Transfer compatible and updatable Builder
+ * 在ArkTS-Sta中给ArkTS-Dyn的@BuilderParam传递@Builder函数（适用于字面量更新场景）。
  *
- * @param { CompatibleUpdatableBuilder<T> } builder - the source builder
- * @returns { ESValue } the compatible builder
+ * @param { CompatibleUpdatableBuilder<T> } builder - 自定义构建函数。
+ * @returns { ESValue } 可互操作的自定义构建函数。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -147,10 +147,10 @@ export declare function transferCompatibleUpdatableBuilder<T extends Object>(
 ): ESValue;
 
 /**
- * Enable compatible ObservedV2 for Dynamic
+ * 在ArkTS-Dyn中引用ArkTS-Sta中使用@ObservedV2和@Trace修饰的类。
  *
- * @param { T } value - the source value
- * @returns { T } the result
+ * @param { T } value - ArkTS-Sta@ObservedV2修饰的class。
+ * @returns { T } 返回当前组件。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 staticonly
@@ -158,10 +158,10 @@ export declare function transferCompatibleUpdatableBuilder<T extends Object>(
 export declare function enableCompatibleObservedV2ForDynamic<T>(value: T): T;
 
 /**
- * Enable compatible ObservedV2 for Static
+ * 在ArkTS-Sta中引用ArkTS-Dyn中使用@ObservedV2和@Trace修饰的类。
  *
- * @param { T } value - the source value
- * @returns { T } the result
+ * @param { T } value - 在ArkTS-Dyn中@ObservedV2修饰的class。
+ * @returns { T } 返回当前组件。
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 staticonly
