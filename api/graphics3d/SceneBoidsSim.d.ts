@@ -87,6 +87,7 @@ export interface BoidsSimParameters {
 
   /**
    * Maximum speed the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 0.625.
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -97,6 +98,7 @@ export interface BoidsSimParameters {
 
   /**
    * Maximum acceleration the boid can reach per simulation frame. Range: [0, +inf). Default: approximately 39.06.
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -108,6 +110,7 @@ export interface BoidsSimParameters {
   /**
    * Per-axis rotation limit in radians per simulation frame. Range: [0, +inf) per axis.
    * Default: approximately 0.0377 per axis.
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -118,6 +121,7 @@ export interface BoidsSimParameters {
 
   /**
    * How strongly the boid steers away from nearby neighbours within separationDistance. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -129,6 +133,7 @@ export interface BoidsSimParameters {
   /**
    * Perception radius for the separation rule. Only boids strictly within this distance contribute
    * to separation force (force is zero at the boundary). Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -140,6 +145,7 @@ export interface BoidsSimParameters {
   /**
    * How strongly the boid steers to match the average heading of neighbours within alignmentDistance.
    * Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -151,6 +157,7 @@ export interface BoidsSimParameters {
   /**
    * Perception radius for the alignment rule. Boids within this distance (inclusive) contribute
    * to alignment force. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -162,6 +169,7 @@ export interface BoidsSimParameters {
   /**
    * How strongly the boid steers toward the average position of neighbours within cohesionDistance.
    * Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -173,6 +181,7 @@ export interface BoidsSimParameters {
   /**
    * Perception radius for the cohesion rule. Boids within this distance (inclusive) contribute
    * to cohesion force. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -182,7 +191,9 @@ export interface BoidsSimParameters {
   cohesionDistance?: double;
 
   /**
-   * How strongly the boid is pushed back when within boundaryDistance of the boundary box edges. Range: [0, +inf). Default: 0.0
+   * How strongly the boid is pushed back when within boundaryDistance of the boundary box edges.
+   * Range: [0, +inf). Default: 0.0.
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -193,6 +204,7 @@ export interface BoidsSimParameters {
 
   /**
    * Distance from boundary walls within which the boundary repulsion force takes effect. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -203,6 +215,7 @@ export interface BoidsSimParameters {
 
   /**
    * How strongly gravity field entities attract this boid. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -213,6 +226,7 @@ export interface BoidsSimParameters {
 
   /**
    * How strongly repulsion field entities push this boid away. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -234,6 +248,7 @@ export interface BoidsSimGravityParameters {
   /**
    * Radius of influence. Boids strictly within this distance from the entity are attracted
    * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -244,6 +259,7 @@ export interface BoidsSimGravityParameters {
 
   /**
    * Magnitude of gravitational acceleration applied toward the entity. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -265,6 +281,7 @@ export interface BoidsSimRepulsionParameters {
   /**
    * Radius of influence. Boids strictly within this distance from the entity are pushed away
    * (force is zero at the boundary). Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -275,6 +292,7 @@ export interface BoidsSimRepulsionParameters {
 
   /**
    * Magnitude of repulsion acceleration applied away from the entity. Range: [0, +inf). Default: 0.0
+   * If a value exceeding the valid range is assigned, it will be clamped.
    *
    * @syscap SystemCapability.ArkUi.Graphics3D
    * @systemapi
@@ -285,7 +303,7 @@ export interface BoidsSimRepulsionParameters {
 }
 
 /**
- * Boids simulation world interface. Provides playback control and component management for boids simulation.
+ * Provides playback control and component management for boids simulation.
  *
  * @syscap SystemCapability.ArkUi.Graphics3D
  * @systemapi
