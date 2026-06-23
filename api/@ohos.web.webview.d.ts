@@ -1613,16 +1613,16 @@ declare namespace webview {
     /**
      * Gets all cookies for the given URL.
      *
-     * <p><strong>API Note</strong>:<br>
+     * <strong>API Note</strong>:<br>
      *
      * **fetchCookieSync()** is used to obtain all cookie values. Cookie values are separated by semicolons. However,
      * a specific cookie value cannot be obtained separately.
-     * </p>
      *
      * @param { string } url - The URL for which the cookies are requested.
      * @param { boolean } [incognito] - {@code true} gets all cookies for the given URL
-     *     in incognito mode; {@code false} otherwise.
+     *     in incognito mode; {@code false} otherwise. Default is false.
      * @param { boolean } [includePartitionedCookies] - If true, allows fetching first-party partitioned cookies.
+     *     Default is false.
      * @returns { string } - The cookie value for the given URL.
      * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
      * @syscap SystemCapability.Web.Webview.Core
