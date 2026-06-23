@@ -847,9 +847,9 @@ declare namespace dlpPermission {
      *     generated.
      * @param { string } uri - URI of the DLP file. The value contains up to 4095 bytes. If the value is out of range,
      *     error code 19100001 is thrown.
-     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox is
-     *     installed successfully, **err** is **undefined** and **data** is the sandbox information obtained; otherwise,
-     *     **err** is an error object.
+     * @param { AsyncCallback<DLPSandboxInfo> } callback - Callback used to return the result. If the DLP sandbox
+     *     installation is successful, **err** is **undefined** and **data** is the sandbox information obtained.
+     *     Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -913,8 +913,8 @@ declare namespace dlpPermission {
      * @param { number } appIndex - DLP sandbox index, which is the value returned after **installDLPSandbox** is
      *     successfully called. It is used to identify the installed DLP sandbox. The value range is [1000, 1100]. If
      *     the value is out of range, an error log is generated.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DLP sandbox is uninstalled
-     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the DLP sandbox uninstallation
+     *     is successful, **err** is **undefined**. Otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
@@ -1661,8 +1661,8 @@ declare namespace dlpPermission {
      *     is greater than 2<sup>31</sup>-1, the excess part will be truncated.
      * @param { DLPProperty } property - Authorization information, which includes the authorized user list, owner
      *     account, and contact account information.
-     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file is generated
-     *     successfully, **err** is **undefined** and **data** is the DLP file information obtained; otherwise, **err**
+     * @param { AsyncCallback<DLPFile> } callback - Callback used to return the result. If the DLP file generation is
+     *     successfully, **err** is **undefined** and **data** is the DLP file information obtained. Otherwise, **err**
      *     is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications use system APIs.
