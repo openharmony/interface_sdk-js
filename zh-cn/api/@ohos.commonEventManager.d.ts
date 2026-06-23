@@ -2562,6 +2562,16 @@ declare namespace commonEventManager {
      *
      * 具体枚举值及其对应的连接状态如下表所示：
      *
+     * > **说明**
+     * > 具体枚举值及其对应的连接状态如下表所示：
+     * >
+     * > | 枚举值  |  连接状态  |
+     * > | ------ | ---------- |
+     * > |    2   |   连接中   |
+     * > |    3   |   已连接   |
+     * > |    4   |   正在断开 |
+     * > |    5   |   已断开   |。
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic

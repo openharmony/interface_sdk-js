@@ -2751,6 +2751,16 @@ declare namespace commonEventManager {
      *
      * The following table lists the enum values and their corresponding connection status.
      *
+     * > **NOTE**
+     * > The following table lists the enum values and their corresponding connection status
+     * >
+     * > | Value |  Connection State |
+     * > | ------ | ---------- |
+     * > |    2   |   Connecting.  |
+     * > |    3   |   Connected.  |
+     * > |    4   |   Disconnecting.|
+     * > |    5   |   Disconnected.  |.
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
