@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright (c) 2024 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import { AsyncCallback } from './@ohos.base';
 import type common2D from './@ohos.graphics.common2D';
 import type image from './@ohos.multimedia.image';
 /*** if arkts static */
-import { LinearGradientBlurOptions} from '@ohos.arkui.component';
+import { LinearGradientBlurOptions } from '@ohos.arkui.component';
 /*** endif */
 
 /**
@@ -331,7 +331,6 @@ declare namespace uiEffect {
    * @since 23 static
    */
   enum TileMode {
-
     /**
      * Clamp mode.
      *
@@ -382,7 +381,6 @@ declare namespace uiEffect {
    * @since 23 static
    */
   enum WaterRippleMode {
-
     /**
      * SMALL2MEDIUM_RECV mode.
      *
