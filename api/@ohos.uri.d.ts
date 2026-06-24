@@ -40,7 +40,7 @@ declare namespace uri {
    * @since 8 dynamic
    * @since 23 static
    */
-  class URI {
+  export class URI {
     /**
      * A constructor used to create a URI instance.
      *
