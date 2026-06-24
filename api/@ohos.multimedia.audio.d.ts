@@ -5562,7 +5562,7 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed.
      * @throws { BusinessError } 6800301 - System error. Possible causes:
      *     1.Focus preemption failure.
-     *     2.System processing exception.
+     *     2.Audio server process died.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5577,7 +5577,7 @@ declare namespace audio {
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 6800301 - System error. Possible causes:
      *     1.The audio session is not existed or has been released.
-     *     2.System processing exception.
+     *     2.Audio server process died.
      * @syscap SystemCapability.Multimedia.Audio.Core
      * @crossplatform
      * @atomicservice [since 26.0.0]
@@ -5804,9 +5804,9 @@ declare namespace audio {
      * @throws { BusinessError } 6800101 - Parameter verification failed, for example,
      *     the selected device type is not supported.
      * @throws { BusinessError } 6800301 - System error. Possible causes:
-     *     1.Internal variable exception.
-     *     2.SetMediaOutputDevice execution failure.
-     *     3.Audio server crash.
+     *     1.Internal variable memory allocation failed.
+     *     2.Audio server process died.
+     *     3.Speaker device is not available.
      * @syscap SystemCapability.Multimedia.Audio.Device
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
