@@ -19,7 +19,7 @@
  */
 
 /**
- * The **inputEvent** module provides the basic events reported by the device.
+ * 设备上报的基本事件。
  *
  * @interface InputEvent [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -30,7 +30,7 @@
 export declare interface InputEvent {
 
   /**
-   * Enumerates event IDs.
+   * 事件ID。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -40,7 +40,7 @@ export declare interface InputEvent {
   id: int;
 
   /**
-   * Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID may change.
+   * 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -50,7 +50,7 @@ export declare interface InputEvent {
   deviceId: int;
 
   /**
-   * Time when an input event is reported, in microseconds (μs) since the system starts.
+   * 上报输入事件的时间，表示系统启动运行至今逝去的微秒数，单位为微秒（μs）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -60,7 +60,7 @@ export declare interface InputEvent {
   actionTime: long;
 
   /**
-   * Target screen ID.
+   * 目标屏幕ID。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -70,7 +70,7 @@ export declare interface InputEvent {
   screenId: int;
 
   /**
-   * Target window ID.
+   * 目标窗口ID。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

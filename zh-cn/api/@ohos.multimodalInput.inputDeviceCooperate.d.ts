@@ -21,8 +21,13 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * The **inputDeviceCooperate** module implements screen hopping for two or more networked devices to share the keyboard
- * and mouse for collaborative operations.
+ * 键鼠穿越功能模块，提供两台或多台设备组网协同后键鼠共享能力，实现键鼠输入设备的跨设备协同操作。
+ * 
+ * > **说明**
+ * >
+ * > - 本模块接口从API Version 10开始不再维护，从API version 23开始废弃，推荐使用新接口[@ohos.cooperate]{@link @ohos.cooperate:cooperate} (键鼠穿越)。
+ * >
+ * > - 本模块接口均为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Cooperator
  * @since 9 dynamiconly
@@ -32,7 +37,12 @@ import { AsyncCallback } from './@ohos.base';
 declare namespace inputDeviceCooperate {
 
   /**
-   * Enumerates screen hopping events.
+   * 键鼠穿越事件。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用[CooperateMessage]{@link @ohos.cooperate:cooperate.CooperateMessage}替
+   * > 代。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use.
@@ -43,7 +53,7 @@ declare namespace inputDeviceCooperate {
   enum EventMsg {
 
     /**
-     * Screen hopping starts.
+     * 键鼠穿越消息，表示键鼠穿越开始。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
@@ -54,7 +64,7 @@ declare namespace inputDeviceCooperate {
     MSG_COOPERATE_INFO_START = 200,
 
     /**
-     * Screen hopping succeeds.
+     * 键鼠穿越消息，表示键鼠穿越成功。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
@@ -65,7 +75,7 @@ declare namespace inputDeviceCooperate {
     MSG_COOPERATE_INFO_SUCCESS = 201,
 
     /**
-     * Screen hopping fails.
+     * 键鼠穿越消息，表示键鼠穿越失败。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
@@ -76,7 +86,7 @@ declare namespace inputDeviceCooperate {
     MSG_COOPERATE_INFO_FAIL = 202,
 
     /**
-     * Screen hopping is enabled.
+     * 键鼠穿越状态，表示键鼠穿越状态开启。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
@@ -87,7 +97,7 @@ declare namespace inputDeviceCooperate {
     MSG_COOPERATE_STATE_ON = 500,
 
     /**
-     * Screen hopping is disabled.
+     * 键鼠穿越状态，表示键鼠穿越状态关闭。
      *
      * @syscap SystemCapability.MultimodalInput.Input.Cooperator
      * @systemapi hide for inner use
@@ -99,11 +109,17 @@ declare namespace inputDeviceCooperate {
   }
 
   /**
-   * Enables or disables screen hopping. This API uses an asynchronous callback to return the result.
+   * 开启、关闭键鼠穿越，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.prepareCooperate]{@link @ohos.cooperate:cooperate.prepareCooperate(callback: AsyncCallback<void>)}、
+   * > [cooperate.unprepareCooperate]{@link @ohos.cooperate:cooperate.unprepareCooperate(callback: AsyncCallback<void>)}
+   * > 替代。
    *
-   * @param { boolean } enable - Whether to enable screen hopping.
-   * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
-   *     Otherwise, **error** is an error object.
+   * @param { boolean } enable - 键鼠穿越使能状态。
+   * @param { AsyncCallback<void> } callback - 回调函数。当开启键鼠穿越成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -116,10 +132,16 @@ declare namespace inputDeviceCooperate {
   function enable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Specifies whether to enable screen hopping. This API uses a promise to return the result.
+   * 开启、关闭键鼠穿越，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.prepareCooperate]{@link @ohos.cooperate:cooperate.prepareCooperate()}、
+   * > [cooperate.unprepareCooperate]{@link @ohos.cooperate:cooperate.unprepareCooperate()}替代。
    *
-   * @param { boolean } enable - Whether to enable screen hopping.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { boolean } enable - 键鼠穿越使能状态。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -132,12 +154,17 @@ declare namespace inputDeviceCooperate {
   function enable(enable: boolean): Promise<void>;
 
   /**
-   * Starts screen hopping. This API uses an asynchronous callback to return the result.
+   * 启动键鼠穿越，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.activateCooperate]{@link @ohos.cooperate:cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int, callback: AsyncCallback<void>)}
+   * > 替代。
    *
-   * @param { string } sinkDeviceDescriptor - Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId - ID of the target device for screen hopping.
-   * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
-   *     Otherwise, **error** is an error object.
+   * @param { string } sinkDeviceDescriptor - 键鼠穿越目标设备描述符。
+   * @param { number } srcInputDeviceId - 键鼠穿越待穿越外设标识符。
+   * @param { AsyncCallback<void> } callback - 回调函数。当启动键鼠穿越成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
@@ -152,11 +179,17 @@ declare namespace inputDeviceCooperate {
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts screen hopping. This API uses a promise to return the result.
+   * 启动键鼠穿越，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.activateCooperate]{@link @ohos.cooperate:cooperate.activateCooperate(targetNetworkId: string, inputDeviceId: int)}
+   * > 替代。
    *
-   * @param { string } sinkDeviceDescriptor - Descriptor of the target device for screen hopping.
-   * @param { number } srcInputDeviceId - ID of the target device for screen hopping.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } sinkDeviceDescriptor - 键鼠穿越目标设备描述符。
+   * @param { number } srcInputDeviceId - 键鼠穿越待穿越外设标识符。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 4400001 - Incorrect descriptor for the target device.
@@ -171,10 +204,15 @@ declare namespace inputDeviceCooperate {
   function start(sinkDeviceDescriptor: string, srcInputDeviceId: number): Promise<void>;
 
   /**
-   * Stops screen hopping. This API uses an asynchronous callback to return the result.
+   * 停止键鼠穿越，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.deactivateCooperate]{@link @ohos.cooperate:cooperate.deactivateCooperate(isUnchained: boolean, callback: AsyncCallback<void>)}
+   * > 替代。
    *
-   * @param { AsyncCallback<void> } callback - Callback. If the operation is successful, **err** is **undefined**.
-   *     Otherwise, **error** is an error object.
+   * @param { AsyncCallback<void> } callback - 回调函数。当停止键鼠穿越成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -187,9 +225,14 @@ declare namespace inputDeviceCooperate {
   function stop(callback: AsyncCallback<void>): void;
 
   /**
-   * Stops screen hopping. This API uses a promise to return the result.
+   * 停止键鼠穿越，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.deactivateCooperate]{@link @ohos.cooperate:cooperate.deactivateCooperate(isUnchained: boolean)}替代。
    *
-   * @returns { Promise<void> } Promise that returns no value.
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
    * @syscap SystemCapability.MultimodalInput.Input.Cooperator
    * @systemapi hide for inner use
@@ -200,12 +243,17 @@ declare namespace inputDeviceCooperate {
   function stop(): Promise<void>;
 
   /**
-   * Obtains the state of the screen hopping switch. This API uses an asynchronous callback to return the result.
+   * 获取键鼠穿越开关的状态，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.getCooperateSwitchState]{@link @ohos.cooperate:cooperate.getCooperateSwitchState(networkId: string, callback: AsyncCallback<boolean>)}
+   * > 替代。
    *
-   * @param {string} deviceDescriptor - Descriptor of the target device for screen hopping.
-   * @param {AsyncCallback<{ state: boolean }>} callback - Callback used to return the result. If the operation is
-   *     successful, **err** is **undefined**, **data** is the state of the screen hopping switch (**true** if enabled
-   *     and **false** if disabled). Otherwise, **error** is an error object.
+   * @param {string} deviceDescriptor - 键鼠穿越目标设备描述符。
+   * @param {AsyncCallback<{ state: boolean }>} callback - 回调函数。当获取键鼠穿越开关状态成功，err为undefined，data为键鼠穿越开关状态（true表示打开，false
+   *     表示关闭）；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -218,9 +266,15 @@ declare namespace inputDeviceCooperate {
   function getState(deviceDescriptor: string, callback: AsyncCallback<{ state: boolean }>): void;
 
   /**
-   * Checks whether screen hopping is enabled. This API uses a promise to return the result.
+   * 获取键鼠穿越开关的状态，使用Promise异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.getCooperateSwitchState]{@link @ohos.cooperate:cooperate.getCooperateSwitchState(networkId: string)}替
+   * > 代。
    *
-   * @param { string } deviceDescriptor - Descriptor of the target device for screen hopping.
+   * @param { string } deviceDescriptor - 键鼠穿越目标设备描述符。
    * @returns { Promise<{ state: boolean }> } Promise used to return the state of the screen hopping switch. **true** if
    *     enabled and **false** if disabled. [since 12]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -235,12 +289,17 @@ declare namespace inputDeviceCooperate {
   function getState(deviceDescriptor: string): Promise<{ state: boolean }>;
 
   /**
-   * Registers a listener for screen hopping state changes. This API uses an asynchronous callback to return the result.
+   * 注册监听键鼠穿越状态，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.on]{@link @ohos.cooperate:cooperate.on(type: 'cooperateMessage', callback: Callback<CooperateMessage>)}
+   * > 替代。
    *
-   * @param { 'cooperation' } type - Event type. The value is **cooperation**.
-   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback - Callback used to return the
-   *     result. If the operation is successful, **err** is **undefined**, **data** is the screen hopping event
-   *     information. Otherwise, **err** is undefined.
+   * @param { 'cooperation' } type - 注册类型，取值”cooperation“。
+   * @param { AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }> } callback - 回调函数。当接收键鼠穿越事件成功，err为
+   *     undefined，data为键鼠穿越事件信息；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -253,13 +312,16 @@ declare namespace inputDeviceCooperate {
   function on(type: 'cooperation', callback: AsyncCallback<{ deviceDescriptor: string, eventMsg: EventMsg }>): void;
 
   /**
-   * Deregisters the listener for screen hopping status changes. This API uses an asynchronous callback to return the
-   * result.
+   * 关闭监听键鼠穿越状态，使用callback异步回调。
+   * 
+   * > **说明：**
+   * >
+   * > 从 API version 9开始支持，从API version 23开始废弃。建议使用
+   * > [cooperate.off]{@link @ohos.cooperate:cooperate.off(type: 'cooperateMessage', callback?: Callback<CooperateMessage>)}
+   * > 替代。
    *
-   * @param { 'cooperation' } type - Event type. The value is **cooperation**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is undefined. If this parameter is not specified, all callbacks
-   *     registered by the current application are unregistered.
+   * @param { 'cooperation' } type - 注册类型，取值“cooperation”。
+   * @param { AsyncCallback<void> } callback - 回调函数。当取消注册成功，err为undefined，否则为错误对象。若无此参数，则取消当前应用注册的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]

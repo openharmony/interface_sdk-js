@@ -23,13 +23,11 @@ import { Callback } from './@ohos.base';
 import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 
 /**
- * The **inputConsumer** module implements listening for combination key events as well as listening and interception
- * for volume key events.
- *
- * > **NOTE**
+ * 全局快捷键订阅模块，用于处理组合按键的订阅，本模块也支持音量键拦截监听能力。
+ * 
+ * > **说明：**
  * >
- * > - Global shortcut keys are combination keys defined by the system or application. System shortcut keys are defined
- * > by the system, and application shortcut keys are defined by applications.
+ * > - 全局快捷键指由系统或应用定义的组合按键，系统快捷键指由系统定义的全局快捷键，应用快捷键指由应用定义的全局快捷键。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
  * @since 14 dynamic
@@ -38,7 +36,8 @@ import { KeyEvent } from './@ohos.multimodalInput.keyEvent';
 declare namespace inputConsumer {
 
   /**
-   * KeyCommandTriggerType
+   * 按键命令触发类型枚举，用于指定组合按键的触发时机。
+   * 
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
@@ -48,7 +47,7 @@ declare namespace inputConsumer {
   export enum KeyCommandTriggerType {
 
     /**
-     * Triggered when pressed.
+     * 首次按下触发。当最终按键首次按下时触发回调，自动重复按下不触发。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -58,7 +57,7 @@ declare namespace inputConsumer {
     PRESSED = 1,
 
     /**
-     * Triggered when pressed repeatedly.
+     * 重复按下触发。当最终按键每次按下时都触发回调，包括自动重复按下。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -68,7 +67,7 @@ declare namespace inputConsumer {
     REPEAT_PRESSED = 2,
 
     /**
-     * Continuous triggering, from pressing until all keys are released.
+     * 按下按键或抬起按键时均会触发回调。包括自动重复按下的按键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -79,7 +78,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Represents combination key options.
+   * 组合键选项。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -89,10 +88,9 @@ declare namespace inputConsumer {
   interface KeyOptions {
 
     /**
-     * Preceding key set. The number of preceding keys ranges from 0 to 4. There is no requirement on the sequence of
-     * the keys.
-     *
-     * For example, in the combination keys **Ctrl+Alt+A**, **Ctrl+Alt** are called preceding keys.
+     * 前置按键集合，数量范围[0, 4]，前置按键无顺序要求。
+     * 
+     * 如组合按键Ctrl+Alt+A中，Ctrl+Alt称为前置按键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -102,9 +100,9 @@ declare namespace inputConsumer {
     preKeys: Array<int>;
 
     /**
-     * Final key. This parameter is mandatory. A callback is triggered by the final key.
-     *
-     * For example, in the combination keys **Ctrl+Alt+A**, **A** is called the final key.
+     * 最终按键，此项必填，最终按键触发上报回调函数。
+     * 
+     * 如组合按键Ctrl+Alt+A中，A称为最终按键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -114,9 +112,9 @@ declare namespace inputConsumer {
     finalKey: int;
 
     /**
-     * Whether the final key is pressed.
-     *
-     * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+     * 最终按键状态。
+     * 
+     * true表示按键按下，false表示按键抬起。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -126,13 +124,12 @@ declare namespace inputConsumer {
     isFinalKeyDown: boolean;
 
     /**
-     * Duration for holding down the key, in μs.
-     *
-     * If the value of this field is **0**, a callback is triggered immediately.
-     *
-     * If the value of this field is greater than **0** and **isFinalKeyDown** is **true**, a callback is triggered when
-     * the key keeps being pressed after the specified duration expires. If **isFinalKeyDown** is **false**, a callback
-     * is triggered when the key is released before the specified duration expires.
+     * 最终按键保持按下持续时间，单位为微秒（μs）。
+     * 
+     * 当finalKeyDownDuration为0时，立即触发回调函数。
+     * 
+     * 当finalKeyDownDuration大于0时，isFinalKeyDown为true，则最终按键按下超过设置时长后触发回调函数；isFinalKeyDown为false，则最终按键按下到抬起时间小于设置时长时触发回调函
+     * 数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -142,8 +139,7 @@ declare namespace inputConsumer {
     finalKeyDownDuration: int;
 
     /**
-     * Whether to report repeated key events. The value **true** means to report repeated key events, and the value
-     * **false** means the opposite. The default value is **true**.
+     * 是否上报重复的按键事件。true表示上报，false表示不上报，若不填默认为true。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -153,9 +149,10 @@ declare namespace inputConsumer {
     isRepeat?: boolean;
 
     /**
-     * Trigger type, which indicates that the conditions for triggering the callback expected by the
-     * shortcut key are met. Once this value is set, isFinalKeyDown and isRepeat will be ignored. This property
-     * is only for use in APIs that take KeyCommandCallback as the callback function and must be specified.
+     * 触发模式。取值为PRESSED(1)、REPEAT_PRESSED(2)或ALL_RELEASED(3)。启用命令触发模式。一旦设置此值，isFinalKeyDown和isRepeat将被忽略。对于
+     * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}
+     * 接口该参数是可选参数，对于
+     * [inputConsumer.onKey]{@link inputConsumer.onKey(keyOptions: KeyOptions, callback:KeyCommandCallback)}接口该参数是必填参数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi Hide this for inner system use.
@@ -166,7 +163,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Defines shortcut key options.
+   * 快捷键选项。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -175,10 +172,9 @@ declare namespace inputConsumer {
   interface HotkeyOptions {
 
     /**
-     * Modifier key set (including Ctrl, Shift, and Alt). One to four modifier keys are supported. There is no
-     * requirement on the sequence of modifier keys.
-     *
-     * For example, in **Ctrl+Shift+Esc**, **Ctrl** and **Shift** are modifier keys.
+     * 修饰键（包括 Ctrl、Shift 和 Alt）集合，数量范围[1, 4]，无顺序要求。
+     * 
+     * 例如，Ctrl+Shift+Esc中，Ctrl+Shift称为修饰键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -187,10 +183,9 @@ declare namespace inputConsumer {
     preKeys: Array<int>;
 
     /**
-     * Modified key, which can be any key except the modifier keys and Meta key. For details about the keys, see
-     * [@ohos.multimodalInput.keyCode (Keycode)]{@link @ohos.multimodalInput.keyCode:KeyCode}.
-     *
-     * For example, in **Ctrl+Shift+Esc**, **Esc** is the modifier key.
+     * 被修饰键，除修饰键和Meta键以外的按键，详细按键介绍请参见[@ohos.multimodalInput.keyCode (键值)]{@link @ohos.multimodalInput.keyCode:KeyCode}。
+     * 
+     * 例如，Ctrl+Shift+Esc中，Esc称为被修饰键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -199,8 +194,7 @@ declare namespace inputConsumer {
     finalKey: int;
 
     /**
-     * Whether to report repeated key events. The value **true** means to report repeated key events, and the value
-     * **false** means the opposite. The default value is **true**.
+     * 是否上报重复的按键事件。true表示上报，false表示不上报，默认值为true。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 14 dynamic
@@ -210,7 +204,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Sets the key event consumption configuration.
+   * 按键事件消费设置。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 16 dynamic
@@ -219,21 +213,18 @@ declare namespace inputConsumer {
   interface KeyPressedConfig {
 
     /**
-     * Key value.
-     *
-     * **Note:** Since API version 26.0.0, the
-     * [KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode} and
-     * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported. The keys are
-     * not universal device keys. Before using them, check whether the current device supports the reporting of related
-     * key events. For details, see
-     * [Preferential Response of System Function Keys](docroot://device/input/keypressed-guidelines.md).
-     *
-     * Since API version 21, the [KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode},
-     * [KEYCODE_MEDIA_NEXT]{@link @ohos.multimodalInput.keyCode:KeyCode}, and
-     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported.
-     *
-     * In API version 20 or earlier versions, only the [KEYCODE_VOLUME_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}
-     * and [KEYCODE_VOLUME_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode} keys are supported.
+     * 按键键值。
+     * 
+     * **说明：** 从API version 26.0.0开始，新增支持[KEYCODE_FINGERPRINT_SLIDE_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
+     * [KEYCODE_FINGERPRINT_SLIDE_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode}键，非设备通用键值，使用前请判断当前设备是否支持相关按键事件上报，请参考
+     * [优先响应系统功能键开发指导](docroot://device/input/keypressed-guidelines.md)。
+     * 
+     * 从API version 21开始，新增支持[KEYCODE_MEDIA_PLAY_PAUSE]{@link @ohos.multimodalInput.keyCode:KeyCode}键、
+     * [KEYCODE_MEDIA_NEXT]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
+     * [KEYCODE_MEDIA_PREVIOUS]{@link @ohos.multimodalInput.keyCode:KeyCode}键。
+     * 
+     * 对于API version 20及之前的版本，仅支持[KEYCODE_VOLUME_UP]{@link @ohos.multimodalInput.keyCode:KeyCode}键和
+     * [KEYCODE_VOLUME_DOWN]{@link @ohos.multimodalInput.keyCode:KeyCode}键。
      *
      * @type { int } [since 16 - 24]
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
@@ -243,14 +234,11 @@ declare namespace inputConsumer {
     key: int;
 
     /**
-     * Subscription type.
-     *
-     * **Note**: Since API version 21, the value of this parameter can be **1** or **2**. The value **1** indicates
-     * subscription to only key press events, and the value **2** indicates subscription to both key press and release
-     * events.
-     *
-     * In API version 20 or earlier versions, the value of this parameter can only be set to **1**, indicating
-     * subscription to only key press events.
+     * 订阅指定的按键事件。
+     * 
+     * **说明：** 从API version 21开始，支持取值为1和2，取值为1表示订阅按键按下事件，取值为2表示同时订阅按键按下事件和按键抬起事件。
+     * 
+     * 对于API version 20及之前的版本，仅支持取值为1，表示订阅按键按下事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16 dynamic
@@ -259,8 +247,7 @@ declare namespace inputConsumer {
     action: int;
 
     /**
-     * Whether to report repeated key events. The value **true** means to report repeated key events, and the value
-     * **false** means the opposite. The default value is **true**.
+     * 是否上报重复的按键事件。true表示上报，false表示不上报，默认值为true。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @since 16 dynamic
@@ -270,7 +257,7 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Enumerates shortcut key shield modes.
+   * 系统快捷键屏蔽类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi hide for inner use
@@ -280,7 +267,7 @@ declare namespace inputConsumer {
   enum ShieldMode {
 
     /**
-     * Factory mode, which means to shield all shortcut keys.
+     * 屏蔽所有系统快捷键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
      * @systemapi hide for inner use
@@ -291,10 +278,10 @@ declare namespace inputConsumer {
   }
 
   /**
-   * Callback function when the shortcut key registered by the system application meets the conditions.
+   * 按键命令回调函数类型，当快捷键注册条件满足时触发的回调。
    *
-   * @param { KeyOptions } keyOptions - Options for registering shortcut keys when the system applies.
-   * @param { KeyEvent } keyEvent - Key event when a shortcut key is triggered.
+   * @param { KeyOptions } keyOptions - 触发回调时的组合键选项。
+   * @param { KeyEvent } keyEvent - 按键事件对象，包含按键详细信息。
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
    * @stagemodelonly
@@ -303,20 +290,18 @@ declare namespace inputConsumer {
   type KeyCommandCallback = (keyOptions: KeyOptions, keyEvent: KeyEvent) => void;
 
   /**
-   * Enables listening for system hotkey change events. This API uses an asynchronous callback to return the system
-   * hotkey data when a system hotkey event that meets the specified condition occurs.
-   *
-   * > **NOTE**
+   * 订阅系统快捷键，使用callback异步回调。
+   * 
+   * > **说明：**
    * >
-   * > - You can subscribe to only the Down event of a key, or subscribe to both the Down and Up events of a key.
+   * > - 支持仅订阅按键的down事件，或者同时订阅按键的down事件和up事件。
    * >
-   * > - If you subscribe to only the Up event of a key, the Down event may be consumed by the focus window, and the Up
-   * > event may not be closed. In this case, check whether the design and implementation are proper.
+   * > - 若需要仅订阅按键的up事件，会存在down事件被焦点窗口消费，而无up事件闭环的风险，需要排查设计实现是否合理。
    *
-   * @param { 'key' } type - Event type. Currently, only **key** is supported.
-   * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback used to return the combination key data when a combination key
-   *     event that meets the specified condition occurs.
+   * @param { 'key' } type - 事件类型，目前仅支持'key'。
+   * @param { KeyOptions } keyOptions - 组合键选项。从API版本26.0.0起keyOptions中新增参数
+   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
+   * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -327,10 +312,10 @@ declare namespace inputConsumer {
   function on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
-   * Subscribe system keys.
+   * 订阅系统快捷键，当满足条件的组合按键输入事件发生时，使用Callback异步方式上报组合按键数据。
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { Callback<KeyOptions> } callback - callback function, receive reported data.
+   * @param { KeyOptions } keyOptions - 组合键选项，支持triggerType参数。
+   * @param { Callback<KeyOptions> } callback - 回调函数，返回组合按键数据
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -341,10 +326,18 @@ declare namespace inputConsumer {
   function onKey(keyOptions: KeyOptions, callback: Callback<KeyOptions>): void;
 
   /**
-   * Subscribe system keys.
+   * 订阅组合按键（按键命令模式），支持通过triggerType指定不同的触发模式。当满足条件的组合按键输入事件发生时，使用callback异步回调。
+   * 
+   * 与 
+   * [inputConsumer.on('key')]{@link inputConsumer.on(type: 'key', keyOptions: KeyOptions, callback: Callback<KeyOptions>)}
+   * 现有接口的区别：
+   * 
+   * - 本接口的keyOptions支持triggerType参数，可选择按键按下触发、重复按下触发、重复按下或抬起均会触发等模式。
+   * - 本接口回调参数为KeyCommandCallback类型，同时接收KeyOptions和KeyEvent对象。
+   * - 本接口采用事件消费机制，可通过事件消费阻止按键事件向后传递。
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { KeyCommandCallback } callback - callback function, receive reported data.
+   * @param { KeyOptions } keyOptions - 组合键选项，支持triggerType参数。
+   * @param { KeyCommandCallback } callback - 回调函数，返回组合键选项和按键事件数据。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
@@ -354,12 +347,12 @@ declare namespace inputConsumer {
   function onKey(keyOptions: KeyOptions, callback:KeyCommandCallback): void;
 
   /**
-   * Disables listening for system hotkey change events. This API uses an asynchronous callback to return the result.
+   * 取消订阅系统快捷键。使用callback异步回调。
    *
-   * @param { 'key' } type - Event type. Currently, only **key** is supported.
-   * @param { KeyOptions } keyOptions - Combination key options.
-   * @param { Callback<KeyOptions> } callback - Callback to unregister. If this parameter is not specified, listening
-   *     will be disabled for all callbacks registered by the current application.
+   * @param { 'key' } type - 事件类型，当前仅支持 'key'。
+   * @param { KeyOptions } keyOptions - 组合键选项。从API版本26.0.0起keyOptions中新增参数
+   *     [KeyCommandTriggerType]{@link inputConsumer.KeyCommandTriggerType}，本接口无需关注此参数。
+   * @param { Callback<KeyOptions> } callback - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api. [since 12]
@@ -370,10 +363,10 @@ declare namespace inputConsumer {
   function off(type: 'key', keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
   /**
-   * Subscribe system keys.
+   * 取消订阅系统快捷键。使用callback异步回调。
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { Callback<KeyOptions> } [callback] - callback function, receive reported data.
+   * @param { KeyOptions } keyOptions - 组合键选项。
+   * @param { Callback<KeyOptions> } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
@@ -384,10 +377,10 @@ declare namespace inputConsumer {
   function offKey(keyOptions: KeyOptions, callback?: Callback<KeyOptions>): void;
 
   /**
-   * Unsubscribe system keys.
+   * 取消订阅系统快捷键。使用callback异步回调。
    *
-   * @param { KeyOptions } keyOptions - the key events about input which is to be subscribed.
-   * @param { KeyCommandCallback } [callback] - Callback function that receives reported data.
+   * @param { KeyOptions } keyOptions - 组合键选项，需与订阅时传入的keyOptions一致。
+   * @param { KeyCommandCallback } [callback] - 需要取消订阅的回调函数。若不填，则取消当前应用组合键选项已订阅的所有回调函数。
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @systemapi Hide this for inner system use.
@@ -397,13 +390,11 @@ declare namespace inputConsumer {
   function offKey(keyOptions: KeyOptions, callback?: KeyCommandCallback): void;
 
   /**
-   * Sets the system hotkey shield status.
+   * 设置系统快捷键屏蔽类型。
    *
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
-   * @param { ShieldMode } shieldMode - System hotkey shield mode. Currently, only **FACTORY_MODE** is supported, which
-   *     means to shield all system hotkeys.
-   * @param { boolean } isShield - Whether to enable shortcut key shielding. The value **true** means to enable shortcut
-   *     key shielding, and the value **false** indicates the opposite.
+   * @param { ShieldMode } shieldMode - 系统快捷键屏蔽类型，目前仅支持取值为'FACTORY_MODE'，表示屏蔽所有系统快捷键。
+   * @param { boolean } isShield - 屏蔽类型生效状态，true代表屏蔽类型生效，false代表不生效。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -416,13 +407,11 @@ declare namespace inputConsumer {
   function setShieldStatus(shieldMode: ShieldMode, isShield: boolean): void;
 
   /**
-   * Obtains the system hotkey shield status.
+   * 获取系统快捷键屏蔽类型。
    *
    * @permission ohos.permission.INPUT_CONTROL_DISPATCHING
-   * @param { ShieldMode } shieldMode - System hotkey shield mode. Currently, only **FACTORY_MODE** is supported, which
-   *     means to shield all system hotkeys.
-   * @returns { boolean } Whether to enable shortcut key shielding. The value **true** means to enable shortcut key
-   *     shielding, and the value **false** indicates the opposite.
+   * @param { ShieldMode } shieldMode - 系统快捷键屏蔽类型，目前仅支持取值为'FACTORY_MODE'，表示屏蔽所有系统快捷键。
+   * @returns { boolean } 屏蔽类型生效状态，true代表屏蔽类型生效，false代表不生效。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -435,9 +424,9 @@ declare namespace inputConsumer {
   function getShieldStatus(shieldMode: ShieldMode): boolean;
 
   /**
-   * Obtains all system shortcut keys. This API uses a promise to return the result.
+   * 获取所有系统快捷键，使用Promise异步回调。
    *
-   * @returns { Promise<Array<HotkeyOptions>> } Promise used to return the list of all system shortcut keys.
+   * @returns { Promise<Array<HotkeyOptions>> } Promise对象，返回所有系统快捷键的列表。
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.MultimodalInput.Input.InputConsumer
    * @since 14 dynamic
@@ -446,13 +435,11 @@ declare namespace inputConsumer {
   function getAllSystemHotkeys(): Promise<Array<HotkeyOptions>>;
 
   /**
-   * Subscribes to application shortcut key change events. This API obtains combination key input events that meet the
-   * specified conditions, and uses an asynchronous callback to return the result.
+   * 订阅应用快捷键。获取满足条件的组合按键输入事件，使用callback异步回调。
    *
-   * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of **hotkeyChange**.
-   * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return the combination key input events that meet
-   *     the conditions.
+   * @param { 'hotkeyChange' } type - 事件类型，固定取值为'hotkeyChange'。
+   * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
+   * @param { Callback<HotkeyOptions> } callback - 回调函数，返回满足条件的组合按键输入事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -464,10 +451,10 @@ declare namespace inputConsumer {
   function on(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
-   * Listening for hotkey event.
+   * 订阅应用快捷键。获取满足条件的组合按键输入事件，使用Callback异步回调。
    *
-   * @param { HotkeyOptions } hotkeyOptions - Hotkey options.
-   * @param { Callback<HotkeyOptions> } callback - Callback used to return hotkey event.
+   * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
+   * @param { Callback<HotkeyOptions> } callback - 回调函数，获取满足条件的组合按键输入事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -479,13 +466,11 @@ declare namespace inputConsumer {
   function onHotkeyChange(hotkeyOptions: HotkeyOptions, callback: Callback<HotkeyOptions>): void;
 
   /**
-   * Unsubscribes from application shortcut key change events. This API uses an asynchronous callback to return the
-   * result.
+   * 取消订阅应用快捷键。使用callback异步回调。
    *
-   * @param { 'hotkeyChange' } type - Event type. This parameter has a fixed value of **hotkeyChange**.
-   * @param { HotkeyOptions } hotkeyOptions - Shortcut key options.
-   * @param { Callback<HotkeyOptions> } callback - Callback to unregister. If this parameter is left unspecified,
-   *     listening will be disabled for all callbacks registered for the specified shortcut key options.
+   * @param { 'hotkeyChange' } type - 事件类型，固定取值为'hotkeyChange'。
+   * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
+   * @param { Callback<HotkeyOptions> } callback - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -495,10 +480,10 @@ declare namespace inputConsumer {
   function off(type: 'hotkeyChange', hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
-   * Unsubscribe from hotkey event.
+   * 取消订阅应用快捷键。使用callback异步回调。
    *
-   * @param { HotkeyOptions } hotkeyOptions - Hotkey options.
-   * @param { Callback<HotkeyOptions> } [callback] - Callback used to return hotkey event.
+   * @param { HotkeyOptions } hotkeyOptions - 快捷键选项。
+   * @param { Callback<HotkeyOptions> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前应用快捷键选项已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -508,18 +493,14 @@ declare namespace inputConsumer {
   function offHotkeyChange(hotkeyOptions: HotkeyOptions, callback?: Callback<HotkeyOptions>): void;
 
   /**
-   * Subscribes to key press events. If the current application is in the foreground focus window, a callback is
-   * triggered when the specified key is pressed. This API uses an asynchronous callback to return the result.
+   * 订阅按键按下事件。若当前应用窗口为前台焦点窗口，用户按下指定按键，会触发回调。使用callback异步回调。
+   * 
+   * 订阅成功后，该按键事件的系统默认行为将被屏蔽，即不会再触发系统级的响应，如音量调节。要恢复系统响应，请使用
+   * [off]{@link inputConsumer.off(type: 'keyPressed', callback?: Callback<KeyEvent>)}方法取消订阅。
    *
-   * If the API call is successful, the system's default response to the key event will be intercepted; that is, system-
-   * level actions, such as volume adjustment, will no longer be triggered. To restore the system response, call
-   * [off]{@link inputConsumer.off(type: 'keyPressed', callback?: Callback<KeyEvent>)} to disable listening for the key
-   * event.
-   *
-   * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of **keyPressed**.
-   * @param { KeyPressedConfig } options - Sets the key event consumption configuration.
-   * @param { Callback<KeyEvent> } callback - Callback used to return key press events. Ensure that different callbacks
-   *     are used for different key events. Otherwise, the subscription does not take effect.
+   * @param { 'keyPressed' } type - 事件类型，固定取值为'keyPressed'。
+   * @param { KeyPressedConfig } options - 按键事件消费设置。
+   * @param { Callback<KeyEvent> } callback - 回调函数，返回按键事件。订阅不同的按键事件需要使用不同的callback，否则订阅不生效。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -529,9 +510,8 @@ declare namespace inputConsumer {
   function on(type: 'keyPressed', options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
   /**
-   * Subscribes to key press events. This API uses an asynchronous callback to return the result.
-   * If the current application is in the foreground focus window, a callback is triggered when the specified key is
-   * pressed.
+   * 订阅按键按下事件，使用callback异步回调。若当前应用窗口为前台焦点窗口，用户按下指定按键，会触发回调。
+   * 订阅成功后，该按键事件的系统默认行为将被屏蔽，即不会再触发系统级的响应，如音量调节。要恢复系统响应，请使用off方法取消订阅。
    *
    * @param { KeyPressedConfig } options - Key consumption settings.
    * @param { Callback<KeyEvent> } callback - Callback used to return key events.
@@ -544,13 +524,10 @@ declare namespace inputConsumer {
   function onKeyPressed(options: KeyPressedConfig, callback: Callback<KeyEvent>): void;
 
   /**
-   * Unsubscribes from key press events. This API uses an asynchronous callback to return the result. If the API call is
-   * successful, the system's default response to the key event will be resumed; that is, system-level actions, such as
-   * volume adjustment, will be triggered normally.
+   * 取消对'keyPressed'事件的订阅，使用callback异步回调。调用该方法后，被屏蔽的系统按键默认行为将恢复，即系统对音量调节等默认响应将恢复。
    *
-   * @param { 'keyPressed' } type - Event type. This parameter has a fixed value of **keyPressed**.
-   * @param { Callback<KeyEvent> } callback - Callback to unregister. If this parameter is not specified, listening will
-   *     be disabled for all registered callbacks.
+   * @param { 'keyPressed' } type - 事件类型，固定取值为'keyPressed'。
+   * @param { Callback<KeyEvent> } callback - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -560,9 +537,9 @@ declare namespace inputConsumer {
   function off(type: 'keyPressed', callback?: Callback<KeyEvent>): void;
 
   /**
-   * Cancels consumption of key events.
+   * 取消对'keyPressed'事件的订阅，使用callback异步回调。调用该方法后，被屏蔽的系统按键默认行为将恢复，即系统对音量调节等默认响应将恢复。
    *
-   * @param { Callback<KeyEvent> } [callback] - Callback used to return hotkey events.
+   * @param { Callback<KeyEvent> } [callback] - 需要取消订阅的回调函数。若缺省，则取消当前已订阅的所有回调函数。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Incorrect parameter types;
    *     2. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.

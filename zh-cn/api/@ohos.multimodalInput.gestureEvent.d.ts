@@ -23,7 +23,7 @@
 import { Touch } from './@ohos.multimodalInput.touchEvent';
 
 /**
- * Defines a pinch event.
+ * 捏合手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
@@ -32,7 +32,7 @@ import { Touch } from './@ohos.multimodalInput.touchEvent';
 export declare interface Pinch {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -41,7 +41,7 @@ export declare interface Pinch {
   type: ActionType;
 
   /**
-   * Pinch scale factor. The value is greater than or equal to 0.
+   * 捏合度，取值范围大于等于0。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -51,7 +51,7 @@ export declare interface Pinch {
 }
 
 /**
- * Defines a rotation gesture event.
+ * 旋转手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
@@ -60,7 +60,7 @@ export declare interface Pinch {
 export declare interface Rotate {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -69,7 +69,7 @@ export declare interface Rotate {
   type: ActionType;
 
   /**
-   * Rotation angle, in degrees.
+   * 旋转角度，单位为度。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -79,7 +79,7 @@ export declare interface Rotate {
 }
 
 /**
- * Defines a three-finger swipe gesture event.
+ * 三指滑动手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
@@ -88,7 +88,7 @@ export declare interface Rotate {
 export declare interface ThreeFingersSwipe {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -97,7 +97,7 @@ export declare interface ThreeFingersSwipe {
   type: ActionType;
 
   /**
-   * X coordinate, in px.
+   * 坐标x，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -106,7 +106,7 @@ export declare interface ThreeFingersSwipe {
   x: int;
 
   /**
-   * Y coordinate, in px.
+   * 坐标y，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -116,7 +116,7 @@ export declare interface ThreeFingersSwipe {
 }
 
 /**
- * Defines a four-finger swipe gesture event.
+ * 四指滑动手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
@@ -125,7 +125,7 @@ export declare interface ThreeFingersSwipe {
 export declare interface FourFingersSwipe {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -134,7 +134,7 @@ export declare interface FourFingersSwipe {
   type: ActionType;
 
   /**
-   * X coordinate, in px.
+   * 坐标x，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -143,7 +143,7 @@ export declare interface FourFingersSwipe {
   x: int;
 
   /**
-   * Y coordinate, in px.
+   * 坐标y，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -153,7 +153,7 @@ export declare interface FourFingersSwipe {
 }
 
 /**
- * Defines an inward swipe event.
+ * 向内滑动事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
@@ -163,7 +163,7 @@ export declare interface FourFingersSwipe {
 export declare interface SwipeInward {
 
   /**
-   * Type of the inward swipe event. The value is fixed at **SwipeInward**.
+   * 表示向内滑动事件的类型，固定为SwipeInward。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -173,7 +173,7 @@ export declare interface SwipeInward {
   type: ActionType;
 
   /**
-   * X-coordinate of the swipe event trigger point, in pixels.
+   * 滑动事件触发点的横坐标，单位为像素。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -183,7 +183,7 @@ export declare interface SwipeInward {
   x: int;
 
   /**
-   * Y-coordinate of the swipe event trigger point, in pixels.
+   * 滑动事件触发点的纵坐标，单位为像素。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -194,7 +194,7 @@ export declare interface SwipeInward {
 }
 
 /**
- * Defines a three-finger tap gesture event.
+ * 三指轻点手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
@@ -203,7 +203,7 @@ export declare interface SwipeInward {
 export declare interface ThreeFingersTap {
 
   /**
-   * Gesture event type, for example, gesture start, gesture update, or gesture end.
+   * 手势事件类型。如：手势开始、手势更新、手势结束等。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -213,7 +213,7 @@ export declare interface ThreeFingersTap {
 }
 
 /**
- * Defines a touchscreen gesture event.
+ * 触摸屏手势事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
@@ -223,7 +223,7 @@ export declare interface ThreeFingersTap {
 export declare interface TouchGestureEvent {
 
   /**
-   * Enumerates touchscreen gesture types.
+   * 触摸屏手势类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -233,7 +233,7 @@ export declare interface TouchGestureEvent {
   action: TouchGestureAction;
 
   /**
-   * Touch point information.
+   * 触屏点信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -244,7 +244,7 @@ export declare interface TouchGestureEvent {
 }
 
 /**
- * Enumerates touchscreen gesture types.
+ * 触摸屏手势类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi hide for inner use
@@ -254,7 +254,7 @@ export declare interface TouchGestureEvent {
 export declare enum TouchGestureAction {
 
   /**
-   * Multi-finger downward swipe.
+   * 多指向下滑动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi hide for inner use
@@ -325,7 +325,7 @@ export declare enum TouchGestureAction {
 }
 
 /**
- * Enumerates gesture event types.
+ * 手势事件类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 10 dynamic
@@ -334,7 +334,7 @@ export declare enum TouchGestureAction {
 export declare enum ActionType {
 
   /**
-   * Canceled.
+   * 手势取消。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -343,7 +343,7 @@ export declare enum ActionType {
   CANCEL = 0,
 
   /**
-   * Started.
+   * 手势开始。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -352,7 +352,7 @@ export declare enum ActionType {
   BEGIN = 1,
 
   /**
-   * Updated.
+   * 手势更新。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic
@@ -361,7 +361,7 @@ export declare enum ActionType {
   UPDATE = 2,
 
   /**
-   * Ended.
+   * 手势结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 10 dynamic

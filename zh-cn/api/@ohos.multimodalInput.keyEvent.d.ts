@@ -26,7 +26,7 @@ import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
- * Key event type.
+ * 按键事件类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice [since 12]
@@ -36,7 +36,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 export declare enum Action {
 
   /**
-   * Cancellation of a key action.
+   * 按键取消。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -46,7 +46,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Key press.
+   * 按键按下。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -56,7 +56,7 @@ export declare enum Action {
   DOWN = 1,
 
   /**
-   * Key release.
+   * 按键抬起。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -67,7 +67,7 @@ export declare enum Action {
 }
 
 /**
- * Defines a key.
+ * 按键。
  *
  * @interface Key [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -78,7 +78,7 @@ export declare enum Action {
 export declare interface Key {
 
   /**
-   * Key code.
+   * 键值。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -88,7 +88,7 @@ export declare interface Key {
   code: KeyCode;
 
   /**
-   * Time when the key is pressed, in microseconds (μs) since the system starts.
+   * 按键按下时间，表示系统启动运行至今逝去的微秒数，单位为微秒（μs）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -98,7 +98,7 @@ export declare interface Key {
   pressedTime: long;
 
   /**
-   * Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID may change.
+   * 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -109,7 +109,7 @@ export declare interface Key {
 }
 
 /**
- * Key event.
+ * 按键事件。
  *
  * @interface KeyEvent [since 9 - 11]
  * @syscap SystemCapability.MultimodalInput.Input.Core
@@ -120,7 +120,7 @@ export declare interface Key {
 export declare interface KeyEvent extends InputEvent {
 
   /**
-   * Key event type.
+   * 按键事件类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -130,7 +130,7 @@ export declare interface KeyEvent extends InputEvent {
   action: Action;
 
   /**
-   * Defines a key.
+   * 按键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -140,7 +140,7 @@ export declare interface KeyEvent extends InputEvent {
   key: Key;
 
   /**
-   * Unicode character corresponding to the key.
+   * 按键对应的unicode字符。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -150,7 +150,7 @@ export declare interface KeyEvent extends InputEvent {
   unicodeChar: int;
 
   /**
-   * List of pressed keys.
+   * 当前处于按下状态的按键列表。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -160,9 +160,9 @@ export declare interface KeyEvent extends InputEvent {
   keys: Key[];
 
   /**
-   * Whether ctrlKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前ctrlKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -172,9 +172,9 @@ export declare interface KeyEvent extends InputEvent {
   ctrlKey: boolean;
 
   /**
-   * Whether altKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前altKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -184,9 +184,9 @@ export declare interface KeyEvent extends InputEvent {
   altKey: boolean;
 
   /**
-   * Whether shiftKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前shiftKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -196,9 +196,9 @@ export declare interface KeyEvent extends InputEvent {
   shiftKey: boolean;
 
   /**
-   * Whether logoKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前logoKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -208,9 +208,9 @@ export declare interface KeyEvent extends InputEvent {
   logoKey: boolean;
 
   /**
-   * Whether fnKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前fnKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -220,9 +220,9 @@ export declare interface KeyEvent extends InputEvent {
   fnKey: boolean;
 
   /**
-   * Whether capsLock is enabled.
-   *
-   * The value **true** indicates that capsLock is enabled, and the value **false** indicates the opposite.
+   * 当前capsLock是否处于使能状态。 
+   * 
+   * true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -232,9 +232,9 @@ export declare interface KeyEvent extends InputEvent {
   capsLock: boolean;
 
   /**
-   * Whether numLock is enabled.
-   *
-   * The value **true** indicates that numLock is enabled, and the value **false** indicates the opposite.
+   * 当前numLock是否处于使能状态。 
+   * 
+   * true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -244,9 +244,9 @@ export declare interface KeyEvent extends InputEvent {
   numLock: boolean;
 
   /**
-   * Whether scrollLock is enabled.
-   *
-   * The value **true** indicates that scrollLock is enabled, and the value **false** indicates the opposite.
+   * 当前scrollLock是否处于使能状态。 
+   * 
+   * true表示处于使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

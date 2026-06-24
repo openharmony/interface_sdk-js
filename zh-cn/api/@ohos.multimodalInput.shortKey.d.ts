@@ -24,10 +24,11 @@
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * The shortKey module provides APIs to set the delay for starting an ability using a shortcut key.
- * For example, you can set the delay to 3 seconds so that a screenshot is taken when you press and hold the shortcut
- * key for 3 seconds.
- *
+ * 通过本模块接口，可以设置快捷键拉起Ability的延迟时间，如设置长按快捷键3s后再截屏等。
+ * 
+ * > **说明：**
+ * >
+ * > - 本模块接口为系统接口。
  * @syscap SystemCapability.MultimodalInput.Input.ShortKey
  * @systemapi hide for inner use
  * @since 10 dynamic
@@ -36,16 +37,11 @@ import type { AsyncCallback } from './@ohos.base';
 declare namespace shortKey {
 
   /**
-   * Sets the delay for starting an ability using shortcut keys. This API uses an asynchronous callback to return the
-   * result.
+   * 设置快捷键拉起Ability的延迟时间，使用callback异步回调。
    *
-   * @param { string } businessKey - Unique service ID registered on the multimodal side. It corresponds to
-   *     **businessId** in the **ability_launch_config.json** file. You need to query this parameter on your own before
-   *     calling the API.
-   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
-   *     when shortcut keys are pressed.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { string } businessKey - 业务在多模侧注册的唯一标识，与ability_launch_config.json中的businessId对应。调用接口前自行查询。
+   * @param { int } delay - 按下快捷键多长时间后拉起Ability，单位：ms，仅支持快捷键按下触发。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置快捷键拉起Ability的延迟时间成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -57,14 +53,11 @@ declare namespace shortKey {
   function setKeyDownDuration(businessKey: string, delay: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the delay for starting an ability using shortcut keys. This API uses a promise to return the result.
+   * 设置快捷键拉起Ability的延迟时间，使用Promise异步回调。
    *
-   * @param { string } businessKey - Unique service ID registered on the multimodal side. It corresponds to
-   *     **businessId** in the **ability_launch_config.json** file. You need to query this parameter on your own before
-   *     calling the API.
-   * @param { int } delay - Delay for starting an ability using shortcut keys, in milliseconds. This field is valid only
-   *     when shortcut keys are pressed.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { string } businessKey - 业务在多模侧注册的唯一标识，与ability_launch_config.json中的businessId对应。调用接口前自行查询。
+   * @param { int } delay - 按下快捷键多长时间后拉起Ability，单位：ms，仅支持快捷键按下触发。
+   * @returns { Promise<void> } Returns the result through a promise.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -79,7 +72,7 @@ declare namespace shortKey {
 export default shortKey;
 
 /**
- * Enumerates fingerprint gesture event types.
+ * 指纹手势事件类型的枚举。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
@@ -89,7 +82,7 @@ export default shortKey;
 export declare enum FingerprintAction {
 
   /**
-   * Pressing down
+   * 按下事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -99,7 +92,7 @@ export declare enum FingerprintAction {
   DOWN = 0,
 
   /**
-   * Lifting up
+   * 抬起事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -109,7 +102,7 @@ export declare enum FingerprintAction {
   UP = 1,
 
   /**
-   * Sliding
+   * 滑动事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -119,7 +112,7 @@ export declare enum FingerprintAction {
   SLIDE = 2,
 
   /**
-   * Second pressing down
+   * 第二次按下事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -129,7 +122,7 @@ export declare enum FingerprintAction {
   RETOUCH = 3,
 
   /**
-   * Double-click
+   * 双触事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -140,7 +133,7 @@ export declare enum FingerprintAction {
 }
 
 /**
- * Provides fingerprint gesture event types and the offset of the fingerprint sensor relative to the side edge.
+ * 指纹手势事件的类型和相对侧边指纹器件的偏移位置。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
@@ -150,7 +143,7 @@ export declare enum FingerprintAction {
 export declare interface FingerprintEvent {
 
   /**
-   * Enumeration of fingerprint gesture event types.
+   * 指纹手势事件类型的枚举。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -160,8 +153,7 @@ export declare interface FingerprintEvent {
   action: FingerprintAction;
 
   /**
-   * Offset relative to the short axis of the side fingerprint device (positive values indicate movement to the right,
-   * and negative values indicate movement to the left).
+   * 相对于侧边指纹器件短轴偏移量（正数表示向右移动，负数表示向左移动）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -171,8 +163,7 @@ export declare interface FingerprintEvent {
   distanceX: double;
 
   /**
-   * Offset relative to the long axis of the side fingerprint device (positive values indicate upward movement, and
-   * negative values indicate downward movement).
+   * 相对于侧边指纹器件长轴偏移量（正数表示向上移动，负数表示向下移动）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.

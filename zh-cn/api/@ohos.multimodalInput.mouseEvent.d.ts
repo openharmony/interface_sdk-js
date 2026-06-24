@@ -26,7 +26,7 @@ import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
- * Enumerates mouse event types.
+ * 鼠标事件类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -35,9 +35,7 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 export declare enum Action {
 
   /**
-   * Canceled. The down event of the mouse is interrupted unexpectedly and does not close normally. For example, the
-   * **CANCEL** event is triggered when the mouse button is pressed but not released, the window transitions to the
-   * background, or an abnormal destruction occurs.
+   * 取消。鼠标down事件异常打断，未正常闭环，例如：按下鼠标按键后未抬起，窗口退后台或被异常销毁时触发cancel事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -46,7 +44,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Moving of the mouse pointer.
+   * 鼠标移动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -55,7 +53,7 @@ export declare enum Action {
   MOVE = 1,
 
   /**
-   * Mouse button press.
+   * 鼠标按键按下。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -64,7 +62,7 @@ export declare enum Action {
   BUTTON_DOWN = 2,
 
   /**
-   * Mouse button release.
+   * 鼠标按键抬起。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -73,7 +71,7 @@ export declare enum Action {
   BUTTON_UP = 3,
 
   /**
-   * Beginning of the mouse axis event.
+   * 鼠标轴事件开始。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -82,7 +80,7 @@ export declare enum Action {
   AXIS_BEGIN = 4,
 
   /**
-   * Updating of the mouse axis event.
+   * 鼠标轴事件更新。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -91,7 +89,7 @@ export declare enum Action {
   AXIS_UPDATE = 5,
 
   /**
-   * Mouse axis event ended.
+   * 鼠标轴事件结束。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -100,7 +98,7 @@ export declare enum Action {
   AXIS_END = 6,
 
   /**
-   * Touchpad press.
+   * 触控板按下。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -109,7 +107,7 @@ export declare enum Action {
   ACTION_DOWN = 7,
 
   /**
-   * Touchpad release.
+   * 触控板抬起。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -119,7 +117,7 @@ export declare enum Action {
 }
 
 /**
- * Enumerates mouse buttons.
+ * 鼠标按键。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -128,7 +126,7 @@ export declare enum Action {
 export declare enum Button {
 
   /**
-   * Left button.
+   * 鼠标左键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -137,7 +135,7 @@ export declare enum Button {
   LEFT = 0,
 
   /**
-   * Middle button.
+   * 鼠标中键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -146,7 +144,7 @@ export declare enum Button {
   MIDDLE = 1,
 
   /**
-   * Right button
+   * 鼠标右键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -155,7 +153,7 @@ export declare enum Button {
   RIGHT = 2,
 
   /**
-   * Side button.
+   * 鼠标侧边键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -164,7 +162,7 @@ export declare enum Button {
   SIDE = 3,
 
   /**
-   * Extended button.
+   * 鼠标扩展键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -173,7 +171,7 @@ export declare enum Button {
   EXTRA = 4,
 
   /**
-   * Forward button.
+   * 鼠标前进键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -182,7 +180,7 @@ export declare enum Button {
   FORWARD = 5,
 
   /**
-   * Back button.
+   * 鼠标后退键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -191,7 +189,7 @@ export declare enum Button {
   BACK = 6,
 
   /**
-   * Task button.
+   * 鼠标任务键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -201,7 +199,7 @@ export declare enum Button {
 }
 
 /**
- * Enumerates mouse axis types.
+ * 鼠标轴类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -210,7 +208,7 @@ export declare enum Button {
 export declare enum Axis {
 
   /**
-   * Vertical scroll axis of the mouse.
+   * 鼠标垂直滚动轴。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -219,7 +217,7 @@ export declare enum Axis {
   SCROLL_VERTICAL = 0,
 
   /**
-   * Horizontal scroll axis of the mouse.
+   * 鼠标水平滚动轴。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -228,7 +226,7 @@ export declare enum Axis {
   SCROLL_HORIZONTAL = 1,
 
   /**
-   * Pinch axis of the mouse.
+   * 鼠标捏合轴。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -238,7 +236,7 @@ export declare enum Axis {
 }
 
 /**
- * Defines the mouse axis type and axis value.
+ * 鼠标轴类型和轴的值。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -247,7 +245,7 @@ export declare enum Axis {
 export declare interface AxisValue {
 
   /**
-   * Mouse axis type.
+   * 鼠标轴类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -256,7 +254,7 @@ export declare interface AxisValue {
   axis: Axis;
 
   /**
-   * Mouse axis value.
+   * 鼠标轴的值。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -266,7 +264,7 @@ export declare interface AxisValue {
 }
 
 /**
- * Enumerates tool types.
+ * 工具类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 11 dynamic
@@ -275,7 +273,7 @@ export declare interface AxisValue {
 export declare enum ToolType {
 
   /**
-   * Unknown type.
+   * 未知类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -284,7 +282,7 @@ export declare enum ToolType {
   UNKNOWN = 0,
 
   /**
-   * Mouse.
+   * 鼠标。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -293,7 +291,7 @@ export declare enum ToolType {
   MOUSE = 1,
 
   /**
-   * Joystick.
+   * 操纵杆。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -302,7 +300,7 @@ export declare enum ToolType {
   JOYSTICK = 2,
 
   /**
-   * Touchpad.
+   * 触控板。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -312,7 +310,7 @@ export declare enum ToolType {
 }
 
 /**
- * Defines the mouse event.
+ * 鼠标事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -321,7 +319,7 @@ export declare enum ToolType {
 export declare interface MouseEvent extends InputEvent {
 
   /**
-   * Enumerates mouse event types.
+   * 鼠标事件类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -330,8 +328,7 @@ export declare interface MouseEvent extends InputEvent {
   action: Action;
 
   /**
-   * X coordinate of the mouse event in the relative coordinate system with the upper left corner of the specified
-   * screen as the origin, in px. Currently, the value can only be an integer.
+   * 该鼠标事件以指定屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -340,8 +337,7 @@ export declare interface MouseEvent extends InputEvent {
   screenX: int;
 
   /**
-   * Y coordinate of the mouse event in the relative coordinate system with the upper left corner of the specified
-   * screen as the origin, in px. Currently, the value can only be an integer.
+   * 该鼠标事件以指定屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -350,8 +346,7 @@ export declare interface MouseEvent extends InputEvent {
   screenY: int;
 
   /**
-   * X coordinate in the relative coordinate system with the upper left corner of the window where the mouse is located
-   * as the origin, in px. Currently, the value can only be an integer.
+   * 鼠标所在窗口左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -360,8 +355,7 @@ export declare interface MouseEvent extends InputEvent {
   windowX: int;
 
   /**
-   * Y coordinate in the relative coordinate system with the upper left corner of the window where the mouse is located
-   * as the origin, in px. Currently, the value can only be an integer.
+   * 鼠标所在窗口左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -370,8 +364,7 @@ export declare interface MouseEvent extends InputEvent {
   windowY: int;
 
   /**
-   * X coordinate offset of the current mouse event relative to the previous event, in px. Currently, the value can only
-   * be an integer.
+   * 鼠标当前事件相对于上次事件的X坐标偏移值。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -380,8 +373,7 @@ export declare interface MouseEvent extends InputEvent {
   rawDeltaX: int;
 
   /**
-   * Y coordinate offset of the current mouse event relative to the previous event, in px. Currently, the value can only
-   * be an integer.
+   * 鼠标当前事件相对于上次事件的Y坐标偏移值。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -390,7 +382,7 @@ export declare interface MouseEvent extends InputEvent {
   rawDeltaY: int;
 
   /**
-   * Enumerates mouse buttons.
+   * 鼠标按键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -399,7 +391,7 @@ export declare interface MouseEvent extends InputEvent {
   button: Button;
 
   /**
-   * Button being pressed.
+   * 当前处于按下状态的鼠标按键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -408,7 +400,7 @@ export declare interface MouseEvent extends InputEvent {
   pressedButtons: Button[];
 
   /**
-   * Defines the mouse axis type and axis value.
+   * 鼠标轴类型和轴的值。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -417,7 +409,7 @@ export declare interface MouseEvent extends InputEvent {
   axes: AxisValue[];
 
   /**
-   * List of pressed keys.
+   * 当前处于按下状态的键值列表。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -426,9 +418,9 @@ export declare interface MouseEvent extends InputEvent {
   pressedKeys: KeyCode[];
 
   /**
-   * Whether ctrlKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前ctrlKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -437,9 +429,9 @@ export declare interface MouseEvent extends InputEvent {
   ctrlKey: boolean;
 
   /**
-   * Whether altKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前altKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -448,9 +440,9 @@ export declare interface MouseEvent extends InputEvent {
   altKey: boolean;
 
   /**
-   * Whether shiftKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前shiftKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -459,9 +451,9 @@ export declare interface MouseEvent extends InputEvent {
   shiftKey: boolean;
 
   /**
-   * Whether logoKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前logoKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -470,9 +462,9 @@ export declare interface MouseEvent extends InputEvent {
   logoKey: boolean;
 
   /**
-   * Whether fnKey is being pressed.
-   *
-   * The value **true** indicates that the key is pressed, and the value **false** indicates the opposite.
+   * 当前fnKey是否处于按下状态。 
+   * 
+   * true表示处于按下状态，false表示处于抬起状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -481,9 +473,9 @@ export declare interface MouseEvent extends InputEvent {
   fnKey: boolean;
 
   /**
-   * Whether capsLock is enabled.
-   *
-   * The value **true** indicates that capsLock is enabled, and the value **false** indicates the opposite.
+   * 当前capsLock是否处于使能状态。 
+   * 
+   * true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -492,9 +484,9 @@ export declare interface MouseEvent extends InputEvent {
   capsLock: boolean;
 
   /**
-   * Whether numLock is enabled.
-   *
-   * The value **true** indicates that numLock is enabled, and the value **false** indicates the opposite.
+   * 当前numLock是否处于使能状态。 
+   * 
+   * true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -503,9 +495,9 @@ export declare interface MouseEvent extends InputEvent {
   numLock: boolean;
 
   /**
-   * Whether scrollLock is enabled.
-   *
-   * The value **true** indicates that scrollLock is enabled, and the value **false** indicates the opposite.
+   * 当前scrollLock是否处于使能状态。 
+   * 
+   * true表示使能状态，false表示处于未使能状态。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -514,7 +506,7 @@ export declare interface MouseEvent extends InputEvent {
   scrollLock: boolean;
 
   /**
-   * Tool type.
+   * 工具类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 11 dynamic
@@ -523,13 +515,9 @@ export declare interface MouseEvent extends InputEvent {
   toolType: ToolType;
 
   /**
-   * X coordinate of the mouse event in the global coordinate system with the upper left corner of the primary screen as
-   * the origin, in px. When this parameter is used as an input parameter, it is mandatory and supports only integers if
-   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}
-   * is set to **true**. If **MouseEventData.useGlobalCoordinate** is set to **false**, this parameter is optional, and
-   * the X coordinate in the relative coordinate system with the upper left corner of the specified screen as the origin
-   * is used to calculate the injected event. When this parameter is used as an output parameter, it is reported by the
-   * system.
+   * 该鼠标事件以主屏左上角为原点的全局坐标系的X坐标，单位为像素（px）。<!--Del-->作为入参时，若接口参数中的
+   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}为
+   * true，该值必填，当前仅支持整数。若为false，该值无需填写，使用指定屏幕左上角为原点的相对坐标系的X坐标计算注入事件。<!--DelEnd-->作为出参时，由系统上报。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
@@ -538,13 +526,9 @@ export declare interface MouseEvent extends InputEvent {
   globalX?: int;
 
   /**
-   * Y coordinate of the mouse event in the global coordinate system with the upper left corner of the primary screen as
-   * the origin, in px. When this parameter is used as an input parameter, it is mandatory and supports only integers if
-   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}
-   * is set to **true**. If **MouseEventData.useGlobalCoordinate** is set to **false**, this parameter is optional, and
-   * the Y coordinate in the relative coordinate system with the upper left corner of the specified screen as the origin
-   * is used to calculate the injected event. When this parameter is used as an output parameter, it is reported by the
-   * system.
+   * 该鼠标事件以主屏左上角为原点的全局坐标系的Y坐标，单位为像素（px）。<!--Del-->作为入参时，若接口参数中的
+   * [MouseEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.MouseEventData}为
+   * true，该值必填，当前仅支持整数。若为false，该值无需填写，使用指定屏幕左上角为原点的相对坐标系的Y坐标计算注入事件。<!--DelEnd-->作为出参时，由系统上报。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic

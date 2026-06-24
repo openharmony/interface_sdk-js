@@ -24,7 +24,7 @@
 import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 
 /**
- * Enumerates the touch event types.
+ * 触屏输入事件类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -33,9 +33,7 @@ import type { InputEvent } from './@ohos.multimodalInput.inputEvent';
 export declare enum Action {
 
   /**
-   * Touch canceled. The **DOWN** event of the touchscreen is interrupted unexpectedly and does not close normally. For
-   * example, the **CANCEL** event is triggered when the finger is pressed but not lifted, the screen is rotated or
-   * folded, or a new hover occurs.
+   * 触屏取消。触屏down事件异常打断，未正常闭环，例如：手指按下后未抬起，屏幕发生旋转、折叠或有新hover等场景时触发cancel事件。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -44,7 +42,7 @@ export declare enum Action {
   CANCEL = 0,
 
   /**
-   * Touch down.
+   * 触屏按下。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -53,7 +51,7 @@ export declare enum Action {
   DOWN = 1,
 
   /**
-   * Touch moved.
+   * 触屏移动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -62,7 +60,7 @@ export declare enum Action {
   MOVE = 2,
 
   /**
-   * Touch up.
+   * 触屏抬起。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -71,9 +69,7 @@ export declare enum Action {
   UP = 3,
 
   /**
-   * Drag started.
-   *
-   * **Since**: 26.0.0
+   * 触屏开始拖拽。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -82,9 +78,7 @@ export declare enum Action {
   PULL_DOWN = 4,
 
   /**
-   * Dragging.
-   *
-   * **Since**: 26.0.0
+   * 触屏拖拽移动。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -93,9 +87,7 @@ export declare enum Action {
   PULL_MOVE = 5,
 
   /**
-   * Drag ended.
-   *
-   * **Since**: 26.0.0
+   * 触屏结束拖拽。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @stagemodelonly
@@ -105,7 +97,7 @@ export declare enum Action {
 }
 
 /**
- * Enumerates touch tool types.
+ * 操作触屏的工具类型。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -114,7 +106,7 @@ export declare enum Action {
 export declare enum ToolType {
 
   /**
-   * Finger.
+   * 手指。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -123,7 +115,7 @@ export declare enum ToolType {
   FINGER = 0,
 
   /**
-   * Stylus.
+   * 笔。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -132,7 +124,7 @@ export declare enum ToolType {
   PEN = 1,
 
   /**
-   * Eraser.
+   * 橡皮擦。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -141,7 +133,7 @@ export declare enum ToolType {
   RUBBER = 2,
 
   /**
-   * Brush.
+   * 笔刷。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -150,7 +142,7 @@ export declare enum ToolType {
   BRUSH = 3,
 
   /**
-   * Pencil.
+   * 铅笔。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -159,7 +151,7 @@ export declare enum ToolType {
   PENCIL = 4,
 
   /**
-   * Air brush.
+   * 气笔。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -168,7 +160,7 @@ export declare enum ToolType {
   AIRBRUSH = 5,
 
   /**
-   * Mouse.
+   * 鼠标。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -177,7 +169,7 @@ export declare enum ToolType {
   MOUSE = 6,
 
   /**
-   * Lens.
+   * 透镜。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -187,7 +179,7 @@ export declare enum ToolType {
 }
 
 /**
- * Enumerates touch sources. Currently, only the touchscreen and touchpad are supported.
+ * 触屏来源的设备类型，当前仅支持触摸屏、触控板类型上报。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -196,7 +188,7 @@ export declare enum ToolType {
 export declare enum SourceType {
 
   /**
-   * Touchscreen.
+   * 触摸屏。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -205,7 +197,7 @@ export declare enum SourceType {
   TOUCH_SCREEN = 0,
 
   /**
-   * Stylus.
+   * 笔。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -214,7 +206,7 @@ export declare enum SourceType {
   PEN = 1,
 
   /**
-   * Touchpad.
+   * 触控板。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -224,7 +216,9 @@ export declare enum SourceType {
 }
 
 /**
- * Enumerates coordinate correction modes.
+ * 修正坐标的模式。
+ * 
+ * **系统API**: 此接口为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @systemapi Hide this for inner system use.
@@ -234,7 +228,7 @@ export declare enum SourceType {
 export declare enum FixedMode {
 
   /**
-   * Normal mode.
+   * 正常模式。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -244,7 +238,7 @@ export declare enum FixedMode {
   NONE = 0,
 
   /**
-   * One-handed mode.
+   * 单手模式。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -255,7 +249,7 @@ export declare enum FixedMode {
 }
 
 /**
- * Defines the touch point information.
+ * 触屏点信息。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -264,7 +258,7 @@ export declare enum FixedMode {
 export declare interface Touch {
 
   /**
-   * Touch event ID.
+   * 触屏输入事件ID。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -273,7 +267,7 @@ export declare interface Touch {
   id: int;
 
   /**
-   * Press timestamp, in microseconds (μs) since the system starts.
+   * 按下时间戳，表示系统启动运行至今逝去的微秒数，单位为微秒（μs）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -282,8 +276,7 @@ export declare interface Touch {
   pressedTime: long;
 
   /**
-   * X coordinate of the touch event in the relative coordinate system with the upper-left corner of the specified
-   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   * 该触屏输入事件以指定屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -292,8 +285,7 @@ export declare interface Touch {
   screenX: int;
 
   /**
-   * Y coordinate of the touch event in the relative coordinate system with the upper-left corner of the specified
-   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   * 该触屏输入事件以指定屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -302,8 +294,7 @@ export declare interface Touch {
   screenY: int;
 
   /**
-   * X coordinate in the relative coordinate system with the upper-left corner of the window where the touch is located
-   * as the origin. Currently, only integers are supported. The unit is pixels.
+   * 触屏所在窗口左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -312,8 +303,7 @@ export declare interface Touch {
   windowX: int;
 
   /**
-   * Y coordinate in the relative coordinate system with the upper-left corner of the window where the touch is located
-   * as the origin. Currently, only integers are supported. The unit is pixels.
+   * 触屏所在窗口左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -322,7 +312,7 @@ export declare interface Touch {
   windowY: int;
 
   /**
-   * Pressure value. The value range is [0.0, 1.0]. The value **0.0** indicates that the pressure is not supported.
+   * 压力值，取值范围是[0.0, 1.0]，0.0表示不支持。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -331,7 +321,7 @@ export declare interface Touch {
   pressure: double;
 
   /**
-   * Width of the touch area, in pixels. The value can only be an integer.
+   * 触屏区域的宽度，单位为像素（px）。当前仅支持整数。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -340,7 +330,7 @@ export declare interface Touch {
   width: int;
 
   /**
-   * Height of the touch area, in pixels. The value can only be an integer.
+   * 触屏区域的高度，单位为像素（px）。当前仅支持整数。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -349,8 +339,7 @@ export declare interface Touch {
   height: int;
 
   /**
-   * Angle relative to the YZ plane, in degrees. The value range is [-90, 90]. A positive value indicates a rightward
-   * tilt.
+   * 相对YZ平面的角度，单位为度，取值的范围[-90, 90]，其中正值是向右倾斜。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -359,8 +348,7 @@ export declare interface Touch {
   tiltX: int;
 
   /**
-   * Angle relative to the XZ plane, in degrees. The value range is [-90, 90]. A positive value indicates a downward
-   * tilt.
+   * 相对XZ平面的角度，单位为度，取值的范围[-90, 90]，其中正值是向下倾斜。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -369,8 +357,7 @@ export declare interface Touch {
   tiltY: int;
 
   /**
-   * X coordinate of the tool area center in the relative coordinate system with the upper-left corner of the specified
-   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   * 工具区域的中心点以指定屏幕左上角为原点的相对坐标系的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -379,8 +366,7 @@ export declare interface Touch {
   toolX: int;
 
   /**
-   * Y coordinate of the tool area center in the relative coordinate system with the upper-left corner of the specified
-   * screen as the origin. Currently, only integers are supported. The unit is pixels.
+   * 工具区域的中心点以指定屏幕左上角为原点的相对坐标系的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -389,7 +375,7 @@ export declare interface Touch {
   toolY: int;
 
   /**
-   * Width of the tool area, in pixels. The value can only be an integer.
+   * 工具区域宽度，单位为像素（px）。当前仅支持整数。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -398,7 +384,7 @@ export declare interface Touch {
   toolWidth: int;
 
   /**
-   * Height of the tool area, in pixels. The value can only be an integer.
+   * 工具区域高度，单位为像素（px）。当前仅支持整数。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -407,7 +393,7 @@ export declare interface Touch {
   toolHeight: int;
 
   /**
-   * X coordinate of the input device. Currently, only integers are supported. The unit is pixels.
+   * 输入设备上的X坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -416,7 +402,7 @@ export declare interface Touch {
   rawX: int;
 
   /**
-   * Y coordinate of the input device. Currently, only integers are supported. The unit is pixels.
+   * 输入设备上的Y坐标。当前仅支持整数，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -425,7 +411,7 @@ export declare interface Touch {
   rawY: int;
 
   /**
-   * Tool type.
+   * 工具类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -434,7 +420,7 @@ export declare interface Touch {
   toolType: ToolType;
 
   /**
-   * Corrected value of the screenX coordinate in one-hand mode, in px.
+   * 适配单手模式下screenX坐标的修正值，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -444,7 +430,7 @@ export declare interface Touch {
   fixedDisplayX?: int;
 
   /**
-   * Corrected value of the screenY coordinate in one-hand mode, in px.
+   * 适配单手模式下screenY坐标的修正值，单位为像素（px）。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -454,13 +440,9 @@ export declare interface Touch {
   fixedDisplayY?: int;
 
   /**
-   * X coordinate of the touch event in the global coordinate system with the upper-left corner of the primary screen as
-   * the origin, in px. <!--Del--> When being used as an input parameter, this parameter is mandatory if the value of
-   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}
-   * is **true**, and its value can only be an integer. Otherwise, you do not need to set this parameter. In this case,
-   * the X coordinate of the relative coordinate system with the upper left corner of the specified screen as the origin
-   * is used to calculate the injected event. <!--DelEnd-->When being used as an output parameter, its value is reported
-   * by the system.
+   * 该触屏输入事件以主屏左上角为原点的全局坐标系的X坐标，单位为像素（px）。<!--Del-->作为入参时，若接口参数中的
+   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}为
+   * true，该值必填，当前仅支持整数。若为false，该值无需填写，使用指定屏幕左上角为原点的相对坐标系的X坐标计算注入事件。<!--DelEnd-->作为出参时，由系统上报。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
@@ -469,13 +451,9 @@ export declare interface Touch {
   globalX?: int;
 
   /**
-   * Y coordinate of the touch event in the global coordinate system with the upper-left corner of the primary screen as
-   * the origin, in px. <!--Del--> When being used as an input parameter, this parameter is mandatory if the value of
-   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}
-   * is **true**, and its value can only be an integer. Otherwise, you do not need to set this parameter. In this case,
-   * the Y coordinate of the relative coordinate system with the upper left corner of the specified screen as the origin
-   * is used to calculate the injected event. <!--DelEnd-->When being used as an output parameter, its value is reported
-   * by the system.
+   * 该触屏输入事件以主屏左上角为原点的全局坐标系的Y坐标，单位为像素（px）。<!--Del-->作为入参时，若接口参数中的
+   * [TouchEventData.useGlobalCoordinate]{@link @ohos.multimodalInput.inputEventClient:inputEventClient.TouchEventData}为
+   * true，该值必填，当前仅支持整数。若为false，该值无需填写，使用指定屏幕左上角为原点的相对坐标系的Y坐标计算注入事件。<!--DelEnd-->作为出参时，由系统上报。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 20 dynamic
@@ -484,8 +462,7 @@ export declare interface Touch {
   globalY?: int;
 
   /**
-   * Touch point attribute ID. Currently, only single-finger touch is supported. The value **1** indicates left-hand
-   * touch, and the value **2** indicates right-hand touch.
+   * 触摸点属性标识。当前仅支持单指触摸：左手触摸为1，右手触摸为2。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -496,7 +473,7 @@ export declare interface Touch {
 }
 
 /**
- * Defines a touch event.
+ * 触屏输入事件。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @since 9 dynamic
@@ -505,7 +482,7 @@ export declare interface Touch {
 export declare interface TouchEvent extends InputEvent {
 
   /**
-   * Event type.
+   * 触屏输入事件类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -514,7 +491,7 @@ export declare interface TouchEvent extends InputEvent {
   action: Action;
 
   /**
-   * Current touch point.
+   * 当前触屏点信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -523,7 +500,7 @@ export declare interface TouchEvent extends InputEvent {
   touch: Touch;
 
   /**
-   * All touch points.
+   * 所有触屏点。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -532,7 +509,7 @@ export declare interface TouchEvent extends InputEvent {
   touches: Touch[];
 
   /**
-   * Device type of the touch source.
+   * 触屏来源的设备类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @since 9 dynamic
@@ -541,7 +518,7 @@ export declare interface TouchEvent extends InputEvent {
   sourceType: SourceType;
 
   /**
-   * Coordinate correction mode.
+   * 修正坐标的模式。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
@@ -551,8 +528,8 @@ export declare interface TouchEvent extends InputEvent {
   fixedMode?: FixedMode;
 
   /**
-   * Whether the touch event is an injection event. For details about injection events, see
-   * [@ohos.multimodalInput.inputEventClient]{@link @ohos.multimodalInput.inputEventClient:inputEventClient}.
+   * 表示该触屏输入事件是否为注入事件。注入事件详细介绍可参考
+   * [@ohos.multimodalInput.inputEventClient]{@link @ohos.multimodalInput.inputEventClient:inputEventClient}。
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @systemapi Hide this for inner system use.
