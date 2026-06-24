@@ -265,7 +265,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -299,7 +299,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -344,7 +344,7 @@ declare namespace i18n {
      *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 20
      */
@@ -381,7 +381,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -402,7 +402,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -422,7 +422,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -497,7 +497,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 9 dynamic
      * @since 23 static
      */
@@ -548,7 +548,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 18 dynamic
      * @since 23 static
      */
@@ -590,7 +590,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 18 dynamic
      * @since 23 static
      */
@@ -615,7 +615,7 @@ declare namespace i18n {
      *     If the map is empty of the collation for given locale does not need to be set.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -627,7 +627,7 @@ declare namespace i18n {
      * @returns { string } The identifier of the collation model used by system locale will be return.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -643,7 +643,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -656,7 +656,7 @@ declare namespace i18n {
      *     locale.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -668,7 +668,7 @@ declare namespace i18n {
      * @returns { string } The identifier of measurement system using by system locale
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -684,7 +684,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -696,7 +696,7 @@ declare namespace i18n {
      * @returns { string } the numbering systems's identifier.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -712,7 +712,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -725,7 +725,7 @@ declare namespace i18n {
      *     If the map is empty, there is no local digit for given locale.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -737,7 +737,7 @@ declare namespace i18n {
      * @returns { Map<string,string> } a map containing the used number patterns and example of system locale.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -753,7 +753,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -765,7 +765,7 @@ declare namespace i18n {
      * @returns { string } The number pattern identifier used by system locale
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -777,7 +777,7 @@ declare namespace i18n {
      * @returns { Map<string, string> } a map containing the date patterns and examples
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -793,7 +793,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -805,7 +805,7 @@ declare namespace i18n {
      * @returns { string } The numerical date pattern used by system locale
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 20 dynamic
      * @since 23 static
      */
@@ -2429,7 +2429,7 @@ declare namespace i18n {
     /**
      * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
      *
-     * @param { Date } date - Date and time. NOTE: The month starts from **0**, indicating January.
+     * @param { Date } date - Date and time. Note: The month starts from **0**, indicating January.
      * @returns { boolean } true if the date use daylight saving time, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -2689,7 +2689,7 @@ declare namespace i18n {
    * Represents the language or country/region suggestion type.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2698,7 +2698,7 @@ declare namespace i18n {
      * Not a recommended language or country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2707,7 +2707,7 @@ declare namespace i18n {
      * Country/region recommended by the system language or language recommended by the system country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2716,7 +2716,7 @@ declare namespace i18n {
      * Language recommended by the country/region of the SIM card.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2727,7 +2727,7 @@ declare namespace i18n {
    * Represents the language or country/region sorting option.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2737,7 +2737,7 @@ declare namespace i18n {
      * The default value is the current system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2749,7 +2749,7 @@ declare namespace i18n {
      * true. If getRegionInfoArray is called, the default value of isUseLocalName is false.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2761,7 +2761,7 @@ declare namespace i18n {
      * The default value is true.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2772,7 +2772,7 @@ declare namespace i18n {
    * Represents the locale information, which consists of the language, script, and country/region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2781,7 +2781,7 @@ declare namespace i18n {
      * Language code or country/region code, for example, "zh" or "CN".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2791,7 +2791,7 @@ declare namespace i18n {
      * Language or country/region suggestion type.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2801,7 +2801,7 @@ declare namespace i18n {
      * Representation of ID in the specified locale in SystemLocaleManager.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2811,7 +2811,7 @@ declare namespace i18n {
      * Local name of the ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2822,7 +2822,7 @@ declare namespace i18n {
    * Represents a time zone and city combination item.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2831,7 +2831,7 @@ declare namespace i18n {
      * Time zone ID, for example, "Asia/Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2841,7 +2841,7 @@ declare namespace i18n {
      * City ID, for example, "Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2851,7 +2851,7 @@ declare namespace i18n {
      * City display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2861,7 +2861,7 @@ declare namespace i18n {
      * Offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2871,7 +2871,7 @@ declare namespace i18n {
      * Time zone display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2881,7 +2881,7 @@ declare namespace i18n {
      * Fixed offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2892,7 +2892,7 @@ declare namespace i18n {
    * Provide some functions for settings and startup guide to select language or region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 10 dynamic
    * @since 23 static
    */
@@ -2903,7 +2903,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 26.0.0]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2921,7 +2921,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2940,7 +2940,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */
@@ -2953,7 +2953,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      *     [since 12]
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 10 dynamic
      * @since 23 static
      */

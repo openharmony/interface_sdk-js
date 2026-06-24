@@ -154,7 +154,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static setSystemLanguage(language: string): void;
@@ -183,7 +183,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static setSystemRegion(region: string): void;
@@ -227,7 +227,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static set24HourClock(option: boolean): void;
@@ -247,7 +247,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static addPreferredLanguage(language: string, index?: int): void;
@@ -266,7 +266,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static removePreferredLanguage(index: int): void;
@@ -333,7 +333,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     static setUsingLocalDigit(flag: boolean): void;
@@ -380,7 +380,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     static setTemperatureType(type: TemperatureType): void;
@@ -419,7 +419,7 @@ declare namespace i18n {
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     static setFirstDayOfWeek(type: WeekDay): void;
@@ -873,12 +873,12 @@ declare namespace i18n {
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
 
     /**
-     * Converts a locale string into canonical locale identifier with BCP47 standard.
-     * [BCP47](https://www.rfc-editor.org/info/bcp47).
+     * Adjusts a locale ID to a format that complies with the [BCP47](https://www.rfc-editor.org/info/bcp47) standard.
      *
      * @param { string } locale - Locale string to be converted, which consists of the language, script,
      *     and country/region.
-     * @returns { string } BCP47 standard locale identifier.
+     * @returns { string } If the input locale ID is valid, a locale ID that complies with the [BCP47](https://www.rfc-editor.org/info/bcp47) standard will be returned.
+     *                     If the input locale ID is invalid, an empty string is returned.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
@@ -887,15 +887,13 @@ declare namespace i18n {
     static convertCanonicalLocaleIdentifier(locale: string): string;
 
     /**
-     * Sets the text direction for a specific piece of text independently,
-     * separating it from the text direction of the surrounding context.
+     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and LTR (left-to-right).
+     * Note: The setting does not take effect within strong characters (characters with an intrinsic, unambiguous writing direction).
      *
      * @param { string } text - Input characters need to set direction.
-     *     <br>Pending Text
-     * @param { 'RTL' | 'LTR' } direction - The value can be  or "LTR".
+     * @param { 'RTL' | 'LTR' } direction - The value can be "RTL" or "LTR".
      *     "RTL" indicates setting the input text direction from right to left.
      *     "LTR" indicates setting the input text direction from left to right.
-     *     <br>Text main directionality
      * @returns { string } Processed Text.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -1060,8 +1058,7 @@ declare namespace i18n {
     /**
      * Sets the date and time for a Calendar object.
      *
-     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the
-     *                          Unix epoch.
+     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the Unix epoch.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -1574,8 +1571,7 @@ declare namespace i18n {
     static getType(ch: string): string;
 
     /**
-     * Detects the encoding format of the input byte array.
-     * It is recommended to check the encoding format before performing data conversion operations.
+     * Detects the encoding information of the input byte stream.
      *
      * @param { Uint8Array } bytes - Input byte stream. To detect the encoding of a text string,
      *     convert the text to a byte stream first while preserving its original format.
@@ -1773,8 +1769,7 @@ latitude and a negative value is used for south latitude.
     /**
      * Check if the given date use daylight saving time. The calculation will be based on the matched time zone rules.
      *
-     * @param { Date } date - Date and time for calculation.
-     *     The value must match the time range supported by the time zone rule.
+     * @param { Date } date - Date and time. Note: The month starts from **0**, indicating January.
      * @returns { boolean } true if the date use daylight saving time, and false otherwise.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -1798,7 +1793,8 @@ latitude and a negative value is used for south latitude.
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the TimeZone object of default time zone used by application.
+     * Obtains the default time zone object used by an application. If the default time zone has been set by calling setAppDefaultTimeZoneById,
+     * the default time zone object is returned. Otherwise, the system time zone object is returned.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
      * @syscap SystemCapability.Global.I18n
@@ -2011,7 +2007,7 @@ latitude and a negative value is used for south latitude.
    * Represents the language or country/region suggestion type.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 23 static
    */
   export enum SuggestionType {
@@ -2019,7 +2015,7 @@ latitude and a negative value is used for south latitude.
      * Not a recommended language or country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     SUGGESTION_TYPE_NONE = 0,
@@ -2027,7 +2023,7 @@ latitude and a negative value is used for south latitude.
      * Country/region recommended by the system language or language recommended by the system country/region.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     SUGGESTION_TYPE_RELATED = 1,
@@ -2035,7 +2031,7 @@ latitude and a negative value is used for south latitude.
      * Language recommended by the country/region of the SIM card.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     SUGGESTION_TYPE_SIM = 2,
@@ -2045,7 +2041,7 @@ latitude and a negative value is used for south latitude.
    * Represents the language or country/region sorting option.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 23 static
    */
   export interface SortOptions {  
@@ -2054,7 +2050,7 @@ latitude and a negative value is used for south latitude.
      * The default value is the current system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     locale?: string;
@@ -2065,7 +2061,7 @@ latitude and a negative value is used for south latitude.
      * true. If getRegionInfoArray is called, the default value of isUseLocalName is false.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     isUseLocalName?: boolean;
@@ -2076,7 +2072,7 @@ latitude and a negative value is used for south latitude.
      * The default value is true.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     isSuggestedFirst?: boolean;
@@ -2086,7 +2082,7 @@ latitude and a negative value is used for south latitude.
    * Represents the locale information, which consists of the language, script, and country/region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 23 static
    */
   export interface LocaleItem {
@@ -2094,7 +2090,7 @@ latitude and a negative value is used for south latitude.
      * Language code or country/region code, for example, "zh" or "CN".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     id: string;
@@ -2103,7 +2099,7 @@ latitude and a negative value is used for south latitude.
      * Language or country/region suggestion type.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     suggestionType: SuggestionType;
@@ -2112,7 +2108,7 @@ latitude and a negative value is used for south latitude.
      * Representation of ID in the specified locale in SystemLocaleManager.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     displayName: string;
@@ -2121,7 +2117,7 @@ latitude and a negative value is used for south latitude.
      * Local name of the ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     localName?: string;
@@ -2131,7 +2127,7 @@ latitude and a negative value is used for south latitude.
    * Represents a time zone and city combination item.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 23 static
    */
   export interface TimeZoneCityItem {  
@@ -2139,7 +2135,7 @@ latitude and a negative value is used for south latitude.
      * Time zone ID, for example, "Asia/Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     zoneId: string;
@@ -2148,7 +2144,7 @@ latitude and a negative value is used for south latitude.
      * City ID, for example, "Shanghai".
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     cityId: string;
@@ -2157,7 +2153,7 @@ latitude and a negative value is used for south latitude.
      * City display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     cityDisplayName: string;
@@ -2166,7 +2162,7 @@ latitude and a negative value is used for south latitude.
      * Offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     offset: int;
@@ -2175,7 +2171,7 @@ latitude and a negative value is used for south latitude.
      * Time zone display name in the system locale.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     zoneDisplayName: string;
@@ -2184,7 +2180,7 @@ latitude and a negative value is used for south latitude.
      * Fixed offset of the time zone ID.
      *
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     rawOffset?: int;
@@ -2194,7 +2190,7 @@ latitude and a negative value is used for south latitude.
    * Provide some functions for settings and startup guide to select language or region.
    *
    * @syscap SystemCapability.Global.I18n
-   * @systemapi Hide this for inner system use.
+   * @systemapi
    * @since 23 static
    */
   export class SystemLocaleManager {  
@@ -2204,7 +2200,7 @@ latitude and a negative value is used for south latitude.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
      * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi Hide this for inner system use. [since 23]
+     * @systemapi [since 23]
      * @since 23 static
      */
     constructor();
@@ -2220,7 +2216,7 @@ latitude and a negative value is used for south latitude.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     getLanguageInfoArray(languages: Array<string>, options?: SortOptions): Array<LocaleItem>;
@@ -2237,7 +2233,7 @@ latitude and a negative value is used for south latitude.
      *                                 2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     getRegionInfoArray(regions: Array<string>, options?: SortOptions): Array<LocaleItem>;
@@ -2248,7 +2244,7 @@ latitude and a negative value is used for south latitude.
      * @returns { Array<TimeZoneCityItem> } List of time zone city items after sorting.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @syscap SystemCapability.Global.I18n
-     * @systemapi Hide this for inner system use.
+     * @systemapi
      * @since 23 static
      */
     static getTimeZoneCityItemArray(): Array<TimeZoneCityItem>;
@@ -2778,12 +2774,8 @@ latitude and a negative value is used for south latitude.
   }
 
   /**
-   * Building upon the measurement unit formatting capabilities provided by Intl.NumberFormat, the formatting
-   * functionality has been enhanced. It supports automatically selecting appropriate measurement units
-   * based on usage scenarios to format numbers.For example, there are many units of measurement for length,
-   * including millimeters, centimeters, meters, kilometers, and so on. However, depending on the context
-   * in which the measurement is used, each scenario has its commonly used units. Millimeters are more frequently
-   * used when expressing rainfall, while meters are more commonly used to describe visibility.
+   * Provides the number formatting capability, supporting automatic unit conversion based on 
+   * specific application scenarios.
    *
    * @syscap SystemCapability.Global.I18n
    * @stagemodelonly
@@ -3396,7 +3388,7 @@ latitude and a negative value is used for south latitude.
     /**
      * A constructor used to create a ISO8601DateTimeFormat object.
      *
-     * @param { ISO8601DateTimeFormatOptions } [options] - Indicates the format options formatted result include.
+     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object that complies with ISO 8601.
      *     Default format is yyyy-MM-ddThh:mm:ssZZZZZ.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
@@ -3409,7 +3401,7 @@ latitude and a negative value is used for south latitude.
      * Formats a date to ISO 8601 formatted string.
      *
      * @param { Date } date - date to be formatted. Note: The month starts from 0. For example, 0 indicates January.
-     * @returns { string } ISO 8601 formatted string, such as yyyy-MM-dd or yyyy-MM-ddThh:mm:ssZZZZZ.
+     * @returns { string } Date and time string that complies with ISO 8601.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice

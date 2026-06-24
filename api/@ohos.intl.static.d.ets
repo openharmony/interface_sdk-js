@@ -619,7 +619,7 @@ declare namespace intl {
   }
 
   /**
-   * Enable language-sensitive string comparison.
+   * Provides the string collation capability.
    *
    * @syscap SystemCapability.Global.I18n
    * @crossplatform
