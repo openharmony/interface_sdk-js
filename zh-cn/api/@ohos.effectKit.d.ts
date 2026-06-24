@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -101,7 +101,7 @@ declare namespace effectKit {
      * @param { EllipticalMaskRadius } maskRadius - 椭圆形遮罩在X轴和Y轴方向的半径。
      * @param { FractionStop[] } fractionStops - 渐变模糊位置与程度数组。 位置参数值须严格递增，二元数组个数不能小于2，最大为12。
      * @returns { Filter } 返回已添加的图像效果。
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -152,7 +152,7 @@ declare namespace effectKit {
      *
      * @param { Array<double> } colorMatrix - 自定义颜色矩阵。 <br>用于创建效果滤镜的 5x4 大小的矩阵，矩阵元素取值范围为[0, 1]，0和1代表的是矩阵中对应位置的颜色通道的权重，0代表该颜色通道不参与计算，1代表该颜色通道参与计算并保持原始权重。
      * @returns { Filter } 返回已添加的图像效果。
-     * @throws { BusinessError } 401 - Input parameter error.
+     * @throws { BusinessError } 401 - 输入参数错误。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
      * @since 12 dynamic
@@ -178,7 +178,7 @@ declare namespace effectKit {
     /**
      * 获取已添加链表效果的源图像的image.PixelMap，使用CPU渲染，使用Promise异步回调。
      *
-     * @returns { Promise<image.PixelMap> } - Promise used to return image.PixelMap of the source image.
+     * @returns { Promise<image.PixelMap> } - Promise对象。返回已添加链表效果的源图像的image.PixelMap。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
      * @form [since 12]
@@ -192,7 +192,7 @@ declare namespace effectKit {
      * 获取已添加链表效果的源图像的image.PixelMap，支持指定渲染模式（CPU渲染或者GPU渲染），使用Promise异步回调。
      *
      * @param { boolean } useCpuRender -  指定渲染模式。true表示使用CPU渲染，false表示使用GPU渲染。
-     * @returns { Promise<image.PixelMap> } - returns the PixelMap generated.
+     * @returns { Promise<image.PixelMap> } - Promise对象。返回已添加链表效果的源图像的image.PixelMap。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform
      * @form
@@ -285,7 +285,7 @@ declare namespace effectKit {
      *     - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
      *     - If the value of colorCount is greater than 10, a map holding the first 10 colors with
      *     the top proportions is returned.
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
@@ -298,7 +298,7 @@ declare namespace effectKit {
      * 获取图像中完全透明的像素占比。
      *
      * @returns { double } 完全透明的像素占比，比例的取值范围为[0,1]。
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
@@ -310,7 +310,7 @@ declare namespace effectKit {
      * 获取图像颜色深浅度。
      *
      * @returns { PictureShadeDegree } 图像颜色深浅度。
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
@@ -323,7 +323,7 @@ declare namespace effectKit {
      * 获取图像内容复杂度。
      *
      * @returns { PictureComplexityDegree } 图像内容复杂度。
-     * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+     * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @form
@@ -619,7 +619,7 @@ declare namespace effectKit {
    *
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @returns { Promise<ColorPicker> } - Promise对象。返回创建的ColorPicker实例。
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
    * @form [since 12]
@@ -635,7 +635,7 @@ declare namespace effectKit {
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { Array<double> } region - 指定图片的取色区域。 数组第三个元素需大于第一个元素，第四个元素需大于第二个元素。
    * @returns { Promise<ColorPicker> } - Promise对象。返回创建的ColorPicker实例。
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
    * @form [since 12]
@@ -650,7 +650,7 @@ declare namespace effectKit {
    *
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
    * @form [since 12]
@@ -666,7 +666,7 @@ declare namespace effectKit {
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { Array<double> } region - 指定图片的取色区域。 数组第三个元素需大于第一个元素，第四个元素需大于第二个元素。
    * @param { AsyncCallback<ColorPicker> } callback - Callback used to return the ColorPicker instance created.
-   * @throws { BusinessError } 401 - Input parameter error.
+   * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
    * @form [since 12]
