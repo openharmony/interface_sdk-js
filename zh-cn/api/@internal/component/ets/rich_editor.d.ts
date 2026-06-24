@@ -2272,6 +2272,7 @@ declare interface PreviewMenuOptions {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice
    * @since 18 dynamic
    */
