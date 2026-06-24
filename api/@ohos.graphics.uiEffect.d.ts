@@ -50,7 +50,6 @@ declare namespace uiEffect {
    * @since 23 static
    */
   interface Filter {
-
     /**
      * Set the edge pixel stretch effect of the Component.
      *
