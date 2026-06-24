@@ -846,6 +846,14 @@ declare namespace bundleManager {
     AGENT_UI = 38,
 
     /**
+     * [ModularObjectExtensionAbility](docroot://application-models/modular-object-extension-overview.md)：提供应用自身能力开放功能。
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODULAR_OBJECT = 39,
+
+    /**
      * 不指定类型<!--Del-->，配合
      * [queryExtensionAbilityInfo接口]{@link @ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
      * 可以查询所有类型的ExtensionAbility<!--DelEnd-->。

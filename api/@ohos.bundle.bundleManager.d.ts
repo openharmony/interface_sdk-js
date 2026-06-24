@@ -886,6 +886,15 @@ declare namespace bundleManager {
     AGENT_UI = 38,
 
     /**
+     * Indicates extension info with type of the modular object extension.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODULAR_OBJECT = 39,
+
+    /**
      * The ability type is not specified. <!--Del-->It can be used in
      * [queryExtensionAbilityInfo]{@link @ohos.bundle.bundleManager:bundleManager.queryExtensionAbilityInfo(want: Want, extensionAbilityType: ExtensionAbilityType, extensionAbilityFlags: int, userId: int, callback: AsyncCallback<Array<ExtensionAbilityInfo>>)}
      * to obtain ExtensionAbility components of all types.<!--DelEnd-->
