@@ -1194,7 +1194,7 @@ declare namespace volumeManager {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function IsVolumeInUse(volumePath: string): Promise<boolean>;
+  function isVolumeInUse(volumePath: string): Promise<boolean>;
 }
 
 export default volumeManager;
