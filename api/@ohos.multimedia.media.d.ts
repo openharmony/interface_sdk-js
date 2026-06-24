@@ -360,6 +360,200 @@ declare namespace media {
   }
 
   /**
+   * Create an ad playback controller associated with the player instance.
+   *
+   * @param { AVPlayer } player - Created player instance.
+   * @returns { Promise<AVAdsController | undefined> } If success, an Controller is returned. Otherwise returns null.
+   * @throws { BusinessError } 5400108 - The player object corresponding to player does not exist or is invalid.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createAVAdsController(player: AVPlayer): Promise<AVAdsController | undefined>;
+
+  /**
+   * Describes the callback function for the ad media resource loading error event.
+   *
+   * @param { string } adsId - ID of the advertisement resource that fails to be loaded.
+   * @param { BusinessError } reason - Indicates the reason of the loading failure.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAdsEventLoadingErrorHandle = (adsId: string, reason: BusinessError) => void;
+
+  /**
+   * Describes the callback function of the ad content playback start event.
+   *
+   * @param { string } adsId - ID of the ad resource that is being played.
+   * @param { int } duration - Playing duration of the advertisement, in milliseconds.
+   *     <br>The value should be an integer.
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type OnAdsEventAdsStartedHandle = (adsId: string, duration: int) => void;
+
+  /**
+   * Definition of the Ad Content Control Interface
+   *
+   * @syscap SystemCapability.Multimedia.Media.AVPlayer
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface AVAdsController {  
+    /**
+     * Add an advertisement film source to the advertisement controller,
+     * The insertion time (relative to the playback progress of the main media asset) can be specified.
+     *
+     * @param { MediaSource } src - Video source to be inserted into the main content for playback.
+     * @param { int } start - Progress value of inserting data to the main media asset.
+     *     <br>Unit: milliseconds. The value should be an integer.
+     * @returns { Promise<string> } Returns the ID of the added media source in the ad controller.
+     * @throws { BusinessError } 5400108 - Insert a media asset whose start value exceeds the value of the main content.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    addAdsMediaSource(src: MediaSource, start: int): Promise<string>;
+
+    /**
+     * Remove the ad source specified in the AdsController.
+     *
+     * @param { string } id - UUID value of the MediaSource.
+     * @throws { BusinessError } 5400108 - If the specified ID is not in the AdsController.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    removeAdsMediaSource(id: string): void;
+
+    /**
+     * Skip the ad content that is being played.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    skipCurrentAdsMediaSource(): void;
+
+    /**
+     * Disable playback of the remaining broadcast content in the current session
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    disableAllAdsMediaSource(): void;
+
+    /**
+     * Release the AVAdsController object.
+     *
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    release(): void;
+
+    /**
+     * Registers the event processing function when the ad content fails to be loaded.
+     *
+     * @param { OnAdsEventLoadingErrorHandle } callback - This function is used to process ad content loading failures.
+     *     This function needs to be implemented by the application.
+     *     <br>The first parameter is used to transfer the advertisement ID, and the second parameter is used to
+     *     transfer the failure cause.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsEventListenerLoadingError(callback: OnAdsEventLoadingErrorHandle): void;
+
+    /**
+     * Registers the processing function for the event triggered when a new ad content is played.
+     *
+     * @param { OnAdsEventAdsStartedHandle } callback - Processing function when the ad content starts to be played.
+     *     The logic for switching the playback page is commonly used.
+     *     <br>The first parameter indicates the ID of the advertisement that is being played, and the second parameter
+     *     indicates the duration of the advertisement.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsStarted(callback: OnAdsEventAdsStartedHandle): void;
+
+    /**
+     * Registers the processing function of the event triggered when advertisement is skipped.
+     *
+     * @param { Callback<string> } callback - Processing function for the advertisement to be jumped out of date. The
+     *     parameter is passed as the ID of the skipped advertisement.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsSkipped(callback: Callback<string>): void;
+
+    /**
+     * Registers the processing function of the event triggered by the completion of ad content playing.
+     *
+     * @param { Callback<string> } callback - Processing function of the ad event, which contains the ID of the ad that
+     *     is played.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onAdsListenerAdsCompleted(callback: Callback<string>): void;
+
+    /**
+     * Unregisters the event processing function when the ad content fails to be loaded.
+     *
+     * @param { OnAdsEventLoadingErrorHandle } [callback] - Ad content loading failure processing function.
+     *     <br>Default value: If this parameter is not specified, all processing functions of the event are
+     *     deregistered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsEventListenerLoadingError(callback?: OnAdsEventLoadingErrorHandle): void;
+
+    /**
+     * Unregisters the processing function for the event triggered when a new ad content is played.
+     *
+     * @param { OnAdsEventAdsStartedHandle } [callback] - Processing function when the ad content starts to be played.
+     *     It is usually used to switch the logic of the playback page.
+     *     <br>Default value: If this parameter is not specified, all processing functions of the event are
+     *     deregistered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsStarted(callback?: OnAdsEventAdsStartedHandle): void;
+
+    /**
+     * Unregisters the processing function of the event triggered when advertisement is skipped.
+     *
+     * @param { Callback<string> } [callback] - Advertisement Skipped Processing Function.
+     *     <br>Default value: If this parameter is not specified, all processing functions of the event are
+     *     deregistered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsSkipped(callback?: Callback<string>): void;
+
+    /**
+     * Unregisters the processing function of the event triggered by the completion of ad content playing.
+     *
+     * @param { Callback<string> } [callback] - Processing function of the advertisement playing completion event.
+     *     <br>Default value: If this parameter is not specified, all processing functions of the event are
+     *     deregistered.
+     * @syscap SystemCapability.Multimedia.Media.AVPlayer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offAdsListenerAdsCompleted(callback?: Callback<string>): void;
+  }
+
+  /**
    * Creates a **VideoPlayer** instance. This API uses an asynchronous callback to return the result.
    *
    * @param { AsyncCallback<VideoPlayer> } callback - Callback used to return the result. If the operation is successful
