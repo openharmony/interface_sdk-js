@@ -19,11 +19,8 @@
  */
 
 import { AsyncCallback } from './@ohos.base';
-
 import type common2D from './@ohos.graphics.common2D';
-
 import type image from './@ohos.multimedia.image';
-
 /*** if arkts static */
 import { LinearGradientBlurOptions} from '@ohos.arkui.component';
 /*** endif */
@@ -384,7 +381,7 @@ declare namespace uiEffect {
      * @since 12 dynamic
      * @since 23 static
      */
-    DECAL = 3
+    DECAL = 3,
   }
 
   /**
@@ -435,7 +432,7 @@ declare namespace uiEffect {
      * @since 17 dynamic
      * @since 23 static
      */
-    MINI_RECV = 3
+    MINI_RECV = 3,
   }
 
   /**
@@ -466,7 +463,7 @@ declare namespace uiEffect {
      * @since 12 dynamic
      * @since 23 static
      */
-    TOP = 1
+    TOP = 1,
   }
 
   /**

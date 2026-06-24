@@ -18,13 +18,10 @@
  * @kit ArkGraphics2D
  */
 
-import { FractionStop } from './arkui/component/common';
-
 /*** if arkts dynamic */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
 /*** endif */
-
 /*** if arkts static */
 import { AsyncCallback } from './@ohos.base';
 import image from './@ohos.multimedia.image';
@@ -722,7 +719,7 @@ declare namespace effectKit {
      * @since 14 dynamic
      * @since 23 static
      */
-    DECAL = 3
+    DECAL = 3,
   }
 
   /**
@@ -803,7 +800,7 @@ declare namespace effectKit {
      * @since 22 dynamic
      * @since 23 static
      */
-    EXTREMELY_DARK_PICTURE = 6
+    EXTREMELY_DARK_PICTURE = 6,
   }
 
   /**
@@ -854,7 +851,7 @@ declare namespace effectKit {
      * @since 22 dynamic
      * @since 23 static
      */
-    VERY_FLOWERY_PICTURE = 3
+    VERY_FLOWERY_PICTURE = 3,
   }
 
   /**
