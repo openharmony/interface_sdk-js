@@ -3301,7 +3301,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700003 - Background usage is prohibited.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
-   * @throws { BusinessError } 16700103 - User canceled.
+   * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.ContactsData
    * @stagemodelonly
    * @atomicservice
@@ -3339,7 +3339,7 @@ declare namespace contact {
    * @throws { BusinessError } 16700001 - General error.
    * @throws { BusinessError } 16700002 - Invalid parameter value.
    * @throws { BusinessError } 16700004 - The number of contacts exceeds the limit.
-   * @throws { BusinessError } 16700103 - User canceled.
+   * @throws { BusinessError } 16700103 - User cancel.
    * @syscap SystemCapability.Applications.Contacts
    * @stagemodelonly
    * @atomicservice
