@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -5361,20 +5361,13 @@ export class UIContext {
 
   /**
    * Get FocusController.
-   * @returns { FocusController } the FocusController
+   *
+   * @returns { FocusController } - the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get FocusController.
-   * @returns { FocusController } the FocusController
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getFocusController(): FocusController;
 

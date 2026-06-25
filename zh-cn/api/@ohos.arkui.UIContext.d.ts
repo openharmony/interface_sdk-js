@@ -5050,20 +5050,13 @@ export class UIContext {
 
   /**
    * get object ComponentUtils.
+   *
    * @returns { ComponentUtils } object ComponentUtils.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * get object ComponentUtils.
-   * @returns { ComponentUtils } object ComponentUtils.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getComponentUtils(): ComponentUtils;
 
@@ -5450,27 +5443,13 @@ export class UIContext {
 
   /**
    * Get DragController.
+   *
    * @returns { DragController } the DragController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get DragController.
-   * @returns { DragController } the DragController
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Get DragController.
-   * @returns { DragController } the DragController
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getDragController(): DragController;
 
@@ -5500,20 +5479,13 @@ export class UIContext {
 
   /**
    * Get FocusController.
-   * @returns { FocusController } the FocusController
+   *
+   * @returns { FocusController } - the FocusController
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get FocusController.
-   * @returns { FocusController } the FocusController
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getFocusController(): FocusController;
 
@@ -5720,20 +5692,13 @@ export class UIContext {
 
   /**
    * Get ComponentSnapshot.
+   *
    * @returns { ComponentSnapshot } the ComponentSnapshot
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Get ComponentSnapshot.
-   * @returns { ComponentSnapshot } the ComponentSnapshot
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getComponentSnapshot(): ComponentSnapshot;
 
