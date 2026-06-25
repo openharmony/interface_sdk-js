@@ -26,10 +26,11 @@ import { GesturePoint } from '@ohos.accessibility.GesturePoint';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, ElementAttributeKeys,
   ElementAttributeValues, FocusDirection, FocusType, Rect, WindowType, AccessibilityEvent, AccessibilityEventInfo,
-  Parameter, FocusRule, FocusCondition, FocusMoveResult
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, AccessibilityVirtualNode, TouchPosition
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode,
-  InjectActionType, AccessibilityFocusScene, FocusRuleType } from '@ohos.accessibility';
+  InjectActionType, AccessibilityFocusScene, FocusRuleType, OperateVirtualNodeResult,
+  AccessibilitySourceType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts static */
@@ -37,10 +38,11 @@ import config from '@ohos.accessibility.config';
 import accessibility from '@ohos.accessibility';
 import AccessibilityExtensionAbility, {
   AccessibilityElement, AccessibilityExtensionContext, FocusDirection, Rect, WindowType, AccessibilityEventInfo,
-  Parameter, FocusRule, FocusCondition, FocusMoveResult
+  Parameter, FocusRule, FocusCondition, FocusMoveResult, AccessibilityVirtualNode, TouchPosition
 } from '@ohos.application.AccessibilityExtensionAbility';
 import { AccessibilityEventType, AccessibilityAction, FocusMoveResultCode,
-  InjectActionType, AccessibilityFocusScene, FocusRuleType } from '@ohos.accessibility';
+  InjectActionType, AccessibilityFocusScene, FocusRuleType, OperateVirtualNodeResult,
+  AccessibilitySourceType } from '@ohos.accessibility';
 /*** endif */
 
 /*** if arkts dynamic */
@@ -50,7 +52,7 @@ export {
   GesturePoint, Rect, WindowType, accessibility, config, AccessibilityEvent, AccessibilityEventInfo,
   AccessibilityAction, AccessibilityEventType, Parameter,
   FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType, AccessibilityFocusScene,
-  FocusRuleType
+  AccessibilityVirtualNode, TouchPosition, FocusRuleType, OperateVirtualNodeResult, AccessibilitySourceType
 };
 /*** endif */
 
@@ -59,6 +61,6 @@ export {
   AccessibilityElement, AccessibilityExtensionAbility, AccessibilityExtensionContext, FocusDirection, Rect,
   WindowType, accessibility, config, AccessibilityEventInfo, AccessibilityAction, AccessibilityEventType,
   Parameter, FocusRule, FocusCondition, FocusMoveResult, FocusMoveResultCode, InjectActionType, AccessibilityFocusScene,
-  FocusRuleType
+  AccessibilityVirtualNode, TouchPosition, FocusRuleType, OperateVirtualNodeResult, AccessibilitySourceType
 };
 /*** endif */
