@@ -5122,23 +5122,14 @@ export class UIContext {
   showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
   /**
-   * actionSheet display.
-   *
-   * @param { ActionSheetOptions } value - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Shows an action sheet in the given settings.
    *
    * @param { ActionSheetOptions } value - Parameters of the action sheet.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showActionSheet(value: ActionSheetOptions): void;
 

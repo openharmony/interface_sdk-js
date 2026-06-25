@@ -21,23 +21,12 @@
 /**
  * common enum of the checkbox shape
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * common enum of the checkbox shape
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum CheckBoxShape {
   /**
@@ -47,17 +36,8 @@ declare enum CheckBoxShape {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Circle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CIRCLE = 0,
 
@@ -68,17 +48,8 @@ declare enum CheckBoxShape {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Rounded Square.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   ROUNDED_SQUARE = 1,
 }
@@ -6405,20 +6376,12 @@ declare enum RenderFit {
 
 /**
  * The Button Style of dialog,
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * The Button Style of dialog,
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum DialogButtonStyle {
   /**
@@ -6741,21 +6704,11 @@ declare type Nullable<T> = T | undefined;
 /**
  * Decide whether the width of select menu fit the trigger or content 
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Decide whether the width of select menu fit the trigger or content 
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum OptionWidthMode {
   /**
@@ -6764,16 +6717,8 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The menu width fit the content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FIT_CONTENT = 'fit_content',
 
@@ -6783,16 +6728,8 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The menu width fit the trigger.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FIT_TRIGGER = 'fit_trigger',
 }
