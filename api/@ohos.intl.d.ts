@@ -44,7 +44,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 6 dynamiconly
    * @deprecated since 20
-   * @useinstead [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#options)
+   * @useinstead [Intl.LocaleOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#options)
    */
   export interface LocaleOptions {
     /**
@@ -62,7 +62,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#calendar)
+     * @useinstead [Intl.LocaleOptions.calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#calendar)
      */
     calendar?: string;
 
@@ -109,7 +109,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [collation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#collation)
+     * @useinstead [Intl.LocaleOptions.collation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#collation)
      */
     collation?: string;
 
@@ -126,7 +126,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#hourcycle)
+     * @useinstead [Intl.LocaleOptions.hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#hourcycle)
      */
     hourCycle?: string;
 
@@ -149,7 +149,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#numberingsystem)
+     * @useinstead [Intl.LocaleOptions.numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#numberingsystem)
      */
     numberingSystem?: string;
 
@@ -167,7 +167,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#numeric)
+     * @useinstead [Intl.LocaleOptions.numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#numeric)
      */
     numeric?: boolean;
 
@@ -188,7 +188,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [caseFirst](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#casefirst)
+     * @useinstead [Intl.LocaleOptions.caseFirst](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale#casefirst)
      */
     caseFirst?: string;
   }
@@ -202,7 +202,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 6 dynamiconly
    * @deprecated since 20
-   * @useinstead [Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)
+   * @useinstead [Intl.Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale)
    */
   export class Locale {
     /**
@@ -214,7 +214,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale)
+     * @useinstead [Intl.Locale.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale)
      */
     constructor();
 
@@ -230,7 +230,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [Locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale)
+     * @useinstead [Intl.Locale.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/Locale)
      */
     constructor(locale: string, options?: LocaleOptions);
 
@@ -243,7 +243,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/language)
+     * @useinstead [Intl.LocaleOptions.language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/language)
      */
     language: string;
 
@@ -256,7 +256,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [script](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/script)
+     * @useinstead [Intl.LocaleOptions.script](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/script)
      */
     script: string;
 
@@ -269,7 +269,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [region](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/region)
+     * @useinstead [Intl.LocaleOptions.region](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/region)
      */
     region: string;
 
@@ -282,7 +282,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [baseName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/baseName)
+     * @useinstead [Intl.LocaleOptions.baseName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/baseName)
      */
     baseName: string;
 
@@ -298,7 +298,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [caseFirst](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/caseFirst)
+     * @useinstead [Intl.LocaleOptions.caseFirst](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/caseFirst)
      */
     caseFirst: string;
 
@@ -317,7 +317,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)
+     * @useinstead [Intl.LocaleOptions.calendar](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/calendar)
      */
     calendar: string;
 
@@ -346,7 +346,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [collation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation)
+     * @useinstead [Intl.LocaleOptions.collation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/collation)
      */
     collation: string;
 
@@ -362,7 +362,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle)
+     * @useinstead [Intl.LocaleOptions.hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/hourCycle)
      */
     hourCycle: string;
 
@@ -382,7 +382,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem)
+     * @useinstead [Intl.LocaleOptions.numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numberingSystem)
      */
     numberingSystem: string;
 
@@ -396,7 +396,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numeric)
+     * @useinstead [Intl.LocaleOptions.numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/numeric)
      */
     numeric: boolean;
 
@@ -410,7 +410,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/toString)
+     * @useinstead [Intl.Locale.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/toString)
      */
     toString(): string;
 
@@ -424,7 +424,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [maximize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/maximize)
+     * @useinstead [Intl.Locale.maximize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/maximize)
      */
     maximize(): Locale;
 
@@ -438,7 +438,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamiconly
      * @deprecated since 20
-     * @useinstead [minimize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/minimize)
+     * @useinstead [Intl.Locale.minimize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Locale/minimize)
      */
     minimize(): Locale;
   }
@@ -453,7 +453,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 6 dynamic
    * @deprecated since 20
-   * @useinstead [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
+   * @useinstead [Intl.DateTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)
    */
   export interface DateTimeOptions {
     /**
@@ -488,7 +488,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [dateStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#datestyle)
+     * @useinstead [Intl.DateTimeFormatOptions.dateStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#datestyle)
      */
     dateStyle?: string;
 
@@ -508,7 +508,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [timeStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timestyle)
+     * @useinstead [Intl.DateTimeFormatOptions.timeStyle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timestyle)
      */
     timeStyle?: string;
 
@@ -531,7 +531,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle)
+     * @useinstead [Intl.DateTimeFormatOptions.hourCycle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hourcycle)
      */
     hourCycle?: string;
 
@@ -546,7 +546,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone)
+     * @useinstead [Intl.DateTimeFormatOptions.timeZone](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezone)
      */
     timeZone?: string;
 
@@ -569,7 +569,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#numberingsystem)
+     * @useinstead [Intl.DateTimeFormatOptions.numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#numberingsystem)
      */
     numberingSystem?: string;
 
@@ -590,7 +590,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12)
+     * @useinstead [Intl.DateTimeFormatOptions.hour12](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour12)
      */
     hour12?: boolean;
 
@@ -610,7 +610,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [weekday](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#weekday)
+     * @useinstead [Intl.DateTimeFormatOptions.weekday](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#weekday)
      */
     weekday?: string;
 
@@ -630,7 +630,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [era](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#era)
+     * @useinstead [Intl.DateTimeFormatOptions.era](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#era)
      */
     era?: string;
 
@@ -650,7 +650,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year)
+     * @useinstead [Intl.DateTimeFormatOptions.year](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#year)
      */
     year?: string;
 
@@ -670,7 +670,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month)
+     * @useinstead [Intl.DateTimeFormatOptions.month](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#month)
      */
     month?: string;
 
@@ -687,7 +687,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [day](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#day)
+     * @useinstead [Intl.DateTimeFormatOptions.day](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#day)
      */
     day?: string;
 
@@ -704,7 +704,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [hour](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour)
+     * @useinstead [Intl.DateTimeFormatOptions.hour](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#hour)
      */
     hour?: string;
 
@@ -721,7 +721,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [minute](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#minute)
+     * @useinstead [Intl.DateTimeFormatOptions.minute](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#minute)
      */
     minute?: string;
 
@@ -738,7 +738,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [second](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#second)
+     * @useinstead [Intl.DateTimeFormatOptions.second](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#second)
      */
     second?: string;
 
@@ -758,7 +758,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename)
+     * @useinstead [Intl.DateTimeFormatOptions.timeZoneName](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#timezonename)
      */
     timeZoneName?: string;
 
@@ -778,7 +778,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [dayPeriod](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#dayperiod)
+     * @useinstead [Intl.DateTimeFormatOptions.dayPeriod](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#dayperiod)
      */
     dayPeriod?: string;
 
@@ -796,7 +796,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#localematcher)
+     * @useinstead [Intl.DateTimeFormatOptions.localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#localematcher)
      */
     localeMatcher?: string;
 
@@ -814,7 +814,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [formatMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#formatmatcher)
+     * @useinstead [Intl.DateTimeFormatOptions.formatMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#formatmatcher)
      */
     formatMatcher?: string;
   }
@@ -828,7 +828,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 6 dynamic
    * @deprecated since 20
-   * @useinstead [DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
+   * @useinstead [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat)
    */
   export class DateTimeFormat {
     /**
@@ -840,7 +840,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamic
      * @deprecated since 20
-     * @useinstead [DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)
+     * @useinstead [Intl.DateTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)
      */
     constructor();
 
@@ -857,7 +857,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)
+     * @useinstead [Intl.DateTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)
      */
     constructor(locale: string | Array<string>, options?: DateTimeOptions);
 
@@ -872,7 +872,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format)
+     * @useinstead [Intl.DateTimeFormat.format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/format)
      */
     format(date: Date): string;
 
@@ -890,7 +890,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [formatRange](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange)
+     * @useinstead [Intl.DateTimeFormat.formatRange](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/formatRange)
      */
     formatRange(startDate: Date, endDate: Date): string;
 
@@ -904,7 +904,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 6 dynamic
      * @deprecated since 20
-     * @useinstead [resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions)
+     * @useinstead [Intl.DateTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions)
      */
     resolvedOptions(): DateTimeOptions;
   }
@@ -1645,7 +1645,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 8 dynamiconly
    * @deprecated since 20
-   * @useinstead [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
+   * @useinstead [Intl.PluralRulesOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#options)
    */
   export interface PluralRulesOptions {
     /**
@@ -1660,7 +1660,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#localematcher)
+     * @useinstead [Intl.PluralRulesOptions.localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#localematcher)
      */
     localeMatcher?: string;
 
@@ -1678,7 +1678,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type)
+     * @useinstead [Intl.PluralRulesOptions.type](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules#type)
      */
     type?: string;
 
@@ -1694,7 +1694,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [minimumIntegerDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumintegerdigits)
+     * @useinstead [Intl.PluralRulesOptions.minimumIntegerDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumintegerdigits)
      */
     minimumIntegerDigits?: int;
 
@@ -1710,7 +1710,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits)
+     * @useinstead [Intl.PluralRulesOptions.minimumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumfractiondigits)
      */
     minimumFractionDigits?: int;
 
@@ -1726,7 +1726,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits)
+     * @useinstead [Intl.PluralRulesOptions.maximumFractionDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumfractiondigits)
      */
     maximumFractionDigits?: int;
 
@@ -1742,7 +1742,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [minimumSignificantDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumsignificantdigits)
+     * @useinstead [Intl.PluralRulesOptions.minimumSignificantDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#minimumsignificantdigits)
      */
     minimumSignificantDigits?: int;
 
@@ -1758,7 +1758,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [maximumSignificantDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumsignificantdigits)
+     * @useinstead [Intl.PluralRulesOptions.maximumSignificantDigits](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#maximumsignificantdigits)
      */
     maximumSignificantDigits?: int;
   }
@@ -1771,7 +1771,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 8 dynamiconly
    * @deprecated since 20
-   * @useinstead [PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)
+   * @useinstead [Intl.PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules)
    */
   export class PluralRules {
     /**
@@ -1782,7 +1782,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
+     * @useinstead [Intl.PluralRules.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
      */
     constructor();
 
@@ -1797,7 +1797,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [PluralRules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
+     * @useinstead [Intl.PluralRules.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/PluralRules)
      */
     constructor(locale: string | Array<string>, options?: PluralRulesOptions);
 
@@ -1814,7 +1814,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [select](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
+     * @useinstead [Intl.PluralRules.select](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/PluralRules/select)
      */
     select(n: double): string;
   }
@@ -1828,7 +1828,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 8 dynamiconly
    * @deprecated since 20
-   * @useinstead [options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#options)
+   * @useinstead [Intl.RelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#options)
    */
   export interface RelativeTimeFormatInputOptions {
     /**
@@ -1843,7 +1843,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#localematcher)
+     * @useinstead [Intl.RelativeTimeFormatOptions.localeMatcher](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#localematcher)
      */
     localeMatcher?: string;
 
@@ -1863,7 +1863,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#numeric)
+     * @useinstead [Intl.RelativeTimeFormatOptions.numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#numeric)
      */
     numeric?: string;
 
@@ -1879,7 +1879,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#style)
+     * @useinstead [Intl.RelativeTimeFormatOptions.style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat#style)
      */
     style?: string;
   }
@@ -1892,7 +1892,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 8 dynamiconly
    * @deprecated since 20
-   * @useinstead [Return value](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#return_value)
+   * @useinstead [Intl.ResolvedRelativeTimeFormatOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#return_value)
    */
   export interface RelativeTimeFormatResolvedOptions {
     /**
@@ -1903,7 +1903,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#locale)
+     * @useinstead [Intl.ResolvedRelativeTimeFormatOptions.locale](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#locale)
      */
     locale: string;
 
@@ -1918,7 +1918,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#style)
+     * @useinstead [Intl.ResolvedRelativeTimeFormatOptions.style](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#style)
      */
     style: string;
 
@@ -1934,7 +1934,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#numeric)
+     * @useinstead [Intl.ResolvedRelativeTimeFormatOptions.numeric](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#numeric)
      */
     numeric: string;
 
@@ -1954,7 +1954,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#numberingsystem)
+     * @useinstead [Intl.ResolvedRelativeTimeFormatOptions.numberingSystem](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions#numberingsystem)
      */
     numberingSystem: string;
   }
@@ -1967,7 +1967,7 @@ declare namespace intl {
    * @atomicservice [since 12]
    * @since 8 dynamiconly
    * @deprecated since 20
-   * @useinstead [RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)
+   * @useinstead [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat)
    */
   export class RelativeTimeFormat {
     /**
@@ -1978,7 +1978,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat)
+     * @useinstead [Intl.RelativeTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat)
      */
     constructor();
 
@@ -1993,7 +1993,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [RelativeTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat)
+     * @useinstead [Intl.RelativeTimeFormat.constructor](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/RelativeTimeFormat)
      */
     constructor(locale: string | Array<string>, options?: RelativeTimeFormatInputOptions);
 
@@ -2010,7 +2010,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format)
+     * @useinstead [Intl.RelativeTimeFormat.format](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/format)
      */
     format(value: double, unit: string): string;
 
@@ -2027,7 +2027,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [formatToParts](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts)
+     * @useinstead [Intl.RelativeTimeFormat.formatToParts](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/formatToParts)
      */
     formatToParts(value: double, unit: string): Array<object>;
 
@@ -2040,7 +2040,7 @@ declare namespace intl {
      * @atomicservice [since 12]
      * @since 8 dynamiconly
      * @deprecated since 20
-     * @useinstead [resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions)
+     * @useinstead [Intl.RelativeTimeFormat.resolvedOptions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/RelativeTimeFormat/resolvedOptions)
      */
     resolvedOptions(): RelativeTimeFormatResolvedOptions;
   }
