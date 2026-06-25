@@ -313,6 +313,68 @@ declare namespace uiMaterial {
      */
     ULTRA_THICK_EC_SUB = 14
   }
+
+  /**
+   * Enumerates the material levels, which indicate the computing power level of the device.
+   * Use [getGlobalMaterialLevel]{@link uiMaterial.getGlobalMaterialLevel()} to obtain the material level
+   * of the current device.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export enum MaterialLevel {
+    /**
+     * Material level of devices with high-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    EXQUISITE = 0,
+    /**
+     * Material level of devices with mid-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    GENTLE = 1,
+    /**
+     * Material level of devices with low-level computing power.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    SMOOTH = 2,
+  }
+
+  /**
+   * Obtains the global material level, which is related to the device computing power. This configuration item
+   * is defined by the device and cannot be modified.
+   *
+   * @returns { MaterialLevel } Material level of the device.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export function getGlobalMaterialLevel(): MaterialLevel;
+
+  /**
+   * Check whether [ImmersiveMaterial]{@link uiMaterial#ImmersiveMaterial} is supported on the current device.
+   * If it is true, the ImmersiveMaterial object can be used in the
+   * [systemMaterial]{@link CommonMethod#systemMaterial(material: SystemUiMaterial | undefined)} attribute.
+   * If it is false, setting the ImmersiveMaterial object in the systemMaterial attribute will not take effect.
+   * It is defined by the device and cannot be modified.
+   *
+   * @returns { boolean } Whether the current device supports ImmersiveMaterial. The value true indicates that the
+   *     current device supports ImmersiveMaterial, and false indicates the opposite.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  export function isImmersiveMaterialSupported(): boolean;
  
   /**
    * Convert from ImmersiveMaterial to another ImmersiveMaterial set on EffectComponent.
