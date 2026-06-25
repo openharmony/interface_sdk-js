@@ -315,4 +315,405 @@ export namespace StorageModule {
   export function createCache(policy: CachePolicy): CacheManager {
     return new CacheManager(policy);
   }
+
+  /**
+   * @since 20
+   * @systemapi
+   */
+  export interface CommonEventData {
+    /**
+     * Name of the common event that is being received.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @crossplatform [since 11]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    event: string;
+
+    /**
+     * Bundle name. The default value is an empty string.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    bundleName?: string;
+
+    /**
+     * Common event data received by the subscriber. The value of this field is the same as that of the **code** field in
+     * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+     * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+     * to publish a common event. The default value is **0**.
+     *
+     * @default 0
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    code?: int;
+
+    /**
+     * Common event data received by the subscriber. The value of this field is the same as that of the **data** field in
+     * [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData} when the publisher uses
+     * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+     * to publish a common event.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     * @since 23 static
+     */
+    data?: string;
+
+    /**
+     * Additional information about the common event received by the subscriber. The value of this field is the same as
+     * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
+     * when the publisher uses
+     * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+     * to publish a common event.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @atomicservice [since 11]
+     * @since 7 dynamic
+     */
+    parameters?: { [key: string]: any };
+
+    /**
+     * Additional information about the common event received by the subscriber. The value of this field is the same as
+     * that of the **parameters** field in [CommonEventPublishData]{@link commonEventPublishData:CommonEventPublishData}
+     * when the publisher uses
+     * [commonEventManager.publish]{@link ./../@ohos.commonEventManager:commonEventManager.publish(event: string, options: CommonEventPublishData, callback: AsyncCallback<void>)}
+     * to publish a common event.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @since 23 static
+     */
+    parameters?: Record<string, RecordData>;
+  }
+
+  /**
+   * @since 20
+   * @systemapi
+   */
+  export interface AgentCard {
+    /**
+     * A unique identifier for the agent card.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    agentId: string;
+
+    /**
+     *  The name of the Agent.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    name: string;
+
+    /**
+     * The description of the Agent's function.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    description: string;
+
+    /**
+     * The type of the AgentCard.
+     * When `type` is `agentConstant.AgentCardType.LOW_CODE`, the corresponding application must be a system application.
+     * Otherwise, the agent card cannot be registered, installed, or updated.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    type?: agentConstant.AgentCardType;
+
+    /**
+     * Service provider information for the Agent.
+     *
+     * @type { ?AgentProvider }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    provider?: AgentProvider;
+
+    /**
+     * Version of the Agent (format defined by provider, e.g., "1.0.0").
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    version: string;
+
+    /**
+     * Url for the Agent's documentation.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    documentationUrl?: string;
+
+    /**
+     * Capability set supported by the agent.
+     *
+     * @type { ?AgentCapabilities }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    capabilities?: AgentCapabilities;
+
+    /**
+     * The set of interaction modes that the agent supports across all skills.
+     * This can be overridden per skill. Defined as media types.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    defaultInputModes: Array<string>;
+
+    /**
+     * The media types supported as outputs from this agent.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    defaultOutputModes: Array<string>;
+
+    /**
+     * Skills represent the abilities of an agent.
+     *
+     * @type { Array<AgentSkill> }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    skills: Array<AgentSkill>;
+
+    /**
+     * A url to an icon for the agent.
+     *
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    iconUrl: string;
+
+    /**
+     * The category of this agent.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    category: string;
+
+    /**
+     * Extension configuration items for the agent.
+     *
+     * @type { ?string }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    extension?: string;
+
+    /**
+     * Application-related information for the agent.
+     *
+     * @type { AgentAppInfo }
+     * @syscap SystemCapability.Ability.AgentRuntime.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 24 dynamic&static
+     */
+    appInfo: AgentAppInfo;
+  }
+
+  /**
+   * @since 20
+   * @systemapi
+   */
+  export declare enum PopupPlacement {
+    /**
+     * The popup is on the left of the component and aligned with the left center of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    LEFT = 0,
+
+    /**
+     * The popup is on the right of the component and aligned with the right center of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    RIGHT = 1,
+
+    /**
+     * The popup is at the top of the component and aligned with the top center of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    TOP = 2,
+
+    /**
+     * The popup is at the bottom of the component and aligned with the bottom center of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    BOTTOM = 3,
+
+    /**
+     * The popup is at the top of the component and aligned with the left edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    TOP_LEFT = 4,
+
+    /**
+     * The popup is at the top of the component and aligned with the right edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    TOP_RIGHT = 5,
+
+    /**
+     * The popup is at the bottom of the component and aligned with the left edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    BOTTOM_LEFT = 6,
+
+    /**
+     * The popup is at the bottom of the component and aligned with the right edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    BOTTOM_RIGHT = 7,
+
+    /**
+     * The popup is on the left of the component and aligned with the top edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    LEFT_TOP = 8,
+
+    /**
+     * The popup is on the left of the component and aligned with the bottom edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    LEFT_BOTTOM = 9,
+
+    /**
+     * The popup is on the right of the component and aligned with the top edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    RIGHT_TOP = 10,
+
+    /**
+     * The popup is on the right of the component and aligned with the bottom edge of the component.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    RIGHT_BOTTOM = 11,
+
+    /**
+     * The position is unspecified.
+     *
+     * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
+     * @systemapi
+     * @stagemodelonly
+     * @since 12 dynamic
+     * @since 23 static
+     */
+    NONE = 12
+  }
 }
