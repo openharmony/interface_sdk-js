@@ -524,7 +524,7 @@ declare namespace unifiedDataChannel {
      * @param { string } type - Type of the data record to create.
      * @param { ValueType } value - Value of the data record to create.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:1.Mandatory parameters are left unspecified;
-     *     <br>2.Incorrect parameters types;
+     *     <br>2.Incorrect parameter types;
      *     <br>3.Parameter verification failed.
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
      * @stagemodelonly
