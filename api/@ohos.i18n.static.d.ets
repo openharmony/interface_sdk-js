@@ -87,10 +87,10 @@ declare namespace i18n {
     /**
      * Obtains the list of system languages.
      *
-     * @returns { Array<string> } List of system languages. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { Array<string> } List of system languages.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getSystemLanguages(): Array<string>;
@@ -98,14 +98,14 @@ declare namespace i18n {
     /**
      * Obtains the list of countries/regions supported for the specified language.
      *
-     * @param { string } language - Valid language ID. [since 23]
-     * @returns { Array<string> } List of countries/regions supported for the specified language. [since 23]
+     * @param { string } language - Valid language ID.
+     * @returns { Array<string> } List of countries/regions supported for the specified language.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getSystemCountries(language: string): Array<string>;
@@ -114,17 +114,17 @@ declare namespace i18n {
      * Checks whether a language is a suggested language in the specified region. It can be used for region-based
      * language recommendation or language-based region recommendation.
      *
-     * @param { string } language - Valid language ID, for example, "zh". [since 23]
+     * @param { string } language - Valid language ID, for example, "zh".
      * @param { string } [region] - Valid region ID, for example, "CN". The default value is the country/region of the
-     *     SIM card. [since 23]
+     *     SIM card.
      * @returns { boolean } Whether a language is a suggested language. The value "true" indicates that the language
-     *     is a suggested language of the region, the the value "false" indicates the opposite. [since 23]
+     *     is a suggested language of the region, the the value "false" indicates the opposite.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static isSuggested(language: string, region?: string): boolean;
@@ -144,17 +144,17 @@ declare namespace i18n {
     /**
      * Sets the system language.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
-     * @param { string } language - Valid language ID. [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid language ID.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static setSystemLanguage(language: string): void;
@@ -173,17 +173,17 @@ declare namespace i18n {
     /**
      * Sets the system region.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
-     * @param { string } region - Valid region ID. [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } region - Valid region ID.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static setSystemRegion(region: string): void;
@@ -215,19 +215,19 @@ declare namespace i18n {
     /**
      * Sets whether to use the 24-hour clock.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { boolean } option - Whether to use the 24-hour clock. The value "true" means to use the 24-hour clock,
-     *     the the value "false" means the opposite. [since 23]
+     *     the the value "false" means the opposite.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification
      *     failed. [since 23 - 24]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static set24HourClock(option: boolean): void;
@@ -235,19 +235,19 @@ declare namespace i18n {
     /**
      * Adds a preferred language to the specified position on the preferred language list.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
-     * @param { string } language - Valid ID of the language to be added as a preferred language. [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { string } language - Valid ID of the language to be added as a preferred language.
      * @param { int } [index] - Position to which the preferred language is added. The default value is the length
-     *     of the preferred language list. [since 23]
+     *     of the preferred language list.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static addPreferredLanguage(language: string, index?: int): void;
@@ -255,18 +255,18 @@ declare namespace i18n {
     /**
      * Removes a preferred language from the specified position on the preferred language list.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
-     * @param { int } index - Position of the preferred language to delete. [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
+     * @param { int } index - Position of the preferred language to delete.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification
      *     failed. [since 23 - 24]
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static removePreferredLanguage(index: int): void;
@@ -274,10 +274,10 @@ declare namespace i18n {
     /**
      * Obtains the list of preferred languages.
      *
-     * @returns { Array<string> } List of preferred languages. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { Array<string> } List of preferred languages.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getPreferredLanguageList(): Array<string>;
@@ -285,10 +285,10 @@ declare namespace i18n {
     /**
      * Obtains the first language in the preferred language list.
      *
-     * @returns { string } First language in the preferred language list. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { string } First language in the preferred language list.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getFirstPreferredLanguage(): string;
@@ -323,17 +323,17 @@ declare namespace i18n {
     /**
      * Specifies whether to enable use of local digits.
      *
-     * @permission ohos.permission.UPDATE_CONFIGURATION [since 23]
+     * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { boolean } flag - Whether to turn on the local digit switch. The value "true" means to turn on the local
-     *     digit switch, and the value "false" indicates the opposite. [since 23]
+     *     digit switch, and the value "false" indicates the opposite.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
-     *     required to call the API. [since 23]
+     *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     static setUsingLocalDigit(flag: boolean): void;
@@ -342,10 +342,10 @@ declare namespace i18n {
      * Checks whether use of local digits is enabled.
      *
      * @returns { boolean } Whether use of local digits is enabled. The value "true" indicates that use of local digits
-     *     is enabled, and the value "false" indicates the opposite. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     is enabled, and the value "false" indicates the opposite.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getUsingLocalDigit(): boolean;
@@ -354,18 +354,18 @@ declare namespace i18n {
      * Obtains the simplified representation of a language. For example, the simplified representation of "en-Latn-US"
      * is "en", and that of "en-Latn-GB" is "en-GB".
      *
-     * @param { string } [language] - Valid language ID. The default value is the system language. [since 23]
+     * @param { string } [language] - Valid language ID. The default value is the system language.
      * @returns { string } If language is not passed, the application checks for dialects supported by the system based
      *                     on the system language and locale. If such a dialect is found, the simplified representation
      *                     of the dialect is returned. Otherwise, the simplified representation of the system language
      *                     is returned. If language is passed, the simplified representation of the specified language
      *                     is returned.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getSimplifiedLanguage(language?: string): string;
@@ -388,10 +388,10 @@ declare namespace i18n {
     /**
      * Obtains the temperature unit of the system.
      *
-     * @returns { TemperatureType } Temperature unit. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { TemperatureType } Temperature unit.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getTemperatureType(): TemperatureType;
@@ -399,12 +399,12 @@ declare namespace i18n {
     /**
      * Obtains the name of a temperature unit.
      *
-     * @param { TemperatureType } type - Temperature unit. [since 23]
-     * @returns { string } Name of the temperature unit, which can be "celsius", "fahrenheit", and "kelvin". [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { TemperatureType } type - Temperature unit.
+     * @returns { string } Name of the temperature unit, which can be "celsius", "fahrenheit", and "kelvin".
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getTemperatureName(type: TemperatureType): string;
@@ -427,10 +427,10 @@ declare namespace i18n {
     /**
      * Obtains the first day of a week in the system settings.
      *
-     * @returns { WeekDay } Start day of a week. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { WeekDay } Start day of a week.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getFirstDayOfWeek(): WeekDay;
@@ -627,18 +627,18 @@ declare namespace i18n {
   /**
    * Enumerates the first day of a week. The value ranges from Monday to Sunday.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export enum WeekDay {
     /**
      * Monday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     MON = 1,
@@ -646,9 +646,9 @@ declare namespace i18n {
     /**
      * Tuesday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     TUE = 2,
@@ -656,9 +656,9 @@ declare namespace i18n {
     /**
      * Wednesday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     WED = 3,
@@ -666,9 +666,9 @@ declare namespace i18n {
     /**
      * Thursday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     THU = 4,
@@ -676,9 +676,9 @@ declare namespace i18n {
     /**
      * Friday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     FRI = 5,
@@ -686,9 +686,9 @@ declare namespace i18n {
     /**
      * Saturday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     SAT = 6,
@@ -696,9 +696,9 @@ declare namespace i18n {
     /**
      * Sunday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     SUN = 7
@@ -707,18 +707,18 @@ declare namespace i18n {
   /**
    * Enumerates temperature units.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export enum TemperatureType {
     /**
      * Celsius.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     CELSIUS = 1,
@@ -726,9 +726,9 @@ declare namespace i18n {
     /**
      * Fahrenheit.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     FAHRENHEIT = 2,
@@ -736,9 +736,9 @@ declare namespace i18n {
     /**
      * Kelvin.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     KELVIN = 3
@@ -756,18 +756,18 @@ declare namespace i18n {
     /**
      * Converts one measurement unit into another and formats the unit based on the specified locale and style.
      *
-     * @param { UnitInfo } fromUnit - Measurement unit to be converted. [since 23]
-     * @param { UnitInfo } toUnit - Measurement unit to be converted to. [since 23]
-     * @param { double } value - Value of the measurement unit to be converted. [since 23]
+     * @param { UnitInfo } fromUnit - Measurement unit to be converted.
+     * @param { UnitInfo } toUnit - Measurement unit to be converted to.
+     * @param { double } value - Value of the measurement unit to be converted.
      * @param { string } locale - Locale ID, which consists of the language, script, and country/region, for example,
-     *     "zh-Hans-CN". [since 23]
+     *     "zh-Hans-CN".
      * @param { string } [style] - Style used for formatting. The value can be long, short, or narrow. The default
      *                             value is short. For details about the meaning or display effect of different values,
-     *     see Number and Unit of Measurement Formatting. [since 23]
-     * @returns { string } String converted to the measurement unit after formatting. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     see Number and Unit of Measurement Formatting.
+     * @returns { string } String converted to the measurement unit after formatting.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static unitConvert(fromUnit: UnitInfo, toUnit: UnitInfo, value: double, locale: string, style?: string): string;
@@ -789,16 +789,16 @@ declare namespace i18n {
     /**
      * Obtains the localized expression of the specified time in the specified locale.
      *
-     * @param { int } hour - Specified time, for example, 16. [since 23]
+     * @param { int } hour - Specified time, for example, 16.
      * @param { string } [locale] - System locale, which consists of the language, script, and country/region. for
-     *     example, "zh-Hans-CN". The default value is the current system locale. [since 23]
-     * @returns { string } Localized expression of the specified time in the specified locale. [since 23]
+     *     example, "zh-Hans-CN". The default value is the current system locale.
+     * @returns { string } Localized expression of the specified time in the specified locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getTimePeriodName(hour:int, locale?: string): string;
@@ -825,14 +825,14 @@ declare namespace i18n {
      * is "zh", and the corresponding three-letter language code is "zho". For details, see
      * [ISO 639](https://www.iso.org/iso-639-language-code).
      *
-     * @param { string } locale - Two-letter code of the language to be converted, for example, "zh". [since 23]
-     * @returns { string } Language code after conversion. [since 23]
+     * @param { string } locale - Two-letter code of the language to be converted, for example, "zh".
+     * @returns { string } Language code after conversion.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getThreeLetterLanguage(locale: string): string;
@@ -842,14 +842,14 @@ declare namespace i18n {
      * "CN", and the corresponding three-letter region code is "CHN". For details, see
      * [ISO 3166](https://www.iso.org/iso-3166-country-codes.html).
      *
-     * @param { string } locale - Two-letter country/region code to be converted, for example, "CN". [since 23]
-     * @returns { string } Region code after conversion. [since 23]
+     * @param { string } locale - Two-letter country/region code to be converted, for example, "CN".
+     * @returns { string } Region code after conversion.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getThreeLetterRegion(locale: string): string;
@@ -858,16 +858,16 @@ declare namespace i18n {
      * Localizes a file path for the specified locale. For example, /data/out/tmp is changed to tmp/out/data/ after
      * localization.
      *
-     * @param { string } path - Path to mirror, for example, "/data/out/tmp". [since 23]
-     * @param { string } [delimiter] - Path delimiter. The default value is "/"". [since 23]
-     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale. [since 23]
+     * @param { string } path - Path to mirror, for example, "/data/out/tmp".
+     * @param { string } [delimiter] - Path delimiter. The default value is "/"".
+     * @param { Intl.Locale } [locale] - Locale object. The default value is the current system locale.
      * @returns { string } File path after localization. If the specified locale object corresponds to an RTL language,
      *                     the processed file path contains a direction control character to ensure that the file path
-     *     is displayed in mirror mode. [since 23]
-     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     is displayed in mirror mode.
+     * @throws { BusinessError } 8900001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getUnicodeWrappedFilePath(path: string, delimiter?: string, locale?: Intl.Locale): string;
@@ -906,18 +906,18 @@ declare namespace i18n {
   /**
    * Defines the measurement unit information.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export interface UnitInfo {
     /**
      * Name of the measurement unit, for example, "meter", "inch", or "cup".
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     unit: string;
@@ -925,9 +925,9 @@ declare namespace i18n {
     /**
      * Measurement system. The value can be "SI", "US", or "UK".
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     measureSystem: string;
@@ -1164,12 +1164,12 @@ declare namespace i18n {
     /**
      * Obtains calendar display name in the specified language.
      *
-     * @param { string } locale - System locale, which consists of the language, script, and country/region. [since 23]
+     * @param { string } locale - System locale, which consists of the language, script, and country/region.
      * @returns { string } Calendar display name in the specified language. For example, buddhist is displayed as
-     *     Buddhist Calendar if the locale is en-US. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     Buddhist Calendar if the locale is en-US.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getDisplayName(locale: string): string;
@@ -1254,11 +1254,11 @@ declare namespace i18n {
    *
    * @param { string } locale - System locale, which consists of the language, script, and country/region. The
    *                            generated BreakIterator object calculates the positions of line breaks based on
-   *     the rules of the specified locale. [since 23]
-   * @returns { BreakIterator } BreakIterator object. [since 23]
-   * @syscap SystemCapability.Global.I18n [since 23]
+   *     the rules of the specified locale.
+   * @returns { BreakIterator } BreakIterator object.
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export function getLineInstance(locale: string): BreakIterator;
@@ -1266,19 +1266,19 @@ declare namespace i18n {
   /**
    * The BreakIterator class is used for finding the location of break point in text.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class BreakIterator {
     /**
      * Obtains the position of the break iterator in the text.
      *
-     * @returns { int } Position of the break iterator in the text. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { int } Position of the break iterator in the text.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     current(): int;
@@ -1286,10 +1286,10 @@ declare namespace i18n {
     /**
      * Moves the break iterator to the first line break point, which is always at the beginning of the processed text.
      *
-     * @returns { int } Offset of the first line break point in the processed text. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { int } Offset of the first line break point in the processed text.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     first(): int;
@@ -1298,10 +1298,10 @@ declare namespace i18n {
      * Moves the break iterator to the last line break point, which is always the next position after the end of the
      * processed text.
      *
-     * @returns { int } Offset of the last line break point in the processed text. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { int } Offset of the last line break point in the processed text.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     last(): int;
@@ -1311,12 +1311,12 @@ declare namespace i18n {
      *
      * @param { int } [index] - Number of line break points for moving the break iterator. The value is an integer.
      *                             A positive number means to move the break iterator backward, and a negative number
-     *     means to move the break iterator forward. The default value is 1. [since 23]
+     *     means to move the break iterator forward. The default value is 1.
      * @returns { int } Position of the break iterator in the text after movement. The value -1 is returned if the
-     *     position of the break iterator is outside of the processed text after movement. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     position of the break iterator is outside of the processed text after movement.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     next(index?: int): int;
@@ -1325,10 +1325,10 @@ declare namespace i18n {
      * Moves the break iterator foreward by one line break point.
      *
      * @returns { int } Position of the break iterator in the text after movement. The value -1 is returned if the
-     *     position of the break iterator is outside of the processed text after movement. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     position of the break iterator is outside of the processed text after movement.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     previous(): int;
@@ -1336,10 +1336,10 @@ declare namespace i18n {
     /**
      * Sets the text to be processed by the BreakIterator object.
      *
-     * @param { string } text - Input text. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { string } text - Input text.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     setLineBreakText(text: string): void;
@@ -1347,12 +1347,12 @@ declare namespace i18n {
     /**
      * Moves the line break iterator to the line break point after the specified position.
      *
-     * @param { int } offset - Offset of the line break point. [since 23]
+     * @param { int } offset - Offset of the line break point.
      * @returns { int } Position of the break iterator in the text after movement. The value -1 is returned if the
-     *     position of the break iterator is outside of the processed text after movement. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     position of the break iterator is outside of the processed text after movement.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     following(offset: int): int;
@@ -1360,10 +1360,10 @@ declare namespace i18n {
     /**
      * Obtains the text processed by the BreakIterator object.
      *
-     * @returns { string } Text being processed by the BreakIterator object. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { string } Text being processed by the BreakIterator object.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getLineBreakText(): string;
@@ -1371,15 +1371,15 @@ declare namespace i18n {
     /**
      * Checks whether the specified position is a line break point.
      *
-     * @param { int } offset - Specified position in the text. [since 23]
+     * @param { int } offset - Specified position in the text.
      * @returns { boolean } Whether the specified position is a line break point. The value "true" indicates that the
      *                      specified position is a line break point, and the value "false" indicates the opposite.
      *                      If true is returned, the break iterator is moved to the position specified by offset.
      *                      Otherwise, the break iterator is moved to the text line break point after the position
-     *     specified by offset, which is equivalent to calling following. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     specified by offset, which is equivalent to calling following.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     isBoundary(offset: int): boolean;
@@ -1389,11 +1389,11 @@ declare namespace i18n {
    * Creates an IndexUtil object.
    *
    * @param { string } [locale] - System locale, which consists of the language, script, and country/region.
-   *     The default value is the current system locale. [since 23]
-   * @returns { IndexUtil } IndexUtil object created based on the specified locale ID. [since 23]
-   * @syscap SystemCapability.Global.I18n [since 23]
+   *     The default value is the current system locale.
+   * @returns { IndexUtil } IndexUtil object created based on the specified locale ID.
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export function getInstance(locale?:string): IndexUtil;
@@ -1402,19 +1402,19 @@ declare namespace i18n {
    * Sequence text can be grouped under the specified area,
    * and grouping index with different lengths can be specified.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class IndexUtil {
     /**
      * Obtains the index list of the current locale.
      *
-     * @returns { Array<string> } Index list of the current locale. The first and last elements are "...". [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { Array<string> } Index list of the current locale. The first and last elements are "...".
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getIndexList(): Array<string>;
@@ -1422,10 +1422,10 @@ declare namespace i18n {
     /**
      * Adds the index list of a new locale to the index list of the current locale to form a composite list.
      *
-     * @param { string } locale - System locale, which consists of the language, script, and country/region. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { string } locale - System locale, which consists of the language, script, and country/region.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     addLocale(locale: string): void;
@@ -1433,11 +1433,11 @@ declare namespace i18n {
     /**
      * Obtains the index of the text object.
      *
-     * @param { string } text - text object. [since 23]
-     * @returns { string } Index of the text object. If no proper index is found, an empty string is returned. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { string } text - text object.
+     * @returns { string } Index of the text object. If no proper index is found, an empty string is returned.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getIndex(text: string): string;
@@ -1656,14 +1656,14 @@ declare namespace i18n {
      * Obtains time zone display name in the specified language.
      *
      * @param { string } [locale] - System locale, which consists of the language, script, and country/region.
-     *     The default value is the current system locale. [since 23]
+     *     The default value is the current system locale.
      * @param { boolean } [isDST] - Whether DST information is displayed. The value "true" indicates that DST
      *                              information is displayed, and the value "false" indicates the opposite.
-     *     The default value is false. [since 23]
-     * @returns { string } Time zone display name in the specified language. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     The default value is false.
+     * @returns { string } Time zone display name in the specified language.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getDisplayName(locale?: string, isDST?: boolean): string;
@@ -1740,11 +1740,9 @@ declare namespace i18n {
      * Creates an array of TimeZone objects corresponding to the specified location.
      *
      * @param { double } longitude - Longitude. The value range is
-     *     [-180, 179.9). A positive value is used for east
-longitude and a negative value is used for west longitude.
+     *     [-180, 179.9). A positive value is used for east longitude and a negative value is used for west longitude.
      * @param { double } latitude - Latitude. The value range is
-     *     [-90, 89.9). A positive value is used for north
-latitude and a negative value is used for south latitude.
+     *     [-90, 89.9). A positive value is used for north latitude and a negative value is used for south latitude.
      * @returns { Array<TimeZone> } TimeZone objects corresponding to the specified location.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -1758,10 +1756,10 @@ latitude and a negative value is used for south latitude.
     /**
      * Get the zone rules object corresponds to the timezone objects.
      *
-     * @returns { ZoneRules } Returns a ZoneRuels object which defines timezone offset changing rule. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { ZoneRules } Returns a ZoneRuels object which defines timezone offset changing rule.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     public getZoneRules(): ZoneRules;
@@ -1808,20 +1806,20 @@ latitude and a negative value is used for south latitude.
   /**
    * Provides the API for obtaining timezone offset changing rules information.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class ZoneRules {
     /**
      * Get the next timezone offset transition after date.
      *
-     * @param { double } [date] - Indicates milliseconds. [since 23]
-     * @returns { ZoneOffsetTransition } Returns a timezone offset transition after date. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { double } [date] - Indicates milliseconds.
+     * @returns { ZoneOffsetTransition } Returns a timezone offset transition after date.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     public nextTransition(date?: double): ZoneOffsetTransition;
@@ -1830,19 +1828,19 @@ latitude and a negative value is used for south latitude.
   /**
    * Provides the API for obtaining a timezone transition information.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class ZoneOffsetTransition {
     /**
      * Obtains the timestamp of the change in the time zone offset.
      *
-     * @returns { double } Timestamp of the change in the time zone offset. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { double } Timestamp of the change in the time zone offset.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     public getMilliseconds(): double;
@@ -1850,10 +1848,10 @@ latitude and a negative value is used for south latitude.
     /**
      * Get the offset after time zone offset trasition.
      *
-     * @returns { int } Returns the offset after time zone offset trasition. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { int } Returns the offset after time zone offset trasition.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     public getOffsetAfter(): int;
@@ -1861,10 +1859,10 @@ latitude and a negative value is used for south latitude.
     /**
      * Get the offset before time zone offset trasition.
      *
-     * @returns { int } Returns the offset before time zone offset trasition. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { int } Returns the offset before time zone offset trasition.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     public getOffsetBefore(): int;
@@ -1873,19 +1871,19 @@ latitude and a negative value is used for south latitude.
   /**
    * Provides the API for transliterate text from one format to another.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class Transliterator {
     /**
      * Obtains a list of IDs supported by the Transliterator object.
      *
-     * @returns { string[] } List of IDs supported by the Transliterator object. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @returns { string[] } List of IDs supported by the Transliterator object.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getAvailableIDs(): string[];
@@ -1893,11 +1891,11 @@ latitude and a negative value is used for south latitude.
     /**
      * Creates a Transliterator object based on the specified ID.
      *
-     * @param { string } id - ID supported by the Transliterator object. [since 23]
-     * @returns { Transliterator } Transliterator object. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { string } id - ID supported by the Transliterator object.
+     * @returns { Transliterator } Transliterator object.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getInstance(id: string): Transliterator;
@@ -1905,11 +1903,11 @@ latitude and a negative value is used for south latitude.
     /**
      * Converts the input text from the source format to the target format.
      *
-     * @param { string } text - Input text. [since 23]
-     * @returns { string } Text after conversion. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @param { string } text - Input text.
+     * @returns { string } Text after conversion.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     transform(text: string): string;
@@ -1918,18 +1916,18 @@ latitude and a negative value is used for south latitude.
   /**
    * Enumerates text normalization modes.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export enum NormalizerMode {
     /**
      * Normalization form C, characters are decomposed and then re-composed by canonical equivalence
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     NFC = 1,
@@ -1937,9 +1935,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Normalization form D, characters are decomposed by canonical equivalence
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     NFD = 2,
@@ -1947,9 +1945,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Normalization form KC, characters are decomposed by compatibility, then re-composed by canonical equivalence
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     NFKC = 3,
@@ -1957,9 +1955,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Normalization form KD, characters are decomposed by compatibility
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     NFKD = 4
@@ -1968,22 +1966,22 @@ latitude and a negative value is used for south latitude.
   /**
    * Provides the API for text encoding normalization.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class Normalizer {
     /**
      * Obtains a Normalizer object.
      *
-     * @param { NormalizerMode } mode - Text normalization mode. [since 23]
-     * @returns { Normalizer } Normalizer object for text normalization. [since 23]
+     * @param { NormalizerMode } mode - Text normalization mode.
+     * @returns { Normalizer } Normalizer object for text normalization.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     static getInstance(mode: NormalizerMode): Normalizer;
@@ -1991,13 +1989,13 @@ latitude and a negative value is used for south latitude.
     /**
      * Normalizes input strings.
      *
-     * @param { string } text - Input strings. [since 23]
-     * @returns { string } Normalized strings. [since 23]
+     * @param { string } text - Input strings.
+     * @returns { string } Normalized strings.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     normalize(text: string): string;
@@ -2199,8 +2197,8 @@ latitude and a negative value is used for south latitude.
      *
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
      *     API. [since 26.0.0]
-     * @syscap SystemCapability.Global.I18n [since 23]
-     * @systemapi [since 23]
+     * @syscap SystemCapability.Global.I18n
+     * @systemapi
      * @since 23 static
      */
     constructor();
@@ -2253,18 +2251,18 @@ latitude and a negative value is used for south latitude.
   /**
    * Represents the holiday information.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export interface HolidayInfoItem {  
     /**
      * Holiday name.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     baseName: string;
@@ -2272,9 +2270,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Year of the holiday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     year: int;
@@ -2282,9 +2280,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Month of the holiday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     month: int;
@@ -2292,9 +2290,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Day of the holiday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     day: int;
@@ -2302,9 +2300,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Local names of the holiday.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     localNames?: Array<HolidayLocalName>;
@@ -2313,18 +2311,18 @@ latitude and a negative value is used for south latitude.
   /**
    * Represents the name of a holiday in different languages.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export interface HolidayLocalName {  
     /**
      * Language, for example, "ar", "en", or "tr".
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     language: string;
@@ -2332,9 +2330,9 @@ latitude and a negative value is used for south latitude.
     /**
      * Local name of a holiday. For example, the Turkish name of Sacrifice Feast is Kurban Bayrami.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     name: string;
@@ -2343,22 +2341,22 @@ latitude and a negative value is used for south latitude.
   /**
    * Provide some functions to manage holidays in a country or region. Partly follows the RFC2445 standard.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class HolidayManager {  
     /**
      * Creates a HolidayManager object for parsing holiday data.
      *
-     * @param { String } icsPath - Path of the .ics file with the read permission granted for applications. [since 23]
+     * @param { String } icsPath - Path of the .ics file with the read permission granted for applications.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     constructor(icsPath: String);
@@ -2367,13 +2365,13 @@ latitude and a negative value is used for south latitude.
      * Determines whether the specified date is a holiday.
      *
      * @param { Date } [date] - Date and time. Note: The month starts from 0. For example, 0 indicates January.
-     *     The default value is the current date. [since 23]
-     * @returns { boolean } true if the specified date is a holiday, and false otherwise. [since 23]
+     *     The default value is the current date.
+     * @returns { boolean } true if the specified date is a holiday, and false otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     isHoliday(date?: Date): boolean;
@@ -2381,14 +2379,14 @@ latitude and a negative value is used for south latitude.
     /**
      * Obtains the holiday information list of the specified year.
      *
-     * @param { int } [year] - Specified year, for example, 2023.<br>The default value is the current year. [since 23]
-     * @returns { Array<HolidayInfoItem> } Holiday information list. [since 23]
+     * @param { int } [year] - Specified year, for example, 2023.<br>The default value is the current year.
+     * @returns { Array<HolidayInfoItem> } Holiday information list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     getHolidayInfoItemArray(year?: int): Array<HolidayInfoItem>;
@@ -2397,18 +2395,18 @@ latitude and a negative value is used for south latitude.
   /**
    * Defines a list of entities.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export interface EntityInfoItem {  
     /**
      * Start position of the entity in the input string.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     begin: int;
@@ -2416,9 +2414,9 @@ latitude and a negative value is used for south latitude.
     /**
      * End position of the entity the input string.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     end: int;
@@ -2427,9 +2425,9 @@ latitude and a negative value is used for south latitude.
      * Entity type. The value can be "phone_number" or "date". "phone_number" indicates that the entity is a phone
      * number, and "date" indicates that the entity is a date.
      *
-     * @syscap SystemCapability.Global.I18n [since 23]
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     type: string;
@@ -2438,9 +2436,9 @@ latitude and a negative value is used for south latitude.
   /**
    * Provide some functions to find named entity in text.
    *
-   * @syscap SystemCapability.Global.I18n [since 23]
+   * @syscap SystemCapability.Global.I18n
    * @crossplatform [since 24]
-   * @atomicservice [since 23]
+   * @atomicservice
    * @since 23 static
    */
   export class EntityRecognizer {
@@ -2449,13 +2447,13 @@ latitude and a negative value is used for south latitude.
      * locale.
      *
      * @param { string } [locale] - Locale ID, which consists of the language, script, and country/region, for example,
-     *     "zh-Hans-CN". The default value is the current system locale. [since 23]
+     *     "zh-Hans-CN". The default value is the current system locale.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @throws { BusinessError } 890001 - Invalid parameter. Possible causes: Parameter verification failed.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     constructor(locale?: string);
@@ -2463,13 +2461,13 @@ latitude and a negative value is used for south latitude.
     /**
      * Obtains entity information in the text object.
      *
-     * @param { string } text - text object. [since 23]
-     * @returns { Array<EntityInfoItem> } List of entities in the text. [since 23]
+     * @param { string } text - text object.
+     * @returns { Array<EntityInfoItem> } List of entities in the text.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
-     *     2.Incorrect parameter types. [since 23]
-     * @syscap SystemCapability.Global.I18n [since 23]
+     *     2.Incorrect parameter types.
+     * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
-     * @atomicservice [since 23]
+     * @atomicservice
      * @since 23 static
      */
     findEntityInfo(text: string): Array<EntityInfoItem>;
