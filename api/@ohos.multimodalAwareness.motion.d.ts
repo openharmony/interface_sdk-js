@@ -345,7 +345,8 @@ declare namespace motion {
    * 
    * If the device does not support this function, error code 801 is returned.
    *
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
    * @param { Callback<OperatingHandStatus> } callback - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to subscribe operatingHandChanged
@@ -367,7 +368,8 @@ declare namespace motion {
   /**
    * Unsubscribes from operating hand change events.
    *
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
    * @param { Callback<OperatingHandStatus> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
@@ -388,7 +390,8 @@ declare namespace motion {
   /**
    * Obtains the latest operating hand status.
    *
-   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
+   * @permission ohos.permission.ACTIVITY_MOTION [since 15 - 19]
+   * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE [since 20]
    * @returns { OperatingHandStatus } Status of the operating hand.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to get the recent operating hand
    *     <br> status forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
