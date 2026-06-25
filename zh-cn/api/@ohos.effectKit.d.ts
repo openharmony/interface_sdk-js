@@ -150,7 +150,7 @@ declare namespace effectKit {
     /**
      * 将自定义效果添加到效果链表中，返回链表的头节点。
      *
-     * @param { Array<double> } colorMatrix - 自定义颜色矩阵。 <br>用于创建效果滤镜的 5x4 大小的矩阵，矩阵元素取值范围为[0, 1]，0和1代表的是矩阵中对应位置的颜色通道的权重，0代表该颜色通道不参与计算，1代表该颜色通道参与计算并保持原始权重。
+     * @param { Array<double> } colorMatrix - 自定义颜色矩阵。用于创建效果滤镜的 5x4 大小的矩阵，矩阵元素取值范围为[0, 1]，0和1代表的是矩阵中对应位置的颜色通道的权重，0代表该颜色通道不参与计算，1代表该颜色通道参与计算并保持原始权重。
      * @returns { Filter } 返回已添加的图像效果。
      * @throws { BusinessError } 401 - 输入参数错误。
      * @syscap SystemCapability.Multimedia.Image.Core
@@ -167,7 +167,7 @@ declare namespace effectKit {
      * >
      * > 从API version 9开始支持，从API version 11开始废弃，建议使用[getEffectPixelMap]{@link effectKit.Filter.getEffectPixelMap()}替代。
      *
-     * @returns { image.PixelMap } image.PixelMap.
+     * @returns { image.PixelMap } 已添加效果的源图像的image.PixelMap。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @since 9 dynamiconly
      * @deprecated since 11
@@ -258,14 +258,10 @@ declare namespace effectKit {
     /**
      * 读取图像占比靠前的颜色值，个数由`colorCount`指定，结果写入[Color]{@link effectKit.Color}的数组里，使用同步方式返回。
      *
-     * @param { int } colorCount - Number of colors to obtain. The value range is [1, 10]. If a non-integer is passed in
-     *     , the value will be rounded down.
-     * @returns { Array<Color | null> } Array of colors, sorted by proportion.
-     *     - If the number of colors obtained is less than the value of colorCount, the array size is the actual number
-     *     obtained.
-     *     - If the colors fail to be obtained or the number of colors obtained is less than 1, [null] is returned.
-     *     - If the value of colorCount is greater than 10, an array holding the first 10 colors with the top
-     *     proportions is returned.
+     * @param { int } colorCount - 需要取主色的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @returns { Array<Color | null> } Color数组，即图像占比前`colorCount`的颜色值数组，按占比排序。
+     *     - 当实际读取的特征色个数小于`colorCount`时，数组大小为实际特征色个数。
+     *     - 取色失败或取色个数小于1返回`[null]`。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @crossplatform [since 14]
      * @form
@@ -278,13 +274,10 @@ declare namespace effectKit {
     /**
      * 读取图像占比靠前的颜色值以及对应比例，个数由`colorCount`指定，结果写入Color与其对应比例的字典中，使用同步方式返回。
      *
-     * @param { int } colorCount - The number of colors to require, the value is 1 to 10.。
-     * @returns { Map<Color | null, double | null> } Map of colors and percentages, sorted by proportion.
-     *     - If the number of colors obtained is less than the value of colorCount, the map size is
-     *     the actual number obtained.
-     *     - If the colors fail to be obtained or the number of colors obtained is less than 1, Map() is returned.
-     *     - If the value of colorCount is greater than 10, a map holding the first 10 colors with
-     *     the top proportions is returned.
+     * @param { int } colorCount - 需要取主色及对应比例的个数，向下取整。在OpenHarmony 6.1之前，取值范围为[1, 10]，取色个数大于10视为取前10个；从OpenHarmony 6.1开始，取值范围为[1, 20]，取色个数大于20视为取前20个。
+     * @returns { Map<Color | null, double | null> } 图像占比前`colorCount`的颜色值与对应比例的字典，比例的取值范围为[0,1]。
+     *     - 当实际读取的特征色个数小于`colorCount`时，字典大小为实际特征色个数。
+     *     - 取色失败或取色个数小于1返回`Map()`。
      * @throws { BusinessError } 202 - 权限校验失败，非系统应用调用系统接口。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -373,9 +366,9 @@ declare namespace effectKit {
     isBlackOrWhiteOrGrayColor(color: long): boolean;
 
     /**
-     * Gets the Morandi shadow color from the dominant color.
+     * 从图像的主色中获取莫兰迪阴影色，并将结果写入[Color]{@link effectKit.Color}。该接口通过特定的颜色转换算法，将主色调转换为具有莫兰迪风格的阴影色调。
      *
-     * @returns { Color } - returns the Morandi shadow color converted from the dominant color.
+     * @returns { Color } - Color实例，即图像莫兰迪阴影色对应的颜色值，失败时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -385,11 +378,9 @@ declare namespace effectKit {
     getMorandiShadowColor(): Color;
 
     /**
-     * Generates a stronger immersion color that merges with the background color and is deeper than
-     * the background color.
+     * 生成与背景色融合且比背景色更深的强沉浸感颜色，并将结果写入[Color]{@link effectKit.Color}里。该接口通过颜色混合算法，创建一种既与背景色协调又具有更强沉浸感的颜色效果。
      *
-     * @returns { Color } - returns the stronger immersion color that both blends with the background
-     *     and appears deeper than the background.
+     * @returns { Color } - Color实例，即图像强沉浸色对应的颜色值，失败时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -399,9 +390,9 @@ declare namespace effectKit {
     getDeepenImmersionColor(): Color;
 
     /**
-     * Generates an immersive background color that creates an immersive visual effect.
+     * 生成能够创造沉浸式视觉效果的沉浸式背景色，并将结果写入[Color]{@link effectKit.Color}里。该接口基于主色生成适合作为沉浸式背景的颜色值。
      *
-     * @returns { Color } - returns the immersive background color.
+     * @returns { Color } - Color实例，即图像沉浸式背景色对应的颜色值，失败时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -411,9 +402,9 @@ declare namespace effectKit {
     getImmersiveBackgroundColor(): Color;
 
     /**
-     * Generates an immersive foreground color that creates an immersive visual effect for text and content.
+     * 生成能够创造沉浸式视觉效果的沉浸式前景色，并将结果写入[Color]{@link effectKit.Color}里。该接口基于主色生成适合作为沉浸式前景的颜色值。
      *
-     * @returns { Color } - returns the immersive foreground color.
+     * @returns { Color } - Color实例，即图像沉浸式前景色对应的颜色值，失败时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -423,9 +414,9 @@ declare namespace effectKit {
     getImmersiveForegroundColor(): Color;
 
     /**
-     * Discriminates the light and dark degree of the picture.
+     * 获取图片的明亮程度。
      *
-     * @returns { PictureLightDegree } - returns the picture light and dark degree.
+     * @returns { PictureLightDegree } - 图像颜色明亮程度。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -435,11 +426,11 @@ declare namespace effectKit {
     discriminatePictureLightDegree(): PictureLightDegree;
 
     /**
-     * Gets the reverse color based on the discriminatePictureLightDegree result.
-     * When the picture light degree is EXTREMELY_LIGHT_COLOR_PICTURE, returns black color.
-     * For other picture light degree types, returns white color.
+     * 基于图像亮度判别结果生成反向颜色，并将结果写入[Color]{@link effectKit.Color}里。根据
+     * [discriminatePictureLightDegree]{@link effectKit.ColorPicker.discriminatePictureLightDegree}接口获取的图片明亮类型得到一个反色，
+     * 仅极亮色图片（EXTREMELY_LIGHT_COLOR_PICTURE）类型返回黑色，其他类型返回白色。用于界面主题或对比度计算。
      *
-     * @returns { Color } - returns the reverse color for UI themes or contrast calculations.
+     * @returns { Color } - Color实例，即图像反向颜色对应的颜色值，失败时返回null。
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
      * @stagemodelonly
@@ -450,7 +441,7 @@ declare namespace effectKit {
   }
 
   /**
-   * 图片深浅程度
+   * 图片颜色明亮度的枚举。
    *
    * @syscap SystemCapability.Multimedia.Image.Core
    * @systemapi
@@ -461,7 +452,7 @@ declare namespace effectKit {
   enum PictureLightDegree {
 
     /**
-     * 未知光色度图片。
+     * 未知明亮度的图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -472,7 +463,7 @@ declare namespace effectKit {
     UNKNOWN_LIGHT_COLOR_DEGREE_PICTURE = 0,
 
     /**
-     * 极浅色图片。
+     * 极亮色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -483,7 +474,7 @@ declare namespace effectKit {
     EXTREMELY_LIGHT_COLOR_PICTURE = 1,
 
     /**
-     * Light color picture.
+     * 亮色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -494,7 +485,7 @@ declare namespace effectKit {
     LIGHT_COLOR_PICTURE = 2,
 
     /**
-     * Dark color picture.
+     * 暗色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -505,7 +496,7 @@ declare namespace effectKit {
     DARK_COLOR_PICTURE = 3,
 
     /**
-     * Extremely dark color picture.
+     * 极暗色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -516,7 +507,7 @@ declare namespace effectKit {
     EXTREMELY_DARK_COLOR_PICTURE = 4,
 
     /**
-     * Flowery picture.
+     * 花色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -527,7 +518,7 @@ declare namespace effectKit {
     FLOWERY_PICTURE = 5,
 
     /**
-     * Extremely flowery picture.
+     * 极花色图片。
      *
      * @syscap SystemCapability.Multimedia.Image.Core
      * @systemapi
@@ -649,7 +640,7 @@ declare namespace effectKit {
    * 通过传入的PixelMap创建ColorPicker实例，使用callback异步回调。
    *
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
-   * @param { AsyncCallback<ColorPicker> } callback - the callback of createColorPicker.
+     * @param { AsyncCallback<ColorPicker> } callback - 回调函数。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
@@ -665,7 +656,7 @@ declare namespace effectKit {
    *
    * @param { image.PixelMap } source - image模块创建的PixelMap实例。 可通过图片解码或直接创建获得，具体可见[Image Kit简介](docroot://media/image/image-overview.md)。
    * @param { Array<double> } region - 指定图片的取色区域。 数组第三个元素需大于第一个元素，第四个元素需大于第二个元素。
-   * @param { AsyncCallback<ColorPicker> } callback - Callback used to return the ColorPicker instance created.
+     * @param { AsyncCallback<ColorPicker> } callback - 回调函数。返回创建的ColorPicker实例。
    * @throws { BusinessError } 401 - 输入参数错误。
    * @syscap SystemCapability.Multimedia.Image.Core
    * @crossplatform [since 14]
