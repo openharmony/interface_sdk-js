@@ -28,7 +28,7 @@ import { LeadingMarginPlaceholder } from './richEditor';
 import image from '../../@ohos.multimedia.image';
 import drawing from '../../@ohos.graphics.drawing';
 import { DrawContext } from '../../arkui/Graphics';
-import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation, LineSpacingOptions } from './textCommon';
+import { TextDirection, SuperscriptStyle, TextVerticalAlign, FontConfigs, FontVariation, LineSpacingOptions, ShaderStyle, StrokeJoinStyle  } from './textCommon';
 
 /**
  * Defines the StyledStringMarshallingValue Type.
@@ -444,6 +444,15 @@ export declare class TextStyle {
  	 * @since 26.0.0 static
  	 */
  	readonly fontVariations?: Array<FontVariation>;
+
+    /**
+     * Get the stroke join style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    readonly strokeJoinStyle?: StrokeJoinStyle;
 }
 /**
  * TextStyleInterface
@@ -544,6 +553,15 @@ export declare interface TextStyleInterface {
  	 * @since 26.0.0 static
  	 */
  	fontVariations?: Array<FontVariation>;
+
+    /**
+     * The stroke join style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    strokeJoinStyle?: StrokeJoinStyle;
 }
 /**
  * Defines DecorationStyle.
@@ -918,6 +936,24 @@ export declare class ParagraphStyle {
      * @since 24 static
      */
     readonly leadingMarginSpan?: LeadingMarginSpan;
+    /**
+     * Get the shader style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    readonly shaderStyle?: ShaderStyle;
+
+    /**
+        * Get the tail indentation of the StyledString.
+        * The unit is vp.
+        *
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    readonly tailIndents?: Array<double>;
 }
 /**
  * ParagraphStyleInterface
@@ -1018,6 +1054,31 @@ export declare interface ParagraphStyleInterface {
      * @since 24 static
      */
     leadingMarginSpan?: LeadingMarginSpan;
+    /**
+     * Set the shader style of the StyledString.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    shaderStyle?: ShaderStyle;
+
+    /**
+        * Specify the tail indentation for each line in a paragraph.
+        *
+        * <p><strong>NOTE</strong>:
+        * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
+        * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
+        * If the number of text lines exceeds the array length, the last element in the array is used
+        * for the remaining lines.
+        * <br>Negative values are treated as 0.
+        * </p>.
+        *
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    tailIndents?: LengthMetrics | Array<LengthMetrics>;
 }
 /**
  * Defines LineHeightStyle.

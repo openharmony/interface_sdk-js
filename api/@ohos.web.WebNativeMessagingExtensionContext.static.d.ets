@@ -22,7 +22,9 @@ import Want from './@ohos.app.ability.Want';
 import StartOptions from './@ohos.app.ability.StartOptions';
 import { AbilityResult } from './ability/abilityResult';
 /**
- * The context of web native messaging extension. It allows access to WebNativeMessagingExtension-specific resources.
+ * WebNativeMessagingExtensionContext is the context of web native message extension and is inherited from
+ * ExtensionContext. It provides the capability of exchanging messages with WebNativeMessagingExtension.
+ * The APIs of this module can be used only in the stage model.
  * 
  * @extends ExtensionContext
  * @syscap SystemCapability.Web.Webview.Core
@@ -31,7 +33,7 @@ import { AbilityResult } from './ability/abilityResult';
  */
 declare class WebNativeMessagingExtensionContext extends ExtensionContext {
     /**
-     * Starts a new ability.
+     * Starts an ability using a promise.
      *
      * @param { Want } want - Indicates the ability to start.
      * @param { StartOptions } [options] - Indicates the start options.
@@ -103,7 +105,7 @@ declare class WebNativeMessagingExtensionContext extends ExtensionContext {
      */
     startAbilityForResult(want: Want, options?: StartOptions): Promise<AbilityResult>;
     /**
-     * Destroys this web native messaging extension.
+     * Destroys the current native web message extension.
      *
      * @returns { Promise<void> } The promise returned by the function.
      * @throws { BusinessError } 16000009 - An ability cannot be started or stopped in Wukong mode.
@@ -116,7 +118,7 @@ declare class WebNativeMessagingExtensionContext extends ExtensionContext {
      */
     terminateSelf(): Promise<void>;
     /**
-     * Stop the specified native connection.
+     * Stops a native connection. This API uses a promise to return the result.
      *
      * @param { int } connectionId - Indicates the id of the specified connection.
      * @returns { Promise<void> } The promise returned by the function.

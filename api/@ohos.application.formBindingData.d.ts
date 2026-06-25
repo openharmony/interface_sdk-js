@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,49 +15,51 @@
 
 /**
  * @file
+ * @kit API10LessDeprecatedModules
  */
 
 /**
- * interface of formBindingData.
+ * The **FormBindingData** module provides APIs for widget data binding. You can use the APIs to create a 
+ * **FormBindingData** object and obtain related information.
  *
- * @namespace formBindingData
  * @syscap SystemCapability.Ability.Form
  * @since 8
  * @deprecated since 9
- * @useinstead ohos.app.form.formBindingData/formBindingData
+ * @useinstead @ohos.app.form.formBindingData:formBindingData
  */
 declare namespace formBindingData {
   /**
-   * Create an FormBindingData instance.
+   * Creates a **FormBindingData** object.
    *
-   * @param { Object | string } [obj] - Indicates the FormBindingData instance data.
-   * @returns { FormBindingData } Returns the {@link FormBindingData} instance.
+   * @param { Object | string } [obj] - Data to be displayed on the JS widget. The value can be an object containing multiple
+   *     key-value pairs or a string in JSON format. The image data is identified by **'formImages'**, and the content is 
+   *     multiple key-value pairs, each of which consists of an image identifier and image file descriptor. The final format 
+   *     is {'formImages': {'key1': fd1, 'key2': fd2}}.
+   * @returns { FormBindingData } **FormBindingData** object created based on the passed data.
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formBindingData/formBindingData#createFormBindingData
+   * @useinstead @ohos.app.form.formBindingData:formBindingData#createFormBindingData
    */
   function createFormBindingData(obj?: Object | string): FormBindingData;
 
   /**
-   * Defines the createFormBindingData result interface.
+   * Describes a **FormBindingData** object.
    *
-   * @typedef FormBindingData
    * @syscap SystemCapability.Ability.Form
    * @since 8
    * @deprecated since 9
-   * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
+   * @useinstead @ohos.app.form.formBindingData:formBindingData#FormBindingData
    */
   interface FormBindingData {
     /**
-     * The data to be displayed on the js card. Can be a string in Object or json format that
-     * contains several key-value pairs.
+     * Data to be displayed on the JS widget. The value can be an object containing multiple key-value pairs or a string
+     *  in JSON format.
      *
-     * @type { Object }
      * @syscap SystemCapability.Ability.Form
      * @since 8
      * @deprecated since 9
-     * @useinstead ohos.app.form.formBindingData/formBindingData#FormBindingData
+     * @useinstead @ohos.app.form.formBindingData:formBindingData#FormBindingData
      */
     data: Object;
   }

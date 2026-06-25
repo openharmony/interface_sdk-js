@@ -17,12 +17,11 @@
  * @file
  * @kit AbilityKit
  */
-
 /**
  * # How to Use
- * 
- * The RunningAppClone struct is obtained from 
- * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
+ *
+ * The RunningAppClone struct is obtained from
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of
  * **appManager**.
  */
 /**

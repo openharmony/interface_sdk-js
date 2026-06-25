@@ -18,7 +18,7 @@
  */
 import { HorizontalAlign, FlexAlign } from './enums';
 import { Resource } from './../../global/resource';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Defines the space property with string, double and resource unit.
@@ -121,6 +121,16 @@ export declare interface ColumnAttribute extends CommonMethod {
      */
     default reverse(isReversed: boolean | undefined): this;
     /**
+     * Set Column options.
+     *
+     * @param { ColumnOptions | ColumnOptionsV2 } [options] - Column constructor options
+     * @returns { ColumnAttribute } Returns the instance of the ColumnAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<ColumnAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -148,3 +158,76 @@ export declare function Column(
     options?: ColumnOptions | ColumnOptions | ColumnOptionsV2,
     content_?: CustomBuilder,
 ): ColumnAttribute
+
+/**
+ * Defines Column Component.
+ *
+ * @param { CustomBuilderT<ColumnAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ColumnAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Column(
+    style: CustomBuilderT<ColumnAttribute>,
+    content_?: CustomBuilder,
+): ColumnAttribute;
+
+/**
+ * Defines the Extendable Column.
+ *
+ * @implements ColumnAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableColumn implements ColumnAttribute {
+    /**
+     * Constructor of Extendable Column.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ColumnOptions | ColumnOptionsV2 } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableColumn>(
+        factory: ConstructorT<T>, 
+        options?: ColumnOptions | ColumnOptionsV2, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Column.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableColumn>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Column Options.
+     *
+     * @param { ColumnOptions | ColumnOptionsV2 } [options]
+     * @returns { ExtendableColumn }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setColumnOptions(options?: ColumnOptions | ColumnOptionsV2): this;
+}

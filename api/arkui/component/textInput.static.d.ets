@@ -19,12 +19,11 @@
  */
 import { CancelButtonSymbolOptions, CancelButtonOptions } from "./search";
 import { Callback, CommonMethod, TextContentControllerBase, SelectionOptions, InputCounterOptions, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
-import { CustomBuilder } from './builder';
+import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
 import { BarState, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextContentStyle, EllipsisMode } from "./enums";
 import { Resource, ResourceStr, ResourceColor, Dimension, Font, Length, LengthMetrics } from "./units";
-import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient } from "./textCommon";
+import { InsertValue, DeleteValue, CaretStyle, EditableTextOnChangeCallback, EditMenuOptions, AutoCapitalizationMode, EditableTextChangeValue, KeyboardAppearance, SelectedDragPreviewStyle, VoiceButtonOptions, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { KeyboardOptions, PasteEvent } from "./richEditor";
-import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 /**
  * Declare the type of input box
@@ -1500,7 +1499,7 @@ export declare interface TextInputAttribute extends CommonMethod {
      * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
      * <br>When setting a custom keyboard,
-     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * you can bind the onKeyPreIme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of TextInput
@@ -2037,6 +2036,18 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextInputAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set TextInput options.
+     *
+     * @param { TextInputOptions } [value] - TextInput constructor options
+     * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextInputOptions(value?: TextInputOptions): this;
+
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -2094,6 +2105,42 @@ export declare interface TextInputAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default orphanCharOptimization(enabled: boolean | undefined): this;
+ 
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
+
+    /**
+     * Whether to enable punctuation overflow at line ends.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default punctuationOverflow(enabled: boolean | undefined): this;
 }
 
 /**
@@ -2109,3 +2156,18 @@ export declare interface TextInputAttribute extends CommonMethod {
 export declare function TextInput(
     value?: TextInputOptions
 ): TextInputAttribute
+
+/**
+ * Defines TextInput Component.
+ *
+ * @param { CustomBuilderT<TextInputAttribute> } style - TextInput attribute instance
+ * @returns { TextInputAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function TextInput(
+    style: CustomBuilderT<TextInputAttribute>,
+): TextInputAttribute;

@@ -18,35 +18,21 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines Progress Modifier
  *
- * @extends ProgressAttribute
- * @implements AttributeModifier<ProgressAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines Progress Modifier
- *
- * @extends ProgressAttribute
- * @implements AttributeModifier<ProgressAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class ProgressModifier extends ProgressAttribute implements AttributeModifier<ProgressAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { ProgressAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -19,443 +19,211 @@
  */
 
 /**
- * Defines the badge position property.
+ * Enumerates the display positions of a badge.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the badge position property.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the badge position property.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the badge position property.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum BadgePosition {
-  /**
-   * The dot is displayed vertically centered on the right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The dot is displayed vertically centered on the right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The dot is displayed vertically centered on the right.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
+
   /**
    * The badge is displayed in the upper right corner of the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  RightTop,
+  RightTop = 0,
 
-  /**
-   * Dots are displayed in the upper right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Dots are displayed in the upper right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Dots are displayed in the upper right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
   /**
    * The badge is vertically centered on the right of the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Right,
 
   /**
-   * The dot is displayed in the left vertical center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The dot is displayed in the left vertical center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The dot is displayed in the left vertical center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * The badge is vertically centered on the left of the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Left,
 }
 
 /**
- * BadgeStyle object
+ * Describes the badge style. It includes the font color, font size, badge color, badge size, etc.
  *
- * @interface BadgeStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * BadgeStyle object
+ * > **NOTE**
+ * >
+ * > - When **borderWidth** is set to a value greater than 0 and **borderColor** is different from **badgeColor**, the
+ * > badge is drawn before the border. Edge pixels are anti-aliased, which produces semi-transparent pixels. This causes
+ * > the border in **badgeColor** to become visible at the four corners. To implement related scenarios, it is
+ * > recommended that you use the [Text]{@link text} component with its [outline]{@link common} attribute instead of the
+ * > **Badge** component.
  *
- * @interface BadgeStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * BadgeStyle object
- *
- * @interface BadgeStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * BadgeStyle object
- *
- * @interface BadgeStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface BadgeStyle {
-  /**
-   * Text Color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Text Color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text Color
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
+
   /**
    * Font color.
    *
-   * @type { ?ResourceColor }
+   * Default value: **Color.White**
+   *
    * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color?: ResourceColor;
 
   /**
-   * Text size.
+   * Font size. The value of this parameter is a string of the number type. The unit can be px, vp, fp, or lpx, for
+   * example, 10 or 10fp. If no unit is specified, fp is used by default.
    *
-   * @type { ?(number | string) }
+   * Default value: **10vp**
+   *
+   * The value must be greater than 0. If the value is **0**, the text is not displayed. If the value is less than 0,
+   * the default value is used.
+   *
+   * **NOTE**
+   *
+   * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
+   * 2. The ResourceStr type is supported since API version 20.
+   *
+   * @type { ?(number | string) } [since 7 - 19]
+   * @type { ?(number | ResourceStr) } [since 20]
+   * @default 10vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Text size.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text size.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text size.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Font size.
-   * For the string type, only numeric string values with optional units.
-   * The value must be greater than or equal to 0. If the value is less than 0, the default value is used.
-   * Unit: fp
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @type { ?(number | ResourceStr) }
-   * @default 10
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontSize?: number | ResourceStr;
 
   /**
-   * Size of a badge.
+   * Badge size. The value of this parameter is a string of the number type. The unit can be px, vp, fp, or lpx, for
+   * example, 10 or 16fp. If no unit is specified, fp is used by default.
    *
-   * @type { ?(number | string) }
+   * Default value: **16vp**
+   *
+   * The value must be greater than 0. If the value is **0**, the badge is not displayed. If the value is less than 0,
+   * the default value is used.
+   *
+   * **NOTE**
+   *
+   * 1. Percentage values are not supported. If a percentage value is set, the default value is used.
+   * 2. The ResourceStr type is supported since API version 20.
+   * 3. If **fontSize** is set and **badgeSize** is smaller than fontSize, **badgeSize** will take effect based on the
+   * value of **fontSize**.
+   *
+   * @type { ?(number | string) } [since 7 - 19]
+   * @type { ?(number | ResourceStr) } [since 20]
+   * @default 16vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Size of a badge.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Size of a badge.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Size of a badge.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Badge size.
-   * For the string type, numeric string values with optional units.
-   * The value must be greater than or equal to 0. If the value is less than 0, the default value is used.
-   * Unit: vp
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * <br>If it is set to an invalid value, the default value is used.
-   * </p>
-   *
-   * @type { ?(number | ResourceStr) }
-   * @default 16
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   badgeSize?: number | ResourceStr;
 
   /**
-   * Color of the badge.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Color of the badge.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Color of the badge.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Badge color.
    *
-   * @type { ?ResourceColor }
+   * Default value: **Color.Red**
+   *
    * @default Color.Red
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   badgeColor?: ResourceColor;
 
   /**
-   * Define the border color of the badge.
+   * Color of the background border.
    *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Border color of the background.
+   * Default value: **Color.Red**
    *
-   * @type { ?ResourceColor }
    * @default Color.Red
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderColor?: ResourceColor;
 
   /**
-   * Define the border width of the badge.
+   * Width of the background border.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Border width of the background.
-   * This parameter cannot be set in percentage.
+   * Default value: **1**
+   *
    * Unit: vp
    *
-   * @type { ?Length }
-   * @default 1
+   * **NOTE**
+   *
+   * Percentage values are not supported. If a percentage value is set, the default value is used.
+   *
+   * @default 1vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderWidth?: Length;
 
   /**
-   * Define the font weight of the badge.
+   * Font weight of the text. For the number type, the value ranges from 100 to 900, at an interval of 100. A larger
+   * value indicates a bolder font. For the number type, if the value is not within the range, the default value **400**
+   * is used. For the string type, only strings that represent a number, for example, **400**, and the following
+   * enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.
    *
-   * @type { ?(number | FontWeight | string) }
+   * Default value: **FontWeight.Normal**
+   *
+   * **NOTE**
+   *
+   * Percentage values are not supported. If a percentage value is set, the default value is used. The ResourceStr type
+   * is supported since API version 20.
+   *
+   * @type { ?(number | FontWeight | string) } [since 10 - 19]
+   * @type { ?(number | FontWeight | ResourceStr) } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the font weight of the badge.
-   *
-   * @type { ?(number | FontWeight | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Font weight of the text.
-   * For the number type, the value ranges from 100 to 900, at an interval of 100. Default value: 400
-   * A larger value indicates a heavier font weight.
-   * For the string type, only strings that represent a number. Default value: FontWeight.Normal
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @type { ?(number | FontWeight | ResourceStr) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontWeight?: number | FontWeight | ResourceStr;
 
   /**
-   * Outer border color of the background.
+   * Color of the background outer border.
    *
-   * @type { ?ResourceColor }
+   * Default value: **Color.White**
+   *
    * @default Color.White
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -466,12 +234,15 @@ declare interface BadgeStyle {
   outerBorderColor?: ResourceColor;
 
   /**
-   * Outer border width of the background.
-   * This parameter cannot be set in percentage.
+   * Width of the background outer border.
+   *
+   * Default value: **0**.
+   *
    * Unit: vp
    *
-   * @type { ?LengthMetrics }
-   * @default 0
+   * Percentage values are not supported. If a percentage value is set, the default value is used.
+   *
+   * @default 0vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -481,10 +252,20 @@ declare interface BadgeStyle {
   outerBorderWidth?: LengthMetrics;
 
   /**
-   * Enable auto avoidance for text in badge.
+   * Whether to enable avoidance when the badge text is extended.
    *
-   * @type { ?boolean }
-   * @default true
+   * The value **true** means to enable avoidance, and **false** means the opposite.
+   *
+   * Default value: **false**.
+   *
+   * **NOTE**
+   *
+   * 1. The avoidance effect is that the badge text is extended to the inside of the component.
+   * 2. When the width of the outer border is greater than 0, the extension start point of the badge is the inner side
+   * of the outer border.
+   * 3. When position is set to a specific coordinate value, the badge does not perform avoidance.
+   *
+   * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -495,540 +276,230 @@ declare interface BadgeStyle {
 }
 
 /**
- * Defines the base param of badge.
- *
- * @interface BadgeParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the base param of badge.
- *
- * @interface BadgeParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the base param of badge.
- *
- * @interface BadgeParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
  * Provides basic parameters for creating a badge.
  *
- * @interface BadgeParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface BadgeParam {
-  /**
-   * Set the display position of the prompt point.
-   *
-   * @type { ?(BadgePosition) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the display position of the prompt point.
-   *
-   * @type { ?(BadgePosition) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the display position of the prompt point.
-   *
-   * @type { ?(BadgePosition | Position) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
+
   /**
    * Position to display the badge relative to the parent component.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>With the Position type, percentage values are not supported.
-   * <br>If an invalid value is set, the default value (0,0),
-   * which indicates the upper left corner of the component, will be used.
-   * <br>With the BadgePosition type, the position is mirrored based on the Direction property.
-   * </p>
+   * Default value: **BadgePosition.RightTop**
    *
-   * @type { ?(BadgePosition | Position) }
+   * **NOTE**
+   *
+   * With the **Position** type, percentage values are not supported. If an invalid value is set, the default value
+   * **(0,0)**, which indicates the upper left corner of the component, will be used.
+   *
+   * With the **BadgePosition** type, the position is mirrored based on the [Direction]{@link Direction} property.
+   *
+   * @type { ?(BadgePosition) } [since 7 - 9]
+   * @type { ?(BadgePosition | Position) } [since 10]
    * @default BadgePosition.RightTop
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   position?: BadgePosition | Position;
 
   /**
-   * Defines the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @type { BadgeStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Defines the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @type { BadgeStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @type { BadgeStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Style of the badge, including the font color, font size, badge color, and badge size.
    *
-   * @type { BadgeStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   style: BadgeStyle;
 }
 
 /**
- * Defines the badge param with count and maxCount.
+ * Inherits from [BadgeParam]{@link BadgeParam} and has all attributes of **BadgeParam**.
  *
- * @extends BadgeParam
- * @interface BadgeParamWithNumber
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the badge param with count and maxCount.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithNumber
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the badge param with count and maxCount.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithNumber
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Inherits from BadgeParam and has all attributes of BadgeParam.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithNumber
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface BadgeParamWithNumber extends BadgeParam {
-  /**
-   * Set the number of reminder messages.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the number of reminder messages.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the number of reminder messages.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
+
   /**
    * Number of notifications.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is less than or equal to 0 and less than the value of maxCount, no badge is displayed.
-   * <br>Value range: [-2147483648, 2147483647]
-   * <br>If the value is out of the range,
-   * it will be adjusted by adding or subtracting 4294967296 to bring it back within the range.
-   * <br>If the value is not an integer, it is rounded off to the nearest integer.
-   * </p>
+   * **NOTE**
    *
-   * @type { number }
+   * If the value is less than or equal to 0 and less than the value of **maxCount**, no badge is displayed.
+   *
+   * Value range: [-2147483648, 2147483647]. If the value is out of the range, 4294967296 is added or subtracted so that
+   * the value is within the range. If the value is not an integer, it is rounded off to the nearest integer. For
+   * example, 5.5 is rounded off to 5.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   count: number;
 
   /**
-   * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * Maximum number of messages. If the number of messages exceeds the maximum, only **maxCount+** is displayed. For
+   * example, if **maxCount** is 99, **99+** is displayed.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * Default value: **99**
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
+   * Value range: [-2147483648, 2147483647]. If the value is out of the range, 4294967296 is added or subtracted so that
+   * the value is within the range. If the value is not an integer, it is rounded off to the nearest integer. For
+   * example, 5.5 is rounded off to 5.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Maximum number of notifications. When the maximum number is reached, only maxCount+ is displayed.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Value range: [-2147483648, 2147483647]
-   * <br>If the value is out of the range,
-   * it will be adjusted by adding or subtracting 4294967296 to bring it back within the range.
-   * <br>If the value is not an integer, it is rounded off to the nearest integer.
-   * </p>
-   *
-   * @type { ?number }
    * @default 99
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   maxCount?: number;
 }
 
 /**
- * Defines the badge param with string value.
+ * Inherits from [BadgeParam]{@link BadgeParam} and has all attributes of **BadgeParam**.
  *
- * @extends BadgeParam
- * @interface BadgeParamWithString
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the badge param with string value.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithString
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the badge param with string value.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithString
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Inherits from BadgeParam and has all attributes of BadgeParam.
- *
- * @extends BadgeParam
- * @interface BadgeParamWithString
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface BadgeParamWithString extends BadgeParam {
+
   /**
-   * Text string of the prompt content.
+   * Text string of the badge content.
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Text string of the prompt content.
+   * **NOTE**
    *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text string of the prompt content.
+   * The ResourceStr type is supported since API version 20.
    *
-   * @type { string }
+   * @type { string } [since 7 - 19]
+   * @type { ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text string of the prompt content.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Prompt content.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   value: ResourceStr;
 }
 
 /**
- * Defines Badge Component.
+ * The **Badge** component is a container that can be attached to another component for notification and reminder
+ * purposes.
  *
- * @interface BadgeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Badge Component.
+ * ###### Child Components
  *
- * @interface BadgeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Badge Component.
+ * This component supports only one child component.
  *
- * @interface BadgeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Badge Component.
+ * > **NOTE**
+ * >
+ * > - Allowed child component types: built-in and custom components, including rendering control types (
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md), [ForEach]{@link for_each}, and
+ * > [LazyForEach]{@link lazy_for_each}).
+ * >
+ * > - A custom component defaults to a width and height of 0. You must explicitly set its width and height; otherwise,
+ * > the **Badge** component will not be displayed.
+ * >
+ * > - When there are multiple child components, only the last child component is displayed on the UI. However, the
+ * > status update of other child components will still cause the badge and its child components to be re-rendered.
+ * >
+ * > - Child component layout is independent and does not automatically adjust to avoid overlapping with the badge.
  *
- * @interface BadgeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface BadgeInterface {
+
   /**
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * count: Set the number of reminder messages.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * Creates a badge with the given numerical value.
    *
-   * @param { BadgeParamWithNumber } value
+   * @param { BadgeParamWithNumber } value - Options of the numeric badge.
    * @returns { BadgeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * count: Set the number of reminder messages.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithNumber } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * count: Set the number of reminder messages.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithNumber } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * count: Set the number of reminder messages.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithNumber } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value: BadgeParamWithNumber): BadgeAttribute;
 
   /**
-   * value: Text string of the prompt content.
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
+   * Creates a badge with the given string.
    *
-   * @param { BadgeParamWithString } value
+   * @param { BadgeParamWithString } value - Options of the string-type badge.
    * @returns { BadgeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * value: Text string of the prompt content.
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithString } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * value: Text string of the prompt content.
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithString } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * value: Text string of the prompt content.
-   * position: Set the display position of the prompt point.
-   * maxCount: Maximum number of messages. If the number of messages exceeds the maximum, only maxCount+ is displayed.
-   * style: You can set the style of the Badge component, including the text color, size, dot color, and size.
-   *
-   * @param { BadgeParamWithString } value
-   * @returns { BadgeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value: BadgeParamWithString): BadgeAttribute;
 }
 
 /**
- * Defines Badge Component attribute.
+ * The [universal attributes]{@link common} are supported.
  *
- * @extends CommonMethod<BadgeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Badge Component attribute.
+ * The [universal events]{@link common} are supported.
  *
- * @extends CommonMethod<BadgeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Badge Component attribute.
- *
- * @extends CommonMethod<BadgeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Badge Component attribute.
- *
- * @extends CommonMethod<BadgeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class BadgeAttribute extends CommonMethod<BadgeAttribute> {}
 
 /**
- * Defines Badge Component.
+ * The **Badge** component is a container that can be attached to another component for notification and reminder
+ * purposes.
+ *
+ * ###### Child Components
+ *
+ * This component supports only one child component.
+ *
+ * > **NOTE**
+ * >
+ * > - Allowed child component types: built-in and custom components, including rendering control types (
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md), [ForEach]{@link for_each}, and
+ * > [LazyForEach]{@link lazy_for_each}).
+ * >
+ * > - A custom component defaults to a width and height of 0. You must explicitly set its width and height; otherwise,
+ * > the **Badge** component will not be displayed.
+ * >
+ * > - When there are multiple child components, only the last child component is displayed on the UI. However, the
+ * > status update of other child components will still cause the badge and its child components to be re-rendered.
+ * >
+ * > - Child component layout is independent and does not automatically adjust to avoid overlapping with the badge.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Badge Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Badge Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Badge Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Badge: BadgeInterface;
 
@@ -1036,30 +507,10 @@ declare const Badge: BadgeInterface;
  * Defines Badge Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Badge Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Badge Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Badge Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const BadgeInstance: BadgeAttribute;

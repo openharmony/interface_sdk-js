@@ -19,7 +19,7 @@
  */
 import { Resource } from '../../global/resource';
 import { VoidCallback, ResourceStr, ResourceColor, Dimension, BorderRadiuses, LocalizedEdgeColors, EdgeColors, EdgeWidths, LocalizedEdgeWidths, EdgeStyles, LocalizedBorderRadiuses } from './units';
-import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, ShadowStyle, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
+import { Callback, DismissReason, Rectangle, BlurStyle, TransitionEffect, ShadowOptions, HoverModeAreaType, ShadowStyle, BackgroundBlurStyleOptions, BackgroundEffectOptions, DistortionMode, EdgeLightMode } from './common';
 import { DialogButtonStyle, BorderStyle } from './enums';
 import { DialogAlignment } from './alertDialog';
 import { LevelOrder, LevelMode, ImmersiveMode } from '../../@ohos.promptAction';
@@ -598,4 +598,24 @@ export interface ActionSheetOptions {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Sets the distortion animation Mode of the dialog.
+     *
+     * @default DistortionMode.DISTORTION_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    distortionMode?: DistortionMode;
+    /**
+     * Sets the edgeLight animation Mode of the dialog.
+     *
+     * @default EdgeLightMode.EDGELIGHT_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    edgeLightMode?: EdgeLightMode;
 }

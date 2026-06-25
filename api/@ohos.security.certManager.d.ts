@@ -24,6 +24,9 @@ import type { AsyncCallback } from './@ohos.base';
  * The **certManager** module provides system-level certificate management capabilities to implement management and
  * secure use of certificates throughout their lifecycle (installation, storage, use, and destruction).
  *
+ * It can be used to verify the HTTPS certificate chain of the application server , and log in to the website or
+ * application server using two-way HTTPS.
+ *
  * @syscap SystemCapability.Security.CertificateManager
  * @since 11 dynamic
  * @since 23 static
@@ -126,7 +129,7 @@ declare namespace certificateManager {
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
@@ -141,7 +144,7 @@ declare namespace certificateManager {
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
     /**
-     * The USB credential service fails to be accessed.
+     * The USB Key service fails to be accessed.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -498,11 +501,10 @@ declare namespace certificateManager {
 
     /**
      * Certificate URI list.
-     *
      * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     uriList?: Array<string>;
@@ -544,8 +546,8 @@ declare namespace certificateManager {
    */
   export enum CmKeyDigest {
     /**
-     * No digest algorithm is required. If this option is used, the service needs to pass in the data with the digest
-     * generated for signing or signature verification.
+     * When this option is selected, it indicates that the application performs a digest calculation on the data to be
+     * signed or verified.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -672,7 +674,8 @@ declare namespace certificateManager {
     purpose: CmKeyPurpose;
 
     /**
-     * Padding mode.
+     * Enumeration representing the padding mode.
+     * Default value: CM_PADDING_PSS: indicates that the PSS filling mode is used.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -682,6 +685,7 @@ declare namespace certificateManager {
 
     /**
      * Digest algorithm.
+     * Default value: CM_DIGEST_SHA256: indicates that the SHA256 digest algorithm is used.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -862,7 +866,9 @@ declare namespace certificateManager {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate does not exist. Possible causes:
+   *     1. The certificate URI is incorrect;
+   *     2. The certificate has been uninstalled. Please check the certificate URI.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -890,8 +896,9 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * Initializes the signing or signature verification operation using the specified credential. This API uses an
-   * asynchronous callback to return the result.
+   * Indicates the initialization of signature and signature verification using credentials. This is the first step in
+   * the signature verification process. Later, the update and finish interfaces need to be invoked in sequence to
+   * complete the operations. Use Callback to return the result asynchronously.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } authUri - Unique identifier of the credential to be used. The value contains up to 256 bytes.
@@ -905,7 +912,9 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
-   * @throws { BusinessError } 17500005 - The application is not authorized by the user. [since 12]
+   * @throws { BusinessError } 17500005 - The application is not authorized by the user.
+   *     Please call [openAuthorizeDialog]{@link certificateManagerDialog.openAuthorizeDialog}
+   *     method to request user authorization for the certificate or credential. [since 12]
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -935,11 +944,12 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
   /**
-   * Updates the data for the signing or signature verification operation. This API uses an asynchronous callback to
+   * Updates the data for the signing or signature verification operation.  It needs to be invoked after the init
+   * operation to transfer the data to be signed and verified. This API uses an asynchronous callback to
    * return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } handle - Handle of initialization which needs to be obtained by calling the init method.
    * @param { Uint8Array } data - Data to be signed or verified.
    * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -959,7 +969,7 @@ declare namespace certificateManager {
    * Updates the data for the signing or signature verification operation. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } handle - Handle of initialization, which needs to be obtained by calling the init method
    * @param { Uint8Array } data - Data to be signed or verified.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -975,10 +985,11 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
   /**
-   * Finishes the signing operation. This API uses an asynchronous callback to return the result.
+   * Finishes the signing operation. This is the last step in the signature process. The init and update interfaces need
+   *  to be invoked first. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } handle - Handle of initialization. You need to invoke the init method to obtain the handle.
    * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **null** and **data** is the signature, that is, **outData** of the
    *     [CMResult]{@link certificateManager.CMResult} object. Otherwise, **err** is an error object.
@@ -998,7 +1009,7 @@ declare namespace certificateManager {
    * Finishes the signature verification operation. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
+   * @param { Uint8Array } handle - Handle of initialization. You need to invoke the init method to obtain the handle.
    * @param { Uint8Array } signature - Data to sign or verify.
    * @param { AsyncCallback<CMResult> } callback - Callback used to return the result. If the operation is successful,
    *     **err** is **null**. Otherwise, **err** is an error object.
@@ -1018,9 +1029,9 @@ declare namespace certificateManager {
    * Finishes the signing or signature verification operation. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
-   * @param { Uint8Array } signature - Signature data used for signature verification. This parameter needs to be
-   *     specified only for signature verification.
+   * @param { Uint8Array } handle - Handle of initialization. You need to invoke the init method to obtain the handle.
+   * @param { Uint8Array } signature - Signature data used for signature verification.  This parameter does not need to
+   *     be specified for signature operation.
    * @returns { Promise<CMResult> } Promise used to return the signature of a signing operation, that is, **outData** in
    *     the [CMResult]{@link certificateManager.CMResult} object. For a signature verification operation, the promise
    *     returns no value.
@@ -1295,6 +1306,7 @@ declare namespace certificateManager {
     /**
      * Certificate algorithm. This parameter is valid only when **certType** is set to **CA_CERT_SYSTEM**. The default
      * value is **INTERNATIONAL**.
+     * Devices outside China do not support the SM algorithm.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1406,8 +1418,8 @@ declare namespace certificateManager {
    * Uninstalls a user CA certificate.
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - Unique identifier of the certificate to be uninstalled. The value contains up to 256
-   *     bytes.
+   * @param { string } certUri - Unique identifier of the certificate to be uninstalled. The value contains a maximum of
+   *     256 bytes.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1439,7 +1451,8 @@ declare namespace certificateManager {
     INTERNATIONAL = 1,
 
     /**
-     * Commercial cryptographic algorithm, such as SM2 and SM4.
+     * Indicates the commercial cryptographic algorithm, such as SM2 and SM4.
+     * Devices outside China do not support certificates using this algorithm.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1494,12 +1507,14 @@ declare namespace certificateManager {
   }
 
   /**
-   * Obtains the details of a USB credential. This API uses a promise to return the result.
+   * Obtains the details of a USB Key credential. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Unique identifier of a USB credential. The value contains up to 256 bytes.
-   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
-   * @returns { Promise<CMResult> } Promise used to return the obtained USB credential details.
+   * @param { string } keyUri - Unique identifier of a USB Key credential. The value contains up to 256 bytes
+   * @param { UkeyInfo } ukeyInfo - Attributes of a USB Key credential
+   * @returns { Promise<CMResult> } Promise used to return the obtained USB Key credential details.
+   *     The return value is the credentialDetailList attribute of the
+   *     [CMResult]{@link certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    *     The application does not have the permission required to call the API.
@@ -1516,7 +1531,7 @@ declare namespace certificateManager {
   function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * Provides USB credential attributes.
+   * Provides USB Key certificate credential attribute information.
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
@@ -1525,6 +1540,7 @@ declare namespace certificateManager {
   export interface UkeyInfo {
     /**
      * Credential usage.
+     * Default value: PURPOSE_DEFAULT.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1547,7 +1563,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificateList(): Promise<CMResult>;
@@ -1571,7 +1587,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
@@ -1598,7 +1614,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
@@ -1607,7 +1623,7 @@ declare namespace certificateManager {
    * Represents the certificate file format.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export enum CertFileFormat {
@@ -1615,7 +1631,7 @@ declare namespace certificateManager {
      * The certificate file format is PEM or DER.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     PEM_DER = 0,
@@ -1624,50 +1640,54 @@ declare namespace certificateManager {
      * The certificate file format is P7B.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     P7B = 1
   }
 
   /**
-   * Represents the certificate data in binary format.
+   * Indicates the certificate file data.
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export interface CertBlob {
     /**
      * Certificate file data.
+     * The maximum length is 8196 and cannot be empty.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certData: Uint8Array;
 
     /**
-     * Certificate file format.
+     * Indicates the certificate file format.
+     * Default value: PEM_DER.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certFormat? : CertFileFormat;
 
     /**
-     * Scope of the CA certificate.
+     * Indicates the storage location of the user CA certificate.
+     * Default value: Current_USER.
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certScope? : CertScope;
   }
 
   /**
-   * Installs a user CA certificate. This API uses a promise to return the result.
+   * Install the user CA certificate. When the input parameter certificate.certFormat is set to P7B, the P7B certificate
+   *  file can contain a maximum of 20 certificates. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
    * @param { CertBlob } certificate - Certificate information.
@@ -1684,7 +1704,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode.
    *     <br>In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
@@ -1702,7 +1722,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllUserTrustedCertificate() : Promise<void>;
@@ -1729,7 +1749,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
@@ -1751,7 +1771,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
@@ -1771,7 +1791,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllPublicCertificates() : Promise<CMResult>;
@@ -1795,7 +1815,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
@@ -1818,7 +1838,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
@@ -1841,7 +1861,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
@@ -1862,7 +1882,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
@@ -1889,7 +1909,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
@@ -1912,7 +1932,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
@@ -1934,17 +1954,17 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * Obtains the list of USB credential certificates. This API uses a promise to return the result.
+   * Obtains the list of USB Key credential . This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } ukeyProvider - USB credential provider.
-   * @param { UkeyInfo } ukeyInfo - Attributes of a USB credential.
+   * @param { string } ukeyProvider - USB Key device provider
+   * @param { UkeyInfo } ukeyInfo - Attributes of a USB Key credential
    * @returns { Promise<CMResult> } Promise used to return the operation result, that is, **credentialDetailList** in
    *     the [CMResult]{@link certificateManager.CMResult} object.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1957,7 +1977,7 @@ declare namespace certificateManager {
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
@@ -1976,7 +1996,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
@@ -1985,25 +2005,28 @@ declare namespace certificateManager {
    * Import the certificate to the USB key.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the USB key certificate URI.
-   *     <br>The keyUri parameter identifies a certificate entity, which can be obtained
-   *     <br>by calling the getUkeyCertificateList interface.
-   * @param { Uint8Array } cert - Indicates the certificate data to be imported.
+   * @param { string } keyUri - Indicates the USB key credentials URI
+   *     <br>The maximum length is 256 and cannot be empty.
+   *     <br>
+   *     The keyUri parameter identifies a certificate entity, which can be obtained
+   *     <br>by calling the [getUkeyCertificateList]{@link certificateManager.getUkeyCertificateList} interface.
+   * @param { Uint8Array } cert - Indicates the certificate data to be imported
+   *     <br>The maximum length is 10240 and cannot be empty.
    *     <br>The certificate data format complies with the SKF specification.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information.
-   *     <br>The value of <br>UkeyInfo.CertificatePurpose must be PURPOSE_SIGN or PURPOSE_ENCRYPT.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information
+   *     <br>UkeyInfo.CertificatePurpose can only be set to PURPOSE_SIGN, PURPOSE_ENCRYPT or PURPOSE_DEFAULT.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
    * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;

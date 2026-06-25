@@ -19,9 +19,9 @@
  * @kit ArkUI
  */
 
-import { memo, ComponentBuilder } from './../stateManagement/runtime';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
-import { Vector2, Vector4 } from './Graphics'
+import { Vector2, Vector4 } from '../Graphics'
 
 /**
  * DistortionParam defines parameters for spatial distortion effects.
@@ -112,22 +112,52 @@ export declare interface DistortionComponentOptions {
  * @stagemodelonly
  * @since 26.0.0 static
  */
-export declare interface DistortionComponentAttribute extends CommonMethod {}
+export declare interface DistortionComponentAttribute extends CommonMethod {
+    /**
+     * Set DistortionComponent options.
+     *
+     * @param { DistortionComponentOptions } [options] - The options to create a DistortionComponent.
+     * @returns { DistortionComponentAttribute } Returns instance of  DistortionComponentAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setDistortionComponentOptions(options?: DistortionComponentOptions): this;
+}
 
 /**
  * Defines a DistortionComponent that provides spatial distortion visual effects.
  *
- * @param { ComponentContent } content - Content builder function.
  * @param { DistortionComponentOptions } [options] - DistortionComponent Options.
+ * @param { CustomBuilder } [content_] - Subcomponents of DistortionComponent.
  * @returns { DistortionComponentAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 26.0.0 static
  */
-@memo
 @ComponentBuilder
 export declare function DistortionComponent(
-    content: ComponentContent,
     options?: DistortionComponentOptions,
+    content_?:CustomBuilder,
+): DistortionComponentAttribute;
+
+
+
+/**
+ * Defines a DistortionComponent that provides spatial distortion visual effects.
+ *
+ * @param { CustomBuilderT<DistortionComponentAttribute> } style_ - DistortionComponent attribute instance.
+ * @param { CustomBuilder } [content_] - container.
+ * @returns { DistortionComponentAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function DistortionComponent(
+    style_: CustomBuilderT<DistortionComponentAttribute>,
+    content_?:CustomBuilder,
 ): DistortionComponentAttribute;

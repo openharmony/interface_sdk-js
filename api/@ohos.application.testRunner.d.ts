@@ -30,7 +30,6 @@
  * Prepare the unit testing environment for running test cases.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
  * @since 23 static
  */
 type OnPrepareFn = () => void;
@@ -39,7 +38,6 @@ type OnPrepareFn = () => void;
  * Run all test cases.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
  * @since 23 static
  */
 type OnRunFn = () => void;
@@ -77,7 +75,6 @@ interface TestRunner {
    * Prepare the unit testing environment for running test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onPrepare: OnPrepareFn;
@@ -95,7 +92,6 @@ interface TestRunner {
    * Run all test cases.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @atomicservice
    * @since 23 static
    */
   onRun: OnRunFn;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023  Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2026  Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -23,20 +23,19 @@ import { AsyncCallback, Callback } from './@ohos.base';
 /**
  * Provides methods for managing bundle usage statistics,
  * including the methods for querying bundle usage information and state data.
- *
- * <p>You can use the methods defined in this class to query
+ * 
+ * You can use the methods defined in this class to query
  * the usage history and states of bundles in a specified period.
  * The system stores the query result in a {@link BundleStatsInfo} instance and
  * then returns it to you.
  *
- * @namespace usageStatistics
  * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace usageStatistics {
   /**
-   * @interface BundleStatsInfo
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -45,7 +44,7 @@ declare namespace usageStatistics {
   interface BundleStatsInfo {
     /**
      * The identifier of BundleStatsInfo.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -56,7 +55,7 @@ declare namespace usageStatistics {
     /**
      * The total duration, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -67,7 +66,7 @@ declare namespace usageStatistics {
     /**
      * The last time when the application was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -78,7 +77,7 @@ declare namespace usageStatistics {
     /**
      * The last time when the application was visible in the foreground, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -89,7 +88,7 @@ declare namespace usageStatistics {
     /**
      * The total duration, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -99,7 +98,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name of the application.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -110,7 +109,7 @@ declare namespace usageStatistics {
     /**
      * The total duration, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -121,7 +120,7 @@ declare namespace usageStatistics {
     /**
      * The last time when the foreground application was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -133,7 +132,7 @@ declare namespace usageStatistics {
      * The time of the first bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -145,7 +144,7 @@ declare namespace usageStatistics {
      * The time of the last bundle usage record in this {@code BundleActiveInfo} object,
      * in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -155,7 +154,7 @@ declare namespace usageStatistics {
 
     /**
      * The app index of the application.
-     * @type { ?int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 15 dynamic
@@ -165,7 +164,7 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface HapFormInfo
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -174,7 +173,7 @@ declare namespace usageStatistics {
   interface HapFormInfo {
     /**
      * The form name.
-     * @type { string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -184,7 +183,7 @@ declare namespace usageStatistics {
 
     /**
      * The form dimension.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -194,7 +193,7 @@ declare namespace usageStatistics {
 
     /**
      * The form id.
-     * @type { long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -203,9 +202,9 @@ declare namespace usageStatistics {
     formId: long;
 
     /**
-     * The last time when the form was accessed, in milliseconds..
+     * The last time when the form was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -215,7 +214,7 @@ declare namespace usageStatistics {
 
     /**
      * The click count of module.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -225,7 +224,7 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface HapModuleInfo
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -234,7 +233,7 @@ declare namespace usageStatistics {
   interface HapModuleInfo {
     /**
      * The device id of module.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -244,7 +243,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name.
-     * @type { string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -254,7 +253,7 @@ declare namespace usageStatistics {
 
     /**
      * The module name.
-     * @type { string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -264,7 +263,7 @@ declare namespace usageStatistics {
 
     /**
      * The main ability name of module.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -274,7 +273,7 @@ declare namespace usageStatistics {
 
     /**
      * The label id of application.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -284,7 +283,7 @@ declare namespace usageStatistics {
 
     /**
      * The label id of module.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -294,7 +293,7 @@ declare namespace usageStatistics {
 
     /**
      * The description id of application.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -304,7 +303,7 @@ declare namespace usageStatistics {
 
     /**
      * The ability id of main ability.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -314,7 +313,7 @@ declare namespace usageStatistics {
 
     /**
      * The description id of main ability.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -324,7 +323,7 @@ declare namespace usageStatistics {
 
     /**
      * The icon id of main ability.
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -334,7 +333,7 @@ declare namespace usageStatistics {
 
     /**
      * The launch count of module.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -345,7 +344,7 @@ declare namespace usageStatistics {
     /**
      * The last time when the module was accessed, in milliseconds.
      * <br> Unit:ms
-     * @type { long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -355,7 +354,7 @@ declare namespace usageStatistics {
 
     /**
      * The form usage record list of current module.
-     * @type { Array<HapFormInfo> }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -365,7 +364,7 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface DeviceEventStats
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -374,7 +373,7 @@ declare namespace usageStatistics {
   interface DeviceEventStats {
     /**
      * The bundle name or system event name.
-     * @type { string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -384,7 +383,7 @@ declare namespace usageStatistics {
 
     /**
      * The event id.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -394,7 +393,7 @@ declare namespace usageStatistics {
 
     /**
      * The the event occurrence number.
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -404,7 +403,7 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface BundleEvents
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -413,7 +412,7 @@ declare namespace usageStatistics {
   interface BundleEvents {
     /**
      * The usage group of the application.
-     * @type { ?int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -423,7 +422,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -433,7 +432,7 @@ declare namespace usageStatistics {
 
     /**
      * The shortcut ID.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -443,7 +442,7 @@ declare namespace usageStatistics {
 
     /**
      * The class name.
-     * @type { ?string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -454,7 +453,7 @@ declare namespace usageStatistics {
     /**
      * The time when this state occurred, in milliseconds.
      * <br> Unit:ms
-     * @type { ?long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -464,7 +463,7 @@ declare namespace usageStatistics {
 
     /**
      * The event id.
-     * @type { ?int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -474,16 +473,16 @@ declare namespace usageStatistics {
   }
 
   /**
-   * @interface AppGroupCallbackInfo
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
-     * @since 9 dynamic
-     * @since 23 static
+   * @since 9 dynamic
+   * @since 23 static
    */
   interface AppGroupCallbackInfo {
     /**
      * The usage old group of the application
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -493,7 +492,7 @@ declare namespace usageStatistics {
 
     /**
      * The usage new group of the application
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -503,7 +502,7 @@ declare namespace usageStatistics {
 
     /**
      * The use id
-     * @type { int }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -513,7 +512,7 @@ declare namespace usageStatistics {
 
     /**
      * The change reason
-     * @type { long }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -523,7 +522,7 @@ declare namespace usageStatistics {
 
     /**
      * The bundle name
-     * @type { string }
+     *
      * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
      * @systemapi Hide this for inner system use.
      * @since 9 dynamic
@@ -537,17 +536,17 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to query.
-   * @param { AsyncCallback<boolean> } callback - the callback of isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates the application is idle in a particular period, and **false** indicates otherwise.
+   *     The time range of the particular period is defined by the system, which may be hours or days.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -564,16 +563,16 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to query.
    * @returns { Promise<boolean> } the promise returned by isIdleState.
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   *     boolean value is true mean the application is idle in a particular period; false mean otherwise.
+   *     The time range of the particular period is defined by the system, which may be hours or days.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -590,16 +589,16 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - Indicates the bundle name of the application to query.
    * @returns { boolean }
-   * <p> boolean value is true mean the application is idle in a particular period; false mean otherwise.
-   * The time range of the particular period is defined by the system, which may be hours or days.</p>
+   *     boolean value is true mean the application is idle in a particular period; false mean otherwise.
+   *     The time range of the particular period is defined by the system, which may be hours or days.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -612,19 +611,21 @@ declare namespace usageStatistics {
 
   /**
    * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the app group of the calling application.
+   *     Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -639,18 +640,19 @@ declare namespace usageStatistics {
 
   /**
    * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<int> } the promise returned by queryAppGroup.
-   * <p> Returns the app group of the calling application.</p>
+   *     Returns the app group of the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -665,8 +667,9 @@ declare namespace usageStatistics {
 
   /**
    * Queries the app group of the calling application.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { int } Returns the app group of the calling application.
@@ -675,7 +678,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -690,20 +693,22 @@ declare namespace usageStatistics {
 
   /**
    * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
-   * @param { AsyncCallback<int> } callback - the callback of queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
+   * @param { AsyncCallback<int> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the usage priority group of the calling
+   *     application. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -718,20 +723,20 @@ declare namespace usageStatistics {
 
   /**
    * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
-   * @returns { Promise<int> } the promise returned by queryAppGroup.
-   * <p> the usage priority group of the calling application.</p>
+   * @returns { Promise<int> } Promise used to return the calling application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -746,8 +751,9 @@ declare namespace usageStatistics {
 
   /**
    * Queries the usage priority group by bundleName.
-   * <p>The priority defined in a priority group restricts the resource usage of an application,
-   * for example, restricting the running of background tasks. </p>
+   * 
+   * The priority defined in a priority group restricts the resource usage of an application,
+   * for example, restricting the running of background tasks.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
@@ -758,7 +764,7 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000005 - Application is not installed.
@@ -772,7 +778,7 @@ declare namespace usageStatistics {
   function queryAppGroupSync(bundleName: string): int;
 
   /**
-   * @typedef { Record<string, BundleStatsInfo> }
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -782,22 +788,24 @@ declare namespace usageStatistics {
 
   /**
    * Queries usage information about each bundle within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 
+   * This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<BundleStatsMap> } callback - the callback of queryBundleStatsInfos,
-   * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<BundleStatsMap> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link BundleStatsMap} objects containing
+   *     the usage information about each bundle. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -811,22 +819,23 @@ declare namespace usageStatistics {
 
   /**
    * Queries usage information about each bundle within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 
+   * This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<BundleStatsMap> } the promise returned by queryBundleStatsInfos.
-   * <p> the {@link BundleStatsMap} objects containing the usage information about each bundle.</p>
+   *     the {@link BundleStatsMap} objects containing the usage information about each bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -839,7 +848,7 @@ declare namespace usageStatistics {
   function queryBundleStatsInfos(begin: long, end: long): Promise<BundleStatsMap>;
 
   /**
-   * @typedef { Record<string, Array<BundleStatsInfo>> }
+   *
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 15 dynamic
@@ -849,22 +858,23 @@ declare namespace usageStatistics {
 
   /**
    * Queries usage information about each application within a specified period.
-   * <p>This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.</p>
+   * 
+   * This method queries usage information at the {@link #BY_OPTIMIZED} interval by default.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<AppStatsMap> } the promise returned by queryAppStatsInfos.
-   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   *     the {@link AppStatsMap} objects containing the usage information about each application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -880,16 +890,16 @@ declare namespace usageStatistics {
    * Queries the last usage timestamp by bundleName and app index.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { appInfo } bundle name and app index info for each application.
+   * @param { Record<string, Array<long>> } appInfo - bundle name and app index info for each application.
    * @returns { Promise<AppStatsMap> } the promise returned by queryLastUseTime.
-   * <p> the {@link AppStatsMap} objects containing the usage information about each application.</p>
+   *     the {@link AppStatsMap} objects containing the usage information about each application.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -904,7 +914,6 @@ declare namespace usageStatistics {
   /**
    * Declares interval type.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -967,21 +976,22 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-   * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
+   *     The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+   *     {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - the callback of queryBundleStatsInfoByInterval.
-   * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<Array<BundleStatsInfo>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the list of {@link BundleStatsInfo} objects
+   *     containing the usage information about each bundle. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1003,21 +1013,20 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { IntervalType } byInterval - Indicates the interval at which the usage statistics are queried.
-   * <p> The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
-   * {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.</p>
+   *     The value can be {@link #BY_OPTIMIZED}, {@link #BY_DAILY},
+   *     {@link #BY_WEEKLY}, {@link #BY_MONTHLY}, or {@link #BY_ANNUALLY}.
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @returns { Promise<Array<BundleStatsInfo>> } the promise returned by queryBundleStatsInfoByInterval.
-   * <p> the list of {@link BundleStatsInfo} objects containing the usage information about each bundle.</p>
+   *     <br> Unit:ms
+   * @returns { Promise<Array<BundleStatsInfo>> } Promise used to return the usage information about each bundle.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1038,19 +1047,20 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleEvents>> } callback - the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<Array<BundleEvents>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the list of {@link BundleEvents} objects
+   *     containing the state data of all bundles. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1067,19 +1077,19 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
+   *     the list of {@link BundleEvents} objects containing the state data of all bundles.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1092,50 +1102,52 @@ declare namespace usageStatistics {
   function queryBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
     /**
-   * Queries state data of all bundles within a specified period identified by the start and end time.
-   *
-   * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
-   * <p> the list of {@link BundleEvents} objects containing the state data of all bundles.</p>
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10000007 - Failed to get the system time.
-   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
+     * Queries state data of all bundles within a specified period identified by the start and end time.
+     *
+     * @permission ohos.permission.BUNDLE_ACTIVE_INFO
+     * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+     *     <br> Unit:ms
+     * @param { long } end - Indicates the end time of the query period, in milliseconds.
+     *     <br> Unit:ms
+     * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+     * @returns { Promise<Array<BundleEvents>> } the promise returned by queryBundleEvents.
+     *     the list of {@link BundleEvents} objects containing the state data of all bundles.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not System App.
+     * @throws { BusinessError } 10000001 - Memory operation failed.
+     * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+     *     <br> 2. Failed to apply for memory.
+     * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+     * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+     * @throws { BusinessError } 10000006 - Failed to get the application information.
+     * @throws { BusinessError } 10000007 - Failed to get the system time.
+     * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left
+     *     unspecified;
+     *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+     * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     function queryBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
    * Queries state data of the current bundle within a specified period.
    *
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<BundleEvents>> } callback - the callback of queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<Array<BundleEvents>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link BundleEvents} object Array containing
+   *     the state data of the current bundle. Otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1151,18 +1163,18 @@ declare namespace usageStatistics {
    * Queries state data of the current bundle within a specified period.
    *
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
+   *     the {@link BundleEvents} object Array containing the state data of the current bundle.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1175,30 +1187,30 @@ declare namespace usageStatistics {
   function queryCurrentBundleEvents(begin: long, end: long): Promise<Array<BundleEvents>>;
 
    /**
-   * Queries state data of the current bundle within a specified period.
-   *
-   * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
-   * <p> the {@link BundleEvents} object Array containing the state data of the current bundle.</p>
-   * @throws { BusinessError } 202 - Not System App.
-   * @throws { BusinessError } 10000001 - Memory operation failed.
-   * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
-   * @throws { BusinessError } 10000003 - Failed to get system ability manager.
-   * @throws { BusinessError } 10000004 - Failed to access the device usage service.
-   * @throws { BusinessError } 10000006 - Failed to get the application information.
-   * @throws { BusinessError } 10000007 - Failed to get the system time.
-   * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
-   * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
-   * @systemapi Hide this for inner system use.
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
+    * Queries state data of the current bundle within a specified period.
+    *
+    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
+    *     <br> Unit:ms
+    * @param { long } end - Indicates the end time of the query period, in milliseconds.
+    *     <br> Unit:ms
+    * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
+    * @returns { Promise<Array<BundleEvents>> } the promise returned by queryCurrentBundleEvents.
+    *     the {@link BundleEvents} object Array containing the state data of the current bundle.
+    * @throws { BusinessError } 202 - Not System App.
+    * @throws { BusinessError } 10000001 - Memory operation failed.
+    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
+    *     <br> 2. Failed to apply for memory.
+    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
+    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
+    * @throws { BusinessError } 10000006 - Failed to get the application information.
+    * @throws { BusinessError } 10000007 - Failed to get the system time.
+    * @throws { BusinessError } 10000008 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
+    *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.App
+    * @systemapi Hide this for inner system use.
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
    function queryCurrentBundleEvents(begin: long, end: long, maxNum: int): Promise<Array<BundleEvents>>;
 
   /**
@@ -1206,16 +1218,17 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
-   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link HapModuleInfo} object Array containing
+   *     the usage data of the modules. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1233,15 +1246,15 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { int } maxNum - Indicates max record number in result, max value is 1000, default value is 1000.
    * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   *     the {@link HapModuleInfo} object Array containing the usage data of the modules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1257,16 +1270,17 @@ declare namespace usageStatistics {
    * Queries recently module usage records.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - the callback of queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   * @param { AsyncCallback<Array<HapModuleInfo>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link HapModuleInfo} object Array containing
+   *     the usage data of the modules. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1283,15 +1297,15 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @returns { Promise<Array<HapModuleInfo>> } the promise returned by queryModuleUsageRecords.
-   * <p> the {@link HapModuleInfo} object Array containing the usage data of the modules.</p>
+   *     the {@link HapModuleInfo} object Array containing the usage data of the modules.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1306,7 +1320,6 @@ declare namespace usageStatistics {
   /**
    * Declares group type.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.UsageStatistics.AppGroup
    * @systemapi Hide this for inner system use.
    * @since 9 dynamic
@@ -1380,15 +1393,16 @@ declare namespace usageStatistics {
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { string } bundleName - name of the application.
    * @param { GroupType } newGroup - the group of the application whose name is bundleName.
-   * @param { AsyncCallback<void> } callback - the callback of setAppGroup.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1410,11 +1424,11 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1431,16 +1445,17 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
-   * @param { AsyncCallback<void> } callback - the callback of registerAppGroupCallBack.
+   *     callback of AppGroupCallbackInfo when the group of app changed.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   *     If the registration is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1456,16 +1471,16 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { Callback<AppGroupCallbackInfo> } groupCallback -
-   * <p> callback of AppGroupCallbackInfo when the group of app changed.</p>
+   *     callback of AppGroupCallbackInfo when the group of app changed.
    * @returns { Promise<void> } the promise returned by registerAppGroupCallBack.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1480,15 +1495,16 @@ declare namespace usageStatistics {
    * Unregister appGroup change callback from service.
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
-   * @param { AsyncCallback<void> } callback - the callback of unregisterAppGroupCallBack.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   *     If the cancellation of registration is successful, **err** is **undefined**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1507,11 +1523,11 @@ declare namespace usageStatistics {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10100001 - Repeated operation on the application group.
@@ -1527,19 +1543,20 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryDeviceEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link DeviceEventStats} object Array
+   *     containing the event states data. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1556,19 +1573,19 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryDeviceEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   *     the {@link DeviceEventStats} object Array containing the event states data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1585,19 +1602,20 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
-   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - the callback of queryNotificationEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   *     <br> Unit:ms
+   * @param { AsyncCallback<Array<DeviceEventStats>> } callback - Callback used to return the result.
+   *     If the query is successful, **err** is **undefined**, and data is the {@link DeviceEventStats} object Array
+   *     containing the event states data. Otherwise, **err** is an error object.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.
@@ -1618,19 +1636,19 @@ declare namespace usageStatistics {
    *
    * @permission ohos.permission.BUNDLE_ACTIVE_INFO
    * @param { long } begin - Indicates the start time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @param { long } end - Indicates the end time of the query period, in milliseconds.
-   * <br> Unit:ms
+   *     <br> Unit:ms
    * @returns { Promise<Array<DeviceEventStats>> } the promise returned by queryNotificationEventStats.
-   * <p> the {@link DeviceEventStats} object Array containing the event states data.</p>
+   *     the {@link DeviceEventStats} object Array containing the event states data.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - Parameter error. Possible cause: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     <br> 2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 10000001 - Memory operation failed.
    * @throws { BusinessError } 10000002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     <br> 2. Failed to apply for memory.
    * @throws { BusinessError } 10000003 - Failed to get system ability manager.
    * @throws { BusinessError } 10000004 - Failed to access the device usage service.
    * @throws { BusinessError } 10000006 - Failed to get the application information.

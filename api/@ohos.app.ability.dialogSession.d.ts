@@ -169,11 +169,11 @@ declare namespace dialogSession {
 
     /**
      * Installation source of the application. The options are as follows:
-     * 
+     *
      * - **pre-installed**: pre-installed application installed during the first boot.
      * - **ota**: pre-installed application added during system upgrade.
      * - **recovery**: pre-installed application manually restored by the user after uninstallation.
-     * - **bundleName**: installation by the application corresponding to this bundle name. **bundleName** represents a 
+     * - **bundleName**: installation by the application corresponding to this bundle name. **bundleName** represents a
      * variable, subject to the actual value.
      * - **unknown**: unknown application installation source.
      *
@@ -186,7 +186,7 @@ declare namespace dialogSession {
   }
 
   /**
-   * Provides session information, including the requester information, target ability information list, and other 
+   * Provides session information, including the requester information, target ability information list, and other
    * parameters.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

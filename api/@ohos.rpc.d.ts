@@ -26,6 +26,7 @@ import type { AsyncCallback } from './@ohos.base';
  *     on the Binder driver, and RPC is based on the DSoftBus driver.
  *
  * @syscap SystemCapability.Communication.IPC.Core
+ * @atomicservice [since 26.0.0]
  * @since 7 dynamic
  * @since 23 static
  */
@@ -1208,6 +1209,7 @@ declare namespace rpc {
    *     interface tokens, and custom sequenceable objects.
    *
    * @syscap SystemCapability.Communication.IPC.Core
+   * @atomicservice [since 26.0.0]
    * @since 9 dynamic
    * @since 23 static
    */
@@ -1464,6 +1466,7 @@ declare namespace rpc {
      *     2.The parameter type does not match.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1550,6 +1553,7 @@ declare namespace rpc {
      *     4.The number of bytes copied to the buffer is different from the length of the obtained string.
      * @throws { BusinessError } 1900009 - Failed to write data to the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1783,6 +1787,7 @@ declare namespace rpc {
      * @returns { int } Integer read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -1849,6 +1854,7 @@ declare namespace rpc {
      * @returns { string } String read.
      * @throws { BusinessError } 1900010 - Failed to read data from the message sequence.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -2859,6 +2865,7 @@ declare namespace rpc {
    * Defines the options used to construct the **MessageOption** object.
    *
    * @syscap SystemCapability.Communication.IPC.Core
+   * @atomicservice [since 26.0.0]
    * @since 7 dynamic
    * @since 23 static
    */
@@ -2868,6 +2875,7 @@ declare namespace rpc {
      *
      * @default 0
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      */
     static readonly TF_SYNC: number;
@@ -2886,6 +2894,7 @@ declare namespace rpc {
      *
      * @default 1
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      */
     static readonly TF_ASYNC: number;
@@ -2904,6 +2913,7 @@ declare namespace rpc {
      *
      * @default 16
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      */
     static readonly TF_ACCEPT_FDS: number;
@@ -2924,6 +2934,7 @@ declare namespace rpc {
      * @default 4 [since 7 - 10]
      * @default 8 [since 11]
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      */
     static readonly TF_WAIT_TIME: number;
@@ -2945,6 +2956,7 @@ declare namespace rpc {
      * @param { number } waitTime - Maximum wait time for an RPC call, in seconds. The default value is
      *     **TF_WAIT_TIME**.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      */
     constructor(syncFlags?: number, waitTime?: number);
@@ -2956,6 +2968,7 @@ declare namespace rpc {
      *     call asynchronously; the value **false** means to execute the call synchronously. The default value is
      *     **synchronous**.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      */
     constructor(async?: boolean);
@@ -3002,6 +3015,7 @@ declare namespace rpc {
      *
      * @returns { int } Call flag obtained. **0**: synchronous call flag; **1**: asynchronous call flag.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      * @since 23 static
      */
@@ -3012,6 +3026,7 @@ declare namespace rpc {
      *
      * @param { int } flags - Call flag to set. **0**: synchronous call flag; **1**: asynchronous call flag.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      * @since 23 static
      */
@@ -3023,6 +3038,7 @@ declare namespace rpc {
      * @returns { boolean } Returns **true** if **SendMessageRequest** is called asynchronously; returns **false** if it
      *     is called synchronously.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -3034,6 +3050,7 @@ declare namespace rpc {
      * @param { boolean } isAsync - Whether to execute the call asynchronously. The value **true** means to execute the
      *     call asynchronously; the value **false** means to execute the call synchronously.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */
@@ -3045,6 +3062,7 @@ declare namespace rpc {
      * @returns { int } Return the maximum waiting time obtained by the RPC, in seconds. The default value is
      *     **TF_WAIT_TIME**.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      * @since 23 static
      */
@@ -3056,6 +3074,7 @@ declare namespace rpc {
      * @param { int } waitTime - Indicates the maximum waiting time for RPC, in seconds. The upper limit is 3000
      *     seconds.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 7 dynamic
      * @since 23 static
      */
@@ -3195,6 +3214,7 @@ declare namespace rpc {
    * Provides methods to implement **RemoteObject**. The service provider must inherit from this class.
    *
    * @syscap SystemCapability.Communication.IPC.Core
+   * @atomicservice [since 26.0.0]
    * @since 7 dynamic
    * @since 23 static
    */
@@ -3282,6 +3302,7 @@ declare namespace rpc {
      *     **onRemoteMessageRequest**, a promise object is returned. The value **true** means that the operation is
      *     successful, and **false** means the opposite.
      * @syscap SystemCapability.Communication.IPC.Core
+     * @atomicservice [since 26.0.0]
      * @since 9 dynamic
      * @since 23 static
      */

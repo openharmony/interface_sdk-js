@@ -19,1053 +19,586 @@
  */
 
 /**
- * Defines the option of Progress.
+ * Defines progress bar options.
  *
- * @interface ProgressOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the option of Progress.
- *
- * @interface ProgressOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the option of Progress.
- *
- * @interface ProgressOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the option of Progress.
- *
- * @interface ProgressOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface ProgressOptions<Type extends keyof ProgressStyleMap> {
+
   /**
-   * Sets the value of Progress.
+   * Current progress. Values less than 0 are adjusted to **0**, and values greater than the **total** value are capped
+   * at the **total** value.
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the value of Progress.
+   * Default value: **0**
    *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the value of Progress.
+   * Value range: [0, total]
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the value of Progress.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   value: number;
 
   /**
-   * Sets the total of Progress.
+   * Total progress. If this parameter is set to a value less than or equal to 0, the value **100** is used.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the total of Progress.
+   * Default value: **100**
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the total of Progress.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the total of Progress.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   total?: number;
 
   /**
-   * Sets the style of Progress.
+   * Style of the progress indicator.
    *
-   * @type { ?ProgressStyle }
+   * This parameter is deprecated since API version 8. You are advised to use **type** instead.
+   *
+   * Default value: **ProgressStyle.Linear**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
    * @useinstead type
    */
-  style?: ProgressStyle
+  style?: ProgressStyle;
 
   /**
-   * Sets the type of Progress.
+   * Style of the progress indicator.
    *
-   * @type { ?Type }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Sets the type of Progress.
+   * Default value: **ProgressType.Linear**
    *
-   * @type { ?Type }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
-  /**
-   * Sets the type of Progress.
-   *
-   * @type { ?Type }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the type of Progress.
-   *
-   * @type { ?Type }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  type?: Type
+  type?: Type;
 }
 
 /**
- * Type of progress bar
+ * Enumerates progress indicator types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Type of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Type of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Type of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum ProgressType {
+
   /**
-   * Linear progress bar style.
+   * Linear type. Since API version 9, the progress indicator adapts to vertical display when its height is greater than
+   * its width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Linear = 0,
 
   /**
-   * Ring progress bar.
+   * The ring is gradually displayed until completely filled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Ring progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Ring progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Ring progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Ring = 1,
 
   /**
-   * Eclipse progress bar.
+   * Eclipse type, which visualizes the progress in a way similar to the moon waxing from new to full.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Eclipse = 2,
 
   /**
-   * ScaleRing progress bar.
+   * Ring style with scales, which is similar to the clock scale style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   ScaleRing = 3,
 
   /**
-   * Capsule progress bar.
+   * Capsule style. At both ends, the progress indicator works in the same manner as the eclipse style. In the middle
+   * part of the capsule, the progress indicator works in the same manner as the linear style. When the height is
+   * greater than the width, the progress indicator adapts to vertical display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Capsule = 4
 }
 
 /**
- * Current status of progress bar.
+ * Current state of the progress indicator.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Current status of progress bar.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ProgressStatus {
-  /**
-   * Loading status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Loading status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  LOADING,
 
   /**
-   * Processing status.
+   * Loading.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
+  LOADING = 0,
+
   /**
-   * Processing status.
+   * Progressing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   PROGRESSING
 }
 
 /**
- * Defines style options for progress component.
+ * Defines the progress bar style options.
  *
- * @extends CommonProgressStyleOptions
- * @interface ProgressStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines style options for progress component.
+ * Inherits from [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
  *
- * @extends CommonProgressStyleOptions
- * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines style options for progress component.
- *
- * @extends CommonProgressStyleOptions
- * @interface ProgressStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines style options for progress component.
- *
- * @extends CommonProgressStyleOptions
- * @interface ProgressStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
+
   /**
-   * Defines the strokeWidth property.
+   * Stroke width of the progress indicator. Percentage values are not supported.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the strokeWidth property.
+   * Default value: **4.0vp**
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the strokeWidth property.
+   * If the value is out of the range, the default value is used.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the strokeWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   strokeWidth?: Length;
 
   /**
-   * Defines the scaleCount property.
+   * Number of divisions on the ring-style process indicator.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the scaleCount property.
+   * Default value: **120**
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the scaleCount property.
+   * Value range: [2, min(width, height)/scaleWidth/2/π]. If the value is outside this range, the progress indicator is
+   * displayed in the indeterminate ring style. By default, the minimum width and height are 77 vp.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the scaleCount property.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   scaleCount?: number;
 
   /**
-   * Defines the scaleWidth property.
+   * Scale width of the ring-style progress indicator. Percentage values are not supported. If the scale width is
+   * greater than the stroke width of the progress indicator, the default scale width is used.
    *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the scaleWidth property.
+   * Default value: **2.0vp**
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the scaleWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the scaleWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   scaleWidth?: Length;
 }
 
 /**
- * Progress common style options.
+ * Provides common style configuration options for the progress indicator.
  *
- * @interface CommonProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Progress common style options.
- *
- * @interface CommonProgressStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface CommonProgressStyleOptions {
+
   /**
-   * Enable smooth effect.
+   * Whether to enable the smooth effect. When this feature is enabled, the progress value transitions from the current
+   * value to the target value with a progress change animation displayed on the page. When this feature is disabled,
+   * the progress value jumps directly to the target value without any animation.
    *
-   * @type { ?boolean }
+   * **true**: The smooth effect is enabled.
+   *
+   * **false**: The smooth effect is disabled.
+   *
+   * Default value: **true**
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Enable smooth effect.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableSmoothEffect?: boolean;
 }
 
 /**
- * Defines the enable scan effect.
+ * Defines the scan effect options.
  *
- * @interface ScanEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the enable scan effect.
- *
- * @interface ScanEffectOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ScanEffectOptions {
+
   /**
-   * Enable scan effect.
+   * Whether to enable the scan effect. Only the progress indicator of the
+   * [linear, ring, and capsule]{@link ProgressType} type is supported.
    *
-   * @type { ?boolean }
+   * **true**: The scan effect is enabled.
+   *
+   * **false**: The scan effect is disabled.
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Enable scan effect.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableScanEffect?: boolean;
 }
 
 /**
- * Defines the Eclipse style Options.
+ * Options of the eclipse style. The eclipse style visualizes the progress in a way similar to the moon waxing from new
+ * to full.
  *
- * @extends CommonProgressStyleOptions
- * @interface EclipseStyleOptions
+ * Inherits from [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
-/**
- * Defines the Eclipse style Options.
- *
- * @extends CommonProgressStyleOptions
- * @interface EclipseStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
-
-}
+declare interface EclipseStyleOptions extends CommonProgressStyleOptions {}
 
 /**
- * Defines the ScaleRing style Options.
+ * Options of the ring style with scales.
  *
- * @extends CommonProgressStyleOptions
- * @interface ScaleRingStyleOptions
+ * Inherits from [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the ScaleRing style Options.
- *
- * @extends CommonProgressStyleOptions
- * @interface ScaleRingStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
+
   /**
-   * Defines the strokeWidth property.
+   * Stroke width of the progress indicator. Percentage values are not supported.
    *
-   * @type { ?Length }
+   * Default value: **4.0vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the strokeWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeWidth?: Length;
 
   /**
-   * Defines the scaleWidth property.
+   * Scale width of the ring-style progress indicator. Percentage values are not supported. If the scale width is
+   * greater than the stroke width of the progress indicator, the default scale width is used.
    *
-   * @type { ?Length }
+   * Default value: **2.0vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the scaleWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   scaleWidth?: Length;
 
   /**
-   * Defines the scaleCount property.
+   * Number of divisions on the ring-style process indicator.
    *
-   * @type { ?number }
+   * Default value: **120**
+   *
+   * Value range: [2, min(width, height)/scaleWidth/2/π]. If the value is outside this range, the progress indicator is
+   * displayed in the indeterminate ring style. By default, the minimum width and height are 77 vp.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the scaleCount property.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   scaleCount?: number;
 }
 
 /**
- * Defines the ring style Options.
+ * Options of the ring style without scales.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface RingStyleOptions
+ * Inherits from [ScanEffectOptions]{@link ScanEffectOptions} and
+ * [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the ring style Options.
- *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface RingStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+
   /**
-   * Defines the strokeWidth property.
+   * Stroke width of the progress indicator. Percentage values are not supported.
    *
-   * @type { ?Length }
+   * Default value: **4.0vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the strokeWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeWidth?: Length;
 
   /**
-   * Enables progress shadow.
+   * Whether to enable the shadow effect.
    *
-   * @type { ?boolean }
+   * **true**: The shadow effect is enabled. **false**: The shadow effect is disabled.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Enables progress shadow.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   shadow?: boolean;
 
   /**
-   * The status of progress, default is PROGRESSING. Set to LOADING status will trigger the loading animation.
+   * Progress state. When this parameter is set to **ProgressStatus.LOADING**, the update check animation is enabled,
+   * and the progress value setting does not take effect. When the value changes from **ProgressStatus.LOADING** to
+   * **ProgressStatus.PROGRESSING**, the update check animation runs to completion and then stops.
    *
-   * @type { ?ProgressStatus }
+   * Default value: **ProgressStatus.PROGRESSING**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * The status of progress, default is PROGRESSING. Set to LOADING status will trigger the loading animation.
-   *
-   * @type { ?ProgressStatus }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   status?: ProgressStatus;
 }
 
 /**
- * Defines the linear style Options.
+ * Linear style options.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface LinearStyleOptions
+ * Inherits from [ScanEffectOptions]{@link ScanEffectOptions} and
+ * [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the linear style Options.
- *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface LinearStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+
   /**
-   * Defines the strokeWidth property.
+   * Stroke width of the progress indicator. Percentage values are not supported.
    *
-   * @type { ?Length }
+   * Default value: **4.0vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the strokeWidth property.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeWidth?: Length;
+
   /**
-   * Defines the stroke radius property.
+   * Border radius of the linear progress indicator.
    *
-   * @type { ?(PX | VP | LPX | Resource) }
+   * Value range: [0, strokeWidth/2] Default value: **strokeWidth/2**
+   *
    * @default strokeWidth / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the stroke radius property.
-   *
-   * @type { ?(PX | VP | LPX | Resource) }
-   * @default strokeWidth / 2
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   strokeRadius?: PX | VP | LPX | Resource;
 }
 
 /**
- * Defines the capsule style Options.
+ * Capsule style options.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface CapsuleStyleOptions
+ * Inherits from [ScanEffectOptions]{@link ScanEffectOptions} and
+ * [CommonProgressStyleOptions]{@link CommonProgressStyleOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the capsule style Options.
- *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface CapsuleStyleOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
+
   /**
-   * Set the inner border color.
+   * Border color.
    *
-   * @type { ?ResourceColor }
+   * Default value:
+   *
+   * API version 10: **'#33006cde'**
+   *
+   * API version 11 or later: **'#33007dff'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set the inner border color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderColor?: ResourceColor;
 
   /**
-   * Set the border width.
+   * Border width. Percentage values are not supported.
    *
-   * @type { ?Length }
+   * Default value: **1vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set the border width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderWidth?: Length;
 
   /**
-   * Set the text content.
+   * Text content, which can be customized.
    *
-   * @type { ?string }
+   * The Resource type is supported since API version 20.
+   *
+   * @type { ?string } [since 10 - 19]
+   * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set the text content.
-   *
-   * @type { ?string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the text content.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   content?: ResourceStr;
 
   /**
-   * Set the text style.
+   * Text style.
    *
-   * @type { ?Font }
+   * Default value:
+   *
+   * Font size (percentage values are not supported): **12fp**
+   *
+   * Other text parameters are subject to the theme values of the [Text]{@link text} component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set the text style.
-   *
-   * @type { ?Font }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   font?: Font;
 
   /**
-   * Set the text fontColor.
+   * Font color.
    *
-   * @type { ?ResourceColor }
+   * Default value: **'#ff182431'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Set the text fontColor.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontColor?: ResourceColor;
 
   /**
-   * show default percentage.
+   * Whether to display the percentage text. After this feature is enabled, the progress percentage is displayed on the
+   * progress indicator. This property does not take effect when **content** is set.
    *
-   * @type { ?boolean }
+   * **true**: The percentage text is displayed. **false**: The percentage text is not displayed.
+   *
+   * Default value: **false**
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * show default percentage.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showDefaultPercentage?: boolean;
 
   /**
-   * Set border rounded corner radius.
+   * Border radius. Percentage values are not supported.
    *
-   * @type { ?LengthMetrics }
-   * @default height / 2
+   * Value range: [0, min(width, height)/2]
+   *
+   * Default value: min(width, height)/2
+   *
+   * If an invalid value is set, the default value is used.
+   *
+   * @default min(width, height) / 2
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1076,549 +609,259 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
 }
 
 /**
- * Style of progress bar
+ * Enumerates progress indicator styles.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Style of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Style of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Style of progress bar
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ProgressStyle {
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Linear progress bar style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Linear,
 
   /**
-   * Ring progress bar.
+   * Linear style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
+  Linear = 0,
+
   /**
-   * Ring progress bar.
+   * The ring is gradually displayed until completely filled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Ring progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Ring progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Ring,
 
   /**
-   * Eclipse progress bar.
+   * Eclipse style, which visualizes the progress in a way similar to the moon waxing from new to full.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Eclipse progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Eclipse,
 
   /**
-   * ScaleRing progress bar.
+   * Ring style with scales, which is similar to the clock scale style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * ScaleRing progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   ScaleRing,
 
   /**
-   * Capsule progress bar.
+   * Capsule style. At both ends, the progress indicator works in the same manner as the eclipse style. In the middle
+   * part of the capsule, the progress indicator works in the same manner as the linear style. When the height is
+   * greater than the width, the progress indicator adapts to vertical display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Capsule progress bar.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   Capsule,
 }
 
 /**
- * Defines the map for progress type and style.
+ * Defines the mapping between progress indicators and styles.
  *
- * @interface ProgressStyleMap
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Defines the map for progress type and style.
- *
- * @interface ProgressStyleMap
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface ProgressStyleMap {
+
   /**
-   * Defines the map for Linear progress.
+   * Progress bar style corresponding to the linear progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the map for Linear progress.
-   *
-   * @type { LinearStyleOptions | ProgressStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   [ProgressType.Linear]: LinearStyleOptions | ProgressStyleOptions;
+
   /**
-   * Defines the map for Ring progress.
+   * Progress bar style corresponding to the ring unscaled progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the map for Ring progress.
-   *
-   * @type { RingStyleOptions | ProgressStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   [ProgressType.Ring]: RingStyleOptions | ProgressStyleOptions;
+
   /**
-   * Defines the map for Eclipse progress.
+   * Progress bar style corresponding to a round progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the map for Eclipse progress.
-   *
-   * @type { EclipseStyleOptions | ProgressStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   [ProgressType.Eclipse]: EclipseStyleOptions | ProgressStyleOptions;
+
   /**
-   * Defines the map for ScaleRing progress.
+   * Progress bar style corresponding to the ring scaled progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the map for ScaleRing progress.
-   *
-   * @type { ScaleRingStyleOptions | ProgressStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   [ProgressType.ScaleRing]: ScaleRingStyleOptions | ProgressStyleOptions;
+
   /**
-   * Defines the map for Capsule progress.
+   * Progress bar style corresponding to the capsule progress bar.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Defines the map for Capsule progress.
-   *
-   * @type { CapsuleStyleOptions | ProgressStyleOptions }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   [ProgressType.Capsule]: CapsuleStyleOptions | ProgressStyleOptions;
 }
 
 /**
- * Provides the progress bar interface.
+ * The **Progress** component represents a progress indicator that displays the progress of content loading or an
+ * operation.
  *
- * @interface ProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides the progress bar interface.
+ * > **NOTE**
  *
- * @interface ProgressInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides the progress bar interface.
- *
- * @interface ProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides the progress bar interface.
- *
- * @interface ProgressInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface ProgressInterface {
+
   /**
-   * Called when the progress bar is set.
+   * Creates a progress indicator.
    *
-   * @param { ProgressOptions<Type> } options
+   * @param { ProgressOptions<Type> } options - Options of the progress indicator, which vary by progress indicator
+   *     type.
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the progress bar is set.
-   *
-   * @param { ProgressOptions<Type> } options
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the progress bar is set.
-   *
-   * @param { ProgressOptions<Type> } options
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the progress bar is set.
-   *
-   * @param { ProgressOptions<Type> } options
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   <Type extends keyof ProgressStyleMap>(options: ProgressOptions<Type>): ProgressAttribute<Type>;
 }
 
 /**
- * Defines the progress attribute functions.
+ * In addition to the
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
  *
- * @extends CommonMethod<ProgressAttribute<Type>>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the progress attribute functions.
+ * The [universal events][universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are
+ * supported.
  *
- * @extends CommonMethod<ProgressAttribute<Type>>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the progress attribute functions.
- *
- * @extends CommonMethod<ProgressAttribute<Type>>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the progress attribute functions.
- *
- * @extends CommonMethod<ProgressAttribute<Type>>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof ProgressStyleMap,
   Style extends ProgressStyleMap[Type] = ProgressStyleMap[Type]> extends CommonMethod<ProgressAttribute<Type>> {
+
   /**
-   * Called when the current progress value is set.
+   * Current progress. Values less than 0 are adjusted to **0**, and values greater than the **total** value are capped
+   * at the **total** value. Invalid values do not take effect.
    *
-   * @param { number } value
+   * @param { number } value - Current progress.<br> Default value: **0**
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the current progress value is set.
-   *
-   * @param { number } value
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the current progress value is set.
-   *
-   * @param { number } value
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the current progress value is set.
-   *
-   * @param { number } value
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   value(value: number): ProgressAttribute<Type>;
 
   /**
-   * Called when the progress bar foreground is set.
+   * Sets the foreground color of the progress indicator.
    *
-   * @param { ResourceColor | LinearGradient } value
+   * Since API version 10, [LinearGradient]{@link LinearGradient} can be used to set a gradient color for the ring
+   * style. Setting opacity is not recommended for the ring type. If opacity is required, use
+   * [DataPanel]{@link data_panel}.
+   *
+   * Since API version 23, [LinearGradient]{@link LinearGradient} can be used to set gradient colors for the linear and
+   * capsule styles. In API version 22 and earlier versions, setting gradient colors via **LinearGradient** for the
+   * **Linear** and **Capsule** styles will not render the custom colors; the system's default theme colors will be used
+   * instead.
+   *
+   * @param { ResourceColor | LinearGradient } value - Foreground color of the progress indicator.<br>Default value:<br>
+   *     - Capsule:<br>   API version 9 or earlier: **'#ff007dff'**<br>   API version 10: **'#33006cde'**<br>   API
+   *     version 11 or later: **'#33007dff'**<br>- Ring:<br>   API version 9 or earlier: **'#ff007dff'**<br>   API
+   *     version 10 or later: start: **'#ff86c1ff'**, end: **'#ff254ff7'**<br>- Other styles: **'#ff007dff'**
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the progress bar foreground is set.
-   *
-   * @param { ResourceColor | LinearGradient } value
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the progress bar foreground is set.
-   *
-   * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the progress bar foreground is set.
-   *
-   * @param { ResourceColor | LinearGradient } value - indicates the color of the progress.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color(value: ResourceColor | LinearGradient): ProgressAttribute<Type>;
 
   /**
-   * Called when the style of progress bar is set.
+   * Sets the component style.
    *
-   * @param { Style } value
+   * @param { Style } value - Component style.<br>- **CapsuleStyleOptions**: capsule style.<br>- **RingStyleOptions**:
+   *     ring style.<br>- **LinearStyleOptions**: linear style.<br>- **ScaleRingStyleOptions**: determinate ring style.<
+   *     br>- **EclipseStyleOptions**: eclipse style.<br>- **ProgressStyleOptions**: **strokeWidth**, **scaleCount**,
+   *     and **scaleWidth** of a progress indicator. This parameter is valid only for the progress indicator that
+   *     supports these style settings.
    * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the style of progress bar is set.
-   *
-   * @param { Style } value
-   * @returns { ProgressAttribute<Type> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the style of progress bar is set.
-   *
-   * @param { Style } value - indicates the style of the progress.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the style of progress bar is set.
-   *
-   * @param { Style } value - indicates the style of the progress.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   style(value: Style): ProgressAttribute<Type>;
 
   /**
-   * Sets if mark to privacy sensitive.
+   * Sets whether to enable privacy-sensitive mode.
    *
-   * @param { Optional<boolean> } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { Optional<boolean> } isPrivacySensitiveMode - Whether to enable privacy-sensitive mode, in which the
+   *     progress indicator is cleared and text content is masked. **true**: The privacy-sensitive mode is enabled.
+   *     **false**: The privacy-sensitive mode is disabled.<br> Default value: **false**<br>**NOTE**<br>Setting this
+   *     parameter to **null** indicates that no specific privacy sensitivity is applied.<!--Del--><br>For widgets, this
+   *     property must be used with [FormComponent]{@link form_component} and the
+   *     [obscured]{@link CommonMethod#obscured} attribute to display privacy masking effects.<!--DelEnd-->
+   * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1629,10 +872,10 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
   privacySensitive(isPrivacySensitiveMode: Optional<boolean>): ProgressAttribute<Type>;
 
   /**
-   * Set the contentModifier of progress.
+   * Creates a content modifier.
    *
    * @param { ContentModifier<ProgressConfiguration> } modifier - The contentModifier of progress.
-   * @returns { ProgressAttribute<Type> } the attribute of the progress.
+   * @returns { ProgressAttribute<Type> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1643,10 +886,8 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
 }
 
 /**
- * ProgressConfiguration used by progress contentModifier
+ * Provides progress indicator configuration. Inherits from [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<ProgressConfiguration>
- * @interface ProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1654,10 +895,15 @@ declare class ProgressAttribute<Type extends keyof ProgressStyleMap = keyof Prog
  * @since 12 dynamic
  */
 declare interface ProgressConfiguration extends CommonConfiguration<ProgressConfiguration> {
+
   /**
-   * The value of Progress.
+   * Current progress. Values less than 0 are adjusted to **0**. Values greater than the value of **total** are capped
+   * at the value of **total**.
    *
-   * @type { number }
+   * Default value: **0**
+   *
+   * Value range: [0, total]
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1667,9 +913,14 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
   value: number;
 
   /**
-   * The total of Progress.
+   * Total progress.
    *
-   * @type { number }
+   * Default value: **100**
+   *
+   * **NOTE**
+   *
+   * If the value of **total** is a negative number, it is treated as 100.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1680,34 +931,19 @@ declare interface ProgressConfiguration extends CommonConfiguration<ProgressConf
 }
 
 /**
- * Defines Progress Component.
+ * The **Progress** component represents a progress indicator that displays the progress of content loading or an
+ * operation.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Progress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Progress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Progress Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Progress: ProgressInterface;
 
@@ -1715,30 +951,10 @@ declare const Progress: ProgressInterface;
  * Defines Progress Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Progress Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Progress Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Progress Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const ProgressInstance: ProgressAttribute<keyof ProgressStyleMap>;

@@ -1293,5 +1293,14 @@ declare namespace util {
    */
   function errnoToString(errno: int): string;
 
+  /**
+   * Get stack trace of main thread.
+   *
+   * @returns { string } Return a stack trace of main thread.
+   * @syscap SystemCapability.Utils.Lang
+   * @since 24 static
+   */
+  function getMainThreadStackTrace(): string;
+
 }
 export default util;

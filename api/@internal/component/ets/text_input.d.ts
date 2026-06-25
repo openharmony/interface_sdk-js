@@ -19,186 +19,106 @@
  */
 
 /**
- * Declare the type of input box
+ * Sets the single-line text box type.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Declare the type of input box
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Declare the type of input box
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum InputType {
-  /**
-   * Basic input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Basic input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Basic input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Normal,
 
   /**
-   * Pure digital input mode.
+   * Normal input mode. In this mode, there is no special restriction on the input characters.
+   *
+   * The inline style supports only the **InputType.Normal** type.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Pure digital input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pure digital input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Number,
+  Normal = 0,
 
   /**
-   * Phone number entry mode.
+   * Digit input mode.
+   *
+   * Negative numbers and decimals are not supported.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Phone number entry mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Phone number entry mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  PhoneNumber,
+  Number = 1,
 
   /**
-   * E-mail address input mode.
+   * Phone number input mode.
+   *
+   * In this mode, the following characters are allowed: digits, spaces, plus signs (+), hyphens (-), asterisks (*), and
+   * number signs (#), opening parentheses ((), and closing parenthesis ()); the length is not limited.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * E-mail address input mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * E-mail address input mode.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This mode accepts only digits, letters, underscores (_), dots (.),
-   * and the following special characters: ! # $ % & ' " * + - / = ? ^ ` { | } ~ @ (which can only appear once)
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Email,
+  PhoneNumber = 2,
 
   /**
-   * Password entry mode.
+   * Email address input mode.
+   *
+   * This mode accepts only digits, letters, underscores (_), dots (.), and the following special characters: ! # $ % &
+   * ' " * + - / = ? ^ ` { | } ~ @. The at sign can appear only once.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * Password entry mode.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Password entry mode.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>An eye icon is used to show or hide the password.
-   * <br>By default, the entered characters are temporarily shown before being obscured by dots;
-   * they are directly obscured by dots since API version 12 on certain devices.
-   * <br>The password input mode does not support underlines.
-   * <br>If Password Vault is enabled, autofill is available for the username and password.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Password,
+  Email = 3,
 
   /**
-   * Number Password entry mode.
+   * Password input mode.
+   *
+   * The entered text is briefly displayed before turning to dots by default. Since API version 12, the entered text is
+   * directly displayed as dots on PCs and 2-in-1 devices.
+   *
+   * The eye icon at the end of the input box is hidden by default on TV devices, and shown by default on other devices.
+   *
+   * The [decoration]{@link TextInputAttribute#decoration}, [showUnderline]{@link TextInputAttribute#showUnderline}, and
+   * [lineHeight]{@link TextInputAttribute#lineHeight} attributes do not take effect in password input mode.
+   *
+   * If Password Vault is enabled, autofill is available for the username and password.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   */
+  Password = 4,
+
+  /**
+   * Numeric password input mode.
+   *
+   * The entered text is briefly displayed before turning to dots by default. Since API version 12, the entered text is
+   * directly displayed as dots on PCs and 2-in-1 devices.
+   *
+   * The eye icon at the end of the input box is hidden by default on TV devices, and shown by default on other devices.
+   *
+   * The password input mode does not support underlines. If Password Vault is enabled, autofill is available for the
+   * username and password.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Number Password entry mode.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>An eye icon is used to show or hide the password.
-   * <br>By default, the entered characters are temporarily shown before being obscured by dots;
-   * they are directly obscured by dots since API version 12 on certain devices.
-   * <br>The password input mode does not support underlines.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NUMBER_PASSWORD = 8,
 
   /**
-   * Screen Lock Password entry mode.
+   * ScreenLock Password entry mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -208,56 +128,39 @@ declare enum InputType {
   SCREEN_LOCK_PASSWORD = 9,
 
   /**
-   * UserName entry mode.
+   * User name input mode with no special restrictions.
+   *
+   * If Password Vault is enabled, autofill is available for the username and password.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * UserName entry mode.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If Password Vault is enabled, autofill is available for the username and password.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   USER_NAME = 10,
 
   /**
-   * NewPassword entry mode.
+   * New password input mode with no special restrictions.
+   *
+   * The entered text is briefly displayed before turning to dots by default. Since API version 12, the entered text is
+   * directly displayed as dots on PCs and 2-in-1 devices.
+   *
+   * The eye icon at the end of the input box is hidden by default on TV devices, and shown by default on other devices.
+   *
+   * If Password Vault is enabled, a new password can be automatically generated.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * NewPassword entry mode.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>An eye icon is used to show or hide the password.
-   * <br>By default, the entered characters are temporarily shown before being obscured by dots;
-   * they are directly obscured by dots since API version 12 on certain devices.
-   * <br>If Password Vault is enabled, a new password can be automatically generated.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   NEW_PASSWORD = 11,
 
   /**
-   * Number decimal entry mode.
+   * Number input mode with a decimal point.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>The value can contain digits and one decimal point.
-   * </p>
+   * The value can contain digits and only one decimal point. Negative decimals are not supported. For the input mode of
+   * negative decimals, use **inputFilter**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,7 +171,7 @@ declare enum InputType {
   NUMBER_DECIMAL = 12,
 
   /**
-   * URL entry mode.
+   * URL input mode with no special restrictions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -279,7 +182,7 @@ declare enum InputType {
   URL = 13,
 
   /**
-   * One time code mode.
+   * One-time code (verification code) input mode with no special restrictions.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -290,18 +193,17 @@ declare enum InputType {
 }
 
 /**
- * Declare the type of input content
+ * Enumerates the content types for autofill.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 12 dynamic
  */
 declare enum ContentType {
+
   /**
-   * User name content type.
-   * Password Vault, when enabled, can automatically save and fill in usernames.
+   * Username. Password Vault, when enabled, can automatically save and fill in usernames.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -311,8 +213,7 @@ declare enum ContentType {
   USER_NAME = 0,
 
   /**
-   * Password content type.
-   * Password Vault, when enabled, can automatically save and fill in passwords.
+   * Password. Password Vault, when enabled, can automatically save and fill in passwords.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -322,8 +223,7 @@ declare enum ContentType {
   PASSWORD = 1,
 
   /**
-   * New password content type.
-   * Password Vault, when enabled, can automatically generate a new password.
+   * New password. Password Vault, when enabled, can automatically generate a new password.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -333,9 +233,8 @@ declare enum ContentType {
   NEW_PASSWORD = 2,
 
   /**
-   * Full street address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in full street addresses.
+   * Full street address. The scenario-based autofill feature, when enabled, can automatically save and fill in full
+   * street addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,9 +244,7 @@ declare enum ContentType {
   FULL_STREET_ADDRESS = 3,
 
   /**
-   * House number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in house numbers.
+   * House number. The scenario-based autofill feature, when enabled, can automatically save and fill in house numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -357,9 +254,8 @@ declare enum ContentType {
   HOUSE_NUMBER = 4,
 
   /**
-   * District address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in districts and counties.
+   * District and county. The scenario-based autofill feature, when enabled, can automatically save and fill in
+   * districts and counties.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -369,9 +265,7 @@ declare enum ContentType {
   DISTRICT_ADDRESS = 5,
 
   /**
-   * City address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in cities.
+   * City. The scenario-based autofill feature, when enabled, can automatically save and fill in cities.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,9 +275,7 @@ declare enum ContentType {
   CITY_ADDRESS = 6,
 
   /**
-   * Province address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in provinces.
+   * Province. The scenario-based autofill feature, when enabled, can automatically save and fill in provinces.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -393,9 +285,7 @@ declare enum ContentType {
   PROVINCE_ADDRESS = 7,
 
   /**
-   * Country address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in countries.
+   * Country. The scenario-based autofill feature, when enabled, can automatically save and fill in countries.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -405,9 +295,7 @@ declare enum ContentType {
   COUNTRY_ADDRESS = 8,
 
   /**
-   * Person full name content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in full names.
+   * Full name. The scenario-based autofill feature, when enabled, can automatically save and fill in full names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -417,9 +305,7 @@ declare enum ContentType {
   PERSON_FULL_NAME = 9,
 
   /**
-   * Person last name content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in last names.
+   * Last name. The scenario-based autofill feature, when enabled, can automatically save and fill in last names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -429,9 +315,7 @@ declare enum ContentType {
   PERSON_LAST_NAME = 10,
 
   /**
-   * Person first name content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in first names.
+   * First name. The scenario-based autofill feature, when enabled, can automatically save and fill in first names.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -441,9 +325,7 @@ declare enum ContentType {
   PERSON_FIRST_NAME = 11,
 
   /**
-   * Phone number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in phone numbers.
+   * Phone number. The scenario-based autofill feature, when enabled, can automatically save and fill in phone numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -453,9 +335,7 @@ declare enum ContentType {
   PHONE_NUMBER = 12,
 
   /**
-   * Phone country code content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in country codes.
+   * Country code. The scenario-based autofill feature, when enabled, can automatically save and fill in country codes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -465,9 +345,8 @@ declare enum ContentType {
   PHONE_COUNTRY_CODE = 13,
 
   /**
-   * Full phone number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in phone numbers with country codes.
+   * Phone number with country code. The scenario-based autofill feature, when enabled, can automatically save and fill
+   * in phone numbers with country codes.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -477,9 +356,8 @@ declare enum ContentType {
   FULL_PHONE_NUMBER = 14,
 
   /**
-   * Email address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in email addresses.
+   * Email address. The scenario-based autofill feature, when enabled, can automatically save and fill in email
+   * addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -489,9 +367,8 @@ declare enum ContentType {
   EMAIL_ADDRESS = 15,
 
   /**
-   * Bank card number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in bank card numbers.
+   * Bank card number. The scenario-based autofill feature, when enabled, can automatically save and fill in bank card
+   * numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -501,9 +378,8 @@ declare enum ContentType {
   BANK_CARD_NUMBER = 16,
 
   /**
-   * ID card number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in ID card numbers.
+   * ID card number. The scenario-based autofill feature, when enabled, can automatically save and fill in ID card
+   * numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -513,9 +389,7 @@ declare enum ContentType {
   ID_CARD_NUMBER = 17,
 
   /**
-   * Nickname content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in nicknames.
+   * Nickname. The scenario-based autofill feature, when enabled, can automatically save and fill in nicknames.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -525,9 +399,8 @@ declare enum ContentType {
   NICKNAME = 23,
 
   /**
-   * Detail info without street content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in address information without street addresses.
+   * Address information without street address. The scenario-based autofill feature, when enabled, can automatically
+   * save and fill in address information without street addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -537,9 +410,8 @@ declare enum ContentType {
   DETAIL_INFO_WITHOUT_STREET = 24,
 
   /**
-   * Format address content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in standard addresses.
+   * Standard address. The scenario-based autofill feature, when enabled, can automatically save and fill in standard
+   * addresses.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -549,9 +421,8 @@ declare enum ContentType {
   FORMAT_ADDRESS = 25,
 
   /**
-   * Passport number content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in passport numbers.
+   * Passport number. The scenario-based autofill feature, when enabled, can automatically save and fill in passport
+   * numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -561,9 +432,8 @@ declare enum ContentType {
   PASSPORT_NUMBER = 26,
 
   /**
-   * Passport validity content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in passport validity periods.
+   * Passport validity period. The scenario-based autofill feature, when enabled, can automatically save and fill in
+   * passport validity periods.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -573,9 +443,8 @@ declare enum ContentType {
   VALIDITY = 27,
 
   /**
-   * Place of issue content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in the place of issue for passports.
+   * Passport place of issue. The scenario-based autofill feature, when enabled, can automatically save and fill in the
+   * place of issue for passports.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -585,9 +454,8 @@ declare enum ContentType {
   ISSUE_AT = 28,
 
   /**
-   * Invoice organization content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in invoice titles.
+   * Invoice title. The scenario-based autofill feature, when enabled, can automatically save and fill in invoice
+   * titles.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -597,9 +465,7 @@ declare enum ContentType {
   ORGANIZATION = 29,
 
   /**
-   * Invoice tax id content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in tax IDs.
+   * Tax ID. The scenario-based autofill feature, when enabled, can automatically save and fill in tax IDs.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -609,9 +475,7 @@ declare enum ContentType {
   TAX_ID = 30,
 
   /**
-   * Address city and state content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in locations.
+   * Location. The scenario-based autofill feature, when enabled, can automatically save and fill in locations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -621,8 +485,7 @@ declare enum ContentType {
   ADDRESS_CITY_AND_STATE = 31,
 
   /**
-   * Airline flight number content type.
-   * Currently not supported for automatic saving and auto-filling.
+   * Flight number. Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -632,8 +495,7 @@ declare enum ContentType {
   FLIGHT_NUMBER = 32,
 
   /**
-   * License number for drivers content type.
-   * Currently not supported for automatic saving and auto-filling.
+   * Driver's license number. Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -643,8 +505,7 @@ declare enum ContentType {
   LICENSE_NUMBER = 33,
 
   /**
-   * License file number for drivers content type.
-   * Currently not supported for automatic saving and auto-filling.
+   * Driver's license file number. Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -654,9 +515,8 @@ declare enum ContentType {
   LICENSE_FILE_NUMBER = 34,
 
   /**
-   * License plate for vehicles content type.
-   * The scenario-based autofill feature, when enabled,
-   * can automatically save and fill in license plate numbers.
+   * License plate number. The scenario-based autofill feature, when enabled, can automatically save and fill in license
+   * plate numbers.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -666,8 +526,7 @@ declare enum ContentType {
   LICENSE_PLATE = 35,
 
   /**
-   * Engine number for vehicles content type.
-   * Currently not supported for automatic saving and auto-filling.
+   * Vehicle registration engine number. Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -677,8 +536,7 @@ declare enum ContentType {
   ENGINE_NUMBER = 36,
 
   /**
-   * License chassis number for vehicles content type.
-   * Currently not supported for automatic saving and auto-filling.
+   * Chassis number. Currently not supported for automatic saving and auto-filling.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -689,174 +547,102 @@ declare enum ContentType {
 }
 
 /**
- * Declare the type of soft keyboard.
+ * Type of the Enter key.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Declare the type of soft keyboard.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Declare the type of soft keyboard.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum EnterKeyType {
+
   /**
-   * Go.
+   * The Enter key is labeled "Go."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Go.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Go.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Go = 2,
 
   /**
-   * Search.
+   * The Enter key is labeled "Search."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Search.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Search.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Search = 3,
 
   /**
-   * Send.
+   * The Enter key is labeled "Send."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Send.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Send.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Send = 4,
 
   /**
-   * Next.
+   * The Enter key is labeled "Next."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Next.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Next.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Next = 5,
 
   /**
-   * Done.
+   * The Enter key is labeled "Done."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Done.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Done.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Done = 6,
 
   /**
-   * Showed as 'previous' pattern.
+   * The Enter key is labeled "Previous."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Showed as 'previous' pattern.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   PREVIOUS = 7,
 
   /**
-   * Showed as 'new line' pattern.
+   * The Enter key is labeled "New Line."
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
+  NEW_LINE = 8
+}
+
+/**
+ * Defines the underline color width property.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+declare interface UnderlineColor {
+
   /**
-   * Showed as 'new line' pattern.
+   * Underline color in the typing state. If no value is specified or if the value specified is **undefined**, **null**,
+   * or invalid, the default value is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -864,92 +650,49 @@ declare enum EnterKeyType {
    * @atomicservice
    * @since 12 dynamic
    */
-  NEW_LINE = 8,
+  typing?: ResourceColor | undefined;
+
+  /**
+   * Underline color in the normal state. If no value is specified or if the value specified is **undefined**, **null**,
+   * or invalid, the default value is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  normal?: ResourceColor | undefined;
+
+  /**
+   * Underline color when an error occurs. If no value is specified or if the value specified is **undefined**,
+   * **null**, or invalid, the default value is used. This option changes the color used in the **showCounter**
+   * attribute when the maximum number of characters is reached.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  error?: ResourceColor | undefined;
+
+  /**
+   * Underline color in the disabled state. If no value is specified or if the value specified is **undefined**,
+   * **null**, or invalid, the default value is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  disable?: ResourceColor | undefined;
 }
 
 /**
-  * Defines the underline color width property.
-  *
-  * @interface UnderlineColor
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
-declare interface UnderlineColor {
-  /**
-    * Typing underline color width property.
-    *
-    * <p><strong>NOTE</strong>:
-    * <br>If no value is specified or if the value specified is undefined,
-    * null, or invalid, the default value is used.
-    * </p>
-    *
-    * @type { ?(ResourceColor | undefined) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-  typing?: ResourceColor | undefined;
-  /**
-    * Normal underline color width property.
-    *
-    * <p><strong>NOTE</strong>:
-    * <br>If no value is specified or if the value specified is undefined,
-    * null, or invalid, the default value is used.
-    * </p>
-    *
-    * @type { ?(ResourceColor | undefined) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-  normal?: ResourceColor | undefined;
-  /**
-    * Error underline color width property.
-    *
-    * <p><strong>NOTE</strong>:
-    * <br>If no value is specified or if the value specified is undefined,
-    * null, or invalid, the default value is used.
-    * <br>This option changes the color used in the showCounter attribute
-    * when the maximum number of characters is reached.
-    * </p>
-    *
-    * @type { ?(ResourceColor | undefined) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-  error?: ResourceColor | undefined;
-  /**
-    * Disable underline color width property.
-    *
-    * <p><strong>NOTE</strong>:
-    * <br>If no value is specified or if the value specified is undefined,
-    * null, or invalid, the default value is used.
-    * </p>
-    *
-    * @type { ?(ResourceColor | undefined) }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-  disable?: ResourceColor | undefined;
-} 
-
-/**
- * Provides the method of keeping TextInput editable state when submitted.
+ * Defines the user submission event.
  *
- * @interface SubmitEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -957,8 +700,9 @@ declare interface UnderlineColor {
  * @since 11 dynamic
  */
 declare interface SubmitEvent {
+
   /**
-   * Keeps TextInput editable state when submitted
+   * Maintains the editable state of the text box when called.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -969,9 +713,8 @@ declare interface SubmitEvent {
   keepEditableState(): void;
 
   /**
-   * Sets the current value of TextInput.
+   * Text in the text box.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -982,256 +725,123 @@ declare interface SubmitEvent {
 }
 
 /**
- * Provides the method of switching the cursor position.
+ * The controller for the **TextInput** component inherits from
+ * [TextContentControllerBase]{@link TextContentControllerBase}. The APIs involved are as follows:<!--Del--> system API
+ * [getText]{@link TextContentControllerBase#getText} and other APIs like<!--DelEnd-->
+ * [getTextContentRect]{@link TextContentControllerBase#getTextContentRect},
+ * [getTextContentLineCount]{@link TextContentControllerBase#getTextContentLineCount},
+ * [getCaretOffset]{@link TextContentControllerBase#getCaretOffset}, [addText]{@link TextContentControllerBase#addText},
+ * [deleteText]{@link TextContentControllerBase#deleteText},
+ * [getSelection]{@link TextContentControllerBase#getSelection},
+ * [clearPreviewText]{@link TextContentControllerBase#clearPreviewText},
+ * [setStyledPlaceholder]{@link TextContentControllerBase#setStyledPlaceholder}, and
+ * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
- * @extends TextContentControllerBase
- * @since 8
- */
-/**
- * Provides the method of switching the cursor position.
- *
- * @extends TextContentControllerBase
- * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
  * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * Provides the method of switching the cursor position.
- *
- * @extends TextContentControllerBase
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class TextInputController extends TextContentControllerBase {
+
   /**
-   * constructor.
+   * A constructor used to create a **TextInputController** object.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * constructor.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * constructor.
-   * A constructor used to create a TextInputController object.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   constructor();
 
   /**
-   * Called when the position of the insertion cursor is set.
+   * Sets the position of the caret. If the value is less than 0, the value **0** is used. If the value exceeds the text
+   * length, the caret is placed at the end of the text.
    *
-   * @param { number } value
+   * @param { number } value - Length from the start of the string to the position where the caret is located.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is less than 0, the value 0 is used.
-   * <br>If the value exceeds the text length, the caret is placed at the end of the text.
-   * </p>
-   *
-   * @param { number } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   caretPosition(value: number): void;
 
   /**
-   * Text selection is achieved by specifying the start and end positions of the text.
+   * Sets the text selection area, which will be highlighted.
    *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
+   * @param { number } selectionStart - Start position of the text selection range. The start position of text in the
+   *     text box is 0.
+   * @param { number } selectionEnd - End position of the text selection range. If **selectionEnd** is less than 0, it
+   *     is handled as **0**. If **selectionEnd** exceeds the text length, it is clamped to the text length.
+   * @param { SelectionOptions } [options] - Configuration options for text selection.<br>Default value:
+   *     **MenuPolicy.DEFAULT**<br>This parameter can be used in atomic services since API version 12. [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Text selection is achieved by specifying the start and end positions of the text.
-   *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text selection is achieved by specifying the start and end positions of the text.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If selectionStart or selectionEnd is set to undefined, the value 0 will be used.
-   * <br>If selectionMenuHidden is set to true or a 2-in-1 device is used,
-   * calling setTextSelection does not display the context menu even when options is set to MenuPolicy.SHOW.
-   * <br>If the selected text contains an emoji,
-   * the emoji is selected when its start position is within the text selection range.
-   * </p>
-   *
-   * @param { number } selectionStart - The start position of the selected text.The start position of text in the text box is 0.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   setTextSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
-   * Exit edit state.
+   * Exits the editing state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Exit edit state.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   stopEditing(): void;
 }
 
 /**
- * Defines the options of TextInput.
+ * **TextInput** initialization parameters.
  *
- * @interface TextInputOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the options of TextInput.
- *
- * @interface TextInputOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the options of TextInput.
- *
- * @interface TextInputOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface TextInputOptions {
+
   /**
-   * The place holder text string.
+   * Text displayed when there is no input.
    *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * The place holder text string.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * The place holder text string.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   placeholder?: ResourceStr;
 
   /**
-   * Sets the current value of TextInput.
+   * Current text input.
    *
-   * @type { ?ResourceStr }
+   * You are advised to bind the state variable to the text in real time through the **onChange** event, so as to
+   * prevent display errors when the component is updated.
+   *
+   * Since API version 10, this parameter supports two-way binding through
+   * [$$](docroot://ui/state-management/arkts-two-way-sync.md).
+   *
+   * Since API version 18, this parameter supports two-way binding through
+   * [!!](docroot://ui/state-management/arkts-new-binding.md#two-way-binding-between-built-in-component-parameters).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the current value of TextInput.
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the current value of TextInput.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>You are advised to bind the state variable to the text in real time through the onChange event,
-   * so as to prevent display errors when the component is updated.
-   * <br>Since API version 10, this parameter supports two-way binding through $$.
-   * <br>Since API version 18, this parameter supports two-way binding through !!.
-   * </p>
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   text?: ResourceStr;
 
   /**
-   * Called when the position of the insertion cursor is set.
+   * Text input controller.
    *
-   * @type { ?TextInputController }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @type { ?TextInputController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the position of the insertion cursor is set.
-   *
-   * @type { ?TextInputController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   controller?: TextInputController;
 }
@@ -1239,139 +849,68 @@ declare interface TextInputOptions {
 /**
  * Text input style.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Text input style.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Text input style.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum TextInputStyle {
-  /**
-   * Text input default style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Text input default style.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Text input default style.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The caret width is fixed at 1.5 vp,
-   * and the caret height is subject to the background height and font size of the selected text.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Default,
 
   /**
-   * Text input inline style.
+   * Default style. The caret width is fixed at 1.5 vp, and the caret height is subject to the background height and
+   * font size of the selected text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
+  Default = 0,
+
   /**
-   * Text input inline style.
+   * Inline style. The background height of the selected text is the same as the height of the text box.
+   *
+   * This style is used in scenarios where editing and non-editing states are obvious, for example, renaming in the file
+   * list view.
+   *
+   * The **showError** attribute is not supported for this style.
+   *
+   * In the [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style), text cannot be dragged into
+   * the text box.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
-  /**
-   * Text input inline style.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The background height of the selected text is the same as the height of the text box.
-   * <br>This style is used in scenarios where editing and non-editing states are obvious,
-   * for example, renaming in the file list view.
-   * <br>The showError attribute is not supported for this style.
-   * <br>This style does not allow for text dragging and dropping.
-   * </p>
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  Inline
+  Inline = 1,
 }
 
 /**
- * Provides a single-line text input component interface.
+ * The **TextInput** component provides single-line text input.
  *
- * @interface TextInputInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides a single-line text input component interface.
+ * > **NOTE**
+ * >
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
  *
- * @interface TextInputInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides a single-line text input component interface.
- *
- * @interface TextInputInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface TextInputInterface {
+
   /**
-   * Called when writing a single line of text.
    *
-   * @param { TextInputOptions } value
+   * Defines the constructor of TextInput.
+   *
+   * @param { TextInputOptions } value - Parameters of the **TextInput** component.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when writing a single line of text.
-   *
-   * @param { TextInputOptions } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when writing a single line of text.
-   *
-   * @param { TextInputOptions } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (value?: TextInputOptions): TextInputAttribute;
 }
@@ -1379,80 +918,46 @@ interface TextInputInterface {
 /**
  * PasswordIcon object.
  *
- * @interface PasswordIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * PasswordIcon object.
- *
- * @interface PasswordIcon
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface PasswordIcon {
+
   /**
-   * Define the on icon source of PasswordIcon.
+   * Displays the icon when the password is toggled to visible in the password input mode.
    *
-   * @type { ?(string | Resource) }
+   * The string type can be used to load network images and local images.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the on icon source of PasswordIcon.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Icon that can be used to hide the password in password input mode.
-   * <br>The string type can be used to load network images and local images.
-   * </p>
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onIconSrc?: string | Resource;
 
   /**
-   * Define the off icon source of PasswordIcon.
+   * Displays the icon when the password is toggled to hidden in the password input mode.
    *
-   * @type { ?(string | Resource) }
+   * The string type can be used to load network images and local images.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the off icon source of PasswordIcon.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Icon that can be used to show the password in password input mode.
-   * <br>The string type can be used to load network images and local images.
-   * </p>
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offIconSrc?: string | Resource;
 }
 
 /**
- * Defines a TextInput callback when onSubmit.
+ * Defines the callback for submission.
  *
- * Anonymous Object Rectification.
- * @typedef { function } OnSubmitCallback
- * @param { EnterKeyType } enterKey - Input method Enter key type.
- * @param { SubmitEvent } event - The event submitted.
+ * @param { EnterKeyType } enterKey - Type of the Enter key.
+ * @param { SubmitEvent } event - Submit event. It can be used to control whether to dismiss the keyboard.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1462,12 +967,10 @@ interface PasswordIcon {
 declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => void;
 
 /**
- * Defines a TextInput callback when onTextSelectionChange.
+ * Defines the callback for text selection changes or caret position changes.
  *
- * Anonymous Object Rectification.
- * @typedef { function } OnTextSelectionChangeCallback
- * @param { number } selectionStart - The starting position of the selected text, the starting position of the text is 0.
- * @param { number } selectionEnd - The end location of the selected text.
+ * @param { number } selectionStart - Start position of the selected text. The start position of text is 0.
+ * @param { number } selectionEnd - End position of the selected text.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1477,12 +980,10 @@ declare type OnSubmitCallback = (enterKey: EnterKeyType, event: SubmitEvent) => 
 declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionEnd: number) => void;
 
 /**
- * Defines a TextInput callback when onContentScroll.
+ * Defines the callback for text content scrolling.
  *
- * Anonymous Object Rectification.
- * @typedef { function } OnContentScrollCallback
- * @param { number } totalOffsetX - The text is offset in px on the horizontal axis of the content area.
- * @param { number } totalOffsetY - The text is offset in px on the vertical axis of the content area.
+ * @param { number } totalOffsetX - Offset in the X coordinate of the text in the content area, in px.
+ * @param { number } totalOffsetY - Offset in the Y coordinate of the text in the content area, in px.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1491,14 +992,11 @@ declare type OnTextSelectionChangeCallback = (selectionStart: number, selectionE
  */
 declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: number) => void;
 
-
 /**
- * Defines a TextInput callback when onPaste.
+ * Defines the callback used to return the pasted text content.
  *
- * Anonymous Object Rectification.
- * @typedef { function } OnPasteCallback
- * @param { string } content - The text content of the paste.
- * @param { PasteEvent } event - User-defined paste event.
+ * @param { string } content - Text to be pasted.
+ * @param { PasteEvent } event - Custom paste event.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1508,63 +1006,36 @@ declare type OnContentScrollCallback = (totalOffsetX: number, totalOffsetY: numb
 declare type OnPasteCallback = (content: string, event: PasteEvent) => void;
 
 /**
- * Defines the TextInput attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<TextInputAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the TextInput attribute functions.
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<TextInputAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the TextInput attribute functions.
- *
- * @extends CommonMethod<TextInputAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
+
   /**
-   * Called when the input type is set.
+   * Sets the text box type.
    *
-   * @param { InputType } value
+   * Different **InputType** values trigger corresponding keyboard types and enforce input restrictions.
+   *
+   * @param { InputType } value - Text box type.<br>Default value: **InputType.Normal**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the input type is set.
-   *
-   * @param { InputType } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the input type is set.
-   *
-   * @param { InputType } value - Default value is InputType.Normal.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   type(value: InputType): TextInputAttribute;
 
   /**
-   * Called when the content type is set.
+   * Sets the content type for autofill.<!--RP7--><!--RP7End-->
    *
-   * @param { ContentType } value
+   * @param { ContentType } value - Content type for autofill.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1574,63 +1045,49 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   contentType(value: ContentType): TextInputAttribute;
 
   /**
-   * Enable selected data detector.
+   * Sets whether to enable entity recognition for selected text. This API only works on devices that provide text
+   * recognition.
    *
-   * @param { boolean | undefined } enable - whether to enable the selected data detector.
+   * When **enableSelectedDataDetector** is set to **true**, all entity types are recognized by default.
+   *
+   * This feature is only effective when [CopyOptions]{@link CopyOptions} is set to **CopyOptions.LocalDevice** or
+   * **CopyOptions.CrossDevice**.
+   *
+   * @param { boolean | undefined } enable - Whether to enable entity recognition for selected text.<br>**true**: Entity
+   *     recognition is enabled. **false**: Entity recognition is disabled. Default value: **true**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 22 dynamic
    */
-  enableSelectedDataDetector(enable: boolean | undefined): TextInputAttribute
+  enableSelectedDataDetector(enable: boolean | undefined): TextInputAttribute;
 
   /**
-   * Called when the color of the placeholder is set.
+   * Sets the placeholder text color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Placeholder text color.<br>The default value follows the theme.<br>Default value
+   *     on wearables: **'#99ffffff'**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the color of the placeholder is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the color of the placeholder is set.
-   *
-   * @param { ResourceColor } value - Default value follows the theme.The default value on wearable devices is '#99ffffff'.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   placeholderColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Called when the overflow mode of the font is set.
+   * Sets the display mode for overflowing text. This attribute is supported only in the editing and non-editing states
+   * of the [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style).
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is only available for the inline input style.
-   * <br>Text is clipped at the transition between words.
-   * <br>To clip text in the middle of a word, set wordBreak to WordBreak.BREAK_ALL.
-   * <br>TextOverflow.None produces the same effect as TextOverflow.Clip.
-   * <br>Default value in non-editing state in the inline input style: TextOverflow.Ellipsis.
-   * <br>Default value in editing state in the inline input style: TextOverflow.Clip.
-   * <br>The TextInput component does not support the TextOverflow.MARQUEE mode.
-   * <br>If TextOverflow.MARQUEE is set, the component automatically switches to TextOverflow.Ellipsis
-   * for the non-editing state in the inline input style and TextOverflow.Clip
-   * for the non-inline input style and the editing state in the inline input style.
-   * </p>
+   * Chinese text is truncated by character. English text is truncated by word. To truncate English text by letter, set
+   * **wordBreak** to **WordBreak.BREAK_ALL**.
    *
-   * @param { TextOverflow } value
+   * When **overflow** is set to **TextOverflow.None**, the effect is the same as **TextOverflow.Clip**.
+   *
+   * @param { TextOverflow } value - Display mode of overflowing text.<br>Default value for the
+   *     [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) in the non-editing state:
+   *     **TextOverflow.Ellipsis**<br>Default value for the inline style in the editing state: **TextOverflow.Clip**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1641,9 +1098,9 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   textOverflow(value: TextOverflow): TextInputAttribute;
 
   /**
-   * Specify the indentation of the first line in a text-block.
+   * Sets the indent of the first line text.
    *
-   * @param { Dimension } value - The length of text indent.Default value is 0.
+   * @param { Dimension } value - Indent of the first line text.<br>Default value: **0**
    * @returns { TextInputAttribute } The attribute of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1654,627 +1111,264 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   textIndent(value: Dimension): TextInputAttribute;
 
   /**
-   * Called when the font property of the placeholder is set.
+   * Sets the placeholder text style, including the font size, font weight, font family, and font style.
    *
-   * @param { Font } value
+   * @param { Font } value - Placeholder text style.<br>Default value on wearables: **18fp**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font property of the placeholder is set.
-   *
-   * @param { Font } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font property of the placeholder is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported.
-   * <br>The default value on wearable devices is 18fp.
-   * </p>
-   *
-   * @param { Font } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   placeholderFont(value?: Font): TextInputAttribute;
 
   /**
-   * Called when the type of soft keyboard input button is set.
+   * Sets the type of the Enter key.
    *
-   * @param { EnterKeyType } value
+   * @param { EnterKeyType } value - Type of the Enter key.<br>Default value: **EnterKeyType.Done**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the type of soft keyboard input button is set.
-   *
-   * @param { EnterKeyType } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the type of soft keyboard input button is set.
-   *
-   * @param { EnterKeyType } value - Default value is EnterKeyType.Done.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   enterKeyType(value: EnterKeyType): TextInputAttribute;
 
   /**
-   * Called when the color of the insertion cursor is set.
+   * Sets the color of the caret in the text box.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the caret in the text box.<br>Default value: **'#007DFF'**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the color of the insertion cursor is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the color of the insertion cursor is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Since API version 12, this API can be used to set the text handle color, which is the same as the caret color.
-   * </p>
-   *
-   * @param { ResourceColor } value - Default value is '#007DFF'.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   caretColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Called when judging whether the text editing change finished.
+   * Triggered when the input status changes.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This API is deprecated since API version 8.
-   * <br>You are advised to use onEditChange instead.
-   * </p>
-   *
-   * @param { function } callback - The value true indicates that the text box is in the editing state.
+   * @param { function } callback - callback of the listened event.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 7 dynamiconly
    * @deprecated since 8
-   * @useinstead onEditChange
+   * @useinstead TextInputAttribute#onEditChange
    */
   onEditChanged(callback: (isEditing: boolean) => void): TextInputAttribute;
 
   /**
-   * Called when judging whether the text editing change finished.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when judging whether the text editing change finished.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when judging whether the text editing change finished.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when judging whether the text editing change finished.
-   *
-   * Anonymous Object Rectification.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The text box is in the editing state when it has the caret placed in it,
+   * Triggered when the input status changes. The text box is in the editing state when it has the caret placed in it,
    * and is in the non-editing state otherwise.
-   * <br>It returns true if the input operation is currently in progress.
-   * </p>
    *
-   * @param { Callback<boolean> } callback
+   * @param { function } callback - Callback for the input status change. Returns **true** if the input box is in the
+   *     editing state; returns **false** if the input box is in the non-editing state. [since 8 - 17]
+   * @param { Callback<boolean> } callback - Callback for the input status change. Returns **true** if the input box is
+   *     in the editing state; returns **false** if the input box is in the non-editing state. [since 18]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onEditChange(callback: Callback<boolean>): TextInputAttribute;
 
   /**
-   * Called when submitted.
+   * Triggered when the Enter key on the keyboard is pressed for submission.
    *
-   * @param { function } callback
+   * On non-TV devices, the input box loses focus and the keyboard is dismissed by default when the Enter key is
+   * pressed. You can configure whether to dismiss the keyboard in **OnSubmitCallback**. For details, see
+   * [Example 2: Setting Underlines](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-2-setting-underlines).
+   *
+   * @param { function } callback - Callback for submission. [since 7 - 17]
+   * @param { OnSubmitCallback } callback - Callback for submission. [since 18]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when submitted.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when submitted.
-   *
-   * @param { function } callback - callback of the listened event.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when submitted.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnSubmitCallback } callback - Callback of the listened event.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onSubmit(callback: OnSubmitCallback): TextInputAttribute;
 
   /**
-   * Called when the input of the input box changes.
+   * Triggered when the input in the text box changes.
    *
-   * @param { function } callback
+   * In this callback, if caret operations are performed, you must adjust the caret logic based on the **previewText**
+   * parameter to ensure it works seamlessly within the preview display scenario.
+   *
+   * @param { function } callback - Callback invoked when the input in the text box changes. [since 7 - 11]
+   * @param { EditableTextOnChangeCallback } callback - Callback invoked when the input in the text box
+   *     changes. [since 12]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the input of the input box changes.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the input of the input box changes.
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the input of the input box changes.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>In this callback, if cursor operations are performed, you need to adjust the cursor logic
-   * based on the previewText parameter to ensure it works seamlessly within the preview display scenario.
-   * </p>
-   *
-   * @param { EditableTextOnChangeCallback } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onChange(callback: EditableTextOnChangeCallback): TextInputAttribute;
 
   /**
-   * Called when the text selection changes.
+   * Triggered when the text selection changes or the caret position changes during editing.
    *
-   * @param { function } callback - callback of the listened event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the text selection changes.
-   *
-   * @param { function } callback - callback of the listened event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the text selection changes.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnTextSelectionChangeCallback } callback - Callback of the listened event.
+   * @param { function } callback - Callback for text selection changes or caret position changes. [since 10 - 17]
+   * @param { OnTextSelectionChangeCallback } callback - Callback for text selection changes or caret position
+   *     changes. [since 18]
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onTextSelectionChange(callback: OnTextSelectionChangeCallback): TextInputAttribute;
 
   /**
-   * Called when the content scrolls.
+   * Triggered when the text content is scrolled.
    *
-   * @param { function } callback - callback of the listened event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the content scrolls.
-   *
-   * @param { function } callback - callback of the listened event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the content scrolls.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnContentScrollCallback } callback - Callback of the listened event.
+   * @param { function } callback - Callback for text content scrolling. [since 10 - 17]
+   * @param { OnContentScrollCallback } callback - Callback for text content scrolling. [since 18]
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   onContentScroll(callback: OnContentScrollCallback): TextInputAttribute;
 
   /**
-   * Called when the input of maximum text length is set.
+   * Sets the maximum number of characters for text input.
    *
-   * @param { number } value
+   * @param { number } value - Maximum number of characters for text input.<br>Default value: **Infinity**, indicating
+   *     that there is no upper limit on the number of characters that can be entered<br>**NOTE**<br>If this attribute
+   *     is not set or set to an invalid value, the default value is used. If a decimal value is provided, only its
+   *     integer part is applied. If the value exceeds 2^31-1, exceptions may occur.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the input of maximum text length is set.
-   *
-   * @param { number } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the input of maximum text length is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is not set or is set to an invalid value, the default value is used.
-   * <br>If a decimal number is specified, the integer part is used.
-   * </p>
-   *
-   * @param { number } value - Default value is Infinity, indicating that there is no upper limit on the number of characters that can be entered.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   maxLength(value: number): TextInputAttribute;
 
   /**
-   * Called when the font color is set.
+   * Sets the font color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Font color.<br>Default value on wearables: **'#dbffffff' **
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font color is set.
-   *
-   * @param { ResourceColor } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font color is set.
-   *
-   * @param { ResourceColor } value - The default value on wearable devices is '#dbffffff'.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Called when the font size is set.
+   * Sets the font size.
    *
-   * @param { Length } value
+   * @param { Length } value - Font size. If **fontSize** is of the number type, the unit fp is used. The default font
+   *     size is 16 fp. The value cannot be a percentage.<br>Default value on wearables: **18fp**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font size is set.
-   *
-   * @param { Length } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font size is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If fontSize is of the number type, the unit fp is used.
-   * <br>The default font size is 16 fp.
-   * <br>The value cannot be a percentage.
-   * <br>The default value on wearable devices is 18fp.
-   * </p>
-   *
-   * @param { Length } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontSize(value: Length): TextInputAttribute;
 
   /**
-   * Called when the font style of a font is set.
+   * Sets the font style.
    *
-   * @param { FontStyle } value
+   * @param { FontStyle } value - Font style.<br>Default value: **FontStyle.Normal**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font style of a font is set.
-   *
-   * @param { FontStyle } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font style of a font is set.
-   *
-   * @param { FontStyle } value - Default value is FontStyle.Normal.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontStyle(value: FontStyle): TextInputAttribute;
 
   /**
-   * Called when the font weight is set.
+   * Sets the font weight. If the value is too large, the text may be clipped depending on the font.
    *
-   * @param { number | FontWeight | string } value
+   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
+   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
+   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
+   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
+   *     **FontWeight.Normal**<br>The Resource type is supported since API version 20. [since 7 - 19]
+   * @param { number | FontWeight | ResourceStr } value - Font weight. For the number type, the value range is
+   *     [100, 900], at an interval of 100. The default value is **400**. A larger value indicates a heavier font
+   *     weight. For the string type, only strings that represent a number, for example, **400**, and the following
+   *     enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and
+   *     **medium**.<br>Default value: **FontWeight.Normal**<br>The Resource type is supported since API version 2
+   *     0. [since 20]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font weight is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is too large, the text may be clipped depending on the font.
-   * <br>For the number type, the value range is [100, 900], at an interval of 100.
-   * <br>The default value is 400.
-   * <br>A larger value indicates a heavier font weight.
-   * <br>For the string type, only strings that represent a number, for example, "400",
-   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
-   * </p>
-   *
-   * @param { number | FontWeight | string } value - Default value is FontWeight.Normal.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-   /**
-   * Called when the font weight is set.
-   *
-   * @param { number | FontWeight | ResourceStr } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontWeight(value: number | FontWeight | ResourceStr): TextInputAttribute;
 
   /**
-   * Called when the font list of text is set.
+   * Sets the font family.
    *
-   * @param { ResourceStr } value
+   * @param { ResourceStr } value - Font family. Default font: **'HarmonyOS Sans'**<br>To specify multiple fonts,
+   *     separate them with commas (,), and fonts are applied in priority order. Example: **'Arial, HarmonyOS Sans'**.<
+   *     br>The 'HarmonyOS Sans' font and custom fonts are supported for applications.<br>Only the **'HarmonyOS Sans'**
+   *     font is supported for widgets.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the font list of text is set.
-   *
-   * @param { ResourceStr } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the font list of text is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Default font: 'HarmonyOS Sans'
-   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported for applications.
-   * <br>Only the 'HarmonyOS Sans' font is supported for widgets.
-   * </p>
-   *
-   * @param { ResourceStr } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontFamily(value: ResourceStr): TextInputAttribute;
 
   /**
-   * Called when the inputFilter of text is set.
+   * Sets the regular expression for input filtering. Only inputs that comply with the regular expression can be
+   * displayed. Other inputs are filtered out.
    *
-   * @param { ResourceStr } value
-   * @param { function } error
+   * For single-character input scenarios, only single-character matching is supported; for multi-character input
+   * scenarios (such as pasting), string matching is supported.
+   *
+   * Since API version 11, setting **inputFilter** with a non-empty string invalidates the text filtering effect
+   * attached to the [type]{@link TextInputAttribute#type} API.
+   *
+   * @param { ResourceStr } value - Regular expression.
+   * @param { function } error - Filtered-out content to return when regular expression matching fails. [since 8 - 17]
+   * @param { Callback<string> } [error] - Filtered-out content to return when regular expression matching
+   *     fails. [since 18]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the inputFilter of text is set.
-   *
-   * @param { ResourceStr } value
-   * @param { function } error
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the inputFilter of text is set.
-   *
-   * @param { ResourceStr } value
-   * @param { function } error
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the inputFilter of text is set.
-   *
-   * Anonymous Object Rectification.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Only inputs that comply with the regular expression can be displayed.
-   * <br>Other inputs are filtered out.
-   * <br>The specified regular expression can match single characters, but not strings.
-   * <br>Since API version 11, if inputFilter is set and the entered characters are not null,
-   * the filtering effect attached to the text box type (specified through the type attribute) does not take effect.
-   * </p>
-   *
-   * @param { ResourceStr } value
-   * @param { Callback<string> } [error]
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   inputFilter(value: ResourceStr, error?: Callback<string>): TextInputAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Triggered when a copy operation is performed.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback used to return the copied text content. [since 8 - 17]
+   * @param { Callback<string> } callback - Callback used to return the copied text content. [since 18]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { Callback<string> } callback - Callback used to return the copied text content.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onCopy(callback: Callback<string>): TextInputAttribute;
 
   /**
-   * Called before using the Clipboard copy menu.
+   * Triggered before the copy operation is performed.
    *
-   * @param { Callback<string, boolean> } callback - Callback used to check whether copy is allowed.
+   * **Since**: 26.0.0
+   *
+   * @param { Callback<string, boolean> } callback - Callback invoked before the copy operation. If the callback is the
+   *     string type, the value indicates the text content to be copied. If the callback is the boolean type, the value
+   *     indicates whether the selected text is allowed to be copied. **true**: yes. **false**: no.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2285,49 +1379,26 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillCopy(callback: Callback<string, boolean>): TextInputAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Triggered when a cut operation is performed.
    *
-   * @param { function } callback
+   * @param { function } callback - Callback used to return the cut text content. [since 8 - 17]
+   * @param { Callback<string> } callback - Callback used to return the cut text content. [since 18]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { Callback<string> } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onCut(callback: Callback<string>): TextInputAttribute;
 
   /**
-   * Called before using the Clipboard cut menu.
+   * Triggered before the cut operation is performed.
    *
-   * @param { Callback<string, boolean> } callback - Callback used to check whether cut is allowed.
+   * **Since**: 26.0.0
+   *
+   * @param { Callback<string, boolean> } callback - Callback invoked before the cut operation. If the callback is the
+   *     string type, the value indicates the text content to be cut. If the callback is the boolean type, the value
+   *     indicates whether the selected text is allowed to be cut. **true**: yes. **false**: no.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2338,426 +1409,222 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillCut(callback: Callback<string, boolean>): TextInputAttribute;
 
   /**
-   * Called when using the Clipboard menu
+   * Triggered when a paste operation is performed.
    *
    * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the Clipboard menu
-   *
-   * @param { function } callback
-   *          Executed when a paste operation is performed.
-   *          { string } value - The text content to be pasted.
-   *          { PasteEvent } event - The user-defined paste event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when using the Clipboard menu.
-   *
-   * Anonymous Object Rectification.
-   * @param { OnPasteCallback } callback - Executed when a paste operation is performed.
+   *     Executed when a paste operation is performed.
+   *     { string } value - The text content to be pasted.
+   *     { PasteEvent } event - The user-defined paste event. [since 8 - 17]
+   * @param { OnPasteCallback } callback - Executed when a paste operation is performed. [since 18]
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onPaste(callback: OnPasteCallback): TextInputAttribute;
 
   /**
-   * Called when the copy option is set.
+   * Sets whether the input text can be copied. If this attribute is set to **CopyOptions.None**, only paste and select
+   * all operations are supported.
    *
-   * @param { CopyOptions } value
+   * If this attribute is set to **CopyOptions.None**, drag and drop operations are not supported.
+   *
+   * @param { CopyOptions } value - Whether the input text can be copied.<br>Default value: **CopyOptions.LocalDevice**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the copy option is set.
-   *
-   * @param { CopyOptions } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the copy option is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this attribute is set to CopyOptions.None, the text can only be pasted;
-   * all other actions, such as copying, cutting, and sharing, are disabled.
-   * <br>Dragging is not allowed when CopyOptions.None is set.
-   * </p>
-   *
-   * @param { CopyOptions } value - Default value is CopyOptions.LocalDevice.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   copyOption(value: CopyOptions): TextInputAttribute;
 
   /**
-   * Called when the password show/hide icon is set.
+   * Sets whether to display the password icon at the end of the password text box.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to display the password icon at the end of the password text box.<br>**true** to
+   *     display, **false** otherwise.<br>Default value: **false** for TV devices; **true** for other devices
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the password show/hide icon is set.
-   *
-   * @param { boolean } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the password show/hide icon is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This API has effect only when the input type is set to Password,
-   * NEWPASSWORD, or NUMBERPASSWORD mode. It does not work in other modes.
-   * <br>When in password mode, there may be inconsistency between the backend state of the text box
-   * and the frontend application's state management variables.
-   * <br>This can cause issues with the icon at the end of the password text box.
-   * <br>To avoid such issues, use the onSecurityStateChange callback to sync the states.
-   * </p>
-   *
-   * @param { boolean } value - Default value is true.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   showPasswordIcon(value: boolean): TextInputAttribute;
 
   /**
-   * Called when the text align is set.
+   * Sets the horizontal alignment of the text.
    *
-   * @param { TextAlign } value
+   * Available options are **TextAlign.Start**, **TextAlign.Center**, and **TextAlign.End**. **TextAlign.JUSTIFY**
+   * behaves the same as **TextAlign.Start**.
+   *
+   * You can use the [align]{@link CommonMethod#align(value: Alignment)} attribute to control the vertical position of a
+   * text paragraph. In this component, the **align** attribute cannot be used to control the horizontal position of a
+   * text paragraph.
+   *
+   * - **Alignment.TopStart**, **Alignment.Top**, **Alignment.TopEnd**: Content aligns to the top.
+   * - **Alignment.Start**, **Alignment.Center**, **Alignment.End**: Content is centered vertically.
+   * - **Alignment.BottomStart**, **Alignment.Bottom**, **Alignment.BottomEnd:** Content aligns to the bottom.
+   *
+   * @param { TextAlign } value - Horizontal alignment of the text.<br>Default value: **TextAlign.Start**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when the text align is set.
-   *
-   * @param { TextAlign } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the text align is set.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Available options are TextAlign.Start, TextAlign.Center, and TextAlign.End.
-   * <br>To set vertical alignment for the text, use the align attribute.
-   * <br>The align attribute alone does not control the horizontal position of the text.
-   * <br>In other words, Alignment.TopStart, Alignment.Top, and Alignment.TopEnd produce the same effect, top-aligning the text;
-   * Alignment.Start, Alignment.Center, and Alignment.End produce the same effect, centered-aligning the text vertically;
-   * Alignment.BottomStart, Alignment.Bottom, and Alignment.BottomEnd produce the same effect, bottom-aligning the text.
-   * </p>
-   *
-   * @param { TextAlign } value - Default value is TextAlign.Start.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   textAlign(value: TextAlign): TextInputAttribute;
 
   /**
-   * Text input style
+   * Sets the text input style. The inline style only supports **InputType.Normal**.
    *
-   * @param { TextInputStyle | TextContentStyle } value - Text input style
+   * For details about the text box types, see [type]{@link TextInputAttribute#type}.
+   *
+   * @param { TextInputStyle | TextContentStyle } value - Text input style.<br>Default value: **TextInputStyle.Default**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Text input style
-   *
-   * @param { TextInputStyle | TextContentStyle } value - Text input style
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Text input style
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>The inline input style only supports InputType.Normal.
-   * </p>
-   *
-   * @param { TextInputStyle | TextContentStyle } value - Text input style.Default value is TextInputStyle.Default.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   style(value: TextInputStyle | TextContentStyle): TextInputAttribute;
 
   /**
-   * Define the caret style of the text input
+   * Sets the caret style.
    *
-   * @param { CaretStyle } value
+   * @param { CaretStyle } value - Caret style.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the caret style of the text input
-   *
-   * @param { CaretStyle } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   caretStyle(value: CaretStyle): TextInputAttribute;
 
   /**
-   * Define the text selected background color of the text input.
+   * Sets the background color of the selected text. If the opacity is not set, a 20% opacity will be used.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Background color of the selected text.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the text selected background color of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If the opacity is not set, a 20% opacity will be used.
-   * </p>
-   *
-   * @param { ResourceColor } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selectedBackgroundColor(value: ResourceColor): TextInputAttribute;
 
   /**
-   * Define the caret position of the text input.
+   * Sets the caret position.
    *
-   * @param { number } value
+   * @param { number } value - Caret position.<br>The position before the first character is 0.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the caret position of the text input.
-   *
-   * @param { number } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   caretPosition(value: number): TextInputAttribute;
 
   /**
-   * Sets whether request keyboard or not when on focus.
+   * Sets whether to pop up the soft keyboard when the **TextInput** component obtains focus in a way other than
+   * clicking.
    *
-   * @param { boolean } value
+   * Since API version 10, the **TextInput** component is bound to the input method by default when it obtains focus.
+   *
+   * @param { boolean } value - Whether to pop up the soft keyboard when the **TextInput** component obtains focus in a
+   *     way other than clicking.<br>**true**: The soft keyboard pops up. **false**: The soft keyboard does not pop up.
+   *     <br>Default value: **false** for TV devices; **true** for other devices
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether request keyboard or not when on focus.
-   * Sets whether to enable the input method when the TextInput component obtains focus in a way other than clicking.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Since API version 10, the TextInput component brings up the keyboard by default when it obtains focus.
-   * </p>
-   *
-   * @param { boolean } value - Default value is true.
-   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableKeyboardOnFocus(value: boolean): TextInputAttribute;
 
   /**
-   * Define the password icon of the text input.
+   * Sets the password icon to display at the end of the password text box.
    *
-   * @param { PasswordIcon } value
+   * Images in JPG, PNG, BMP, HEIC, and WEBP formats are supported.
+   *
+   * @param { PasswordIcon } value - Password icon to display at the end of the password text box.<br>By default, the
+   *     system-provided icon is used.<br>The icon size is fixed at 24 vp (or 28 vp on wearables), regardless of the
+   *     source image size.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the password icon of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Images in JPG, PNG, BMP, HEIC, and WEBP formats are supported.
-   * <br>By default, the system-provided icon is used.
-   * <br>The icon size is fixed at 24 vp (or 28 vp on wearable devices), regardless of the source image size.
-   * </p>
-   *
-   * @param { PasswordIcon } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   passwordIcon(value: PasswordIcon): TextInputAttribute;
 
   /**
-   * Define the show error of the text input.
+   * Sets the error message displayed when an error occurs.
    *
-   * @param { string | undefined } value
+   * If the data type is **ResourceStr** and the input content does not comply with specifications, the error message is
+   * displayed. If the error message does not fit in one line, an ellipsis is displayed to represent clipped text. If
+   * the data type is **undefined**, no error message is displayed. For details, see
+   * [Example 2](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-2-setting-underlines).
+   *
+   * @param { string | undefined } value - Error message displayed when an error occurs.<br>By default, no error message
+   *     is displayed.<br>On wearables, the font size is 13 fp and the alignment mode is center alignment.<br>**NOTE**<
+   *     br>The Resource type is supported since API version 12. [since 10 - 11]
+   * @param { ResourceStr | undefined } [value] - Error message displayed when an error occurs.<br>By default, no error
+   *     message is displayed.<br>On wearables, the font size is 13 fp and the alignment mode is center alignment.<br>
+   *     **NOTE**<br>The Resource type is supported since API version 12. [since 12]
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the show error of the text input.
-   *
-   * @param { string | undefined } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Define the show error of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>On wearable devices, the error message is displayed at a font size of 13 fp and center-aligned.
-   * <br>If the data type is ResourceStr and the input content does not comply with specifications, the error message is displayed.
-   * <br>If the error message does not fit in one line, an ellipsis (…) is displayed to represent clipped text.
-   * <br>If the data type is undefined, no error message is displayed.
-   * <br>By default, no error message is displayed.
-   * </p>
-   *
-   * @param { ResourceStr | undefined } [value]
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showError(value?: ResourceStr | undefined): TextInputAttribute;
 
   /**
-   * Define the show unit of the text input.
+   * Sets the unit displayed with the text box. This attribute effective only when
+   * [showUnderline]{@link TextInputAttribute#showUnderline} is set to **true**.
    *
-   * @param { CustomBuilder } value
+   * @param { CustomBuilder } value - Unit displayed with the text box.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the show unit of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute effective only when showUnderline is set to true.
-   * </p>
-   *
-   * @param { CustomBuilder } value
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showUnit(value: CustomBuilder): TextInputAttribute;
 
   /**
-   * Define the show underline of the text input.
+   * Sets whether to enable an underline.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable an underline.<br>**true** to enable, **false** otherwise.<br>Default
+   *     value: **false**<br>By default, the underline comes in the color of **'#33182431'**, thickness of 1 px, and
+   *     text box size of 48 vp. The underline is only available for the **InputType.Normal** type.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define the show underline of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>By default, the underline comes in the color of '#33182431', thickness of 1 px, and text box size of 48 vp.
-   * <br>The underline is only available for the InputType.Normal type.
-   * </p>
-   *
-   * @param { boolean } value - Default value is false.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   showUnderline(value: boolean): TextInputAttribute;
 
   /**
-   * Define the underline color of the text input.
+   * Color of the underline.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>The underline color changes with the underline mode.
-   * <br>If the underline color is only set for the normal state, you can directly enter a value of the ResourceColor type.
-   * <br>If the value specified is undefined, null, or invalid, all underlines are restored to the default value.
-   * <br>Default value: underline color configured for the theme, which is #33182431 by default.
-   * </p>
+   * When [showUnderline]{@link TextInputAttribute#showUnderline} is enabled, the underline color can be configured.
    *
-   * @param { ResourceColor | UnderlineColor | undefined } value
+   * @param { ResourceColor | UnderlineColor | undefined } value - Color of the underline.<br>The underline color
+   *     changes with the underline mode. If the underline color is only set for the normal state, you can directly
+   *     enter a value of the ResourceColor type. If the value specified is **undefined**, **null**, or invalid, all
+   *     underlines are restored to the default value.<br>Default value: underline color configured for the theme. The
+   *     default underline color in the theme is **'#33182431'**.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2768,105 +1635,55 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   underlineColor(value: ResourceColor | UnderlineColor | undefined): TextInputAttribute;
 
   /**
-   * Controls whether the selection menu pops up.
+   * Sets whether to hide the system text selection menu.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to hide the system text selection menu.<br>**true**: The system text selection
+   *     menu is hidden when a user clicks the text box cursor, long-presses the text box, double-taps the text box,
+   *     triple-taps the text box, or right-clicks the text box.<br>**false**: The system text selection menu is
+   *     displayed.<br>Default value: **false**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Controls whether the selection menu pops up.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br><em>true</em>:
-   * <br>The system text selection menu does not appear under the following circumstances:
-   * clicking the text box cursor, long-pressing the text box, double-tapping the text box,
-   * triple-tapping the text box, or right-clicking the text box.
-   * <br><em>false</em>:
-   * <br>The system text selection menu appears under the following circumstances:
-   * clicking the text box cursor, long-pressing the text box, double-tapping the text box,
-   * triple-tapping the text box, or right-clicking the text box.
-   * </p>
-   *
-   * @param { boolean } value - Default value is false.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selectionMenuHidden(value: boolean): TextInputAttribute;
 
   /**
-   * Define bar state of the text input.
+   * Sets the scrollbar display mode for the inline style in the editing state.
    *
-   * @param { BarState } value
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { BarState } value - Scrollbar display mode for the inline style in the editing state.<br>Default value:
+   *     **BarState.Auto**
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define bar state of the text input.
-   *
-   * @param { BarState } value - Default value is BarState.Auto.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Define bar state of the text input.
-   *
-   * @param { BarState } value - Default value is BarState.Auto.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   barState(value: BarState): TextInputAttribute;
 
   /**
-   * Define max lines of the text input.
+   * Sets the maximum number of lines that can be displayed with the inline style in the editing state.
    *
-   * @param { number } value
+   * @param { number } value - Maximum number of lines that can be displayed with the inline style in the editing state.
+   *     <br>Default value: **3**<br>Value range: (0, UINT32_MAX]
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define max lines of the text input.
-   * Value range: (0, +∞)
-   *
-   * @param { number } value - Default value is 3.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   maxLines(value: number): TextInputAttribute;
 
   /**
-   * Set the text inline style word break type.
+   * Sets the word break rule. This attribute takes effect when the
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) is set for the component, but has
+   * no effect on placeholder text.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is effective for the inline input style,
-   * but does not apply to the placeholder text.
-   * <br>The component does not support the clip attribute.
-   * <br>Therefore, setting this attribute does not affect text clipping.
-   * </p>
-   *
-   * @param { WordBreak } value - The word break type.Default value is WordBreak.BREAK_WORD.
+   * @param { WordBreak } value - Word break rule in the inline style.<br>Default value: **WordBreak.BREAK_WORD**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2877,15 +1694,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   wordBreak(value: WordBreak): TextInputAttribute;
 
   /**
-   * Set the text line break strategy type.
+   * Sets the line break rule. This attribute takes effect when **wordBreak** is not set to **breakAll**. Hyphens are
+   * not supported.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute takes effect when wordBreak is not set to breakAll.
-   * <br>Hyphens are not supported.
-   * <br>This attribute does not take effect for the non-inline input style.
-   * </p>
-   *
-   * @param { LineBreakStrategy } strategy - The text line break strategy type.Default value is LineBreakStrategy.GREEDY.
+   * @param { LineBreakStrategy } strategy - Line break rule.<br>Default value: **LineBreakStrategy.GREEDY**<br>**NOTE**
+   *     <br>This attribute takes effect only when the
+   *     [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) is set.
    * @returns { TextInputAttribute } The attribute of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2896,99 +1710,79 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   lineBreakStrategy(strategy: LineBreakStrategy): TextInputAttribute;
 
   /**
-   * Define custom keyboard of the text input.
+   * Sets a custom keyboard.
    *
-   * @param { CustomBuilder } value
+   * When a custom keyboard is set, activating the text box opens the specified custom component, instead of the system
+   * input method.
+   *
+   * The custom keyboard's height can be set through the **height** attribute of the custom component's root node, and
+   * its width is fixed at the default value.
+   *
+   * The custom keyboard is presented by overlaying the original screen, which is not compressed or lifted if avoid mode
+   * is not enabled or avoidance is not needed for the text box.
+   *
+   * The custom keyboard cannot obtain the focus, but it blocks gesture events.
+   *
+   * By default, the custom keyboard is closed when the input component loses the focus. You can also use the
+   * [TextInputController](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#textinputcontroller8).
+   * [stopEditing]{@link TextInputController#stopEditing} API to close the keyboard.
+   *
+   * When setting a custom keyboard, you can bind the [onKeyPreIme]{@link CommonMethod#onKeyPreIme} event to prevent
+   * input from the physical keyboard.
+   *
+   * From API version 23, the
+   * [setCustomKeyboardContinueFeature](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#setcustomkeyboardcontinuefeature23)
+   * API can be used to enable the continuation feature for custom keyboards. When switching between custom keyboards,
+   * the system changes the keyboard directly without triggering the close and open animations.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { CustomBuilder } value - Custom keyboard. If the value is **undefined**, the custom keyboard is
+   *     closed. [since 10 - 21]
+   * @param { CustomBuilder | ComponentContent | undefined } value - Custom keyboard. If the value is **undefined**, the
+   *     custom keyboard is closed. [since 22]
+   * @param { KeyboardOptions } [options] - Whether to support keyboard avoidance. [since 12]
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Define custom keyboard of the text input.
-   *
-   * @param { CustomBuilder } value
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Define custom keyboard of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
-   * instead of the system input method.
-   * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
-   * and its width is fixed at the default value.
-   * <br>The custom keyboard is presented by overlaying the original screen,
-   * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
-   * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
-   * <br>By default, the custom keyboard is closed when the input component loses the focus.
-   * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
-   * </p>
-   *
-   * @param { CustomBuilder } value - Set up a custom keyboard of TextInput
-   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  /**
-   * Define custom keyboard of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>When a custom keyboard is set, activating the text box opens the specified custom component,
-   * instead of the system input method.
-   * <br>The custom keyboard's height can be set through the height attribute of the custom component's root node,
-   * and its width is fixed at the default value.
-   * <br>The custom keyboard is presented by overlaying the original screen,
-   * which is not compressed or lifted if avoid mode is not enabled or avoidance is not needed for the text box.
-   * <br>The custom keyboard cannot obtain the focus, but it blocks gesture events.
-   * <br>By default, the custom keyboard is closed when the input component loses the focus.
-   * <br>You can also use the TextInputController.stopEditing API to close the keyboard.
-   * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
-   * <br>When setting a custom keyboard, you can bind the onKeyPrelme event to prevent input from the physical keyboard.
-   * </p>
-   * 
-   * @param { CustomBuilder | ComponentContent | undefined } value - Set up a custom keyboard of TextInput
-   * @param { KeyboardOptions } [options] - Indicates the custom keyboard options of TextInput
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   customKeyboard(value: CustomBuilder | ComponentContent | undefined, options?: KeyboardOptions): TextInputAttribute;
 
   /**
-   * Show the counter when the number of characters entered exceeds the threshold through InputCounterOptions.
+   * Sets the character counter displayed when the number of characters entered exceeds the threshold. If the
+   * **showCounter** API is not called, the character counter is not displayed by default.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>options can be set only when value is set to true, in which case a character counter is displayed below the text box.
-   * <br>This attribute must be used together with maxLength.
-   * <br>The character counter is displayed in this format: Number of characters entered/Character limit.
-   * <br>It is visible when the number of characters entered is greater than the character limit multiplied by the threshold percentage value.
-   * <br>If options is not set, the text box border and character counter subscript turn red
-   * when the number of characters entered exceeds the limit.
-   * <br>If value is set to true and options is set, the text box border and character counter subscript turn red
-   * and the text box shakes when the number of characters entered reaches the limit,
-   * provided that the value of thresholdPercentage is valid.
-   * <br>If highlightBorder is set to false, the text box border does not turn red.
-   * <br>By default, highlightBorder is set to true.
-   * <br>The character counter is not displayed for text boxes in inline or password input style.
-   * </p>
+   * **options** can be set only when **value** is set to **true**, in which case a character counter is displayed below
+   * the text box. This attribute must be used together with [maxLength]{@link TextInputAttribute#maxLength}. The
+   * character counter is displayed in this format: Number of characters entered/Character limit.
    *
-   * @param { boolean } value - Set showcounter of the text input.
-   * @param { InputCounterOptions } options - Set the percentage of counter.
+   * It is visible when the number of characters entered is greater than the character limit multiplied by the threshold
+   * percentage value. If **options** is not set, the text box border and character counter subscript turn red when the
+   * number of characters entered exceeds the limit. If **value** is set to **true** and
+   * [InputCounterOptions]{@link InputCounterOptions} is set, the text box border and character counter subscript turn
+   * red and the text box shakes when the number of characters entered reaches the limit, provided that the value of
+   * **thresholdPercentage** is valid. If **highlightBorder** is set to **false**, the text box border does not turn
+   * red. By default, **highlightBorder** is set to **true**.
+   *
+   * The character counter is not displayed in the
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) and
+   * [password mode](docroot://ui/arkts-common-components-text-input.md#password-mode).
+   *
+   * [Example 5: Setting a Character Counter](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-5-setting-a-character-counter)
+   * shows the effect of setting **showCounter**.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { boolean } value - Whether to display the character counter.<br>**true**: Character counter is displayed.
+   *     **false**: Character counter is not displayed.
+   * @param { InputCounterOptions } options - Configuration options for the character counter.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2999,116 +1793,68 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showCounter(value: boolean, options?: InputCounterOptions): TextInputAttribute;
 
   /**
-   * Set the cancel button style
+   * Sets the style of the cancel button on the right. Only icons of the image type are supported. The
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) is not supported. For details, see
+   * [Example 4 Customizing the Cancel Button Style on the Right](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-4-customizing-the-cancel-button-style-on-the-right).
    *
-   * @param { object } value - indicates the style of the cancel button.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the cancel button style
-   *
-   * @param { object } value - indicates the style of the cancel button.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Set the cancel button style.
-   *
-   * Anonymous Object Rectification.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is not available for the inline input style.
-   * <br>The default value is 28fp on wearable devices.
-   * </p>
-   *
-   * @param { CancelButtonOptions } options - Indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
+   * @param { object } value - indicates the style of the cancel button. [since 11 - 17]
+   * @param { CancelButtonOptions } options - Options of the cancel button on the right.<br>Default value:<br>{<br>
+   *     style: CancelButtonStyle.INPUT<br>}<br>Default value on wearables: **28vp** [since 18]
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   cancelButton(options: CancelButtonOptions): TextInputAttribute;
 
   /**
-   * Set the cancel button style
+   * Sets the style of the cancel button on the right. Only symbol-type icons are supported. The
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) is not supported. For details, see
+   * [Example 15: Setting a Symbol-Type Cancel Button](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-15-setting-a-symbol-type-cancel-button).
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is not available for the inline input style.
-   * </p>
-   *
-   * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
+   * @param { CancelButtonSymbolOptions } symbolOptions - Style of the cancel button on the right.<br>Default value:<br>
+   *     {<br>style: CancelButtonStyle.INPUT<br>}
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 18 dynamic
-   */
-  /**
-   * Set the cancel button style
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is not available for the inline input style.
-   * </p>
-   *
-   * @param { CancelButtonSymbolOptions } symbolOptions - indicates the style of the cancel button.Default value is { style: CancelButtonStyle.INPUT }.
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   cancelButton(symbolOptions: CancelButtonSymbolOptions): TextInputAttribute;
 
   /**
-   * Sets selection when on focus.
+   * Sets whether to select all text in the initial state. The
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style) is not supported.
    *
-   * @param { boolean } value - Sets selection or not.
+   * @param { boolean } value - Whether to select all text in the initial state.<br>**true**: Selecting all text is
+   *     enabled. **false**: Selecting all text is disabled.<br>Default value: **false**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Sets selection when on focus.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is not available for the inline input style.
-   * </p>
-   *
-   * @param { boolean } value - Sets selection or not.Default value is false.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   selectAll(value: boolean): TextInputAttribute;
 
   /**
-   * Called when the minimum font size of the font is set.
+   * Sets the minimum font size. For the string type, numeric string values with optional units, for example, **"10"**
+   * or **"10fp"**, are supported.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>For the string type, numeric string values with optional units,
-   * for example, "10" or "10fp", are supported.
-   * <br>For the setting to take effect, this attribute must be used together with maxFontSize
-   * and maxLines (when the component is in editing state in the inline input style), or layout constraint settings.
-   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
-   * </p>
+   * This attribute takes effect only when used together with [maxFontSize]{@link TextInputAttribute#maxFontSize} and
+   * [maxLines]{@link TextInputAttribute#maxLines} (for the editing state of the inline style), or layout constraint
+   * settings.
    *
-   * @param { number | string | Resource } value -  The unit is fp.
+   * When the adaptive font size is used, the **fontSize** settings do not take effect.
+   *
+   * If the value of **minFontSize** is less than or equal to 0, the adaptive font sizing feature is disabled. In such
+   * cases, the [fontSize]{@link TextInputAttribute#fontSize} attribute is used instead. If **fontSize** is not set, the
+   * default value will apply.
+   *
+   * @param { number | string | Resource } value - Minimum font size.<br>Unit: [fp]{@link common}
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3119,17 +1865,20 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   minFontSize(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * Called when the maximum font size of the font is set.
+   * Sets the maximum font size. For the string type, numeric string values with optional units, for example, **"10"**
+   * or **"10fp"**, are supported.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>For the string type, numeric string values with optional units,
-   * for example, "10" or "10fp", are supported.
-   * <br>For the setting to take effect, this attribute must be used together with minFontSize
-   * and maxLines (when the component is in editing state in the inline input style), or layout constraint settings.
-   * <br>When the adaptive font size is used, the fontSize settings do not take effect.
-   * </p>
+   * This attribute takes effect only when used together with [minFontSize]{@link TextInputAttribute#minFontSize} and
+   * [maxLines]{@link TextInputAttribute#maxLines} (for the editing state of the inline style), or layout constraint
+   * settings.
    *
-   * @param { number | string | Resource } value -  The unit is fp.
+   * When the adaptive font size is used, the **fontSize** settings do not take effect.
+   *
+   * If the value of **maxFontSize** is less than or equal to 0 or is less than the value of **minFontSize**, the
+   * adaptive font sizing feature is disabled. In such cases, the [fontSize]{@link TextInputAttribute#fontSize}
+   * attribute is used instead. If **fontSize** is not set, the default value will apply.
+   *
+   * @param { number | string | Resource } value - Maximum font size.<br>Unit: [fp]{@link common}
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3140,73 +1889,65 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   maxFontSize(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * Called when the minimum font scale of the font is set.
+   * Sets the minimum font scale factor for text.
    *
-   * @param { Optional<number | Resource> } scale
+   * @param { Optional<number | Resource> } scale - Minimum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range: [0, 1]<br>**NOTE**<br>A value less than 0 is handled as **0**. A value greater than
+   *     1 is handled as **1**. Invalid values are not applied by default.<br>Before use, you need to configure the
+   *     [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and
+   *     [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see
+   *     [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
-  /**
-   * Called when the minimum font scale of the font is set.
-   *
-   * @param { Optional<number | Resource> } scale
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  minFontScale(scale: Optional<number | Resource>): TextInputAttribute;
+  minFontScale(scale: Optional<number|Resource>): TextInputAttribute;
 
   /**
-   * Called when the maximum font scale of the font is set.
+   * Sets the maximum font scale factor for text.
    *
-   * @param { Optional<number | Resource> } scale
+   * @param { Optional<number | Resource> } scale - Maximum font scale factor for text. The **undefined** type is
+   *     supported.<br>Value range:
+   *     [1, +∞)<br>**NOTE**<br>Values less than 1 are treated as **1**. Invalid values are not applied by default.<br>After the **maxFontScale** attribute is set, the error message set by **showError** can be enlarged to a maximum of twice the original size.<br>Before use, you need to configure the [configuration.json](docroot://quick-start/app-configuration-file.md#tags-in-the-configuration-file) and [app.json5](docroot://quick-start/app-configuration-file.md) files in the project. For details, see [Example 18: Setting the Minimum and Maximum Font Scale Factors](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-18-setting-the-minimum-and-maximum-font-scale-factors).
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
+   * @since 18 dynamic
    */
+  maxFontScale(scale: Optional<number|Resource>): TextInputAttribute;
+
   /**
-   * Called when the maximum font scale of the font is set.
+   * Sets how the adaptive height is determined for the text in the inline style.
    *
-   * @param { Optional<number | Resource> } scale
-   * @returns { TextInputAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
-   */
-  maxFontScale(scale: Optional<number | Resource>): TextInputAttribute;
-  
-  /**
-   * Called when the height adaptive policy is set.
+   * When this attribute is set to **TextHeightAdaptivePolicy.MAX_LINES_FIRST**, the
+   * [maxLines]{@link TextInputAttribute#maxLines} attribute takes precedence for adjusting the text height. If the
+   * **maxLines** setting results in a layout beyond the layout constraints, the text will shrink to a font size between
+   * [minFontSize]{@link TextInputAttribute#minFontSize} and [maxFontSize]{@link TextInputAttribute#maxFontSize} to
+   * allow for more content to be shown.
    *
-   * <p><strong>NOTE</strong>:
-   * <ul>
-   * <li>When this attribute is set to TextHeightAdaptivePolicy.MAX_LINES_FIRST,
-   * the maxLines attribute takes precedence for adjusting the text height.
-   * <br>If the maxLines setting results in a layout beyond the layout constraints,
-   * the text will shrink to a font size between minFontSize and maxFontSize to allow for more content to be shown.</li>
-   * <li>If this attribute is set to TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST,
-   * the minFontSize attribute takes precedence for adjusting the text height.
-   * <br>If the text can fit in one line with the minFontSize setting,
-   * the text will enlarge to the largest possible font size between minFontSize and maxFontSize.</li>
-   * <li>TextHeightAdaptivePolicy.LAYOUT_CONSTRAINT_FIRST produces the same effect as TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST.</li>
-   * </ul>
-   * <br>When the component is in the non-inline input style, the three values of TextHeightAdaptivePolicy have the same effect,
-   * that is, the text will shrink to a font size between minFontSize and maxFontSize to allow for more content to be shown.
-   * <br>If the text box is in inline input style,
-   * the font size in the editing state is different from that in the non-editing state.
-   * </p>
+   * If this attribute is set to **TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST**, the **minFontSize** attribute takes
+   * precedence for adjusting the text height. If the text can fit in one line with the **minFontSize** setting, the
+   * text will enlarge to the maximum available font size between **minFontSize** and **maxFontSize**.
    *
-   * @param { TextHeightAdaptivePolicy } value - The height adaptive policy.Default value is TextHeightAdaptivePolicy.MAX_LINES_FIRST.
+   * **TextHeightAdaptivePolicy.LAYOUT_CONSTRAINT_FIRST** produces the same effect as
+   * **TextHeightAdaptivePolicy.MIN_FONT_SIZE_FIRST**.
+   *
+   * When the component is in the non-inline style, the three values of **TextHeightAdaptivePolicy** have the same
+   * effect, that is, the text will shrink to a font size between **minFontSize** and **maxFontSize** to allow for more
+   * content to be shown.
+   *
+   * > **NOTE**
+   * >
+   * > If the text box is in the inline style, the font size in the editing state is different from that in the non-
+   * > editing state.
+   *
+   * @param { TextHeightAdaptivePolicy } value - How the adaptive height is determined for the text.<br>Default value:
+   *     **TextHeightAdaptivePolicy.MAX_LINES_FIRST**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3217,34 +1958,24 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   heightAdaptivePolicy(value: TextHeightAdaptivePolicy): TextInputAttribute;
 
   /**
-   * Sets whether enable auto fill or not.
+   * Sets whether to enable autofill.<!--RP6--><!--RP6End-->
    *
-   * @param { boolean } value - Indicates the flag whether autofill is enabled.
+   * @param { boolean } value - Whether to enable autofill.<br>**true** to enable; **false** otherwise.<br>Default
+   *     value: **true**
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Sets whether enable auto fill or not.
-   *
-   * @param { boolean } value - Indicates the flag whether autofill is enabled.Default value is true.true: enable, false: disable.
-   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   enableAutoFill(value: boolean): TextInputAttribute;
 
   /**
-   * Called when the text decoration of the text is set.
+   * Sets the color, type, and style of the text decorative line.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute does not take effect for the password input mode.
-   * </p>
-   *
-   * @param { TextDecorationOptions } value - Default value is { type: TextDecorationType.None, color: Color.Black, style: TextDecorationStyle.SOLID }.
+   * @param { TextDecorationOptions } value - Text decorative line options.<br>Default value: {<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID,<br> thicknessScale: 1.0<
+   *     br>}
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3255,18 +1986,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   decoration(value: TextDecorationOptions): TextInputAttribute;
 
   /**
-   * Called when the distance between text fonts is set.
+   * Sets the letter spacing for a text style. If the value specified is a percentage or **0**, the default value is
+   * used. For the string type, numeric string values with optional units, for example, **"10"** or **"10fp"**, are
+   * supported.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value specified is a percentage or 0, the default value is used.
-   * <br>For the string type, numeric string values with optional units,
-   * for example, "10" or "10fp", are supported.
-   * <br>If the value specified is a negative value, the text is compressed.
-   * <br>A negative value too small may result in the text being compressed to 0
-   * and no content being displayed.
-   * </p>
+   * If the value specified is a negative value, the text is compressed. A negative value too small may result in the
+   * text being compressed to 0 and no content being displayed.
    *
-   * @param { number | string | Resource } value -  The unit is fp.
+   * This setting applies to every character, including those at line endings.
+   *
+   * @param { number | string | Resource } value - Letter spacing.<br>Unit: [fp]{@link common}
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3277,15 +2006,22 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   letterSpacing(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * Called when the line height of the font is set.
+   * Sets the text line height.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is less than or equal to 0, the line height is not limited and the font size is adaptive.
-   * <br>If the value is of the number type, the unit fp is used.
-   * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-   * </p>
+   * If the value is less than or equal to **0**, the line height is unrestricted and adapts to the font size. When the
+   * value is a number, the unit is fp. For the string type, numeric string values with optional units, for example,
+   * **"10"** or **"10fp"**, are supported.
    *
-   * @param { number | string | Resource } value
+   * > **NOTE**
+   * >
+   * > - If certain characters have significantly taller glyphs than others in the same line, layout anomalies such as
+   * > clipping, overlapping, or misalignment may occur. In this case, adjust component attributes such as height and
+   * > line height to ensure proper layout rendering.
+   * >
+   * > - When the [password mode](docroot://ui/arkts-common-components-text-input.md#password-mode) is set,
+   * > [lineHeight]{@link TextInputAttribute#lineHeight} set by this API does not take effect.
+   *
+   * @param { number | string | Resource } value - Text line height.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3296,43 +2032,30 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   lineHeight(value: number | string | Resource): TextInputAttribute;
 
   /**
-   * Define the password rules of the text input.
+   * Defines the rules for generating passwords. When autofill is used, these rules are transparently transmitted to
+   * Password Vault for generating a new password.<!--RP1--><!--RP1End-->
    *
-   * @param { string } value - Indicates the password rules. 
+   * @param { string } value - Rules for generating passwords.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Define the password rules of the text input.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>When autofill is used, these rules are transparently transmitted to Password Vault for generating a new password.
-   * </p>
-   *
-   * @param { string } value - Indicates the password rules. 
-   * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   passwordRules(value: string): TextInputAttribute;
 
   /**
-   * Set font feature.
+   * Sets the font feature, for example, monospaced digits.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute is not available when type is set to an enum value that indicates the password input mode,
-   * such as Password, NEW_PASSWORD, or NUMBER_PASSWORD.
-   * </p>
+   * Format: normal \| \<feature-tag-value\>
    *
-   * @param { string } value - The fontFeature.
-   * normal | <feature-tag-value>, 
-   * where <feature-tag-value> = <string> [ <integer> | on | off ], like: "ss01" 0
-   * the values of <feature-tag-value> reference to doc of TextInput component
-   * number of <feature-tag-value> can be single or multiple, and separated by comma ','.
+   * Format of **\<feature-tag-value\>**: \<string\> \[ \<integer\> \| on \| off ]
+   *
+   * There can be multiple **\<feature-tag-value\>** values, which are separated by commas (,).
+   *
+   * For example, the input format for monospaced clock fonts is "ss01" on.
+   *
+   * @param { string } value - Font feature.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3340,21 +2063,23 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @atomicservice
    * @since 12 dynamic
    */
-  fontFeature(value: string): TextInputAttribute;  
+  fontFeature(value: string): TextInputAttribute;
 
   /**
-   * Define the password visible mode of the text input.
+   * Sets whether to show the password.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This API has effect only when the input type is set to Password, NEWPASSWORD, or NUMBERPASSWORD mode.
-   * <br>It does not work in other modes.
-   * <br>When in password mode, there may be inconsistency between the backend state of the text box
-   * and the frontend application's state management variables.
-   * <br>This can cause issues with the icon at the end of the password text box.
-   * <br>To avoid such issues, use the onSecurityStateChange callback to sync the states.
-   * </p>
+   * This API has effect only when the [input type]{@link InputType} is set to **Password**, **NEWPASSWORD**, or
+   * **NUMBERPASSWORD** mode. It does not work in other modes.
    *
-   * @param { boolean } visible - Indicates the password visible mode. Default value is false.
+   * In the [password mode](docroot://ui/arkts-common-components-text-input.md#password-mode), inconsistencies between
+   * the backend state of the text box and the frontend application's state management variables may cause abnormal
+   * behavior of the trailing icon. To avoid such issues, use the
+   * [onSecurityStateChange]{@link TextInputAttribute#onSecurityStateChange} callback to sync the states. For details,
+   * see
+   * [Example 1: Setting and Obtaining the Caret Position](docroot://reference/apis-arkui/arkui-ts/ts-basic-components-textinput.md#example-1-setting-and-obtaining-the-caret-position).
+   *
+   * @param { boolean } visible - Whether to show the password.<br>**true**: The password is shown. **false**: The
+   *     password is not shown.<br>Default value: **false**
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3365,9 +2090,14 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   showPassword(visible: boolean): TextInputAttribute;
 
   /**
-   * Called when changing the password visible mode of the text input.
+   * Triggered when the password visibility state is toggled.
    *
-   * @param { Callback<boolean> } callback - callback of the password visible mode change event.
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { Callback<boolean> } callback - Callback used to return the result.<br>Returns **true** if the state is
+   *     toggled; returns **false** otherwise.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3378,15 +2108,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onSecurityStateChange(callback: Callback<boolean>): TextInputAttribute;
 
   /**
-   * Get text value information when about to input.
+   * Triggered when text is about to be inserted.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It returns true if the text is inserted; returns false otherwise.
-   * <br>This callback is not triggered for pre-edit or candidate word operations.
-   * <br>It is available only for system input methods.
-   * </p>
-   *
-   * @param { Callback<InsertValue, boolean> } callback - The triggered function when text content is about to insert.
+   * @param { Callback<InsertValue, boolean> } callback - Callback triggered when text is about to be inserted.<br>It
+   *     returns **true** if the text is inserted; returns **false** otherwise.<br>This callback is not triggered for
+   *     pre-edit or candidate word operations.<br>It is available only for system input methods.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3397,13 +2123,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillInsert(callback: Callback<InsertValue, boolean>): TextInputAttribute;
 
   /**
-   * Get text value information when completed input.
+   * Triggered when text is inserted.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It is available only for system input methods.
-   * </p>
-   *
-   * @param { Callback<InsertValue> } callback - The triggered function when text content has been inserted.
+   * @param { Callback<InsertValue> } callback - Callback triggered when text is inserted.<br>It is available only for
+   *     system input methods.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3414,15 +2137,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onDidInsert(callback: Callback<InsertValue>): TextInputAttribute;
 
   /**
-   * Get text value information when about to delete.
+   * Triggered when text is about to be deleted.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It returns true if the text is deleted; returns false otherwise.
-   * <br>This callback is not called for text preview.
-   * <br>It is available only for system input methods.
-   * </p>
-   *
-   * @param { Callback<DeleteValue, boolean> } callback - The triggered function when text content is about to delete.
+   * @param { Callback<DeleteValue, boolean> } callback - Callback triggered when text is about to be deleted.<br>It
+   *     returns **true** if the text is deleted; returns **false** otherwise.<br>This callback is not called for text
+   *     preview.<br>It is available only for system input methods.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3433,13 +2152,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillDelete(callback: Callback<DeleteValue, boolean>): TextInputAttribute;
 
   /**
-   * Get text value information when the deletion has been completed
+   * Triggered when text is deleted.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>It is available only for system input methods.
-   * </p>
-   *
-   * @param { Callback<DeleteValue> } callback - The triggered function when text content has been deleted.
+   * @param { Callback<DeleteValue> } callback - Callback triggered when text is deleted.<br>It is available only for
+   *     system input methods.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3450,9 +2166,26 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onDidDelete(callback: Callback<DeleteValue>): TextInputAttribute;
 
   /**
-   * Called before the text input component attach the InputMethod.
+   * Called when the input box is about to be bound to an input method.
    *
-   * @param { Callback<IMEClient> } callback - The triggered function before attach the InputMethod.
+   * <!--Del-->
+   *
+   * Before the input box is bound to an input method, you can use the
+   * [setKeyboardAppearanceConfig]{@link @ohos.arkui.UIContext:UIContext#setKeyboardAppearanceConfig} API of
+   * **UIContext** to set the keyboard style.<!--DelEnd-->
+   *
+   * From API version 22, the [setExtraConfig]{@link IMEClient.setExtraConfig} method of [IMEClient]{@link IMEClient}
+   * can be called to set input method extension information. After the input method is bound, it receives this
+   * extension information which can be used to implement custom functionality.
+   *
+   * **IMEClient** is valid only during the execution of **onWillAttachIME** and cannot be called asynchronously.
+   *
+   * > **NOTE**
+   * >
+   * > This API cannot be called within [attributeModifier]{@link CommonMethod#attributeModifier}.
+   *
+   * @param { Callback<IMEClient> } callback - Callback invoked when the input box is about to be bound to an input
+   *     method.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3463,11 +2196,16 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillAttachIME(callback: Callback<IMEClient>): TextInputAttribute;
 
   /**
-   * Set the custom text menu.
-   * Sets the extended options of the custom context menu on selection,
-   * including the text content, icon, and callback.
+   * Sets the extended options of the custom menu, including the text content, icon, and callback.
    *
-   * @param { EditMenuOptions } editMenu - Customize text menu options.
+   * When
+   * [disableMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablemenuitems20) or
+   *
+   * [disableSystemServiceMenuItems](docroot://reference/apis-arkui/arkts-apis-uicontext-textmenucontroller.md#disablesystemservicemenuitems20)
+   * is used to disable system service menu items in the text selection menu, the disabled menu options will be excluded
+   * from the parameter list in the [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback of **editMenuOptions**.
+   *
+   * @param { EditMenuOptions } editMenu - Extended options of the custom menu.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3478,14 +2216,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   editMenuOptions(editMenu: EditMenuOptions): TextInputAttribute;
 
   /**
-   * Define the preview text mode of the text input.
+   * Sets whether to enable preview text.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>Preview text is in a temporary state and does not support text interception.
-   * <br>As such, it does not trigger onWillInsert, onDidInsert, onWillDelete, or onDidDelete callbacks.
-   * </p>
+   * The preview content is defined as a temporary, uncommitted input state. Currently, the text interception function
+   * is not supported.
    *
-   * @param { boolean } enable - Indicates the preview text mode.Default value is true.
+   * @param { boolean } enable - Whether to enable preview text.<br>**true**: Preview text is enabled. **false**:
+   *     Preview text is disabled.<br>Default value: **true**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3496,9 +2233,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enablePreviewText(enable: boolean): TextInputAttribute;
 
   /**
-   * Enable or disable haptic feedback.
+   * Sets whether to enable haptic feedback.
    *
-   * @param { boolean } isEnabled - Default value is true, set false to disable haptic feedback.
+   * To enable haptic feedback, you must declare the **ohos.permission.VIBRATE** permission under **requestPermissions**
+   * in the [module.json5](docroot://quick-start/module-configuration-file.md) file of the project.
+   *
+   * @param { boolean } isEnabled - Whether to enable haptic feedback.<br>**true**: Haptic feedback is enabled.
+   *     **false**: Haptic feedback is disabled.<br>Default value: **true**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3509,9 +2250,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableHapticFeedback(isEnabled: boolean): TextInputAttribute;
 
   /**
-   * Set text mode of automatic case mode switching.
+   * Sets the auto-capitalization text mode. This API provides the capability, but actual implementation depends on the
+   * input method application.
    *
-   * @param { AutoCapitalizationMode } mode - Automatic case mode switching.
+   * @param { AutoCapitalizationMode } mode - Auto-capitalization mode. The default state is inactive.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3522,9 +2264,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   autoCapitalizationMode(mode: AutoCapitalizationMode): TextInputAttribute;
 
   /**
-   * Set the text with half leading.
+   * Enables half leading for text, which splits the leading equally between the top and bottom of the line.
    *
-   * @param { Optional<boolean> } halfLeading
+   * @param { Optional<boolean> } halfLeading - Whether half leading is enabled. Half leading refers to splitting the
+   *     leading in half and applying it equally to the top and bottom of the line.<br>**true**: Half leading is
+   *     enabled. **false**: Half leading is not enabled.<br>Default value: **false**
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3535,9 +2279,15 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   halfLeading(halfLeading: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Set the ellipsis mode.
+   * Sets the ellipsis position. The **ellipsisMode** attribute takes effect only in the
+   * [inline style](docroot://ui/arkts-common-components-text-input.md#inline-style). It must be used together with
+   * **overflow** set to **TextOverflow.Ellipsis**. The **ellipsisMode** attribute does not take effect if set alone.
    *
-   * @param { Optional<EllipsisMode> } mode - The ellipsis mode.
+   * This attribute works normally in the non-editing state. In the editing state, **EllipsisMode.START** and
+   * **EllipsisMode.CENTER** take effect only when **maxLines** is set to **1**, while **EllipsisMode.END**,
+   * **EllipsisMode.MULTILINE_START**, and **EllipsisMode.MULTILINE_CENTER** take effect normally.
+   *
+   * @param { Optional<EllipsisMode> } mode - Ellipsis position.<br>Default value: **EllipsisMode.END**
    * @returns { TextInputAttribute } The attribute of TextInput.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3548,32 +2298,28 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   ellipsisMode(mode: Optional<EllipsisMode>): TextInputAttribute;
 
   /**
-   * Set whether stop backPressed callback event or not.
+   * Sets whether to prevent the back key event from being propagated.
    *
-   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { Optional<boolean> } isStopped - Whether to prevent the back button press from being propagated to other
+   *     components or applications.<br>**true**: Propagation is prevented. **false**: Propagation is allowed.<br>
+   *     Default value: **true** Invalid values are treated as the default value.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 15 dynamic
-   */
-  /**
-   * Set whether stop backPressed callback event or not.
-   *
-   * @param { Optional<boolean> } isStopped - Default value is true, set false to trigger the latest callback event.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   stopBackPress(isStopped: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Get text value information when about to change.
+   * Triggered when the text content is about to change.
    *
-   * @param { Callback<EditableTextChangeValue, boolean> } callback - The triggered function when text content is about to change.
+   * This callback is triggered after **onWillInsert** and **onWillDelete**, but before **onDidInsert** and
+   * **onDidDelete**.
+   *
+   * @param { Callback<EditableTextChangeValue, boolean> } callback - Callback triggered when the text content is about
+   *     to change.<br>Returning **true** allows the change to proceed, while returning **false** cancels the change.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3584,22 +2330,25 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   onWillChange(callback: Callback<EditableTextChangeValue, boolean>): TextInputAttribute;
 
   /**
-   * Set the keyboard appearance.
+   * Sets the keyboard appearance for the text box. This setting takes effect only after input method adaptation. For
+   * details, see
+   * [Immersive Mode of the Input Method Application](docroot://inputmethod/inputmethod-immersive-mode-guide.md).
    *
-   * @param { Optional<KeyboardAppearance> } appearance - Default value is KeyboardAppearance.NONE_IMMERSIVE
+   * @param { Optional<KeyboardAppearance> } appearance - Appearance of the keyboard.<br>Default value:
+   *     **KeyboardAppearance.NONE_IMMERSIVE**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
-
    */
   keyboardAppearance(appearance: Optional<KeyboardAppearance>): TextInputAttribute;
 
   /**
-   * Set the stroke width.
+   * Sets the text stroke width.
    *
-   * @param { Optional<LengthMetrics> } width - indicates the stroke width.
+   * @param { Optional<LengthMetrics> } width - Text stroke width. When the unit of **LengthMetrics** is **px**:<br>
+   *     Values < 0: solid text.<br>Values > 0: outlined text.<br>Default value: **0** (no stroke)
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3610,9 +2359,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   strokeWidth(width: Optional<LengthMetrics>): TextInputAttribute;
 
   /**
-   * Set the stroke color.
+   * Sets the text stroke color.
    *
-   * @param { Optional<ResourceColor> } color - indicates the stroke color.
+   * @param { Optional<ResourceColor> } color - Stroke color. Default value: font color. Invalid values are treated as
+   *     the default value.
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3623,9 +2373,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   strokeColor(color: Optional<ResourceColor>): TextInputAttribute;
 
   /**
-   * Sets whether enable auto fill animation effect or not.
+   * Sets whether to enable the autofill animation.
    *
-   * @param { Optional<boolean> } enabled - Indicates the flag whether auto fill animation effect is enabled.
+   * @param { Optional<boolean> } enabled - Whether to enable the autofill animation.<br>**true** to enable; **false**
+   *     otherwise.<br>Default value: **true**<br>**NOTE**<br>When enabled, the animation takes effect only for text
+   *     boxes where [InputType]{@link InputType} is set to **Password**, **NEW_PASSWORD**, or **NUMBER_PASSWORD**.
    * @returns { TextInputAttribute } Returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3635,9 +2387,10 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableAutoFillAnimation(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Whether to enable automatic spacing between Chinese and Latin characters.
+   * Sets whether to enable automatic spacing between Chinese and Western characters.
    *
-   * @param { Optional<boolean> } enabled - The default value is false, indicates the flag whether to enable automatic spacing.
+   * @param { Optional<boolean> } enabled - Whether to enable automatic spacing between Chinese and Western characters.<
+   *     br>**true** to enable, **false** otherwise.<br>Default value: **false**
    * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3648,10 +2401,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   enableAutoSpacing(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Determines whether the layout adds extra padding at the top and bottom to make space for characters.
+   * Sets whether to add spacing to the first and last lines to avoid text truncation. If this attribute is not set, no
+   * spacing is added by default.
    *
-   * @param { Optional<boolean> } include - Whether enable the feature, the default value is false.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { Optional<boolean> } include - Whether to add spacing to the first and last lines to avoid text truncation.
+   *     <br>**true**: Spacing is added to the first and last lines. **false**: Spacing is not added to the first and
+   *     last lines.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3661,10 +2417,13 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   includeFontPadding(include: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Whether to include ascent/descent from fallback fonts to prevent overlapping lines.
+   * Adapts the line height to the actual text height for overlapped multi-line text. This API takes effect only when
+   * the line height is less than the actual text height. If this API is not set, the line height does not adapt to the
+   * actual text height by default.
    *
-   * @param { Optional<boolean> } enabled - Whether enable the feature, the default value is false.
-   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @param { Optional<boolean> } enabled - Whether the line height adapts to the actual text height.<br>**true**: Line
+   *     height adapts to the actual text height. **false**: Line height does not adapt to the actual text height.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3674,9 +2433,17 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   fallbackLineSpacing(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Whether to compress punctuation at the beginning of line.
+   * Sets whether to enable leading punctuation compression.
    *
-   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * > **NOTE**
+   * >
+   * > - Leading punctuation is not compressed by default.
+   * >
+   * > - For the range of punctuation marks that support leading compression, see
+   * > [ParagraphStyle]{@link @ohos.graphics.text:text.ParagraphStyle}.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable leading punctuation compression.<br>**true**: Leading
+   *     punctuation compression is enabled. **false**: Leading punctuation compression is disabled.
    * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3687,10 +2454,11 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   compressLeadingPunctuation(enabled: Optional<boolean>): TextInputAttribute;
 
   /**
-   * Used to set the selected drag preview style.
+   * Sets the drag preview style for text being dragged in the text box.
    *
-   * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
-   *     If set undefined will reset the style.
+   * @param { SelectedDragPreviewStyle | undefined } value - Drag preview style for text being dragged in the text box.<
+   *     br>If this parameter is set to **undefined**, the drag preview follows the theme: white in light mode and black
+   *     in dark mode.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3701,10 +2469,12 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   selectedDragPreviewStyle(value: SelectedDragPreviewStyle | undefined): TextInputAttribute;
 
   /**
-   * Set the text direction.
+   * Specifies the text layout direction. If this attribute is not set, the default text layout direction follows the
+   * component layout direction.
    *
-   * @param { TextDirection | undefined } direction - Indicates the text direction.
-   *     When undefined is set, this property will be reset to TextDirection.DEFAULT.
+   * @param { TextDirection | undefined } direction - Text layout direction.<br>If this parameter is set to
+   *     **undefined**, the text layout direction follows the component layout direction as defined by
+   *     **TextDirection.DEFAULT**.
    * @returns { TextInputAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3713,7 +2483,7 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
    * @since 23 dynamic
    */
   textDirection(direction: TextDirection | undefined): TextInputAttribute;
-  
+
   /**
    * Set voice button options.
    *
@@ -3728,39 +2498,87 @@ declare class TextInputAttribute extends CommonMethod<TextInputAttribute> {
   voiceButton(options: Optional<VoiceButtonOptions>): TextInputAttribute;
 
   /**
- 	 * Whether to avoid an orphan word on the last line of the paragraph.
- 	 *
- 	 * @param { Optional<boolean> } enabled - The default value is false,
- 	 *     indicates the flag whether to enable this feature.
- 	 * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
- 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
- 	 * @crossplatform
- 	 * @atomicservice
- 	 * @since 26.0.0 dynamic
- 	 */
- 	orphanCharOptimization(enabled: Optional<boolean>): TextInputAttribute;
+   * Sets whether to enable orphan character optimization during text typesetting. If this attribute is not set, orphan
+   * character optimization is disabled by default.
+   *
+   * Orphan character optimization improves the text layout by handling the orphan character (the first Chinese
+   * character of the last line of a paragraph) more efficiently. When enabled, it adjusts line breaks to avoid orphan
+   * characters as much as possible. This feature takes effect only when [wordBreak]{@link TextInputAttribute#wordBreak}
+   * is not **BREAK_ALL** and [locale]{@link @ohos.graphics.text:text.TextStyle} of the first
+   * [TextStyle]{@link @ohos.graphics.text:text.TextStyle} of the text to be typeset is either **"zh-Hans"** or
+   * **"zh-Hant"**.
+   *
+   * **Since**: 26.0.0
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable orphan character optimization for the last line of the
+   *     paragraph.<br>**true**: Orphan character optimization is enabled. **false**: Orphan character optimization is
+   *     disabled.<br>When the value is **undefined** or **null**, orphan character optimization is disabled.
+   * @returns { TextInputAttribute } - returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  orphanCharOptimization(enabled: Optional<boolean>): TextInputAttribute;
+
+  /**
+   * Set the join style of the stroke.
+   *
+   * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): TextInputAttribute;
+
+  /**
+   * Set the shader style of the text, such as lineargradient or radialgradient.
+   *
+   * @param { ShaderStyle | undefined } shader - The shader style of the text.
+   *     Passing `undefined` resets it to the default value.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle(shader: ShaderStyle | undefined): TextInputAttribute;
+
+  /**
+   * Whether to enable punctuation overflow at line ends.
+   *
+   * @param { Optional<boolean> } enabled - Whether to enable the feature, the default value is false.
+   * @returns { TextInputAttribute } returns the instance of the TextInputAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  punctuationOverflow(enabled: Optional<boolean>): TextInputAttribute;
 }
 
 /**
- * Defines TextInput Component.
+ * The **TextInput** component provides single-line text input.
+ *
+ * > **NOTE**
+ * >
+ * > This component supports plain text only. For rich text, use the [RichEditor]{@link rich_editor} component.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines TextInput Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines TextInput Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const TextInput: TextInputInterface;
 
@@ -3768,21 +2586,9 @@ declare const TextInput: TextInputInterface;
  * Defines TextInput Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines TextInput Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines TextInput Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const TextInputInstance: TextInputAttribute;

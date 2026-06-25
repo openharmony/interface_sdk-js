@@ -4345,16 +4345,6 @@ export declare enum PageFlipMode {
  */
 export declare enum CrownAction {
   /**
-   * Rotation crown behavior begins.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   * @deprecated since 24 static
-   */
-  BEGIN = 0,
-
-  /**
    * Rotation crown behavior update.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4527,7 +4517,7 @@ export declare enum DividerMode {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum EventQueryType {
   /**
@@ -4535,7 +4525,7 @@ export declare enum EventQueryType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ON_CLICK = 0
 }
@@ -4574,15 +4564,15 @@ export declare enum TipsAnchorType {
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
-declare enum DialogDisplayMode {
+export declare enum DialogDisplayMode {
   /**
    * The dialog displayed based on screen.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SCREEN_BASED = 0,
   /**
@@ -4590,7 +4580,7 @@ declare enum DialogDisplayMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WINDOW_BASED = 1
 }
@@ -4601,7 +4591,7 @@ declare enum DialogDisplayMode {
  * @enum { number } FocusWrapMode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare enum FocusWrapMode {
   /**
@@ -4609,7 +4599,7 @@ export declare enum FocusWrapMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   DEFAULT = 0,
 
@@ -4618,7 +4608,7 @@ export declare enum FocusWrapMode {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WRAP_WITH_ARROW = 1
 }
@@ -4701,7 +4691,7 @@ export declare enum ColorSpace {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @systemapi
-   * @since 24 static
+   * @since 26.0.0 static
    */
   BT2020 = 2,
 }
@@ -4785,7 +4775,7 @@ export enum CompetitionStrategy {
  *
  * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @since 23 staticonly
  */
 export enum AttributeModifierState {
@@ -4794,7 +4784,7 @@ export enum AttributeModifierState {
    * Normal state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   NORMAL = 0,
@@ -4803,7 +4793,7 @@ export enum AttributeModifierState {
    * Pressed state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   PRESSED = 1,
@@ -4812,7 +4802,7 @@ export enum AttributeModifierState {
    * Focused state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   FOCUSED = 1 << 1,
@@ -4821,7 +4811,7 @@ export enum AttributeModifierState {
    * Disabled state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
   DISABLED = 1 << 2,
@@ -4830,10 +4820,19 @@ export enum AttributeModifierState {
    * Selected state.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 23 staticonly
    */
-  SELECTED = 1 << 3
+  SELECTED = 1 << 3,
+
+  /**
+   * Hovered state.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  HOVERED = 1 << 4
 }
 
 /**
@@ -4922,22 +4921,6 @@ export enum SystemProperties {
    * @since 24 static
    */
   WINDOW_SIZE_PX = 'system.window.size.px',
- /**
-    * System environment windowisfocused key that is used to obtain whether the window is focused or not.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    */
-   WINDOW_IS_FOCUSED = 'system.window.focused',
-   /**
-    * System environment windowishighlighted key that is used to obtain whether the window is highlighted or not.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 26.0.0 static
-    */
-   WINDOW_IS_HIGHLIGHTED = 'system.window.highlighted'
 }
 
 /**
@@ -5324,4 +5307,87 @@ export declare enum OperateIntention {
      * @since 26.0.0 static
      */
     BACK_PRESS = 2
+}
+
+/**
+ * Defines the position of the edge light effect.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare enum EdgeLightPosition {
+  /**
+   * Edge light effect in the upper left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP_LEFT = 0,
+  /**
+   * Edge light effect is in the upper right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP_RIGHT = 1,
+  /**
+   * Edge light effect is in the lower left corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM_LEFT = 2,
+  /**
+   * Edge light effect is in the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM_RIGHT = 3,
+  /**
+   * Edge light effect is on the top edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  TOP = 4,
+  /**
+   * The light effect starts from the bottom edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BOTTOM = 5,
+  /**
+   * Edge light effect is on the left edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  LEFT = 6,
+  /**
+   * Edge light effect is on the right edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  RIGHT = 7,
 }

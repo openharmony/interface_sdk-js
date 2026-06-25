@@ -19,8 +19,8 @@
  */
 
 /**
- * The module defines the application version information. You can use 
- * [getAppVersionInfo](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetappversioninfo7) to 
+ * The module defines the application version information. You can use
+ * [getAppVersionInfo](docroot://reference/apis-ability-kit/js-apis-inner-app-context.md#contextgetappversioninfo7) to
  * obtain the version information of the current application.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core

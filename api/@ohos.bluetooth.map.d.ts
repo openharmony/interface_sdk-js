@@ -24,27 +24,27 @@ import type constant from './@ohos.bluetooth.constant';
 /**
  * Provides methods to accessing bluetooth MAP(Message Access Profile)-related capabilities.
  *
- * @namespace map
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 11 dynamic
+ * @since 26.0.0 static
  */
 declare namespace map {
   /**
    * Base interface of profile.
    *
-   * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   type BaseProfile = baseProfile.BaseProfile;
 
   /**
    * Indicate the phone book access authorization.
    *
-   * @typedef { constant.AccessAuthorization } AccessAuthorization
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @systemapi
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   type AccessAuthorization = constant.AccessAuthorization;
 
@@ -53,20 +53,20 @@ declare namespace map {
    *
    * @returns { MapMseProfile } Returns the instance of map mse profile.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   function createMapMseProfile(): MapMseProfile;
 
   /**
    * Manager MAP MSE profile.
    *
-   * @extends BaseProfile
-   * @typedef MapMseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 11 dynamic
+   * @since 26.0.0 static
    */
   interface MapMseProfile extends BaseProfile {
     /**
@@ -77,7 +77,7 @@ declare namespace map {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -86,6 +86,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.0 static
      */
     disconnect(deviceId: string): void;
 
@@ -99,7 +100,7 @@ declare namespace map {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -108,6 +109,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.0 static
      */
     setMessageAccessAuthorization(deviceId: string, authorization: AccessAuthorization): Promise<void>;
 
@@ -120,7 +122,7 @@ declare namespace map {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -129,6 +131,7 @@ declare namespace map {
      * @syscap SystemCapability.Communication.Bluetooth.Core
      * @systemapi
      * @since 11 dynamic
+     * @since 26.0.0 static
      */
     getMessageAccessAuthorization(deviceId: string): Promise<AccessAuthorization>;
   }

@@ -43,6 +43,7 @@ declare namespace selectionManager {
    *
    * @param { 'selectionCompleted' } type - 设置监听类型，固定取值为'selectionCompleted'。
    * @param { Callback<SelectionInfo> } callback - 回调函数，返回当前划词信息。
+   *     该回调仅在用户通过鼠标或触控板选中文本（鼠标左键双击/三击/按下滑动）后按下Ctrl键时触发。
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -56,6 +57,7 @@ declare namespace selectionManager {
    * 订阅划词完成事件。使用callback异步回调。
    *
    * @param { Callback<SelectionInfo> } callback - 回调函数，返回当前划词信息。
+   *     该回调仅在用户通过鼠标或触控板选中文本（鼠标左键双击/三击/按下滑动）后按下Ctrl键时触发。
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -106,8 +108,8 @@ declare namespace selectionManager {
 
   /**
    * 创建划词面板。使用Promise异步回调。
-   * 单个划词应用仅允许创建一个[主面板类型]{@link @ohos.selectionInput.SelectionPanel}和一个
-   * [菜单面板类型]{@link @ohos.selectionInput.SelectionPanel}的窗口。
+   * 单个划词应用仅允许创建一个[MENU_PANEL]{@link @ohos.selectionInput.SelectionPanel}和一个
+   * [MAIN_PANEL]{@link @ohos.selectionInput.SelectionPanel}。
    *
    * @param { Context } ctx - 当前划词面板依赖的上下文信息。
    * @param { PanelInfo } info - 划词面板信息。
@@ -492,11 +494,6 @@ declare namespace selectionManager {
 
   /**
    * 定义触发划词的类型枚举。
-   * | 名称         | 值 | 说明               |
-   * | ------------ | -- | ------------------ |
-   * | MOUSE_MOVE | 1 | 滑动选词类型。 |
-   * | DOUBLE_CLICK   | 2 | 双击选词类型。 |
-   * | TRIPLE_CLICK   | 3 | 三击选词类型。 |
    *
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]

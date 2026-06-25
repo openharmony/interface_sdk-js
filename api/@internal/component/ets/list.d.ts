@@ -18,260 +18,115 @@
  * @kit ArkUI
  */
 
-
 /**
- * Declare scroll status
+ * Enumerates the scrolling states.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Declare scroll status
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declare scroll status
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declare scroll status
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ScrollState {
+
   /**
-   * Not activated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Not activated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Not activated.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Idle state. Triggered when the scroll state returns to idle, and when the controller's
-   * non-animated methods are used to control the scroll.
+   * Idle state. Triggered when the scroll state returns to idle, and when the controller's non-animated methods are
+   * used to control the scroll.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Idle,
 
   /**
-   * Scrolling status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Scrolling status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Scrolling status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Scrolling state. Triggered when the list is dragged with the finger,
-   * when the scrollbar is dragged, or when the mouse scroll wheel is used.
+   * Scrolling state. Triggered when the list is dragged with the finger, when the scrollbar is dragged, or when the
+   * mouse scroll wheel is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Scroll,
 
   /**
-   * Drag status.
+   * Inertial scrolling state. Triggered by all animated scroll actions. This includes: Inertial scrolling that occurs
+   * after a fling;
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Drag status.
+   * Bounce-back scrolling when the swipe reaches the edge; Inertial scrolling after quickly dragging the built-in
+   * scrollbar and releasing;
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Drag status.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Inertial scrolling state.
+   * Scrolling controlled by the animated methods provided by the scroller.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Fling,
 }
 
 /**
- * Declare list item alignment status
+ * Sets the alignment mode of child components in the cross-axis direction of the list.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declare list item alignment status
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declare list item alignment status
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum ListItemAlign {
+
   /**
-   * Start position in the direction of cross axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Start position in the direction of cross axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The list items are packed toward the start edge of the <em>List</em> component along the cross axis.
+   * The list items are packed toward the start edge of the **List** component along the cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Start,
 
   /**
-   * Center position in the direction of cross axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Center position in the direction of cross axis.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The list items are centered in the <em>List</em> component along the cross axis.
+   * The list items are centered in the **List** component along the cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Center,
 
   /**
-   * End position in the direction of cross axis
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * End position in the direction of cross axis
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The list items are packed toward the end edge of the <em>List</em> component along the cross axis.
+   * The list items are packed toward the end edge of the **List** component along the cross axis.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   End,
 }
 
 /**
- * Declare list item group area
+ * Enumerates the areas of **ListItemGroup**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -279,8 +134,9 @@ declare enum ListItemAlign {
  * @since 12 dynamic
  */
 declare enum ListItemGroupArea {
+
   /**
-   * The edge of the viewport is in the position of <em>none</em>.
+   * Area other than the **ListItem**, header, and footer areas in **ListItemGroup**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -291,7 +147,7 @@ declare enum ListItemGroupArea {
   NONE = 0,
 
   /**
-   * The edge of the viewport is in the position of a list item.
+   * **ListItem** area in **ListItemGroup**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -302,7 +158,7 @@ declare enum ListItemGroupArea {
   IN_LIST_ITEM_AREA = 1,
 
   /**
-   * The edge of the viewport is in the position of a header.
+   * Header area in **ListItemGroup**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -313,7 +169,7 @@ declare enum ListItemGroupArea {
   IN_HEADER_AREA = 2,
 
   /**
-   * The edge of the viewport is in the position of a footer.
+   * Footer area in **ListItemGroup**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -325,120 +181,56 @@ declare enum ListItemGroupArea {
 }
 
 /**
- * Declare item group sticky style.
+ * Enumerates the sticky styles.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declare item group sticky style.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declare item group sticky style.
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
+ * @crossplatform [since 10]
  * @form
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare enum StickyStyle {
+
   /**
-   * The header and footer of each item group will not be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The header and footer of each item group will not be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * In the ListItemGroup component, the header is not pinned to the top,
-   * and the footer is not pinned to the bottom.
+   * In the **ListItemGroup** component, the header is not pinned to the top, and the footer is not pinned to the
+   * bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   None = 0,
 
   /**
-   * The header of each item group will be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The header of each item group will be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * In the ListItemGroup component, the header is pinned to the top,
-   * and the footer is not pinned to the bottom.
+   * In the **ListItemGroup** component, the header is pinned to the top, and the footer is not pinned to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Header = 1,
 
   /**
-   * The footer of each item group will be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * The footer of each item group will be pinned.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * In the <em>ListItemGroup</em> component, the footer is pinned to the bottom,
-   * and the header is not pinned to the top.
+   * In the **ListItemGroup** component, the footer is pinned to the bottom, and the header is not pinned to the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   Footer = 2,
+
   /**
-   * In the <em>ListItemGroup</em> component, the header is pinned to the top,
-   * and the footer is pinned to the bottom.
+   * In the **ListItemGroup** component, the header is pinned to the top, and the footer is pinned to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -453,13 +245,13 @@ declare enum StickyStyle {
 /**
  * Declare edge effect of chain animation.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 10 dynamic
  */
 declare enum ChainEdgeEffect {
+
   /**
    * Default edge effect. Compress the space in the drag direction
    * and stretch the space in the opposite drag direction.
@@ -483,109 +275,72 @@ declare enum ChainEdgeEffect {
 }
 
 /**
- * Declare limited position when scroll end.
+ * Enumerates the alignment modes of list items when scrolling ends.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Declare limited position when scroll end.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum ScrollSnapAlign {
-  /**
-   * Default no item scroll snap alignment effect. When scroll end,
-   * list item will stop without limit.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
+
   /**
    * No alignment. This is the default value.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   NONE = 0,
 
   /**
-   * The first item in view will be aligned at the start of list.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
    * The first item in the view is aligned at the start of the list.
-   * 
-   * <p><strong>NOTE</strong>
-   * <br>When the list hits the end, the items at the end must be completely displayed.
-   * In this case, the items at the start may not be aligned.
-   * </p>
+   *
+   * **NOTE**
+   *
+   * When the list hits the end, the items at the end must be completely displayed. In this case, the items at the start
+   * may not be aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   START = 1,
 
   /**
-   * The middle item in view will be aligned at the center of list.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
    * The middle items in the view are aligned in the center of the list.
-   * 
-   * <p><strong>NOTE</strong>
-   * <br>The top and end items can be aligned in the center of the list.
-   * In this case, a blank area may result, and the first or last item is aligned to the center of the list.
-   * </pr>
+   *
+   * **NOTE**
+   *
+   * The top and end items can be aligned to the center of the list. In this case, which may cause empty space to be
+   * visible in the list display.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   CENTER = 2,
 
   /**
-   * The last item in view will be aligned at the end of list.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
    * The last item in the view is aligned at the end of the list.
-   * 
-   * <p><strong>NOTE</strong>
-   * <br>When the list hits the start, the items at the start must be completely displayed.
-   * In this case, the items at the end may not be aligned.
-   * </p>
+   *
+   * **NOTE**
+   *
+   * When the list hits the start, the items at the start must be completely displayed. In this case, the items at the
+   * end may not be aligned.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   END = 3,
 }
@@ -593,17 +348,17 @@ declare enum ScrollSnapAlign {
 /**
  * Defines the chain animation options.
  *
- * @interface ChainAnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 10 dynamic
  */
 declare interface ChainAnimationOptions {
+
   /**
    * Minimum space for chain animation.
+   * <br>Unit: same as **Length**.
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -613,8 +368,8 @@ declare interface ChainAnimationOptions {
 
   /**
    * Maximum space for chain animation.
+   * <br>Unit: same as **Length**.
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -625,7 +380,6 @@ declare interface ChainAnimationOptions {
   /**
    * Conductivity of chain animation.
    *
-   * @type { ?number }
    * @default 0.7
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -637,7 +391,6 @@ declare interface ChainAnimationOptions {
   /**
    * Intensity of chain animation.
    *
-   * @type { ?number }
    * @default 0.3
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -649,7 +402,6 @@ declare interface ChainAnimationOptions {
   /**
    * Edge effect of chain animation.
    *
-   * @type { ?ChainEdgeEffect }
    * @default ChainEdgeEffect.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -661,7 +413,6 @@ declare interface ChainAnimationOptions {
   /**
    * Stiffness of chain spring.
    *
-   * @type { ?number }
    * @default 228
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -673,7 +424,6 @@ declare interface ChainAnimationOptions {
   /**
    * Damping of chain spring.
    *
-   * @type { ?number }
    * @default 30
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -684,10 +434,10 @@ declare interface ChainAnimationOptions {
 }
 
 /**
- * Defines a UIListEvent which is used to set different common event to target component.
+ * Represents the return value of the
+ * [getEvent('List')]{@link FrameNode:typeNode.getEvent(node: FrameNode, nodeType: 'List')} method in **frameNode**,
+ * which can be used to set scroll events for a **List** node.
  *
- * @extends UIScrollableCommonEvent
- * @interface UIListEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -695,10 +445,14 @@ declare interface ChainAnimationOptions {
  * @since 19 dynamic
  */
 declare interface UIListEvent extends UIScrollableCommonEvent {
+
   /**
-   * Set or reset the callback which is triggered when the List will scroll.
+   * Sets the callback for the
+   * [onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12) event.
    *
-   * @param { OnWillScrollCallback | undefined } callback - The callback will be triggered when the List will scroll.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnWillScrollCallback | undefined } callback - Callback for the **onWillScroll** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -708,9 +462,12 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
   setOnWillScroll(callback: OnWillScrollCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when List view did scroll.
+   * Sets the callback for the
+   * [onDidScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#ondidscroll12) event.
    *
-   * @param { OnScrollCallback | undefined } callback - callback function, triggered when the List view did scroll.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnScrollCallback | undefined } callback - Callback for the **onDidScroll** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -720,10 +477,12 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
   setOnDidScroll(callback: OnScrollCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the start, end, or center positions of the display change.
+   * Sets the callback of the
+   * [onScrollIndex](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#onscrollindex) event.
    *
-   * @param { OnListScrollIndexCallback | undefined } callback - callback function, triggered when the
-   *     start, end, or center positions of the display change.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnListScrollIndexCallback | undefined } callback - Callback for the **onScrollIndex** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -733,10 +492,12 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
   setOnScrollIndex(callback: OnListScrollIndexCallback | undefined): void;
 
   /**
-   * Set or reset the callback which is triggered when the list visible content changes.
+   * Sets the callback of the [onScrollVisibleContentChange]{@link ListAttribute#onScrollVisibleContentChange} event.
    *
-   * @param { OnScrollVisibleContentChangeCallback | undefined } callback - callback function, triggered when
-   *     the list visible content changes.
+   * If the input parameter is **undefined**, the event callback is reset.
+   *
+   * @param { OnScrollVisibleContentChangeCallback | undefined } callback - Callback for the
+   *     **onScrollVisibleContentChange** event.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -747,51 +508,32 @@ declare interface UIListEvent extends UIScrollableCommonEvent {
 }
 
 /**
- * Defines the close swipe action options.
+ * Implements the callbacks and events for the [ListItem]{@link list_item} in the [expanded]{@link SwipeActionState}
+ * state.
  *
- * @interface CloseSwipeActionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines the close swipe action options.
- *
- * @interface CloseSwipeActionOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface CloseSwipeActionOptions {
-  /**
-   * Called after collapse animation completed.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
+
   /**
    * Triggered after the collapse animation is complete.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  onFinish?: ()=>void
+  onFinish?: ()=>void;
 }
 
 /**
- * Defines the visible list content info.
+ * Describes the details of the child components in the visible area of a list.
  *
- * @interface VisibleListContentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -799,10 +541,10 @@ declare interface CloseSwipeActionOptions {
  * @since 12 dynamic
  */
 declare interface VisibleListContentInfo {
+
   /**
    * Index of the list item or list item group in the list display area.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -815,7 +557,6 @@ declare interface VisibleListContentInfo {
    * Position of the top or bottom edge of the viewport in the
    * list item group to which the edge is located, if applicable.
    *
-   * @type { ?ListItemGroupArea }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -828,7 +569,6 @@ declare interface VisibleListContentInfo {
    * Index of the starting or ending list item in the list
    * item group to which the top or bottom edge of the viewport is located.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -839,9 +579,8 @@ declare interface VisibleListContentInfo {
 }
 
 /**
- * Defines the back press behavior for List component.
+ * Defines the system back button behavior of the **List** component.
  *
- * @interface ListBackPressBehavior
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -849,10 +588,10 @@ declare interface VisibleListContentInfo {
  * @since 26.0.0 dynamic
  */
 declare interface ListBackPressBehavior {
+
   /**
    * Whether to close the swipe menu when back key is pressed.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -864,11 +603,25 @@ declare interface ListBackPressBehavior {
 }
 
 /**
- * Called when a child component enters or leaves the list display area.
+ * Triggered when a child component enters or leaves the list display area.
  *
- * @typedef {function} OnScrollVisibleContentChangeCallback
- * @param {VisibleListContentInfo} start - Information about the currently displayed first list item or list item group.
- * @param {VisibleListContentInfo} end - Information about the currently displayed last list item or list item group.
+ * When the **List** component changes from having child components to being empty, the values of the reported **start**
+ * and **end** parameters remain the same as those when the component had child components last time.
+ *
+ * If the values of **start** and **end** are both **0**, the **List** component contains only one child component.
+ *
+ * > **NOTE**
+ * >
+ * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 14.
+ *
+ * @param {VisibleListContentInfo} start - 1. Index of the first child component in the list display area.<br>2. If the
+ *     first child component in the list display area is **ListItemGroup**, you can obtain the area where the first
+ *     child component belongs.<br>3. If the first child component in the list display area is **ListItem** in
+ *     **ListItemGroup**, you can obtain the index of **ListItem** in **ListItemGroup**.
+ * @param {VisibleListContentInfo} end - 1. Index of the last child component in the list display area.<br>2. If the
+ *     last child component in the list display area is **ListItemGroup**, you can obtain the area where the last child
+ *     component belongs.<br>3. If the last child component in the list display area is **ListItem** in
+ *     **ListItemGroup**, you can obtain the index of **ListItem** in **ListItemGroup**.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -878,12 +631,11 @@ declare interface ListBackPressBehavior {
 declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentInfo, end: VisibleListContentInfo) => void;
 
 /**
- * Defines the callback type used in onScrollIndex.
+ * Represents a callback for item changes in the visible area of the **List** component.
  *
- * @typedef {function} OnListScrollIndexCallback
- * @param {number} start - the first index in visible content.
- * @param {number} end - the last index in visible content.
- * @param {number} center - the center index in visible content.
+ * @param {number} start - Index of the first child component in the list display area.
+ * @param {number} end - Index of the last child component in the list display area.
+ * @param {number} center - Index of the center child component in the list display area.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -894,161 +646,100 @@ declare type OnScrollVisibleContentChangeCallback = (start: VisibleListContentIn
 declare type OnListScrollIndexCallback = (start: number, end: number, center: number) => void;
 
 /**
- * @extends Scroller
+ * Implements the scroll controller of the **List** component. A **List** component is bound to a **ListScroller** on a
+ * one-to-one basis.
+ *
+ * > **NOTE**
+ * >
+ * > **ListScroller** inherits from [Scroller]{@link Scroller} and has all methods of
+ * > [Scroller]{@link Scroller}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * @extends Scroller
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare class ListScroller extends Scroller {
+
   /**
-   * Gets the size and position of a ListItem in a ListItemGroup.
-   *
-   * @param { number } index - Index of the ListItemGroup in List.
-   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
-   * @returns { RectResult } Returns the size and position.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Obtains the size of a list item in a list item group and its position relative to the list.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>- The value of <em>index</em> must be the index of a child component visible in the display area.
-   * Otherwise, the value is considered invalid.
-   * <br>- The child component for which <em>index</em> is set must be a list item group. Otherwise,
-   * the <em>index </em>value is considered invalid.
-   * <br>- The value of <em>indexInGroup</em> must be the index of a list item in the list item group
-   * visible in the display area. Otherwise, the value is considered invalid.
-   * <br>- When <em>index</em> or <em>indexInGroup</em> is set to an invalid value, the returned size and position are both <em>0</em>.
-   * </p>
+   * Obtains the size of a [list item]{@link list_item} in a [list item group]{@link list_item_group} and its position
+   * relative to the list.
    *
    * @param { number } index - Index of the list item group in the list.
    * @param { number } indexInGroup - Index of the list item in the list item group.
-   * @returns { RectResult } - Size of the list item in the list item group and its position relative to the list.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @returns { RectResult } Size of the list item in the list item group and its position relative to the list.
+   *     <br>Unit: vp
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getItemRectInGroup(index: number, indexInGroup: number): RectResult;
 
   /**
-   * Called when sliding to the specified index in specified ListItemGroup.
-   *
-   * @param { number } index - Index of the ListItemGroup in List.
-   * @param { number } indexInGroup - Index of the ListItem in ListItemGroup.
-   * @param { boolean } smooth - If true, scroll to index item with animation. If false, scroll to index item without animation.
-   * @param { ScrollAlign } align - Sets the alignment mode of a specified index.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Scrolls to the specified list item in the specified list item group.
    *
-   * @param { number } index - Index of the target list item group in the current container.
-   * <br><em>NOTE</em>
-   * <br>If the value set is a negative value or greater than the maximum index of the items in the container,
-   * the value is deemed abnormal, and no scrolling will be performed.
-   * @param { number } indexInGroup - Index of the target list item in the list item group specified by <em>index</em>.
-   * <br><em>NOTE</em>
-   * <br>If the value set is a negative value or greater than the maximum index of the items in the list item group,
-   * the value is deemed abnormal, and no scrolling will be performed.
-   * @param { boolean } smooth - Whether to enable the smooth animation for scrolling to the item with the specified index.
-   * The value <em>true</em> means to enable that the smooth animation, and <em>false</em> means the opposite.<br>Default value: <em>false</em>
-   * @param { ScrollAlign } align - How the list item to scroll to is aligned with the container.<br>Default value: <em>ScrollAlign.START</em>
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @param { number } index - Index of the target list item group in the current container.<br>**NOTE**<br>If the value
+   *     set is a negative value or greater than the maximum index of the items in the container, the value is deemed
+   *     abnormal, and no scrolling will be performed.
+   * @param { number } indexInGroup - Index of the target list item in the list item group specified by **index**.<br>
+   *     **NOTE**<br>If the value set is a negative value or greater than the maximum index of the items in the list
+   *     item group, the value is deemed abnormal, and no scrolling will be performed.
+   * @param { boolean } smooth - Whether the scroll animation is enabled. The options are **true** (enabled) and
+   *     **false** (disabled).<br>Default value: **false**<br>**NOTE**<br>When **smooth** is set to **true**, all passed
+   *     items are loaded and counted in layout calculation. This may result in performance issues if a large number of
+   *     items are involved.
+   * @param { ScrollAlign } align - How the list item to scroll to is aligned with the container.<br>Default value:
+   *     **ScrollAlign.START**
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   scrollToItemInGroup(index: number, indexInGroup:number, smooth?: boolean, align?: ScrollAlign): void;
 
   /**
-   * Collapse all listItem.
+   * Collapses the [list items]{@link list_item} in the [EXPANDED]{@link SwipeActionState} state and sets callback
+   * events.
    *
-   * @param { CloseSwipeActionOptions } options - Options of close Swipe items.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @param { CloseSwipeActionOptions } options - Callback events for collapsing [list items]{@link list_item} in the
+   *     [EXPANDED]{@link SwipeActionState} state.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Collapses the list items in the EXPANDED state and sets callback events.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>- A <em>ListScroller</em> must be bound to the <em>List</em> component.
-   * </p>
-   *
-   * @param { CloseSwipeActionOptions } options - Callback events for collapsing list items in the EXPANDED state.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100004 - Controller not bound to a component.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   closeAllSwipeActions(options?: CloseSwipeActionOptions): void;
-  
+
   /**
    * Obtains the index information of the child component at the specified coordinates.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>- If the provided value of <em>x</em> or <em>y</em> is invalid,
-   * the returned VisibleListContentInfo object has the <em>index</em> property set to <em>-1</em>,
-   * and both <em>itemGroupArea</em> and <em>itemIndexInGroup</em> are <em>undefined</em>.
-   * </p>
-   * 
    * @param { number } x - X-coordinate, in vp.
    * @param { number } y - Y-coordinate, in vp.
-   * @returns { VisibleListContentInfo } Index information of the child component at the specified coordinates.
+   * @returns { VisibleListContentInfo } Index information of a child component at the specified coordinates.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100004 - Controller not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1060,13 +751,14 @@ declare class ListScroller extends Scroller {
 }
 
 /**
- * Defines the options of the <em>List</em> component.
+ * Defines the options of the **List** component.
  *
- * <p><strong>NOTE</strong>:
- * <br>- The default value of the universal attribute clip is <em>true</em> for the <em>List</em> component.
- * </p>
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface ListOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1075,114 +767,51 @@ declare class ListScroller extends Scroller {
  * @since 18 dynamic
  */
 interface ListOptions {
-  /**
-   * Set initialIndex.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set initialIndex.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set initialIndex.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set initialIndex.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Index of the item to be displayed at the start when the list is initially loaded.
    * Anonymous Object Rectification.
-   * 
+   *
    * <p><strong>NOTE</strong>
    * <br>If the set value is a negative number or is greater than the index of the last item in the list,
    * the value is invalid. In this case, the default value will be used.
    * </p>
    *
-   * @type { ?number }
-   * @default 0
+   * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   initialIndex?: number;
-  /**
-   * Set space.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set space.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set space.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set space.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Spacing between list items along the main axis.
+   * <br>Default value: **0**
+   * <br>If the parameter type is number, the unit is vp.
    * Anonymous Object Rectification.
-   * 
+   *
    * <p><strong>NOTE</strong>
-   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list content area, the default value is used.
-   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider is used as the spacing.
-   * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not displayed,
-   * but the spacing above and below them still takes effect.
+   * <br>If this parameter is set to a negative number or a value greater than or equal to the length of the list
+   * content area, the default value is used.
+   * <br>If this parameter is set to a value less than the width of the list divider, the width of the list divider
+   * is used as the spacing.
+   * <br> Child components of <em>List</em> whose <em>visibility</em> attribute is set to <em>None</em> are not
+   * displayed, but the spacing above and below them still takes effect.
    * </p>
    *
-   * @type { ?(number | string) }
-   * @default 0
+   * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   space?: number | string;
+
   /**
    * Spacing between list items along the main axis.
    *
@@ -1206,63 +835,28 @@ interface ListOptions {
    * @since 26.0.0 dynamic
    */
   spaceWidth?: Dimension;
-  /**
-   * Set scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set scroller.
-   *
-   * @type { ?Scroller }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Scroller, which can be bound to scrollable components.
    * Anonymous Object Rectification.
-   * 
+   *
    * <p><strong>NOTE</strong>
    * <br>The scroller cannot be bound to other scrollable components.
    * </p>
    *
-   * @type { ?Scroller }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   scroller?: Scroller;
 }
 
 /**
- * Declare the speed scroll snap animation.
+ * Enumerates the speeds of the snap animation for list scrolling.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1270,8 +864,10 @@ interface ListOptions {
  * @since 22 dynamic
  */
 declare enum ScrollSnapAnimationSpeed {
+
   /**
-   * The speed of scroll snap animation is normal.
+   * Default snap animation speed for the list, typically used when list items are large and scrolling moves one item
+   * per swipe.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1280,8 +876,9 @@ declare enum ScrollSnapAnimationSpeed {
    * @since 22 dynamic
    */
   NORMAL = 0,
+
   /**
-   * The speed of scroll snap animation slow.
+   * Slower snap animation speed, typically used when list items are small and scrolling moves multiple items per swipe.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1291,93 +888,84 @@ declare enum ScrollSnapAnimationSpeed {
    */
   SLOW = 1,
 }
+
 /**
- * The list interface is extended.
+ * The **List** component provides a list container that presents a series of list items arranged in a column with the
+ * same width. It supports presentations of the same type of data in a multiple and coherent row style, for example,
+ * images or text.
  *
- * @interface ListInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * The list interface is extended.
+ * Lazy loading of **List** loads the child components in the visible area as required. Compared with full loading, lazy
+ * loading can improve the app startup speed and reduce the memory usage. The lazy loading capabilities vary when the
+ * **List** component is used together with
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
  *
- * @interface ListInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * The list interface is extended.
+ * - When **List** is used together with **ForEach**, all child nodes are created at a time. The nodes within the screen
+ * range are laid out and rendered when needed. When a user swipes, the nodes that are out of the screen range are not
+ * removed from the tree, and the nodes that are within the screen range are laid out and rendered.
+ * - When **List** is used together with **LazyForEach**, all nodes within the screen range are created, laid out, and
+ * rendered at a time. When a user swipes, the nodes that are out of the screen range are removed from the tree, and the
+ * nodes that are within the screen range are created, laid out, and rendered.
+ * - When the **List** component is used together with **Repeat** with
+ * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the lazy loading behavior is the same as that of
+ * **LazyForEach**. When the **List** component is used together with **Repeat** without **virtualScroll**, the lazy
+ * loading behavior is the same as that of **ForEach**.
  *
- * @interface ListInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * The list interface is extended.
+ * If a scrollable component is nested in a **List** component, their scrolling directions are the same, and the main
+ * axis size is not set for the **List** component, the **List** component loads all child components. As a result, lazy
+ * loading does not take effect. In this scenario, you are advised to use the [ListItemGroup]{@link list_item_group}
+ * component to optimize the performance.
  *
- * @interface ListInterface
+ * Preloading in **List** refers to loading not only the visible child components within the display area but also some
+ * invisible child components outside the display area during idle time. Preloading can reduce frame loss during
+ * scrolling and improve smoothness. Preloading takes effect only when lazy loading is used. You can set the number of
+ * components to be preloaded for the **List** component using
+ * [cachedCount]{@link ListAttribute#cachedCount(value: number)}. By default, child components equivalent to one screen
+ * above and below the visible area are preloaded (up to a maximum of 16 rows). The preloading capabilities vary when
+ * the **List** component is used together with
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ *
+ * - When the **List** component is used together with **ForEach** and **cachedCount** is set, in addition to laying out
+ * child components within the visible area, child components within the range of **cachedCount** outside the visible
+ * area are pre-laid out during idle time.
+ * - When the **List** component is used together with **LazyForEach** and **cachedCount** is set, in addition to
+ * creating and laying out child components within the display area, child components within the range of
+ * **cachedCount** outside the display area are pre-created and pre-laid out during idle time.
+ * - When the **List** component is used together with **Repeat** with
+ * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the preloading behavior is the same as that of **LazyForEach**.
+ * When the **List** component is used together with **Repeat** without **virtualScroll**, the preloading behavior is
+ * the same as that of **ForEach**.
+ *
+ * > **NOTE**
+ *
+ * > The component has been bound with gestures to implement functions such as follow-up scrolling. If you need to add
+ * > custom gestures, refer to [Gesture Blocking Enhancement]{@link common}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @noninterop
  */
 interface ListInterface {
+
   /**
-   * Called when interface data is called.
+   * Creates a list container.
    *
-   * @param { object } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when interface data is called.
-   *
-   * @param { object } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when interface data is called.
-   *
-   * @param { object } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when interface data is called.
-   *
-   * @param { object } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when interface data is called.
-   * Anonymous Object Rectification.
-   *
-   * @param { ListOptions } [options] - list options
+   * @param { object } value [since 7 - 17]
+   * @param { ListOptions } [options] - Options of the **List** component. [since 18]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: ListOptions): ListAttribute;
 }
@@ -1385,7 +973,12 @@ interface ListInterface {
 /**
  * Defines the divider style of the list or list item group.
  *
- * @interface ListDividerOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1394,271 +987,154 @@ interface ListInterface {
  * @since 18 dynamic
  */
 declare interface ListDividerOptions {
-  /**
-   * Set strokeWidth.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set strokeWidth.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set strokeWidth.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set strokeWidth.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Width of the divider.
+   * <br>Unit: vp
    * Anonymous Object Rectification.
    *
-   * @type { Length }
+   * <p><strong>NOTE</strong>
+   * <br>If this parameter is set to a negative number, a percentage, or a value greater than or equal to the length
+   * of the list content area, the value <strong>0</strong> will be used.
+   * </p>
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeWidth: Length;
-  /**
-   * Set color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set color.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Color of the divider.
    * Anonymous Object Rectification.
    *
-   * @type { ?ResourceColor }
-   * @default 0x08000000
+   * <p><strong>Default value</strong>: 0x08000000
+   * </p>
+   *
+   * @default 0x08000000 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color?: ResourceColor;
-  /**
-   * Set startMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set startMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set startMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set startMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Distance between the divider and the start edge of the list.
    * Anonymous Object Rectification.
    *
-   * @type { ?Length }
-   * @default 0vp
+   * <p><strong>Default value</strong>: **0**<br>Unit: vp
+   * <br><strong>NOTE</strong>
+   * <br>If this parameter is set to a negative number or a percentage, the default value will be used.
+   * <br>If <strong>endMargin</strong> and <strong>startMargin</strong> add up to a value that exceeds the column
+   * width, they will be set to <strong>0</strong>.
+   * </p>
+   *
+   * @default 0vp [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   startMargin?: Length;
-  /**
-   * Set endMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set endMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set endMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set endMargin.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Distance between the divider and the end edge of the list.
    * Anonymous Object Rectification.
    *
-   * @type { ?Length }
-   * @default 0vp
+   * <p><strong>Default value</strong>: **0**<br>Unit: vp
+   * <br><strong>NOTE</strong>
+   * <br>If this parameter is set to a negative number or a percentage, the default value will be used.
+   * <br>If <strong>endMargin</strong> and <strong>startMargin</strong> add up to a value that exceeds the column
+   * width, they will be set to <strong>0</strong>.
+   * </p>
+   *
+   * @default 0vp [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   endMargin?: Length;
 }
 
 /**
- * @extends CommonMethod<ListAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * @extends CommonMethod<ListAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * @extends CommonMethod<ListAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * @extends ScrollableCommonMethod<ListAttribute>
+ * In addition to [universal attributes]{@link common} and
+ * [scrollable component common attributes](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#attributes)
+ * , the following attributes are also supported.
+ *
+ * In addition to [universal events]{@link common} and
+ * [scrollable component common events](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#events)
+ * , the following events are also supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @noninterop
  */
 declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
+
   /**
-   * Called when need to decide how much lanes the list will show.
+   * Sets the number of columns or rows in the **List** component. (When the **List** is scrolled vertically, the number
+   * of columns is displayed. When the **List** is scrolled horizontally, the number of rows is displayed.)
    *
-   * @param { number | LengthConstrain } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when need to decide how much lanes the list will show.
+   * The following example describes how to set the number of columns:
    *
-   * @param { number | LengthConstrain } value
-   * @param { Dimension } gutter
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap between columns.
-   * It takes effect when the number of columns is greater than 1.
+   * - If **value** is a number, the number of columns is specified based on the number.
+   * - If **value** is of the **LengthConstrain** type, **minLength** in **LengthConstrain** indicates the minimum
+   * column width. The **List** component calculates the maximum number of columns based on its minimum column width. In
+   * addition, **LengthConstrain** is passed to the child components of the **List** component as the maximum and
+   * minimum layout width constraints. These constraints take effect when the child components do not have a specified
+   * width.
+   * - Each list item group occupies one row in multi-column mode. Its child list items are arranged based on the
+   * **lanes** attribute of the list.
+   * - If **value** is of the **LengthConstrain** type, the number of columns in **ListItemGroup** is calculated based
+   * on the width of **ListItemGroup**. Therefore, when the width of **ListItemGroup** is different from that of the
+   * **List** component, the number of columns in **ListItemGroup** may be different from that in the **List**
+   * component.
    *
-   * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: <em>1</em>
-   * @param { Dimension } gutter - Gap between columns.<br>Default value: <em>0</em>
+   * @param { number | LengthConstrain } value - Number of columns or rows in the list.<br>Default value: **1**<br>Value
+   *     range: [1, +∞)
+   * @param { Dimension } gutter - Column gap or row gap.<br>Default value: **0**
+   *     <br>Value range: [0, +∞)
+   *     <br>**NOTE**<br>This parameter takes effect when the number of columns or rows is greater than 1. [since 10]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   lanes(value: number | LengthConstrain, gutter?: Dimension): ListAttribute;
 
   /**
-   * Sets the number of columns or rows in the list. If the value is set to the gutter type, it indicates the gap
-   * between columns. It takes effect when the number of columns is greater than 1.
+   * Sets the number of columns and the column spacing of the **List** component. By default, the **List** component is
+   * displayed in one column.
    *
-   * @param { number | LengthConstrain | ItemFillPolicy } value - Number of columns or rows in the list.
-   *     <br>Default value: <em>1</em>
-   * @param { Dimension } [gutter] - Gap between columns.<br>Default value: <em>0</em>
+   * @param { number | LengthConstrain | ItemFillPolicy } value - Number of columns in the layout of the **List**
+   *     component.<br> If this parameter is set to a number, the number of columns is determined by this value. The
+   *     value range of the number type is
+   *     [1, +∞).<br>If this parameter is set to a value of the **LengthConstrain** type,
+   *     the number of columns is determined based on the maximum and minimum values specified in **LengthConstrain**.
+   *     <br>If this parameter is set to a value of the **ItemFillPolicy** type,
+   *     the number of columns is determined
+   *     based on the [breakpoint type](docroot://ui/arkts-layout-development-grid-layout.md#breakpoints)
+   *     corresponding to the width of the **List** component.
+   *     This type takes effect only when the scrolling direction of the list is vertical.
+   * @param { Dimension } [gutter] - Gap between columns.<br>Default value: **0**<br>Value range: [0, +∞)
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1670,204 +1146,103 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   lanes(value: number | LengthConstrain | ItemFillPolicy, gutter?: Dimension): ListAttribute;
 
   /**
-   * Called when need to decide how to align lanes in the direction of the cross axis.
+   * Sets the layout mode of list items along the cross axis when the cross-axis width of the list is greater than the
+   * value calculated by the following formula: cross-axis width of list items × lanes + (lanes – 1) × gutter.
    *
-   * @param { ListItemAlign } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when need to decide how to align lanes in the direction of the cross axis.
-   *
-   * @param { ListItemAlign } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Alignment mode of list items along the cross axis when the cross-axis width of the list is greater
-   * than the cross-axis width of list items multiplied by the value of lanes.
-   *
-   * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value: <em>ListItemAlign.Start</em>
+   * @param { ListItemAlign } value - Alignment mode of list items along the cross axis.<br>Default value:
+   *     **ListItemAlign.Start**
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   alignListItem(value: ListItemAlign): ListAttribute;
 
   /**
-   * Called when the arrangement direction of the list component is set.
-   *
-   * @param { Axis } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the arrangement direction of the list component is set.
-   *
-   * @param { Axis } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the arrangement direction of the list component is set.
-   *
-   * @param { Axis } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the direction in which the list items are arranged.
    *
-   * @param { Axis } value - Direction in which the list items are arranged.<br>Default value: <em>Axis.Vertical</em>
+   * @param { Axis } value - Direction in which the list items are arranged.<br>Default value: **Axis.Vertical**
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   listDirection(value: Axis): ListAttribute;
 
   /**
-   * Called when the display mode of the side slider is set.
-   *
-   * @param { BarState } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the display mode of the side slider is set.
-   *
-   * @param { BarState } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the display mode of the side slider is set.
-   *
-   * @param { BarState } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the scrollbar state.
    *
-   * @param { BarState } value - Scrollbar state.
-   * <br><em>NOTE</em>
-   * <br>Default value: <em>BarState.Auto</em>
+   * @param { BarState } value - Scrollbar state.<br>In API version 9 and earlier versions, the default value is
+   *     **BarState.Off**. Since API version 10, the default value is **BarState.Auto**.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   scrollBar(value: BarState): ListAttribute;
 
   /**
-   * Called when the sliding effect is set.
-   *
-   * @param { EdgeEffect } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the sliding effect is set.
-   *
-   * @param { EdgeEffect } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the sliding effect is set.
-   *
-   * @param { EdgeEffect } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets the effect used when the scroll boundary is reached.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>- By default, this component can produce a bounce effect only when there is more than one screen of content.
-   * To produce a bounce effect when there is less than one screen of content,
-   * use the <em>options</em> parameter of the <em>edgeEffect</em> attribute.
-   * </p>
+   * > **NOTE**
+   * >
+   * > By default, this component can produce a bounce effect only when there is more than one screen of content. To
+   * > produce a bounce effect when there is less than one screen of content, set the **options** parameter of the
+   * > **edgeEffect** attribute to **{ alwaysEnabled: true }**.
    *
-   * @param { EdgeEffect } value - Effect used when the scroll boundary is reached. The spring and shadow effects are supported.
-   * <br>Default value: <em>EdgeEffect.Spring</em>
-   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller than the component itself.
-   * The value <em>{ alwaysEnabled: true }</em> means to enable the scroll effect, and <em>{ alwaysEnabled: false }</em> means the opposite.
-   * <br>Default value: <em>{ alwaysEnabled: false }</em>
+   * @param { EdgeEffect } value - Effect used when the scroll boundary is reached. The spring and shadow effects are
+   *     supported.<br>Default value: **EdgeEffect.Spring**
+   * @param { EdgeEffectOptions } options - Whether to enable the scroll effect when the component content is smaller
+   *     than the component itself. The value **{ alwaysEnabled: true }** means to enable the scroll effect, and
+   *     **{ alwaysEnabled: false }** means the opposite.<br>Default value: **{ alwaysEnabled: false }** [since 11]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   edgeEffect(value: EdgeEffect, options?: EdgeEffectOptions): ListAttribute;
 
-
-  /**
-   * Called when need to decide contentStartOffset the list will show.
-   * @param { number } value - the value Of startOffset.
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
   /**
    * Sets the offset from the start of the list content to the boundary of the list display area.
-   * @param { number } value - Offset from the start of the list content to the boundary of the list display
-   * <br>Default value: <em>0</em>
+   *
+   * If the sum of **contentStartOffset** and **contentEndOffset** exceeds the length of the list content area, both
+   * offsets are reset to **0**.
+   *
+   * @param { number } value - Offset from the start of the list content to the boundary of the list display area.<br>
+   *     Default value: **0**<br>Unit: vp<br>**NOTE**<br>If the set value is a negative number, the default value will
+   *     be used.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   contentStartOffset(value: number): ListAttribute;
 
   /**
-   * Sets the offset from the start of the list content to the boundary of the list display area.
+   * Sets the offset from the start of the list content to the boundary of the list display area. Compared with
+   * [contentStartOffset<sup>11+</sup>]{@link ListAttribute#contentStartOffset(value: number)}, the parameter name is
+   * changed to **offset** and the Resource type is supported.
    *
-   * @param { number | Resource } offset - Offset from the start of the list content to the boundary of
-   *    the list display area.
-   *    <br>Default value: <em>0</em>
-   *    <br>Unit: vp
+   * If the sum of **contentStartOffset** and **contentEndOffset** exceeds the length of the list content area, both
+   * offsets are reset to **0**.
+   *
+   * @param { number | Resource } offset - Offset from the start of the list content to the boundary of the list display
+   *     area.<br>Default value: **0**<br>If the parameter type is number, the unit is vp.<br>Invalid values (negative
+   *     numbers or non-numeric Resource values) are treated as the default value.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1878,35 +1253,34 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   contentStartOffset(offset: number | Resource): ListAttribute;
 
   /**
-   * Called when need to decide contentEndOffset the list will show.
-   * @param { number } value - the value Of endOffset.
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
    * Sets the offset from the end of the list content to the boundary of the list display area.
-   * 
-   * @param { number } value - Offset from the end of the list content to the boundary of the list display area.
-   * <br>Default value: <em>0</em>
+   *
+   * If the sum of **contentStartOffset** and **contentEndOffset** exceeds the length of the list content area, both
+   * offsets are reset to **0**.
+   *
+   * @param { number } value - Offset from the end of the list content to the boundary of the list display area.<br>
+   *     Default value: **0**<br>Unit: vp<br>**NOTE**<br>If the set value is a negative number, the default value will
+   *     be used.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   contentEndOffset(value: number): ListAttribute;
 
   /**
-   * Sets the offset from the end of the list content to the boundary of the list display area.
+   * Sets the offset from the end of the list content to the boundary of the list display area. Compared with
+   * [contentEndOffset<sup>11+</sup>]{@link ListAttribute#contentEndOffset(value: number)}, the parameter name is
+   * changed to **offset** and the Resource type is supported.
    *
-   * @param { number | Resource } offset - Offset from the end of the list content to the boundary of
-   *    the list display area.
-   *    <br>Default value: <em>0</em>
-   *    <br>Unit: vp
+   * If the sum of **contentStartOffset** and **contentEndOffset** exceeds the length of the list content area, both
+   * offsets are reset to **0**.
+   *
+   * @param { number | Resource } offset - Offset from the end of the list content to the boundary of the list display
+   *     area.<br>Default value: **0**<br>If the parameter type is number, the unit is vp.<br>Invalid values (negative
+   *     numbers or non-numeric Resource values) are treated as the default value.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1917,64 +1291,43 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   contentEndOffset(offset: number | Resource): ListAttribute;
 
   /**
-   * Called when the ListItem split line style is set.
-   *
-   * @param { object | null } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the ListItem split line style is set.
-   *
-   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the ListItem split line style is set.
-   *
-   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the ListItem split line style is set.
-   *
-   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Sets the style of the divider for the list items. By default, there is no divider.
-   * Anonymous Object Rectification.
    *
-   * @param { ListDividerOptions | null } value - Style of the divider for the list items.<br>Default value: <em>null</em>
+   * The divider is drawn between list items along the main axis, and not above the first list item and below the last
+   * list item.
+   *
+   * In multi-column mode, the value of **startMargin** is calculated from the start edge of the cross axis of each
+   * column. In single-column mode, it is calculated from the start edge of the cross axis of the list.
+   *
+   * When a list item has [polymorphic styles]{@link common} applied, the dividers above and below the pressed child
+   * component are not rendered.
+   *
+   * @param { object | null } value - Style of the divider for the list items.<br>Default value: **null** [since 7 - 8]
+   * @param { {strokeWidth: Length;color?: ResourceColor;startMargin?: Length;endMargin?: Length;} | null }
+   *     value - Style of the divider for the list items.<br>Default value: **null** [since 9 - 17]
+   * @param { ListDividerOptions | null } value - Style of the divider for the list items.<br>Default value:
+   *     **null** [since 18]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   divider(
     value: ListDividerOptions | null,
   ): ListAttribute;
 
   /**
-   * Sets whether to enable edit mode.
+   * Sets whether to enable edit mode. For details about how to delete selected list items, see
+   * [Example 3](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#example-3-setting-the-edit-mode).
    *
-   * @param { boolean } value - Whether to enable edit mode.<br>Default value: <em>false</em>
+   * > **NOTE**
+   * >
+   * > This API is supported since API version 7 and deprecated since API version 9. No substitute is provided.
+   *
+   * @param { boolean } value - Whether to enable edit mode.<br>Default value: **false** (the edit mode is disabled).
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -1984,98 +1337,74 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   editMode(value: boolean): ListAttribute;
 
   /**
-   * Called when judging whether it is multiSelectable.
-   *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when judging whether it is multiSelectable.
-   *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when judging whether it is multiSelectable.
-   *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Sets whether to enable multiselect.
    *
-   * @param { boolean } value - Whether to enable multiselect.
-   * <br><em>false</em> (default): Multiselect is disabled.
-   * <br><em>true</em>: Multiselect is enabled.
+   * @param { boolean } value - Whether to enable multiselect.<br>**false** (default): Multiselect is disabled. **true**
+   *     : Multiselect is enabled.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   multiSelectable(value: boolean): ListAttribute;
 
   /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * Sets the number of **ListItem** or **ListItemGroup** components to be preloaded (cached). In a lazy loading
+   * scenario, only the **cachedCount** rows of **ListItem** components above and below the visible area of the **List**
+   * component is preloaded. In a non-lazy loading scenario, all items are loaded at once. For both lazy and non-lazy
+   * loading, only the content within the list display area plus the content equivalent to **cachedCount** outside the
+   * display area is laid out. <!--Del-->For details, see
+   * [Minimizing White Blocks During Swiping](docroot://performance/arkts-performance-improvement-recommendation.md#minimizing-white-blocks-during-swiping)
+   * .<!--DelEnd-->
    *
-   * @param { number } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * When **cachedCount** is set for the list, the system preloads and lays out the **cachedCount**-specified number of
+   * rows of list items both above and below the currently visible area of the list. When calculating the number of rows
+   * for list items, the system takes into account the number of rows from the list items within a list item group. If a
+   * list item group does not contain any list items, then the entire list item group is counted as one row.
    *
-   * @param { number } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
+   * When a list is nested with **LazyForEach**, and within **LazyForEach** there is a list item group, **LazyForEach**
+   * will create **cachedCount**-specified number of list item groups both above and below the currently visible area of
+   * the list.
    *
-   * @param { number } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the minimum number of list item caches is set for long list deferred loading.
-   *
-   * @param { number } value - Number of list items to be preloaded.
-   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   * <br>Value range: [0, +∞)
+   * @param { number } value - Number of list items or list item groups to be preloaded (cached).<br>Default value:
+   *     number of nodes visible on the screen, with the maximum value of 16<br>Value range:
+   *     [0, +∞).<br>Values less than 0 are treated as **1**.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   cachedCount(value: number): ListAttribute;
 
   /**
-   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display the preloaded nodes.
+   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display the
+   * preloaded nodes.
    *
-   * @param { number } count - Number of list items to be preloaded.
-   * <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   * <br>Value range: [0, +∞)
-   * @param { boolean } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
+   * When **cachedCount** is set for the list, the system preloads and lays out the **cachedCount**-specified number of
+   * rows of list items both above and below the currently visible area of the list. When calculating the number of rows
+   * for list items, the system takes into account the number of rows from the list items within a list item group. If a
+   * list item group does not contain any list items, then the entire list item group is counted as one row. This
+   * attribute can be combined with the [clip]{@link CommonMethod#clip(value: boolean)} or
+   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14) attributes
+   * to display the preloaded nodes.
+   *
+   * > **NOTE**
+   * >
+   * > You are advised to set cachedCount to n/2 (n indicates the number of list items displayed on one screen). You
+   * > also need to consider other factors to balance the experience and memory usage. For best practices, see
+   * > [Cache List Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list#section11667144010222).
+   *
+   * @param { number } count - Number of list items to be preloaded.<br>Default value: number of nodes visible on the
+   *     screen, with the maximum value of 16<br>Value range: [0, +∞).<br>Values less than 0 are treated as **1**.
+   * @param { boolean } show - Whether to display the preloaded list items. If this parameter is set to **true**, the
+   *     preloaded list items are displayed. If this parameter is set to **false**, the preloaded list items are not
+   *     displayed.<br> Default value: **false**
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2087,14 +1416,45 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(count: number, show: boolean): ListAttribute;
 
   /**
-   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display
-   * the preloaded nodes.
+   * Sets the number of list items or list item groups to be cached (preloaded) and specifies whether to display the
+   * preloaded nodes.
    *
-   * @param { number | CacheCountInfo } count - If the parameter type is number, it indicates number of list items
-   *     to be preloaded. If the parameter type is CacheCountInfo, it indicates the range of list items to be preloaded.
-   *     <br>Default value: number of nodes visible on the screen, with the maximum value of 16
-   *     <br>Value range for number type: [0, +∞)
-   * @param { boolean } show - Whether to display the preloaded list items.<br> Default value: <em>false</em>
+   * If the first parameter of the **cachedCount** attribute is of the **number** type, a specified number (specified by
+   * **count**) of rows of list items will be preloaded and laid out above and below the visible area during idle
+   * frames.
+   *
+   * If the first parameter of the **cachedCount** attribute is of the **CacheCountInfo** type, preloading and layout
+   * will occur during idle frames when the number of cached rows is less than **CacheCountInfo.minCount**. When the
+   * number of cached rows is greater than **CacheCountInfo.maxCount**, the nodes outside the specified range will be
+   * destroyed or reused. When the UI is idle (no animation or user operation), a specified number (specified by
+   * **CacheCountInfo.maxCount**) of rows of list items will be preloaded above and below the visible area.
+   *
+   * When calculating the number of rows for list items, the system takes into account the number of rows from the list
+   * items within a list item group. If a list item group does not contain any list items, then the entire list item
+   * group is counted as one row. This attribute can be combined with the
+   * [clip]{@link CommonMethod#clip(value: boolean)} or
+   * [clipContent](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#clipcontent14) attributes
+   * to display the preloaded nodes.
+   *
+   * Default behavior: The **count** parameter is of the **number** type by default, with its value set based on the
+   * number of nodes displayed on the screen, up to a maximum of 16. Preloaded **ListItem** components are not involved
+   * in drawing by default.
+   *
+   * > **NOTE**
+   * >
+   * > You are advised to set cachedCount to n/2 (n indicates the number of list items displayed on one screen). You
+   * > also need to consider other factors to balance the experience and memory usage. Starting from API version 22,
+   * > setting both minimum and maximum cache counts is supported. The maximum cache count can be set to a moderately
+   * > higher value, such as twice the minimum cache count, to utilize the UI thread's idle time for node creation. This
+   * > reduces the need to create nodes during scrolling for preloading and enhances scrolling smoothness. For best
+   * > practices, see
+   * > [Cache List Items](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list#section11667144010222).
+   *
+   * @param { number | CacheCountInfo } count - Number of preloaded **ListItem** components if the parameter is of the
+   *     **number** type.<br>Value range:
+   *     [0, +∞).<br>Values less than 0 are treated as **1**.
+   *     <br>If the parameter type is CacheCountInfo, the parameter indicates the maximum and minimum preloading range.
+   * @param { boolean } show - Whether to display the preloaded list items.<br>**true**: yes<br>**false**: no
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2106,46 +1466,32 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   cachedCount(count: number | CacheCountInfo, show: boolean): ListAttribute;
 
   /**
-   * Called when setting whether to enable chain linkage dynamic effect.
+   * Sets whether to enable the chain linkage effect for the current **List** component.
    *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when setting whether to enable chain linkage dynamic effect.
+   * > **NOTE**
+   * >
+   * > - The chain linkage effect refers to the interaction where, during finger swiping, the dragged **ListItem** acts
+   * > as the driving object, while adjacent items are driven objects. The driving object drives the linkage of the
+   * > driven objects, following a physics-based spring animation.
+   * >
+   * > - The driving effect of the chain linkage effect is reflected in the spacing between **ListItem**s. The spacing
+   * > in the static state can be set by using the **space** parameter of the **List** component. If the **space**
+   * > parameter is not set and the chain linkage effect is enabled, the spacing is 20 vp by default.
+   * >
+   * > - After the chain linkage effect is enabled, the divider of the **List** component is not displayed.
+   * >
+   * > - The chain linkage effect takes effect only when the **List** component is in single-column mode and the edge
+   * > effect is of the **EdgeEffect.Spring** type.
    *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when setting whether to enable chain linkage dynamic effect.
-   *
-   * @param { boolean } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets whether to enable chained animations, which provide a visually connected,
-   * or "chained," effect when the list is scrolled or its top or bottom edge is dragged.
-   *
-   * @param { boolean } value - Whether to enable chained animations.
-   * <br><em>false</em> (default): Chained animations are disabled.
-   * <br><em>true</em>: Chained animations are enabled.
+   * @param { boolean } value - Whether to enable chained animations.<br>**false** (default): Chained animations are
+   *     disabled. **true**: Chained animations are enabled.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   chainAnimation(value: boolean): ListAttribute;
 
@@ -2162,146 +1508,120 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   chainAnimationOptions(value: ChainAnimationOptions): ListAttribute;
 
   /**
-   * Called when header or footer of item group will be pinned.
+   * Sets whether to pin the header to the top or the footer to the bottom in the
+   * [list item group]{@link list_item_group}, if set. To support both the pin-to-top and pin-to-bottom features, set
+   * **sticky** to **StickyStyle.Header \| StickyStyle.Footer**. From API version 20, the **sticky** attribute can also
+   * be set to **StickyStyle.BOTH** to enable both sticky header and sticky footer at the same time.
    *
-   * @param { StickyStyle } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when header or footer of item group will be pinned.
+   * > **NOTE**
+   * >
+   * > Occasionally, after **sticky** is set, floating-point calculation precision may result in small gaps appearing
+   * > during scrolling. To address this issue, you can apply the [pixelRound]{@link CommonMethod#pixelRound} attribute
+   * > to the current component, which rounds down the pixel values and help eliminate the gaps.
    *
-   * @param { StickyStyle } value
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets whether to pin the header to the top or the footer to the bottom in the list item group,
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>- Occasionally, after <em>sticky</em> is set, floating-point calculation precision may result in small gaps appearing during scrolling.
-   * To address this issue, you can apply the pixelRound attribute to the current component, which rounds down the pixel values and help eliminate the gaps.
-   * </p>
-   *
-   * @param { StickyStyle } value - Whether to pin the header to the top or the footer to the bottom in the list item group.
-   * <br> Default value: <em>StickyStyle.None</em>
+   * @param { StickyStyle } value - Whether to pin the header to the top or the footer to the bottom in the list item
+   *     group.<br>Default value: **StickyStyle.None**
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   sticky(value: StickyStyle): ListAttribute;
 
   /**
-   * Called to set list item scroll end alignment effect.
-   * 
-   * @param { ScrollSnapAlign } value - options of the list alignment effect.
+   * Sets the scroll snap alignment effect for list items when scrolling ends.
+   *
+   * This API is available only when the heights of list items are the same. During the alignment animation, the scroll
+   * operation source type reported by the
+   * [onWillScroll](docroot://reference/apis-arkui/arkui-ts/ts-container-scrollable-common.md#onwillscroll12) event is
+   * **ScrollSource.FLING**.
+   *
+   * @param { ScrollSnapAlign } value - Alignment mode of the scroll snap position.<br>Default value:
+   *     **ScrollSnapAlign.NONE**
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the scroll snap alignment effect for list items.
-   * This effect aligns list items to the nearest snap point when scrolling ends.
-   * 
-   * @param { ScrollSnapAlign } value - Alignment mode of the scroll snap position.<br>Default value: <em>ScrollSnapAlign.NONE</em>
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   scrollSnapAlign(value: ScrollSnapAlign): ListAttribute;
 
   /**
-   * Called to setting the nested scroll options.
+   * Sets the nested scrolling mode in the forward and backward directions to implement scrolling linkage with the
+   * parent component.
    *
-   * @param { NestedScrollOptions } value - options for nested scrolling.
+   * @param { NestedScrollOptions } value - Nested scrolling options.<br>Default value:
+   *     **{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }**
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Sets the nested scrolling options. You can set the nested scrolling mode in the forward and backward
-   * directions to implement scrolling linkage with the parent component.
-   *
-   * @param { NestedScrollOptions } value - Nested scrolling options.
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   nestedScroll(value: NestedScrollOptions): ListAttribute;
 
   /**
-   * Called when setting whether to enable scroll by gesture or mouse.
+   * Sets whether to support the scroll gesture.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to support the scroll gesture. With the value **true**, scrolling via finger or
+   *     mouse is enabled. With the value **false**, scrolling via finger or mouse is disabled, but this does not affect
+   *     the scrolling APIs of the [Scroller]{@link Scroller}.<br>Default value: **true**
    * @returns { ListAttribute } The attribute of the list
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether to support scroll gestures. When this attribute is set to <em>false</em>,
-   * scrolling by finger or mouse is not supported, but the scroll controller API is not affected.
-   *
-   * @param { boolean } value - Whether to support scroll gestures.<br>Default value: <em>true</em>
-   * @returns { ListAttribute } The attribute of the list
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableScrollInteraction(value: boolean): ListAttribute;
 
   /**
-   * Called to setting the friction.
+   * Sets the friction coefficient. It applies only to gestures in the scrolling area, and it affects only the inertial
+   * scrolling process. A value less than or equal to 0 evaluates to the default value.
    *
-   * @param { number | Resource } value - options for scrolling friction.
+   * @param { number | Resource } value - Friction coefficient.<br>Default value: **0.6** for non-wearable devices and
+   *     **0.9** for wearable devices.<br>Since API version 11, the default value for non-wearable devices is **0.7**.<
+   *     br>Since API version 12, the default value for non-wearable devices is **0.75**.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the friction coefficient. It applies only to gestures in the scrolling area,
-   * and it affects only indirectly the scroll chaining during the inertial scrolling process.
-   * A value less than or equal to 0 evaluates to the default value.
-   *
-   * @param { number | Resource } value - Friction coefficient.
-   * <br>Default value: <em>0.9</em> for wearable devices and <em>0.6</em> for non-wearable devices.
-   * <br>Since API version 11, the default value for non-wearable devices is <em>0.7</em>.
-   * <br>Since API version 12, the default value for non-wearable devices is <em>0.75</em>.
-   * @returns { ListAttribute } the attribute of the list.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   friction(value: number | Resource): ListAttribute;
 
   /**
-   * Sets the size information of the child components of a <em>List</em> component along the main axis.
+   * Sets the size information of the child components of a **List** component along the main axis.
    *
-   * @param { ChildrenMainSize } value - children main size for List
+   * > **NOTE**
+   * >
+   * > - This attribute provides the **List** component with the size of all child components in the main-axis
+   * > direction. This ensures that the **List** component can maintain the accuracy of the scrolling position in
+   * > scenarios such as varying main-axis sizes among child components, adding or removing child components, or using
+   * > [scrollToIndex]{@link Scroller#scrollToIndex}. In this way, [scrollTo]{@link Scroller#scrollTo} can accurately
+   * > jump to the specified position, [currentOffset]{@link Scroller#currentOffset} can obtain the accurate scroll
+   * > position, and the built-in scroll bar can be smoothly moved without jumps.
+   * >
+   * > - If a child component is **ListItemGroup**, the overall size of **ListItemGroup** in the main-axis direction
+   * > needs to be accurately calculated based on the column count of **ListItemGroup**, the spacing between list items
+   * > in **ListItemGroup** in the main-axis direction, and the size of the header, footer, and **ListItem** components
+   * > in **ListItemGroup**. This calculated size must then be passed to the **List** component.
+   * >
+   * > - If a child component contains **ListItemGroup** components, the
+   * > [childrenMainSize]{@link ListItemGroupAttribute#childrenMainSize} attribute must be set for each
+   * > **ListItemGroup** component. The **List** component and each **ListItemGroup** component must be bound to a
+   * > **ChildrenMainSize** object through the **childrenMainSize** attribute in one-to-one mode.
+   * >
+   * > - For a multi-column list where child components are generated using **LazyForEach**, ensure that **LazyForEach**
+   * > generates either all **ListItemGroup** components or all **ListItem** components.
+   *
+   * @param { ChildrenMainSize } value - Size information of child components in the main axis direction.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2312,21 +1632,13 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   childrenMainSize(value: ChildrenMainSize): ListAttribute;
 
   /**
-   * Sets whether the visible content position should remain unchanged when data is inserted or deleted above the visible area.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>- The visible content position will only remain unchanged when <em>LazyForEach</em> is used to insert or delete data outside the visible area.
-   * If <em>ForEach</em> is used to insert or delete data, or if <em>LazyForEach</em> is used for data reloading,
-   * the visible content position will change even if <em>maintainVisibleContentPosition</em> is set to <em>true</em>.
-   * <br>- When <em>maintainVisibleContentPosition</em> is set to <em>true</em>,
-   * inserting or deleting data above the visible area will trigger <em>onDidScroll</em> and <em>onScrollIndex</em> events.
-   * <br>- In a multi-column scenario, setting <em>maintainVisibleContentPosition</em> to <em>true</em> allows
-   * you to insert or delete entire rows of data while keeping the visible content position unchanged.
-   * If the insertion or deletion does not involve entire rows, however, the visible content position will still change.
-   * </p>
+   * Sets whether to maintain the visible content's position when data is inserted or deleted outside the display area
+   * of the component.
    *
-   * @param { boolean } enabled - Whether the visible content position should remain unchanged
-   * when data is inserted or deleted above the visible area.<br>Default value: <em>false</em>
+   * @param { boolean } enabled - Whether to maintain the visible content's position when data is inserted or deleted
+   *     outside the visible area of the component.<br>Default value: **false**<br>**false**: The visible content
+   *     position will change when data is inserted or deleted. **true**: The visible content position remains unchanged
+   *     when data is inserted or deleted.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2337,19 +1649,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   maintainVisibleContentPosition(enabled: boolean): ListAttribute;
 
   /**
-   * Sets whether the list's layout starts from the bottom (end) rather than the top (beginning).
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>- When <em>stackFromEnd</em> is set to <em>true</em>, the following rules apply:
-   * <br>If the content of the <em>List</em> component is shorter than the component height,
-   * the content will be aligned to the bottom of the component.
-   * <br>- If the height of a list item in the visible area changes, or if a new list item is inserted,
-   * the list items above the changed or inserted item will move upwards to accommodate the new layout.
-   * <br>- The default value of <em>initialIndex</em> becomes the total number of list items minus one.
-   * </p>
+   * Whether the list's layout starts from the bottom (end) rather than the top (beginning).
    *
-   * @param { boolean } enabled - Whether the list's layout starts from the bottom (end) rather than the top (beginning).
-   * <br>Default value: <em>false</em>
+   * @param { boolean } enabled - Whether the list's layout starts from the bottom (end) rather than the top (beginning)
+   *     .<br>**false** (default): The layout starts from the top. **true**: The layout starts from the bottom.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2360,10 +1663,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   stackFromEnd(enabled: boolean): ListAttribute;
 
   /**
-   * Sets the focus wrap mode of the List component.
+   * Sets the focus wrap mode for arrow keys.
    *
-   * @param { Optional<FocusWrapMode> } mode - the focus wrap mode of the List component.
-   * <br>Default value: **FocusWrapMode.DEFAULT**.
+   * @param { Optional<FocusWrapMode> } mode - Focus wrap mode for cross-axis arrow keys.<br>Default value:
+   *     **FocusWrapMode.DEFAULT**<br>**NOTE**<br>Abnormal values are treated as the default value, meaning that cross-
+   *     axis arrow keys cannot wrap.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2374,9 +1678,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   focusWrapMode(mode: Optional<FocusWrapMode>): ListAttribute;
 
   /**
-   * Set whether to synchronously load child nodes within one frame.
+   * Sets whether to synchronously load all child components in the list.
    *
-   * @param { boolean } enable - Whether to synchronously load child nodes within one frame
+   * @param { boolean } enable - Whether to synchronously load all child components in the list.<br>**true**: yes;
+   *     **false**: no Default value: **true**<br>**NOTE**<br>When this parameter is set to **false**, in the first
+   *     display or **scrollToIndex** jumps without animation, if the time consumed by the frame layout exceeds 50 ms,
+   *     the child components that have not been laid out in the list are delayed to the next frame for layout.
    * @returns { ListAttribute } The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2387,10 +1694,11 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   syncLoad(enable: boolean): ListAttribute;
 
   /**
-   * Sets the speed of scroll snap animation.
+   * Sets the speed of the snap animation for list item scrolling. This parameter takes effect only when the scroll
+   * alignment effect is set.
    *
-   * @param { ScrollSnapAnimationSpeed } speed - Speed of scroll snap animation.
-   *     <br>Default value: <em>ScrollSnapAnimationSpeed.NORMAL</em>
+   * @param { ScrollSnapAnimationSpeed } speed - Speed of the snap animation for listing scrolling.<br>Default value:
+   *     **ScrollSnapAnimationSpeed.NORMAL**
    * @returns { ListAttribute } The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2401,11 +1709,10 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   scrollSnapAnimationSpeed(speed: ScrollSnapAnimationSpeed): ListAttribute;
 
   /**
-   * Sets the edit mode options.
+   * Configures the options of the edit mode.
    *
-   * @param { EditModeOptions } [options] - edit mode options.
-   *     <br>Default value: <em>{ enableGatherSelectedItemsAnimation: false }</em>
-   * @returns { ListAttribute } The attribute of the list.
+   * @param { EditModeOptions } [options] - Edit mode options.
+   * @returns { ListAttribute } - The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2415,13 +1722,49 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   editModeOptions(options?: EditModeOptions): ListAttribute;
 
   /**
-   * Sets whether empty branches are supported in lazy loading.
+   * Sets whether to enable the edit mode for the **List** component. After the edit mode is enabled, you can swipe to
+   * select multiple [ListItem]{@link list_item} components in the **List** component. If this API is not called, the
+   * edit mode is not enabled.
    *
-   * @param { boolean | undefined } supported - Indicates whether empty branches are supported in lazy loading.
-   *     <br>Default value: false, passing undefined will restore the default value.
-   *     <br>If set to false, LazyForEach or Repeat with virtualScroll does not allow empty branches.
-   *     <br>If set to true, an empty branch of LazyForEach or Repeat with virtualScroll is treated as a node of
-   *     zero size.
+   * @param { boolean | undefined } enabled - Whether to enable the edit mode.<br>**true** means to enable the edit mode
+   *     and swiping to select multiple items is supported; **false** or **undefined** means to disable the edit mode
+   *     and swiping to select multiple items is not supported.
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  enableEditMode(enabled: boolean | undefined): ListAttribute;
+
+  /**
+   * Triggered when the editing mode status changes.
+   *
+   * @param { Callback<boolean> | undefined } callback - Callback triggered when editing mode status changes.
+   *     <br>Passing undefined will unregister the callback.
+   * @returns { ListAttribute } The attribute of the list.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  onEditModeChange(callback: Callback<boolean> | undefined): ListAttribute;
+
+  /**
+   * Defines whether the **List** component supports the generation of empty branch nodes that do not contain any child
+   * components using the **if/else** rendering control syntax in **LazyForEach** or **Repeat**. If this attribute is
+   * not set, empty branch nodes are not supported. This attribute cannot be updated after being set. Therefore, you
+   * cannot switch between the behavior of supporting empty branches and the behavior of not supporting empty branches
+   * after setting this attribute.
+   *
+   * @param { boolean | undefined } supported - Whether the current **List** component supports the use of the
+   *     [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) rendering syntax in
+   *     [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md) or
+   *     [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md) to generate an empty branch node
+   *     that contains no child component.<br>**true**: yes; **false**: no<br>If the value is **undefined**, it is
+   *     processed as **false**.
    * @returns { ListAttribute } the attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2432,11 +1775,13 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   supportEmptyBranchInLazyLoading(supported: boolean | undefined): ListAttribute;
 
   /**
-   * Sets the back press behavior for the List component.
+   * Sets the system back button behavior of the **List** component.
    *
-   * @param { ListBackPressBehavior } [behavior] - The back press behavior options.
-   *     <br>If set, the back key behavior will be customized according to the options.
-   *     <br>If set to undefined or not set, the default back press behavior will be restored.
+   * @param { ListBackPressBehavior | undefined } behavior - System back button behavior of the **List** component.
+   *     Currently, you can use the [ListBackPressBehavior]{@link ListBackPressBehavior} parameter to configure whether
+   *     to collapse the expanded swipe-out component of a **ListItem** when the system back button takes effect.<br>If
+   *     this parameter is set to **undefined**, the default behavior is restored. That is, when the system back button
+   *     takes effect, the expanded swipe-out component of the **ListItem** is collapsed.
    * @returns { ListAttribute } The attribute of the list.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2447,91 +1792,48 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   backPressBehavior(behavior: ListBackPressBehavior | undefined): ListAttribute;
 
   /**
-   * Called when the offset and status callback of the slide are set.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the offset and status callback of the slide are set.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the offset and status callback of the slide are set.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Triggered when the list scrolls.
    *
-   * @param { function } event
+   * @param { function } event - Callback when scroll,
+   * scrollOffset: Offset relative to the previous frame.
+   * The offset is positive when the list content scrolls up and negative when the list content scrolls down.
+   * <br>Unit: vp
+   * scrollState: Current scroll state.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 12
    * @useinstead common.ScrollableCommonMethod#onDidScroll
    */
   onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): ListAttribute;
 
   /**
-   * Called when the start and end positions of the display change.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the start and end positions of the display change.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the start and end positions of the display change.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Triggered when a child component enters or leaves the list display area.
    *
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onScrollIndex(event: (start: number, end: number, center: number) => void): ListAttribute;
 
   /**
-   * Triggered when a child component enters or leaves the list display area.
+   * Triggered when a child component enters or leaves the list display area. During index calculation, the list item,
+   * header of the list item group, and footer of the list item group each are counted as a child component.
+   *
+   * When the list edge scrolling effect is the spring effect, the **onScrollVisibleContentChange** event is not
+   * triggered when the user scrolls the list to the edge or releases the list to rebound.
+   *
+   * This event is triggered once when the list is initialized and when the index of the first child component or the
+   * next child component in the list display area changes.
    *
    * @param { OnScrollVisibleContentChangeCallback } handler - Callback invoked when the displayed content changes.
    * @returns { ListAttribute }
@@ -2544,160 +1846,72 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onScrollVisibleContentChange(handler: OnScrollVisibleContentChangeCallback): ListAttribute;
 
   /**
-   * Called when the list begins to arrive.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the list begins to arrive.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the list begins to arrive.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
    * Triggered when the list reaches the start position.
    *
-   * @param { function } event
+   * This event is triggered once when **initialIndex** is **0** during list initialization and once when the list
+   * scrolls to the start position. When the list edge scrolling effect is the spring effect, this event is triggered
+   * once when the list passes the start position and is triggered again when the list returns to the start position.
+   *
+   * @param { function } event - Callback triggered when the list reaches the start position.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onReachStart(event: () => void): ListAttribute;
 
   /**
-   * Called when the list reaches the end.
+   * Called when the list reaches the end position. This callback is triggered when the last child component appears in
+   * the list view due to scrolling or content/layout changes.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the list reaches the end.
+   * If the child component does not fill the list and can be completely displayed in the list without scrolling, this
+   * event is triggered during the first loading.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the list reaches the end.
+   * When the list edge scrolling effect is the spring effect, this event is triggered once when the list passes the end
+   * position and is triggered again when the list returns to the end position.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Triggered when the list reaches the end position.
-   *
-   * @param { function } event
+   * @param { function } event - Callback triggered when the list reaches the end position.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onReachEnd(event: () => void): ListAttribute;
 
   /**
-   * Called when the slider start.
+   * Triggered when the list starts scrolling initiated by the user's finger dragging the list or its scrollbar. This
+   * event is also triggered when the animation contained in the scrolling triggered by [Scroller]{@link Scroller}
+   * starts.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the slider start.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Triggered when the list starts scrolling initiated by the user's finger dragging the list or its scrollbar.
-   * This event is also triggered when the animation contained in the scrolling triggered by Scroller starts.
-   *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the list starts scrolling.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onScrollStart(event: () => void): ListAttribute;
 
   /**
-   * Called when the slider stops.
+   * Triggered when the list stops scrolling after the user's finger leaves the screen. This event is also triggered
+   * when the animation contained in the scrolling triggered by [Scroller]{@link Scroller} stops.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the slider stops.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the slider stops.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Triggered when the list stops scrolling after the user's finger leaves the screen.
-   * This event is also triggered when the animation contained in the scrolling triggered by Scroller stops.
-   *
-   * @param { function } event
+   * @param { function } event - Callback triggered when the list stops sliding.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onScrollStop(event: () => void): ListAttribute;
 
@@ -2714,125 +1928,63 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
   onItemDelete(event: (index: number) => boolean): ListAttribute;
 
   /**
-   * Called when a list item is moved.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when a list item is moved.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Triggered when a list item moves.
    *
    * @param { function } event
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onItemMove(event: (from: number, to: number) => boolean): ListAttribute;
 
   /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8 dynamic
-   */
-  /**
-   * After a listener is bound, the component can be dragged. After the drag occurs, a callback is triggered.
-   * (To be triggered, press and hold for 170 milliseconds (ms))
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10 dynamic
-   */
-  /**
    * Triggered when a list item starts to be dragged.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Triggered when a list item starts to be dragged.
-   * Anonymous Object Rectification.
+   * Automatic scrolling of the list cannot be triggered when a list item is dragged to the edge of the list. You can
+   * use the [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove) API of
+   * **ForEach**, **LazyForEach**, or **Repeat** to implement this effect. For details, see
+   * [Example 12: Implementing Dragging with OnMove](docroot://reference/apis-arkui/arkui-ts/ts-container-list.md#example-12-implementing-dragging-with-onmove).
+   * However, note that the
+   * [onMove](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-drag-sorting.md#onmove) API does not
+   * support cross-**ListItemGroup** dragging.
    *
-   * @param { function } event - callback function, triggered when a list item starts to be dragged.
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 14.
+   *
+   * @param { function } event - Callback triggered when the dragging of a list item starts.<br> In API version 22 and
+   *     earlier versions, the parameter type is **(event: ItemDragInfo, itemIndex: number) => (() => any) | void**. For
+   *     details about the **event** and **itemIndex** parameters, see
+   *     [OnItemDragStartCallback]{@link OnItemDragStartCallback}. [since 8 - 22]
+   * @param { OnItemDragStartCallback } event - Callback triggered when the dragging of a list item starts.<br> In API
+   *     version 22 and earlier versions, the parameter type is
+   *     **(event: ItemDragInfo, itemIndex: number) => (() => any) | void**. For details about the **event** and
+   *     **itemIndex** parameters, see [OnItemDragStartCallback]{@link OnItemDragStartCallback}. [since 23]
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onItemDragStart(event: OnItemDragStartCallback): ListAttribute;
 
   /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
+   * Called when a dragged list item enters the list.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged to the range of the component.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Triggered when the dragged item enters the drop target of the list.
-   *
-   * @param { function } event
+   * @param { function } event - Information about the drag point.
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onItemDragEnter(event: (event: ItemDragInfo) => void): ListAttribute;
 
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the drag moves within the range of a placeable component.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Triggered when the dragged item moves over the drop target of the list.
    *
@@ -2840,29 +1992,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onItemDragMove(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number) => void): ListAttribute;
 
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * After binding, a callback is triggered when the component is dragged out of the component range.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Triggered when the dragged item leaves the drop target of the list.
    *
@@ -2870,31 +2005,12 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onItemDragLeave(event: (event: ItemDragInfo, itemIndex: number) => void): ListAttribute;
 
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * The component bound to this event can be used as the drag release target.
-   * This callback is triggered when the drag behavior is stopped within the scope of the component.
-   *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Triggered when the dragged item is dropped on the drop target of the list.
    *
@@ -2902,102 +2018,153 @@ declare class ListAttribute extends ScrollableCommonMethod<ListAttribute> {
    * @returns { ListAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onItemDrop(event: (event: ItemDragInfo, itemIndex: number, insertIndex: number, isSuccess: boolean) => void): ListAttribute;
 
   /**
-   * Called when scrolling begin each frame.
+   * When this API is called back, the event parameter passes the scroll offset that is about to occur. The event
+   * processing function can calculate the actually required scroll offset based on the application scenario and return
+   * it as the return value. The list will then scroll according to this returned actual scroll offset.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when scrolling begin each frame.
+   * If **listDirection** is set to **Axis.Vertical**, the return value is the amount by which the list needs to scroll
+   * in the vertical direction. If **listDirection** is set to **Axis.Horizontal**, the return value is the amount by
+   * which the list needs to scroll in the horizontal direction.
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
-   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
-   * and returns the result.
+   * This event is triggered when either of the following conditions is met:
    *
-   * @param { function } event
-   * @returns { ListAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Triggered when the list starts to scroll. The input parameters indicate the amount by which the list will scroll.
-   * The event handler then works out the amount by which the list needs to scroll based on the real-world situation
-   * and returns the result.
-   * Anonymous Object Rectification.
+   * 1. Scrolling is initiated by user interaction (for example, finger swipe, keyboard, or mouse operation).
+   * 2. The **List** component scrolls by inertia.
+   * 3. Call the [fling]{@link Scroller#fling} API to trigger scrolling.
    *
-   * @param { OnScrollFrameBeginCallback } event - callback function, triggered when the scrolling begin each frame.
+   * This event is not triggered in the following scenarios:
+   *
+   * 1. A scroll control API other than [fling]{@link Scroller#fling} is called.
+   * 2. The out-of-bounds bounce effect is active.
+   * 3. The scrollbar is dragged.
+   *
+   * @param { function } event - Callback triggered when each frame scrolling starts. [since 9 - 19]
+   * @param { OnScrollFrameBeginCallback } event - Callback triggered when each frame scrolling starts. [since 20]
    * @returns { ListAttribute } Returns the instance of the ListAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
+   * @crossplatform [since 10]
    * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onScrollFrameBegin(event: OnScrollFrameBeginCallback): ListAttribute;
 }
 
 /**
- * Defines List Component.
+ * The **List** component provides a list container that presents a series of list items arranged in a column with the
+ * same width. It supports presentations of the same type of data in a multiple and coherent row style, for example,
+ * images or text.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines List Component.
+ * Lazy loading of **List** loads the child components in the visible area as required. Compared with full loading, lazy
+ * loading can improve the app startup speed and reduce the memory usage. The lazy loading capabilities vary when the
+ * **List** component is used together with
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines List Component.
+ * - When **List** is used together with **ForEach**, all child nodes are created at a time. The nodes within the screen
+ * range are laid out and rendered when needed. When a user swipes, the nodes that are out of the screen range are not
+ * removed from the tree, and the nodes that are within the screen range are laid out and rendered.
+ * - When **List** is used together with **LazyForEach**, all nodes within the screen range are created, laid out, and
+ * rendered at a time. When a user swipes, the nodes that are out of the screen range are removed from the tree, and the
+ * nodes that are within the screen range are created, laid out, and rendered.
+ * - When the **List** component is used together with **Repeat** with
+ * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the lazy loading behavior is the same as that of
+ * **LazyForEach**. When the **List** component is used together with **Repeat** without **virtualScroll**, the lazy
+ * loading behavior is the same as that of **ForEach**.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines List Component.
+ * If a scrollable component is nested in a **List** component, their scrolling directions are the same, and the main
+ * axis size is not set for the **List** component, the **List** component loads all child components. As a result, lazy
+ * loading does not take effect. In this scenario, you are advised to use the [ListItemGroup]{@link list_item_group}
+ * component to optimize the performance.
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11
- */
-/**
- * Defines List Component.
- * It is recommended to use LazyForEach or Repeat to generate child components.
+ * Preloading in **List** refers to loading not only the visible child components within the display area but also some
+ * invisible child components outside the display area during idle time. Preloading can reduce frame loss during
+ * scrolling and improve smoothness. Preloading takes effect only when lazy loading is used. You can set the number of
+ * components to be preloaded for the **List** component using
+ * [cachedCount]{@link ListAttribute#cachedCount(value: number)}. By default, child components equivalent to one screen
+ * above and below the visible area are preloaded (up to a maximum of 16 rows). The preloading capabilities vary when
+ * the **List** component is used together with
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), or
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md).
+ *
+ * - When the **List** component is used together with **ForEach** and **cachedCount** is set, in addition to laying out
+ * child components within the visible area, child components within the range of **cachedCount** outside the visible
+ * area are pre-laid out during idle time.
+ * - When the **List** component is used together with **LazyForEach** and **cachedCount** is set, in addition to
+ * creating and laying out child components within the display area, child components within the range of
+ * **cachedCount** outside the display area are pre-created and pre-laid out during idle time.
+ * - When the **List** component is used together with **Repeat** with
+ * [virtualScroll]{@link RepeatAttribute#virtualScroll}, the preloading behavior is the same as that of **LazyForEach**.
+ * When the **List** component is used together with **Repeat** without **virtualScroll**, the preloading behavior is
+ * the same as that of **ForEach**.
+ *
+ * > **NOTE**
+ *
+ * > The component has been bound with gestures to implement functions such as follow-up scrolling. If you need to add
+ * > custom gestures, refer to [Gesture Blocking Enhancement]{@link common}.
+ *
+ * ###### Child Components
+ *
+ * Only the [ListItem]{@link list_item} and [ListItemGroup]{@link list_item_group} child components and custom
+ * components are supported. When using custom components inside **List**, you are advised to wrap the custom component
+ * with a **ListItem** or **ListItemGroup** as the top-level container. Setting attributes or event methods directly on
+ * custom components is not recommended.
+ *
+ * Child components can be dynamically generated using rendering control types
+ * [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
+ * [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md). **LazyForEach** or **Repeat** is
+ * recommended to optimize performance.
+ *
+ * > **NOTE**
+ * >
+ * > If performance lag occurs when you process a large number of child components, consider using lazy loading, list
+ * > item caching, dynamic preloading, component reuse, and layout optimization. For best practices, see
+ * > [Optimizing Frame Loss for Long List Loading](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-best-practices-long-list).
+ * >
+ * > Starting from API version 21, the maximum width or height for a single child component inside a **List** container
+ * > is 16,777,216 px. In API version 20 and earlier versions, the limit was 1,000,000 px. If a child component exceeds
+ * > the applicable size limit, scrolling or display behavior may become abnormal.
+ * >
+ * > Below are the rules for calculating the indexes of the child components of **List**:
+ * >
+ * > - The index increases in ascending order of child components.
+ * >
+ * > - In the **if/else** statement, only the child components for which the condition evaluates to true participate in
+ * > the index calculation.
+ * >
+ * > - In the **ForEach**, **LazyForEach**, or **Repeat** statement, the indexes of all expanded subnodes are
+ * > calculated.
+ * >
+ * > - After changes occur in [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md),
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md), and
+ * > [Repeat](docroot://ui/rendering-control/arkts-new-rendering-control-repeat.md), index values are updated
+ * > accordingly for child components.
+ * >
+ * > - Each **ListItemGroup** component is taken as a whole and assigned an index, and the indexes of the list items
+ * > within are not included in the index calculation.
+ * >
+ * > - Child components of **List** whose **visibility** attribute is set to **Hidden** or **None** are included in the
+ * > index calculation.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @noninterop
  */
 declare const List: ListInterface;
@@ -3006,32 +2173,11 @@ declare const List: ListInterface;
  * Defines List Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines List Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines List Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines List Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  * @noninterop
  */
 declare const ListInstance: ListAttribute;

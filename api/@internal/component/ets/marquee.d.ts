@@ -19,10 +19,14 @@
  */
 
 /**
- * Defines Marquee constructor options.
+ * Describes the initialization options of the **Marquee** component.
  *
- * Anonymous Object Rectification.
- * @interface MarqueeOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,259 +35,86 @@
  * @since 18 dynamic
  */
 interface MarqueeOptions {
+
   /**
-   * Control whether the running lamp enters the playing state.
+   * Whether to start scrolling.
    *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Control whether the running lamp enters the playing state.
+   * **true**: yes; **false**: no
    *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Control whether the running lamp enters the playing state.
+   * **NOTE**
    *
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Control whether the running lamp enters the playing state.
+   * This parameter cannot be used to restart scrolling that has been completed.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Control whether the running lamp enters the playing state.
-   *
-   * Anonymous Object Rectification.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br><em>true</em>: Start scrolling.
-   * <br><em>false</em>: Do not start scrolling.
-   * <br>This parameter cannot be used to restart scrolling that has been completed.
-   * </p>
-   * 
-   * @type { boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   start: boolean;
 
   /**
-   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
+   * Step length of the scrolling animation text. If the value is greater than the text width of the marquee, the
+   * default value is used.
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
+   * Default value: **6**
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
+   * Unit: [vp]{@link common}
    *
-   * @type { ?number }
+   * @default 6 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Scroll animation text scroll step, when step is larger than the text width of Marquee, take the default value.
-   *
-   * Anonymous Object Rectification.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is greater than the text width of the marquee, the default value is used.
-   * </p>
-   * 
-   * @type { ?number } - The unit is vp.
-   * @default 6
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   step?: number;
 
   /**
-   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
+   * Number of times the marquee will scroll. If the value is less than or equal to **0**, the marquee will scroll
+   * continuously.
    *
-   * @type { ?number }
+   * Default value: **-1**
+   *
+   * **NOTE**
+   *
+   * Regardless of the value, the marquee scrolls only once on an ArkTS widget.
+   *
+   * @default -1 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the number of times the scroll is repeated, infinite loop if it is less than or equal to zero.
-   *
-   * Anonymous Object Rectification.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is less than or equal to 0, the marquee will scroll continuously.
-   * <br>Regardless of the value, the marquee scrolls only once on an ArkTS widget.
-   * </p>
-   *
-   * @type { ?number }
-   * @default -1
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   loop?: number;
 
   /**
-   * Set text to scroll from the beginning or backward.
+   * Whether the text scrolls from the start.
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set text to scroll from the beginning or backward.
+   * **true**: Scroll from the start.
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set text to scroll from the beginning or backward.
+   * **false**: Scroll from the end.
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set text to scroll from the beginning or backward.
+   * Default value: **true**.
    *
-   * @type { ?boolean }
+   * @default true [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set text to scroll from the beginning or backward.
-   *
-   * Anonymous Object Rectification.
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fromStart?: boolean;
 
   /**
-   * Text that needs scrolling.
+   * Text to scroll.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Text that needs scrolling.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text that needs scrolling.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text that needs scrolling.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text that needs scrolling.
-   *
-   * Anonymous Object Rectification.
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   src: string;
 
@@ -292,7 +123,6 @@ interface MarqueeOptions {
    *
    * Default value is marquee width.
    *
-   * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -305,7 +135,6 @@ interface MarqueeOptions {
   /**
    * The waiting time between each round of the marquee.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -317,361 +146,139 @@ interface MarqueeOptions {
 }
 
 /**
- * Provides the interface for the marquee attributes.
+ * The **Marquee** component is used to display a scrolling piece of text. Text scrolling is activated only when the
+ * content width is greater than or equal to the component's width.
  *
- * @interface MarqueeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Provides the interface for the marquee attributes.
+ * > **NOTE**
+ * >
+ * > To ensure that scrolling frame rates are not affected, it is recommended that the number of **Marquee** components
+ * > in a scroll container does not exceed four, or alternatively, use the [Text]{@link text} component's
+ * > [TextOverflow.MARQUEE]{@link TextOverflow} as a substitute.
+ * >
+ * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
+ * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
+ * >
+ * > If the text width is less than the **Marquee** component width, use the [property animation]{@link common} to
+ * > implement scrolling.
  *
- * @interface MarqueeInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides the interface for the marquee attributes.
- *
- * @interface MarqueeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides the interface for the marquee attributes.
- *
- * @interface MarqueeInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 interface MarqueeInterface {
+
   /**
-   * Create marquee.
+   * Creates a marquee.
    *
-   * @param { object } value
+   * @param { object } value [since 8 - 17]
+   * @param { MarqueeOptions } options - Parameters of the marquee. [since 18]
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Create marquee.
-   *
-   * @param { object } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Create marquee.
-   *
-   * @param { object } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Create marquee.
-   *
-   * @param { object } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Create marquee.
-   *
-   * Anonymous Object Rectification.
-   * @param { MarqueeOptions } options - Marquee options.
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   (options: MarqueeOptions): MarqueeAttribute;
 }
 
 /**
- * Declares marquee properties.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<MarqueeAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Declares marquee properties.
- *
- * @extends CommonMethod<MarqueeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Declares marquee properties.
- *
- * @extends CommonMethod<MarqueeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Declares marquee properties.
- *
- * @extends CommonMethod<MarqueeAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
+
   /**
-   * Set marquee font Color.
+   * Sets the font color.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Font color.<br>Default value: **'#c5ffffff'** (light blue) on wearables;
+   *     **'e6182431'** (black) on other devices
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set marquee font Color.
-   *
-   * @param { ResourceColor } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set marquee font Color.
-   *
-   * @param { ResourceColor } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set marquee font Color.
-   *
-   * @param { ResourceColor } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontColor(value: ResourceColor): MarqueeAttribute;
 
   /**
-   * Set marquee font size.
+   * Sets the text size.
    *
-   * @param { Length } value
+   * @param { Length } value - Font size. If **fontSize** is of the number type, the unit fp is used. The default font
+   *     size is 16 fp. This parameter cannot be set in percentage.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set marquee font size.
-   *
-   * @param { Length } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set marquee font size.
-   *
-   * @param { Length } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set marquee font size.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If fontSize is of the number type, the unit fp is used. The default font size is 16 fp.
-   * <br>This parameter cannot be set in percentage.
-   * </p>
-   *
-   * @param { Length } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontSize(value: Length): MarqueeAttribute;
 
   /**
-   * Set marquee allow scale.
+   * Sets whether to allow text to scale.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to allow text to scale.<br>**true**: yes; **false**: no<br>Default value:
+   *     **false**<br>**NOTE**<br>This parameter is effective only when [fontSize]{@link MarqueeAttribute#fontSize} is
+   *     in fp units.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set marquee allow scale.
-   *
-   * @param { boolean } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set marquee allow scale.
-   *
-   * @param { boolean } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set marquee allow scale.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter is effective only when fontSize is in fp units.
-   * </p>
-   *
-   * @param { boolean } value - Default value is false.
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   allowScale(value: boolean): MarqueeAttribute;
 
   /**
-   * Set marquee font weight.
+   * Sets the font weight. If the value is too large, the text may be clipped depending on the font.
    *
-   * @param { number | FontWeight | string } value
+   * @param { number | FontWeight | string } value - Font weight. For the number type, the value range is [100, 900], at
+   *     an interval of 100. The default value is **400**. A larger value indicates a heavier font weight. For the
+   *     string type, only strings that represent a number, for example, **400**, and the following enumerated values of
+   *     **FontWeight** are supported: **bold**, **bolder**, **lighter**, **regular**, and **medium**.<br>Default value:
+   *     **FontWeight.Normal**
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set marquee font weight.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set marquee font weight.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set marquee font weight.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If the value is too large, the text may be clipped depending on the font.
-   * <br>For the number type, the value range is [100, 900], at an interval of 100.
-   * <br>The default value is 400.
-   * <br>A larger value indicates a heavier font weight.
-   * <br>For the string type, only strings that represent a number, for example, "400",
-   * and the following enumerated values of FontWeight are supported: "bold", "bolder", "lighter", "regular", and "medium".
-   * </p>
-   *
-   * @param { number | FontWeight | string } value - Default value is FontWeight.Normal.
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontWeight(value: number | FontWeight | string): MarqueeAttribute;
 
   /**
-   * Set marquee font family.
+   * Sets the font family.
    *
-   * @param { string | Resource } value
+   * @param { string | Resource } value - Font family. Default font: **'HarmonyOS Sans'**<br>Supported fonts include
+   *     **'HarmonyOS Sans'** and custom fonts registered using
+   *     [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync}.<br>Only the 'HarmonyOS Sans' font
+   *     is supported for widgets.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Set marquee font family.
-   *
-   * @param { string | Resource } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set marquee font family.
-   *
-   * @param { string | Resource } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set marquee font family.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>Default font: 'HarmonyOS Sans'
-   * <br>The 'HarmonyOS Sans' font and registered custom fonts are supported for applications.
-   * <br>Only the 'HarmonyOS Sans' font is supported for widgets.
-   * </p>
-   *
-   * @param { string | Resource } value
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontFamily(value: string | Resource): MarqueeAttribute;
 
   /**
-   * Marquee scrolling strategy after text update.
+   * Sets the scrolling strategy for the marquee after its attributes are updated. (This attribute takes effect when the
+   * marquee is in the playing state and the text content width exceeds the width of the marquee component.)
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This attribute takes effect when the marquee is in the playing state
-   * and the text content width exceeds the width of the marquee component.
-   * </p>
-   *
-   * @param { MarqueeUpdateStrategy } value - The scrolling strategy after text update.Default value is MarqueeUpdateStrategy.DEFAULT.
+   * @param { MarqueeUpdateStrategy } value - Scrolling strategy for the marquee after its attributes are updated.<br>
+   *     Default value: **MarqueeUpdateStrategy.DEFAULT**
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -682,135 +289,53 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
   marqueeUpdateStrategy(value: MarqueeUpdateStrategy): MarqueeAttribute;
 
   /**
-   * Called when scrolling starts.
+   * Triggered when the marquee text changes or starts scrolling.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the marquee text changes or starts scrolling.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when scrolling starts.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when scrolling starts.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when scrolling starts.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onStart(event: () => void): MarqueeAttribute;
 
   /**
-   * Called when scrolling to the bottom.
+   * Triggered when the marquee has reached the end. This event will be triggered for multiple times if the **loop**
+   * attribute is not set to **1**.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the marquee has finished scrolling once.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when scrolling to the bottom.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when scrolling to the bottom.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when scrolling to the bottom.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This event will be triggered for multiple times if the loop attribute is not set to 1.
-   * </p>
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onBounce(event: () => void): MarqueeAttribute;
 
   /**
-   * Called when scrolling is complete.
+   * Triggered when the marquee has finished the number of scrolling times set by the **loop** attribute.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the marquee has finished the number of scrolling times set by the
+   *     **loop** attribute.
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when scrolling is complete.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when scrolling is complete.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when scrolling is complete.
-   *
-   * @param { function } event
-   * @returns { MarqueeAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   onFinish(event: () => void): MarqueeAttribute;
+
   /**
    * Called when scrolling is stoped.
    *
    * <p><strong>NOTE</strong>:
    * <br>If event is set to undefined, the current event will be unbound.
    * </p>
-   * 
+   *
    * @param { Callback<void> | undefined } event
    * @returns { MarqueeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -824,41 +349,31 @@ declare class MarqueeAttribute extends CommonMethod<MarqueeAttribute> {
 }
 
 /**
- * Defines Marquee Component.
+ * The **Marquee** component is used to display a scrolling piece of text. Text scrolling is activated only when the
+ * content width is greater than or equal to the component's width.
+ *
+ * > **NOTE**
+ * >
+ * > To ensure that scrolling frame rates are not affected, it is recommended that the number of **Marquee** components
+ * > in a scroll container does not exceed four, or alternatively, use the [Text]{@link text} component's
+ * > [TextOverflow.MARQUEE]{@link TextOverflow} as a substitute.
+ * >
+ * > For the scenario where the frame rate of the **Marquee** component is dynamic, you can use the
+ * > [MarqueeDynamicSyncScene]{@link @ohos.arkui.UIContext} API.
+ * >
+ * > If the text width is less than the **Marquee** component width, use the [property animation]{@link common} to
+ * > implement scrolling.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Marquee Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Marquee Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Marquee Component.
- * 
- * <p><strong>NOTE</strong>:
- * <br>To ensure that scrolling frame rates are not affected,
- * it is recommended that the number of Marquee components in a scroll container does not exceed four, or alternatively,
- * use the Text component's TextOverflow.MARQUEE as a substitute.
- * <br>The text is scrolled only when its width exceeds the width of the Marquee component.
- * </p>
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const Marquee: MarqueeInterface;
 
@@ -866,30 +381,10 @@ declare const Marquee: MarqueeInterface;
  * Defines Marquee Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Marquee Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Marquee Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Marquee Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
+ * @noninterop
  */
 declare const MarqueeInstance: MarqueeAttribute;

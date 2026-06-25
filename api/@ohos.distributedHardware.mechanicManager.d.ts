@@ -317,7 +317,6 @@ declare namespace mechanicManager {
    */
   function getRotationAxesStatus(mechId: int): RotationAxesStatus;
 
-
   /**
    * Register a listener for axis state changes.
    * The status of the rotation axis changes dynamically, which needs to be monitored.
@@ -392,6 +391,7 @@ declare namespace mechanicManager {
    * Move a mechanical device with the specified parameters.
    *
    * @param { int } mechId - ID of the mechanical device.
+   *     <br>The value should be an integer.
    * @param { MoveParams } params - Parameters to use when moving.
    * @returns { Promise<Result> } Promise that returns the execution result.
    * @throws { BusinessError } 202 - Not system application.
@@ -400,7 +400,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function move(mechId: int, params: MoveParams): Promise<Result>;
 
@@ -408,8 +408,10 @@ declare namespace mechanicManager {
    * Move a mechanical device at the specified speed.
    *
    * @param { int } mechId - ID of the mechanical device.
+   *     <br>The value should be an integer.
    * @param { SpeedParams } params - Parameters to use when moving.
    * @param { int } duration - Duration of movement, in ms.
+   *     <br>The value should be an integer.
    * @returns { Promise<Result> } Promise that returns the execution result.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
@@ -417,7 +419,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function moveBySpeed(mechId: int, params: SpeedParams, duration: int): Promise<Result>;
 
@@ -425,8 +427,10 @@ declare namespace mechanicManager {
    * Rotate in place according to the speed.
    *
    * @param { int } mechId - ID of the mechanical device.
+   *     <br>The value should be an integer.
    * @param { double } angleSpeed - angular velocity.
    * @param { int } duration - Duration of movement, unit ms.
+   *     <br>The value should be an integer.
    * @returns { Promise<Result> } Promise that returns the execution result.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 33300001 - Service exception.
@@ -434,7 +438,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function turnBySpeed(mechId: int, angleSpeed: double, duration: int): Promise<Result>;
 
@@ -442,6 +446,7 @@ declare namespace mechanicManager {
    * Check whether the specific action type is supported.
    *
    * @param { int } mechId - ID of the mechanical device.
+   *     <br>The value should be an integer.
    * @param { ActionType } actionType - Type of action sequence.
    * @returns { boolean } Indicates whether the action type is supported.
    * @throws { BusinessError } 202 - Not system application.
@@ -449,7 +454,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300002 - Device not connected.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function isSupportAction(mechId: int, actionType: ActionType): boolean;
 
@@ -457,6 +462,7 @@ declare namespace mechanicManager {
    * Execute an action sequence.
    *
    * @param { int } mechId - ID of the mechanical device.
+   *     <br>The value should be an integer.
    * @param { ActionType } actionType - Type of action sequence.
    * @returns { Promise<Result> } Promise that returns the execution result.
    * @throws { BusinessError } 202 - Not system application.
@@ -465,7 +471,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function doAction(mechId: int, actionType: ActionType): Promise<Result>;
 
@@ -480,7 +486,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function subscribe(events: MechEventType[], callback: Callback<MechEvent>): void;
 
@@ -494,7 +500,7 @@ declare namespace mechanicManager {
    * @throws { BusinessError } 33300003 - Feature not supported.
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   function unSubscribe(events: MechEventType[]): void;
 
@@ -518,6 +524,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface MechInfo {
+
     /**
      * ID of the mechanical device.
      * @type { int }
@@ -526,7 +533,6 @@ declare namespace mechanicManager {
      * @since 23 static
      */
     mechId: int;
-
 
     /**
      * Type of the mechanical device.
@@ -547,7 +553,6 @@ declare namespace mechanicManager {
     mechName: string;
   }
 
-
   /**
    * The rotion angles, relative to the current position.
    * @typedef RotationAngles
@@ -557,6 +562,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAngles {
+
     /**
      * Yaw angle, ranging from -2*Math.PI to 2*Math.PI, measured in radians.
      * @type { ?double }
@@ -598,6 +604,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface EulerAngles {
+
     /**
      * Yaw angle, ranging from -Math.PI to Math.PI, measured in radians.
      * @type { ?double }
@@ -639,6 +646,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationSpeed {
+
     /**
      * Yaw speed, measured in radians per second.
      * @type { ?double }
@@ -670,7 +678,6 @@ declare namespace mechanicManager {
     pitchSpeed?: double;
   }
 
-
   /**
    * Rotation angle limits relative to the reference point.
    * @typedef RotationLimits
@@ -680,6 +687,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationLimits {
+
     /**
      * Maximum yaw rotation angles in the negative direction, ranging from -2*Math.PI to 0, measured in radians.
      * If the value is less than or equal to -2*Math.PI, there is no restriction.
@@ -757,6 +765,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStatus {
+
     /**
      * Whether the yaw axis is enabled.
      * @type { boolean }
@@ -827,6 +836,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum RotationAxisLimited {
+
     /**
      * Not limited.
      * @syscap SystemCapability.Mechanic.Core
@@ -864,6 +874,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface RotationAxesStateChangeInfo {
+
     /**
      * ID of the mechanical device.
      * @type { int }
@@ -882,7 +893,7 @@ declare namespace mechanicManager {
      * @since 20 dynamic
      * @since 23 static
      */
-    status: RotationAxesStatus,
+    status: RotationAxesStatus;
   }
 
   /**
@@ -894,6 +905,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TrackingEventInfo {
+
     /**
      * Tracking event.
      * @type { TrackingEvent } Tracking event.
@@ -929,7 +941,7 @@ declare namespace mechanicManager {
      * @since 20 dynamic
      * @since 23 static
      */
-    mechInfo: MechInfo,
+    mechInfo: MechInfo;
   }
 
   /**
@@ -942,6 +954,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface TargetInfo {
+
     /**
      * Target type.
      * @type { TargetType }
@@ -985,6 +998,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export interface SearchResult {
+
     /**
      * Search result. Returns the number of targets found.0 means not found.
      * @type { int }
@@ -1005,6 +1019,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Operation {
+
     /**
      * Connection operation.
      * @syscap SystemCapability.Mechanic.Core
@@ -1032,6 +1047,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum TrackingEvent {
+
     /**
      * Camera tracking enabled by user.
      * @syscap SystemCapability.Mechanic.Core
@@ -1067,6 +1083,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum Result {
+
     /**
      * Rotation completed.
      * @syscap SystemCapability.Mechanic.Core
@@ -1104,6 +1121,24 @@ declare namespace mechanicManager {
     TIMEOUT = 3,
 
     /**
+     * Termination caused by an obstacle.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    TERMINATE_OBSTACLE  = 4,
+
+    /**
+     * Termination caused by a cliff.
+     *
+     * @syscap SystemCapability.Mechanic.Core
+     * @systemapi
+     * @since 26.0.0 dynamic&static
+     */
+    TERMINATE_CLIFF = 5,
+
+    /**
      * Rotation failed due to system error.
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
@@ -1121,6 +1156,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum MechDeviceType {
+
     /**
      * Gimbal device.
      * @syscap SystemCapability.Mechanic.Core
@@ -1134,16 +1170,16 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DESKTOP_GIMBAL_DEVICE = 1,
 
     /**
-     * Wheeled‑mounted base device.
+     * Wheeled?mounted base device.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     WHEELED_BASE_DEVICE = 2
   }
@@ -1183,6 +1219,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum CameraTrackingLayout {
+
     /**
      * Default layout.
      * @syscap SystemCapability.Mechanic.Core
@@ -1226,6 +1263,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum TargetType {
+
     /**
      * human Face type.
      * @syscap SystemCapability.Mechanic.Core
@@ -1246,6 +1284,7 @@ declare namespace mechanicManager {
    * @since 23 static
    */
   export enum SearchDirection {
+
     /**
      * System Default Direction.
      * @syscap SystemCapability.Mechanic.Core
@@ -1279,15 +1318,17 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export interface MoveParams {
+
     /**
      * Moving distance, unit cm.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     distance: int;
 
@@ -1296,7 +1337,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     angle: double;
 
@@ -1305,7 +1346,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     speedGear?: SpeedGear;
 
@@ -1314,25 +1355,26 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
-    }
+  }
 
   /**
    * Speed gear definition.
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export enum SpeedGear {
+
     /**
      * Low speed definition.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     LOW_SPEED = 0,
 
@@ -1341,7 +1383,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     MIDDLE_SPEED = 1,
 
@@ -1350,7 +1392,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HIGH_SPEED = 2
   }
@@ -1360,15 +1402,16 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export enum MarchingMode {
+
     /**
      * Turn first, then move.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     TURN_THEN_MOVE = 0,
 
@@ -1377,7 +1420,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     TURNING_MOVING = 1
   }
@@ -1387,15 +1430,17 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export interface SpeedParams {
+
     /**
      * Turning or moving speed, unit cm.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     speed: int;
 
@@ -1404,7 +1449,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     angle: double;
 
@@ -1413,7 +1458,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     mode?: MarchingMode;
   }
@@ -1423,15 +1468,16 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export enum ActionType {
+
     /**
      * Landscape-to-Portrait switching.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     LANDSCAPE_PORTRAIT_SWITCH = 0,
 
@@ -1440,7 +1486,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     PATROL_MODE = 1,
 
@@ -1449,7 +1495,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     GREET_MODE = 2,
 
@@ -1458,7 +1504,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_UP = 3,
 
@@ -1467,7 +1513,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_UP_SLIGHTLY = 4,
 
@@ -1476,7 +1522,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     EYE_LEVEL = 5,
 
@@ -1485,7 +1531,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_DOWN_SLIGHTLY = 6,
 
@@ -1494,7 +1540,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_DOWN = 7,
 
@@ -1503,7 +1549,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_WIGGLE = 8,
 
@@ -1512,7 +1558,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     NOD = 9,
 
@@ -1521,7 +1567,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HEAD_SHAKE = 10,
 
@@ -1530,7 +1576,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     HAPPY = 1000,
 
@@ -1539,7 +1585,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     ANGRY = 1001,
 
@@ -1548,7 +1594,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     SAD = 1002,
 
@@ -1557,7 +1603,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     SCARED = 1003,
 
@@ -1566,7 +1612,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DANCE = 2000,
 
@@ -1575,7 +1621,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     ACTING_CUTE = 2001,
 
@@ -1584,7 +1630,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     CELEBRATE = 2002,
 
@@ -1593,7 +1639,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     WAKEUP = 2003,
 
@@ -1602,7 +1648,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     SLEEP = 2004,
 
@@ -1611,7 +1657,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     LOW_POWER = 2005,
 
@@ -1620,7 +1666,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     THINKING = 2006
   }
@@ -1630,15 +1676,16 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export enum MechEventType {
+
     /**
      * Mechanic device attached on base.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DEVICE_ADSORBED = 0,
 
@@ -1647,7 +1694,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     DEVICE_UNADSORBED = 1,
 
@@ -1656,7 +1703,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     REACH_CLIFF = 2,
 
@@ -1665,7 +1712,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     REACH_OBSTACLE = 3,
 
@@ -1674,7 +1721,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     LOW_POWER = 4
   }
@@ -1684,15 +1731,17 @@ declare namespace mechanicManager {
    *
    * @syscap SystemCapability.Mechanic.Core
    * @systemapi
-   * @since 24 dynamic&static
+   * @since 26.0.0 dynamic&static
    */
   export interface MechEvent {
+
     /**
      * ID of the mechanical device.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     mechId: int;
 
@@ -1701,7 +1750,7 @@ declare namespace mechanicManager {
      *
      * @syscap SystemCapability.Mechanic.Core
      * @systemapi
-     * @since 24 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     event: MechEventType;
   }

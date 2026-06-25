@@ -19,6 +19,12 @@ import { createOrCleanProjectConfig, readCardPageSet, readPermissions, readSysca
 import { ApiCheckWrapperServiceHost } from './api-check-wrapper';
 import { getApiCheckWrapperServiceHost } from './src/api_check_config';
 import { checkApiExpression, WrapperApi } from './api-check-wrapper/src/api_check_wrapper';
+import { getGlobalMonitor } from './utils/performance_monitor';
+import { PERF } from './utils/perf_constants';
+
+export let externalApiCheckPlugin = new Map();
+export let fileAvailableCheckCache: Map<string, boolean> = new Map<string, boolean>();
+export let suppressWarningsCheckPlugin = new Map();
 
 /**
  * 导出projectConfig作为全局变量
@@ -36,7 +42,9 @@ export function apiCheckPlugin(): Plugins {
   return {
     name: 'api-check-plugins',
     checked: apiCheckCallback,
-    clean(): void { }
+    clean(): void {
+      resetPlugins();
+    }
   };
 }
 
@@ -46,23 +54,38 @@ export function apiCheckPlugin(): Plugins {
  * @param { PluginContext } this PluginContext对象
  */
 function apiCheckCallback(this: PluginContext): void {
+  const monitor = getGlobalMonitor();
+  monitor.startGlobal();
+  monitor.start(PERF.CALLBACK);
+
   try {
     const currentProjectConfig: ProjectConfig | undefined = this.getProjectConfig() as ProjectConfig | undefined;
     if (currentProjectConfig) {
+      monitor.start(PERF.INIT_CONFIG);
       initApiCheckConfig(currentProjectConfig);
+      monitor.end(PERF.INIT_CONFIG);
+
       Object.assign(globalObject.projectConfig, currentProjectConfig);
       const ContextPtr = WrapperApi.arktsGlobal.compilerContext?.peer ?? this.getContextPtr();
       const apiCheckHost: ApiCheckWrapperServiceHost = getApiCheckWrapperServiceHost();
+
+      monitor.start(PERF.CHECK_EXPR);
       checkApiExpression(apiCheckHost, ContextPtr);
+      monitor.end(PERF.CHECK_EXPR);
     }
     else {
       throw new Error('[API_CHECK_PLUGIN] Get ProjectConfig Fail');
     }
   }
   catch (error) {
-    if (error) {
-      console.error(`[API_CHECK_PLUGIN] ${error}`);
-    }
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error(`[API_CHECK_PLUGIN] ${errorMessage}`);
+  }
+  finally {
+    monitor.end(PERF.CALLBACK);
+    monitor.endGlobal();
+    monitor.report();
+    monitor.reset();
   }
 }
 
@@ -76,8 +99,15 @@ export function initApiCheckConfig(projectConfig: ProjectConfig): void {
     return;
   }
   Object.assign(projectConfig, creatApiCheckConfig());
+  projectConfig.initApiCheckTag = true;
   readPermissions(projectConfig);
   readCardPageSet(projectConfig);
   readSystemModules(projectConfig);
   readSyscapInfo(projectConfig);
+}
+
+function resetPlugins(): void {
+  externalApiCheckPlugin = new Map();
+  fileAvailableCheckCache = new Map();
+  suppressWarningsCheckPlugin = new Map();
 }

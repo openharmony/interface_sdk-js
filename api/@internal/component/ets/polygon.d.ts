@@ -19,9 +19,14 @@
  */
 
 /**
- * Define options used to construct a polygon.
+ * Describes the options of the polygon.
  *
- * @interface PolygonOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,128 +36,34 @@
  */
 declare interface PolygonOptions {
   /**
-   * Polygon width.
+   * Width.
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and **Infinity**
+   * values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Polygon width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Polygon width.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Polygon width.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-/**
-   * Polygon width.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Polygon width.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   width?: Length;
 
   /**
-   * Polygon height.
+   * Height.
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
+   * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Polygon height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Polygon height.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Polygon height.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-/**
-   * Polygon height.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Polygon height.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   height?: Length;
 }
@@ -160,264 +71,97 @@ declare interface PolygonOptions {
 /**
  * Provides the polygon drawing interface.
  *
- * @interface PolygonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Provides the polygon drawing interface.
- *
- * @interface PolygonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Provides the polygon drawing interface.
- *
- * @interface PolygonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides the polygon drawing interface.
- *
- * @interface PolygonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface PolygonInterface {
   /**
    * Uses new to create Polygon.
-   * 
-   * @since 7
-   */
-  /**
-   * Uses new to create Polygon.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Uses new to create Polygon.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Uses new to create Polygon.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uses new to create Polygon.
    * Anonymous Object Rectification.
    *
-   * @param { PolygonOptions } [options] - Polygon options
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @param { PolygonOptions } [options] - Polygon options [since 18]
+   * @returns { PolygonAttribute } [since 18]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full [since 9]
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   new (options?: PolygonOptions): PolygonAttribute;
 
   /**
-   * Called when drawing a polygon.
+   * Defines the constructor of Polygon component.
    *
-   * @param { object } value
+   * @param { object } value - [since 7 - 17]
+   * @param { PolygonOptions } [options] - Options of the polygon.<br>The **undefined** and **null** values are
+   *     treated as invalid and will not take effect. [since 18]
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when drawing a polygon.
-   *
-   * @param { object } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when drawing a polygon.
-   *
-   * @param { object } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when drawing a polygon.
-   *
-   * @param { object } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when drawing a polygon.
-   * Anonymous Object Rectification.
-   *
-   * @param { PolygonOptions } [options] - Polygon options
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: PolygonOptions): PolygonAttribute;
 }
 
 /**
- * Provides attribute for Polygon.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonShapeMethod<PolygonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Provides attribute for Polygon.
- *
- * @extends CommonShapeMethod<PolygonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Provides attribute for Polygon.
- *
- * @extends CommonShapeMethod<PolygonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides attribute for Polygon.
- *
- * @extends CommonShapeMethod<PolygonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class PolygonAttribute extends CommonShapeMethod<PolygonAttribute> {
   /**
-   * Called when the vertex coordinate list of a polygon is set.
+   * Sets the vertex coordinates of the polygon. This attribute can be dynamically set using 
+   * [attributeModifier]{@link CommonMethod#attributeModifier}
+   * . Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Vertex coordinates of the polygon. A two-dimensional array is passed, and each
+   *     subarray indicates the `[x, y]` coordinates of a vertex.<br>Default value: **[]** (empty array)
+   *     <br>Default unit: vp<br>The **undefined** and **null** values are invalid and treated as the default value.
    * @returns { PolygonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Called when the vertex coordinate list of a polygon is set.
-   *
-   * @param { Array<any> } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the vertex coordinate list of a polygon is set.
-   *
-   * @param { Array<any> } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the vertex coordinate list of a polygon is set.
-   *
-   * @param { Array<any> } value
-   * @returns { PolygonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   points(value: Array<any>): PolygonAttribute;
 }
 
 /**
- * Defines Polygon Component.
+ * The **Polygon** component is used to draw a polygon.
+ * > **NOTE**
+ * >
+ * > This component supports dynamic constructor parameter updates using the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
+ * > [AttributeUpdater](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md) class since API version 20.
+ * >
+ * > **Child Components**
+ * >
+ * > None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Polygon Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Polygon Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Polygon Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Polygon: PolygonInterface;
 
@@ -426,33 +170,10 @@ declare const Polygon: PolygonInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Polygon Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Polygon Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Polygon Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const PolygonInstance: PolygonAttribute;

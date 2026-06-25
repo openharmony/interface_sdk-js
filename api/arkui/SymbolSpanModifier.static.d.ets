@@ -18,30 +18,35 @@
  * @kit ArkUI
  */
 
-
-
-
 import { AttributeModifier } from '@ohos.arkui.component';
+
 import { SymbolSpanAttribute } from '@ohos.arkui.component';
+
 import { Resource } from 'global.resource';
 
+import { SymbolSpanAttribute } from './component/symbolSpan';
+
+import { AttributeModifier } from './component/common';
+
+import { Resource } from '../global/resource';
+
 /**
- * Defines SymbolSpan Modifier
+ * Defines ContainerSpan Modifier
  *
- * @implements { SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export declare class SymbolSpanModifier implements SymbolSpanAttribute, AttributeModifier<SymbolSpanAttribute> {
-    /**
-     * constructor
-     *
-     * @param { Resource } [src]
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    constructor(src?: Resource);
+
+  /**
+   * constructor
+   *
+   * @param { Resource } [src]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  constructor(src?: Resource);
 }

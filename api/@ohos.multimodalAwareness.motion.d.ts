@@ -113,6 +113,234 @@ declare namespace motion {
   }
 
   /**
+   * Enum for pickup event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PickupEvent {
+    /**
+     * Indicates the pickup motion is detected(the device is being lifted).
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    PICKED_UP = 0
+  }
+
+  /**
+   * Enum for rotate event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum RotateEvent {
+    /**
+     * Indicates the device has rotated, but the movement is insufficient
+     * to change the current orientation. The orientation remains the same as before.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNCHANGED = -1,
+    /**
+     * Indicates the device is upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates the device is rotated left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the device is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates the device is rotated right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3
+  }
+
+  /**
+   * Enum for physical orientation detected by the sensor.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum PhysicalOrientation {
+    /**
+     * Indicates upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the physical orientation is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3,
+    /**
+     * Indicates face up.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FACE_UP = 4,
+    /**
+     * Indicates face down.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    FACE_DOWN = 5
+  }
+
+  /**
+   * Enum for logical orientation calculated by smart algorithms.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum LogicalOrientation {
+
+    /**
+     * Indicates the orientation is unknown or cannot be determined(e.g., non-grip).
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UNKNOWN = -1,
+    /**
+     * Indicates upright.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    UPRIGHT = 0,
+    /**
+     * Indicates left.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    LEFT = 1,
+    /**
+     * Indicates the logical orientation is inverted.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    INVERTED = 2,
+    /**
+     * Indicates right.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    RIGHT = 3
+  }
+
+  /**
+   * The basic data structure of the smart rotate sensor event.
+   *
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SmartRotateEvent {
+    /**
+     * The physical orientation reported by the gravity sensor.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    physicalOrientation: PhysicalOrientation;
+    /**
+     * The logical orientation adjusted by smart algorithms.
+     *
+     * @syscap SystemCapability.MultimodalAwareness.Motion
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    logicalOrientation?: LogicalOrientation;
+  }
+
+  /**
    * Subscribes to operating hand change events.
    * 
    * If the device does not support this function, error code 801 is returned.
@@ -141,7 +369,7 @@ declare namespace motion {
    *
    * @permission ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE
    * @param { 'operatingHandChanged' } type - Event type. This parameter has a fixed value of **operatingHandChanged**.
-   * @param { Callback<OperatingHandStatus> } callback - Callback used to return the result.
+   * @param { Callback<OperatingHandStatus> } [callback] - Callback used to return the result.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe operatingHandChanged
    *     <br> event forbidden by permission: ohos.permission.ACTIVITY_MOTION or ohos.permission.DETECT_GESTURE.
    * @throws { BusinessError } 401 - Parameter error. Parameter verification failed.
@@ -203,7 +431,7 @@ declare namespace motion {
    * @permission ohos.permission.DETECT_GESTURE
    * @param { 'holdingHandChanged' } type - Event type. The value **holdingHandChanged** indicates the holding hand
    *     status change event.
-   * @param { Callback<HoldingHandStatus> }[callback] - Callback to unregister. If this parameter is not passed, all
+   * @param { Callback<HoldingHandStatus> } [callback] - Callback to unregister. If this parameter is not passed, all
    *     callbacks for the holding hand status change event will be unregistered.
    * @throws { BusinessError } 201 - Permission denied. An attempt was made to unsubscribe holdingHandChanged
    *     <br> event forbidden by permission: ohos.permission.DETECT_GESTURE.
@@ -286,5 +514,98 @@ declare namespace motion {
    * @since 23 static
    */
   function offHoldingHandChanged(callback?: Callback<HoldingHandStatus>): void;
+
+  /**
+   * Subscribe to pick up sensor event.
+   *
+   * @param { Callback<PickupEvent> } callback - The callback to receive pickup status.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onPickupChange(callback: Callback<PickupEvent>): void;
+
+  /**
+   * Subscribe to rotate sensor event.
+   *
+   * @param { Callback<RotateEvent> } callback - The callback to receive rotate orientation.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onRotateChange(callback: Callback<RotateEvent>): void;
+
+  /**
+   * Subscribe to smart rotate sensor event.
+   *
+   * @param { Callback<SmartRotateEvent> } callback - The callback to receive smart rotate orientations.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited
+   *     <br> device capabilities.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onSmartRotateChange(callback: Callback<SmartRotateEvent>): void;
+
+  /**
+   * Unsubscribe to pick up sensor event.
+   *
+   * @param { Callback<PickupEvent> } [callback] - Callback used for pick up event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the pick up event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offPickupChange(callback?: Callback<PickupEvent>): void;
+
+  /**
+   * Unsubscribe to rotate sensor event.
+   *
+   * @param { Callback<RotateEvent> } [callback] - Callback used for rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offRotateChange(callback?: Callback<RotateEvent>): void;
+
+  /**
+   * Unsubscribe to smart rotate sensor event.
+   *
+   * @param { Callback<SmartRotateEvent> } [callback] - Callback used for smart rotate event unsubscription.
+   *     <br> If this parameter is not specified, all callbacks of the smart rotate event are unsubscribed from.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 31500001 - Service exception. Possible causes: 1. A system error, such as null pointer,
+   *     <br> container-related exception; 2. N-API invocation exception, invalid N-API status.
+   * @syscap SystemCapability.MultimodalAwareness.Motion
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function offSmartRotateChange(callback?: Callback<SmartRotateEvent>): void;
 }
 export default motion;

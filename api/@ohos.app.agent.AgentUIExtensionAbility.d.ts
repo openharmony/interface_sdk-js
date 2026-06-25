@@ -20,7 +20,7 @@
 import UIExtensionAbility from './@ohos.app.ability.UIExtensionAbility';
 
 /**
- * The class of agent UI extension ability.
+ * The class of agent UI extension ability. This class cannot be used in Harmony Archive(HAR).
  *
  * @extends UIExtensionAbility
  * @syscap SystemCapability.Ability.AgentRuntime.Core

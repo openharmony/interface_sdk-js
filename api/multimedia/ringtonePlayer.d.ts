@@ -14,6 +14,16 @@
  */
 
 /**
+ * The ringtonePlayer module provides APIs for playing, configuring, and obtaining ringtones.
+ * 
+ * This module must work with 
+ * [@ohos.multimedia.systemSoundManager]{@link ./../@ohos.multimedia.systemSoundManager:systemSoundManager} to manage 
+ * ringtones.
+ * 
+ * > **NOTE**
+ * >
+ * > - The APIs provided by this module are system APIs.
+ *
  * @file
  * @kit AudioKit
  */
@@ -23,8 +33,8 @@ import type audio from '../@ohos.multimedia.audio';
 import type media from '../@ohos.multimedia.media';
 
 /**
- * Interface for ringtone options.
- * @typedef RingtoneOptions
+ * Enumerates the ringtone parameters.
+ *
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
@@ -32,8 +42,8 @@ import type media from '../@ohos.multimedia.media';
  */
 export interface RingtoneOptions {
   /**
-   * Ringtone volume.
-   * @type { double }
+   * Relative volume. The value ranges from 0.00 to 1.00. The value **1.00** indicates the maximum volume (100%).
+   *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -41,8 +51,8 @@ export interface RingtoneOptions {
    */
   volume: double;
   /**
-   * Loop value.
-   * @type { boolean }
+   * Whether to enable loop playback. **true** to enable, **false** otherwise.
+   *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -52,8 +62,11 @@ export interface RingtoneOptions {
 }
 
 /**
- * Ringtone player object.
- * @typedef RingtonePlayer
+ * Provides APIs for setting and obtaining ringtone parameters as well as playing and stopping ringtones. Before calling
+ * any API in RingtonePlayer, you must use 
+ * [getRingtonePlayer]{@link ./../@ohos.multimedia.systemSoundManager:systemSoundManager.SystemSoundManager.getRingtonePlayer(context: BaseContext, type: RingtoneType)}
+ * to obtain a RingtonePlayer instance.
+ *
  * @syscap SystemCapability.Multimedia.SystemSound.Core
  * @systemapi
  * @since 10 dynamic
@@ -62,7 +75,7 @@ export interface RingtoneOptions {
 export interface RingtonePlayer {
   /**
    * Gets player state.
-   * @type { media.AVPlayerState }
+   *
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -71,8 +84,10 @@ export interface RingtonePlayer {
   readonly state: media.AVPlayerState;
 
   /**
-   * Gets the title of ringtone.
-   * @param { AsyncCallback<string> } callback - Callback used to return the title.
+   * Obtains the title of the ringtone. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<string> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined** and **data** is the title obtained; otherwise, **err** is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -80,8 +95,9 @@ export interface RingtonePlayer {
    */
   getTitle(callback: AsyncCallback<string>): void;
   /**
-   * Gets the title of ringtone.
-   * @returns { Promise<string> } Promise used to return the title.
+   * Obtains the title of the ringtone. This API uses a promise to return the result.
+   *
+   * @returns { Promise<string> } Promise used to return the title obtained.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -90,8 +106,12 @@ export interface RingtonePlayer {
   getTitle(): Promise<string>;
 
   /**
-   * Gets audio renderer info.
-   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - Callback used to return AudioRendererInfo value.
+   * Obtains the information about the audio renderer used by the ringtone. This API uses an asynchronous callback to 
+   * return the result.
+   *
+   * @param { AsyncCallback<audio.AudioRendererInfo> } callback - Callback used to return the result. If the operation
+   *     is successful, **err** is **undefined** and **data** is the renderer information obtained; otherwise, **err**
+   *     is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -99,8 +119,10 @@ export interface RingtonePlayer {
    */
   getAudioRendererInfo(callback: AsyncCallback<audio.AudioRendererInfo>): void;
   /**
-   * Gets audio renderer info.
-   * @returns { Promise<audio.AudioRendererInfo> } Promise used to return AudioRendererInfo value.
+   * Obtains the information about the audio renderer used by the ringtone. This API uses a promise to return the 
+   * result.
+   *
+   * @returns { Promise<audio.AudioRendererInfo> } Promise used to return the renderer information.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -109,9 +131,11 @@ export interface RingtonePlayer {
   getAudioRendererInfo(): Promise<audio.AudioRendererInfo>;
 
   /**
-   * Configure ringtone options.
-   * @param { RingtoneOptions } options - Ringtone configure options.
-   * @param { AsyncCallback<void> } callback - Callback used to return configuration result.
+   * Sets ringtone parameters. This API uses an asynchronous callback to return the result.
+   *
+   * @param { RingtoneOptions } options - Ringtone parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -119,9 +143,10 @@ export interface RingtonePlayer {
    */
   configure(options: RingtoneOptions, callback: AsyncCallback<void>): void;
   /**
-   * Configure ringtone options.
-   * @param { RingtoneOptions } options - Ringtone configure options.
-   * @returns { Promise<void> } Promise used to return configuration result.
+   * Sets ringtone parameters. This API uses a promise to return the result.
+   *
+   * @param { RingtoneOptions } options - Ringtone parameters.
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -130,8 +155,10 @@ export interface RingtonePlayer {
   configure(options: RingtoneOptions): Promise<void>;
 
   /**
-   * Starts playing ringtone.
-   * @param { AsyncCallback<void> } callback - Callback used to return the starting result.
+   * Starts playing the ringtone. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -139,8 +166,9 @@ export interface RingtonePlayer {
    */
   start(callback: AsyncCallback<void>): void;
   /**
-   * Starts playing ringtone.
-   * @returns { Promise<void> } Promise used to return the starting result.
+   * Starts playing the ringtone. This API uses a promise to return the result.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -149,8 +177,10 @@ export interface RingtonePlayer {
   start(): Promise<void>;
 
   /**
-   * Stop playing ringtone.
-   * @param { AsyncCallback<void> } callback - Callback used to return the stopping result.
+   * Stops playing the ringtone. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -158,8 +188,9 @@ export interface RingtonePlayer {
    */
   stop(callback: AsyncCallback<void>): void;
   /**
-   * Stop playing ringtone.
-   * @returns { Promise<void> } Promise used to return the stopping result.
+   * Stops playing the ringtone. This API uses a promise to return the result.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -168,8 +199,10 @@ export interface RingtonePlayer {
   stop(): Promise<void>;
 
   /**
-   * Release ringtone player resource.
-   * @param { AsyncCallback<void> } callback - Callback used to return the releasing result.
+   * Releases the ringtone player. This API uses an asynchronous callback to return the result.
+   *
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
+   *     **err** is **undefined**; otherwise, **err** is an error object.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -177,8 +210,9 @@ export interface RingtonePlayer {
    */
   release(callback: AsyncCallback<void>): void;
   /**
-   * Release ringtone player resource.
-   * @returns { Promise<void> } Promise used to return the releasing result.
+   * Releases the ringtone player. This API uses a promise to return the result.
+   *
+   * @returns { Promise<void> } Promise that returns no value.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
    * @since 10 dynamic
@@ -187,13 +221,15 @@ export interface RingtonePlayer {
   release(): Promise<void>;
 
   /**
-   * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
-   * triggered when audio playback is interrupted.
-   * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
-   * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
+   * Subscribes to the audio interruption event, which is triggered when the audio focus is changed. This API uses an 
+   * asynchronous callback to return the result.
+   *
+   * @param { 'audioInterrupt' } type - Event type. The event **'audioInterrupt'** is triggered when the audio focus is
+   *     changed.
+   * @param { Callback<audio.InterruptEvent> } callback - Callback used to return the event information.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -204,6 +240,7 @@ export interface RingtonePlayer {
   /**
    * Listens for audio interrupt events. This method uses a callback to get interrupt events. The interrupt event is
    * triggered when audio playback is interrupted.
+   *
    * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for interrupt callback.
    * @throws { BusinessError } 202 - Not system application.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
@@ -214,11 +251,13 @@ export interface RingtonePlayer {
   onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
   /**
-   * Unsubscribes to audio interrupt events.
-   * @param { 'audioInterrupt' } type - Type of the event to listen for. Only the audioInterrupt event is supported.
+   * Unsubscribes from the audio interruption event.
+   *
+   * @param { 'audioInterrupt' } type - Event type. The event **'audioInterrupt'** is triggered when the audio focus is
+   *     changed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *                                 1.Mandatory parameters are left unspecified;
-   *                                 2.Incorrect parameter types.
+   *     1.Mandatory parameters are left unspecified;
+   *     2.Incorrect parameter types.
    * @throws { BusinessError } 6800101 - Parameter verification failed.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi
@@ -227,6 +266,7 @@ export interface RingtonePlayer {
   off(type: 'audioInterrupt'): void;
   /**
    * Unsubscribes to audio interrupt events.
+   *
    * @throws { BusinessError } 202 - Not system application.
    * @syscap SystemCapability.Multimedia.SystemSound.Core
    * @systemapi

@@ -18,15 +18,14 @@
  * @kit ArkUI
  */
 import { TextContentControllerBase, SelectionOptions, Callback, CommonMethod, TextDecorationOptions, Bindable, AttributeModifier } from "./common";
-import { CustomBuilder } from './builder';
+import { Builder, CustomBuilder, CustomBuilderT, ComponentBuilder } from './builder';
 import { ResourceStr, Length, ResourceColor, Dimension, Font, ColorMetrics, LengthMetrics } from "./units";
-import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient } from "./textCommon";
+import { CaretStyle, EditableTextOnChangeCallback, InsertValue, DeleteValue, EditMenuOptions, KeyboardAppearance, EditableTextChangeValue, AutoCapitalizationMode, SelectedDragPreviewStyle, TextDirection, IMEClient, ShaderStyle, StrokeJoinStyle } from "./textCommon";
 import { EnterKeyType, OnTextSelectionChangeCallback, OnContentScrollCallback, OnPasteCallback, SubmitEvent } from "./textInput";
 import { CopyOptions, TextAlign } from "./enums";
 import { KeyboardOptions } from "./richEditor";
 import { Resource } from '../../global/resource';
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
-import { ComponentBuilder } from './builder';
 import { ComponentContentBase } from '../ComponentContent';
 
 /**
@@ -886,7 +885,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>You can also use the stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
      * <br>When setting a custom keyboard,
-     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
+     * you can bind the onKeyPreIme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of Search
@@ -1239,6 +1238,17 @@ export declare interface SearchAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
+     * Set Search options.
+     *
+     * @param { SearchOptions } [options] - Search constructor options
+     * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSearchOptions(options?: SearchOptions): this;
+
+    /**
      * Used to set the selected drag preview style.
      *
      * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
@@ -1261,6 +1271,30 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
+ 
+    /**
+     * Set the join style of the stroke.
+     *
+     * @param { StrokeJoinStyle | undefined } strokeJoinStyle - The join style of stroke.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
+ 
+    /**
+     * Set the shader style of the text, such as lineargradient or radialgradient.
+     *
+     * @param { ShaderStyle | undefined } shader - The shader style of the text.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { SearchAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default shaderStyle(shader: ShaderStyle | undefined): this;
 }
 
 /**
@@ -1276,3 +1310,18 @@ export declare interface SearchAttribute extends CommonMethod {
 export declare function Search(
     options?: SearchOptions
 ): SearchAttribute
+
+/**
+ * Defines Search Component.
+ *
+ * @param { CustomBuilderT<SearchAttribute> } style - Search attribute instance
+ * @returns { SearchAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Search(
+    style: CustomBuilderT<SearchAttribute>,
+): SearchAttribute;

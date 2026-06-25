@@ -16,7 +16,7 @@
  * @file
  * @kit ArkUI
  */
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 /**
  * Defines the option in int unit of grid-container child component.
@@ -162,6 +162,16 @@ export declare interface GridColAttribute extends CommonMethod {
      */
     default order(value: int | GridColColumnOption | undefined): this;
     /**
+ 	 * Set GridCol options.
+ 	 *
+ 	 * @param { GridColOptions } [options] - GridCol constructor options
+ 	 * @returns { GridColAttribute } Returns the instance of the GridColAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setGridColOptions(options?: GridColOptions): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<GridColAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -190,3 +200,20 @@ export declare function GridCol(
     option?: GridColOptions, 
     content_?: CustomBuilder,
 ): GridColAttribute
+ 
+/**
+ * Defines GridCol Component.
+ *
+ * @param { CustomBuilderT<GridColAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { GridColAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function GridCol(
+    style: CustomBuilderT<GridColAttribute>,
+    content_?: CustomBuilder,
+): GridColAttribute;

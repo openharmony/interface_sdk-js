@@ -24,111 +24,72 @@ import Want from '../@ohos.app.ability.Want';
 import ExtensionContext from './ExtensionContext';
 
 /**
- * The context of form extension. It allows access to
- * formExtension-specific resources.
+ * The FormExtensionContext module, inherited from 
+ * [ExtensionContext]{@link ./application/ExtensionContext:ExtensionContext}, provides the context environment for the 
+ * [FormExtensionAbility]{@link @ohos.app.form.FormExtensionAbility}.
+ * You can use the APIs of this module to start a FormExtensionAbility.
+ * 
+ * > **NOTE**
+ * 
+ * > - The APIs of this module can be used only in the stage model.
  *
- * @extends ExtensionContext
  * @syscap SystemCapability.Ability.Form
  * @stagemodelonly
- * @since 9
- */
-/**
- * The context of form extension. It allows access to
- * formExtension-specific resources.
- *
- * @extends ExtensionContext
- * @syscap SystemCapability.Ability.Form
- * @stagemodelonly
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  * @since 23 static
  */
 declare class FormExtensionContext extends ExtensionContext {
   /**
-   * Start an ability within the same bundle.
+   * Starts an ability. This API uses an asynchronous callback to return the result.
    *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
+   * @param { Want } want - Information about the ability to start, such as the bundle name, ability name, and custom 
+   *     parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is started, **err** is 
+   *     undefined; otherwise, **err** is an error object.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
+   * @throws { BusinessError } 16500101 - The application is not a system application. [since 9 - 11]
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Start an ability.
-   *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
-   * @param { AsyncCallback<void> } callback - The callback of startAbility.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   startAbility(want: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Start an ability within the same bundle.
+   * Starts an ability. This API uses a promise to return the result.
    *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Want } want - Information about the ability to start, such as the bundle name, ability name, and custom 
+   *     parameters.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - An IPC connection error happened.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16500101 - The application is not a system application.
+   * @throws { BusinessError } 16500101 - The application is not a system application. [since 9 - 11]
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * Start an ability.
-   *
-   * @param { Want } want - includes ability name, parameters and relative info sending to an ability.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @stagemodelonly
-   * @since 12 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   startAbility(want: Want): Promise<void>;
 
   /**
-   * Connect a service extension ability.
-   * If the target service extension ability is visible, you can connect the target service extension ability;
-   * If the target service extension ability is invisible,
-   * you need to apply for permission:ohos.permission.START_INVISIBLE_ABILITY to connect target invisible service extension ability.
-   * If the target service extension ability is in cross-device, you need to apply for permission:ohos.permission.DISTRIBUTED_DATASYNC.
-   * <p>This method can be called by an ability or service extension, but the destination of the connection must be a
-   * service extension. You must implement the {@link ConnectOptions} interface to obtain the proxy of the target
-   * service extension when the Service extension is connected.</p>
+   * Connects this ability to a ServiceExtensionAbility.
    *
-   * @param { Want } want - Indicates the service extension to connect.
-   * @param { ConnectOptions } options - Indicates the callback of connection.
-   * @returns { long } Returns the connection id.
+   * @param { Want } want - Want information about the target ability, such as the ability name and bundle name.
+   * @param { ConnectOptions } options - Callback used to return the information indicating that the connection is successful
+   *     , interrupted, or failed.
+   * @returns { long } Returns a connect ID, which will be used for the disconnection.
    * @throws { BusinessError } 201 - The application does not have permission to call the interface.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -151,10 +112,14 @@ declare class FormExtensionContext extends ExtensionContext {
   connectServiceExtensionAbility(want: Want, options: ConnectOptions): long;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
+   * Disconnects this ability from a **ServiceExtensionAbility** and after the successful disconnection, sets the 
+   * **remote** object returned upon the connection to void. This API uses an asynchronous callback to return the 
+   * result.
    *
-   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
-   * @param { AsyncCallback<void> } callback - The callback of disconnectServiceExtensionAbility.
+   * @param { long } connection - Number returned after 
+   *     [connectServiceExtensionAbility]{@link FormExtensionContext#connectServiceExtensionAbility} is called.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the ability is disconnected, **err** is
+   *     **undefined**; otherwise, **err** is an error object.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.
@@ -168,10 +133,12 @@ declare class FormExtensionContext extends ExtensionContext {
   disconnectServiceExtensionAbility(connection: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Disconnect an ability to a service extension, in contrast to {@link connectServiceExtensionAbility}.
+   * Disconnects this ability from a ServiceExtensionAbility and after the successful disconnection, sets the remote 
+   * object returned upon the connection to void. This API uses a promise to return the result. 
    *
-   * @param { long } connection - the connection id returned from connectServiceExtensionAbility api.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { long } connection - Number returned after 
+   *     [connectServiceExtensionAbility]{@link FormExtensionContext#connectServiceExtensionAbility} is called.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16000011 - The context does not exist.

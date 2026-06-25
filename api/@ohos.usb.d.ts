@@ -14,16 +14,25 @@
  */
 
 /**
- * @file
+ * @file USB Manager
  * @kit BasicServicesKit
  */
 
 /**
- * @namespace usb
+ * The **usb** module provides USB device management functions, including USB device list query, bulk data transfer,
+ * control transfer, and permission control.
+ *
+ * > **NOTE**
+ * >
+ * > The initial APIs of this module are supported since API version 8. Newly added APIs will be marked with
+ * > a superscript to indicate their earliest API version.
+ * > The APIs provided by this module are no longer maintained since API version 9. You are advised to use
+ * > [@ohos.usbManager]{@link @ohos.usbManager:usbManager}.
+ *
  * @syscap SystemCapability.USB.USBManager
  * @since 8 dynamiconly
  * @deprecated since 9
- * @useinstead ohos.usbManager
+ * @useinstead @ohos.usbManager:usbManager
  */
 declare namespace usb {
   /**
@@ -33,243 +42,290 @@ declare namespace usb {
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getDevices
+   * @useinstead @ohos.usbManager:usbManager.getDevices
    */
   function getDevices(): Array<Readonly<USBDevice>>;
 
   /**
-   * Connects to the USB device based on the device information returned by getDevices().
+   * Connects to a USB device.
    *
-   * @param { USBDevice } device - USB device on the device list returned by getDevices().
-   * @returns { Readonly<USBDevicePipe> } object for data transfer.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, and then call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission.
+   *
+   * @param { USBDevice } device - USB device information.
+   * @returns { Readonly<USBDevicePipe> } USB device pipe for data transfer.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#connectDevice
+   * @useinstead @ohos.usbManager:usbManager.connectDevice
    */
   function connectDevice(device: USBDevice): Readonly<USBDevicePipe>;
 
   /**
    * Checks whether the application has the permission to access the device.
    *
-   * @param { string } deviceName - device name defined by USBDevice.name.
-   * @returns { boolean } indicates if the user has the permission to access the device.
+   * @param { string } deviceName - Device name.
+   * @returns { boolean } Returns **true** if the application has the permission to access the device; returns **false**
+   *     otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#hasRight
+   * @useinstead @ohos.usbManager:usbManager.hasRight
    */
   function hasRight(deviceName: string): boolean;
 
   /**
-   * Requests the temporary permission for a given application to access the USB device.
+   * Requests the temporary permission for the application to access a USB device. This API uses a promise to return the
+   * result. System applications are granted the device access permission by default, and you do not need to apply for
+   * the permission separately.
    *
-   * @param { string } deviceName - device name defined by USBDevice.name.
-   * @returns { Promise<boolean> } indicates if the device access permissions are granted.
+   * @param { string } deviceName - Device name.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the temporary
+   *     device access permissions are granted; and the value **false** indicates the opposite.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#requestRight
+   * @useinstead @ohos.usbManager:usbManager.requestRight
    */
   function requestRight(deviceName: string): Promise<boolean>;
 
   /**
-   * Converts the string descriptor of a given USB function list to a numeric mask combination.
+   * Converts the USB function list in the string format to a numeric mask in Device mode.
    *
-   * @param { string } funcs - descriptor of the supported function list.
-   * @returns { number } the numeric mask combination of the function list.
+   * @param { string } funcs - Function list in string format.
+   * @returns { number } Function list in numeric mask format after conversion.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#usbFunctionsFromString
+   * @useinstead @ohos.usbManager:usbManager.usbFunctionsFromString
    */
   function usbFunctionsFromString(funcs: string): number;
 
   /**
-   * Converts the numeric mask combination of a given USB function list to a string descriptor.
+   * Converts the USB function list in the numeric mask format to a string in Device mode.
    *
-   * @param { FunctionType } funcs - numeric mask combination of the function list.
-   * @returns { string } - descriptor of the supported function list.
+   * @param { FunctionType } funcs - USB function list in numeric mask format.
+   * @returns { string } Function list in string format after conversion.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#usbFunctionsToString
+   * @useinstead @ohos.usbManager:usbManager.usbFunctionsToString
    */
   function usbFunctionsToString(funcs: FunctionType): string;
 
   /**
    * Sets the current USB function list in Device mode.
    *
-   * @param { FunctionType } funcs - numeric mask combination of the supported function list.
-   * @returns { Promise<boolean> } returns **true** if the setting is successful; returns **false** otherwise.
+   * @param { FunctionType } funcs - USB function list in numeric mask format.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
+   *     successful, and **false** indicates the opposite.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#setCurrentFunctions
+   * @useinstead @ohos.usbManager:usbManager.setCurrentFunctions
    */
   function setCurrentFunctions(funcs: FunctionType): Promise<boolean>;
 
   /**
-   * Obtains the numeric mask combination for the current USB function list in Device mode.
+   * Obtains the numeric mask combination for the USB function list in Device mode.
    *
-   * @returns { FunctionType } the numeric mask combination for the current USB function list in FunctionType.
+   * @returns { FunctionType } Numeric mask combination for the USB function list.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getCurrentFunctions
+   * @useinstead @ohos.usbManager:usbManager.getCurrentFunctions
    */
   function getCurrentFunctions(): FunctionType;
 
   /**
-   * Obtains the USBPort list.
+   * Obtains the list of all physical USB ports.
    *
-   * @returns { Array<USBPort> } the USBPort list.
+   * @returns { Array<USBPort> } List of physical USB ports.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getPorts
+   * @useinstead @ohos.usbManager:usbManager.getPorts
    */
   function getPorts(): Array<USBPort>;
 
   /**
-   * Gets the mask combination for the supported mode list of the specified USBPort.
+   * Obtains the mask combination for the supported mode list of a given USB port.
    *
-   * @param { number } portId
-   * @returns { PortModeType } the mask combination for the supported mode list in PortModeType.
+   * @param { number } portId - Port number.
+   * @returns { PortModeType } Mask combination for the supported mode list.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getSupportedModes
+   * @useinstead @ohos.usbManager:usbManager.getSupportedModes
    */
   function getSupportedModes(portId: number): PortModeType;
 
   /**
-   * Sets the role types supported by the specified USBPort, which can be powerRole (for charging) and dataRole (for data transfer).
+   * Sets the role types supported by a specified port, which can be **powerRole** (for charging) and **dataRole** (for
+   * data transfer).
    *
-   * @param { number } portId - unique ID of the port.
-   * @param { PowerRoleType } powerRole - charging role.
-   * @param { DataRoleType } dataRole - data role.
-   * @returns { Promise<boolean> } returns **true** if the setting is successful; returns **false** otherwise.
+   * @param { number } portId - Port number.
+   * @param { PowerRoleType } powerRole - Role for charging.
+   * @param { DataRoleType } dataRole - Role for data transfer.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the operation is
+   *     successful, and **false** indicates the opposite.
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#setPortRoles
+   * @useinstead @ohos.usbManager:usbManager.setPortRoles
    */
   function setPortRoles(portId: number, powerRole: PowerRoleType, dataRole: DataRoleType): Promise<boolean>;
 
-  /* usb pipe functions begin */
   /**
    * Claims a USB interface.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface , which is used to determine the interface to claim.
-   * @param { boolean } [force] - optional parameter that determines whether to forcibly claim the USB interface.
-   * @returns { number } returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and USB interfaces,
+   * call [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @param { USBInterface } iface - USB interface, which is used to determine the index of the interface to claim.
+   * @param { boolean } [force] - Whether to forcibly claim the USB interface. The default value is **false**,
+   *     indicating not to forcibly claim the USB interface.
+   * @returns { number } Returns **0** if the USB interface is successfully claimed; returns an error code otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#claimInterface
+   * @useinstead @ohos.usbManager:usbManager.claimInterface
    */
   function claimInterface(pipe: USBDevicePipe, iface: USBInterface, force?: boolean): number;
 
   /**
    * Releases a USB interface.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface , which is used to determine the interface to release.
-   * @returns { number } returns **0** if the USB interface is successfully released; returns an error code otherwise.
+   * Before you do this, ensure that you have claimed the interface by calling
+   * [usb.claimInterface]{@link usb.claimInterface}.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @param { USBInterface } iface - USB interface, which is used to determine the index of the interface to release.
+   * @returns { number } Returns **0** if the USB interface is successfully released; returns an error code otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#releaseInterface
+   * @useinstead @ohos.usbManager:usbManager.releaseInterface
    */
   function releaseInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
   /**
    * Sets the device configuration.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the bus number and device address.
-   * @param { USBConfig } config - device configuration.
-   * @returns { number } returns **0** if the device configuration is successfully set; returns an error code otherwise.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and device
+   * configuration, call [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @param { USBConfig } config - USB configuration to set.
+   * @returns { number } Returns **0** if the USB configuration is successfully set; returns an error code otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#setConfiguration
+   * @useinstead @ohos.usbManager:usbManager.setConfiguration
    */
   function setConfiguration(pipe: USBDevicePipe, config: USBConfig): number;
 
   /**
    * Sets a USB interface.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the bus number and device address.
-   * @param { USBInterface } iface - USB interface , which is used to determine the interface to set.
-   * @returns { number } returns **0** if the USB interface is successfully set; return an error code otherwise.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and interfaces, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter, and call
+   * [usb.claimInterface]{@link usb.claimInterface} to claim the USB interface.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @param { USBInterface } iface - USB interface to set.
+   * @returns { number } Returns **0** if the USB interface is successfully set; returns an error code otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#setInterface
+   * @useinstead @ohos.usbManager:usbManager.setInterface
    */
   function setInterface(pipe: USBDevicePipe, iface: USBInterface): number;
 
   /**
    * Obtains the raw USB descriptor.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the bus number and device address.
-   * @returns { Uint8Array } returns the raw descriptor data.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @returns { Uint8Array } Returns the raw USB descriptor if the operation is successful; returns **undefined**
+   *     otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getRawDescriptor
+   * @useinstead @ohos.usbManager:usbManager.getRawDescriptor
    */
   function getRawDescriptor(pipe: USBDevicePipe): Uint8Array;
 
   /**
    * Obtains the file descriptor.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the USB device.
-   * @returns { number } returns the file descriptor of the USB device.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - Device pipe, which is used to determine the bus number and device address.
+   * @returns { number } Returns the file descriptor of the USB device if the operation is successful; returns **-1**
+   *     otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#getFileDescriptor
+   * @useinstead @ohos.usbManager:usbManager.getFileDescriptor
    */
   function getFileDescriptor(pipe: USBDevicePipe): number;
 
   /**
    * Performs control transfer.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the USB device.
-   * @param { USBControlParams } controlparam - control transfer parameters.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } returns the size of the transmitted or received data block if the control transfer is successful;
-   * return -1 if an exception occurs.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the USB device.
+   * @param { USBControlParams } controlparam - Control transfer parameters.
+   * @param { number } [timeout] - Timeout duration in ms. This parameter is optional. The default value is **0**,
+   *     indicating no timeout.
+   * @returns { Promise<number> } Promise used to return the result, which is the size of the transmitted or received
+   *     data block if the transfer is successful, or **-1** if an exception has occurred.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#controlTransfer
+   * @useinstead @ohos.usbManager:usbManager.controlTransfer
    */
   function controlTransfer(pipe: USBDevicePipe, controlparam: USBControlParams, timeout?: number): Promise<number>;
 
   /**
    * Performs bulk transfer.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the USB device.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list and endpoints, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter, and call
+   * [usb.claimInterface]{@link usb.claimInterface} to claim the USB interface.
+   *
+   * @param { USBDevicePipe } pipe - USB device pipe, which is used to determine the USB device.
    * @param { USBEndpoint } endpoint - USB endpoint, which is used to determine the USB port for data transfer.
-   * @param { Uint8Array } buffer - buffer for writing or reading data.
-   * @param { number } [timeout] - timeout duration. This parameter is optional. The default value is **0**, indicating no timeout.
-   * @returns { Promise<number> } the size of the transmitted or received data block if the control transfer is successful;
-   * return -1 if an exception occurs.
+   * @param { Uint8Array } buffer - Buffer for writing or reading data.
+   * @param { number } [timeout] - Timeout duration in ms. This parameter is optional. The default value is **0**,
+   *     indicating no timeout.
+   * @returns { Promise<number> } Promise used to return the result, which is the size of the transmitted or received
+   *     data block if the transfer is successful, or **-1** if an exception has occurred.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#bulkTransfer
+   * @useinstead @ohos.usbManager:usbManager.bulkTransfer
    */
   function bulkTransfer(
     pipe: USBDevicePipe,
@@ -281,473 +337,438 @@ declare namespace usb {
   /**
    * Closes a USB device pipe.
    *
-   * @param { USBDevicePipe } pipe - device pipe , which is used to determine the USB device.
-   * @returns { number } returns **0** if the USB device pipe is closed successfully; return an error code otherwise.
+   * Before you do this, call [usb.getDevices]{@link usb.getDevices} to obtain the USB device list, call
+   * [usb.requestRight]{@link usb.requestRight} to request the device access permission, and call
+   * [usb.connectDevice]{@link usb.connectDevice} to obtain **devicepipe** as an input parameter.
+   *
+   * @param { USBDevicePipe } pipe - USB device pipe.
+   * @returns { number } Returns **0** if the USB device pipe is closed successfully; returns an error code otherwise.
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager#closePipe
+   * @useinstead @ohos.usbManager:usbManager.closePipe
    */
   function closePipe(pipe: USBDevicePipe): number;
 
   /**
-   * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through USBInterface.
+   * Represents the USB endpoint from which data is sent or received. You can obtain the USB endpoint through
+   * [USBInterface]{@link usb.USBInterface}.
    *
-   * @typedef USBEndpoint
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBEndpoint
+   * @useinstead @ohos.usbManager:usbManager.USBEndpoint
    */
   interface USBEndpoint {
     /**
-     * Endpoint address
+     * Endpoint address.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#address
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.address
      */
     address: number;
 
     /**
-     * Endpoint attributes
+     * Endpoint attributes.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#attributes
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.attributes
      */
     attributes: number;
 
     /**
-     * Endpoint interval
+     * Endpoint interval.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#interval
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.interval
      */
     interval: number;
 
     /**
-     * Maximum size of data packets on the endpoint
+     * Maximum size of data packets on the endpoint.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#maxPacketSize
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.maxPacketSize
      */
     maxPacketSize: number;
 
     /**
-     * Endpoint direction
+     * Endpoint direction.
      *
-     * @type { USBRequestDirection }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#direction
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.direction
      */
     direction: USBRequestDirection;
 
     /**
-     * Endpoint number
+     * Endpoint number.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#number
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.number
      */
     number: number;
 
     /**
-     * Endpoint type
+     * Endpoint type.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#type
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.type
      */
     type: number;
 
     /**
-     * Unique ID defined by {@link USBInterface.id}, which indicates the interface to which the endpoint belongs
+     * Unique ID of the interface to which the endpoint belongs.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBEndpoint#interfaceId
+     * @useinstead @ohos.usbManager:usbManager.USBEndpoint.interfaceId
      */
     interfaceId: number;
   }
 
   /**
-   * Represents a USB interface. One config can contain multiple **USBInterface** instances, each providing a specific function.
+   * Represents a USB interface. One [USBConfig]{@link usb.USBConfig} can contain multiple **USBInterface** instances,
+   * each providing a specific function.
    *
-   * @typedef USBInterface
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBInterface
+   * @useinstead @ohos.usbManager:usbManager.USBInterface
    */
   interface USBInterface {
     /**
-     * Unique ID of the USB interface
+     * Unique ID of the USB interface.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#id
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.id
      */
     id: number;
 
     /**
-     * Interface protocol
+     * Interface protocol.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#protocol
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.protocol
      */
     protocol: number;
 
     /**
-     * Device type
+     * Device type.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#clazz
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.clazz
      */
     clazz: number;
 
     /**
-     * Device subclass
+     * Device subclass.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#subClass
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.subClass
      */
     subClass: number;
 
     /**
-     * Alternation between descriptors of the same USB interface
+     * Settings for alternating between descriptors of the same USB interface.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#alternateSetting
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.alternateSetting
      */
     alternateSetting: number;
 
     /**
-     * Interface name
+     * Interface name.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#name
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.name
      */
     name: string;
 
     /**
-     * USBEndpoint that belongs to the USB interface
+     * Endpoints that belong to the USB interface.
      *
-     * @type { Array<USBEndpoint> }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBInterface#endpoints
+     * @useinstead @ohos.usbManager:usbManager.USBInterface.endpoints
      */
     endpoints: Array<USBEndpoint>;
   }
 
   /**
-   * USB configuration. One USBDevice can contain multiple USBConfig instances.
+   * Represents the USB configuration. One [USBDevice]{@link usb.USBDevice} can contain multiple **USBConfig**
+   * instances.
    *
-   * @typedef USBConfig
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBConfiguration
+   * @useinstead @ohos.usbManager:usbManager.USBConfiguration
    */
   interface USBConfig {
     /**
-     * Unique ID of the USB configuration
+     * Unique ID of the USB configuration.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#id
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.id
      */
     id: number;
 
     /**
-     * Configuration attributes
+     * Configuration attributes.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#attributes
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.attributes
      */
     attributes: number;
 
     /**
-     * Maximum power consumption, in mA
+     * Maximum power consumption, in mA.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#maxPower
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.maxPower
      */
     maxPower: number;
 
     /**
-     * Configuration name, which can be left empty
+     * Configuration name, which can be left empty.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#name
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.name
      */
     name: string;
 
     /**
-     * Support for remote wakeup
+     * Support for remote wakeup.
      *
-     * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#isRemoteWakeup
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.isRemoteWakeup
      */
     isRemoteWakeup: boolean;
 
     /**
-     * Support for independent power supplies
+     * Support for independent power supplies.
      *
-     * @type { boolean }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#isSelfPowered
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.isSelfPowered
      */
     isSelfPowered: boolean;
 
     /**
-     * Supported interface
+     * Supported interface attributes.
      *
-     * @type { Array<USBInterface> }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBConfiguration#interfaces
+     * @useinstead @ohos.usbManager:usbManager.USBConfiguration.interfaces
      */
     interfaces: Array<USBInterface>;
   }
 
   /**
-   * Represents a USB device.
+   * Represents the USB device information.
    *
-   * @typedef USBDevice
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBDevice
+   * @useinstead @ohos.usbManager:usbManager.USBDevice
    */
   interface USBDevice {
     /**
-     * Bus address
+     * Bus address.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#busNum
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.busNum
      */
     busNum: number;
 
     /**
-     * Device address
+     * Device address.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#devAddress
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.devAddress
      */
     devAddress: number;
 
     /**
-     * Device SN
+     * Sequence number.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#serial
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.serial
      */
     serial: string;
 
     /**
-     * Device name
+     * Device name.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#name
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.name
      */
     name: string;
 
     /**
-     * Device manufacturer
+     * Device manufacturer.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#manufacturerName
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.manufacturerName
      */
     manufacturerName: string;
 
     /**
-     * Product information
+     * Product name.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#productName
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.productName
      */
     productName: string;
 
     /**
-     * Product version
+     * Version.
      *
-     * @type { string }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#version
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.version
      */
     version: string;
 
     /**
-     * Vendor ID
+     * Vendor ID.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#vendorId
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.vendorId
      */
     vendorId: number;
 
     /**
-     * Product ID
+     * Product ID.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#productId
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.productId
      */
     productId: number;
 
     /**
-     * Device class
+     * Device class.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#clazz
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.clazz
      */
     clazz: number;
 
     /**
-     * Device subclass
+     * Device subclass.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#subClass
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.subClass
      */
     subClass: number;
 
     /**
-     * Device protocol code
+     * Device protocol code.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#protocol
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.protocol
      */
     protocol: number;
 
     /**
-     * Device configuration descriptor information
+     * Device configuration descriptor information.
      *
-     * @type { Array<USBConfig> }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevice#configs
+     * @useinstead @ohos.usbManager:usbManager.USBDevice.configs
      */
     configs: Array<USBConfig>;
   }
 
   /**
-   * Represents a USB device pipe, which is used to determine the USB device.
+   * Represents a USB device pipe, which is used to determine a USB device.
    *
-   * @typedef USBDevicePipe
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBDevicePipe
+   * @useinstead @ohos.usbManager:usbManager.USBDevicePipe
    */
   interface USBDevicePipe {
     /**
      * Bus address.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevicePipe#busNum
+     * @useinstead @ohos.usbManager:usbManager.USBDevicePipe.busNum
      */
     busNum: number;
 
     /**
-     * Device address
+     * Device address.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBDevicePipe#devAddress
+     * @useinstead @ohos.usbManager:usbManager.USBDevicePipe.devAddress
      */
     devAddress: number;
   }
@@ -755,12 +776,11 @@ declare namespace usb {
   /**
    * Enumerates power role types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.PowerRoleType
+   * @useinstead @ohos.usbManager:usbManager.PowerRoleType
    */
   export enum PowerRoleType {
     /**
@@ -770,29 +790,29 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PowerRoleType#NONE
+     * @useinstead @ohos.usbManager:usbManager.PowerRoleType.NONE
      */
     NONE = 0,
 
     /**
-     * External power supply
+     * External power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PowerRoleType#SOURCE
+     * @useinstead @ohos.usbManager:usbManager.PowerRoleType.SOURCE
      */
     SOURCE = 1,
 
     /**
-     * Internal power supply
+     * Internal power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PowerRoleType#SINK
+     * @useinstead @ohos.usbManager:usbManager.PowerRoleType.SINK
      */
     SINK = 2
   }
@@ -800,12 +820,11 @@ declare namespace usb {
   /**
    * Enumerates data role types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.DataRoleType
+   * @useinstead @ohos.usbManager:usbManager.DataRoleType
    */
   export enum DataRoleType {
     /**
@@ -815,42 +834,41 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.DataRoleType#NONE
+     * @useinstead @ohos.usbManager:usbManager.DataRoleType.NONE
      */
     NONE = 0,
 
     /**
-     * Host mode
+     * USB host.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.DataRoleType#HOST
+     * @useinstead @ohos.usbManager:usbManager.DataRoleType.HOST
      */
     HOST = 1,
 
     /**
-     * Device mode
+     * USB device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.DataRoleType#DEVICE
+     * @useinstead @ohos.usbManager:usbManager.DataRoleType.DEVICE
      */
     DEVICE = 2
   }
 
   /**
-   * Enumerates port mode types
+   * Enumerates USB port mode types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.PortModeType
+   * @useinstead @ohos.usbManager:usbManager.PortModeType
    */
   export enum PortModeType {
     /**
@@ -860,147 +878,140 @@ declare namespace usb {
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PortModeType#NONE
+     * @useinstead @ohos.usbManager:usbManager.PortModeType.NONE
      */
     NONE = 0,
 
     /**
-     * Upstream facing port, which functions as the sink of power supply
+     * Upstream facing port, which functions as the sink of power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PortModeType#UFP
+     * @useinstead @ohos.usbManager:usbManager.PortModeType.UFP
      */
     UFP = 1,
 
     /**
-     * Downstream facing port, which functions as the source of power supply
+     * Downstream facing port, which functions as the source of power supply.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PortModeType#DFP
+     * @useinstead @ohos.usbManager:usbManager.PortModeType.DFP
      */
     DFP = 2,
 
     /**
-     * Dynamic reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported currently.
+     * Dynamic reconfiguration port (DRP), which can function as the DFP (host) or UFP (device). It is not supported
+     * currently.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PortModeType#DRP
+     * @useinstead @ohos.usbManager:usbManager.PortModeType.DRP
      */
     DRP = 3,
 
     /**
-     * Not supported currently
+     * Not supported currently.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.PortModeType#NUM_MODES
+     * @useinstead @ohos.usbManager:usbManager.PortModeType.NUM_MODES
      */
     NUM_MODES = 4
   }
 
   /**
-   * Enumerates USB device port roles.
+   * Enumerates USB port roles.
    *
-   * @typedef USBPortStatus
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBPortStatus
+   * @useinstead @ohos.usbManager:usbManager.USBPortStatus
    */
   interface USBPortStatus {
     /**
-     * USB mode
+     * Current USB mode.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentMode
+     * @useinstead @ohos.usbManager:usbManager.USBPortStatus.currentMode
      */
     currentMode: number;
 
     /**
-     * Power role
+     * Current power role.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentPowerRole
+     * @useinstead @ohos.usbManager:usbManager.USBPortStatus.currentPowerRole
      */
     currentPowerRole: number;
 
     /**
-     * Data role
+     * Current data role.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPortStatus#currentDataRole
+     * @useinstead @ohos.usbManager:usbManager.USBPortStatus.currentDataRole
      */
     currentDataRole: number;
   }
 
   /**
-   * Represents a USB device port.
+   * Represents a USB port.
    *
-   * @typedef USBPort
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBPort
+   * @useinstead @ohos.usbManager:usbManager.USBPort
    */
   interface USBPort {
     /**
-     * Unique ID of the USB port
+     * Unique identifier of a USB port.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPort#id
+     * @useinstead @ohos.usbManager:usbManager.USBPort.id
      */
     id: number;
 
     /**
-     * Mask combination for the supported mode list of the USB port
+     * Numeric mask combination for the supported mode list.
      *
-     * @type { PortModeType }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPort#supportedModes
+     * @useinstead @ohos.usbManager:usbManager.USBPort.supportedModes
      */
     supportedModes: PortModeType;
 
     /**
-     * USB port role
+     * USB port role.
      *
-     * @type { USBPortStatus }
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBPort#status
+     * @useinstead @ohos.usbManager:usbManager.USBPort.status
      */
     status: USBPortStatus;
   }
@@ -1008,127 +1019,119 @@ declare namespace usb {
   /**
    * Represents control transfer parameters.
    *
-   * @typedef USBControlParams
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBControlParams
+   * @useinstead @ohos.usbManager:usbManager.USBControlParams
    */
   interface USBControlParams {
     /**
-     * Request type
+     * Request type.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#request
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.request
      */
     request: number;
 
     /**
-     * Request target type
+     * Request target type.
      *
-     * @type { USBRequestTargetType }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#target
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.target
      */
     target: USBRequestTargetType;
 
     /**
-     * Control request type
+     * Control request type.
      *
-     * @type { USBControlRequestType }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#reqType
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.reqType
      */
     reqType: USBControlRequestType;
 
     /**
-     * Request parameter value
+     * Request parameter value.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#value
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.value
      */
     value: number;
 
     /**
-     * Index of the parameter value
+     * Index of the request parameter value.
      *
-     * @type { number }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#index
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.index
      */
     index: number;
 
     /**
-     * Data written to or read from the buffer
+     * Buffer for writing or reading data.
      *
-     * @type { Uint8Array }
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlParams#data
+     * @useinstead @ohos.usbManager:usbManager.USBControlParams.data
      */
     data: Uint8Array;
   }
 
   /**
-   * Enumerates USB request target types.
+   * Enumerates request target types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBRequestTargetType
+   * @useinstead @ohos.usbManager:usbManager.USBRequestTargetType
    */
   export enum USBRequestTargetType {
     /**
-     * USB device
+     * Device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_DEVICE
+     * @useinstead @ohos.usbManager:usbManager.USBRequestTargetType.USB_REQUEST_TARGET_DEVICE
      */
     USB_REQUEST_TARGET_DEVICE = 0,
 
     /**
-     * USB interface
+     * Interface.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_INTERFACE
+     * @useinstead @ohos.usbManager:usbManager.USBRequestTargetType.USB_REQUEST_TARGET_INTERFACE
      */
     USB_REQUEST_TARGET_INTERFACE = 1,
 
     /**
-     * Endpoint
+     * Endpoint.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_ENDPOINT
+     * @useinstead @ohos.usbManager:usbManager.USBRequestTargetType.USB_REQUEST_TARGET_ENDPOINT
      */
     USB_REQUEST_TARGET_ENDPOINT = 2,
 
     /**
-     * Others
+     * Other.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestTargetType#USB_REQUEST_TARGET_OTHER
+     * @useinstead @ohos.usbManager:usbManager.USBRequestTargetType.USB_REQUEST_TARGET_OTHER
      */
     USB_REQUEST_TARGET_OTHER = 3
   }
@@ -1136,40 +1139,39 @@ declare namespace usb {
   /**
    * Enumerates control request types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBControlRequestType
+   * @useinstead @ohos.usbManager:usbManager.USBControlRequestType
    */
   export enum USBControlRequestType {
     /**
-     * Standard
+     * Standard.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_STANDARD
+     * @useinstead @ohos.usbManager:usbManager.USBControlRequestType.USB_REQUEST_TYPE_STANDARD
      */
     USB_REQUEST_TYPE_STANDARD = 0,
 
     /**
-     * Class
+     * Class.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_CLASS
+     * @useinstead @ohos.usbManager:usbManager.USBControlRequestType.USB_REQUEST_TYPE_CLASS
      */
     USB_REQUEST_TYPE_CLASS = 1,
 
     /**
-     * Vendor
+     * Vendor.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBControlRequestType#USB_REQUEST_TYPE_VENDOR
+     * @useinstead @ohos.usbManager:usbManager.USBControlRequestType.USB_REQUEST_TYPE_VENDOR
      */
     USB_REQUEST_TYPE_VENDOR = 2
   }
@@ -1177,152 +1179,150 @@ declare namespace usb {
   /**
    * Enumerates request directions.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.USBRequestDirection
+   * @useinstead @ohos.usbManager:usbManager.USBRequestDirection
    */
   export enum USBRequestDirection {
     /**
-     * Request for writing data from the host to the device
+     * Request for writing data from the host to the device.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestDirection#USB_REQUEST_DIR_TO_DEVICE
+     * @useinstead @ohos.usbManager:usbManager.USBRequestDirection.USB_REQUEST_DIR_TO_DEVICE
      */
     USB_REQUEST_DIR_TO_DEVICE = 0,
 
     /**
-     * Request for reading data from the device to the host
+     * Request for reading data from the device to the host.
      *
      * @syscap SystemCapability.USB.USBManager
      * @since 8 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.USBRequestDirection#USB_REQUEST_DIR_FROM_DEVICE
+     * @useinstead @ohos.usbManager:usbManager.USBRequestDirection.USB_REQUEST_DIR_FROM_DEVICE
      */
     USB_REQUEST_DIR_FROM_DEVICE = 0x80
   }
 
   /**
-   * Enumerates function modes.
+   * Enumerates USB device function types.
    *
-   * @enum { number }
    * @syscap SystemCapability.USB.USBManager
    * @systemapi
    * @since 9 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.usbManager/usbManager.FunctionType
+   * @useinstead @ohos.usbManager:usbManager.FunctionType
    */
   export enum FunctionType {
     /**
-     * None
+     * No function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#NONE
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.NONE
      */
     NONE = 0,
 
     /**
-     * Serial port device
+     * ACM function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#ACM
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.ACM
      */
     ACM = 1,
 
     /**
-     * Ethernet port device
+     * ECM function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#ECM
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.ECM
      */
     ECM = 2,
 
     /**
-     * HDC device
+     * HDC function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#HDC
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.HDC
      */
     HDC = 4,
 
     /**
-     * MTP device
+     * Media transmission.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#MTP
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.MTP
      */
     MTP = 8,
 
     /**
-     * PTP device
+     * Image transmission.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#PTP
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.PTP
      */
     PTP = 16,
 
     /**
-     * RNDIS device
+     * Network sharing.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#RNDIS
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.RNDIS
      */
     RNDIS = 32,
 
     /**
-     * MIDI device
+     * MIDI function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#MIDI
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.MIDI
      */
     MIDI = 64,
 
     /**
-     * Audio source device
+     * Audio function.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#AUDIO_SOURCE
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.AUDIO_SOURCE
      */
     AUDIO_SOURCE = 128,
 
     /**
-     * NCM device
+     * NCM transmission.
      *
      * @syscap SystemCapability.USB.USBManager
      * @systemapi
      * @since 9 dynamiconly
      * @deprecated since 9
-     * @useinstead ohos.usbManager/usbManager.FunctionType#NCM
+     * @useinstead @ohos.usbManager:usbManager.FunctionType.NCM
      */
     NCM = 256
   }

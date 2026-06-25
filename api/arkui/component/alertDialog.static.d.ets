@@ -19,7 +19,7 @@
  */
 import { ResourceStr, ResourceColor, VoidCallback, Offset, Dimension, BorderRadiuses, LocalizedBorderRadiuses, EdgeWidths, LocalizedEdgeWidths, EdgeColors, LocalizedEdgeColors, EdgeStyles } from './units';
 import { WordBreak, DialogButtonStyle, BorderStyle } from './enums';
-import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
+import { Rectangle, BlurStyle, Callback, TransitionEffect, ShadowOptions, ShadowStyle, HoverModeAreaType, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, DistortionMode, EdgeLightMode } from './common';
 import { LevelOrder, ImmersiveMode, LevelMode } from '../../@ohos.promptAction';
 import { DismissDialogAction } from './actionSheet';
 import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
@@ -615,6 +615,26 @@ export declare interface AlertDialogParam {
      * @since 26.0.0 static
      */
     systemMaterial?: SystemUiMaterial;
+    /**
+     * Sets the distortion animation Mode of the dialog.
+     *
+     * @default DistortionMode.DISTORTION_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    distortionMode?: DistortionMode;
+    /**
+     * Sets the edgeLight animation Mode of the dialog.
+     *
+     * @default EdgeLightMode.EDGELIGHT_AUTO
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    edgeLightMode?: EdgeLightMode;
 }
 /**
  * Defines the AlertDialog with confirm button.

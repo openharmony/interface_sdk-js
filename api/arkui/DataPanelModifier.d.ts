@@ -18,35 +18,21 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines DataPanel Modifier
  *
- * @extends DataPanelAttribute
- * @implements AttributeModifier<DataPanelAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines DataPanel Modifier
- *
- * @extends DataPanelAttribute
- * @implements AttributeModifier<DataPanelAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class DataPanelModifier extends DataPanelAttribute implements AttributeModifier<DataPanelAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { DataPanelAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

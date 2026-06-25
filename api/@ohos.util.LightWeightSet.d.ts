@@ -96,9 +96,6 @@ declare class LightWeightSet<T> {
    * @returns { boolean } Operation result. The value **true** is returned if the element is added; otherwise, **false**
    *     is returned.
    * @throws { BusinessError } 10200011 - The addAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -113,9 +110,6 @@ declare class LightWeightSet<T> {
    * @returns { boolean } Check result. The value **true** is returned if all the elements in the specified
    *     LightWeightSet are contained; otherwise, **false** is returned.
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -161,10 +155,6 @@ declare class LightWeightSet<T> {
    *
    * @param { int } minimumCapacity - Minimum number of elements to accommodate in this LightWeightSet.
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @throws { BusinessError } 10200001 - The value of minimumCapacity is out of range.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -204,7 +194,7 @@ declare class LightWeightSet<T> {
   /**
    * Deletes an object of a specified Object type from an LightWeightSet container
    *
-   * @param { T } key - key key Target to be deleted
+   * @param { T } key - The key of the element to remove
    * @returns { T | undefined } the removed value if it was present, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -221,9 +211,6 @@ declare class LightWeightSet<T> {
    * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
    *     **false** is returned.
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -249,9 +236,6 @@ declare class LightWeightSet<T> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -324,9 +308,6 @@ declare class LightWeightSet<T> {
    *     , 2147483647.
    * @returns { T } Value obtained.
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -337,7 +318,7 @@ declare class LightWeightSet<T> {
   /**
    * Obtains the object at the location  identified by index in an LightWeightSet container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index position to retrieve the value from
    * @returns { T | undefined } the value at the specified index, or undefined if the index out of range
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform

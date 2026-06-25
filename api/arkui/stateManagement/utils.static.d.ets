@@ -1,4 +1,4 @@
-'use static'
+'use static';
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,13 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
 
 import { MonitorValueCallback, MonitorCallback, IMonitorDecoratedVariable, IVariableOwner } from './decorator';
+
 import { CustomComponentLifecycle } from '../component/customComponent';
+
+import { WrappedBuilder, CustomBuilder } from '../component/builder';
+
 /**
  * UIUtils is a state management tool class for operating the observed data.
  *
@@ -28,13 +33,13 @@ import { CustomComponentLifecycle } from '../component/customComponent';
  * @since 23 static
  */
 export declare class UIUtils {
+
   /**
-   * Get raw object from the Object, like builtin type, objectLiteral.
-   * If input parameter is a regular Object without proxy, return Object itself.
+   * Get raw object from the Object wrapped with an ObservedObject.
+   * If input parameter is a regular Object without ObservedObject, return Object itself.
    *
    * @param { T } source input source Object data.
-   * @returns { T } raw object.
-   * @static
+   * @returns { T } raw object from the Object wrapped with an ObservedObject.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -43,19 +48,31 @@ export declare class UIUtils {
 
   /**
    * Make non-observed data into observed data.
-   * Support builtin type and objectLiteral.
+   * Support built-in type and objectLiteral.
    *
    * @param { T } source - input source object data.
    * @returns { T } proxy object from the source object data.
-   * @stagemodelonly
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
-   static makeObserved<T extends object | null | undefined>(source: T): T;
+  static makeObserved<T extends object | null | undefined>(source: T): T;
 
-   /**
-   * Creates read-only data binding.
+  /**
+   * Make non-observed data into observed data.
+   * Support built-in type and objectLiteral.
    *
+   * @param { T } source - input source object data.
+   * @param { boolean } allowDeep - enable deep observable.
+   * @returns { T } proxy object from the source object data.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static makeObserved<T extends object | null | undefined>(source: T, allowDeep: boolean): T;
+
+  /**
+   * Creates read-only data binding.
    *
    * Example. UIUtils.makeBinding<number>(()=>this.num);
    *
@@ -64,7 +81,6 @@ export declare class UIUtils {
    *
    * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
    * @returns { Binding<T> } read-only data binding value
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -84,9 +100,8 @@ export declare class UIUtils {
    * If provided, a MutableBinding is created.
    *
    * @param { GetterCallback<T> } getter - A value or a function that returns the current value of type T.
-   * @param { SetterCallback<T> } setter - A function to set a new value of type T. 
+   * @param { SetterCallback<T> } setter - A function to set a new value of type T.
    * @returns { MutableBinding<T> } mutable data binding value
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -101,30 +116,43 @@ export declare class UIUtils {
    * @param { MonitorOptions } [options] the monitor configuration.
    * @returns { IMonitorDecoratedVariable } monitor handle.
    * @throws { BusinessError } 130000 - options.owner is not ComponentV2 struct.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  static addMonitor(valueCallback: MonitorValueCallback | MonitorValueCallback[],
+  static addMonitor(valueCallback: MonitorValueCallback | MonitorValueCallback[], 
     monitorCallback: MonitorCallback, options?: MonitorOptions): IMonitorDecoratedVariable;
-  
+
   /**
-   * Dynamically clear monitor callback for state varaible change.
+   * Dynamically add monitor for state variable change.
    *
-   * @param { IMontiorDecoratedVariable } monitor handle
-   * @static
+   * @param { MonitorValueInfo | MonitorValueInfo[] } valueInfo - monitored change for state variable.
+   * @param { MonitorCallback } monitorCallback - the function triggered when state variable changes.
+   * @param { MonitorBaseOptions } [options] - the monitor configuration.
+   * @returns { IMonitorDecoratedVariable } monitor handle.
+   * @throws { BusinessError } 130000 - options.owner is not ComponentV2 struct.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static addMonitor(valueInfo: MonitorValueInfo | MonitorValueInfo[], 
+    monitorCallback: MonitorCallback, options?: MonitorBaseOptions): IMonitorDecoratedVariable;
+
+  /**
+   * Dynamically clear monitor callback for state variable change.
+   *
+   * @param { IMonitorDecoratedVariable } monitor handle
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   static clearMonitor(monitor: IMonitorDecoratedVariable): void;
+
   /**
    * Determine whether the data object is observable and return the observation result.
    *
    * @param { T } source - input source object data.
    * @returns { ObservedResult } return result of whether a class is observable.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -136,18 +164,27 @@ export declare class UIUtils {
    *
    * @param { T } customComponent - custom component instance
    * @returns { CustomComponentLifecycle } the lifecycle that the custom component belong to .
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
   static getLifecycle<T extends IVariableOwner>(customComponent: T): CustomComponentLifecycle;
+
+  /**
+   * Get the custom component context.
+   *
+   * @param { T } customComponent - custom component instance
+   * @returns { CustomComponentContext } current custom component's context handle.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  static getCustomComponentContext<T extends IVariableOwner>(customComponent: T): CustomComponentContext;
 }
 
 /**
  * Getter callback type. It is used to get value.
  *
- * @typedef { function } GetterCallback
  * @returns { T }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -158,7 +195,6 @@ export declare type GetterCallback<T> = () => T;
 /**
  * Setter callback type. It is used to assign a new value.
  *
- * @typedef { function } SetterCallback
  * @param { T } newValue - update the value with newValue.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -169,14 +205,17 @@ export declare type SetterCallback<T> = (newValue: T) => void;
 /**
  * Represents a read-only data binding.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class Binding<T> {
+
   /**
    * Get function that can acquire the value.
-   * @returns T
+   *
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -187,21 +226,26 @@ export declare class Binding<T> {
 /**
  * Represents a mutable data binding allowing both read and write operations.
  * Use with @Builder argument list for primitive types. Use makeBinding to pass values when calling the function.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class MutableBinding<T> {
+
   /**
    * Get function that can acquire the value.
-   * @returns T
+   *
+   * @returns { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   get value(): T;
+
   /**
    * Set function that can set the new value.
+   *
    * @param { T } newValue new value
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -213,17 +257,16 @@ export declare class MutableBinding<T> {
 /**
  * Define Monitor options.
  *
- * @interface MonitorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface MonitorOptions {
+
   /**
    * Used to determine whether the state variable change is
-   * triggered synchronously orasynchronously. The default value is false.
-   * 
-   * @type { ?boolean } isSynchronous parameter
+   * triggered synchronously or asynchronously. The default value is false.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -235,7 +278,6 @@ export declare interface MonitorOptions {
    * Used to handle component freezing.
    * If not set, component freezing won't affect the monitor.
    *
-   * @type { ?IVariableOwner } owner - custom component
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -244,7 +286,7 @@ export declare interface MonitorOptions {
 
   /**
    * Override path for each valueCallback element.
-   * @type { ? (string | string[]) }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -255,18 +297,17 @@ export declare interface MonitorOptions {
 /**
  * The return result that defines whether the object data is observable.
  *
- * @interface ObservedResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export interface ObservedResult {
+
   /**
    * Whether the object data of class/Array/Map/Set/Date type is observable.
    * if true, the object data can be observed.
    * if false, the object data can not be not observed.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -281,14 +322,13 @@ export interface ObservedResult {
    * 2.2 The object data is decorated with V2 @ObservedV2 and @Trace.
    * 2.3 The object data is object literal decorated with V1 decorators or wrapped by makeObserved.
    * 2.4 The object data is built-in type data (Array/Map/Set/Date)
-   *     decorated with V1/V2 decorators or wrapped by makeObserved.
+   * decorated with V1/V2 decorators or wrapped by makeObserved.
    * 2.5 The object data is decorated with @Observed, but not used in UI.
    * 2.6 The object data is decorated with V2 @ObservedV2 and @Trace, but not used in UI.
    * 2.7 The object data is object literal decorated with V1 decorators or wrapped by makeObserved, but not used in UI.
    * 2.8 The object data is built-in type data (Array/Map/Set/Date)
-   *     decorated with V1/V2 decorators or wrapped by makeObserved, but not used in UI.
+   * decorated with V1/V2 decorators or wrapped by makeObserved, but not used in UI.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -299,7 +339,6 @@ export interface ObservedResult {
    * The UI component information associated with the object data.
    * If the data object can not be observed, will return empty array.
    *
-   * @type { DecoratorInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -310,16 +349,15 @@ export interface ObservedResult {
 /**
  * The UI component information associated with the object data.
  *
- * @interface DecoratorInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export interface DecoratorInfo {
+
   /**
    * Decorator name of the object data.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -329,7 +367,6 @@ export interface DecoratorInfo {
   /**
    * State Variable name of the object data.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -340,7 +377,6 @@ export interface DecoratorInfo {
    * The custom component name that the object data belongs to.
    * In the V1 scenario, return the custom component name, in the V2 @ObservedV2 scenario, return class name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -351,7 +387,6 @@ export interface DecoratorInfo {
    * The custom component id that the object data belongs to.
    * In the V1 scenario, return the custom component id, in the V2 @ObservedV2 scenario, return -1.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -365,7 +400,6 @@ export interface DecoratorInfo {
    * For V2 scenario, if it is not used in the UI, nor on @Monitor or @Computed, return an empty array.
    * For V1 scenario, if it is not used in the UI, will return an empty array.
    *
-   * @type { ElementInfo[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -378,18 +412,17 @@ export interface DecoratorInfo {
  * For the V2 @Monitor or @Computed scenario, The id and decorated function name by @Monitor
  * or @Computed will be returned.
  *
- * @interface ElementInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static
  */
 export interface ElementInfo {
+
   /**
    * Dependent custom component and UI component name.
    * For the V2 @Monitor or @Computed scenario, elementName refers to the name of the decorator and
    * the function name decorated with @Monitor or @Computed.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
@@ -401,10 +434,377 @@ export interface ElementInfo {
    * For the V2 @Monitor or @Computed scenario, elementId refers to the id of
    * the @Monitor or @Computed.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 24 static
    */
   elementId: int;
+}
+
+/**
+ * Define MonitorValueInfo.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MonitorValueInfo {
+
+  /**
+   * the function triggered when state variable changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  valueCallback: MonitorValueCallback;
+
+  /**
+   * Override path.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  path?: string;
+
+  /**
+   * Enable property observation.
+   * Set to true to enable property observation, and set to false to disable it.
+   * Default value is false.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  observeProps?: boolean;
+}
+
+/**
+ * Define MonitorBaseOptions.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface MonitorBaseOptions {
+
+  /**
+   * Used to determine whether the state variable change is
+   * triggered synchronously or asynchronously. The default value is false.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isSynchronous?: boolean;
+
+  /**
+   * Used to handle component freezing.
+   * If not set, component freezing won't affect the monitor.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  owner?: IVariableOwner;
+}
+
+/**
+ * IReusePool is a reuse pool interface for custom component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IReusePool {
+
+  /**
+   * Get IReusableInfo for given Component/V2 in the pool.
+   *
+   * @param { Class } componentConstructor - @ReusableV2 @ComponentV2 or @Reusable @Component.
+   * @param { string } [reuseId] - the reuse-id.
+   * @returns { IReusableInfo[] | IReusableInfo | undefined } undefined if this pool does not accepts
+   *     given Component.
+   *     returns IReusableInfo if this pool accepts given Component/V2, reuseId was not used to recycle instances
+   *     returns IReusableInfo[] if this pool accepts given Component/V2, reuseId was used to recycle instances.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getReusableInfo(componentConstructor : Class, 
+    reuseId?: string): IReusableInfo[] | IReusableInfo | undefined;
+
+  /**
+   * The preRender function pre-render n instances and add to pool.
+   *
+   * @param { WrappedBuilder<CustomBuilder> } builder - builder a WrappedBuilder containing a @Builder
+   *     function that accepts no parameter.
+   * @param { int } times - number of times to exec the given @Builder function.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  preRender(builder: WrappedBuilder<CustomBuilder>, times: int): Promise<void>;
+}
+
+/**
+ * IReusableInfo is a reuse pool information interface for custom component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IReusableInfo {
+
+  /**
+   * Current number of @Reuseable/V2 component instances in pool.
+   * count is usually <= maxCount. It is allowed to be larger for short time
+   * because pool clean happens asynchronously.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly count: int;
+
+  /**
+   * Maximum number of permissible @Reusable/V2 component instances.
+   * The default is 100. The maximal value is 200.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  maxCount: int;
+
+  /**
+   * Reuse id.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  readonly reuseId? : string;
+}
+
+/**
+ * CustomComponentContext is a state management tool for operating the observed data.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface CustomComponentContext {
+
+  /**
+   * Get global reuse pool from current custom component.
+   *
+   * @returns { IReusePool | undefined } Returns the recyclepool instance.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  getReusePool(): IReusePool | undefined;
+
+  /**
+   * Register active and inactive callback.
+   *
+   * @param { ActiveAndInactiveCallbackType } [active] - active function callback.
+   * @param { ActiveAndInactiveCallbackType } [inactive] - inactive function callback.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  registerActiveAndInactiveCallback(active?: ActiveAndInactiveCallbackType,
+    inactive?: ActiveAndInactiveCallbackType): void;
+}
+
+/**
+ * Defines active and inactive function callback.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export type ActiveAndInactiveCallbackType = () => void;
+
+/**
+ * Observable Array base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedArray<T> extends Array<T> {
+
+  /**
+   * No arg constructor for observable array.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Elements constructor for observable array.
+   *
+   * @param { T } first - first element.
+   * @param { T[] } d - more elements.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(first: T, ...d: T[]);
+
+  /**
+   * Array length and initializer constructor for observable array.
+   *
+   * @param { int } arrayLen - initial array length
+   * @param { ObservedArrayInitializer<T> } initializer - element initializer.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(arrayLen: int, initializer: ObservedArrayInitializer<T>);
+}
+
+/**
+ * Array initializer Type.
+ *
+ * @param { int } index - initializer index.
+ * @returns { T } array element.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+type ObservedArrayInitializer<T> = (index: int) => T;
+
+/**
+ * Observable Date base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedDate extends Date {
+
+  /**
+   * No arg constructor for observable date.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable date.
+   *
+   * @param { long | string | Date } value - initial value.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(value: long | string | Date);
+}
+
+/**
+ * Observable Map base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedMap<K, V> extends Map<K, V> {
+
+  /**
+   * No arg constructor for observable Map.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { int } initialCapacity - initial capacity
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(initialCapacity: int);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { [K, V][] } entries - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(entries: [K, V][]);
+
+  /**
+   * Constructor for observable Map.
+   *
+   * @param { Map<K, V> } map - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(map: Map<K, V>);
+}
+
+/**
+ * Observable Set base class.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare class ObservedSet<K> extends Set<K> {
+
+  /**
+   * No arg constructor for observable Set.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor();
+
+  /**
+   * Constructor for observable Set.
+   *
+   * @param { int } bucketsCount - buckets count
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(bucketsCount: int);
+
+  /**
+   * Constructor for observable Set.
+   *
+   * @param { K[] } values - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(values: K[]);
+
+  /**
+   * Constructor for observable Set.
+   *
+   * @param { Set<K> } set - initial entries.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  public constructor(set: Set<K>);
 }

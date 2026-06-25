@@ -1,5 +1,5 @@
-'use static'
 
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -21,16 +22,17 @@
 
 import { IDataSource } from '@ohos.arkui.component';
 
+import { IDataSource } from './arkui/component/lazyForEach';
+
 /**
  * Implement this interface to provide data prefetching for the LazyForEach component.
  *
- * @extends IDataSource<T>
- * @interface IDataSourcePrefetching
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
+
   /**
    * Prefetches data for the specified element in the data collection.
    * This method can be either synchronous or asynchronous.
@@ -59,12 +61,12 @@ export declare interface IDataSourcePrefetching<T> extends IDataSource<T> {
 /**
  * Implement this interface to provide prefetcher logic.
  *
- * @interface IPrefetcher
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface IPrefetcher<T> {
+
   /**
    * Sets the data source to bind to this prefetcher.
    *
@@ -94,12 +96,12 @@ export interface IPrefetcher<T> {
  * and changes in the duration of the prefetching. It also determines which prefetch requests
  * should be canceled based on user scrolling actions.
  *
- * @implements IPrefetcher<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
+
   /**
    * Constructs a basic prefetcher instance and optionally sets the data source.
    *
@@ -130,4 +132,4 @@ export declare class BasicPrefetcher<T> implements IPrefetcher<T> {
    * @since 23 static
    */
   visibleAreaChanged(minVisible: int, maxVisible: int): void;
-}
+}

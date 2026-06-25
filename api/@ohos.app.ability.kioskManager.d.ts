@@ -22,11 +22,11 @@ import UIAbilityContext from './application/UIAbilityContext';
 import { KioskStatus as _KioskStatus } from './application/KioskStatus';
 
 /**
- * The KioskManager module provides APIs to manage kiosk mode, including entering/exiting kiosk mode and querying the 
+ * The KioskManager module provides APIs to manage kiosk mode, including entering/exiting kiosk mode and querying the
  * kiosk mode status.
- * 
+ *
  * Kiosk mode is a dedicated device lockdown mode that ensures the device UI serves only specific interaction scenarios.
- * In this mode, device usage is confined to predetermined applications. A typical example is a bank ATM, where users 
+ * In this mode, device usage is confined to predetermined applications. A typical example is a bank ATM, where users
  * can only interact with the ATM software and cannot exit it or access any other functions.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
@@ -37,7 +37,7 @@ import { KioskStatus as _KioskStatus } from './application/KioskStatus';
 declare namespace kioskManager {
   /**
    * Enters kiosk mode. This API uses a promise to return the result.
-   * This API can be properly called only on phones, PC/2-in-1 devices, and tablets. On other devices, it returns the 
+   * This API can be properly called only on phones, PC/2-in-1 devices, and tablets. On other devices, it returns the
    * error code 801.
    *
    * @param { UIAbilityContext } context - Context of the UIAbility that needs to enter kiosk mode.
@@ -57,7 +57,7 @@ declare namespace kioskManager {
   /**
    * Exits kiosk mode. This API uses a promise to return the result.
    * This API takes effect only for applications that have entered kiosk mode.
-   * This API can be properly called only on phones, PC/2-in-1 devices, and tablets. On other devices, it returns the 
+   * This API can be properly called only on phones, PC/2-in-1 devices, and tablets. On other devices, it returns the
    * error code 801.
    *
    * @param { UIAbilityContext } context - Context of the UIAbility that needs to exit kiosk mode.
@@ -74,7 +74,7 @@ declare namespace kioskManager {
   function exitKioskMode(context: UIAbilityContext): Promise<void>;
 
   /**
-   * Obtains the Kiosk mode status information, including whether the system is in kiosk mode, and the name and UID of 
+   * Obtains the Kiosk mode status information, including whether the system is in kiosk mode, and the name and UID of
    * the application that has entered Kiosk mode. This API uses a promise to return the result.
    *
    * @returns { Promise<KioskStatus> } Promise used to return the kiosk mode status information.
@@ -90,7 +90,7 @@ declare namespace kioskManager {
   function getKioskStatus(): Promise<KioskStatus>;
 
   /**
-   * Defines the kiosk status information, including whether the system is in kiosk mode and the information about the 
+   * Defines the kiosk status information, including whether the system is in kiosk mode and the information about the
    * application in kiosk mode.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core

@@ -79,7 +79,7 @@ declare namespace update {
   function getLocalUpdater(): LocalUpdater;
 
   /**
-   * Define a tool class for updating the system online.
+   * Defines a tool class for updating the system online.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.
@@ -91,7 +91,7 @@ declare namespace update {
      * Checks whether a new version is available. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<CheckResult> } callback - Callback used to return the result.
+     * @param { AsyncCallback<CheckResult> } callback - Callback used to return the package check result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -106,7 +106,7 @@ declare namespace update {
      * Checks whether a new version is available. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<CheckResult> } Promise used to return the result.
+     * @returns { Promise<CheckResult> } Promise used to return the package check result.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -121,7 +121,7 @@ declare namespace update {
      * Obtains information about the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<NewVersionInfo> } callback - Callback used to return the new version information.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -136,7 +136,7 @@ declare namespace update {
      * Obtains information about the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<NewVersionInfo> } Promise used to return the result.
+     * @returns { Promise<NewVersionInfo> } Promise used to return the new version information.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -148,12 +148,13 @@ declare namespace update {
     getNewVersionInfo(): Promise<NewVersionInfo>;
 
     /**
-     * Obtains the description file of the new version. This API uses an asynchronous callback to return the result.
+     * Obtains the description of the new version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the description of the
+     *     new version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -170,12 +171,12 @@ declare namespace update {
     ): void;
 
     /**
-     * Obtains the description file of the new version. This API uses a promise to return the result.
+     * Obtains the description of the new version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
+     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the description of the new version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -194,7 +195,8 @@ declare namespace update {
      * Obtains information about the current version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<CurrentVersionInfo> } callback - Callback used to return information about the current
+     *     version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -209,7 +211,7 @@ declare namespace update {
      * Obtains information about the current version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<CurrentVersionInfo> } Promise used to return the result.
+     * @returns { Promise<CurrentVersionInfo> } Promise used to return information about the current version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -221,11 +223,12 @@ declare namespace update {
     getCurrentVersionInfo(): Promise<CurrentVersionInfo>;
 
     /**
-     * Obtains the description file of the current version. This API uses an asynchronous callback to return the result.
+     * Obtains the description of the current version. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the result.
+     * @param { AsyncCallback<Array<ComponentDescription>> } callback - Callback used to return the description of the
+     *     current version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -241,11 +244,11 @@ declare namespace update {
     ): void;
 
     /**
-     * Obtains the description file of the current version. This API uses a promise to return the result.
+     * Obtains the description of the current version. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { DescriptionOptions } descriptionOptions - Options of the description file.
-     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the result.
+     * @returns { Promise<Array<ComponentDescription>> } Promise used to return the description of the current version.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -261,7 +264,7 @@ declare namespace update {
      * Obtains information about the update task. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return the result.
+     * @param { AsyncCallback<TaskInfo> } callback - Callback used to return information about the update task.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -276,7 +279,7 @@ declare namespace update {
      * Obtains information about the update task. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<TaskInfo> } Promise used to return the result.
+     * @returns { Promise<TaskInfo> } Promise used to return information about the update task.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -293,8 +296,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { DownloadOptions } downloadOptions - Download options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the download is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -334,8 +337,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ResumeDownloadOptions } resumeDownloadOptions - Options for resuming download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the download is resumed
+     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -375,8 +378,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { PauseDownloadOptions } pauseDownloadOptions - Options for pausing download.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the download is paused
+     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -416,8 +419,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { UpgradeOptions } upgradeOptions - Update options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the update is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -448,14 +451,14 @@ declare namespace update {
     upgrade(versionDigestInfo: VersionDigestInfo, upgradeOptions: UpgradeOptions): Promise<void>;
 
     /**
-     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
+     * Clears errors. If an exception occurs during version download or installation, the update package and update 
      * status are cleared. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
      * @param { ClearOptions } clearOptions - Clear options.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If errors are cleared successfully,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -468,12 +471,12 @@ declare namespace update {
     clearError(versionDigestInfo: VersionDigestInfo, clearOptions: ClearOptions, callback: AsyncCallback<void>): void;
 
     /**
-     * Clears errors. If an exception occurs during version download or installation, the upgrade package and upgrade 
+     * Clears errors. If an exception occurs during version download or installation, the update package and update 
      * status are cleared. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { VersionDigestInfo } versionDigestInfo - Version digest information.
-     * @param { ClearOptions } clearOptions - Update options.
+     * @param { ClearOptions } clearOptions - Clear options.
      * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
@@ -490,7 +493,7 @@ declare namespace update {
      * Obtains the update policy. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the result.
+     * @param { AsyncCallback<UpgradePolicy> } callback - Callback used to return the update policy.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -505,7 +508,7 @@ declare namespace update {
      * Obtains the update policy. This API uses a promise to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @returns { Promise<UpgradePolicy> } Promise used to return the result.
+     * @returns { Promise<UpgradePolicy> } Promise used to return the update policy.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -521,7 +524,8 @@ declare namespace update {
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradePolicy } policy - Update policy.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the upgrade policy is set
+     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -552,8 +556,8 @@ declare namespace update {
      * Terminates the update. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.UPDATE_SYSTEM
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the update is terminated
+     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -619,9 +623,8 @@ declare namespace update {
      * Clears the user data partition. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation fails, **err** is
-     *     an error object and a callback is returned. If the operation is successful, **err** is undefined and no
-     *     callback is returned.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the factory reset is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -636,8 +639,7 @@ declare namespace update {
      * Clears the user data partition. This API uses a promise to return the result.
      *
      * @permission ohos.permission.FACTORY_RESET
-     * @returns { Promise<void> } Promise that returns no value. If the operation fails, a callback is returned. If the
-     *     operation is successful, no callback is returned.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 11500104 - IPC error.
@@ -711,7 +713,8 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - Update file.
      * @param { string } certsFile - Path of the certificate file.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the verification is successful,
+     *     **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -729,7 +732,7 @@ declare namespace update {
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { UpgradeFile } upgradeFile - Update file.
      * @param { string } certsFile - Path of the certificate file.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -746,8 +749,8 @@ declare namespace update {
      *
      * @permission ohos.permission.UPDATE_SYSTEM
      * @param { Array<UpgradeFile> } upgradeFiles - Update file.
-     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-     *     **err** is **undefined**; otherwise, **err** is an **Error** object.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result. If the update package is installed
+     *     successfully, **err** is **undefined**; otherwise, **err** is an error object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
      * @throws { BusinessError } 401 - Parameter verification failed.
@@ -1604,7 +1607,13 @@ declare namespace update {
    */
   export interface FactoryResetStrategy {
     /**
-     * Reset scope.
+     * Reset scope.Available values:
+     *
+     * - DATA: Indicates "quick erase", erasing only the user data partition (app data, user settings, account info, etc.).
+     *   Factory reset takes less time.
+     *
+     * - DATA_AND_OS: Indicates "deep erase", erasing both the user data partition and the system partition.
+     *   Factory reset takes longer time.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1614,7 +1623,9 @@ declare namespace update {
     scope: FactoryResetScope;
 
     /**
-     * Reset strategy.
+     * Reset scope description, providing supplementary details for the scope field.
+     * A meaningful value must be provided to match the corresponding erase scenario. If left empty, logs will lack effective information 
+     * when anomalies occur, increasing troubleshooting difficulty.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1664,7 +1675,7 @@ declare namespace update {
    */
   export interface FactoryResetInfo {
     /**
-     * Duration required for restoring factory settings.
+     * Duration required for restoring factory settings, in seconds.
      *
      * @syscap SystemCapability.Update.UpdateService
      * @systemapi hide for inner use.
@@ -1748,7 +1759,7 @@ declare namespace update {
   }
 
   /**
-   * Enumerates update actions.
+   * Represents an update mode.
    *
    * @syscap SystemCapability.Update.UpdateService
    * @systemapi hide for inner use.

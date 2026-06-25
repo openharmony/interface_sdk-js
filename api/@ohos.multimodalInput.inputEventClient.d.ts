@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021-2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -358,7 +358,7 @@ declare namespace inputEventClient {
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is already pressed and is not the most recently
-     *     pressed key.
+     *     pressed key, or the number of pressed keys exceeds 5.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -416,12 +416,14 @@ declare namespace inputEventClient {
      *
      * @permission ohos.permission.CONTROL_DEVICE
      * @param { int } displayId - The target display id.
-     *     The value should be an integer.
+     *     The value should be an integer, If the value exceeds the valid display range,
+     *     the actual coordinate will be clamped to the valid range [0, display width - 1].
      * @param { int } displayX - The X coordinate of the target position relative to the left edge of the display.
      *     The value should be an integer.
      *     <br>Unit:px.
      * @param { int } displayY - The Y coordinate of the target position relative to the top edge of the display.
-     *     The value should be an integer.
+     *     The value should be an integer, If the value exceeds the valid display range,
+     *     the actual coordinate will be clamped to the valid range [0, display height - 1].
      *     <br>Unit:px.
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
@@ -476,7 +478,7 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The axis event in progress.
+     * @throws { BusinessError } 4300001 - The axis event is in progress.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -606,7 +608,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The touch point is touching the display.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:<br>
+     *     1. The touch point is touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 4300002 - The display does not exist.
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
@@ -623,7 +626,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The touch point is not touching the display.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:<br>
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -639,7 +643,8 @@ declare namespace inputEventClient {
      * @returns { Promise<void> } Promise object, which returns no result.
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
-     * @throws { BusinessError } 4300001 - The touch point is not touching the display.
+     * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:<br>
+     *     1. The touch point is not touching the display; 2. The touch point ID is not within the valid range [0,9].
      * @throws { BusinessError } 3800001 - Input service exception.
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly

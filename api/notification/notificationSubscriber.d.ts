@@ -14,6 +14,9 @@
  */
 
 /**
+ * The **NotificationSubscriber** module provides callbacks for receiving or 
+ * removing notifications and serves as the input parameter of [subscribe]{@link @ohos.notificationSubscribe}.
+ * 
  * @file Provides methods that will be called back when the subscriber receives a new notification or a notification is canceled
  * @kit NotificationKit
  */
@@ -192,10 +195,22 @@ export interface NotificationSubscriber {
    * @since 23 dynamic&static
    */
   onSystemUpdate?: SystemUpdateCallback;
+
+  /**
+   * Returns the notification switch state change set by the interface of
+   * [notificationManager.setNotificationSwitch]{@link
+   * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  onNotificationSwitchChanged?: NotificationSwitchChangedCallback;
 }
 
 /**
- * Defines the SystemUpdateCallback callback.
+ * Notification information that carries the system property value.
  * 
  * @syscap SystemCapability.Notification.Notification
  * @systemapi
@@ -254,6 +269,29 @@ export interface SubscribeCallbackData {
    * @since 23 static
    */
   readonly vibrationValues?: Array<long>;
+
+  /**
+   * Generated voice content for audio playback.
+   * Only present when voiceContentoptions.enabled is true in NotificationSubscribeInfo.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly voiceContent?: VoiceContent;
+
+  /**
+   * Notification classification information. Only exists if the
+   * [NotificationSubscribeInfo.enableClassification]{@link
+   * notificationSubscribeInfo:NotificationSubscribeInfo.enableClassification} is true.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly notificationClassification?: NotificationClassification;
 }
 
 /**
@@ -475,12 +513,62 @@ export interface BadgeEnabledChangedCallback {
   /**
    * Callback used to return the listened badge enabling state.
    *
-   * @param { EnabledNotificationCallbackData } data
+   * @param { EnabledNotificationCallbackData } data - Notification information that carries the system property value.
    * @syscap SystemCapability.Notification.Notification
    * @systemapi
    * @since 12 dynamic
    */
   (data: EnabledNotificationCallbackData): void;
+}
+
+/**
+ * Describes the generated voice content for notification.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContent {
+  /**
+   * The voice content text for audio playback.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly textContent?: string;
+}
+
+/**
+ * Describes the notification classification information.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationClassification {
+  /**
+   * Classification of the notification identified by the system.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly classification?: string;
+
+  /**
+   * Sub-classification of the notification identified by the system.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly subClassification?: string;
 }
 
 /**
@@ -519,3 +607,60 @@ export type SystemUpdateCallback = (data: SubscribeCallbackData) => void;
  * @since 24 dynamic&static
  */
 export type EnabledSilentReminderChangedCallback = (callbackData: EnabledSilentReminderCallbackData) => void;
+
+/**
+ * Register the callback function type for notification switch state changes set by the interface of
+ * [notificationManager.setNotificationSwitch]{@link
+ * ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+ *
+ * @param { NotificationSwitchChangedCallbackData } callbackData - The callback returns information about the status
+ *     change of the notification switch set by the interface of
+ *     [notificationManager.setNotificationSwitch]{@link ../@ohos.notificationManager:notificationManager.setNotificationSwitch}.
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export type NotificationSwitchChangedCallback = (callbackData: NotificationSwitchChangedCallbackData) => void;
+ 
+/**
+ * Describes the notification switch state changes callback data.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface NotificationSwitchChangedCallbackData {
+  /**
+   * User ID.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly userId: int;
+
+  /**
+   * Notification switch name. Values ​​are: DEAL (transaction-related notification aggregation switch) and LOGISTICS
+   * (logistics-related notification aggregation switch).
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly switchName: string;
+
+  /**
+   * Notification switch state.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly enableStatus: notificationManager.SwitchState;
+}

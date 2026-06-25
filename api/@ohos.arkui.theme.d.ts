@@ -65,6 +65,42 @@ export declare interface Colors {
     * @since 12 dynamic
     */
     brand: ResourceColor;
+
+    /**
+    * System primary Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
+    primary?: ResourceColor;
+
+    /**
+    * System onPrimary Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
+    onPrimary?: ResourceColor;
+
+    /**
+    * System container Color.
+    *
+    * @type { ?ResourceColor }
+    * @syscap SystemCapability.ArkUI.ArkUI.Full
+    * @stagemodelonly
+    * @crossplatform
+    * @atomicservice
+    * @since 26.0.0 dynamic
+    */
+    container?: ResourceColor;
     
     /**
     * System warning Color.

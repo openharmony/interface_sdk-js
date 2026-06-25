@@ -19,68 +19,39 @@
  */
 
 /**
- * Indicates the information of the route page.
+ * Route information.
  *
- * @interface RouteInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Indicates the information of the route page.
- *
- * @interface RouteInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 10 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
  */
 declare interface RouteInfo {
+
   /**
-   * The name of the route page.
+   * Name of the navigation destination page to be redirected to.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The name of the route page.
-   *
-   * @type { string }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation.NavPathInfo#name
    */
   name: string;
 
   /**
-   * The detailed parameter of the route page.
+   * Parameter transferred during redirection.
    *
-   * @type { ?unknown }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The detailed parameter of the route page.
-   *
-   * @type { ?unknown }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation.NavPathInfo#param
    */
@@ -88,80 +59,45 @@ declare interface RouteInfo {
 }
 
 /**
- * The construct function of NavRouter.
+ * The **NavRouter** component provides default processing logic for responding to clicks, eliminating the need for
+ * manual logic definition.
  *
- * @interface NavRouterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * The construct function of NavRouter.
- *
- * @interface NavRouterInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * The construct function of NavRouter.
- *
- * @interface NavRouterInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
+ * @noninterop
  */
 declare interface NavRouterInterface {
+
   /**
    * Constructor.
    *
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Constructor.
-   *
-   * @returns { NavRouterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Constructor.
-   *
-   * @returns { NavRouterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 13
    * @useinstead NavDestinationAttribute
    */
   (): NavRouterAttribute;
 
   /**
-   * NavDestination Constructor.
+   * Provides route information so that clicking the **NavRouter** component redirects the user to the specified
+   * navigation destination page.
    *
-   * @param { RouteInfo } value - Indicates the information of route page.
+   *
+   *
+   * @param { RouteInfo } value - Route information.
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * NavDestination Constructor.
-   *
-   * @param { RouteInfo } value - Indicates the information of route page.
-   * @returns { NavRouterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation#NavPathInfo
    */
@@ -169,169 +105,109 @@ declare interface NavRouterInterface {
 }
 
 /**
- * Define the route mode.
+ * Defines the routing policy.
  *
- * @enum { number }
+ * > **NOTE**
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Define the route mode.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @atomicservice [since 11]
+ * @since 10 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
  */
 declare enum NavRouteMode {
-  /**
-   * Create a new page to replace the current. The old page is destroyed but kept in the stack for recreating. 
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Create a new page to replace the current. The old page is destroyed but kept in the stack for recreating. 
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
-   * @deprecated since 13
-   * @useinstead Navigation#LaunchMode
-   */
-  PUSH_WITH_RECREATE,
 
   /**
-   * Create a new page to cover the current. The old page is remained and kept in the stack. 
+   * The new navigation destination page replaces the current one. The current page is destroyed, but the information
+   * about this page is retained in the navigation stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Create a new page to cover the current. The old page is remained and kept in the stack. 
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  PUSH,
+  PUSH_WITH_RECREATE = 0,
 
   /**
-   * Create a new page to replace the current. The old page is destroyed and removed out of the stack.
+   * The new navigation destination page overwrites the current one. The current page is not destroyed, and the
+   * information about this page is retained in the navigation stack.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Create a new page to replace the current. The old page is destroyed and removed out of the stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
-  REPLACE
+  PUSH = 1,
+
+  /**
+   * The new navigation destination page replaces the current one. The current page is destroyed, and the information
+   * about this page is removed from the navigation stack.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
+   * @deprecated since 13
+   * @useinstead Navigation#LaunchMode
+   */
+  REPLACE = 2
 }
 
 /**
- * The attribute function of NavRouter
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<NavRouterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * The attribute function of NavRouter
- *
- * @extends CommonMethod<NavRouterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * The attribute function of NavRouter
- *
- * @extends CommonMethod<NavRouterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
+ * @noninterop
  */
 declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
+
   /**
-   * Trigger callback when NavigationView state change.
+   * Called when the component activation status changes. **onStateChange(true)** is called when the **NavRouter**
+   * component is activated and its **NavDestination** child component is loaded. **onStateChange(false)** is called
+   * when the **NavDestination** child component is not displayed.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Component activation status. The value **true** means that component is activated,
+   *     and **false** means the opposite.
    * @returns { NavRouterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Trigger callback when NavigationView state change.
-   *
-   * @param { function } callback
-   * @returns { NavRouterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Trigger callback when NavigationView state change.
-   *
-   * @param { function } callback
-   * @returns { NavRouterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 13
    * @useinstead NavDestination#onShown
    */
   onStateChange(callback: (isActivated: boolean) => void): NavRouterAttribute;
 
   /**
-   * Define the route mode.
+   * Sets the route mode used for redirecting the user from the **NavRouter** component to the specified navigation
+   * destination page.
    *
-   * @param { NavRouteMode } mode - The route mode of the NavRouter.
+   * > **NOTE**
+   *
+   * @param { NavRouteMode } mode - Route mode used for redirection.<br>Default value:
+   *     **NavRouteMode.PUSH_WITH_RECREATE**
    * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the route mode.
-   *
-   * @param { NavRouteMode } mode - The route mode of the NavRouter.
-   * @returns { NavRouterAttribute } Returns the instance of the NavRouterAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation#LaunchMode
    */
@@ -339,27 +215,36 @@ declare class NavRouterAttribute extends CommonMethod<NavRouterAttribute> {
 }
 
 /**
- * Defines NavRouter Component.
+ * The **NavRouter** component provides default processing logic for responding to clicks, eliminating the need for
+ * manual logic definition.
+ *
+ * > **NOTE**
+ * >
+ * > This component is deprecated since API version 13. You are advised to use [NavPathStack]{@link NavPathStack} in
+ * > conjunction with the **navDestination** attribute for page routing.
+ *
+ * ###### Child Components
+ *
+ * This component must contain two child components, the second of which must be
+ * [NavDestination]{@link nav_destination}.
+ *
+ * > **NOTE**
+ * >
+ * > 1. If there is only one child component, the navigation to the **NavDestination** component does not work.
+ * >
+ * > 2. If there is only the **NavDestination** child component, the navigation does not work.
+ * >
+ * > 3. If there are more than two child components, the excess child components are not displayed.
+ * >
+ * > 4. If the second child component is not **NavDestination**, the navigation does not work.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines NavRouter Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines NavRouter Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
+ * @noninterop
  */
 declare const NavRouter: NavRouterInterface;
 
@@ -367,23 +252,11 @@ declare const NavRouter: NavRouterInterface;
  * Defines NavRouter Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines NavRouter Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines NavRouter Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation#NavPathStack and navDestination
+ * @noninterop
  */
 declare const NavRouterInstance: NavRouterAttribute;

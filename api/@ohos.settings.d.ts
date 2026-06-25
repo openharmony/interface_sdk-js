@@ -1334,6 +1334,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function enableAirplaneMode(enable: boolean, callback: AsyncCallback<void>): void;
 
@@ -1346,6 +1347,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function enableAirplaneMode(enable: boolean): Promise<void>;
 
@@ -1356,6 +1358,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function canShowFloating(callback: AsyncCallback<boolean>): void;
 
@@ -1367,6 +1370,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 7 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function canShowFloating(): Promise<boolean>;
 
@@ -1378,6 +1382,7 @@ declare namespace settings {
    * @syscap SystemCapability.Applications.Settings.Core
    * @since 8 dynamic
    * @since 23 static
+   * @deprecated since 26.0.0
    */
   function getUriSync(name: string): string;
 

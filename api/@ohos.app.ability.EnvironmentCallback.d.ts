@@ -21,77 +21,41 @@
 import AbilityConstant from './@ohos.app.ability.AbilityConstant';
 import { Configuration } from './@ohos.app.ability.Configuration';
 
-/*** if arkts dynamic */
 /**
- * The environment callback.
+ * The EnvironmentCallback module provides capabilities to listen for system environment changes.
  *
  * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @since 9
- */
-/**
- * The environment callback.
- *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 26.0.0]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 export default class EnvironmentCallback {
-/*** endif */
 
-/*** if arkts static */
-/**
- * The environment callback.
- *
- * @typedef EnvironmentCallback
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @atomicservice
- * @since 23 static
- */
-declare interface EnvironmentCallback {
-/*** endif */
   /**
-   * Called when the system configuration is updated.
+   * Called when the system configuration changes, after 
+   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   * .
    *
-   * @param { Configuration } config - Indicates the updated configuration.
+   * @param { Configuration } config - Configuration object after the change.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called when the system configuration is updated.
-   *
-   * @param { Configuration } config - Indicates the updated configuration.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 23 static
+   * @stagemodelonly
+   * @crossplatform [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onConfigurationUpdated(config: Configuration): void;
 
   /**
-   * Called when the system has determined to trim the memory, for example, when the ability is running in the
-   * background and there is no enough memory for running as many background processes as possible.
+   * Called when the system memory level changes, after 
+   * [a listener has been registered for such events]{@link ./application/ApplicationContext:ApplicationContext#on(type: 'environment', callback: EnvironmentCallback)}
+   * .
    *
-   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
+   * @param { AbilityConstant.MemoryLevel } level - Memory level, indicating the available memory of the entire device.
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @since 9
-   */
-  /**
-   * Called when the system has determined to trim the memory, for example, when the ability is running in the
-   * background and there is no enough memory for running as many background processes as possible.
-   *
-   * @param { AbilityConstant.MemoryLevel } level - Indicates the memory trim level, which shows the current memory usage status.
-   * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore
-   * @StageModelOnly
-   * @atomicservice
-   * @since 11 dynamic
-   * @since 23 static
+   * @stagemodelonly
+   * @crossplatform [since 26.0.0]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   onMemoryLevel(level: AbilityConstant.MemoryLevel): void;
 }
-
-/*** if arkts static */
-export default EnvironmentCallback;
-/*** endif */

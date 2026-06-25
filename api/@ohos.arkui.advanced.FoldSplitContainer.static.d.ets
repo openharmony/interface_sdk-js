@@ -173,12 +173,11 @@ export interface FoldedRegionLayoutOptions {
 /**
  * Preset split ratio.
  *
- * @enum { double }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
-export declare enum PresetSplitRatio {
+export declare enum PresetSplitRatio: double {
   /**
    * 1:1
    *

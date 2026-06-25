@@ -19,9 +19,13 @@
  */
 
 /**
- * Options used to construct the stack.
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. The
+ * > initial version information of the historical anonymous objects has been retained, which may result in the outer
+ * > element's @since version number being later than the inner element's version number. However, this does not affect
+ * > the use of the API.
  *
- * @interface StackOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,49 +35,14 @@
  */
 declare interface StackOptions {
   /**
-   * Set the alignment of sub components within the container.
-   *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the alignment of sub components within the container.
-   *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the alignment of sub components within the container.
-   *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the alignment of sub components within the container.
-   *
-   * @type { ?Alignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
    * Alignment of child components in the container.
+   * Default value: Alignment.Center.
+   * <br>Invalid values are treated as the default value.
    *
-   * Anonymous Object Rectification
-   * @type { ?Alignment }
-   * @default Alignment.Center
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
    * @since 18 dynamic
    */
   alignContent?: Alignment;
@@ -82,155 +51,62 @@ declare interface StackOptions {
 /**
  * Provides ports for stacking containers.
  *
- * @interface StackInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides ports for stacking containers.
- *
- * @interface StackInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides ports for stacking containers.
- *
- * @interface StackInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides ports for stacking containers.
- *
- * @interface StackInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface StackInterface {
   /**
-   * Set the value.
+   * > **NOTE**
+   * >
+   * > Excessive component nesting can lead to performance degradation. In some scenarios, using component attributes 
+   * > directly or leveraging system APIs can achieve the same effect as the stack container, reducing the number of 
+   * > nested components and optimizing performance. For best practices, see 
+   * > [Preferentially Using Component Properties Instead of Nested Components](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-component-nesting-optimization#section78181114123811)
+   * > .
    *
-   * @param { object } value
+   * @param { object } value [since 7 - 17]
+   * @param { ?StackOptions } options - Alignment of child components in the container. [since 18]
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value.
-   *
-   * @param { object } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the options.
-   *
-   * Anonymous Object Rectification
-   * @param { ?StackOptions } options - stack options
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: StackOptions): StackAttribute;
 }
 
 /**
- * @extends CommonMethod<StackAttribute>
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ *
+ * The [universal events]{@link CommonMethod} are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * @extends CommonMethod<StackAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * @extends CommonMethod<StackAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * @extends CommonMethod<StackAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class StackAttribute extends CommonMethod<StackAttribute> {
   /**
-   * Called when the occupancy of items in the container is set.
+   * Sets the alignment of child components in the container. When both this attribute and the
+   * [align]{@link CommonMethod#align} attribute are set, whichever is set last takes effect. When this attribute and
+   * the constructor input parameters are set simultaneously, the attribute setting prevails.
    *
-   * @param { Alignment } value
+   * @param { Alignment } value - Alignment of child components in the container
+   *     <br>Default value: **Alignment.Center**.
+   *     <br>Invalid values are treated as the default value.
    * @returns { StackAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the occupancy of items in the container is set.
-   *
-   * @param { Alignment } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the occupancy of items in the container is set.
-   *
-   * @param { Alignment } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the alignment of items in the container is set.
-   *
-   * @param { Alignment } value
-   * @returns { StackAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   alignContent(value: Alignment): StackAttribute;
 
@@ -250,10 +126,11 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
    * Set whether to synchronously load child nodes within one frame.
    *
    * @param { boolean } enable - Whether to synchronously load child nodes within one frame.
-   *     <br>Default value: <em>true</em>
+   *     <br>Default value: **true**
    * @returns { StackAttribute } The attribute of the Stack.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -261,34 +138,22 @@ declare class StackAttribute extends CommonMethod<StackAttribute> {
 }
 
 /**
- * Defines Stack Component.
+ * The **Stack** component provides a stack container where child components are successively stacked and the latter one
+ * overwrites the previous one.
+ * > **NOTE**
+ * >
+ * > - The general attribute [align]{@link CommonMethod#align} supports the mirroring capability on this component.
+ * >
+ * > **Child Components**
+ * >
+ * > Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Stack Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Stack Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Stack Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Stack: StackInterface;
 
@@ -296,30 +161,10 @@ declare const Stack: StackInterface;
  * Defines Stack Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Stack Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Stack Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Stack Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const StackInstance: StackAttribute;

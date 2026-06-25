@@ -66,19 +66,12 @@ declare class StartOptions {
   /**
    * The type of displayId
    *
-   * @type { ?number }
+   * @type { ?number } [since 9 - 10]
+   * @type { ?long } [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
-   * @since 9
-   */
-  /**
-   * The type of displayId
-   *
-   * @type { ?long }
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    * @since 23 static
    */
   displayId?: long;

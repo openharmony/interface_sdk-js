@@ -20,9 +20,8 @@
  */
 
 /**
- * EnvProps object
+ * Defining the EnvPropsOptions interface
  *
- * @interface EnvPropsOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -32,7 +31,6 @@ export declare interface EnvPropsOptions {
   /**
    * Property name of Environment variable
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -42,7 +40,6 @@ export declare interface EnvPropsOptions {
   /**
    * DefaultValue is the default value if cannot get the environment property value
    *
-   * @type { int | long | double | string | boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -58,6 +55,7 @@ export declare interface EnvPropsOptions {
  * @since 23 static
  */
 export declare class Environment {
+
   /**
    * Creates a new property in AppStorage. The UI framework implementation takes care of updating
    * its value whenever the named device environment property changes. Recommended use is at app startup.
@@ -67,7 +65,6 @@ export declare class Environment {
    * @param { string } key - environment property
    * @param { T } value - is the default value if cannot get the environment property value
    * @returns { boolean } false if method failed
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -78,7 +75,6 @@ export declare class Environment {
    * Called when multiple property values are added to Environment.
    *
    * @param { EnvPropsOptions[] } props environment parameter
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -86,10 +82,9 @@ export declare class Environment {
   static envProps(props: EnvPropsOptions[]): void;
 
   /**
-   * returns an Array<string> of all environment property keys
+   * returns an array of all environment property keys
    *
    * @returns { Array<string> } all environment property keys
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static

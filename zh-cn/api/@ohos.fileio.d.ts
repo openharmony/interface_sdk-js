@@ -306,7 +306,7 @@ declare function copyFile(
  * @syscap SystemCapability.FileManagement.File.FileIO
  * @since 6
  * @deprecated since 9
- * @useinstead  @ohos.file.fs:copyFileSync
+ * @useinstead @ohos.file.fs:copyFileSync
  */
 declare function copyFileSync(src: string | number, dest: string | number, mode?: number): void;
 /**
@@ -1744,7 +1744,7 @@ declare interface Dirent {
  */
 declare interface Stat {
   /**
-   * 文件的硬链接数。
+   * 标识包含该文件的主设备号。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -1816,7 +1816,7 @@ declare interface Stat {
    */
   readonly gid: number;
   /**
-   * 文件的硬链接数。
+   * 标识包含该文件的从设备号。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6
@@ -1833,7 +1833,7 @@ declare interface Stat {
    */
   readonly size: number;
   /**
-   * 文件的硬链接数。
+   * 文件占用的块数，计算时块大小按512B计算。
    *
    * @syscap SystemCapability.FileManagement.File.FileIO
    * @since 6

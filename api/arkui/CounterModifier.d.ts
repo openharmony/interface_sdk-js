@@ -18,35 +18,21 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines Counter Modifier
  *
- * @extends CounterAttribute
- * @implements AttributeModifier<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines Counter Modifier
- *
- * @extends CounterAttribute
- * @implements AttributeModifier<CounterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class CounterModifier extends CounterAttribute implements AttributeModifier<CounterAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { CounterAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

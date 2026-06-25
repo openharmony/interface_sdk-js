@@ -21,14 +21,12 @@
 import { CommonMethod } from './common';
 import { ResourceColor, ResourceStr } from "./units";
 import { Resource } from '../../global/resource';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier } from "./common";
 
 /**
  * Defines the QRCode component attributes.
  *
- * @extends CommonMethod
- * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -57,8 +55,10 @@ export declare interface QRCodeAttribute extends CommonMethod {
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
-     * @returns { QRCodeAttribute } the attribute of the QR code
+     *
+     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color.
+     *     The value is between 0 and 1, with a default value of 1.
+     * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -74,12 +74,23 @@ export declare interface QRCodeAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<QRCodeAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set QRCode options.
+     *
+     * @param { ResourceStr } value - qrcode string.
+     * @returns { QRCodeAttribute } Returns the instance of the QRCodeAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setQRCodeOptions(value: ResourceStr): this;
 }
 /**
  * Defines the QRCode component.
  *
  * @param { ResourceStr } value - qrcode string.
- * @returns { QRCodeAttribute } The attribute of the QRCode.
+ * @returns { QRCodeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -88,4 +99,19 @@ export declare interface QRCodeAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function QRCode(
     value: ResourceStr
+): QRCodeAttribute;
+
+/**
+ * Defines QRCode Component.
+ *
+ * @param { CustomBuilderT<QRCodeAttribute> } style - QRCode attribute instance
+ * @returns { QRCodeAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function QRCode(
+    style: CustomBuilderT<QRCodeAttribute>,
 ): QRCodeAttribute;

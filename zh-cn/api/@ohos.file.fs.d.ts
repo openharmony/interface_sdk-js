@@ -2974,7 +2974,7 @@ declare function renameSync(oldPath: string, newPath: string): void;
  * @throws { BusinessError } 13900014 - Device or resource busy
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900027 - Read-only file system
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
@@ -3002,7 +3002,7 @@ declare function rmdir(path: string): Promise<void>;
  * @throws { BusinessError } 13900014 - Device or resource busy
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900027 - Read-only file system
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
@@ -3029,7 +3029,7 @@ declare function rmdir(path: string, callback: AsyncCallback<void>): void;
  * @throws { BusinessError } 13900014 - Device or resource busy
  * @throws { BusinessError } 13900018 - Not a directory
  * @throws { BusinessError } 13900020 - Invalid argument
- * @throws { BusinessError } 13900027 - Read-only file system1
+ * @throws { BusinessError } 13900027 - Read-only file system
  * @throws { BusinessError } 13900030 - File name too long
  * @throws { BusinessError } 13900032 - Directory not empty
  * @throws { BusinessError } 13900042 - Unknown error
@@ -3399,9 +3399,8 @@ declare function unlinkSync(path: string): void;
 /**
  * 更改文件上次修改该文件的时间。
  *
- * @param { string } path - Application sandbox path of the file.
- * @param { number } mtime - New timestamp. The value is the number of milliseconds elapsed since
- *     <br>the Epoch time (00:00:00 UTC on January 1, 1970). Only the last access time of a file can be modified.
+ * @param { string } path - 文件的应用沙箱路径。
+ * @param { number } mtime - 待更新的时间戳。自1970年1月1日起至目标时间的毫秒数。仅支持更改上次修改该文件的时间属性。
  * @throws { BusinessError } 13900001 - Operation not permitted
  * @throws { BusinessError } 13900002 - No such file or directory
  * @throws { BusinessError } 13900012 - Permission denied

@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,10 +21,15 @@
  */
 
 import { IndicatorComponentController } from './indicatorcomponent';
+
 import { CommonMethod, Callback, ICurve, Bindable, AttributeModifier } from './common';
+
 import { EdgeEffect, Curve, PageFlipMode } from './enums';
+
 import { Length, LengthMetrics, VoidCallback, ResourceColor, VP, Font, ItemFillPolicy } from './units';
-import { ComponentBuilder, CustomBuilder } from './builder';
+
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+
 import { ScrollState } from "./list";
 
 /**
@@ -34,6 +40,7 @@ import { ScrollState } from "./list";
  * @since 23 static
  */
 export declare class SwiperController {
+
   /**
    * constructor.
    *
@@ -67,8 +74,8 @@ export declare class SwiperController {
    * @param { int | undefined } index - the index of item to be redirected, default value is 0,
    *     undefined means setting to default value.
    * @param { SwiperAnimationMode | boolean } [animationMode] - animation mode for changeIndex,
-   *     true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION,
-   *     false is equivalent to SwiperAnimationMode.NO_ANIMATION.
+   *     true is equivalent to SwiperAnimationMode.DEFAULT_ANIMATION, false is equivalent to
+   *     SwiperAnimationMode.NO_ANIMATION
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -92,9 +99,9 @@ export declare class SwiperController {
    *     default value is no swiper child to be preloaded, undefined means setting to default value.
    * @returns { Promise<void> } The promise returned by the function.
    * @throws { BusinessError } 401 - Parameter invalid. Possible causes:
-   * <br> 1. The parameter type is not Array<int>.
-   * <br> 2. The parameter is an empty array.
-   * <br> 3. The parameter contains an invalid index.
+   *     <br> 1. The parameter type is not Array<int>.
+   *     <br> 2. The parameter is an empty array.
+   *     <br> 3. The parameter contains an invalid index.
    * @throws { BusinessError } 100004 - Controller not bound to component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -106,7 +113,7 @@ export declare class SwiperController {
    * Start a fake drag.
    * Call 'fakeDragBy' to simulate the drag motion. Call 'stopFakeDrag' to complete the fake drag.
    * A fake drag can be interrupted by a real drag. If you need to ignore touch events and other
-   *     user input during a fake drag, use 'disableSwipe(true)'.
+   * user input during a fake drag, use 'disableSwipe(true)'.
    *
    * @returns { boolean } If the fake drag started successfully, return true.
    *     If the Swiper is not ready to start the fake drag, or a real or fake drag is already in progress, return false.
@@ -159,6 +166,7 @@ export declare class SwiperController {
  * @since 23 static
  */
 export declare class Indicator {
+
   /**
    * Set the indicator to the left.
    *
@@ -256,7 +264,6 @@ export declare class Indicator {
    * DotIndicator class object.
    *
    * @returns { DotIndicator }
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -267,7 +274,6 @@ export declare class Indicator {
    * DigitIndicator class object.
    *
    * @returns { DigitIndicator }
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -278,12 +284,12 @@ export declare class Indicator {
 /**
  * Define DotIndicator, the indicator type is dot.
  *
- * @extends Indicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class DotIndicator extends Indicator {
+
   /**
    * Constructor.
    *
@@ -405,16 +411,15 @@ export declare class DotIndicator extends Indicator {
 /**
  * Set Swiper column count adaptation.
  *
- * @typedef SwiperAutoFill
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperAutoFill {
+
   /**
    * Set minSize size.
    *
-   * @type { VP }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -425,12 +430,12 @@ export declare interface SwiperAutoFill {
 /**
  * Define DigitIndicator, the indicator type is digit.
  *
- * @extends Indicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare class DigitIndicator extends Indicator {
+
   /**
    * Constructor.
    *
@@ -492,16 +497,16 @@ export declare class DigitIndicator extends Indicator {
 /**
  * Arrow object.
  *
- * @interface ArrowStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ArrowStyle {
+
   /**
    * Is show the arrow background or not.
+   * Default value: false.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -512,8 +517,8 @@ export declare interface ArrowStyle {
   /**
    * When the indicator show, set the arrow position is side of the indicator or in the middle of content area.
    * The arrow is displayed on side of the indicator, if the value is false.
+   * Default value: false.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -524,8 +529,11 @@ export declare interface ArrowStyle {
   /**
    * The arrow background size.
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   * The percentage cannot be set.
+   * <br>Displays on either side of the navigation point:
+   * Default value: 24vp
+   * Displayed on both sides of the component:Default value: 32vp.
    *
-   * @type { ?Length }
    * @default When isSidebarMiddle is false, the default value is 24vp, Otherwise,the default value is 32vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -535,8 +543,8 @@ export declare interface ArrowStyle {
 
   /**
    * The arrow background background color.
+   * Default value: '# 00000000'.
    *
-   * @type { ?ResourceColor }
    * @default When isSidebarMiddle is false, the default value is #00000000, Otherwise, the default value is #19182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -548,8 +556,10 @@ export declare interface ArrowStyle {
    * The arrow size.
    * The arrow size can be set, when the background is not displayed.
    * The size of the arrow is three-quarters of the background size, when the background is displayed.
+   * When displayed on either side of a navigation point:
+   * Default value: 18vp
+   * When displayed on both sides of the component:Default value: 24vp.
    *
-   * @type { ?Length }
    * @default When isSidebarMiddle is false, the default value is 18vp, Otherwise, the default value is 24vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -559,8 +569,8 @@ export declare interface ArrowStyle {
 
   /**
    * The arrow color.
+   * Default value: '# 182431', Dark Grey.
    *
-   * @type { ?ResourceColor }
    * @default #182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -572,12 +582,12 @@ export declare interface ArrowStyle {
 /**
  * Declare the size of the swiper on the spindle.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum SwiperDisplayMode {
+
   /**
    * Carousel map extension.
    *
@@ -585,22 +595,22 @@ export declare enum SwiperDisplayMode {
    * @stagemodelonly
    * @since 23 static
    */
-  STRETCH
+  STRETCH = 0
 }
 
 /**
  * Provides an interface for swiper animation.
  *
- * @interface SwiperAnimationEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperAnimationEvent {
+
   /**
-   * Offset of the current page to the start position of the swiper main axis. The unit is vp.
+   * Offset of the current page to the start position of the swiper main axis.
+   * Unit: vp.
    *
-   * @type { double }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -609,9 +619,9 @@ export declare interface SwiperAnimationEvent {
   currentOffset: double;
 
   /**
-   * Offset of the target page to the start position of the swiper main axis. The unit is vp.
+   * Offset of the target page to the start position of the swiper main axis.
+   * Unit: vp.
    *
-   * @type { double }
    * @default 0.0 vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -620,9 +630,9 @@ export declare interface SwiperAnimationEvent {
   targetOffset: double;
 
   /**
-   * Start speed of the page-turning animation. The unit is vp/s.
+   * Start speed of the page-turning animation.
+   * Unit: vp.
    *
-   * @type { double }
    * @default 0.0 vp/s
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -634,16 +644,15 @@ export declare interface SwiperAnimationEvent {
 /**
  * Define autoPlay related options.
  *
- * @interface AutoPlayOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface AutoPlayOptions {
+
   /**
    * Set whether to stop autoplay immediately on touch down event.
    *
-   * @type { boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -655,49 +664,47 @@ export declare interface AutoPlayOptions {
 /**
  * Defines the properties for controlling the cached count behavior.
  *
- * @interface CachedCountOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface CachedCountOptions {
+
   /**
    * Whether the cached nodes within the range rendered without being added to the render tree.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isShown?: boolean;
+
   /**
    * Whether cachedCount is independent of group calculation.
-   *
    * <p><strong>NOTE</strong>:
    * <br>When set to true, cachedCount is calculated by actual child component count,
    * independent of displayCount group calculation.
    * <br>When swipeByGroup is enabled and this is false, cachedCount is calculated by group.
    * </p>
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   independent?: boolean;
 }
 
 /**
  * Swiper nested scroll nested mode
-
- * @enum { number } SwiperNestedScrollMode
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum SwiperNestedScrollMode {
+
   /**
    * Only Self response scrolling.
    *
@@ -720,12 +727,12 @@ export declare enum SwiperNestedScrollMode {
 /**
  * Declare the animation mode of SwiperController's changeIndex method.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum SwiperAnimationMode {
+
   /**
    * Jump to target index without animation.
    *
@@ -758,9 +765,12 @@ export declare enum SwiperAnimationMode {
 /**
  * Defines a swiper callback when onAnimationStart.
  *
- * @typedef { function } OnSwiperAnimationStartCallback
  * @param { int } index - The index value of the swiper page that when animation start.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { int } targetIndex - The target index value of the swiper page that when animation start.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -772,8 +782,9 @@ export type OnSwiperAnimationStartCallback = (index: int, targetIndex: int,
 /**
  * Defines a swiper callback when onAnimationEnd.
  *
- * @typedef { function } OnSwiperAnimationEndCallback
  * @param { int } index - The index value of the swiper page that when animation end.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -784,8 +795,9 @@ export type OnSwiperAnimationEndCallback = (index: int, extraInfo: SwiperAnimati
 /**
  * Defines a swiper callback when onGestureSwipe.
  *
- * @typedef { function } OnSwiperGestureSwipeCallback
  * @param { int } index - The index value of the swiper page before gesture swipe.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { SwiperAnimationEvent } extraInfo - The extra callback info.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -796,12 +808,12 @@ export type OnSwiperGestureSwipeCallback = (index: int, extraInfo: SwiperAnimati
 /**
  * Defines the swiper attribute functions.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperAttribute extends CommonMethod {
+
   /**
    * Called when the index value of the displayed subcomponent is set in the container.
    *
@@ -815,7 +827,7 @@ export declare interface SwiperAttribute extends CommonMethod {
 
   /**
    * Sets whether to enable automatic playback for child component switching.
-   * 
+   *
    * @param { boolean | undefined } value - Whether to enable automatic playback for child component switching,
    *     default value is false, undefined means setting to default value.
    * @returns { SwiperAttribute }
@@ -852,7 +864,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * Use indicator component controller.
    *
    * @param { IndicatorComponentController | DotIndicator | DigitIndicator | boolean | undefined } indicator -
-   * the style value or show indicator of the swiper indicator.
+   *     the style value or show indicator of the swiper indicator.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -958,7 +970,7 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   default cachedCount(count: int | undefined, options: CachedCountOptions | undefined): this;
 
@@ -966,39 +978,26 @@ export declare interface SwiperAttribute extends CommonMethod {
    * Sets the number of elements to display per page.
    *
    * If swipeByGroup is set to true:
-   * 1、All sub-items are grouped from index 0.
-   * 2、The number of sub-items in each group is the value of displayCount.
-   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
-   * 4、Placeholder items do not display any content and are only used as placeholders.
-   * 5、When turning pages, turn pages by group.
+   * 1.All sub-items are grouped from index 0.
+   * 2.The number of sub-items in each group is the value of displayCount.
+   * 3.If the number of sub-items in the last group is less than displayCount,
+   * placeholder items are added to supplement the number of last group.
+   * 4.Placeholder items do not display any content and are only used as placeholders.
+   * 5.When turning pages, turn pages by group.
    *
-   * @param { int | string | SwiperAutoFill | undefined } value - the number of elements
+   * @param { int | string | SwiperAutoFill | undefined } value - The number of elements [since 23 - 24]
+   * @param { int | string | SwiperAutoFill | ItemFillPolicy | undefined } value - The number of elements
+   *     to display per page. [since 26.0.0]
    * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   *     <br>Default value: false
+   *     <br>true: The page is turned by group. The number of subelements in each group is the value of displayCount.
+   *     false: The default page turning behavior is used. That is, pages are turned based on subelements. [since 23]
+   * @returns { SwiperAttribute } [since 23]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full [since 23]
+   * @stagemodelonly
    * @since 23 static
    */
-  /**
-   * Sets the number of elements to display per page.
-   *
-   * If swipeByGroup is set to true:
-   * 1、All sub-items are grouped from index 0.
-   * 2、The number of sub-items in each group is the value of displayCount.
-   * 3、If the number of sub-items in the last group is less than displayCount, placeholder items are added to supplement the number of last group.
-   * 4、Placeholder items do not display any content and are only used as placeholders.
-   * 5、When turning pages, turn pages by group.
-   *
-   * @param { int | string | SwiperAutoFill | ItemFillPolicy | undefined } value - the number of elements to display per page.
-   * @param { boolean | undefined } [swipeByGroup] - if swipe by group.
-   *    <br>Default value: false
-   *    <br>true: the page is turned by group. The number of subelements in each group is the value of displayCount.
-   *    <br>false: The default page turning behavior is used. That is, pages are turned based on subelements.
-   * @returns { SwiperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy | undefined, swipeByGroup?: boolean | undefined): this;
+  default displayCount(value: int | string | SwiperAutoFill | ItemFillPolicy| undefined, swipeByGroup?: boolean | undefined): this;
 
   /**
    * Invoked when setting the sliding effect
@@ -1062,7 +1061,9 @@ export declare interface SwiperAttribute extends CommonMethod {
    * When the previous item is empty, do not display blank space.
    *
    * @param { Length | undefined } value - The length of previous margin.
-   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non-loop scenarios.
+   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the previous margin on the first page in non
+   *     -loop scenarios
+   *     <br>Default value: false.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1075,7 +1076,9 @@ export declare interface SwiperAttribute extends CommonMethod {
    * When the next item is empty, do not display blank space.
    *
    * @param { Length | undefined } value - The length of next margin.
-   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the next margin on the last page in non-loop scenarios.
+   * @param { boolean | undefined } [ignoreBlank] - Whether to hide(ignore) the next margin
+   *     on the last page in non-loop scenarios
+   *     <br>Default value: false.
    * @returns { SwiperAttribute } The attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1098,10 +1101,10 @@ export declare interface SwiperAttribute extends CommonMethod {
    * Called when the scroll state of the swiper changed.
    *
    * @param { Callback<ScrollState> | undefined } event - callback to notify the change of the scroll state.
-   * @returns { SwiperAttribute }
+   * @returns { SwiperAttribute } -this
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   default onScrollStateChanged(event: Callback<ScrollState> | undefined): this;
 
@@ -1164,10 +1167,10 @@ export declare interface SwiperAttribute extends CommonMethod {
    * Called when the swiper content did scroll.
    *
    * @param { ContentDidScrollCallback | undefined } handler - callback of scroll,
-   * selectedIndex is the index value of the swiper content selected before animation start.
-   * index is the index value of the swiper content.
-   * position is the moving ratio of the swiper content from the start position of the swiper main axis.
-   * mainAxisLength is the swiper main axis length for calculating position.
+   *     selectedIndex is the index value of the swiper content selected before animation start.
+   *     index is the index value of the swiper content.
+   *     position is the moving ratio of the swiper content from the start position of the swiper main axis.
+   *     mainAxisLength is the swiper main axis length for calculating position.
    * @returns { SwiperAttribute } the attribute of the swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1189,7 +1192,8 @@ export declare interface SwiperAttribute extends CommonMethod {
   /**
    * Setting page flip mode on mouse wheel event.
    *
-   * @param { PageFlipMode | undefined } mode - page flip mode on mouse wheel event. The default value is PageFlipMode.CONTINUOUS.
+   * @param { PageFlipMode | undefined } mode - page flip mode on mouse wheel event. The default value is
+   *     PageFlipMode.CONTINUOUS.
    * @returns { SwiperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1209,15 +1213,15 @@ export declare interface SwiperAttribute extends CommonMethod {
   default onContentWillScroll(handler: ContentWillScrollCallback | undefined): this;
 
   /**
-   * Set whether to keep the position of the visible content unchanged
+   * Sets whether to keep the position of the visible content unchanged
    * when data is inserted or deleted above or in front of the display area.
    *
-   * @param { boolean | undefined } enabled - maintain visible content position.
-   *    Default value is false.
-   * @returns { SwiperAttribute } the attribute of swiper.
+   * @param { boolean | undefined } enabled - Maintaining Visible Content Positions
+   *     Default value: false
+   * @returns { SwiperAttribute } -the attribute of swiper.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   default maintainVisibleContentPosition(enabled: boolean | undefined): this;
 
@@ -1232,22 +1236,34 @@ export declare interface SwiperAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SwiperAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Set swiper options.
+   *
+   * @param { SwiperController } [controller] - Swiper options
+   * @returns { SwiperAttribute } Returns the instance of the SwiperAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setSwiperOptions(controller?: SwiperController): this;
 }
 
 /**
  * Defines the swiper content animated transition options.
  *
- * @interface SwiperContentAnimatedTransition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperContentAnimatedTransition {
+
   /**
-   * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is ms.
+   * Defines the timeout of custom content transition animation after the page is moved out of the swiper. The unit is
+   * ms.
    * If SwiperContentTransitionProxy.finishTransition() is not invoked, use the timeout as animation end time.
+   * Unit: ms, The value range is all integers. Default value: 0.
    *
-   * @type { ?int }
    * @default 0 ms
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1258,7 +1274,6 @@ export declare interface SwiperContentAnimatedTransition {
   /**
    * Called when custom content transition animation start.
    *
-   * @type { Callback<SwiperContentTransitionProxy> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1269,16 +1284,16 @@ export declare interface SwiperContentAnimatedTransition {
 /**
  * The proxy of SwiperContentAnimatedTransition.
  *
- * @interface SwiperContentTransitionProxy
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperContentTransitionProxy {
+
   /**
    * the index value of the swiper content selected before animation start.
+   * The value range is all integers.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1287,8 +1302,8 @@ export declare interface SwiperContentTransitionProxy {
 
   /**
    * The index value of the swiper content.
+   * The value range is all integers.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1298,7 +1313,6 @@ export declare interface SwiperContentTransitionProxy {
   /**
    * the moving ratio of the swiper content from the start position of the swiper main axis.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1308,7 +1322,6 @@ export declare interface SwiperContentTransitionProxy {
   /**
    * the swiper main axis length for calculating position.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1328,16 +1341,16 @@ export declare interface SwiperContentTransitionProxy {
 /**
  * The result of swiper ContentWillScrollCallback.
  *
- * @interface SwiperContentWillScrollResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SwiperContentWillScrollResult {
+
   /**
    * the index value of the current child page.
+   * The value range is all integers.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1346,8 +1359,8 @@ export declare interface SwiperContentWillScrollResult {
 
   /**
    * the index value of the child page that will display.
+   * The value range is all integers.
    *
-   * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1358,7 +1371,6 @@ export declare interface SwiperContentWillScrollResult {
    * the sliding offset of each frame. Positive numbers indicating slide backward(e.g. from index=1 to index=0),
    * negative numbers indicating slide forward(e.g. from index=0 to index=1).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1369,9 +1381,12 @@ export declare interface SwiperContentWillScrollResult {
 /**
  * The callback of onContentDidScroll.
  *
- * @typedef { function } ContentDidScrollCallback
  * @param { int } selectedIndex - the index value of the swiper content selected before animation start.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { int } index - the index value of the swiper content.
+ *     The value range is all integers
+ *     The value should be an integer.
  * @param { double } position - the moving ratio of the swiper content from the start position of the swiper main axis.
  * @param { double } mainAxisLength - the swiper main axis length for calculating position.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1384,7 +1399,6 @@ export type ContentDidScrollCallback = (selectedIndex: int, index: int, position
 /**
  * The callback of onContentWillScroll.
  *
- * @typedef { function } ContentWillScrollCallback
  * @param { SwiperContentWillScrollResult } result - the result of swiper ContentWillScrollCallback.
  * @returns { boolean } whether to allow scroll, true indicating can scroll and false indicating can not scroll.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1402,9 +1416,26 @@ export type ContentWillScrollCallback = (result: SwiperContentWillScrollResult) 
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Swiper(
   controller?: SwiperController,
   content_?: CustomBuilder
-): SwiperAttribute
+): SwiperAttribute;
+
+/**
+ * Defines Swiper Component
+ *
+ * @param { CustomBuilderT<SwiperAttribute> } style_ - swiper attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { SwiperAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function Swiper(
+ style_: CustomBuilderT<SwiperAttribute>,
+ content_?: CustomBuilder,
+): SwiperAttribute;

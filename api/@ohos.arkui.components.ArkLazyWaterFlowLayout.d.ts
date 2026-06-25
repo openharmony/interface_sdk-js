@@ -82,10 +82,51 @@ export declare class LazyWaterFlowLayoutAttribute<T> extends CommonMethod<T> {
   columnsGap(value: LengthMetrics | undefined): T;
 
   /**
+   * Sets the header of the lazy waterflow layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The header builder function.
+   *     <br>Passing undefined will remove the header.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  header(builder: CustomBuilder | undefined): T;
+
+  /**
+   * Sets the footer of the lazy waterflow layout.
+   *
+   * @param { CustomBuilder | undefined } builder - The footer builder function.
+   *     <br>Passing undefined will remove the footer.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  footer(builder: CustomBuilder | undefined): T;
+
+  /**
+   * Sets the sticky style for header and footer.
+   *
+   * @param { StickyStyle | undefined } sticky - The sticky style for header and footer.
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  sticky(sticky: StickyStyle | undefined): T;
+
+  /**
    * Called when the first or last item displayed in the component changes.
    * It is triggered once when the component is initialized.
    *
-   * @param { onVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
+   * @param { OnVisibleIndexesChangeCallback | undefined } callback - callback function, triggered
    *     when the index of child components in the visible area changes.
    *     <br>Passing undefined will unregister the callback.
    * @returns { T }
@@ -95,7 +136,7 @@ export declare class LazyWaterFlowLayoutAttribute<T> extends CommonMethod<T> {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  onVisibleIndexesChange(callback: onVisibleIndexesChangeCallback | undefined): T;
+  onVisibleIndexesChange(callback: OnVisibleIndexesChangeCallback | undefined): T;
 }
 
 /**
@@ -114,6 +155,11 @@ export declare class LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAt
    *
    * @param { string | ItemFillPolicy | undefined } value - Number of columns in the layout.
    *     <br>Default value: '1fr'
+   *     <br>When the value is a string, it sets the number of columns or the minimum column width
+   *     of the current <em>LazyVWaterFlowLayout</em>. For example,
+   *     <em>columnsTemplate('1fr 1fr 2fr')</em> divides the <em>LazyVWaterFlowLayout</em> into 3 columns,
+   *     splitting the width into 4 equal parts: column 1 takes 1 part, column 2 takes 1 part,
+   *     and column 3 takes 2 parts.
    * @returns { LazyVWaterFlowLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -132,6 +178,7 @@ export declare class LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAt
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
+ * @uicomponent
  * @since 26.0.0 dynamic
  */
 export declare const LazyVWaterFlowLayout: LazyVWaterFlowLayoutInterface;

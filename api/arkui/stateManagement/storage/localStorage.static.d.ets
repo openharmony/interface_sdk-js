@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
 
 import { AbstractProperty, SubscribedAbstractProperty } from './storageProperty';
+
 import { RecordData } from '@ohos.base';
 
 /**
@@ -34,47 +36,50 @@ import { RecordData } from '@ohos.base';
  * @since 23 static
  */
 export declare class LocalStorage {
+
   /**
    * Construct new instance of LocalStorage
    * initialize with all properties and their values that Object.keys(params) returns
    * Property values must not be undefined.
    *
-   * @param { RecordData } [initializingProperties] initial data in storage
+   * @param { RecordData } [initializingProperties] - initializing Properties
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public constructor(initializingProperties?: RecordData);
+
   /**
    * Obtain a handler or an alias to LocalStorage property with given name.
    *
    * @param { string } propName LocalStorage property name
    * @returns { AbstractProperty<T> | undefined } AbstractProperty object if property with given name exists
-   * return undefined otherwise.
+   *     return undefined otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public ref<T>(propName: string): AbstractProperty<T> | undefined;
+
   /**
    * Obtain a handler or an alias to LocalStorage property with given name.
    *
    * If property does not exist in LocalStorage, create it with given default value.
    *
    * @param { string } propName LocalStorage property name
-   * @param { T } defaultValue If property does not exist in LocalStorage,
-   *        create it with given default value.pe
+   * @param { T } defaultValue If property does not exist in LocalStorage, create it with given default value.
    * @returns { AbstractProperty<T> } AbstractProperty object
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   public setAndRef<T>(propName: string, defaultValue: T): AbstractProperty<T>;
+
   /**
    * Create and return a two-way sync "(link") to named property
    *
    * @param { string } propName - name of source property in LocalStorage
-   * @returns { SubscribedAbstractProperty<T> | undefined } instance of 
+   * @returns { SubscribedAbstractProperty<T> | undefined } instance of
    *     SubscribedAbstractProperty<T>, return undefined if named property does not already exist in LocalStorage.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -87,9 +92,9 @@ export declare class LocalStorage {
    *
    * @param { string } propName - name of source property in LocalStorage
    * @param { T } defaultValue - value to be used for initializing new property in LocalStorage
-   *        default value must be of type T, can be undefined or null.
-   * @returns { SubscribedAbstractProperty<T> } instance of  SubscribedAbstractProperty<T>
-   *          Apps can use SDK functions of base class SubscribedAbstractProperty<T>
+   *     default value must be of type T, can be undefined or null.
+   * @returns { SubscribedAbstractProperty<T> } instance of SubscribedAbstractProperty<T>
+   *     Apps can use SDK functions of base class SubscribedAbstractProperty<T>
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -108,6 +113,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public has(propName: string): boolean;
+
   /**
    * Returns value of given property
    * return undefined if no property with this name
@@ -119,6 +125,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public get<T>(propName: string): T | undefined;
+
   /**
    * Set value of given property in LocalStorage
    * Method sets nothing and returns false if property with this name does not exist in LocalStorage
@@ -132,6 +139,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public set<T>(propName: string, newValue: T): boolean;
+
   /**
    * Set value of given property, if it exists, see set() .
    * Add property if no property with given name and initialize with given value.
@@ -145,6 +153,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public setOrCreate<T>(propName: string, newValue: T): boolean;
+
   /**
    * Provide names of all properties in LocalStorage
    * same as ES6 Map.prototype.keys()
@@ -155,6 +164,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public keys(): IterableIterator<string>;
+
   /**
    * Returns number of properties in LocalStorage
    * same as Map.prototype.size()
@@ -165,6 +175,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public size(): int;
+
   /**
    * Delete property from StorageBase
    * Use with caution:
@@ -186,6 +197,7 @@ export declare class LocalStorage {
    * @since 23 static
    */
   public delete(propName: string): boolean;
+
   /**
    * Delete all properties from the LocalStorage instance
    * Precondition is that there are no subscribers.

@@ -1572,7 +1572,7 @@ export declare interface DividerStyleOptions {
  * @interface ScrollBarMargin
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface ScrollBarMargin {
   /**
@@ -1581,7 +1581,7 @@ export declare interface ScrollBarMargin {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   start?: LengthMetrics;
 
@@ -1591,7 +1591,7 @@ export declare interface ScrollBarMargin {
    * @type { ?LengthMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   end?: LengthMetrics;
 }
@@ -1711,6 +1711,56 @@ export declare interface AccessibilityActionOptions {
    * @since 23 static
    */
   scrollStep?: int;
+}
+
+/**
+ * Defines struct of the parameters used to configure the next accessibility focus transition.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AccessibilityNextFocusParams {
+  /**
+   * isConsiderDescendants - Determines whether the focus search should consider focusable nodes within the
+   *     descendants of the target element during the next accessibility focus operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  isConsiderDescendants?: boolean;
+}
+
+/**
+ * Defines struct of AccessibilityCustomAction that can be processed in custom action processing under accessibility.
+ *
+ * @interface AccessibilityCustomAction
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface AccessibilityCustomAction {
+
+  /**
+   * name - name to specific custom action.
+   *
+   * @type { ResourceStr }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  name: ResourceStr;
+
+  /**
+   * onAction - callback to process custom action.
+   *
+   * @type { VoidCallback }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  onAction: VoidCallback;
 }
 
 /**

@@ -13,8 +13,24 @@
  * limitations under the License.
  */
 
+import * as arkts from '@koalaui/libarkts';
 import { JSDoc, JsDocNodeCheckConfigItem } from '../api-check-wrapper';
-import { PermissionValidTokenState } from './api_check_plugin_enums';
+import { PermissionValidTokenState } from './api_check_plugin_define';
+
+export type AnnotationAllowedAstNode = arkts.AnnotationDeclaration |
+  arkts.ArrowFunctionExpression |
+  arkts.ClassDefinition |
+  arkts.ClassProperty |
+  arkts.ETSModule |
+  arkts.ETSParameterExpression |
+  arkts.FunctionDeclaration |
+  arkts.ScriptFunction |
+  arkts.TSEnumDeclaration |
+  arkts.TSInterfaceDeclaration |
+  arkts.TSTypeAliasDeclaration |
+  arkts.TSTypeParameter |
+  arkts.TypeNode |
+  arkts.VariableDeclaration;
 
 /**
  * 定义与显示窗口相关的配置
@@ -62,8 +78,9 @@ export interface ProjectConfig extends ApiCheckConfig {
   bundleType: string;
   compileSdkVersion: number;
   compatibleSdkVersion: number;
+  originCompatibleSdkVersion?: number;
   compileSdkPath: string;
-  externalApiPaths: string;
+  externalApiPaths: string[];
   buildSdkPath: string;
   nativeDependencies: string[];
   aceSoPath: string;
@@ -71,7 +88,6 @@ export interface ProjectConfig extends ApiCheckConfig {
   sdkConfigPaths: string;
   projectPath: string;
   aceModuleJsonPath: string;
-  compileMode: string;
   aceProfilePath: string;
   deviceTypes: string[];
   runtimeOS: string;
@@ -108,7 +124,8 @@ export interface DependentModuleConfig {
 }
 
 export interface CheckValidCallbackInterface {
-  (jsDocTag: JSDoc[], config: JsDocNodeCheckConfigItem): boolean;
+  (jsDocTag: JSDoc[], config: JsDocNodeCheckConfigItem, node?: arkts.AstNode,
+    declaration?: arkts.AstNode): boolean;
 }
 
 export interface SyscapConfig {
@@ -118,6 +135,10 @@ export interface SyscapConfig {
 export interface SdkConfig {
   prefix: string;
   apiPath: string[];
+  osName?: string;
+  apiCheckPlugin?: Record<string, string>;
+  annotationCheckPlugin?: Record<string, string>;
+  apiCheckPlugins?: Record<string, string>;
 }
 
 export interface GlobalObject {
@@ -177,8 +198,35 @@ export interface CardConfig {
   forms: CardForm[];
 }
 
+export interface SdkHvigorLogInfo {
+  code: string;
+  description: string;
+  cause: string;
+  position: string;
+  solutions: string[];
+}
+
 export interface Logger {
   printInfo(message: string): void;
   printWarn(message: string): void;
   printDebug(message: string): void;
+  printError(message: SdkHvigorLogInfo): void;
+}
+
+export interface ParsedVersion {
+  os?: string;
+  version: string;
+  formatVersion: string;
+  raw: string;
+}
+
+export interface MSFVersionCheckResult {
+  valid: boolean;
+  needDistCheck: boolean;
+}
+
+export interface DistributionOSApiAvailableVersionResult {
+  valid: boolean;
+  version: string;
+  message: string;
 }

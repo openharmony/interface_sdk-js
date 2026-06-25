@@ -18,13 +18,12 @@
  * @kit ArkUI
  */
 import { CommonMethod, ShadowOptions, Callback, AttributeModifier, SelectionOptions } from "./common";
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT, ComponentBuilder } from './builder';
 import { EllipsisMode, TextCase, LineBreakStrategy, TextAlign, FontStyle, FontWeight, WordBreak, TextOverflow, CopyOptions, TextHeightAdaptivePolicy, TextSelectableMode } from "./enums";
 import { Resource, ResourceColor, Font, Length, LengthMetrics, ResourceStr } from "./units";
-import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation } from "./textCommon";
+import { TextDataDetectorConfig, LayoutManager, FontSettingOptions, EditMenuOptions, SelectedDragPreviewStyle, TextDirection, ShaderStyle, LineSpacingOptions, TextVerticalAlign, ContentTransition, TextContentAlign, FontVariation, IncrementalUpdatePolicy } from "./textCommon";
 import { DecorationStyleInterface, StyledString } from "./styledString";
 import { SelectionMenuOptions } from "./richEditor";
-import { ComponentBuilder } from './builder';
 /**
  * Text overflow options.
  *
@@ -449,6 +448,25 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default textIndent(value: Length | undefined): this;
+    /**
+        * Specify the tail indentation for each line in a text block.
+        *
+        * <p><strong>Description</strong>:
+        * <br>When a single LengthMetrics value is provided, all rows share the same tail indentation.
+        * <br>When an array is provided, the i-th element specifies the trailing indentation of the i-th line.
+        * If the number of lines of text exceeds the length of the array, the last element in the array is used.
+        * for the remaining lines.
+        * <br>A negative value is treated as 0.
+        * <br>If this parameter is set to undefined, the default value 0 is used.
+        * </p>
+        *
+        * @param { LengthMetrics | Array<LengthMetrics> | undefined } value - The tail indent value(s).Default value is 0
+        * @returns { TextAttribute } The attribute of the text.
+        * @syscap SystemCapability.ArkUI.ArkUI.Full
+        * @stagemodelonly
+        * @since 26.0.0 static
+        */
+    default tailIndents(value: LengthMetrics | Array<LengthMetrics> | undefined): this;
     /**
      * Set the word break type.
      *
@@ -912,6 +930,19 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<TextAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+    /**
+     * Set Text options.
+     *
+     * @param { string | Resource } [content] - Text constructor content.
+     * @param { TextOptions } [value] - Text constructor options.
+     * @returns { TextAttribute } Returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setTextOptions(content?: string | Resource, value?: TextOptions): this;
+
     /**
      * Whether to compress punctuation at the beginning of line.
      *
@@ -968,6 +999,33 @@ export declare interface TextAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default fontVariations(fontVariations: Array<FontVariation> | undefined): this;
+    
+    /**
+     * Sets the incremental update policy for text rendering.
+     *
+     * This API takes effect only when Text content contains a StyledString.
+     * Default value is IncrementalUpdatePolicy.NONE.
+     *
+     * @param { IncrementalUpdatePolicy | undefined } policy - Indicates the incremental update policy.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default incrementalUpdatePolicy(policy: IncrementalUpdatePolicy | undefined): this;
+
+    /**
+     * Whether to enable punctuation overflow at line ends.
+     *
+     * @param { boolean | undefined } enabled - Whether to enable the feature, the default value is false.
+     *     Passing `undefined` resets it to the default value.
+     * @returns { TextAttribute } returns the instance of the TextAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default punctuationOverflow(enabled: boolean | undefined): this;
 }
 /**
  * Defines span type.
@@ -1351,6 +1409,23 @@ export declare class TextController {
 /**
  * Defines Text Component.
  *
+ * @param { CustomBuilderT<TextAttribute> } style - Text attribute instance
+ * @param { CustomBuilder } [content_] - content
+ * @returns { TextAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Text(
+    style: CustomBuilderT<TextAttribute>,
+    content_?: CustomBuilder,
+): TextAttribute;
+
+/**
+ * Defines Text Component.
+ *
  * @param { string | Resource } [content]
  * @param { TextOptions } [value]
  * @param { CustomBuilder } [content_]
@@ -1364,3 +1439,65 @@ export declare function Text(
     content?: string | Resource, value?: TextOptions, 
     content_?: CustomBuilder,
 ): TextAttribute
+
+/**
+ * Defines the Extendable Text.
+ *
+ * @implements TextAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableText implements TextAttribute {
+    /**
+     * Constructor of Extendable Text.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableText>(
+        factory: ConstructorT<T>, 
+        content?: string | Resource, 
+        value?: TextOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Text.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableText>(
+        styles: CustomBuilderT<T>,  
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+    
+    /**
+     * Set the Text Options.
+     *
+     * @param { string | Resource } [content]
+     * @param { TextOptions } [value]
+     * @returns { ExtendableText }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setTextOptions(
+        content?: string | Resource, 
+        value?: TextOptions
+    ): this;
+}

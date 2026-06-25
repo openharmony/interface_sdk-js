@@ -21,9 +21,10 @@ import Want from '../../@ohos.app.ability.Want';
 import { Callback, ErrorCallback, BusinessError, RecordData } from '../../@ohos.base';
 import { CommonMethod, TerminationInfo } from './common';
 import { ComponentContentBase } from '../ComponentContent';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { VoidCallback } from './units';
+import { Builder } from '@ohos.arkui.component';
 
 /**
  * Enumeration of different types of DpiFollowStrategy.
@@ -259,6 +260,19 @@ export declare interface UIExtensionProxy {
  */
 export declare interface UIExtensionComponentAttribute extends CommonMethod {
     /**
+     * Sets ui extension component options.
+     *
+     * @param { Want } want - The want
+     * @param { UIExtensionOptions } [options] - The options
+     * @returns { this } UIExtensionComponentAttribute instance
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @systemapi
+     * @since 26.0.0 staticonly
+     */
+    setUIExtensionComponentOptions(want: Want, options?: UIExtensionOptions): this;
+
+    /**
      * callback called when remote UIExtensionAbility object is ready for receive data
      *
      * @param { Callback<UIExtensionProxy> | undefined } callback
@@ -341,4 +355,20 @@ export declare interface UIExtensionComponentAttribute extends CommonMethod {
 @ComponentBuilder
 export declare function UIExtensionComponent(
     want: Want, options?: UIExtensionOptions
+): UIExtensionComponentAttribute
+
+/**
+ * Defines UIExtensionComponent Component.It requires call setUIExtensionComponentOptions at start of the component attribute set-up,
+ * and it requires call applyAttributeFinish at the end of the component attribute set-up.
+ *
+ * @param { CustomBuilderT<UIExtensionComponentAttribute> } style - the callback to set up uiextensioncomponent's attributes.
+ * @returns { UIExtensionComponentAttribute } The attribute of the UIExtensionComponent.
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @systemapi
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function UIExtensionComponent(
+    style: CustomBuilderT<UIExtensionComponentAttribute>
 ): UIExtensionComponentAttribute

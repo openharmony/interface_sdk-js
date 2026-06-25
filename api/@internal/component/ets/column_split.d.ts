@@ -21,242 +21,151 @@
 /**
  * Defines the ColumnSplit component.
  *
- * @interface ColumnSplitInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the ColumnSplit component.
- *
- * @interface ColumnSplitInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the ColumnSplit component.
- *
- * @interface ColumnSplitInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface ColumnSplitInterface {
   /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
+   * Creates a vertical split layout container with dividers between child components.
    *
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
-   *
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Layout the subassemblies vertically and insert a horizontal divider line between each subassembly.
-   *
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (): ColumnSplitAttribute;
 }
 
 /**
- * Provides an interface for the style of a divider including start margin and end margin
+ * Sets the distance between the child component and the upper and lower dividers.
  *
- * @interface ColumnSplitDividerStyle
+ * > **NOTE**
+ * >
+ * > Similar to [RowSplit]{@link RowSplit}, the dividers of **ColumnSplit** adjust the height of adjacent child
+ * > components. However, this adjustment is only applied to the extent that the resulting height stays within the
+ * > height limits of the child components.
+ * >
+ * > Universal attributes such as [clip]{@link CommonMethod#clip} and [margin]{@link CommonMethod#margin} are supported.
+ * > If **clip** is not set, the default value **true** is used.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provides an interface for the style of a divider including start margin and end margin
- *
- * @interface ColumnSplitDividerStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface ColumnSplitDividerStyle {
   /**
-   * Define the start margin of the divider
+   * Distance between the child component and the upper divider.<br>Default value: **0vp**<br>Invalid values are treated
+   * as the default value. In this case, the attribute value obtained by the
+   * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
    *
-   * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the start margin of the divider
-   *
-   * @type { ?Dimension }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   startMargin?: Dimension;
 
   /**
-   * Define the end margin of the divider
+   * Distance between the child component and the lower divider.<br>Default value: **0vp**<br>Invalid values are treated
+   * as the default value. In this case, the attribute value obtained by the
+   * [getInspectorByKey()](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-component-id.md#getinspectorbykey9)
    *
-   * @type { ?Dimension }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the end margin of the divider
-   *
-   * @type { ?Dimension }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   endMargin?: Dimension;
 }
 
 /**
- * Defines the ColumnSplit component attribute functions.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
+ * 
+ * The [universal events]{@link CommonMethod} are supported.
  *
- * @extends CommonMethod<ColumnSplitAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the ColumnSplit component attribute functions.
- *
- * @extends CommonMethod<ColumnSplitAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the ColumnSplit component attribute functions.
- *
- * @extends CommonMethod<ColumnSplitAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class ColumnSplitAttribute extends CommonMethod<ColumnSplitAttribute> {
   /**
-   * Indicates whether the split line can be dragged. The default value is false.
+   * Sets whether the divider can be dragged.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the divider can be dragged. **true**: The divider can be dragged.
+   *     **false**: The divider cannot be dragged.
+   *     <br>Default value: **false**
+   *     <br>Invalid values are treated as the default value.
    * @returns { ColumnSplitAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates whether the split line can be dragged. The default value is false.
-   *
-   * @param { boolean } value
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates whether the split line can be dragged. The default value is false.
-   *
-   * @param { boolean } value
-   * @returns { ColumnSplitAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   resizeable(value: boolean): ColumnSplitAttribute;
 
   /**
-   * Set margin of the split line.
-   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the divider.
-   * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
+   * Margin of the divider.
+   *
+   * @param { ColumnSplitDividerStyle | null } value - Margin of the divider, that is, the distance between the
+   *     divider and the child component.
+   *     <br>Default value: **null**. When this parameter is set to null, the distance between the divider and the
+   *     child component is 0 vp.
+   *     <br>Invalid values are treated as the default value.
    * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set margin of the split line.
-   * @param { ColumnSplitDividerStyle | null } value - indicates the style of the divider.
-   * if value is set to null, the value of startMargin and endMargin is set to 0.0 by default.
-   * @returns { ColumnSplitAttribute } the attribute of the ColumnSplit
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   divider(value: ColumnSplitDividerStyle | null): ColumnSplitAttribute;
 }
 
 /**
  * Defines ColumnSplit Component instance.
+ * > **Child Components**
+ * >
+ * > Supported
+ * >
+ * > **Note**
+ * > - This component limits the height of its child components through dividers. During initialization, the divider
+ * positions are calculated based on the height of its child components. After initialization, dynamic height
+ * modifications to child components do not affect divider positions. To adjust child component heights, drag the
+ * adjacent dividers.
+ * >
+ * > - After initialization, dynamic changes to the
+ * [margin]{@link CommonMethod#margin}, [border]{@link CommonMethod#border}, or [padding]{@link CommonMethod#padding}
+ * attributes may cause the size of the child components to exceed the allowable distance between adjacent dividers.
+ * In such cases, dividers cannot be dragged to adjust the height of the child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines ColumnSplit Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines ColumnSplit Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const ColumnSplitInstance: ColumnSplitAttribute;
 
 /**
- * Defines ColumnSplit Component.
+ * The **ColumnSplit** component lays out child components vertically and inserts a horizontal divider between every two
+ * child components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines ColumnSplit Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines ColumnSplit Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const ColumnSplit: ColumnSplitInterface;

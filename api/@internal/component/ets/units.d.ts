@@ -2213,181 +2213,62 @@ declare interface Font {
 }
 
 /**
- * Defines the area property.
+ * Defines the area information of a component.
  *
- * @interface Area
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the area property.
- *
- * @interface Area
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the area property.
- *
- * @interface Area
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the area property.
- *
- * @interface Area
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare interface Area {
+
   /**
-   * Defines the width property.
+   * Width of the target element.
    *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the width property.
+   * Unit: vp
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the width property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   width: Length;
 
   /**
-   * Defines the height property.
+   * Height of the target element.
    *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the height property.
+   * Unit: vp
    *
-   * @type { Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the height property.
-   *
-   * @type { Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   height: Length;
 
   /**
-   * Defines the local position.
+   * Position of the top-left corner of the target element in the
+   * [component coordinate system](docroot://ui/arkui-glossary.md#component-coordinate-system) of the parent element.
    *
-   * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the local position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the local position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the local position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   position: Position;
 
   /**
-   * Defines the global position.
+   * Position of the top-left corner of the target element in the current window coordinate system.
    *
-   * @type { Position }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Defines the global position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Defines the global position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Defines the global position.
-   *
-   * @type { Position }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   globalPosition: Position;
 }
@@ -3551,88 +3432,35 @@ declare class ColorFilter {
 }
 
 /**
- * Defines TouchPoint
+ * Defines the coordinates of the touch point. If it is not set, the touch point is centered.
  *
- * @interface TouchPoint
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines TouchPoint
- *
- * @interface TouchPoint
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12
- */
-/**
- * Defines TouchPoint
- *
- * @interface TouchPoint
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @crossplatform [since 18]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface TouchPoint {
+
   /**
-   * Define the touch point x coordinate.
+   * X coordinate of the touch point.
    *
-   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Define the touch point x coordinate.
-   *
-   * @type { Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define the touch point x coordinate.
-   *
-   * @type { Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: Dimension;
 
   /**
-   * Define the touch point y coordinate.
+   * Y coordinate of the touch point.
    *
-   * @type { Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Define the touch point y coordinate.
-   *
-   * @type { Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define the touch point y coordinate.
-   *
-   * @type { Dimension }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 18]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: Dimension;
 }
@@ -3910,6 +3738,31 @@ declare interface AccessibilityActionOptions {
    * @since 23 dynamic
    */
   scrollStep?: number;
+}
+
+/**
+ * Defines struct of the parameters used to configure the next accessibility focus transition.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 26.0.0 dynamic
+ */
+declare interface AccessibilityNextFocusParams {
+  /**
+   * isConsiderDescendants - Determines whether the focus search should consider focusable nodes within the
+   *     descendants of the target element during the next accessibility focus operation.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  isConsiderDescendants?: boolean;
 }
 
 /**

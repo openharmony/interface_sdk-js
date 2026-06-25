@@ -976,51 +976,147 @@ declare namespace abilityAccessCtrl {
     openPermissionOnSetting(context: Context, permission: Permissions): Promise<SelectedResult>;
 
     /**
-      * Queries all applications that have requested the specified permissions and their permission status.
-      *
-      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
-      * @param { Array<Permissions> } permissionList - List of permissions to be queried. This parameter cannot be
-      *     null or empty.
-      * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of applications and their
-      *     permission status.
-      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
-      *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
-      * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
-      * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is empty or exceeds the size
-      *     limit.
-      * @throws { BusinessError } 12100003 - The specified permission does not exist.
-      * @throws { BusinessError } 12100007 - The service is abnormal.
-      * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
-      * @syscap SystemCapability.Security.AccessToken
-      * @systemapi
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-      queryStatusByPermission(
-          permissionList: Array<Permissions>): Promise<Array<PermissionStatusInfo>>;
+     * Queries all applications that have requested the specified permissions and their permission status.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Array<Permissions> } permissionList - List of permissions to be queried. This parameter cannot be
+     *     null or empty.
+     * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of applications and their
+     *     permission status.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The permissionList is empty or exceeds the size
+     *     limit.
+     * @throws { BusinessError } 12100003 - The specified permission does not exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    queryStatusByPermission(
+        permissionList: Array<Permissions>): Promise<Array<PermissionStatusInfo>>;
 
-      /**
-      * Queries the status of all permissions for the specified applications.
-      *
-      * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
-      * @param { Array<int> } tokenIDList - List of token IDs to be queried. This parameter cannot be null or
-      *     empty.
-      * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of permission
-      *     status for the specified applications.
-      * @throws { BusinessError } 201 - Permission denied. Interface caller does not have
-      *     permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
-      * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
-      * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList is empty
-      *     or exceeds the size limit.
-      * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
-      * @throws { BusinessError } 12100007 - The service is abnormal.
-      * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
-      * @syscap SystemCapability.Security.AccessToken
-      * @systemapi
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-      queryStatusByTokenID(tokenIDList: Array<int>): Promise<Array<PermissionStatusInfo>>;
+    /**
+     * Queries the status of all permissions for the specified applications.
+     *
+     * @permission ohos.permission.GET_SENSITIVE_PERMISSIONS
+     * @param { Array<int> } tokenIDList - List of token IDs to be queried. This parameter cannot be null or
+     *     empty.
+     * @returns { Promise<Array<PermissionStatusInfo>> } Returns the list of permission
+     *     status for the specified applications.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have
+     *     permission "ohos.permission.GET_SENSITIVE_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The tokenIDList is empty
+     *     or exceeds the size limit.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100015 - The queried data exceeds the upper limit.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    queryStatusByTokenID(tokenIDList: Array<int>): Promise<Array<PermissionStatusInfo>>;
+
+    /**
+     * Checks whether a group of CLI (command line interface) commands require permission dialogs.
+     *
+     * @permission ohos.permission.QUERY_TOOL_PERMISSIONS
+     * @param { string } agentID - Agent identifier.
+     *     <br>The maximum length is 48 characters.
+     * @param { Array<CliInfo> } cliInfoList - List of CLI information to query.
+     *     <br>The list cannot be empty and can contain a maximum of 99 items.
+     * @returns { Promise<PermissionDialogResult> } Promise used to return the permission dialog result for the CLI
+     *     commands.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.QUERY_TOOL_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The agentID exceeds 48 characters, cliInfoList is
+     *     empty or contains more than 99 items, the cliName of an item in cliInfoList is empty or exceeds 256
+     *     characters, the subCliName of an item in cliInfoList exceeds 256 characters, or the CLI command does not
+     *     exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100009 - Common internal error. The account is not logged in, the network is
+     *     not connected, or an internal error occurs when querying CLI permissions or generating authorization
+     *     results.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    getCliPermissionRequestInfo(agentID: string, cliInfoList: Array<CliInfo>): Promise<PermissionDialogResult>;
+
+    /**
+     * Queries CLI permission information for the application that invokes the CLI command.
+     *
+     * @permission ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS
+     * @param { int } hostTokenID - Token ID of the host application that invokes the CLI command.
+     *     <br>The value must be a positive integer.
+     * @param { string } agentID - Agent identifier.
+     *     <br>The maximum length is 48 characters.
+     * @param { Array<CliInfo> } cliInfoList - List of CLI information to query.
+     *     <br>The list cannot be empty and can contain a maximum of 99 items.
+     * @returns { Promise<CliPermissionsResult> } Promise used to return the CLI permission query result.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The hostTokenID is 0, the agentID exceeds 48
+     *     characters, cliInfoList is empty or contains more than 99 items, the cliName of an item in cliInfoList is
+     *     empty or exceeds 256 characters, the subCliName of an item in cliInfoList exceeds 256 characters, or the CLI
+     *     command does not exist.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100009 - Common internal error. An internal error occurs when querying CLI
+     *     permissions or runtime permission information.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    getCliPermissions(
+      hostTokenID: int,
+      agentID: string,
+      cliInfoList: Array<CliInfo>): Promise<CliPermissionsResult>;
+
+    /**
+     * Generates authorization result information based on CLI authorization information.
+     *
+     * @permission ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS
+     * @param { int } hostTokenID - Token ID of the host application that invokes the CLI command.
+     *     <br>The value must be a positive integer.
+     * @param { string } agentID - Agent identifier.
+     *     <br>The maximum length is 48 characters.
+     * @param { Array<CliAuthInfo> } authInfoList - CLI authorization information list.
+     *     <br>The list cannot be empty and can contain a maximum of 99 items.
+     * @returns { Promise<ToolAuthResult> } Promise used to return the generated authorization result information.
+     * @throws { BusinessError } 201 - Permission denied. Interface caller does not have permission
+     *     "ohos.permission.MANAGE_TOOL_RUNTIME_PERMISSIONS".
+     * @throws { BusinessError } 202 - Not system application. Interface caller is not a system application.
+     * @throws { BusinessError } 12100001 - Invalid parameter. The hostTokenID is 0, the agentID exceeds 48
+     *     characters, authInfoList is empty or contains more than 99 items, the cliName in cliInfo of an item in
+     *     authInfoList is empty or exceeds 256 characters, the subCliName in cliInfo of an item in authInfoList exceeds
+     *     256 characters, a permission name in permissionNames of an item in authInfoList is empty or exceeds 256
+     *     characters, or the number of permissionNames does not equal the number of authorizationResults in an item in
+     *     authInfoList.
+     * @throws { BusinessError } 12100002 - The specified tokenID does not exist.
+     * @throws { BusinessError } 12100003 - A permission name in permissionNames of an item in authInfoList does
+     *     not exist.
+     * @throws { BusinessError } 12100007 - The service is abnormal.
+     * @throws { BusinessError } 12100009 - Common internal error. The account is not logged in, network is not
+     *     connected or an internal error occurs when generating authorization results.
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    generateCliAuthResult(
+      hostTokenID: int,
+      agentID: string,
+      authInfoList: Array<CliAuthInfo>): Promise<ToolAuthResult>;
   }
 
   /**
@@ -1333,69 +1429,409 @@ declare namespace abilityAccessCtrl {
     GRANTED = 1
   }
   /**
-  * Permission status information.
-  *
-  * @interface PermissionStatusInfo
-  * @syscap SystemCapability.Security.AccessToken
-  * @systemapi
-  * @stagemodelonly
-  * @since 26.0.0 dynamic&static
-  */
+   * Permission status information.
+   *
+   * @interface PermissionStatusInfo
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
   interface PermissionStatusInfo {
     /**
-    * Token ID of the application.
-    *
-    * @type { int }
-    * @syscap SystemCapability.Security.AccessToken
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * Token ID of the application.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     tokenID: int;
-  
+
     /**
-    * Permission name.
-    *
-    * @type { Permissions }
-    * @syscap SystemCapability.Security.AccessToken
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * Permission name.
+     *
+     * @type { Permissions }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     permissionName: Permissions;
 
     /**
-    * Permission grant status.
-    *
-    * @type { GrantStatus }
-    * @syscap SystemCapability.Security.AccessToken
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * Permission grant status.
+     *
+     * @type { GrantStatus }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     grantStatus: GrantStatus;
 
     /**
-    * Permission grant flag.
-    *
-    * @type { int }
-    * @syscap SystemCapability.Security.AccessToken
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * Permission grant flag.
+     *
+     * @type { int }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     grantFlags: int;
 
     /**
-    * Timestamp(in milliseconds) of the last permission grant status change.
-    *
-    * @type { ?long }
-    * @syscap SystemCapability.Security.AccessToken
-    * @systemapi
-    * @stagemodelonly
-    * @since 26.0.0 dynamic&static
-    */
+     * Timestamp(in milliseconds) of the last permission grant status change.
+     *
+     * @type { ?long }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
     grantTimestamp?: long;
+  }
+
+  /**
+   * Permission decision status.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  export enum PermissionDecisionStatus {
+    /**
+     * Permission dialog is required.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NEED_PERMISSION_DIALOG = 0,
+
+    /**
+     * No permission dialog is allowed because the user has denied this permission.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NO_DIALOG_DENIED = 1,
+
+    /**
+     * No permission dialog is allowed because this permission is restricted by the system or policies.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NO_DIALOG_RESTRICTED = 2,
+
+    /**
+     * No permission dialog is required because this permission has already been granted.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NO_DIALOG_GRANTED = 3,
+
+    /**
+     * No permission dialog is allowed because this permission is not declared.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NO_DIALOG_NOT_DECLARED = 4,
+
+    /**
+     * No permission dialog is required or allowed for this CLI permission because the corresponding runtime permission has
+     * already been granted or denied.
+     *
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    NO_DIALOG_CLI_PERMISSION_RESOLVED = 5
+  }
+
+  /**
+   * CLI information.
+   *
+   * @interface CliInfo
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface CliInfo {
+    /**
+     * CLI main command name.
+     * The maximum length is 256 characters and cannot be empty.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    cliName: string;
+
+    /**
+     * CLI subcommand name.
+     * The maximum length is 256 characters.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    subCliName: string;
+  }
+
+  /**
+   * Permission dialog information for a command.
+   *
+   * @interface PermissionDialogDetail
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface PermissionDialogDetail {
+    /**
+     * Indicates whether the current CLI requires a permission dialog.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    needPermissionDialog: boolean;
+
+    /**
+     * List of permissions that are not granted and do not allow permission dialogs.
+     *
+     * @type { Array<Permissions> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    permissionNameList: Array<Permissions>;
+
+    /**
+     * Permission decision status list. Each element corresponds to the permission at the same index.
+     *
+     * @type { Array<PermissionDecisionStatus> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    statusList: Array<PermissionDecisionStatus>;
+
+    /**
+     * Authorization result.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    authResult: string;
+  }
+
+  /**
+   * Result of querying whether a permission dialog is required.
+   *
+   * @interface PermissionDialogResult
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface PermissionDialogResult {
+    /**
+     * Dialog result list. Each element corresponds to the input command at the same index.
+     *
+     * @type { Array<PermissionDialogDetail> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    detailList: Array<PermissionDialogDetail>;
+  }
+
+  /**
+   * Detailed information about the required permission for a CLI.
+   *
+   * @interface CliPermissionDetail
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface CliPermissionDetail {
+    /**
+     * Permission required for calling the CLI.
+     *
+     * @type { Permissions }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    requiredCliPermission: Permissions;
+
+    /**
+     * Permission decision status of requiredCliPermission.
+     *
+     * @type { PermissionDecisionStatus }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    cliPermissionStatus: PermissionDecisionStatus;
+
+    /**
+     * Runtime permission list mapped from requiredCliPermission.
+     *
+     * @type { Array<Permissions> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    usedPermissions: Array<Permissions>;
+  }
+
+  /**
+   * Permission information for a CLI command.
+   *
+   * @interface CliCommandPermissionResult
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface CliCommandPermissionResult {
+    /**
+     * List of permissions required for invoking the CLI.
+     *
+     * @type { Array<CliPermissionDetail> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    requiredCliPermissions: Array<CliPermissionDetail>;
+  }
+
+  /**
+   * CLI permission query result.
+   *
+   * @interface CliPermissionsResult
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface CliPermissionsResult {
+    /**
+     * Permission information list. Each element corresponds to the CLI information at the same index.
+     *
+     * @type { Array<CliCommandPermissionResult> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    permList: Array<CliCommandPermissionResult>;
+  }
+
+  /**
+   * CLI authorization result information.
+   *
+   * @interface CliAuthInfo
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface CliAuthInfo {
+    /**
+     * CLI command information.
+     *
+     * @type { CliInfo }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    cliInfo: CliInfo;
+
+    /**
+     * List of permission names used to generate authorization results. Each element must not be empty and cannot
+     * exceed 256 characters.
+     *
+     * @type { Array<Permissions> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    permissionNames: Array<Permissions>;
+
+    /**
+     * User authorization result list used for authorization result generation only. Each element corresponds to
+     * the permission name at the same index, and the two arrays must have the same length.
+     *
+     * @type { Array<boolean> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    authorizationResults: Array<boolean>;
+  }
+
+  /**
+   * Authorization result.
+   *
+   * @interface ToolAuthResult
+   * @syscap SystemCapability.Security.AccessToken
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamiconly
+   */
+  interface ToolAuthResult {
+    /**
+     * Authorization result list. Each element corresponds to the authInfoList item at the same index.
+     *
+     * @type { Array<string> }
+     * @syscap SystemCapability.Security.AccessToken
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    authResults: Array<string>;
   }
 }
 

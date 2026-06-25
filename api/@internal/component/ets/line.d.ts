@@ -19,9 +19,14 @@
  */
 
 /**
- * Defines Line constructor options.
+ * Describes the options of the line.
  *
- * @interface LineOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element's
+ * > @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,128 +36,34 @@
  */
 interface LineOptions {
   /**
-   * Width of the rectangle where the line resides.
+   * Width.
+   * If the value is invalid or the default value is used, the width required for the content is used.
+   * Unit: vp.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Width of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Width of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Width of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Width of the rectangle where the line resides.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Width of the rectangle where the line resides.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   width?: Length;
 
   /**
-   * Height of the rectangle where the line resides.
+   * Height.
+   * If the value is invalid or the default value is used, the height required for the content is used.
+   * Unit: vp.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Height of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Height of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Height of the rectangle where the line resides.
-   *
-   * @type { ?(string | number) }
+   * @type { ?(string | number) } [since 18 - 19]
+   * @type { ?Length } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 11
-   */
-  /**
-   * Height of the rectangle where the line resides.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18
-   */
-  /**
-   * Height of the rectangle where the line resides.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   height?: Length;
 }
@@ -160,334 +71,112 @@ interface LineOptions {
 /**
  * Line drawing component.
  *
- * @interface LineInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Line drawing component.
- *
- * @interface LineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Line drawing component.
- *
- * @interface LineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Line drawing component.
- *
- * @interface LineInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface LineInterface {
   /**
    * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Uses new to create the line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Uses new to create the line.
    * Anonymous Object Rectification.
    *
-   * @param { LineOptions } [options] - Line options
+   * @param { object } value [since 7 - 17]
+   * @param { LineOptions } [options] - Line options [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   new (options?: LineOptions): LineAttribute;
 
   /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
+   * Defines the constructor of Line component.
    *
-   * @param { object } value
+   * @param { object } value - [since 7 - 17]
+   * @param { LineOptions } [options] - Options of the line.<br>The **undefined** and **null** values are treated as
+   *     invalid and will not take effect. [since 18]
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * The return value of the parameter is Line.
-   * width: Width of the rectangle where the line resides..
-   * height: Height of the rectangle where the line resides.
-   *
-   * @param { object } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * The return value of the parameter is Line.
-   * Anonymous Object Rectification.
-   *
-   * @param { LineOptions } [options] - Line options
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: LineOptions): LineAttribute;
 }
 
 /**
- * inheritance CommonShapeMethod.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonShapeMethod<LineAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * inheritance CommonShapeMethod.
- *
- * @extends CommonShapeMethod<LineAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * inheritance CommonShapeMethod.
- *
- * @extends CommonShapeMethod<LineAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * inheritance CommonShapeMethod.
- *
- * @extends CommonShapeMethod<LineAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class LineAttribute extends CommonShapeMethod<LineAttribute> {
   /**
-   * Coordinate of the start point of the line (relative coordinate).
+   * Sets the coordinates (relative coordinates) of the start point of the line. This attribute can be dynamically set 
+   * using  [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Coordinates (relative coordinates) of the start point of the line, in vp.<br>Default
+   *     value: **[0, 0]**<br>The **undefined** and **null** values are treated as the default value.
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Coordinate of the start point of the line (relative coordinate).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Coordinate of the start point of the line (relative coordinate).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Coordinate of the start point of the line (relative coordinate).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   startPoint(value: Array<any>): LineAttribute;
 
   /**
-   * Line end coordinates (relative coordinates).
+   * Sets the coordinates (relative coordinates) of the end point of the line. This attribute can be dynamically set
+   * using [attributeModifier]{@link CommonMethod#attributeModifier}. Invalid values are treated as the default value.
    *
-   * @param { Array<any> } value
+   * @param { Array<any> } value - Coordinates (relative coordinates) of the end point of the line, in vp.<br>Default
+   *     value: **[0, 0]**<br>The **undefined** and **null** values are treated as the default value.
    * @returns { LineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Line end coordinates (relative coordinates).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Line end coordinates (relative coordinates).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Line end coordinates (relative coordinates).
-   *
-   * @param { Array<any> } value
-   * @returns { LineAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   endPoint(value: Array<any>): LineAttribute;
 }
 
 /**
- * Defines Line Component.
+ * The **Line** component is used to draw a straight line.
+ * > **NOTE**
+ * >
+ * > This component supports dynamic constructor parameter updates using the
+ * > [updateConstructorParams](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md#properties) API of the
+ * > [AttributeUpdater](docroot://reference/apis-arkui/js-apis-arkui-AttributeUpdater.md) class since API version 20.
+ * >
+ * > **Child Components**
+ * >
+ * > None
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Line Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Line Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Line Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Line: LineInterface;
 
@@ -496,33 +185,10 @@ declare const Line: LineInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Defines Line Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines Line Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Line Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const LineInstance: LineAttribute;

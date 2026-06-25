@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CustomBuilder } from './builder';
+import { CustomBuilder, Builder, CustomBuilderT, ConstructorT } from './builder';
 import { ComponentBuilder } from './builder';
 import { Resource } from '../../global/resource';
 import { ResourceStr, ResourceColor, Length, Font } from './units';
@@ -497,7 +497,28 @@ export declare interface ButtonAttribute extends CommonMethod {
      * @since 23 static
      */
     default attributeModifier(modifier: AttributeModifier<ButtonAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-}
+    /**
+     * Set button options.
+     *
+     * @param { ResourceStr } label - the label of button
+     * @param { ButtonOptions } [options] - button constructor options
+     * @returns { ButtonAttribute } Returns the instance of the ButtonAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setButtonOptions(label: ResourceStr, options?: ButtonOptions): this;
+    /**
+     * Set button options.
+     *
+     * @param { ButtonOptions } [options] - button constructor options
+     * @returns { ButtonAttribute } Returns the instance of the ButtonAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setButtonOptions(options?: ButtonOptions): this;
+ }
 
 /**
  * Defines Button Component.
@@ -528,6 +549,113 @@ export declare function Button(
  */
 @ComponentBuilder
 export declare function Button(
-    options?: ButtonOptions, 
+    options?: ButtonOptions,
     content_?: CustomBuilder,
 ): ButtonAttribute
+
+/**
+ * Defines Button Component.
+ *
+ * @param { CustomBuilderT<ButtonAttribute> } style_ - button attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { ButtonAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Button(
+    style_: CustomBuilderT<ButtonAttribute>,
+    content_?: CustomBuilder,
+): ButtonAttribute
+/**
+ * Defines the Extendable Button.
+ *
+ * @implements ButtonAttribute
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+export declare abstract class ExtendableButton implements ButtonAttribute {
+    /**
+     * Constructor of Extendable Button.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ResourceStr } label
+     * @param { ButtonOptions } [options] - Button Component Options
+     * @param { CustomBuilder } [content_] - subcomponent trailing closure
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableButton>(
+        factory: ConstructorT<T>, 
+        label: ResourceStr, 
+        options?: ButtonOptions, 
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Constructor of Extendable Button.
+     *
+     * @param { ConstructorT<T> } factory
+     * @param { ButtonOptions } [options]
+     * @param { CustomBuilder } [content_]
+     * @returns { T }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @ComponentBuilder
+    static $_instantiate<T extends ExtendableButton>(
+        factory: ConstructorT<T>, 
+        options?: ButtonOptions,
+        content_?: CustomBuilder
+    ): T;
+
+    /**
+     * Entry of Extendable Button.
+     *
+     * @param { CustomBuilderT<T> } styles
+     * @param { ConstructorT<T> } factory
+     * @param { CustomBuilder } [content_]
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    @Builder
+    static _instantiateImpl<T extends ExtendableButton>(
+        styles: CustomBuilderT<T>, 
+        factory: ConstructorT<T>, 
+        content_?: CustomBuilder
+    ): void;
+
+    /**
+     * Set the Button Options.
+     *
+     * @param { ResourceStr } label
+     * @param { ButtonOptions } [options]
+     * @returns { ExtendableButton }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setButtonOptions(
+        label: ResourceStr, 
+        options?: ButtonOptions
+    ): this;
+
+    /**
+     * Set the Button Options.
+     *
+     * @param { ButtonOptions } [options]
+     * @returns { ExtendableButton }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    public setButtonOptions(options?: ButtonOptions): this;
+}

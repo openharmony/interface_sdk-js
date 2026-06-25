@@ -17,12 +17,11 @@
  * @file
  * @kit AbilityKit
  */
-
 /**
  * # How to Use
- * 
- * The **MultiAppMode** property is obtained from 
- * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of 
+ *
+ * The **MultiAppMode** property is obtained from
+ * [getRunningMultiAppInfo]{@link ./../@ohos.app.ability.appManager:appManager.getRunningMultiAppInfo} of
  * **appManager**.
  */
 /**
@@ -48,7 +47,7 @@ export enum MultiAppMode {
 
   /**
    * The application supports the multi-instance mode.
-   * 
+   *
    * Note: This property is valid only for 2-in-1 devices.
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.AbilityCore

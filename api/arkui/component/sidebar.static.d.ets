@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,19 +21,22 @@
  */
 
 import { Resource } from '../../global/resource';
+
 import { Length, ResourceColor, Dimension } from './units';
+
 import { CommonMethod, PixelMap, Bindable, AttributeModifier, DividerStyle } from './common';
-import { ComponentBuilder, CustomBuilder } from './builder';
+
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * Sets the sidebar style of showing
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum SideBarContainerType {
+
   /**
    * The sidebar invisible
    *
@@ -53,6 +57,7 @@ export declare enum SideBarContainerType {
 
   /**
    * The sidebar AUTO
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -66,18 +71,18 @@ export declare enum SideBarContainerType {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  DISPLACE = 3,
+  DISPLACE =3
 }
 
 /**
  * Sets the sidebar position of showing
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum SideBarPosition {
+
   /**
    * The sidebar is on the Start of the container
    *
@@ -85,7 +90,7 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  Start,
+  Start = 0,
 
   /**
    * The sidebar is on the End of the container
@@ -94,23 +99,23 @@ export declare enum SideBarPosition {
    * @stagemodelonly
    * @since 23 static
    */
-  End
+  End = 1
 }
 
 /**
  * ButtonStyle icons.
  *
- * @typedef ButtonIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ButtonIconOptions {
+
   /**
    * Defines whether an icon is shown.
    *
    * Anonymous Object Rectification.
-   * @type { string | PixelMap | Resource }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -121,7 +126,7 @@ export declare interface ButtonIconOptions {
    * Defines whether an icon is hidden.
    *
    * Anonymous Object Rectification.
-   * @type { string | PixelMap | Resource }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -132,7 +137,7 @@ export declare interface ButtonIconOptions {
    * Defines whether an icon is switching.
    *
    * Anonymous Object Rectification.
-   * @type { ?(string | PixelMap | Resource) }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -143,17 +148,16 @@ export declare interface ButtonIconOptions {
 /**
  * Sets the control button style
  *
- * @interface ButtonStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface ButtonStyle {
+
   /**
    * Set the left of control button
    * default value is 16vp.
    *
-   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -164,7 +168,6 @@ export declare interface ButtonStyle {
    * Set the top of control button
    * default value is 48vp.
    *
-   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -175,7 +178,6 @@ export declare interface ButtonStyle {
    * Set the width of control button
    * default value is 24vp.
    *
-   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -186,7 +188,6 @@ export declare interface ButtonStyle {
    * Set the height of control button
    * default value is 24vp.
    *
-   * @type { ?double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -196,7 +197,6 @@ export declare interface ButtonStyle {
   /**
    * Set the button icon when sidebar status has changed
    *
-   * @type { ?ButtonIconOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -207,12 +207,12 @@ export declare interface ButtonStyle {
 /**
  * The attribute function of sidebar
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SideBarContainerAttribute extends CommonMethod {
+
   /**
    * Callback showControlButton function when setting the status of sidebar
    *
@@ -320,7 +320,8 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   /**
    * Set divider style for sideBarContainer
    *
-   * @param { DividerStyle | null | undefined } value - indicates the style of the divider or whether to show the divider.
+   * @param { DividerStyle | null | undefined } value - indicates the style of the divider or whether to show the
+   *     divider.
    * @returns { SideBarContainerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -341,6 +342,20 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
   default minContentWidth(value: Dimension | undefined): this;
 
   /**
+   * Specifies whether sideBar can be presented or dismissed by gesture.
+   *
+   * @param { boolean | undefined } value - Indicates whether sidebar can be presented or dismissed by gesture.
+   *     <br>Default value: **false**.
+   *     **true**: Sidebar can be presented or dismissed by gesture.
+   *     **false**: Sidebar cannot be presented or dismissed by gesture.
+   * @returns { SideBarContainerAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default showSideBarWithGesture(value: boolean | undefined): this;
+
+  /**
    * Set the attribute modifier of sidebar.
    *
    * @param { AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -351,6 +366,18 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
    * @since 23 static
    */
   default attributeModifier(modifier: AttributeModifier<SideBarContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
+
+  /**
+   * Set sidebar container options.
+   *
+   * @param { SideBarContainerType } [type] - Sidebar container type options
+   *     <br>Default value:SideBarContainerType.Embed
+   * @returns { SideBarContainerAttribute } Returns the instance of the SideBarContainerAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default setSideBarContainerOptions(type?: SideBarContainerType): this;
 }
 
 /**
@@ -362,9 +389,26 @@ export declare interface SideBarContainerAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function SideBarContainer(
   type?: SideBarContainerType,
   content_?: CustomBuilder
-): SideBarContainerAttribute
+): SideBarContainerAttribute;
+
+/**
+ * Defines sidebar Component
+ *
+ * @param { CustomBuilderT<SideBarContainerAttribute> } style_ - sidebar attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { SideBarContainerAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ */
+@Builder
+export declare function SideBarContainer(
+ 	style_: CustomBuilderT<SideBarContainerAttribute>,
+ 	content_?: CustomBuilder,
+): SideBarContainerAttribute;

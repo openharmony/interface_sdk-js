@@ -1,4 +1,3 @@
-
 /*
  * Copyright (C) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,7 +20,7 @@
 
 /**
  * Defines the callback that is called when state variable with value is change
- * @typedef { function } OnChangeType
+ *
  * @param { string } propertyName - property name
  * @param { T } newValue - the new value of state variable
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -33,17 +32,17 @@ export type OnChangeType<T> = (propertyName: string, newValue: T) => void;
 /**
  * Define AbstractProperty<T> interface.
  *
- *  AbstractProperty can be understood as a handler or an alias
- *  to a property inside LocalStorage / AppStorage singleton
- *  allows to read the value with @see get and to change the
- *  value with @see set.
+ * AbstractProperty can be understood as a handler or an alias
+ * to a property inside LocalStorage / AppStorage singleton
+ * allows to read the value with @see get and to change the
+ * value with @see set.
  *
- * @interface AbstractProperty<T>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface AbstractProperty<T> {
+
   /**
    * Returns the name of the referenced property
    *
@@ -73,6 +72,7 @@ export declare interface AbstractProperty<T> {
    * @since 23 static
    */
   default set(newValue: T): void;
+
   /**
    * Register callback function to be called on value change of the referenced property
    * calling with value undefined clear the callback.
@@ -87,23 +87,23 @@ export declare interface AbstractProperty<T> {
 
 /**
  * SubscribedAbstractProperty<T> is the return value of
- *   - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
- *   - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
- *   'T' can be boolean, string, number or custom class.
- * Main functions
- *   see get() reads the linked AppStorage/LocalStorage property value,
- *   see set(newValue) write a new value to the synched AppStorage/LocalStorage property
- *   see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
- *        The app must call this function before the SubscribedAbstractProperty<T> object
- *        goes out of scope.
  *
- * @extends AbstractProperty<T>
- * @interface SubscribedAbstractProperty<T>
+ * - AppStorage static functions Link(), Prop(), SetAndLink(), and SetAndProp()
+ * - LocalStorage member methods link(), prop(), setAndLink(), and setAndProp()
+ * 'T' can be boolean, string, number or custom class.
+ * Main functions
+ * see get() reads the linked AppStorage/LocalStorage property value,
+ * see set(newValue) write a new value to the synched AppStorage/LocalStorage property
+ * see aboutToBeDeleted() ends the sync relationship with the AppStorage/LocalStorage property
+ * The app must call this function before the SubscribedAbstractProperty<T> object
+ * goes out of scope.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<T> {
+
   /**
    * An app needs to call this function before the instance of SubscribedAbstractProperty
    * goes out of scope / is subject to garbage collection. Its purpose is to unregister the
@@ -120,12 +120,12 @@ export declare interface SubscribedAbstractProperty<T> extends AbstractProperty<
 /**
  * Defines the ColorMode of device.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum ColorMode {
+
   /**
    * Light mode.
    *
@@ -148,12 +148,12 @@ export declare enum ColorMode {
 /**
  * Defines the LayoutDirection of device.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export declare enum LayoutDirection {
+
   /**
    * Elements are laid out from right to left.
    *

@@ -24,6 +24,7 @@ import { SymbolGlyphModifier } from './arkui/SymbolGlyphModifier';
 import { Builder, CustomBuilder } from '@ohos.arkui.component';
 import { RichEditorSelection, RichEditorController } from '@ohos.arkui.component';
 import { MenuItemOptions } from '@ohos.arkui.component';
+import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Construct parameter types for EditorMenuOptions.
@@ -239,6 +240,17 @@ export interface SelectionMenuOptions {
    * @since 23 static
    */
   onSelectAll?: SelectionMenuOnSelectAllCallback;
+
+  /**
+   * Set system-styled materials for the component. Different materials have different effects,
+   * which can influence the backgroundColor, border, shadow, and other visual attributes.
+   *
+   * @type { ?uiMaterial.Material }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  backgroundSystemMaterial?: uiMaterial.Material;
 }
 
 /**

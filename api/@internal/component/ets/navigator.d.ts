@@ -19,161 +19,93 @@
  */
 
 /**
- * Route jump.
- * 
- * @enum { number }
+ * Navigation type.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Route jump.
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Route jump.
- * 
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation
  */
 declare enum NavigationType {
+
   /**
-   * Jump to the next page.
-   * 
+   * Navigates to the specified page in the application.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
+   * [pushPath]{@link NavPathStack#pushPath(info: NavPathInfo, animated?: boolean)} instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Jump to the next page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Jump to the next page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavPathStack#pushPath
    */
-  Push,
+  Push = 0,
 
   /**
-   * Return to the previous page.
-   * 
+   * Returns to the specified page. If the specified page does not exist in the stack, no response is returned. If no
+   * page is specified, the previous page is returned to.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
+   * [pop]{@link NavPathStack#pop(animated?: boolean)} instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Return to the previous page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Return to the previous page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavPathStack#pop
    */
-  Back,
+  Back = 1,
 
   /**
-   * Replace page.
-   * 
+   * Replaces the current page with another one in the application and destroys the current page.
+   *
+   * **NOTE**
+   *
+   * This API is supported since API version 7 and deprecated since API version 13. You are advised to use
+   * [replacePath]{@link NavPathStack#replacePath(info: NavPathInfo, animated?: boolean)} instead.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Replace page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replace page.
-   * 
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavPathStack.replacePath
    */
-  Replace,
+  Replace = 2
 }
 
 /**
- * Create route
- * 
- * @interface NavigatorInterface
+ * The **Navigator** component provides redirection.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Create route
- * 
- * @interface NavigatorInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Create route
- * 
- * @interface NavigatorInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation
+ * @noninterop
  */
 interface NavigatorInterface {
+
   /**
    * Called when the route jumps.
-   * 
-   * @param { object } value
+   *
+   * @param { object } value - Information about the page to be redirected to.<br/>target: Path of the target page to be
+   *     redirected to. <br/>type: Navigation type.<br>Default value: **NavigationType.Push**
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the route jumps.
-   * 
-   * @param { object } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the route jumps.
-   * 
-   * @param { object } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavPathInfo
    */
@@ -181,27 +113,12 @@ interface NavigatorInterface {
 
   /**
    * Called when using the navigator.
-   * 
+   *
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when using the navigator.
-   * 
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when using the navigator.
-   * 
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavigationAttribute
    */
@@ -210,150 +127,75 @@ interface NavigatorInterface {
 
 /**
  * Declare navigator properties.
- * 
- * @extends CommonMethod<NavigatorAttribute>
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Declare navigator properties.
- * 
- * @extends CommonMethod<NavigatorAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Declare navigator properties.
- * 
- * @extends CommonMethod<NavigatorAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation
+ * @noninterop
  */
 declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
+
   /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { boolean } value
+   * Sets whether the **Navigator** component is activated. If the component is activated, the corresponding navigation
+   * takes effect.
+   *
+   * @param { boolean } value - Whether the **Navigator** component is activated. The value **true** means that the
+   *     component is activated, and **false** means the opposite.
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { boolean } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { boolean } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation
    */
   active(value: boolean): NavigatorAttribute;
 
   /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { NavigationType } value
+   * Sets the navigation type.
+   *
+   *
+   * @param { NavigationType } value - Navigation type.<br>Default value: **NavigationType.Push**
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { NavigationType } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when determining whether the routing component is active.
-   * 
-   * @param { NavigationType } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation
    */
   type(value: NavigationType): NavigatorAttribute;
 
   /**
-   * Called when the path to the specified jump target page is set.
-   * 
-   * @param { string } value
+   * Sets the path of the target page to be redirected to. The target page must be added to the **main_pages.json**
+   * file.
+   *
+   *
+   * @param { string } value - Path of the target page to be redirected to.
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the path to the specified jump target page is set.
-   * 
-   * @param { string } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the path to the specified jump target page is set.
-   * 
-   * @param { string } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead Navigation
    */
   target(value: string): NavigatorAttribute;
 
   /**
-   * Called when data is passed to the target page at the same time during jump.
-   * 
-   * @param { object } value
+   * Sets the data that needs to be passed to the target page during redirection.
+   *
+   *
+   * @param { object } value - Data that needs to be passed to the target page during redirection. You can use
+   *     [router.getParams()]{@link @ohos.router:router.getParams} to obtain the data on the target page.
    * @returns { NavigatorAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when data is passed to the target page at the same time during jump.
-   * 
-   * @param { object } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when data is passed to the target page at the same time during jump.
-   * 
-   * @param { object } value
-   * @returns { NavigatorAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 13
    * @useinstead NavPathInfo#param
    */
@@ -361,51 +203,32 @@ declare class NavigatorAttribute extends CommonMethod<NavigatorAttribute> {
 }
 
 /**
- * Defines Navigator Component.
- * 
+ * The **Navigator** component provides redirection.
+ *
+ *
+ * ###### Child Components
+ *
+ * Supported
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Navigator Component.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Navigator Component.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation
+ * @noninterop
  */
 declare const Navigator: NavigatorInterface;
 
 /**
  * Defines Navigator Component instance.
- * 
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Navigator Component instance.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Navigator Component instance.
- * 
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 13
  * @useinstead Navigation
+ * @noninterop
  */
 declare const NavigatorInstance: NavigatorAttribute;

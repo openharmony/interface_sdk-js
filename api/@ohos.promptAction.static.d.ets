@@ -19,11 +19,11 @@
  */
 import { ResourceColor, Offset, Dimension, EdgeStyles, EdgeColors, EdgeWidths, BorderRadiuses, VoidCallback } from '@ohos.arkui.component';
 import { AsyncCallback, Callback } from '@ohos.base';
-import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, SystemUiMaterial } from '@ohos.arkui.component';
+import { BlurStyle, ShadowOptions, ShadowStyle, HoverModeAreaType, Rectangle, TransitionEffect, KeyboardAvoidMode, DismissReason, BackgroundBlurStyleOptions, BackgroundEffectOptions, SystemUiMaterial, DistortionMode, EdgeLightMode } from '@ohos.arkui.component';
 import { CustomBuilder } from '@ohos.arkui.component';
 import { DialogAlignment } from '@ohos.arkui.component';
 import { DismissDialogAction } from '@ohos.arkui.component';
-import { BorderStyle, Alignment } from '@ohos.arkui.component';
+import { BorderStyle, Alignment, DialogDisplayMode } from '@ohos.arkui.component';
 import { Resource } from 'global.resource';
 import { LengthMetrics } from 'arkui.Graphics';
 import uiMaterial from '@ohos.arkui.uiMaterial';
@@ -535,7 +535,7 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }
@@ -700,6 +700,26 @@ declare namespace promptAction {
          * @since 26.0.0 static
          */
         systemMaterial?: uiMaterial.Material;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     /**
      * Enum for state.
@@ -854,7 +874,18 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
+        /**
+         * Defines the dialog display mode when show in subwindow.
+         *
+         * @type { ?DialogDisplayMode }
+         * @default DialogDisplayMode.SCREEN_BASED
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        displayModeInSubWindow?: DialogDisplayMode;
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }
@@ -1074,6 +1105,26 @@ declare namespace promptAction {
          * @since 26.0.0 static
          */
         systemMaterial?: uiMaterial.Material;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     
     /**
@@ -1386,7 +1437,7 @@ declare namespace promptAction {
          * @since 23 static
          */
         showInSubWindow?: boolean;
-        
+
         /**
          * Whether it is a modal dialog
          * @type { ?boolean }
@@ -1474,6 +1525,26 @@ declare namespace promptAction {
          * @since 26.0.0 static
          */
         systemMaterial?: uiMaterial.Material;
+        /**
+         * Sets the distortion animation Mode of the dialog.
+         *
+         * @default DistortionMode.DISTORTION_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        distortionMode?: DistortionMode;
+        /**
+         * Sets the edgeLight animation Mode of the dialog.
+         *
+         * @default EdgeLightMode.EDGELIGHT_AUTO
+         * @syscap SystemCapability.ArkUI.ArkUI.Full
+         * @systemapi
+         * @stagemodelonly
+         * @since 26.0.0 static
+         */
+        edgeLightMode?: EdgeLightMode;
     }
     /**
      * Displays the notification text.

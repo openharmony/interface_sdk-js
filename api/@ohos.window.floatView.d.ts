@@ -27,7 +27,51 @@ import { LocalStorage } from '@ohos.arkui.stateManagement';
 /*** endif */
 
 /**
- * Float view
+ * A float view is a small window that floats on a desktop or an application screen, providing flexible window
+ * management capabilities.
+ *
+ * This module provides capabilities about the float view, including determining whether a device supports a float view,
+ * and creating a float view controller to start, update, or stop a float view.
+ *
+ * **Application scenarios**:
+ *
+ * A float view is applicable to scenarios where application content needs to be continuously displayed in an
+ * independent small window or shortcut operations need to be provided. Examples:
+ *
+ * - Application for stock market tracking: When browsing other applications, users can use a float view to view real-
+ * time stock market changes without frequently switching between applications.
+ * - Live streaming application on a mobile phone: During live streaming, hosts can use a float view to display a custom
+ * interaction panel or control UI, facilitating real-time operations and interactions.
+ *
+ * **Linkage with the floating ball**:
+ *
+ * This module can be used together with [@ohos.window.floatingBall]{@link @ohos.window.floatingBall:floatingBall}.
+ * After the float view controller is bound to the floating ball controller using the
+ * [floatView.bind]{@link floatView.bind} API, users can tap the floating ball to expand it as a float view, and click
+ * the minimize button in the upper left corner of the float view to collapse it back as a floating ball. This allows
+ * for seamless switching between the two window forms.
+ *
+ * **Comparison between the global floating window and float view**:
+ *
+ * - Similarities: Both the global floating window and float view are special types of application auxiliary windows
+ * that can remain displayed on the foreground even after the application's main window and corresponding ability
+ * transition to the background. They can be used to continue displaying the UI after the application transitions to the
+ * background.
+ * - Differences:
+ *  - The global floating window is managed and its UI is drawn by developers, without a unified UI or animation effect.
+ *  - The float view is managed by the system and its UI is drawn in a unified manner, offering a more sophisticated and
+ * refined animation effect.
+ *  - The float view can be bound to the [floating ball]{@link @ohos.window.floatingBall:floatingBall} for joint use,
+ * enabling more complex scenarios.
+ *
+ * **Start version**: 26.0.0
+ *
+ * > **NOTE**
+ * >
+ * > - Use [canIUse()](docroot://reference/common/js-apis-syscap.md#caniuse) to check whether the device supports the
+ * > system capability SystemCapability.Window.SessionManager and the corresponding APIs.
+ * >
+ * > - The APIs of this module can be used only in the stage model.
  *
  * @syscap SystemCapability.Window.SessionManager
  * @stagemodelonly
@@ -35,7 +79,11 @@ import { LocalStorage } from '@ohos.arkui.stateManagement';
  */
 declare namespace floatView {
   /**
-   * Whether the float view is enabled on the current device.
+   * Checks whether the device supports the float view.
+   *
+   * | Type| Description|
+   * |------------|------------|
+   * | boolean  | Whether the device supports the float view. **true** to support; **false** otherwise.|
    *
    * @returns { boolean } true if the float view is enabled, otherwise false.
    * @syscap SystemCapability.Window.SessionManager
@@ -45,11 +93,12 @@ declare namespace floatView {
   function isFloatViewEnabled(): boolean;
 
   /**
-   * Create a float view controller
+   * Creates a float view controller. This API uses a promise to return the result.
    *
-   * @param { FloatViewConfiguration } config - Parameters for float view controller creation.
-   *     The config must be valid, the context in config should not be null.
-   * @returns { Promise<FloatViewController> } - The promise returned by the function.
+   * @param { FloatViewConfiguration } config - Parameter for creating a float view controller. This parameter and the
+   *     context for constructing this parameter cannot be null or undefined. Otherwise, error code 401 is thrown. Error
+   *     code 1300016 is thrown for other parameter exceptions.
+   * @returns { Promise<FloatViewController> } Promise used to return the created float view controller.
    * @throws { BusinessError } 801 - Capability not supported. Possible cause: Call the API on unsupported device.
    * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
    *     1. This window context is abnormal.
@@ -63,20 +112,33 @@ declare namespace floatView {
   function create(config: FloatViewConfiguration): Promise<FloatViewController>;
 
   /**
-   * Bind the float view and the floating ball.
+   * Binds the float view and floating ball. You need to create the
+   * [float view controller]{@link floatView.FloatViewController} and
+   * [floating ball controller]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController} first, and neither
+   * of them has been started. This API uses a promise to return the result.
+   *
    * > **NOTE**
-   * > - After binding, invoking the start method of either the floatViewController or the floatingBallController
-   *     will create both windows. However, only one window will be displayed at the same time.
-   *     The display order is determined by which controller's start method is called first.
-   * > - After binding, the floating ball window and the float view window support mutual toggling,
-   *     triggered by user clicks.
-   * > - After binding, invoking the stop method of either controller will destroy both windows.
+   * >
+   * > - After the binding is successful, calling [start()]{@link floatView.FloatViewController.start} or
+   * > [startFloatingBall()]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController.startFloatingBall} will
+   * > create both a float view and the floating ball window, and trigger the status callback registered for the
+   * > corresponding window. However, only one window is displayed at a time, and the display sequence depends on which
+   * > controller's start API is called first.
+   * >
+   * > - After the binding is successful, users can switch between the float view and the floating ball window by
+   * > clicking.
+   * >
+   * > - After the binding is successful, calling the stop API ([stop()]{@link floatView.FloatViewController.stop} or
+   * > [stopFloatingBall()]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController.stopFloatingBall}) of
+   * > either controller will destroy both the float view and the floating ball window, and trigger the status callback
+   * > registered for the corresponding window.
    *
    * @permission ohos.permission.USE_FLOAT_BALL and ohos.permission.FLOAT_VIEW
-   * @param { FloatViewController } floatViewController - Controller of float view.
-   * @param { floatingBall.FloatingBallController } floatingBallController - Controller of floating ball.
-   * @param { floatingBall.FloatingBallParams } floatingBallParams - params of floating ball.
-   * @returns { Promise<void> } - Promise that returns no value
+   * @param { FloatViewController } floatViewController - Float view controller.
+   * @param { floatingBall.FloatingBallController } floatingBallController - Floating ball controller.
+   * @param { floatingBall.FloatingBallParams } floatingBallParams - Floating ball parameters. The parameters set during
+   *     binding will overwrite the parameters saved when the floating ball controller is started.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. Possible cause:
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported on this device. Possible cause:
@@ -97,11 +159,14 @@ declare namespace floatView {
     floatingBallParams: floatingBall.FloatingBallParams): Promise<void>;
 
   /**
-   * Unbind the float view and the floating ball.
+   * Unbinds the float view and floating ball. The unbinding can be performed only after both the
+   * [float view controller]{@link floatView.FloatViewController} and
+   * [floating ball controller]{@link @ohos.window.floatingBall:floatingBall.FloatingBallController} are stopped. This
+   * API uses a promise to return the result.
    *
-   * @param { FloatViewController } floatViewController - Controller of float view.
-   * @param { floatingBall.FloatingBallController } floatingBallController - Controller of floating ball.
-   * @returns { Promise<void> } - Promise that returns no value
+   * @param { FloatViewController } floatViewController - Float view controller.
+   * @param { floatingBall.FloatingBallController } floatingBallController - Floating ball controller.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 801 - Capability not supported on this device. Possible cause:
    *     Call api on unsupported device.
    * @throws { BusinessError } 1300025 - The floating ball state does not support this operation. Possible cause:
@@ -119,32 +184,33 @@ declare namespace floatView {
     floatingBallController: floatingBall.FloatingBallController): Promise<void>;
 
   /**
-   * Get the window limits of current float view window measured in px.
+   * Obtains the limits of the float view based on the passed template type. The unit is px.
    *
-   * @returns { FloatViewLimits } - Returns the limits of float view window,
-   *     including the maximum and minimum size limits.
+   * @param { FloatViewTemplateType } templateType - Template type of the float view.
+   * @returns { FloatViewLimits } Limits of the float view, including the maximum size, minimum size, and aspect ratio.
    * @throws { BusinessError } 801 - Capability not supported. Possible cause:
    *     Call the API on unsupported device.
    * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
    *     System error, such as a null pointer, insufficient memory or a JS engine exception.
    * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
    *     Internal IPC error.
+   * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid template type.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function getFloatViewLimits(): FloatViewLimits;
+  function getFloatViewLimits(templateType: FloatViewTemplateType): FloatViewLimits;
 
   /**
-   * FloatViewConfiguration
+   * Provides parameter configuration required for creating a float view controller.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface FloatViewConfiguration {  
+  interface FloatViewConfiguration {
     /**
-     * Indicates the window context.
+     * Context environment.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -153,17 +219,59 @@ declare namespace floatView {
     context: BaseContext;
 
     /**
-     * The template type of the float view.
+     * Template type of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     templateType: FloatViewTemplateType;
+
+    /**
+     * This field controls whether user confirmation is required when the close button is clicked.
+     * **true** if clicking the close button requires user confirmation, otherwise no confirmation is needed.
+     * Default value: default value is false.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isConfirmOnClose?: boolean;
   }
 
   /**
-   * FloatViewController
+   * Provides parameter configuration required for switching the float view template and modifying the size of the
+   * window.
+   *
+   * @syscap SystemCapability.Window.SessionManager
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface TemplateProperty {
+    /**
+     * Template type of the float view.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    templateType: FloatViewTemplateType;
+
+    /**
+     * Window size required for updating the template type.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    size: window.Size;
+  }
+
+  /**
+   * Defines a float view controller instance, which is used to start and stop the float view and register callbacks.
+   *
+   * Before calling the following APIs, you must use [floatView.create()]{@link floatView.create} to create a float view
+   * controller instance (that is, **floatViewController**).
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
@@ -172,14 +280,18 @@ declare namespace floatView {
   interface FloatViewController {
 
     /**
-     * Sets the UI content of the float view.
+     * Loads the content of a page, with its path specified in the current project, for the float view, and transfers
+     * the state attribute to the page through **LocalStorage**. This API uses a promise to return the result.
      *
-     * @param { string } path - Path of the page to which the content will be loaded.
-     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @param { string } path - Path of the page content which needs to be loaded to the window. The path needs to be
+     *     configured in the **main_pages.json** file of the project. The path cannot be a relative path and must be the
+     *     same as the value of **src** in the **main_pages.json** file.
+     * @param { LocalStorage } [storage] - Page-level UI state storage unit, which is used to transfer the state
+     *     attribute for the page. By default, the value is empty.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
-     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid path;
+     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid path.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -187,11 +299,31 @@ declare namespace floatView {
     setUIContext(path: string, storage?: LocalStorage): Promise<void>;
 
     /**
-     * Sets the float view window size.
+     * Sets the UI content of a [named route](docroot://ui/arkts-routing.md#named-route) page to this float view window.
      *
-     * @param { window.Size } size - Indicate the size of the window. The size is recommended to meet
-     *     the limits of 'getFloatViewLimits'.
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @param { string } name - Name of the named route page.
+     * @param { LocalStorage } [storage] - The data object shared within the content instance loaded by the window.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The float view controller object is null.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible causes: Invalid name.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setUIContextByName(name: string, storage?: LocalStorage): Promise<void>;
+
+    /**
+     * Sets the size of the float view. You are advised to call the
+     * [getFloatViewLimits]{@link floatView.getFloatViewLimits} API to obtain the recommended width and height ranges
+     * and aspect ratio range, and then call this API based on the recommended values. The actual window size change can
+     * be listened to through the
+     * [onRectChange]{@link floatView.FloatViewController.onRectChange(callback: Callback<FloatViewRectChangeInfo>)}
+     * API. This API uses a promise to return the result.
+     *
+     * @param { window.Size } size - Window size. It is recommended that the size meet the limits returned by the
+     *     [getFloatViewLimits]{@link floatView.getFloatViewLimits} API.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
@@ -205,10 +337,39 @@ declare namespace floatView {
     setWindowSize(size: window.Size): Promise<void>;
 
     /**
-     * Starts the float view window.
+     * Switches the template of the flow view and changes the window size. You are advised to call the
+     * [getFloatViewLimits]{@link floatView.getFloatViewLimits} API to obtain the recommended width and height ranges
+     * and aspect ratio range of the target template, and then call this API based on the recommended values. The actual
+     * window size change can be listened to through the
+     * [onRectChange]{@link floatView.FloatViewController.onRectChange(callback: Callback<FloatViewRectChangeInfo>)}
+     * API. This API uses a promise to return the result.
+     *
+     * @param { TemplateProperty } templateProperty - Target flow view template and window size. It is recommended that
+     *     the size meet the limits returned by the [getFloatViewLimits]{@link floatView.getFloatViewLimits} API.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The float view controller object is null.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal IPC error.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
+     *     1. Invalid template type.
+     *     2. The value of the size is less than or equal to 0.
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    switchTemplate(templateProperty: TemplateProperty): Promise<void>;
+
+    /**
+     * Starts the float view. The return value of this API does not indicate that the start process is complete. You
+     * need to use the
+     * [onStateChange]{@link floatView.FloatViewController.onStateChange(callback: Callback<FloatViewStateChangeInfo>)}
+     * API to listen for the **STARTED** callback to determine whether the start is successful. You are advised to call
+     * **start ()** after calling [setUIContext()]{@link floatView.FloatViewController.setUIContext}. This API uses a
+     * promise to return the result.
      *
      * @permission ohos.permission.FLOAT_VIEW
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission verification failed. Possible cause:
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
@@ -221,7 +382,7 @@ declare namespace floatView {
      *     The float view is stopping.
      * @throws { BusinessError } 1300033 - Failed to start float view. Possible causes:
      *     1. Start multiple float views.
-     *     2. The application does not have any foreground windows.
+     *     2. The main window of context is not foreground.
      * @throws { BusinessError } 1300034 - This operation conflicts with other floating windows. Possible cause:
      *     App has already started floating ball or pip window.
      * @syscap SystemCapability.Window.SessionManager
@@ -231,9 +392,13 @@ declare namespace floatView {
     start(): Promise<void>;
 
     /**
-     * Stops the float View window.
+     * Stops the float view. The return value of this API does not indicate that the stop process is complete. You need
+     * to use the
+     * [onStateChange]{@link floatView.FloatViewController.onStateChange(callback: Callback<FloatViewStateChangeInfo>)}
+     * API to listen for the **STOPPED** callback to determine whether the stop is successful. This API uses a promise
+     * to return the result.
      *
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
@@ -249,10 +414,15 @@ declare namespace floatView {
     stop(): Promise<void>;
 
     /**
-     * Sets whether the float view window is visible when app is in the foreground.
+     * Sets whether the float view is visible when the application is running in the foreground. This API uses a promise
+     * to return the result.
      *
-     * @param { boolean } isVisible - True if float view is visible when app is in the foreground, otherwise invisible.
-     * @returns { Promise<void> } - The promise returned by the function.
+     * After the float view is created and before this API is called, the float view is visible by default when the
+     * application is running in the foreground.
+     *
+     * @param { boolean } isVisible - Whether the float view is visible when the application is running in the
+     *     foreground. The value **true** indicates that the window is visible, and **false** indicates the opposite.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
@@ -264,14 +434,17 @@ declare namespace floatView {
     setFloatViewVisibilityInApp(isVisible: boolean): Promise<void>;
 
     /**
-     * Restores the main window for float view to the foreground.
-     * This interface can only be used by a float view window after it has been clicked once.
-     * The interface cannot be invoked when the main window is in PAUSED lifecycle or is in background during recent.
+     * Restores the main window of the float view to display in the foreground. If this API is called when the main
+     * window is already in the foreground, the main window level will be raised. This API can be used only after the
+     * float view is clicked. If the main window is in the **PAUSED** state or in the multitasking state, error code 130
+     * 0032 will be returned if this API is called. This API uses a promise to return the result.
      *
-     * @param { Record<string, Object> } [wantParameters] - Want parameters.
-     *     Custom want parameter delivered when restoring the main window.
-     *     Want parameters are used for UIAbility onNewWant.
-     * @returns { Promise<void> } - The promise returned by the function.
+     * @param { Record<string, Object> } [wantParameters] - Custom parameters passed to the main window when the main
+     *     window of the float view is restored. The main window will receive the parameters when the
+     *     [onNewWant]{@link @ohos.app.ability.AbilityLifecycleCallback:AbilityLifecycleCallback#onNewWant?(ability: UIAbility)}
+     *     callback is triggered. The default value is empty, indicating that no custom parameters are passed to the
+     *     main window.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
@@ -290,9 +463,9 @@ declare namespace floatView {
     restoreMainWindow(wantParameters?: Record<string, Object>): Promise<void>;
 
     /**
-     * Get properties of the float view window.
+     * Obtains the properties of the float view.
      *
-     * @returns { FloatViewProperties } - Returns properties of the float view window.
+     * @returns { FloatViewProperties } Properties of the float view.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300031 - This operation is not supported on the float view in the current state.
@@ -304,9 +477,11 @@ declare namespace floatView {
     getWindowProperties(): FloatViewProperties;
 
     /**
-     * Register the float view stateChange event listener.
+     * Registers a callback for listening to float view state changes. To prevent memory leaks, remember to unregister
+     * the callback when it is no longer needed.
      *
-     * @param { Callback<FloatViewStateChangeInfo> } callback - Used to handle {'stateChange'} command.
+     * @param { Callback<FloatViewStateChangeInfo> } callback - Callback used to return the status change information of
+     *     the current float view.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300030 - Repeated operations on the float view. Possible cause:
@@ -318,10 +493,11 @@ declare namespace floatView {
     onStateChange(callback: Callback<FloatViewStateChangeInfo>): void;
 
     /**
-     * Unregister the float view stateChange event listener.
+     * Unregisters the callback for listening to float view state changes.
      *
-     * @param { Callback<FloatViewStateChangeInfo> } [callback] - Indicates the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<FloatViewStateChangeInfo> } [callback] - Callback used to return the status change information
+     *     of the current float view. If a value is passed in, the corresponding callback is unregistered. If no value
+     *     is passed in, all callbacks associated with the status change event of the float view are unregistered.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @syscap SystemCapability.Window.SessionManager
@@ -331,9 +507,11 @@ declare namespace floatView {
     offStateChange(callback?: Callback<FloatViewStateChangeInfo>): void;
 
     /**
-     * Register the float view rectChange event listener.
+     * Registers a callback for listening to changes in the rectangular area (position and size) of the float view. To
+     * prevent memory leaks, remember to unregister the callback when it is no longer needed.
      *
-     * @param { Callback<FloatViewRectChangeInfo> } callback - Used to handle {'rectChange'} command.
+     * @param { Callback<FloatViewRectChangeInfo> } callback - Callback used to return the rectangle area change
+     *     information of the current float view.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300030 - Repeated operations on the float view. Possible cause:
@@ -345,10 +523,12 @@ declare namespace floatView {
     onRectChange(callback: Callback<FloatViewRectChangeInfo>): void;
 
     /**
-     * Unregister the float view rectChange event listener.
+     * Unregisters the callback for listening to changes in the rectangular area of the float view.
      *
-     * @param { Callback<FloatViewRectChangeInfo> } [callback] - Indicates the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<FloatViewRectChangeInfo> } [callback] - Callback used to return the rectangle area change
+     *     information of the current float view. If a value is passed in, the corresponding callback is unregistered.
+     *     If no value is passed in, all callbacks associated with the rectangle area change event of the float view are
+     *     unregistered.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @syscap SystemCapability.Window.SessionManager
@@ -358,9 +538,12 @@ declare namespace floatView {
     offRectChange(callback?: Callback<FloatViewRectChangeInfo>): void;
 
     /**
-     * Register the float view limitsChange event listener.
+     * Registers a callback for listening to limit changes of the float view. When the limit changes, for example, when
+     * the device is folded or unfolded, the callback is triggered. To prevent memory leaks, remember to unregister the
+     * callback when it is no longer needed.
      *
-     * @param { Callback<FloatViewLimits> } callback - Used to handle {'limitsChange'} command.
+     * @param { Callback<FloatViewLimits> } callback - Callback used to return the limit change information of the
+     *     current float view.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @throws { BusinessError } 1300030 - Repeated operations on the float view. Possible cause:
@@ -372,10 +555,11 @@ declare namespace floatView {
     onLimitsChange(callback: Callback<FloatViewLimits>): void;
 
     /**
-     * Unregister the float view limitsChange event listener.
+     * Unregisters the callback for listening to limit changes of the float view.
      *
-     * @param { Callback<FloatViewLimits> } [callback] - Indicates the callback function. If not provided,
-     *     all callbacks for the given event type will be removed.
+     * @param { Callback<FloatViewLimits> } [callback] - Callback used to return the limit change information of the
+     *     current float view. If a value is passed in, the corresponding callback is unregistered. If no value is
+     *     passed in, all callbacks associated with the limit change event of the float view are unregistered.
      * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     The float view controller object is null.
      * @syscap SystemCapability.Window.SessionManager
@@ -386,33 +570,51 @@ declare namespace floatView {
   }
 
   /**
-   * Enumeration for float view template type.
+   * Provides the template type of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum FloatViewTemplateType {  
+  enum FloatViewTemplateType {
     /**
-     * Rounded rectangle.
+     * Rectangle with rounded corners.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    ROUNDED_RECTANGLE = 0
+    ROUNDED_RECTANGLE = 0,
+
+    /**
+     * Horizontal bar rectangle.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    HORIZONTAL_BAR = 1
   }
 
   /**
-   * The properties of the float view
+   * Provides the properties of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface FloatViewProperties {  
+  interface FloatViewProperties {
     /**
-     * The window id of the float view.
+     * Template type of the float view.
+     *
+     * @syscap SystemCapability.Window.SessionManager
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    templateType: FloatViewTemplateType;
+
+    /**
+     * Float view ID.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -421,8 +623,7 @@ declare namespace floatView {
     windowId: int;
 
     /**
-     * The display id of the float view.
-     * The value should be an integer.
+     * ID of the display where the float view is located.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -431,7 +632,7 @@ declare namespace floatView {
     displayId: int;
 
     /**
-     * The window rect of the float view.
+     * Rectangle area of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -440,7 +641,7 @@ declare namespace floatView {
     windowRect: window.Rect;
 
     /**
-     * The window scale of the float view.
+     * Scale factor of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -449,16 +650,22 @@ declare namespace floatView {
     windowScale: double;
 
     /**
-     * The title bar rect of the float view.
+     * Avoid area for the content of the float view.
+     *
+     * Note:
+     *
+     * On the page loaded by [setUIContext]{@link floatView.FloatViewController.setUIContext}, components in the avoid
+     * area do not respond to gesture events. When adding components that require gesture response events, avoid the
+     * area.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    titleBarRect: window.Rect;
+    avoidArea: window.AvoidArea;
 
     /**
-     * Whether the float view is in the sidebar.
+     * Whether the float view is in the sidebar. **true**: in the sidebar; **false**: not in the sidebar.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -468,16 +675,16 @@ declare namespace floatView {
   }
 
   /**
-   * The aspect ratio limit of the float view
+   * Provides the aspect ratio range of the float view. The aspect ratio is obtained by dividing the width of the
+   * rectangular area of the window by its height.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface RatioLimit {  
+  interface RatioLimit {
     /**
-     * The minimum aspect ratio of the float view.
-     * <br>Value range:(0, +∞).
+     * Minimum aspect ratio of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -486,8 +693,7 @@ declare namespace floatView {
     minRatio: double;
 
     /**
-     * The maximum aspect ratio of the float view.
-     * <br>Value range:(0, +∞).
+     * Maximum aspect ratio of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -497,15 +703,15 @@ declare namespace floatView {
   }
 
   /**
-   * The limits of the float view
+   * Provides the limits of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface FloatViewLimits {  
+  interface FloatViewLimits {
     /**
-     * The minimum size of the float view.
+     * Minimum size of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -514,7 +720,7 @@ declare namespace floatView {
     minSize: window.Size;
 
     /**
-     * The maximum size of the float view.
+     * Maximum size of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -523,7 +729,7 @@ declare namespace floatView {
     maxSize: window.Size;
 
     /**
-     * The aspect ratio limits of the float view.
+     * Aspect ratio range of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -533,15 +739,15 @@ declare namespace floatView {
   }
 
   /**
-   * The state change info of the float view
+   * Provides the state change information of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  interface FloatViewStateChangeInfo {  
+  interface FloatViewStateChangeInfo {
     /**
-     * The state of the float view.
+     * State of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -550,9 +756,24 @@ declare namespace floatView {
     state: FloatViewState;
 
     /**
-     * The reason for the float view stopped.
-     * This parameter is valid only when the status is FloatViewState.STOPPED,
-     * it is an empty string by default in other states.
+     * Reason why the float view stops. This parameter is valid only when **state** is set to
+     * **FloatViewState.STOPPED**. In other states, this parameter is an empty string by default. The stop reasons and
+     * their meanings are as follows:
+     *
+     * **"APP_STOP"**: The application proactively stops the float view.
+     *
+     * **"STOP_IN_SIDEBAR"**: The float view is closed in the sidebar.
+     *
+     * **"TITLE_BAR_STOP_CLICK"**: The float view is closed by clicking the close button on the title bar.
+     *
+     * **"DUMPSTER_STOP"**: The float view is dragged to the trash can.
+     *
+     * **"REPLACE_STOP"**: The float view is occupied by another float view.
+     *
+     * **"FLOATING_BALL_STOP"**: The float view stops when the bound floating ball stops.
+     *
+     * **"MAIN_WINDOW_DESTROY_STOP"**: The float view stops after the main window associated with the context is
+     * destroyed.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -562,15 +783,15 @@ declare namespace floatView {
   }
 
   /**
-   * The state of the float view
+   * Enumerates the states of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  enum FloatViewState {  
+  enum FloatViewState {
     /**
-     * The float view is started.
+     * The float view has been started and displayed.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -579,7 +800,9 @@ declare namespace floatView {
     STARTED = 1,
 
     /**
-     * The float view is hidden.
+     * The float view has been hidden. This event is triggered when the user swipes up to enter the multitasking screen
+     * or when the [setFloatViewVisibilityInApp]{@link floatView.FloatViewController.setFloatViewVisibilityInApp} API is
+     * called to hide the float view when the application is in the foreground and the application is in the foreground.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -588,7 +811,7 @@ declare namespace floatView {
     HIDDEN = 2,
 
     /**
-     * The float view is stopped.
+     * The float view has been stopped.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -606,7 +829,7 @@ declare namespace floatView {
     IN_SIDEBAR = 4,
 
     /**
-     * The float view is in floating ball.
+     * The float view is switched to the floating ball.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -615,7 +838,7 @@ declare namespace floatView {
     IN_FLOATING_BALL = 5,
 
     /**
-     * The float view is in an error state.
+     * An exception occurs in the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -625,7 +848,7 @@ declare namespace floatView {
   }
 
   /**
-   * The rect change options of the float view
+   * Provides the rectangle area change information of the float view.
    *
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
@@ -633,7 +856,7 @@ declare namespace floatView {
    */
   interface FloatViewRectChangeInfo {
     /**
-     * The window rect of the float view.
+     * Rectangle area of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -642,7 +865,7 @@ declare namespace floatView {
     windowRect: window.Rect;
 
     /**
-     * The window scale of the float view.
+     * Scale factor of the float view.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
@@ -651,7 +874,13 @@ declare namespace floatView {
     windowScale: double;
 
     /**
-     * The reason for the float view rect change.
+     * Reason for the change of the rectangle area of the float view. The reasons and their meanings are as follows:
+     *
+     * **"POSITION_CHANGE"**: The position changes.
+     *
+     * **"SIZE_CHANGE"**: The size changes.
+     *
+     * **"RECT_CHANGE"**: Both the position and size change.
      *
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly

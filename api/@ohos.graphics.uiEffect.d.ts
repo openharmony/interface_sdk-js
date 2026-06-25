@@ -548,6 +548,32 @@ declare namespace uiEffect {
      */
     liquidMaterial(param : LiquidMaterialEffectParam, useEffectMask: Mask, distortMask?: Mask,
       brightnessParam?: BrightnessParam): VisualEffect;
+
+    /**
+     * Sets distortion collapse effect.
+     *
+     * NOTE
+     * 1. This visual effect supports drawing outside the bounds of the control,
+     *    but it is still subject to the clipping (Clip) of the parent control.
+     * 2. Because it contains a foreground Filter, some visual effects of the component itself and its child components
+     *    (e.g., BrightnessBlender or systemMaterial) are incompatible when not used in combination
+     *    with the EffectComponent.
+     * 3. It supports distorting the system material, but when used in combination with the EffectComponent,
+     *    it will cause the background of the system material to be distorted.
+     * 4. When calling distortionCollapse, an offscreen canvas equal in size to the deformed area will be created.
+     *    The content of the current component (including child components) is then drawn onto this offscreen canvas,
+     *    and the existing content on the canvas is drawn with deformation. When using this implementation in
+     *    combination with the EffectComponent, interfaces that require screen capture, such as systemMaterial,
+     *    backgroundEffect, brightness, and blur, will not be able to capture the correct screen.
+     *
+     * @param { DistortionParam } distortionParam - the distortion params of distortion effect.
+     * @returns { VisualEffect } - Returns the VisualEffect that the current effect have been added.
+     * @syscap SystemCapability.Graphics.Drawing
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamiconly
+     */
+    distortionCollapse(distortionParam: DistortionParam): VisualEffect;
   }
 
   /**
@@ -875,25 +901,26 @@ declare namespace uiEffect {
 
   /**
    * Defines the blending effect.
-   * @typedef { BrightnessBlender }
+   *
+   * @unionmember { BrightnessBlender } Base brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR brightness blender
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 13
-   */  
-  /**
-   * Defines the blending effect.
-   * @typedef { BrightnessBlender | HdrBrightnessBlender }
-   * @syscap SystemCapability.Graphics.Drawing
-   * @systemapi
-   * @since 20 dynamic
+   * @stagemodelonly
    * @since 23 static
    */
-    /**
+  type Blender = BrightnessBlender | HdrBrightnessBlender;
+
+  /**
    * Defines the blending effect.
-   * @typedef { BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender }
+   * 
+   * @unionmember { BrightnessBlender } Base brightness blender
+   * @unionmember { HdrBrightnessBlender } HDR brightness blender [since 20]
+   * @unionmember { HdrDarkenBlender } HDR-adaptive darken blender [since 26.0.0]
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
-   * @since 26.0.0 dynamic&static
+   * @stagemodelonly
+   * @since 13 dynamic
    */
   type Blender = BrightnessBlender | HdrBrightnessBlender | HdrDarkenBlender;
 
@@ -1091,7 +1118,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   interface HdrDarkenBlender {
     /**
@@ -1101,7 +1128,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     hdrBrightnessRatio: double;
 
@@ -1114,7 +1141,7 @@ declare namespace uiEffect {
      * @syscap SystemCapability.Graphics.Drawing
      * @systemapi
      * @stagemodelonly
-     * @since 26.0.0 dynamic&static
+     * @since 26.0.0 dynamiconly
      */
     grayscaleFactor?: [double, double, double];
   }
@@ -1335,7 +1362,7 @@ declare namespace uiEffect {
    * @syscap SystemCapability.Graphics.Drawing
    * @systemapi
    * @stagemodelonly
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamiconly
    */
   function createHdrDarkenBlender(hdrBrightnessRatio: double,
     grayscaleFactor?: [double, double, double]): HdrDarkenBlender; 

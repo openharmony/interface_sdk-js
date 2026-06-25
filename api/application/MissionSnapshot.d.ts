@@ -22,7 +22,7 @@ import { ElementName } from '../bundleManager/ElementName';
 import image from '../@ohos.multimedia.image';
 
 /**
- * The module defines the snapshot of a mission. The snapshot can be obtained through 
+ * The module defines the snapshot of a mission. The snapshot can be obtained through
  * [missionManager.getMissionSnapShot]{@link @ohos.app.ability.missionManager:missionManager.getMissionSnapShot(deviceId: string, missionId: int, callback: AsyncCallback<MissionSnapshot>)}
  * .
  *

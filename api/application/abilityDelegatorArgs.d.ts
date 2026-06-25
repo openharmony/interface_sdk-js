@@ -47,6 +47,8 @@ export interface AbilityDelegatorArgs {
   /**
    * Parameters of the unit test that is started currently.
    *
+   * @type { object } [since 8 - 10]
+   * @type { Record<string, string> } [since 11]
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @crossplatform [since 10]
    * @atomicservice [since 11]

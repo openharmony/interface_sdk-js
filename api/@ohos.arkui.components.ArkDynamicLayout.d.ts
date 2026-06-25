@@ -18,10 +18,10 @@
  * @kit ArkUI
  */
 import { LayoutAlgorithm } from './arkui/LayoutAlgorithm';
+
 /**
- * Defines the DynamicLayout Component.
+ * Defines the dynamic layout container.
  *
- * @interface DynamicLayoutInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,9 +31,11 @@ import { LayoutAlgorithm } from './arkui/LayoutAlgorithm';
  */
 export interface DynamicLayoutInterface {
     /**
-     * Sets the layout algorithm of DynamicLayout component.
+     * Defines the dynamic layout container.
      *
-     * @param { LayoutAlgorithm } algorithm
+     * @param { LayoutAlgorithm } algorithm - Layout algorithm of the dynamic layout component. If an invalid value is
+     *     used, the child components are stacked and arranged according to
+     *     [StackLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#stacklayoutalgorithm).
      * @returns { DynamicLayoutAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -45,9 +47,35 @@ export interface DynamicLayoutInterface {
     (algorithm: LayoutAlgorithm): DynamicLayoutAttribute;
 }
 /**
- * Defines the DynamicLayout attribute functions.
+ * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
  *
- * @extends CommonMethod<DynamicLayoutAttribute>
+ * > **NOTE**
+ * >
+ * > - When the layout algorithm is
+ * > [RowLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#rowlayoutalgorithm) or
+ * > [ColumnLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#columnlayoutalgorithm),
+ * > the [Flex layout](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md) attributes set for
+ * > child components take effect.
+ * >
+ * > - When the layout algorithm is
+ * > [StackLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#stacklayoutalgorithm),
+ * > the [layoutGravity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#layoutgravity20)
+ * > attribute set for child components takes effect.
+ * >
+ * > - When the layout algorithm is
+ * > [CustomLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#customlayoutalgorithm),
+ * > the [setMeasuredSize](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#setmeasuredsize12) method of the
+ * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) component of **DynamicLayout**
+ * > has a higher priority than the [sizing](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md) and
+ * > [border styling](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md) attributes. The
+ * > [measure](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#measure12) and
+ * > [layout](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#layout12) methods of the child component
+ * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) have a higher priority than the
+ * > [ignoreLayoutSafeArea](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-expand-safe-area.md#ignorelayoutsafearea20)
+ * > attribute.
+ *
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -58,9 +86,12 @@ export interface DynamicLayoutInterface {
 export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAttribute> {}
 
 /**
- * Defines DynamicLayout Component.
+ * Defines the dynamic layout container component, which supports dynamically switching between different layout
+ * algorithms at runtime without changing the status of child components.
+ * > **Child Components**
+ * >
+ * > Child components are supported.
  *
- * @type { DynamicLayoutInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -70,9 +101,10 @@ export declare class DynamicLayoutAttribute extends CommonMethod<DynamicLayoutAt
  * @since 24 dynamic
  */
 export declare const DynamicLayout: DynamicLayoutInterface;
+
 /**
  * Defines DynamicLayout Component instance.
- * @type { DynamicLayoutAttribute }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

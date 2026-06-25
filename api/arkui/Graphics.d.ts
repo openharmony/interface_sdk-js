@@ -14,133 +14,88 @@
  */
 
 /**
+ * The **Graphics** module provides APIs for defining attributes of a custom node.
+ *
  * @file
  * @kit ArkUI
  */
+
 import drawing from '../@ohos.graphics.drawing';
+
 import type common2D from '../@ohos.graphics.common2D';
+
 import { Resource } from '../global/resource';
 
 /**
- * Size info.
  * Returns the width and height of the component. The default unit is vp, but APIs that use the Size type may specify a
  * different unit, in which case the unit specified by the API takes precedence.
  *
- * @interface Size
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Size info.
- * Returns the width and height of the component. The default unit is vp, but APIs that use the Size type may specify a
- * different unit, in which case the unit specified by the API takes precedence.
- *
- * @interface Size
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export interface Size {
+
   /**
-   * Get the width of the Size.
+   * Width of the component.
+   *
    * Unit: vp.
+   *
    * Value range: [0, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the width of the Size.
-   * Unit: vp.
-   * Value range: [0, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width: number;
 
   /**
-   * Get the height of the Size.
+   * Height of the component.
+   *
    * Unit: vp.
+   *
    * Value range: [0, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the height of the Size.
-   * Unit: vp.
-   * Value range: [0, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   height: number;
 }
 
 /**
- * Defines DrawContext.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 11
- */
-/**
- * Defines DrawContext.
  * Graphics drawing context, which provides the canvas width and height required for drawing.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export class DrawContext {
 
   /**
-   * Get size of the DrawContext.
+   * Obtains the width and height of the canvas.
    *
-   * @returns { Size } The size of the DrawContext.
+   * @returns { Size } Width and height of the canvas.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get size of the DrawContext.
-   *
-   * @returns { Size } The size of the DrawContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   get size(): Size;
 
   /**
-   * Get size of the DrawContext with pixel unit.
+   * Obtains the width and height of the canvas in px.
    *
-   * @returns { Size } The size of the DrawContext with pixel unit.
+   * @returns { Size } Width and height of the canvas, in px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -150,110 +105,70 @@ export class DrawContext {
   get sizeInPixel(): Size;
 
   /**
-   * Get canvas of the DrawContext.
+   * Obtains the canvas used for drawing.
    *
-   * @returns { drawing.Canvas } The canvas of the DrawContext.
+   * @returns { drawing.Canvas } Canvas for drawing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get canvas of the DrawContext.
-   *
-   * @returns { drawing.Canvas } The canvas of the DrawContext.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   get canvas(): drawing.Canvas;
 }
 
 /**
-  * Defines a vector with two values.
-  *
-  * @interface Vector2
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @since 11
-  */
- /**
-  * Defines a vector with two values.
-  *
-  * @interface Vector2
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+ * Defines a vector that contains the x and y coordinate values.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ */
 interface Vector2 {
-  /**
-   * Value for x-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for x-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  x: number
 
   /**
-   * Value for y-axis of the vector.
+   * X coordinate value of the vector.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
+  x: number;
+
   /**
-   * Value for y-axis of the vector.
+   * Y coordinate value of the vector.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  y: number
+  y: number;
 }
 
 /**
-  * Defines a vector with two T type values.
-  *
-  * @interface Vector2T
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+ * Represents a vector of the T type that contains two values: x and y.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
 interface Vector2T<T> {
 
   /**
-   * Value for x-axis of the vector.
+   * X coordinate value of the vector.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -263,9 +178,8 @@ interface Vector2T<T> {
   x: T;
 
   /**
-   * Value for y-axis of the vector.
+   * Y coordinate value of the vector.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -276,97 +190,58 @@ interface Vector2T<T> {
 }
 
 /**
- * Defines a vector with three values.
+ * Represents a vector including three values: x, y, and z.
  *
- * @interface Vector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Defines a vector with three values.
- *
- * @interface Vector3
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 interface Vector3 {
+
   /**
-   * Value for x-axis of the vector.
+   * X coordinate value of the vector.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for x-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: number;
 
   /**
-   * Value for y-axis of the vector.
+   * Y coordinate value of the vector.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for y-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: number;
 
   /**
-   * Value for z-axis of the vector.
+   * Rotation angle along the z-axis.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Value for z-axis of the vector.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   z: number;
 }
 
 /**
- * Defined a vector with four number values.
+ * Defines a vector that contains the x, y, z, and w coordinate values.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -375,9 +250,10 @@ interface Vector3 {
  * @since 26.0.0 dynamic
  */
 interface Vector4 {
+
   /**
-   * Value for x-axis of the vector.
-   * Value range:(-∞, +∞).
+   * X coordinate value of the vector.
+   * Value range: (-∞,+∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -388,7 +264,7 @@ interface Vector4 {
   x: double;
 
   /**
-   * Value for y-axis of the vector.
+   * Y coordinate value of the vector.
    * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -400,7 +276,7 @@ interface Vector4 {
   y: double;
 
   /**
-   * Value for z-axis of the vector.
+   * Z coordinate value of the vector.
    * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -412,7 +288,7 @@ interface Vector4 {
   z: double;
 
   /**
-   * Value for w-axis of the vector.
+   * W coordinate value of the vector.
    * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -425,25 +301,22 @@ interface Vector4 {
 }
 
 /**
- * It's a 4x4 matrix, represent by number[].
- * Value range of each number: (-∞, +∞)
+ * Sets a 4x4 matrix.
+ * The **Matrix4** type is used to set transformation information for components. The following is an example:
+ * ```
+ * const transform: Matrix4 = [
+ * 1, 0, 45, 0,
+ * 0, 1,  0, 0,
+ * 0, 0,  1, 0,
+ * 0, 0,  0, 1
+ * ]
+ * ```.
  *
- * @typedef { number[] } Matrix4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * It's a 4x4 matrix, represent by number[].
- * Value range of each number: (-∞, +∞)
- *
- * @typedef { number[] } Matrix4
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Matrix4 = [
   number,
@@ -465,55 +338,30 @@ export type Matrix4 = [
 ];
 
 /**
- * Offset info.
- * Unit: vp.
+ * Sets the offset of the component or effect.
  *
- * @typedef { Vector2 } Offset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Offset info.
- * Unit: vp.
- *
- * @typedef { Vector2 } Offset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Offset = Vector2;
 
 /**
- * Position info.
- * Unit: vp.
+ * Sets or returns the position of the component.
  *
- * @typedef { Vector2 } Position
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Position info.
- * Unit: vp.
- *
- * @typedef { Vector2 } Position
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Position = Vector2;
 
 /**
- * PositionT info.
- * Unit: vp.
- * @typedef {Vector2T<T> }
+ * Sets or returns the position of the component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -523,224 +371,125 @@ export type Position = Vector2;
 export type PositionT<T> = Vector2T<T>;
 
 /**
- * Pivot info.
- * As the rotation or scaling center of the component, the pivot affects the rotation and scaling effects.
- * The value is a floating point number in the range [0.0, 1.0], and the default value is 0.5.
+ * Sets the pivot of the component. As the rotation or scaling center of the component, the pivot affects the rotation
+ * and scaling effects.
  *
- * @typedef { Vector2 } Pivot
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Pivot info.
- * As the rotation or scaling center of the component, the pivot affects the rotation and scaling effects.
- * The value is a floating point number in the range [0.0, 1.0], and the default value is 0.5.
- *
- * @typedef { Vector2 } Pivot
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Pivot = Vector2;
 
 /**
- * Scale info.
- * The value is a floating point number, and the default value is 1.0.
+ * Sets the scale factor of the component.
  *
- * @typedef { Vector2 } Scale
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Scale info.
- * The value is a floating point number, and the default value is 1.0.
- *
- * @typedef { Vector2 } Scale
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Scale = Vector2;
 
 /**
- * Translation info.
- * Unit: px
+ * Sets the translation amount of the component.
  *
- * @typedef { Vector2 } Translation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Translation info.
- * Unit: px
- *
- * @typedef { Vector2 } Translation
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Translation = Vector2;
 
 /**
- * Rotation info.
- * Unit: degree
+ * Sets the rotation angle of the component.
  *
- * @typedef { Vector3 } Rotation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Rotation info.
- * Unit: degree
- *
- * @typedef { Vector3 } Rotation
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export type Rotation = Vector3;
 
 /**
- * Frame info, include the position info and size info.
+ * Sets or returns the layout size and position of the component.
  *
- * @interface Frame
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Frame info, include the position info and size info.
- *
- * @interface Frame
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 export declare interface Frame {
+
   /**
-   * Position value for x-axis of the frame info.
+   * Horizontal position.
+   *
    * Unit: vp.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Position value for x-axis of the frame info.
-   * Unit: vp.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: number;
 
   /**
-   * Position value for y-axis of the frame info.
+   * Vertical position.
+   *
    * Unit: vp.
+   *
    * Value range: (-∞, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Position value for y-axis of the frame info.
-   * Unit: vp.
-   * Value range: (-∞, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: number;
 
   /**
-   * Size value for width of the frame info.
+   * Component width.
+   *
    * Unit: vp.
+   *
    * Value range: [0, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Size value for width of the frame info.
-   * Unit: vp.
-   * Value range: [0, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   width: number;
 
   /**
-   * Size value for height of the frame info.
+   * Component height.
+   *
    * Unit: vp.
+   *
    * Value range: [0, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Size value for height of the frame info.
-   * Unit: vp.
-   * Value range: [0, +∞).
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   height: number;
 }
 
 /**
- * Defines the Edge property.
+ * Describes the edges.
  *
- * @interface Edges
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -748,59 +497,55 @@ export declare interface Frame {
  * @since 12 dynamic
  */
 export interface Edges<T> {
-  /**
-   * Left property.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  left: T,
 
   /**
-   * Right property.
+   * Left edge.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  right: T,
+  left: T;
 
   /**
-   * Top property.
+   * Right edge.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  top: T,
+  right: T;
 
   /**
-   * Bottom property.
+   * Top edge.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  bottom: T,
+  top: T;
+
+  /**
+   * Bottom edge.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  bottom: T;
 }
 
 /**
- * Defines the Length Unit.
+ * Enumerates length units.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -808,10 +553,9 @@ export interface Edges<T> {
  * @since 12 dynamic
  */
 declare enum LengthUnit {
+
   /**
-   * Logical pixel used in Ace1.0. It's based on frontend design width.
-   * For example, when a frontend with 750px design width running on a
-   * device with 1080 pixels width, 1px represents 1.44 pixels.
+   * Length in px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -822,7 +566,7 @@ declare enum LengthUnit {
   PX = 0,
 
   /**
-   * Density independent pixels, one vp is one pixel on a 160 dpi screen.
+   * Length in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -833,8 +577,7 @@ declare enum LengthUnit {
   VP = 1,
 
   /**
-   * Scale independent pixels. This is like VP but will be scaled by
-   * user's font size preference.
+   * Length in fp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -845,8 +588,7 @@ declare enum LengthUnit {
   FP = 2,
 
   /**
-   * The percentage of either a value from the element's parent or from
-   * another property of the element itself.
+   * Length in percentage.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -857,7 +599,7 @@ declare enum LengthUnit {
   PERCENT = 3,
 
   /**
-   * Logic pixels used in ACE2.0 instead of PX, and PX is the physical pixels in ACE2.0.
+   * Length in lpx.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -865,13 +607,12 @@ declare enum LengthUnit {
    * @atomicservice
    * @since 12 dynamic
    */
-  LPX = 4,
+  LPX = 4
 }
 
 /**
- * Defines the Size property.
+ * Sets the width and height attributes.
  *
- * @interface SizeT
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -879,10 +620,10 @@ declare enum LengthUnit {
  * @since 12 dynamic
  */
 export interface SizeT<T> {
+
   /**
-   * Width property.
+   * Width.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -892,9 +633,8 @@ export interface SizeT<T> {
   width: T;
 
   /**
-   * Height property.
+   * Height.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -905,9 +645,8 @@ export interface SizeT<T> {
 }
 
 /**
- * Enumerates the length metrics unit.
+ * Enumerates length units.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -917,7 +656,7 @@ export interface SizeT<T> {
 export enum LengthMetricsUnit {
 
   /**
-   * The default length metrics unit, in vp.
+   * Length in vp.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -928,7 +667,7 @@ export enum LengthMetricsUnit {
   DEFAULT = 0,
 
   /**
-   * The pixel length metrics unit.
+   * Length in px.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -940,8 +679,7 @@ export enum LengthMetricsUnit {
 }
 
 /**
- * Defines the Length Metrics.
- * When the length unit is PERCENT, the value 1 indicates 100%.
+ * Defines the length attribute. When the length unit is PERCENT, the value **1** indicates 100%.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -950,14 +688,14 @@ export enum LengthMetricsUnit {
  * @since 12 dynamic
  */
 declare class LengthMetrics {
+
   /**
-   * Constructor.
-   * If the unit parameter is omitted or explicitly set to undefined, the default unit VP is used.
-   * If it is set to a value that is not of the LengthUnit type, the default value 0 VP is used.
+   * A constructor used to create a **LengthMetrics** instance. If the **unit** parameter is omitted or explicitly set
+   * to **undefined**, the default unit VP is used. If it is set to a value that is not of the LengthUnit type, the
+   * default value 0 VP is used.
    *
-   * @param { number } value - The value of length.
-   * @param { LengthUnit } [unit] - The length unit.
-   * The default value is VP.
+   * @param { number } value - Value of the length property.<br>Value range: [0, +∞).
+   * @param { LengthUnit } [unit] - Unit of the length property.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -967,12 +705,10 @@ declare class LengthMetrics {
   constructor(value: number, unit?:LengthUnit);
 
   /**
-   * Init a lengthMetrics with px unit.
+   * Creates a length property in px.
    *
-   * @param { number } value - The value of the length metrics.
-   * Value range: (-∞, +∞).
-   * @returns { LengthMetrics } Returns the lengthMetrics object with unit px.
-   * @static
+   * @param { number } value - Value of the length property.<br>Value range: (-∞, +∞).
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -982,12 +718,10 @@ declare class LengthMetrics {
   static px(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetrics with vp unit.
+   * Creates a length property in vp.
    *
-   * @param { number } value - The value of the length metrics.
-   * Value range: (-∞, +∞).
-   * @returns { LengthMetrics } - Returns the lengthMetrics object with unit vp.
-   * @static
+   * @param { number } value - Value of the length property.<br>Value range: (-∞, +∞).
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -997,12 +731,10 @@ declare class LengthMetrics {
   static vp(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetrics with fp unit.
+   * Creates a length property in fp.
    *
-   * @param { number } value - The value of the length metrics.
-   * Value range: (-∞, +∞).
-   * @returns { LengthMetrics } Returns the lengthMetrics object with unit fp.
-   * @static
+   * @param { number } value - Value of the length property.<br>Value range: (-∞, +∞).
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1012,13 +744,10 @@ declare class LengthMetrics {
   static fp(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetrics with percent unit.
-   * The value 1 indicates 100%.
+   * Creates a length property in percent. The value **1** indicates 100%.
    *
-   * @param { number } value - The value of the length metrics.
-   * Value range: [0, 1].
-   * @returns { LengthMetrics } Returns the lengthMetrics object with unit percent.
-   * @static
+   * @param { number } value - Value of the length property.<br>Value range: [0, 1].
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1028,12 +757,10 @@ declare class LengthMetrics {
   static percent(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetrics with lpx unit.
+   * Creates a length property in lpx.
    *
-   * @param { number } value - The value of the length metrics.
-   * Value range: (-∞, +∞).
-   * @returns { LengthMetrics } Returns the lengthMetrics object with unit lpx.
-   * @static
+   * @param { number } value - Value of the length property.<br>Value range: (-∞, +∞).
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1043,11 +770,10 @@ declare class LengthMetrics {
   static lpx(value: number): LengthMetrics;
 
   /**
-   * Init a lengthMetrics with Resource unit.
+   * Represents the length of a resource of the Resource type.
    *
-   * @param { Resource } value - The value of the length metrics.
-   * @returns { LengthMetrics } Returns the lengthMetrics object with unit Resource.
-   * @static
+   * @param { Resource } value - Value of the length property.
+   * @returns { LengthMetrics } Instance of the **LengthMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1057,9 +783,8 @@ declare class LengthMetrics {
   static resource(value: Resource): LengthMetrics;
 
   /**
-   * The unit of the LengthMetrics. The default value is VP.
+   * Unit of the length property. The default value is VP.
    *
-   * @type { LengthUnit }
    * @default VP
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1070,9 +795,8 @@ declare class LengthMetrics {
   public unit: LengthUnit;
 
   /**
-   * The value of the LengthMetrics.
+   * Value of the length property.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1080,10 +804,29 @@ declare class LengthMetrics {
    * @since 12 dynamic
    */
   public value: number;
+
+  /**
+   * Sets automatic refresh for the LengthMetrics object.
+   * When enabled, the length value of the object created by LengthMetrics.resource() is automatically updated
+   * when the system configuration changes.
+   *
+   * @param { boolean } value - whether to automatically update the length value when the system configuration changes.
+   *     <br>If set to true, the length value of the object created by LengthMetrics.resource() is automatically updated
+   *     when the system configuration changes. If set to false, the length value of the object created by
+   *     LengthMetrics.resource() is automatically updated when the system configuration changes.
+   *     The default value is false.
+   * @returns { LengthMetrics } Returns the LengthMetrics object for chaining.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoRefresh?(value: boolean): LengthMetrics;
 }
 
 /**
- * Defines the ColorMetrics class.
+ * Used to mix colors.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1092,12 +835,46 @@ declare class LengthMetrics {
  * @since 12 dynamic
  */
 declare class ColorMetrics {
+
   /**
-   * Instantiate the ColorMetrics class using color number
+   * Check if ColorMetrics represents an HDR color.
+   * Returns true if color was created using createHDRColorWithXx or has RGB values > 1.0.
    *
-   * @param { number } value - color number, in HEX format
-   * RGB and ARGB color values are supported.
-   * @returns { ColorMetrics } ColorMetrics class
+   * @returns { boolean } Whether ColorMetrics is an HDR color.
+   *     Returns true if:
+   *     - The color was created using createHDRColorWithXx() method.
+   *     - Any RGB channel value is greater than 1.0.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  isHDR(): boolean;
+
+  /**
+   * Sets automatic refresh for the ColorMetrics object.
+   * When enabled, the color values of objects created with ColorMetrics.resourceColor() are automatically updated
+   * when the system configuration changes.
+   *
+   * @param { boolean } value - Whether to automatically refresh the color value when system configuration changes.
+   *     <br>If this parameter is set to true, the color values of objects created using ColorMetrics.resourceColor()
+   *     are automatically updated when the system configuration changes. If set to false, the color values of objects
+   *     created by ColorMetrics.resourceColor() are not automatically updated.
+   *     The default value is false.
+   * @returns { ColorMetrics } Returns the ColorMetrics object for chaining.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  autoRefresh?(value: boolean): ColorMetrics;
+
+  /**
+   * Instantiates the **ColorMetrics** class using a color in HEX format.
+   *
+   * @param { number } value - Color in HEX format.<br>RGB and ARGB color values are supported.
+   * @returns { ColorMetrics } Instance of the **ColorMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1107,17 +884,15 @@ declare class ColorMetrics {
   static numeric(value: number): ColorMetrics;
 
   /**
-   * Instantiate the ColorMetrics class using color rgb
+   * Instantiates the **ColorMetrics** class using colors in RGB or RGBA format.
    *
-   * @param { number } red - red value of rgba
-   * The value is an integer ranging from 0 to 255.
-   * @param { number } green - green value of rgba
-   * The value is an integer ranging from 0 to 255.
-   * @param { number } blue - blue value of rgba
-   * The value is an integer ranging from 0 to 255.
-   * @param { number } alpha - opacity value of rgba
-   * The value is a floating point number ranging from 0.0 to 1.0. The default value is 1.0 (fully opaque).
-   * @returns { ColorMetrics } ColorMetrics class
+   * @param { number } red - Red component of the color. The value is an integer ranging from 0 to 255.
+   * @param { number } green - Green component of the color. The value is an integer ranging from 0 to 255.
+   * @param { number } blue - Blue component of the color. The value is an integer ranging from 0 to 255.
+   * @param { number } alpha - Alpha component of the color. The value is a floating point number ranging from 0.0 to 1.
+   *     0. The default value is **1.0** (fully opaque).<br> Note: If alpha is less than 0, the color is fully
+   *     transparent. If alpha is greater than 1, the color is opaque.
+   * @returns { ColorMetrics } Instance of the **ColorMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1127,16 +902,18 @@ declare class ColorMetrics {
   static rgba(red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
-   * Instantiate the ColorMetrics class using colorSpace and rgba.
-   * Only some properties support setting color in display-p3 colorSpace.
+   * Creates a **ColorMetrics** instance using specified [ColorSpace]{@link ColorSpace} and RGBA values. Only certain
+   * attributes support color configuration in the display-p3 color space.
    *
-   * @param { ColorSpace } colorSpace - colorSpace of color.
-   * @param { number } red - red value of rgba. The range of the red channel is [0, 1].
-   * @param { number } green - green value of rgba. The range of the green channel is [0, 1].
-   * @param { number } blue - blue value of rgba. The range of the blue channel is [0, 1].
-   * @param { number } [alpha] - alpha value of rgba. The range of the alpha channel is [0, 1]. The default value is 1.
-   * @returns { ColorMetrics } ColorMetrics class
-   * @static
+   * @param { ColorSpace } colorSpace - Color space used to specify the color. If ColorSpace.DISPLAY_P3 is used, the
+   *     [setWindowColorSpace](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowcolorspace9-1) API
+   *     must be called to set the current window to the wide color gamut mode.
+   * @param { number } red - Red component of the color. The value is a floating point number ranging from 0 to 1.
+   * @param { number } green - Green component of the color. The value is a floating point number ranging from 0 to 1.
+   * @param { number } blue - Blue component of the color. The value is a floating point number ranging from 0 to 1.
+   * @param { number } [alpha] - Alpha component of the color. The value is a floating point number ranging from 0.0 to
+   *     1.0. The default value is **1.0** (fully opaque).
+   * @returns { ColorMetrics } Instance of the **ColorMetrics** class.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1146,14 +923,14 @@ declare class ColorMetrics {
   static colorWithSpace(colorSpace: ColorSpace, red: number, green: number, blue: number, alpha?: number): ColorMetrics;
 
   /**
-   * Instantiate the ColorMetrics class using ResourceColor
+   * Instantiates the **ColorMetrics** class using a color in resource reference format.
    *
-   * @param { ResourceColor } color - resource color
-   * @returns { ColorMetrics } ColorMetrics class
+   * @param { ResourceColor } color - Color in resource reference format.
+   * @returns { ColorMetrics } Instance of the **ColorMetrics** class.
    * @throws { BusinessError } 180003 - Failed to obtain the color resource.
    * @throws { BusinessError } 401 - Parameter error. Possible cause:
-   * 1. The type of the input color parameter is not ResourceColor.
-   * 2. The format of the input color string is not RGB or RGBA.
+   *     1. The type of the input color parameter is not ResourceColor.
+   *     2. The format of the input color string is not RGB or RGBA.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1169,24 +946,25 @@ declare class ColorMetrics {
    * When using linear exposure, RGB channel values are typically in the range [0, 1].
    *
    * @param { double } linearExposure - Linear exposure value in exposure value.
-   *                                    Valid range: [1, +∞).
-   *                                    A value of 1.0 represents standard exposure.
-   *                                    Values greater than 1.0 increase brightness linearly.
+   *     Valid range:
+   *     [1, +∞).
+   *     A value of 1.0 represents standard exposure.
+   *     Values greater than 1.0 increase brightness linearly.
    * @param { ColorSpace } colorSpace - Color space of color.
-   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   *     Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
    * @param { double } red - Red component value. Valid range: [0, 1].
    * @param { double } green - Green component value. Valid range: [0, 1].
    * @param { double } blue - Blue component value. Valid range: [0, 1].
    * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
-   *                              The default value is 1.0 (fully opaque).
+   *     The default value is 1.0 (fully opaque).
    * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
-  static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
+  static createHDRColorWithLinearExposure(linearExposure: double, colorSpace: ColorSpace,
+    red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
    * Create ColorMetrics class using HDR color with linear exposure.
@@ -1195,24 +973,25 @@ declare class ColorMetrics {
    * When using logarithmic exposure, RGB channel values are typically in the range [0, 1].
    *
    * @param { double } exposure - Logarithmic exposure value in stops.
-   *                                    Valid range: [0, +∞).
-   *                                    A value of 0.0 represents standard exposure.
-   *                                    each increment of 1.0 doubles the brightness (one stop).
+   *     Valid range:
+   *     [0, +∞).
+   *     A value of 0.0 represents standard exposure.
+   *     Each increment of 1.0 doubles the brightness (one stop).
    * @param { ColorSpace } colorSpace - Color space of color.
-   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   *     Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
    * @param { double } red - Red component value. Valid range: [0, 1].
    * @param { double } green - Green component value. Valid range: [0, 1].
    * @param { double } blue - Blue component value. Valid range: [0, 1].
    * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
-   *                              The default value is 1.0 (fully opaque).
+   *     The default value is 1.0 (fully opaque).
    * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
-  static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
+  static createHDRColorWithLogExposure(exposure: double, colorSpace: ColorSpace,
+    red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
   /**
    * Create ColorMetrics class using HDR color with default exposure.
@@ -1221,21 +1000,19 @@ declare class ColorMetrics {
    * This matches iOS UIColor behavior where RGB values > 1.0 enable HDR rendering.
    *
    * @param { ColorSpace } colorSpace - Color space of color.
-   *                                    Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
-   * @param { double } red - Red component value. Valid range: [0, +∞).
-   *                          Values greater than 1.0 enable HDR brightness.
+   *     Supports SRGB, DISPLAY_P3, and BT2020 color spaces.
+   * @param { double } red - Red component value. Valid range: [0, +∞). Values greater than 1.0 enable HDR brightness.
    * @param { double } green - Green component value. Valid range: [0, +∞).
-   *                          Values greater than 1.0 enable HDR brightness.
+   *     Values greater than 1.0 enable HDR brightness.
    * @param { double } blue - Blue component value. Valid range: [0, +∞).
-   *                          Values greater than 1.0 enable HDR brightness.
+   *     Values greater than 1.0 enable HDR brightness.
    * @param { double } [alpha] - Alpha (opacity) component value. Valid range: [0, 1].
-   *                              The default value is 1.0 (fully opaque).
+   *     The default value is 1.0 (fully opaque).
    * @returns { ColorMetrics } ColorMetrics class instance with HDR color.
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   static createHDRColor(colorSpace: ColorSpace, red: double, green: double, blue: double, alpha?: double): ColorMetrics;
 
@@ -1244,28 +1021,13 @@ declare class ColorMetrics {
    * Returns the color space used when creating this color.
    *
    * @returns { ColorSpace } The color space of the ColorMetrics.
-   *    Possible value: ColorSpace.SRGB, ColorSpace.DISPLAY_P3, ColorSpace.BT2020.
+   *     Possible value: ColorSpace.SRGB, ColorSpace.DISPLAY_P3, ColorSpace.BT2020.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getColorSpace(): ColorSpace;
-
-  /**
-   * Check if ColorMetrics represents an HDR color.
-   * Returns true if color was created using createHDRColorWithXx or has RGB values > 1.0.
-   *
-   * @returns { boolean } Whether ColorMetrics is an HDR color.
-   *    Returns true if:
-   *    - The color was created using createHDRColorWithXx() method.
-   *    - Any RGB channel value is greater than 1.0.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 24 dynamic
-   */
-  isHDR(): boolean;
 
   /**
    * Get red value.
@@ -1274,13 +1036,13 @@ declare class ColorMetrics {
    * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The red value.
-   *    Valid range: [0, +∞).
-   *    For SDR colors: [0, 1].
-   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     Valid range:
+   *     For SDR colors: [0, 1].
+   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getRedValue(): double;
 
@@ -1291,13 +1053,13 @@ declare class ColorMetrics {
    * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The green value.
-   *    Valid range: [0, +∞).
-   *    For SDR colors: [0, 1].
-   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     Valid range:
+   *     For SDR colors: [0, 1].
+   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getGreenValue(): double;
 
@@ -1308,21 +1070,24 @@ declare class ColorMetrics {
    * For HDR colors, value can be greater than 1.0 to represent extended brightness.
    *
    * @returns { double } The blue value.
-   *    Valid range: [0, +∞).
-   *    For SDR colors: [0, 1].
-   *    Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
+   *     Valid range:
+   *     For SDR colors: [0, 1].
+   *     Fro HDR colors: [0, +∞), values > 1.0 indicate HDR brightness.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 dynamic
+   * @since 26.0.0 dynamic
    */
   getBlueValue(): double;
-	
+
   /**
-   * blend color
+   * Blends a specified color (**overlayColor**) with the current color and returns the resulting color.
    *
-   * @param { ColorMetrics } overlayColor - overlay color
-   * @returns { ColorMetrics } ColorMetrics class
+   * @param { ColorMetrics } overlayColor - Color to overlay. The alpha value determines the blending strength: **1.0**
+   *     indicates complete opacity (fully covers the base color), and **0.0** indicates complete transparency (returns
+   *     the original color).
+   * @returns { ColorMetrics } New color object with red, green, blue, and alpha channels representing the blended
+   *     result of the current color and overlay color.
    * @throws { BusinessError } 401 - Parameter error. The type of the input parameter is not ColorMetrics.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1331,39 +1096,35 @@ declare class ColorMetrics {
    * @since 12 dynamic
    */
   blendColor(overlayColor: ColorMetrics): ColorMetrics;
-	
+
   /**
-   * Get color of the ColorMetrics.
-   * The return value is a string indicating an RGBA color value.
+   * Obtains the color of **ColorMetrics**. The return value is a string indicating an RGBA color value.
    *
-   * @returns { string } The color of the ColorMetrics.
-   * String indicating an RGBA color value. Example: 'rgba(255, 100, 255, 0.5)'
+   * @returns { string } String indicating an RGBA color value. Example: **'rgba(255, 100, 255, 0.5)'**
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-   get color(): string;
+  get color(): string;
 
   /**
-   * Get red value of the ColorMetrics.
+   * Obtains the red component of the ColorMetrics color.
    *
-   * @returns { number } The red value of the ColorMetrics.
-   * The value is an integer ranging from 0 to 255.
+   * @returns { number } Red component of the color. The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-   get red(): number;
+  get red(): number;
 
   /**
-   * Get green value of the ColorMetrics.
+   * Obtains the green component of the ColorMetrics color.
    *
-   * @returns { number } The green value of the ColorMetrics.
-   * The value is an integer ranging from 0 to 255.
+   * @returns { number } Green component of the color. The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1373,10 +1134,9 @@ declare class ColorMetrics {
   get green(): number;
 
   /**
-   * Get blue value of the ColorMetrics.
+   * Obtains the blue component of the ColorMetrics color.
    *
-   * @returns { number } The blue value of the ColorMetrics.
-   * The value is an integer ranging from 0 to 255.
+   * @returns { number } Blue component of the color. The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1386,10 +1146,9 @@ declare class ColorMetrics {
   get blue(): number;
 
   /**
-   * Get opacity value of the ColorMetrics.
+   * Obtains the alpha component of the ColorMetrics color.
    *
-   * @returns { number } The opacity value of the ColorMetrics.
-   * The value is an integer ranging from 0 to 255.
+   * @returns { number } Alpha component of the color. The value is an integer ranging from 0 to 255.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1400,9 +1159,8 @@ declare class ColorMetrics {
 }
 
 /**
- * Defines the Corner property.
+ * Describes the four corners.
  *
- * @interface Corners
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1410,59 +1168,55 @@ declare class ColorMetrics {
  * @since 12 dynamic
  */
 interface Corners<T> {
-  /**
-   * TopLeft property.
-   *
-   * @type { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  topLeft: T,
 
   /**
-   * TopRight property.
+   * Radius of the upper left corner.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  topRight: T,
+  topLeft: T;
 
   /**
-   * BottomLeft property.
+   * Radius of the upper right corner.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  bottomLeft: T,
+  topRight: T;
 
   /**
-   * BottomRight property.
+   * Radius of the lower left corner.
    *
-   * @type { T }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  bottomRight: T,
+  bottomLeft: T;
+
+  /**
+   * Radius of the lower right corner.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  bottomRight: T;
 }
 
 /**
- * Defines the Corner radius.
+ * Sets the semi-axis lengths for the x-axis and y-axis of the rounded corners.
  *
- * @typedef { Corners<Vector2> } CornerRadius
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1472,9 +1226,8 @@ interface Corners<T> {
 export type CornerRadius = Corners<Vector2>;
 
 /**
- * BorderRadiuses info.
+ * Sets the uniform radius of the four corners.
  *
- * @typedef { Corners<number> } BorderRadiuses
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1484,9 +1237,8 @@ export type CornerRadius = Corners<Vector2>;
 export type BorderRadiuses = Corners<number>;
 
 /**
- * Rect info.
+ * Describes a rectangle.
  *
- * @typedef { common2D.Rect } Rect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1496,9 +1248,8 @@ export type BorderRadiuses = Corners<number>;
 export type Rect = common2D.Rect;
 
 /**
- * Defines the RoundRect.
+ * Describes a rectangle with rounded corners.
  *
- * @interface RoundRect
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1506,35 +1257,33 @@ export type Rect = common2D.Rect;
  * @since 12 dynamic
  */
 export interface RoundRect {
-  /**
-   * Rect property.
-   *
-   * @type { Rect }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  rect: Rect,
 
   /**
-   * Corners property.
+   * Attributes of the rectangle.
    *
-   * @type { CornerRadius }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  corners: CornerRadius
+  rect: Rect;
+
+  /**
+   * Attributes of rounded corners.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  corners: CornerRadius;
 }
 
 /**
- * Defines the Circle.
+ * Describes a circle.
  *
- * @interface Circle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1542,48 +1291,46 @@ export interface RoundRect {
  * @since 12 dynamic
  */
 export interface Circle {
+
   /**
-   * The x-coordinate of the center of the Circle, in px.
+   * X-coordinate of the center of the circle, in px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  centerX: number,
+  centerX: number;
 
   /**
-   * The y-coordinate of the center of the Circle, in px.
+   * Y-coordinate of the center of the circle, in px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  centerY: number,
+  centerY: number;
 
   /**
-   * The radius of the Circle, in px.
+   * Radius of the circle, in px.
+   *
    * Value range: [0, +∞).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  radius: number
+  radius: number;
 }
 
 /**
- * Defines the CommandPath.
+ * Describes the command for drawing a path.
  *
- * @interface CommandPath
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1591,23 +1338,23 @@ export interface Circle {
  * @since 12 dynamic
  */
 export interface CommandPath {
+
   /**
-   * The commands of CommandPath.
-   * For details about how to convert the pixel unit, see Pixel Unit Conversion.
+   * Commands for drawing a path. For details about how to convert pixel units, see [Pixel Units]{@link common}.
+   *
    * Unit: px
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  commands: string
+  commands: string;
 }
 
 /**
- * Defines ShapeMask.
+ * Describes the shape mask.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1616,8 +1363,9 @@ export interface CommandPath {
  * @since 12 dynamic
  */
 export declare class ShapeMask {
+
   /**
-   * Constructor.
+   * A constructor used to create a **ShapeMask** instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1628,9 +1376,9 @@ export declare class ShapeMask {
   constructor();
 
   /**
-   * Set the rect shape of the ShapeMask.
+   * Sets a rectangle mask.
    *
-   * @param { Rect } rect - The rect shape will be set.
+   * @param { Rect } rect - Shape of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1640,9 +1388,9 @@ export declare class ShapeMask {
   setRectShape(rect: Rect): void;
 
   /**
-   * Set the round rect shape of the ShapeMask.
+   * Sets the mask in the shape of a rectangle with rounded corners.
    *
-   * @param { RoundRect } roundRect - The round rect shape will be set.
+   * @param { RoundRect } roundRect - Shape of the rectangle with rounded corners.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1652,9 +1400,9 @@ export declare class ShapeMask {
   setRoundRectShape(roundRect: RoundRect): void;
 
   /**
-   * Set the circle shape of the ShapeMask.
+   * Sets a round mask.
    *
-   * @param { Circle } circle - The circle shape will be set.
+   * @param { Circle } circle - Round shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1664,9 +1412,9 @@ export declare class ShapeMask {
   setCircleShape(circle: Circle): void;
 
   /**
-   * Set the oval shape of the ShapeMask.
+   * Sets an oval mask.
    *
-   * @param { Rect } oval - The oval shape will be set.
+   * @param { Rect } oval - Oval shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1676,9 +1424,9 @@ export declare class ShapeMask {
   setOvalShape(oval: Rect): void;
 
   /**
-   * Set the command path of the ShapeMask.
+   * Sets the command for drawing a path.
    *
-   * @param { CommandPath } path - The command path will be set.
+   * @param { CommandPath } path - Command for drawing a path.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1688,10 +1436,12 @@ export declare class ShapeMask {
   setCommandPath(path: CommandPath): void;
 
   /**
-   * The fill color of the ShapeMask, in ARGB format.
-   * The default value is 0XFF000000.
+   * Describes the fill color of the mask, in ARGB format. The default value is **0XFF000000**.
    *
-   * @type { number }
+   * A color with only the transparency is generated based on the transparency and brightness of **fillColor**. The
+   * higher the brightness, the more transparent the color. Then, the color is blended with the color of **RenderNode**
+   * using the [BlendMode.SRC_IN]{@link @ohos.graphics.drawing:drawing.BlendMode} API to generate the final color.
+   *
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1702,10 +1452,12 @@ export declare class ShapeMask {
   fillColor: number;
 
   /**
-   * The stroke color of the ShapeMask, in ARGB format.
-   * The default value is 0XFF000000.
+   * Sets the stroke color for the mask, in ARGB format. The default value is **0XFF000000**.
    *
-   * @type { number }
+   * A color with only the transparency is generated based on the transparency and brightness of **strokeColor**. The
+   * higher the brightness, the more transparent the color. Then, the color is blended with the color of **RenderNode**
+   * using the [BlendMode.SRC_IN]{@link @ohos.graphics.drawing:drawing.BlendMode} API to generate the final color.
+   *
    * @default 0XFF000000
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1716,10 +1468,8 @@ export declare class ShapeMask {
   strokeColor: number;
 
   /**
-   * The stroke width of the ShapeMask, in px.
-   * The default value is 0.
+   * Sets the stroke width for the mask, in px. The default value is **0**.
    *
-   * @type { number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1730,9 +1480,8 @@ export declare class ShapeMask {
   strokeWidth: number;
 }
 
-
 /**
- * Define ShapeClip. Record the type and parameters of the shape used for clipping.
+ * Sets the clipping shape.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1741,8 +1490,9 @@ export declare class ShapeMask {
  * @since 12 dynamic
  */
 export declare class ShapeClip {
+
   /**
-   * Constructor.
+   * A constructor used to create a **ShapeClip** instance.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1753,9 +1503,9 @@ export declare class ShapeClip {
   constructor();
 
   /**
-   * Set the rect shape of the ShapeClip.
+   * Sets a rectangle for shape clipping.
    *
-   * @param { Rect } rect - The rect shape will be set.
+   * @param { Rect } rect - Shape of the rectangle.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1765,9 +1515,9 @@ export declare class ShapeClip {
   setRectShape(rect: Rect): void;
 
   /**
-   * Set the round rect shape of the ShapeClip.
+   * Sets a rounded rectangle for shape clipping.
    *
-   * @param { RoundRect } roundRect - The round rect shape will be set.
+   * @param { RoundRect } roundRect - Shape of the rectangle with rounded corners.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1777,9 +1527,9 @@ export declare class ShapeClip {
   setRoundRectShape(roundRect: RoundRect): void;
 
   /**
-   * Set the circle shape of the ShapeClip.
+   * Sets a circle for shape clipping.
    *
-   * @param { Circle } circle - The circle shape will be set.
+   * @param { Circle } circle - Round shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1789,9 +1539,9 @@ export declare class ShapeClip {
   setCircleShape(circle: Circle): void;
 
   /**
-   * Set the oval shape of the ShapeClip.
+   * Sets an oval shape for shape clipping.
    *
-   * @param { Rect } oval - The oval shape will be set.
+   * @param { Rect } oval - Oval shape.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1801,9 +1551,9 @@ export declare class ShapeClip {
   setOvalShape(oval: Rect): void;
 
   /**
-   * Set the command path of the ShapeClip.
+   * Sets the command for drawing a path.
    *
-   * @param { CommandPath } path - The command path will be set.
+   * @param { CommandPath } path - Command for drawing a path.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1814,11 +1564,10 @@ export declare class ShapeClip {
 }
 
 /**
- * Obtain an object with all edges are set to the same color.
+ * Generates an **edgeColors** object with the specified edge color for all edges.
  *
- * @param { number } all - The edge color will be set, in ARGB format, for example, 0xffff00ff.
- * Value range: [0, 0xffffffff]
- * @returns { Edges<number> } - The object with all edges are set to the same color.
+ * @param { number } all - Edge color, in ARGB format, for example, **0xffff00ff**.<br>Value range: [0, 0xffffffff]
+ * @returns { Edges<number> } **edgeColors** object whose edge colors are all at the specified value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1828,11 +1577,10 @@ export declare class ShapeClip {
 export function edgeColors(all: number): Edges<number>;
 
 /**
- * Obtain an object with all edges are set to the same width.
+ * Generates an **edgeWidths** object with the specified edge width for all edges.
  *
- * @param { number } all - The edge width will be set, in vp.
- * Value range: [0, +∞).
- * @returns { Edges<number> } - The object with all edges are set to the same width.
+ * @param { number } all - Edge width, in vp.<br>Value range: [0, +∞).
+ * @returns { Edges<number> } **edgeWidths** object whose edge widths are all at the specified value.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1842,10 +1590,10 @@ export function edgeColors(all: number): Edges<number>;
 export function edgeWidths(all: number): Edges<number>;
 
 /**
- * Obtain an object with all edges are set to the same style.
+ * Generates a border style object with the specified border style color for all borders.
  *
- * @param { BorderStyle } all - The edge style will be set.
- * @returns { Edges<BorderStyle> } - The object with all edges are set to the same style.
+ * @param { BorderStyle } all - Border style.
+ * @returns { Edges<BorderStyle> } **borderStyles** object whose borders are all in the specified style.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1855,12 +1603,10 @@ export function edgeWidths(all: number): Edges<number>;
 export function borderStyles(all: BorderStyle): Edges<BorderStyle>;
 
 /**
- * Obtain a BorderRadiuses object with all edges are set to the same radius.
+ * Generates a **borderRadiuses** object with the specified radius for all border corners.
  *
- * @param { number } all - The edge radius will be set.
- * Unit: vp.
- * Value range: [0, +∞).
- * @returns { BorderRadiuses } - The BorderRadiuses object.
+ * @param { number } all - Radius of border corners.<br>Unit: vp.<br>Value range: [0, +∞).
+ * @returns { BorderRadiuses } **borderRadiuses** object whose border corners all have the specified radius.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1874,16 +1620,20 @@ export function borderRadiuses(all: number): BorderRadiuses;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface BackgroundBlur {
+
   /**
    * Blur radius for background blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the background.
+   * The value must be greater than or equal to 0, the larger the value, the more blurred the background.
+   * The value 0 indicates no blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1895,6 +1645,7 @@ export interface BackgroundBlur {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1906,16 +1657,20 @@ export interface BackgroundBlur {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface ContentBlur {
+
   /**
    * Blur radius for content blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the content.
+   * The value must be greater than or equal to 0, the larger the value, the more blurred the content.
+   * The value 0 indicates no blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1927,6 +1682,7 @@ export interface ContentBlur {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -1938,16 +1694,20 @@ export interface ContentBlur {
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export interface ForegroundBlur {
+
   /**
    * Blur radius for foreground blur.
-   * Value range: [0, +∞). The larger the value, the more blurred the foreground.
+   * The value must be greater than or equal to 0, the larger the value, the more blurred the foreground.
+   * The value 0 indicates no blur.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */

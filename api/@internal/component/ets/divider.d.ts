@@ -21,304 +21,125 @@
 /**
  * Provides a divider component to separate different content blocks/content elements.
  *
- * @interface DividerInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides a divider component to separate different content blocks/content elements.
- *
- * @interface DividerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides a divider component to separate different content blocks/content elements.
- *
- * @interface DividerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides a divider component to separate different content blocks/content elements.
- *
- * @interface DividerInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface DividerInterface {
   /**
-   * Return Divider.
+   * Creates a **Divider** component.
    *
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Return Divider.
-   *
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Return Divider.
-   *
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Return Divider.
-   *
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (): DividerAttribute;
 }
 
 /**
- * Defines the Divider attribute functions.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonMethod<DividerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the Divider attribute functions.
+ * The [universal events]{@link CommonMethod} are supported.
  *
- * @extends CommonMethod<DividerAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the Divider attribute functions.
- *
- * @extends CommonMethod<DividerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Divider attribute functions.
- *
- * @extends CommonMethod<DividerAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class DividerAttribute extends CommonMethod<DividerAttribute> {
   /**
-   * Indicates whether to use a horizontal splitter or a vertical splitter.
-   * The options are as follows: false: horizontal splitter; true: vertical splitter.
+   * Sets the direction of the divider. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { boolean } value
+   * @param { boolean } value - Whether the divider is vertical or horizontal.<br>**false**: A horizontal divider is
+   *     used.<br>**true**: A vertical divider is used.<br>Default value: **false**<br>Invalid values are treated as the
+   *     default value.
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates whether to use a horizontal splitter or a vertical splitter.
-   * The options are as follows: false: horizontal splitter; true: vertical splitter.
-   *
-   * @param { boolean } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates whether to use a horizontal splitter or a vertical splitter.
-   * The options are as follows: false: horizontal splitter; true: vertical splitter.
-   *
-   * @param { boolean } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates whether to use a horizontal splitter or a vertical splitter.
-   * The options are as follows: false: horizontal splitter; true: vertical splitter.
-   *
-   * @param { boolean } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   vertical(value: boolean): DividerAttribute;
 
   /**
-   * Sets the color of the dividing line.
+   * Sets the color of the divider. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Color of the divider.
+   *     <br>Default value: **'#33182431'**<br>Invalid values are treated as the default value.
+   *     <br>You can set a common divider color using [WithTheme]{@link WithTheme}.
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the color of the dividing line.
-   *
-   * @param { ResourceColor } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the color of the dividing line.
-   *
-   * @param { ResourceColor } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the color of the dividing line.
-   *
-   * @param { ResourceColor } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   color(value: ResourceColor): DividerAttribute;
 
   /**
-   * Sets the width of the dividing line.
+   * Sets the stroke width of the divider. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { number | string } value
+   * @param { number | string } value - Stroke width of the divider.<br>Default value: **1px**<br>Invalid values are
+   *     treated as the default value.<br>Unit: vp<br>**NOTE**<br>Percentage values are not supported. This attribute
+   *     has lower priority than the
+   *     [height]{@link CommonMethod#height} attribute. If its
+   *     value exceeds the **height** setting, cropping is performed based on the **height** constraint. Due to hardware
+   *     limitations on some devices where 1 px dividers may not display properly after rounding, you are advised to use
+   *     the **2px** value.
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { number | string } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { number | string } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the width of the dividing line.
-   *
-   * @param { number | string } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   strokeWidth(value: number | string): DividerAttribute;
 
   /**
-   * Sets the end style of the dividing line. The default value is Butt.
+   * Sets the line cap style of the divider. This attribute can be dynamically set using
+   * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
-   * @param { LineCapStyle } value
+   * @param { LineCapStyle } value - Line cap style of the divider.<br>Default value: **LineCapStyle.Butt**<br>Invalid
+   *     values are treated as the default value.
    * @returns { DividerAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Sets the end style of the dividing line. The default value is Butt.
-   *
-   * @param { LineCapStyle } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Sets the end style of the dividing line. The default value is Butt.
-   *
-   * @param { LineCapStyle } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Sets the end style of the dividing line. The default value is Butt.
-   *
-   * @param { LineCapStyle } value
-   * @returns { DividerAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   lineCap(value: LineCapStyle): DividerAttribute;
 }
 
 /**
- * Defines Divider Component.
+ * The **Divider** component is used to separate content blocks and content elements.
+ * > **NOTE**
+ * >
+ * > If the divider appears with inconsistent thickness or becomes invisible, follow the instructions in
+ * > [FAQs](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-pixelRoundForComponent.md#faqs).
+ * >
+ * > **Child Components**
+ * >
+ * > Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Divider Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Divider Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Divider Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Divider: DividerInterface;
 
@@ -326,30 +147,10 @@ declare const Divider: DividerInterface;
  * Defines Divider Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Divider Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Divider Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Divider Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const DividerInstance: DividerAttribute;

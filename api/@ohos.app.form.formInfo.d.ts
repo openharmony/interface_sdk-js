@@ -2713,6 +2713,17 @@ declare namespace formInfo {
      * @since 23 static
      */
     disabledDesktopBehaviors?: string;
+
+    /**
+     * The trigger types of the scene animation.
+     *
+     * @type { ?Array<SceneAnimationTriggerType> }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    triggerTypes?: Array<SceneAnimationTriggerType>;
   }
 
   /**
@@ -2910,5 +2921,145 @@ declare namespace formInfo {
    * @since 23 dynamic&static
    */
   type PublishFormCrossBundleControlCallback = (info: PublishFormCrossBundleInfo) => boolean;
+
+  /**
+   * The trigger type of the scene animation.
+   *
+   * @enum { int }
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enum SceneAnimationTriggerType {
+    /**
+     * Shake.
+     *
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    SHAKE = 1
+  }
+
+  /**
+   * Get want parameters callback.
+   *
+   * @typedef { function }
+   * @param { Array<formInfo.FormInfo> } formInfo - The list of the form information.
+   * @returns { Array<Record<string, Object>> } The want parameters list of the forms.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type GetWantParamsCallback = (formInfo: Array<formInfo.FormInfo>) => Array<Record<string, Object>>;
+
+  /**
+   * FormCustomConfig
+   *
+   * @typedef FormCustomConfig
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface FormCustomConfig {  
+    /**
+     * Obtains the bundle name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    bundleName: string;
+    /**
+     * Obtains the module name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    moduleName: string;
+    /**
+     * Obtains the ability name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    abilityName: string;
+    /**
+     * Obtains the form name of the form.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    formName: string;
+    /**
+     * Obtains whether the form shows in form center.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isShowInFormCenter: boolean;
+    /**
+     * Obtains the related bundle name.
+     *
+     * @type { string }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    relatedBundleName: string;
+    /**
+     * Obtains whether the form can be added repeatedly.
+     *
+     * @type { boolean }
+     * @syscap SystemCapability.Ability.Form
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isRepeatAdditionSupported: boolean;
+  }
+
+  /**
+   * Callback for updating the forms.
+   *
+   * @typedef { function }
+   * @param { Array<FormCustomConfig> } configInfo - the config info list of the forms.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type UpdateFormsConfigCallback = (configInfo: Array<FormCustomConfig>) => void;
+
+  /**
+   * callback for deleting the forms.
+   *
+   * @typedef { function }
+   * @param { Array<string> } formIds - the form Id list of the forms to delete.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type DeleteFormsCallback = (formIds: Array<string>) => void;
 }
 export default formInfo;

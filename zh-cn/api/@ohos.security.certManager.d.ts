@@ -23,6 +23,8 @@ import type { AsyncCallback } from './@ohos.base';
 /**
  * 证书管理主要提供系统级的证书管理能力，实现证书全生命周期（安装，存储，使用，销毁）的管理和安全使用。
  *
+ * 可用于校验应用服务器的HTTPS证书链、通过双向HTTPS登录网站或应用服务器。
+ *
  * @syscap SystemCapability.Security.CertificateManager
  * @since 11 dynamic
  * @since 23 static
@@ -121,15 +123,15 @@ declare namespace certificateManager {
     CM_ERROR_DEVICE_ENTER_ADVSECMODE = 17500007,
 
     /**
-     * 表示密码错误。 
-     * 
+     * 表示密码错误。
+     *
      * 此接口为系统接口。
-     * 
+     *
      * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @systemapi
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamiconly
      */
     CM_ERROR_PASSWORD_IS_ERR = 17500008,
@@ -144,7 +146,7 @@ declare namespace certificateManager {
     CM_ERROR_STORE_PATH_NOT_SUPPORTED = 17500009,
 
     /**
-     * 表示访问USB凭据服务失败。
+     * 表示访问USB Key服务失败。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -498,11 +500,10 @@ declare namespace certificateManager {
 
     /**
      * 表示证书URI列表。
-     * 
      * 26.0.0
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     uriList?: Array<string>;
@@ -544,7 +545,7 @@ declare namespace certificateManager {
    */
   export enum CmKeyDigest {
     /**
-     * 不需要摘要算法，选用此项时，需要业务传入已经计算过摘要的数据进行签名、验签。
+     * 选用此项时，表示由应用程序对待签名、验签的数据进行摘要计算。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -670,7 +671,8 @@ declare namespace certificateManager {
     purpose: CmKeyPurpose;
 
     /**
-     * 表示填充方式的枚举。
+     * 表示填充方式的枚举
+     * 默认值： CM_PADDING_PSS，表示使用PSS填充方式。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -680,6 +682,7 @@ declare namespace certificateManager {
 
     /**
      * 表示摘要算法的枚举。
+     * 默认值： CM_DIGEST_SHA256，表示使用SHA256摘要算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 11 dynamic
@@ -707,10 +710,12 @@ declare namespace certificateManager {
   }
 
   /**
-   * 表示安装私有凭据，使用Callback回调异步返回结果。
+   * 安装私有凭据。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，最大长度为20480字节。
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，
+   *
+   *     <br>最大长度为20480字节。
    * @param { string } keystorePwd - 表示密钥库文件的密码，长度限制32字节以内。
    * @param { string } certAlias - 表示用户输入的凭据别名，当前仅支持传入数字、字母或下划线，长度建议32字节以内。
    * @param { AsyncCallback<CMResult> } callback - 回调函数。当安装私有凭据成功时，err为null，data为
@@ -736,10 +741,11 @@ declare namespace certificateManager {
   ): void;
 
   /**
-   * 表示安装私有凭据。使用Promise异步回调。
+   * 安装私有凭据。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，最大长度为20480字节。
+   * @param { Uint8Array } keystore - 表示带有密钥对和证书的密钥库文件，
+   *     <br>最大长度为20480字节。
    * @param { string } keystorePwd - 表示密钥库文件的密码，长度限制32字节以内。
    * @param { string } certAlias - 表示用户输入的凭据别名，当前仅支持传入数字、字母或下划线，长度建议32字节以内。
    * @returns { Promise<CMResult> } Promise对象，返回安装私有凭据的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的uri属性。
@@ -759,7 +765,7 @@ declare namespace certificateManager {
   function installPrivateCertificate(keystore: Uint8Array, keystorePwd: string, certAlias: string): Promise<CMResult>;
 
   /**
-   * 表示卸载指定的私有凭据，使用Callback回调异步返回结果。
+   * 卸载指定的私有凭据，使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } keyUri - 表示待卸载凭据的唯一标识符，长度限制256字节以内。
@@ -797,7 +803,7 @@ declare namespace certificateManager {
   function uninstallPrivateCertificate(keyUri: string): Promise<void>;
 
   /**
-   * 表示获取所有私有凭据列表，使用Callback回调异步返回结果。
+   * 表示获取所有私有凭据列表，使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER and ohos.permission.ACCESS_CERT_MANAGER_INTERNAL
    * @param { AsyncCallback<CMResult> } callback - 回调函数。当获取所有私有凭据列表成功时，err为null，data为
@@ -835,7 +841,7 @@ declare namespace certificateManager {
   function getAllAppPrivateCertificates(): Promise<CMResult>;
 
   /**
-   * 表示获取私有凭据的详细信息，使用Callback回调异步返回结果。
+   * 获取私有凭据的详细信息，使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } keyUri - 表示待获取凭据的唯一标识符，长度限制256字节以内。
@@ -847,7 +853,9 @@ declare namespace certificateManager {
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate does not exist. Possible causes:
+   *     1. The certificate URI is incorrect;
+   *     2. The certificate has been uninstalled. Please check the certificate URI.
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -855,7 +863,7 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * 表示获取私有凭据详情。使用Promise异步回调。
+   * 获取私有凭据详情。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } keyUri - 表示待获取凭据的唯一标识符，长度限制256字节以内。
@@ -875,7 +883,7 @@ declare namespace certificateManager {
   function getPrivateCertificate(keyUri: string): Promise<CMResult>;
 
   /**
-   * 表示使用凭据进行签名、验签的初始化操作，使用Callback回调异步返回结果。
+   * 使用凭据进行签名、验签的初始化操作，是签名验签流程的第一步，后续需依次调用update和finish接口完成操作。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } authUri - 表示使用凭据的唯一标识符，长度限制256字节以内。
@@ -888,7 +896,9 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - The certificate does not exist.
-   * @throws { BusinessError } 17500005 - The application is not authorized by the user. [since 12]
+   * @throws { BusinessError } 17500005 - The application is not authorized by the user.
+   *     Please call [openAuthorizeDialog]{@link certificateManagerDialog.openAuthorizeDialog}
+   *     method to request user authorization for the certificate or credential. [since 12]
    * @syscap SystemCapability.Security.CertificateManager
    * @since 11 dynamic
    * @since 23 static
@@ -896,7 +906,7 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec, callback: AsyncCallback<CMHandle>): void;
 
   /**
-   * 表示使用凭据进行签名、验签的初始化操作。使用Promise异步回调。
+   * 使用凭据进行签名、验签的初始化操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { string } authUri - 表示使用凭据的唯一标识符，长度限制256字节以内。
@@ -917,10 +927,10 @@ declare namespace certificateManager {
   function init(authUri: string, spec: CMSignatureSpec): Promise<CMHandle>;
 
   /**
-   * 表示签名、验签的数据更新操作，使用Callback回调异步返回结果。
+   * 签名、验签的数据更新操作，需要在init操作之后调用，用于传入待签名、验签的数据。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得
    * @param { Uint8Array } data - 表示待签名、验签的数据。
    * @param { AsyncCallback<void> } callback - 回调函数。当签名、验签的数据更新操作成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -936,10 +946,10 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * 表示签名、验签的数据更新操作。使用Promise异步回调。
+   * 签名、验签的数据更新操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得
    * @param { Uint8Array } data - 表示待签名、验签的数据。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -955,10 +965,10 @@ declare namespace certificateManager {
   function update(handle: Uint8Array, data: Uint8Array): Promise<void>;
 
   /**
-   * 表示完成签名的操作，Callback回调异步返回结果。
+   * 完成签名的操作，是签名流程的最后一步，需要先调用init和update接口。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得。
    * @param { AsyncCallback<CMResult> } callback - 回调函数。当签名成功时，err为null，data为
    *     [CMResult]{@link certificateManager.CMResult}对象中的outData属性，表示签名数据；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -974,10 +984,10 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * 表示完成验签的操作，使用Callback回调异步返回结果。
+   * 完成验签的操作，使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得。
    * @param { Uint8Array } signature - 表示签名数据。
    * @param { AsyncCallback<CMResult> } callback - 回调函数。当验签成功时，err为null；否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -993,11 +1003,12 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * 表示完成签名、验签的操作。使用Promise异步回调。
+   * 完成签名、验签的操作。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
-   * @param { Uint8Array } signature - 表示用于验签操作的签名数据，仅验签操作需要指定。
+   * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得。
+   *     <br>最大长度为8字节。
+   * @param { Uint8Array } signature - 表示用于验签操作的签名数据。签名操作时无需传入此参数。
    * @returns { Promise<CMResult> } Promise对象。执行签名操作时，返回签名的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
    *     outData属性；执行验签操作时，无返回值。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1013,10 +1024,11 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * 表示中止签名、验签的操作，使用Callback回调异步返回结果。
+   * 表示中止签名、验签的操作，使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，
+   *     <br>最大长度为8字节。
    * @param { AsyncCallback<void> } callback - 回调函数。当中止签名、验签成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -1177,10 +1189,11 @@ declare namespace certificateManager {
   function getCertificateStorePath(property: CertStoreProperty): string;
 
   /**
-   * 表示安装用户CA证书。
+   * 安装用户CA证书。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { Uint8Array } cert - 表示CA证书数据，最大长度为8196字节。
+   * @param { Uint8Array } cert - 表示CA证书数据，
+   *     <br>最大长度为8196字节。
    * @param { CertScope } certScope - 表示CA证书安装的位置。
    * @returns { CMResult } 表示CA证书的安装结果，返回值为CMResult对象中的uri属性。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -1263,6 +1276,7 @@ declare namespace certificateManager {
 
     /**
      * 表示证书算法类型。仅当certType为CA_CERT_SYSTEM时有效，默认值为INTERNATIONAL。
+     * 海外设备不支持SM算法。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1368,10 +1382,10 @@ declare namespace certificateManager {
   }
 
   /**
-   * 表示删除用户CA证书。
+   * 卸载用户CA证书。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
-   * @param { string } certUri - 表示待卸删除证书的唯一标识符，长度限制256字节以内。
+   * @param { string } certUri - 表示待卸载证书的唯一标识符，长度限制256字节以内
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -1404,6 +1418,7 @@ declare namespace certificateManager {
 
     /**
      * 表示商用密码算法，如SM2、SM4等。
+     * 海外设备不支持使用该算法的证书。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 20 dynamic
@@ -1458,12 +1473,12 @@ declare namespace certificateManager {
   }
 
   /**
-   * 表示获取USB凭据详细信息。使用Promise异步回调。
+   * 获取USB Key证书凭据详细信息。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - 表示USB凭据的唯一标识符，长度限制256字节以内。
-   * @param { UkeyInfo } ukeyInfo - 表示USB凭据的属性信息。
-   * @returns { Promise<CMResult> } Promise对象，返回获取到的USB凭据详情的结果。
+   * @param { string } keyUri - 表示USB Key证书凭据的唯一标识符，长度限制256字节以内
+   * @param { UkeyInfo } ukeyInfo - 表示USB Key证书凭据的属性信息
+   * @returns { Promise<CMResult> } Promise对象，返回获取到的USB Key证书凭据详情的结果，返回值为 [CMResult]{@link certificateManager.CMResult}对象中的credentialDetailList属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    *     The application does not have the permission required to call the API.
@@ -1480,7 +1495,7 @@ declare namespace certificateManager {
   function getUkeyCertificate(keyUri: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
 
   /**
-   * 提供USB凭据属性信息。
+   * 提供USB Key证书凭据属性信息。
    *
    * @syscap SystemCapability.Security.CertificateManager
    * @since 22 dynamic
@@ -1489,6 +1504,7 @@ declare namespace certificateManager {
   export interface UkeyInfo {
     /**
      * 表示凭据用途。
+     * 默认值： PURPOSE_DEFAULT。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 22 dynamic
@@ -1510,7 +1526,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificateList(): Promise<CMResult>;
@@ -1533,7 +1549,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemTrustedCertificate(certUri: string): Promise<CMResult>;
@@ -1557,7 +1573,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - The certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function setCertificateStatus(certUri: string, certType: CertType, enabled: boolean) : Promise<void>;
@@ -1566,7 +1582,7 @@ declare namespace certificateManager {
    * 表示证书文件格式。
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export enum CertFileFormat {
@@ -1574,7 +1590,7 @@ declare namespace certificateManager {
      * 表示证书文件格式为PEM或DER。
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     PEM_DER = 0,
@@ -1583,50 +1599,53 @@ declare namespace certificateManager {
      * 表示证书文件格式为P7B。
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     P7B = 1
   }
 
   /**
-   * 表示证书二进制数据。
+   * 表示证书文件数据。
    *
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   export interface CertBlob {
     /**
      * 表示证书文件数据。
+     * 最大长度为8196且不能为空。
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certData: Uint8Array;
 
     /**
      * 表示证书文件格式。
+     * 默认值：PEM_DER。
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certFormat? : CertFileFormat;
 
     /**
      * 表示用户CA证书的存储位置。
+     * 默认值：CURRENT_USER。
      *
      * @syscap SystemCapability.Security.CertificateManager
-     * @FaAndStageModel
+     * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
     certScope? : CertScope;
   }
 
   /**
-   * 安装用户CA证书。使用Promise异步回调。
+   * 安装用户CA证书。当入参certificate.certFormat为P7B时，输入的P7B证书文件中最多只能包含20本证书。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_ENTERPRISE_USER_TRUSTED_CERT or ohos.permission.ACCESS_USER_TRUSTED_CERT
    * @param { CertBlob } certificate - 表示证书信息。
@@ -1642,7 +1661,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500007 - Indicates that the device enters advanced security mode.
    *     <br>In this mode, the user CA certificate cannot be installed.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function installUserTrustedCertificate(certificate: CertBlob) : Promise<CMResult>;
@@ -1659,7 +1678,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllUserTrustedCertificate() : Promise<void>;
@@ -1684,7 +1703,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installPublicCertificate(keystore: Uint8Array, keystorePwd: string) : Promise<CMResult>;
@@ -1705,7 +1724,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallPublicCertificate(keyUri: string) : Promise<void>;
@@ -1724,7 +1743,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllPublicCertificates() : Promise<CMResult>;
@@ -1747,7 +1766,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function grantPublicCertificate(keyUri: string, clientAppUid: int) : Promise<CMResult>;
@@ -1769,7 +1788,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAuthorizedAppList(keyUri: string) : Promise<CMResult>;
@@ -1791,7 +1810,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function removeGrantedPublicCertificate(keyUri: string, clientAppUid: int) : Promise<void>;
@@ -1811,7 +1830,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getAllAppPrivateCertificatesByUid(appUid: int) : Promise<CMResult>;
@@ -1836,7 +1855,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500008 - Indicates that the password is error.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function installSystemAppCertificate(keystore: Uint8Array, keystorePwd: string): Promise<CMResult>;
@@ -1858,7 +1877,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function getSystemAppCertificate(keyUri: string) : Promise<CMResult>;
@@ -1879,18 +1898,18 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallSystemAppCertificate(keyUri: string) : Promise<void>;
 
   /**
-   * 获取USB凭据证书列表。使用Promise异步回调。
+   * 获取USB Key证书凭据列表。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } ukeyProvider - 表示USB凭据提供商。
-   * @param { UkeyInfo } ukeyInfo - 表示USB凭据的属性信息。
-   * @returns { Promise<CMResult> } Promise对象，返回获取USB凭据证书列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
+   * @param { string } ukeyProvider - 表示USB Key的设备提供商
+   * @param { UkeyInfo } ukeyInfo - 表示USB Key证书凭据的属性信息
+   * @returns { Promise<CMResult> } Promise对象，返回获取USB Key证书凭据列表的结果，返回值为[CMResult]{@link certificateManager.CMResult}对象中的
    *     credentialDetailList属性。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     <br>The application does not have the permission required to call the API.
@@ -1902,7 +1921,7 @@ declare namespace certificateManager {
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function getUkeyCertificateList(ukeyProvider: string, ukeyInfo: UkeyInfo): Promise<CMResult>;
@@ -1920,7 +1939,7 @@ declare namespace certificateManager {
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @syscap SystemCapability.Security.CertificateManager
    * @systemapi
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamiconly
    */
   function uninstallAllAppCertificate() : Promise<void>;
@@ -1929,24 +1948,26 @@ declare namespace certificateManager {
    * 导入证书到USB Key
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - 表示USB key证书的uri.
-   *     <br>keyUri参数用于标识证书实体，可以通过调用getUkeyCertificateList接口得到。
+   * @param { string } keyUri - 表示USB key证书凭据的uri.
+   *     <br>最大长度为256且不能为空。
+   *     <br>keyUri参数用于标识证书实体，可以通过调用[getUkeyCertificateList]{@link certificateManager.getUkeyCertificateList}接口得到。
    * @param { Uint8Array } cert - 表示待导入的证书数据
+   *     <br>最大长度为10240且不能为空。
    *     <br>证书数据格式遵循SKF规范的定义
    * @param { UkeyInfo } ukeyInfo - 表示USB key证书属性信息
-   *     <br>UkeyInfo.CertificatePurpose只能取值为PURPOSE_SIGN或PURPOSE_ENCRYPT
-   * @returns { Promise<void> } 201 - 能力不支持。
+   *     <br>UkeyInfo.CertificatePurpose只能取值为PURPOSE_SIGN、PURPOSE_ENCRYPT或PURPOSE_DEFAULT。
+   * @returns { Promise<void> } Promise对象，无返回结果
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
    * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
-   * @FaAndStageModel
+   * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
   function importUkeyCertificate(keyUri: string, cert: Uint8Array, ukeyInfo: UkeyInfo): Promise<void>;

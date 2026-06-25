@@ -14,81 +14,39 @@
  */
 
 /**
- * @file
+ * @file AlertDialog
  * @kit ArkUI
  */
 
 /**
- * The alignment of dialog,
+ * Enumerates the alignment modes of the alert dialog boxes.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * The alignment of dialog,
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * The alignment of dialog,
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum DialogAlignment {
   /**
    * Vertical top alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Vertical top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Vertical top alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Top,
 
   /**
-   * Align vertically to the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Align vertically to the center.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align vertically to the center.
+   * Vertical center alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Center,
 
@@ -96,23 +54,10 @@ declare enum DialogAlignment {
    * Vertical bottom alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Vertical bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Vertical bottom alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Bottom,
 
@@ -120,253 +65,133 @@ declare enum DialogAlignment {
    * Default alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Default alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Default,
 
   /**
-   * Align the upper left corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Align the upper left corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the upper left corner.
+   * Top left alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   TopStart,
 
   /**
-   * Align the upper right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Align the upper right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the upper right corner.
+   * Top right alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   TopEnd,
 
   /**
-   * Left center alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Left center alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Left center alignment.
+   * Center left alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   CenterStart,
 
   /**
-   * Right center alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Right center alignment.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Right center alignment.
+   * Center right alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   CenterEnd,
 
   /**
-   * Align the lower left corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Align the lower left corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the lower left corner.
+   * Bottom left alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   BottomStart,
 
   /**
-   * Align the lower right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Align the lower right corner.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Align the lower right corner.
+   * Bottom right alignment.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   BottomEnd,
 }
 
 /**
-* The arrangement of buttons in dialog.
-*
-* @enum { number }
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @since 10
-*/
-/**
-* The arrangement of buttons in dialog.
-*
-* @enum { number }
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 11 dynamic
-*/
+ * Enumerates the alignment modes of the buttons in the alert dialog box.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice [since 11]
+ * @since 10 dynamic
+ */
 declare enum DialogButtonDirection {
   /**
-   * Two or fewer buttons are arranged horizontally,
-   * and two or more buttons are arranged vertically.
+   * Buttons are laid out horizontally when there are two or fewer buttons and vertically otherwise.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Two or fewer buttons are arranged horizontally,
-   * and two or more buttons are arranged vertically.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   AUTO = 0,
 
   /**
-   * Buttons are arranged horizontally.
+   * Buttons are laid out horizontally.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Buttons are arranged horizontally.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   HORIZONTAL = 1,
 
   /**
-   * Buttons are arranged vertically.
+   * Buttons are laid out vertically.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Buttons are arranged vertically.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   VERTICAL = 2,
 }
 
 /**
- * Base button param.
+ * Defines the button style of the alert dialog box.
+ * 
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18. 
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
  *
- * @interface AlertDialogButtonBaseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -375,300 +200,127 @@ declare enum DialogButtonDirection {
  */
 declare interface AlertDialogButtonBaseOptions {
   /**
-   * Enable switch of button.
+   * Whether to respond when the button is clicked.
+   * 
+   * Default value: **true**
+   * 
+   * **true**: Respond when the button is clicked. **false**: Do not respond when the button is clicked.
    *
-   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Enable switch of button.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Enable switch of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enabled?: boolean;
 
   /**
-   * Default focus switch of button.
+   * Whether the button is the default focus. Default value: **false**. **true**: The button is the default focus. 
+   * **false**: The button is not the default focus.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default focus switch of button.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Default focus switch of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   defaultFocus?: boolean;
 
   /**
-   * Style of button.
+   * Style of the button.
+   * 
+   * Default value: **DialogButtonStyle.DEFAULT**
    *
-   * @type { ?DialogButtonStyle }
    * @default -
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Style of button.
-   *
-   * @type { ?DialogButtonStyle }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Style of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?DialogButtonStyle }
-   * @default -
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   style?: DialogButtonStyle;
 
   /**
-   * Text content of button.
+   * Text of the button. If the value is null, the button is not displayed.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Text content of button.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text content of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   value: ResourceStr;
 
   /**
-   * Text color of button.
+   * Font color of the button.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Text color of button.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Text color of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   fontColor?: ResourceColor;
 
   /**
-   * Background color of button.
+   * Background color of the button.
    *
-   * @type { ?ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Background color of button.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Background color of button.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   backgroundColor?: ResourceColor;
 
   /**
-   * Method executed by the callback.
+   * Callback upon button clicking.
    *
-   * @type { function }
+   * @type { function } [since 10 - 17]
+   * @type { VoidCallback } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Method executed by the callback.
-   *
-   * @type { function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Method executed by the callback.
-   * Anonymous Object Rectification.
-   *
-   * @type { VoidCallback }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   action: VoidCallback;
 }
 
 /**
- * Base button param used for AlertDialogParamWithOptions.
+ * Inherits from [AlertDialogButtonBaseOptions]{@link AlertDialogButtonBaseOptions}.
  *
- * @extends AlertDialogButtonBaseOptions
- * @interface AlertDialogButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Base button param used for AlertDialogParamWithOptions.
- *
- * @extends AlertDialogButtonBaseOptions
- * @interface AlertDialogButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11
- */
-/**
- * Button param used for AlertDialogParamWithOptions.
- *
- * @extends AlertDialogButtonBaseOptions
- * @interface AlertDialogButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 18 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions {
   /**
-   * Define whether the button responds to Enter/Space key by default.
+   * Whether the button responds to the **Enter** key by default when the dialog box has focus and the **Tab** key is 
+   * not pressed for sequential focus navigation. If there are multiple buttons, set this parameter to **true** for only
+   * one button. Otherwise, no button will respond. Multiple dialog boxes can automatically gain focus and respond to 
+   * user interactions in a sequential manner. This parameter does not take effect when **defaultFocus** is set to 
+   * **true**. **true**: The button responds to the **Enter** key by default. **false**: The button does not respond to 
+   * the **Enter** key by default.
+   * 
+   * Default value: **false**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Define whether the button responds to Enter/Space key by default.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @since 12 dynamic
    */
   primary?: boolean;
 }
 
 /**
- * Defines TextStyle in the AlertDialog.
+ * Describes the word break rule of the message in the dialog box.
  *
- * @interface TextStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -677,9 +329,10 @@ declare interface AlertDialogButtonOptions extends AlertDialogButtonBaseOptions 
  */
 declare interface TextStyle {
   /**
-   * Set the word break type.
+   * Word break rule.
+   * 
+   * Default value: **WordBreak.BREAK_ALL**
    *
-   * @type { ?WordBreak }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -690,9 +343,8 @@ declare interface TextStyle {
 }
 
 /**
- * Import the LevelOrder type from promptAction.
+ * Defines the display order of the dialog box.
  *
- * @typedef { import('../api/@ohos.promptAction').LevelOrder } LevelOrder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -702,364 +354,231 @@ declare interface TextStyle {
 declare type LevelOrder = import('../api/@ohos.promptAction').LevelOrder;
 
 /**
- * Base param used for AlertDialog.show method.
+ * Enumerates the alert dialog box styles.
  *
- * @interface AlertDialogParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Base param used for AlertDialog.show method.
- *
- * @interface AlertDialogParam
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Base param used for AlertDialog.show method.
- *
- * @interface AlertDialogParam
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface AlertDialogParam {
   /**
-   * Title Properties
+   * Title of the dialog box.
+   * 
+   * Prior to API version 20: The title of the dialog box is left-aligned.
+   * 
+   * API version 20 and later: The title of the dialog box is center-aligned.
    *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Title Properties
-   *
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Title Properties
-   *
-   * @type { ?ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   title?: ResourceStr;
   
   /**
-   * Subtitle Properties
-   * @type { ?ResourceStr }
+   * Subtitle of the dialog box.
+   * 
+   * Prior to API version 20: The subtitle of the dialog box is left-aligned.
+   * 
+   * API version 20 and later: The subtitle of the dialog box is center-aligned.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Subtitle Properties
-   * @type { ?ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   subtitle?: ResourceStr;
 
   /**
-   * message Properties
+   * Content of the dialog box.
+   * 
+   * Prior to API version 20: The content of the dialog box is left-aligned.
+   * 
+   * API version 20 and later: The content of the dialog box is center-aligned.
    *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * message Properties
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * message Properties
-   *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   message: ResourceStr;
 
   /**
-   * Allows users to click the mask layer to exit.
+   * Whether to dismiss the dialog box when the mask is touched. The value **true** means to dismiss the dialog box when
+   * the mask is touched, and **false** means the opposite.
+   * 
+   * Default value: **true**.
    *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Allows users to click the mask layer to exit.
-   *
-   * @type { ?boolean }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Allows users to click the mask layer to exit.
-   *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   autoCancel?: boolean;
 
   /**
-   * Execute Cancel Function.
+   * Callback invoked when the dialog box is closed after the overlay is clicked.
    *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Execute Cancel Function.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Execute Cancel Function.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Execute Cancel Function.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?VoidCallback }
+   * @type { ?function } [since 7 - 17]
+   * @type { ?VoidCallback } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   cancel?: VoidCallback;
 
   /**
-   * Alignment in the vertical direction.
+   * Alignment mode of the dialog box in the vertical direction.
+   * 
+   * Default value: **DialogAlignment.Default**
+   * 
+   * **NOTE**
+   * 
+   * If **showInSubWindow** is set to **true** in **UIExtension**, the dialog box is aligned with the host window based 
+   * on **UIExtension**.
    *
-   * @type { ?DialogAlignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Alignment in the vertical direction.
-   *
-   * @type { ?DialogAlignment }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Alignment in the vertical direction.
-   *
-   * @type { ?DialogAlignment }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   alignment?: DialogAlignment;
 
   /**
-   * Offset of the pop-up window relative to the alignment position.
+   * Offset of the dialog box based on the **alignment** settings.
+   * 
+   * Default value: **{ dx: 0 , dy: 0 }**
    *
-   * @type { ?Offset }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Offset of the pop-up window relative to the alignment position.
-   *
-   * @type { ?Offset }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Offset of the pop-up window relative to the alignment position.
-   *
-   * @type { ?Offset }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   offset?: Offset;
 
   /**
-   * Grid count of dialog.
+   * Number of grid columns occupied by the width of the dialog box.
+   * 
+   * Default value: **4**
+   * 
+   * Value range: an integer no less than 0
    *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Grid count of dialog.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Grid count of dialog.
-   *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   gridCount?: number;
 
   /**
-   * Mask Region of dialog. The size cannot exceed the main window.
+   * Mask area of the dialog box. Events outside the mask area are transparently transmitted, and events within the mask
+   * area are not.
+   * 
+   * Default value: **{ x: 0, y: 0, width: '100%', height: '100%' }**
+   * 
+   * **NOTE**
+   * 
+   * **maskRect** does not take effect when **showInSubWindow** is set to **true**.
    *
-   * @type { ?Rectangle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Mask Region of dialog. The size cannot exceed the main window.
-   *
-   * @type { ?Rectangle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   maskRect?: Rectangle;
   
   /**
-   * Whether to display in the sub window.
+   * Whether to show the dialog box in a subwindow when the dialog box needs to be displayed outside the main window. 
    * 
-   * @type { ?boolean }
+   * **true**: The dialog box is shown in a subwindow.
+   * 
+   * Default value: **false**, meaning the dialog box is displayed within the application, not in a separate subwindow
+   * 
+   * **NOTE**
+   * 
+   * A dialog box whose **showInSubWindow** attribute is **true** cannot trigger the display of another dialog box whose
+   * **showInSubWindow** attribute is also **true**.
+   *
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether to display in the sub window.
-   * 
-   * @type { ?boolean }
-   * @default false
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   showInSubWindow?: boolean;
 
   /**
-   * Whether it is a modal dialog
-   * @type { ?boolean }
+   * Whether the dialog box is a modal. A modal dialog box has a mask applied, while a non-modal dialog box does not. 
+   * **false**: The dialog box is not a modal.
+   * 
+   * Default value: **true**.
+   *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Whether it is a modal dialog
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   isModal?: boolean;
 
   /**
-   * Defines the alertDialog's background color
+   * Background color of the dialog box.
+   * 
+   * Default value: **Color.Transparent**
+   * 
+   * **NOTE**
+   * 
+   * The background color will be visually combined with the blur effect when both properties are set. If the resulting 
+   * effect does not match your design requirements, you can disable the blur effect entirely by explicitly setting the 
+   * **backgroundBlurStyle** property to **BlurStyle.NONE**.
    *
-   * @type { ?ResourceColor }
    * @default Color.Transparent
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the alertDialog's background color
-   *
-   * @type { ?ResourceColor }
-   * @default Color.Transparent
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundColor?: ResourceColor;
 
   /**
-   * Defines the alertDialog's background blur Style
+   * Background blur style of the dialog box.
+   * 
+   * Default value: **BlurStyle.COMPONENT_ULTRA_THICK**
+   * 
+   * **NOTE**
+   * 
+   * Setting this parameter to **BlurStyle.NONE** disables the background blur. When **backgroundBlurStyle** is set to a
+   * value other than **NONE**, do not set **backgroundColor**. If you do, the color display may not produce the 
+   * expected visual effect.
    *
-   * @type { ?BlurStyle }
    * @default BlurStyle.COMPONENT_ULTRA_THICK
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Defines the alertDialog's background blur Style
-   *
-   * @type { ?BlurStyle }
-   * @default BlurStyle.COMPONENT_ULTRA_THICK
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   backgroundBlurStyle?: BlurStyle;
 
   /**
-   * Defines the alertDialog's background blur style with options
+   * Options for customizing the background blur style. For details about the default value, see 
+   * **BackgroundBlurStyleOptions**.
    *
-   * @type { ?BackgroundBlurStyleOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1069,9 +588,9 @@ declare interface AlertDialogParam {
   backgroundBlurStyleOptions?: BackgroundBlurStyleOptions;
 
   /**
-   * Defines the alertDialog's background effect with options
+   * Options for customizing the background effect. For details about the default value, see 
+   * **BackgroundEffectOptions**.
    *
-   * @type { ?BackgroundEffectOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1081,9 +600,13 @@ declare interface AlertDialogParam {
   backgroundEffect?: BackgroundEffectOptions;
 
   /**
-   * Callback function when the dialog interactive dismiss
+   * Callback for interactive dismissal of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * 1. If this callback is registered, the dialog box will not be dismissed immediately after the user touches the mask or the Back button, presses the **Esc** key, or swipes left or right on the screen. The **reason** parameter in the callback is used to determine whether the dialog box can be dismissed. The reason returned by the component does not support the value **CLOSE_BUTTON**.
+   * 2. In the **onWillDismiss** callback, another **onWillDismiss** callback is not allowed.
    *
-   * @type { ?Callback<DismissDialogAction> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1093,9 +616,14 @@ declare interface AlertDialogParam {
   onWillDismiss?: Callback<DismissDialogAction>;
 
   /**
-   * Transition parameters of opening/closing AlertDialog.
+   * Transition effect for the appearance and disappearance of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * 1. If this parameter is not set, the default effect is used.
+   *  2. Touching the Back button during the appearance animation pauses the appearance animation and starts the disappearance animation. The final effect is one obtained after the curves of the appearance and disappearance animations are combined.
+   *  3. Touching the Back button during the exit animation does not affect the animation playback. Touching the Back button again closes the application.
    *
-   * @type { ?TransitionEffect }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1105,9 +633,22 @@ declare interface AlertDialogParam {
   transition?: TransitionEffect;
 
   /**
-   * Defines the alertDialog's corner radius.
+   * Corner radius of the background.
+   * 
+   * You can set separate radii for the four corners.
+   * 
+   * Default value: **{ topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }**
+   * 
+   * The radius of the rounded corners is subject to the component size. Its maximum value is half of the component 
+   * width or height. If the value is negative, the default value is used.
+   * 
+   * When set to a percentage, the value defines the radius as a percentage of the parent dialog box's width or height.
+   * 
+   * **NOTE**
+   * 
+   * When **cornerRadius** is of type LocalizedBorderRadiuses, the layout order can be dynamically adjusted based on the
+   * user's language settings.
    *
-   * @type { ?(Dimension | BorderRadiuses | LocalizedBorderRadiuses) }
    * @default { topLeft: '32vp', topRight: '32vp', bottomLeft: '32vp', bottomRight: '32vp' }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1118,9 +659,14 @@ declare interface AlertDialogParam {
   cornerRadius?: Dimension | BorderRadiuses | LocalizedBorderRadiuses;
 
   /**
-   * Defines the alertDialog's width.
+   * Width of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * - Default maximum width of the dialog box: 400 vp
+   * - When this parameter is set to a percentage, the reference width of the dialog box is the width of the window 
+   * where the dialog box is located. You can decrease or increase the width as needed.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1130,9 +676,14 @@ declare interface AlertDialogParam {
   width?: Dimension;
 
   /**
-   * Defines the alertDialog's height.
+   * Height of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * - Default maximum height of the dialog box: 0.9 x (Window height – Safe area)
+   * - When this parameter is set to a percentage, the reference height of the dialog box is the height of the window 
+   * where the dialog box is located minus the safe area. You can decrease or increase the height as needed.
    *
-   * @type { ?Dimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1142,9 +693,20 @@ declare interface AlertDialogParam {
   height?: Dimension;
 
   /**
-   * Defines the alertDialog's border width.
+   * You can set the width for all four sides or set separate widths for individual sides.
+   * 
+   * Default value: **0**
+   * 
+   * When set to a percentage, the value defines the border width as a percentage of the parent dialog box's width.
+   * 
+   * If the left and right borders are greater than its width, or the top and bottom borders are greater than its 
+   * height, the dialog box may not display as expected.
+   * 
+   * **NOTE**
+   * 
+   * When **borderWidth** is of type LocalizedEdgeWidths, the layout order can be dynamically adjusted based on the user
+   * 's language settings.
    *
-   * @type { ?(Dimension | EdgeWidths | LocalizedEdgeWidths) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1154,9 +716,17 @@ declare interface AlertDialogParam {
   borderWidth?: Dimension | EdgeWidths | LocalizedEdgeWidths;
 
   /**
-   * Defines the alertDialog's border color.
+   * Border color of the dialog box.
+   * 
+   * Default value: **Color.Black**
+   * 
+   * **borderColor** must be used with **borderWidth** in pairs.
+   * 
+   * **NOTE**
+   * 
+   * When **borderColor** is of type LocalizedEdgeColors, the layout order can be dynamically adjusted based on the user
+   * 's language settings.
    *
-   * @type { ?(ResourceColor | EdgeColors | LocalizedEdgeColors) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1166,9 +736,12 @@ declare interface AlertDialogParam {
   borderColor?: ResourceColor | EdgeColors | LocalizedEdgeColors;
 
   /**
-   * Defines the alertDialog's border style.
+   * Border style of the dialog box.
+   * 
+   * Default value: **BorderStyle.Solid**.
+   * 
+   * **borderStyle** must be used with **borderWidth** in pairs.
    *
-   * @type { ?(BorderStyle | EdgeStyles) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1178,9 +751,11 @@ declare interface AlertDialogParam {
   borderStyle?: BorderStyle | EdgeStyles;
 
   /**
-   * Defines the alertDialog's shadow.
+   * Shadow of the dialog box.
+   * 
+   * Default value on 2-in-1 devices: **ShadowStyle.OUTER_FLOATING_MD** when the dialog box is focused and 
+   * **ShadowStyle.OUTER_FLOATING_SM** otherwise On other devices, the dialog box has no shadow by default.
    *
-   * @type { ?(ShadowOptions | ShadowStyle) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1190,9 +765,8 @@ declare interface AlertDialogParam {
   shadow?: ShadowOptions | ShadowStyle;
 
   /**
-   * Set the alertDialog's textStyle.
+   * Text style of the message in the dialog box.
    *
-   * @type { ?TextStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1202,9 +776,19 @@ declare interface AlertDialogParam {
   textStyle?: TextStyle;
 
   /**
-   * Defines whether to respond to the hover mode.
+   * Whether to respond when the device is in semi-folded mode. The value **true** means to respond when the device is 
+   * in semi-folded mode.
+   * 
+   * Default value: **false**, meaning not to respond when the device is in semi-folded mode.
+   * 
+   * **NOTE**
+   * 
+   * For a PC or 2-in-1 device, the dialog box is displayed on the upper half of the screen by default when 
+   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the lower half 
+   * of the screen. For other devices, the dialog box is displayed on the lower half of the screen by default when 
+   * **enableHoverMode** is set to **true**. You can set **hoverModeArea** to display the dialog box on the upper half 
+   * of the screen.
    *
-   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1215,9 +799,10 @@ declare interface AlertDialogParam {
   enableHoverMode?: boolean;
 
   /**
-   * Defines the alertDialog's display area in hover mode.
+   * Display area of the dialog box in the hover state.
+   * 
+   * Default value: **HoverModeAreaType.BOTTOM_SCREEN**
    *
-   * @type { ?HoverModeAreaType }
    * @default HoverModeAreaType.BOTTOM_SCREEN
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1228,9 +813,15 @@ declare interface AlertDialogParam {
   hoverModeArea?: HoverModeAreaType;
 
   /**
-   * Callback function when the dialog appears.
+   * Event callback after the dialog box appears.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 2. You can set the callback event for changing the dialog box display effect in **onDidAppear**. The settings take effect next time the dialog box appears.
+   * 3. When a dialog box is dismissed immediately after being shown, **onWillDisappear** may be triggered before **onDidAppear**.
+   * 4. If the dialog box is dismissed before its entrance animation is finished, the animation will be interrupted, and **onDidAppear** will not be triggered.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1240,9 +831,12 @@ declare interface AlertDialogParam {
   onDidAppear?: Callback<void>;
 
   /**
-   * Callback function when the dialog disappears.
+   * Event callback after the dialog box disappears.
+   * 
+   * **NOTE**
+   * 
+   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1252,9 +846,13 @@ declare interface AlertDialogParam {
   onDidDisappear?: Callback<void>;
 
   /**
-   * Callback function before the dialog openAnimation starts.
+   * Event callback when the dialog box is about to appear.
+   * 
+   * **NOTE**
+   * 
+   * 1. The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
+   * 2. You can set the callback event for changing the dialog box display effect in **onWillAppear**. The settings take effect next time the dialog box appears.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1264,9 +862,12 @@ declare interface AlertDialogParam {
   onWillAppear?: Callback<void>;
 
   /**
-   * Callback function before the dialog closeAnimation starts.
+   * Event callback when the dialog box is about to disappear.
+   * 
+   * **NOTE**
+   * 
+   * The normal timing sequence is as follows: onWillAppear > onDidAppear > onWillDisappear > onDidDisappear.
    *
-   * @type { ?Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1276,9 +877,13 @@ declare interface AlertDialogParam {
   onWillDisappear?: Callback<void>;
 
   /**
-   * Determine the display level of the dialog.
+   * Display level of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * - Default value: **LevelMode.OVERLAY**
+   * - This parameter takes effect only when **showInSubWindow** is set to **false**.
    *
-   * @type { ?LevelMode }
    * @default LevelMode.OVERLAY
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1289,9 +894,11 @@ declare interface AlertDialogParam {
   levelMode?: LevelMode;
 
   /**
-   * The uniqueId of any node in the router or navigation page.
+   * [Unique ID]{@link FrameNode:FrameNode#getUniqueId} of the node under the display level for the page-level dialog 
+   * box. This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
+   * 
+   * Value range: a number no less than 0
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1301,9 +908,13 @@ declare interface AlertDialogParam {
   levelUniqueId?: number;
 
   /**
-   * Determine the immersive mode of the dialog.
+   * Overlay effect for the page-level dialog box.
+   * 
+   * **NOTE**
+   * 
+   * - Default value: **ImmersiveMode.DEFAULT**
+   * - This parameter takes effect only when **levelMode** is set to **LevelMode.EMBEDDED**.
    *
-   * @type { ?ImmersiveMode }
    * @default ImmersiveMode.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1314,9 +925,13 @@ declare interface AlertDialogParam {
   immersiveMode?: ImmersiveMode;
 
   /**
-   * Determine the display order of the dialog.
+   * Display order of the dialog box.
+   * 
+   * **NOTE**
+   * 
+   * - Default value: **LevelOrder.clamp(0)**
+   * - Dynamic updating is not supported.
    *
-   * @type { ?LevelOrder }
    * @default The value returns by LevelOrder.clamp(0)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1340,79 +955,62 @@ declare interface AlertDialogParam {
    * @since 26.0.0 dynamic
    */
   systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
- * Defines the AlertDialog with confirm button.
+ * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
+ * 
+ * Priorities of the **confirm** parameters: **fontColor** and **backgroundColor** > **style** > **defaultFocus**
  *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithConfirm
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the AlertDialog with confirm button.
- *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithConfirm
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the AlertDialog with confirm button.
- *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithConfirm
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
   /**
-   * Invoke the commit function.
+   * Information about the confirm button. When the dialog box has focus and the **Tab** key is not pressed for 
+   * sequential focus navigation, the button responds to the **Enter** key by default. Multiple dialog boxes can 
+   * automatically gain focus and respond to user interactions in a sequential manner. The default response to the 
+   * **Enter** key does not work when **defaultFocus** is set to **true**.
    *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Invoke the commit function.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoke the commit function.
-   *
-   * @type { ?object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Invoke the commit function.
-   * Anonymous Object Rectification.
-   *
-   * @type { ?AlertDialogButtonBaseOptions }
+   * @type { ?object } [since 7 - 17]
+   * @type { ?AlertDialogButtonBaseOptions } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   confirm?: AlertDialogButtonBaseOptions;
 }
 
 /**
- * Component dialog dismiss action.
+ * Provides information about the action to dismiss the dialog box.
  *
- * @interface DismissDialogAction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1421,9 +1019,8 @@ declare interface AlertDialogParamWithConfirm extends AlertDialogParam {
  */
 declare interface DismissDialogAction {
   /**
-   * Defines dialog dismiss function.
+   * Callback for dismissing the dialog box. This API is called only when the dialog box needs to be exited.
    *
-   * @type { Callback<void> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1433,9 +1030,9 @@ declare interface DismissDialogAction {
   dismiss: Callback<void>;
   
   /**
-   * Dismiss reason type.
+   * Reason why the dialog box cannot be dismissed. You must specify whether to close the dialog box for each of the 
+   * listed actions.
    *
-   * @type { DismissReason }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1446,224 +1043,117 @@ declare interface DismissDialogAction {
 }
 
 /**
- * Defines the dialog param with buttons.
+ * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
  *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithButtons
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the dialog param with buttons.
- *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithButtons
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the dialog param with buttons.
- *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithButtons
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface AlertDialogParamWithButtons extends AlertDialogParam {
   /**
-   * First button.
+   * Information about the primary button, including the enabling status, default focus, button style, text content, 
+   * text color, button background color, and click callback. When the dialog box has focus and focus has not been 
+   * shifted using the **Tab** key, the button responds to the **Enter** key by default, and multiple dialog boxes can 
+   * gain focus consecutively to respond automatically. The default response to the **Enter** key does not work when 
+   * **defaultFocus** is set to **true**. For details, see 
+   * [Example 7](docroot://reference/apis-arkui/arkui-ts/ts-methods-alert-dialog-box.md#example-7-customizing-the-background-blur-effect).
    *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * First button.
-   *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * First button.
-   *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * First button.
-   * Anonymous Object Rectification.
-   *
-   * @type { AlertDialogButtonBaseOptions }
+   * @type { object } [since 7 - 17]
+   * @type { AlertDialogButtonBaseOptions } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   primaryButton: AlertDialogButtonBaseOptions;
 
   /**
-   * Second button.
+   * Information about the secondary button, including the enabling status, default focus, button style, text content, 
+   * text color, button background color, and click callback.
    *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Second button.
-   *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Second button.
-   *
-   * @type { object }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Second button.
-   * Anonymous Object Rectification.
-   *
-   * @type { AlertDialogButtonBaseOptions }
+   * @type { object } [since 7 - 17]
+   * @type { AlertDialogButtonBaseOptions } [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   secondaryButton: AlertDialogButtonBaseOptions;
 }
 
 /**
- * Defines the dialog param with options.
+ * Inherited from [AlertDialogParam]{@link AlertDialogParam}.
  *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the dialog param with options.
- *
- * @extends AlertDialogParam
- * @interface AlertDialogParamWithOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface AlertDialogParamWithOptions extends AlertDialogParam {
   /**
-   * The array of buttons.
-   * @type { Array<AlertDialogButtonOptions> }
+   * Buttons in the dialog box.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The array of buttons.
-   * @type { Array<AlertDialogButtonOptions> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   buttons: Array<AlertDialogButtonOptions>;
 
   /**
-   * The arrangement of buttons.
-   * @type { ?DialogButtonDirection }
+   * Button layout direction. The default value is **DialogButtonDirection.AUTO**. You are advised to use the auto mode 
+   * for more than three buttons. (Vertical layout is used for more than two buttons, typically accommodating more 
+   * buttons.) In non-auto mode, more than three buttons may not be completely displayed, and the buttons that exceed 
+   * the display range will be truncated.
+   *
    * @default DialogButtonDirection.AUTO
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The arrangement of buttons.
-   * @type { ?DialogButtonDirection }
-   * @default DialogButtonDirection.AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   buttonDirection?: DialogButtonDirection;
 }
 
 /**
- * Defines AlertDialog which uses show method to show alert dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines AlertDialog which uses show method to show alert dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines AlertDialog which uses show method to show alert dialog.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamiconly
  * @deprecated since 26.0.0
  * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
  */
 declare class AlertDialog {
   /**
-   * Invoking method display.
+   * Shows an alert dialog box.
+   * 
+   * > **NOTE**
+   * >
+   * > Since API version 10, you can use the 
+   * > [showAlertDialog]{@link @ohos.arkui.UIContext:UIContext#showAlertDialog} API in 
+   * > [UIContext]{@link @ohos.arkui.UIContext}, which ensures that the alert dialog box is shown in the intended UI 
+   * > instance.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Invoking method display.
-   *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Invoking method display.
-   *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons } value - Defines and displays the
+   *     **AlertDialog** component. [since 7 - 9]
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions} value - Defines
+   *     and displays the **AlertDialog** component. [since 10]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.UIContext#showAlertDialog
    */
   static show(value: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions);
 }
-

@@ -94,4 +94,99 @@ export interface NotificationSubscribeInfo {
    * @since 23 static
    */
   filterLimit?: long;
+
+  /**
+   * Configuration for voice content subscription options.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  voiceContentOptions?: VoiceContentOptions;
+
+  /**
+   * Live notification image configuration item.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  pictureOptions?: PictureOptions;
+
+  /**
+   * Whether to enable the notification classification.
+   * - true: enabled.
+   * - false: disabled. The default value is false.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enableClassification?: boolean;
+ 
+  /**
+   * Whether to enable silent replay during subscription.
+   * - true: enabled.
+   * - false: disabled. The default value is false.
+   * If this function is enabled, historical notifications will be replayed silently when you subscribe to the first
+   * time, without ringing or vibrating.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  needSilentReplayOnSubscribe?: boolean;
+}
+
+/**
+ * Describes the voice content options for notification subscriptions.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface VoiceContentOptions {
+  /**
+   * Whether to enable voice content generation for subscribed notifications. The value **true** means enable
+   * the voice content generation, and **false** means the opposite.
+   * Default value: false.
+   *
+   * @default false
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enabled?: boolean;
+}
+
+/**
+ * Describes Live notification image configuration item.
+ *
+ * @syscap SystemCapability.Notification.Notification
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export interface PictureOptions {
+  /**
+   * Subscribes to parse the image information in the extraInfo of
+   * [NotificationLiveViewContent]{@link ./notification/notificationContent:NotificationLiveViewContent} for live view
+   * notifications. The input parameter is the key of the image filename in extraInfo that needs to be parsed into
+   * PixelMap format. When an application publishes a live view notification, the parsed image information is called
+   * back to the subscriber via
+   * [onConsume]{@link ./notification/notificationSubscriber:NotificationSubscriber.onConsume}, and the parsed image
+   * information is stored in the pictureInfo of NotificationLiveViewContent.
+   *
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  preparseLiveViewPicList?: string[];
 }

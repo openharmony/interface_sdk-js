@@ -29,7 +29,6 @@
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 declare enum FailureCode {
   /**
@@ -39,7 +38,6 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   FAILURE_CODE_SYSTEM_MALFUNCTION = 0,
 
@@ -50,7 +48,6 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   FAILURE_CODE_USER_CANCEL = 1,
 
@@ -61,37 +58,14 @@ declare enum FailureCode {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
-  FAILURE_CODE_USER_REFUSE = 2,
+  FAILURE_CODE_USER_REFUSE = 2
 }
 
 /**
- * Notify the success result of openAtomicService.
- *
- * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @since 23 static
- */
-type OnAtomicServiceRequestSuccessFn = (appId: string) => void;
-
-/**
- * Notify the failure result of openAtomicService.
- *
- * @param { string } appId - Globally unique identifier of an atomicservice, which is allocated by the cloud.
- * @param { FailureCode } failureCode - Indicates the failure code for open atomic service.
- * @param { string } failureMessage - Indicates the detail failure message for open atomic service.
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
- * @stagemodelonly
- * @since 23 static
- */
-type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode, failureMessage: string) => void;
-
-/**
- * CompletionHandlerForAtomicService provides two callback functions, 
+ * CompletionHandlerForAtomicService provides two callback functions,
  * [onAtomicServiceRequestSuccess]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestSuccess(appId: string)}
- * and 
+ * and
  * [onAtomicServiceRequestFailure]{@link CompletionHandlerForAtomicService#onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string)}
  * , to handle the results of successful and failed atomic service launch requests, respectively.
  *
@@ -99,7 +73,6 @@ type OnAtomicServiceRequestFailureFn = (appId: string, failureCode: FailureCode,
  * @stagemodelonly
  * @atomicservice
  * @since 20 dynamic
- * @since 23 static
  */
 declare class CompletionHandlerForAtomicService {
   /**
@@ -125,26 +98,6 @@ declare class CompletionHandlerForAtomicService {
    * @since 20 dynamic
    */
   onAtomicServiceRequestFailure(appId: string, failureCode: FailureCode, failureMessage: string): void;
-
-  /*** if arkts static */
-  /**
-   * Notify the success result of openAtomicService.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onAtomicServiceRequestSuccess: OnAtomicServiceRequestSuccessFn;
-
-  /**
-   * Notify the failure result of openAtomicService.
-   *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
-   * @stagemodelonly
-   * @since 23 static
-   */
-  onAtomicServiceRequestFailure: OnAtomicServiceRequestFailureFn;
-  /*** endif */
 }
 
 export { FailureCode };

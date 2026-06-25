@@ -1,6 +1,7 @@
+
 'use static';
 /*
- * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -151,15 +152,16 @@ export declare class UIInspector {
  * @since 23 static
  */
 export declare class Router {
+
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
    *
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
@@ -175,9 +177,9 @@ export declare class Router {
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
@@ -194,9 +196,9 @@ export declare class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushUrl.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
@@ -213,9 +215,9 @@ export declare class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
@@ -231,13 +233,11 @@ export declare class Router {
    * @param { router.RouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
-   * not exist.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -250,13 +250,11 @@ export declare class Router {
    * @param { router.RouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
-   * not exist.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -270,13 +268,11 @@ export declare class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
-   * not exist.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -290,13 +286,11 @@ export declare class Router {
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard
-   * system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
-   * not exist.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -317,6 +311,7 @@ export declare class Router {
    * Returns to the specified page.
    *
    * @param { int } index - index of page.
+   *     <br>Value range:[0, +∞)
    * @param { Object } [params] - params of page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -367,6 +362,7 @@ export declare class Router {
    * Obtains page information by index.
    *
    * @param { int } index - Index of page.
+   *     <br>The value must be an integer greater than or equal to 0.
    * @returns { router.RouterState | undefined } Page state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -390,9 +386,9 @@ export declare class Router {
    *
    * @param { router.EnableAlertOptions } options - Options.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -421,12 +417,13 @@ export declare class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
@@ -438,12 +435,13 @@ export declare class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
@@ -455,13 +453,14 @@ export declare class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
@@ -473,13 +472,14 @@ export declare class Router {
 
   /**
    * Navigates to a specified page in the application based on the page URL and parameters.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
@@ -491,14 +491,14 @@ export declare class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -508,12 +508,11 @@ export declare class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not
-   * string.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -523,13 +522,12 @@ export declare class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not
-   * string.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
-   * standard system.
+   * @throws { BusinessError } 401 - if the number of parameters is less than 1 or the type of the url parameter is not string.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -539,15 +537,15 @@ export declare class Router {
 
   /**
    * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   *
    * @param { router.NamedRouterOptions } options - Options.
    * @param { router.RouterMode } mode - RouterMode.
    * @returns { Promise<void> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard
-   * system.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -972,7 +970,7 @@ export declare class PromptAction {
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
 /**
@@ -986,7 +984,7 @@ type ClickEventListenerCallback = (event: ClickEvent, node?: FrameNode) => void;
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, node?: FrameNode) => void;
 /**
@@ -999,7 +997,7 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 /**
@@ -1116,7 +1114,7 @@ export interface OrderOverlayOptions {
  * @typedef { string | int } NodeIdentity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type NodeIdentity = string | int;
 
@@ -1132,7 +1130,7 @@ export declare type NodeIdentity = string | int;
  * @enum { number } NodeRenderState
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum NodeRenderState {
   /**
@@ -1144,7 +1142,7 @@ export const enum NodeRenderState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_IN = 0,
 
@@ -1156,7 +1154,7 @@ export const enum NodeRenderState {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ABOUT_TO_RENDER_OUT = 1
 }
@@ -1169,7 +1167,7 @@ export const enum NodeRenderState {
  * @param { FrameNode } [node] - the information of frameNode
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, node?: FrameNode) => void;
 
@@ -1182,7 +1180,7 @@ export declare type NodeRenderStateChangeCallback = (state: NodeRenderState, nod
  * @enum { number } GestureActionPhase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum GestureActionPhase {
   /**
@@ -1191,7 +1189,7 @@ export const enum GestureActionPhase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WILL_START = 0,
 
@@ -1201,7 +1199,7 @@ export const enum GestureActionPhase {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   WILL_END = 1
 }
@@ -1212,7 +1210,7 @@ export const enum GestureActionPhase {
  * @enum { number } GestureListenerType
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export const enum GestureListenerType {
   /**
@@ -1220,7 +1218,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   TAP = 0,
 
@@ -1229,7 +1227,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   LONG_PRESS = 1,
 
@@ -1238,7 +1236,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PAN = 2,
 
@@ -1247,7 +1245,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   PINCH = 3,
 
@@ -1256,7 +1254,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   SWIPE = 4,
 
@@ -1265,7 +1263,7 @@ export const enum GestureListenerType {
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   ROTATION = 5
 }
@@ -1276,7 +1274,7 @@ export const enum GestureListenerType {
  * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export interface GestureTriggerInfo {
   /**
@@ -1285,7 +1283,7 @@ export interface GestureTriggerInfo {
    * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   event: GestureEvent;
 
@@ -1296,7 +1294,7 @@ export interface GestureTriggerInfo {
    * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   current: GestureRecognizer;
 
@@ -1306,7 +1304,7 @@ export interface GestureTriggerInfo {
    * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   currentPhase: GestureActionPhase;
 
@@ -1316,7 +1314,7 @@ export interface GestureTriggerInfo {
    * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   node?: FrameNode;
 }
@@ -1327,7 +1325,7 @@ export interface GestureTriggerInfo {
  * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export interface GestureObserverConfigs {
   /**
@@ -1337,7 +1335,7 @@ export interface GestureObserverConfigs {
    * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   actionPhases: Array<GestureActionPhase>;
 }
@@ -1349,7 +1347,7 @@ export interface GestureObserverConfigs {
  * @param { GestureTriggerInfo } info - the gesture details triggered with user interaction
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void;
 
@@ -1361,6 +1359,7 @@ export declare type GestureListenerCallback = (info: GestureTriggerInfo) => void
  * @since 23 static
  */
 export declare class UIObserver {
+
   /**
    * Registers a callback function to be called when the navigation destination is updated.
    *
@@ -1377,10 +1376,10 @@ export declare class UIObserver {
     ): void;
 
   /**
-   * Removes a callback function that was previously registered with `onNavDestinationUpdate()`.
+   * Removes a callback function that was previously registered with `onNavDestinationUpdate`.
    *
    * @param { observer.NavDestinationSwitchObserverOptions } options - The options object.
-   * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to remove.
+   * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type and navigation ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1403,7 +1402,7 @@ export declare class UIObserver {
   onNavDestinationUpdate(callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `onNavDestinationUpdate()`.
+   * Removes a callback function that was previously registered with `onNavDestinationUpdate`.
    *
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type will be removed.
@@ -1426,7 +1425,7 @@ export declare class UIObserver {
   onNavDestinationUpdateByUniqueId(navigationUniqueId: int, callback: Callback<observer.NavDestinationInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `onNavDestinationUpdateByUniqueId()`.
+   * Removes a callback function that was previously registered with `onNavDestinationUpdateByUniqueId`.
    *
    * @param { int } navigationUniqueId - The uniqueId of the navigation.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
@@ -1495,7 +1494,7 @@ export declare class UIObserver {
   onRouterPageUpdate(callback: Callback<observer.RouterPageInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `onRouterPageUpdate()`.
+   * Removes a callback function that was previously registered with `onRouterPageUpdate`.
    *
    * @param { Callback<observer.RouterPageInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
@@ -1582,7 +1581,7 @@ export declare class UIObserver {
   onNavDestinationSwitch(callback: Callback<observer.NavDestinationSwitchInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with `onNavDestinationSwitch()`.
+   * Removes a callback function that was previously registered with `onNavDestinationSwitch`.
    *
    * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove.
    *     If not provided, all callbacks for the given event type will be removed.
@@ -1608,7 +1607,7 @@ export declare class UIObserver {
   ): void;
 
   /**
-   * Removes a callback function that was previously registered with `onNavDestinationSwitch()`.
+   * Removes a callback function that was previously registered with `onNavDestinationSwitch`.
    *
    * @param { observer.NavDestinationSwitchObserverOptions } observerOptions - Options.
    * @param { Callback<observer.NavDestinationSwitchInfo> } [callback] - The callback function to remove.
@@ -1633,6 +1632,7 @@ export declare class UIObserver {
    *     breakpoint classifications.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @since 24 static
    */
   onWindowSizeLayoutBreakpointChange(callback: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
@@ -1645,6 +1645,7 @@ export declare class UIObserver {
    *     If not provided, all callbacks for the given event type and context will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @since 24 static
    */
   offWindowSizeLayoutBreakpointChange(callback?: Callback<observer.WindowSizeLayoutBreakpointInfo>): void;
@@ -1750,7 +1751,7 @@ export declare class UIObserver {
    *     is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   addGlobalGestureListener(type: GestureListenerType,
       option: GestureObserverConfigs, callback: GestureListenerCallback): void;
@@ -1763,7 +1764,7 @@ export declare class UIObserver {
    *     all callbacks for the given gesture type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   removeGlobalGestureListener(type: GestureListenerType, callback?: GestureListenerCallback): void;
 
@@ -1771,8 +1772,8 @@ export declare class UIObserver {
    * Registers a callback function to be called when the tabContent is showed or hidden.
    *
    * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when when
-   *     the tabContent is showed or hidden.
+   * @param { Callback<observer.TabContentInfo> } callback - The callback function to be called when the tabContent is
+   *     showed or hidden.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1816,8 +1817,7 @@ export declare class UIObserver {
   /**
    * Registers a callback function to be called when the swiper content is updated.
    *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called
-   *     when the content is updated.
+   * @param { Callback<SwiperContentInfo> } callback - The callback function to be called when the content is updated.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1825,9 +1825,9 @@ export declare class UIObserver {
   onSwiperContentUpdate(callback: Callback<SwiperContentInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   * Removes a callback function that was previously registered with `onSwiperContentUpdate`.
    *
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1848,10 +1848,10 @@ export declare class UIObserver {
   onSwiperContentUpdate(config: observer.ObserverOptions, callback: Callback<SwiperContentInfo>): void;
 
   /**
-   * Removes a callback function that was previously registered with 'onSwiperContentUpdate'.
+   * Removes a callback function that was previously registered with `onSwiperContentUpdate`.
    *
    * @param { observer.ObserverOptions } config - The options object.
-   * @param { Callback<SwiperContentInfo> } callback - The callback function to remove. If not provided,
+   * @param { Callback<SwiperContentInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1908,6 +1908,7 @@ export declare class UIObserver {
    * with the specified uniqueId changes.
    *
    * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   *     <br>The value should be an integer.
    * @param { Callback<observer.NavDestinationInfo> } callback - The callback function to be called
    *     when the visible NavDestination's size is changed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1945,7 +1946,7 @@ export declare class UIObserver {
    * @throws { BusinessError } 161001 - The count of nodes monitoring render state is over the limitation.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onNodeRenderState(nodeIdentity: NodeIdentity, callback: NodeRenderStateChangeCallback): void;
 
@@ -1957,7 +1958,7 @@ export declare class UIObserver {
    *     all callbacks will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offNodeRenderState(nodeIdentity: NodeIdentity, callback?: NodeRenderStateChangeCallback): void;
 
@@ -1965,6 +1966,7 @@ export declare class UIObserver {
    * Removes a callback function that was previously registered with 'onNavDestinationSizeChangeByUniqueId()'.
    *
    * @param { int } navigationUniqueId - The uniqueId of the Navigation to which NavDestination belongs.
+   *     <br>The value should be an integer.
    * @param { Callback<observer.NavDestinationInfo> } [callback] - The callback function to remove. If not provided,
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1980,7 +1982,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onWillClick(callback: ClickEventListenerCallback): void;
 
@@ -1991,7 +1993,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offWillClick(callback?: ClickEventListenerCallback): void;
 
@@ -2002,7 +2004,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onDidClick(callback: ClickEventListenerCallback): void;
 
@@ -2013,7 +2015,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offDidClick(callback?: ClickEventListenerCallback): void;
 
@@ -2024,7 +2026,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onWillTap(callback: GestureEventListenerCallback): void;
 
@@ -2035,7 +2037,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offWillTap(callback?: GestureEventListenerCallback): void;
 
@@ -2046,7 +2048,7 @@ export declare class UIObserver {
    *     when the clickEvent will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onDidTap(callback: GestureEventListenerCallback): void;
 
@@ -2057,7 +2059,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offDidTap(callback?: GestureEventListenerCallback): void;
 
@@ -2068,7 +2070,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onBeforePanStart(callback: PanListenerCallback): void;
 
@@ -2079,7 +2081,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offBeforePanStart(callback?: PanListenerCallback): void;
 
@@ -2090,7 +2092,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onBeforePanEnd(callback: PanListenerCallback): void;
 
@@ -2101,7 +2103,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offBeforePanEnd(callback?: PanListenerCallback): void;
 
@@ -2112,7 +2114,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onAfterPanStart(callback: PanListenerCallback): void;
 
@@ -2123,7 +2125,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offAfterPanStart(callback?: PanListenerCallback): void;
 
@@ -2134,7 +2136,7 @@ export declare class UIObserver {
    *     when the panGesture will be trigger or after.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onAfterPanEnd(callback: PanListenerCallback): void;
 
@@ -2145,7 +2147,7 @@ export declare class UIObserver {
    *     all callbacks for the given event type will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   offAfterPanEnd(callback?: PanListenerCallback): void;
 }
@@ -2159,6 +2161,7 @@ export declare class UIObserver {
  * @since 23 static
  */
 export interface SwiperContentInfo {
+
   /**
    * Swiper id, set by the 'id' attribute.
    *
@@ -2171,6 +2174,7 @@ export interface SwiperContentInfo {
 
   /**
    * Swiper uniqueId, generated by the system.
+   * The value should be an integer.
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2199,8 +2203,10 @@ export interface SwiperContentInfo {
  * @since 23 static
  */
 export interface SwiperItemInfo {
+
   /**
    * The uniqueId of SwiperItem.
+   * The value should be an integer.
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2211,6 +2217,7 @@ export interface SwiperItemInfo {
 
   /**
    * The index of SwiperItem.
+   * The value should be an integer.
    *
    * @type { int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2358,7 +2365,7 @@ export declare class Magnifier {
    *     The unit of y is vp.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 23 static
    */
   show(x: double, y: double): void;
 
@@ -2622,6 +2629,18 @@ export declare class DragController {
   cancelDataLoading(key: string): void;
 
   /**
+   * Interrupt the pending follow-hand morph drop animation and trigger the finish sequence immediately.
+   *
+   * @returns { boolean } Returns true if interrupted successfully; false if there is no pending
+   *     follow-hand morph drop animation to interrupt.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  interruptFollowHandMorphDropAnimation(): boolean;
+
+  /**
    * Sets whether to enable the disallow badge icon show.
    *
    * Typically, when a component can receive or process data dragged by the user, or when it declares to the
@@ -2639,7 +2658,7 @@ export declare class DragController {
    * @param { boolean } enabled - Indicating enable the disallow status showing or not.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   enableDropDisallowedBadge(enabled: boolean): void;
 }
@@ -3052,7 +3071,7 @@ export declare class ComponentSnapshot {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   getWithRange(start: NodeIdentity, end: NodeIdentity, isStartRect: boolean,
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;

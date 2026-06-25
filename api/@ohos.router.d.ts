@@ -19,208 +19,146 @@
  */
 
 import { Callback } from './@ohos.base';
+
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * @namespace router
+ * The **Router** module provides APIs to access pages through URLs. You can use the APIs to navigate to a specified
+ * page in an application, replace the current page with another one in the same application, and return to the previous
+ * page or a specified page.
+ *
+ * For routing management, it is recommended that you use the
+ * [Navigation](docroot://ui/arkts-navigation-architecture.md) component instead as your application routing framework.
+ *
+ * > **NOTE**
+ * >
+ * > - Page routing APIs can be invoked only after page rendering is complete. Do not call these APIs in **onInit** and
+ * > **onReady** when the page is still in the rendering phase.
+ * >
+ * > - The functionality of this module depends on UI context. This means that the APIs of this module cannot be used
+ * > where [the UI context is ambiguous](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). For details, see
+ * > [UIContext]{@link @ohos.arkui.UIContext}.
+ * >
+ * > - When using
+ * > [pushUrl]{@link @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>)}
+ * > or
+ * > [pushNamedRoute]{@link @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)}
+ * > with a callback to return the result, be aware that the stack information obtained through the callback using APIs
+ * > such as [getLength]{@link @ohos.arkui.UIContext:Router#getLength} represents an intermediate state during the
+ * > navigation operation. This temporary state might differ from the final stack information available after the stack
+ * > operation is complete.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * @namespace router
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * @namespace router
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare namespace router {
+
   /**
-   * Router Mode
+   * Enumerates the routing modes.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Router Mode
-   *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Router Mode
-   *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   export enum RouterMode {
-    /**
-     * Default route mode.
-     * The page will be added to the top of the page stack.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * Default route mode.
-     * The page will be added to the top of the page stack.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Default route mode.
-     * The page will be added to the top of the page stack.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    Standard,
 
     /**
-     * Single route mode.
-     * If the target page already has the same url page in the page stack,
-     * the same url page closest to the top of the stack will be moved to the top of the stack.
-     * If the target page url does not exist in the page stack, route will use default route mode.
+     * Multi-instance mode. It is the default routing mode.
+     *
+     * The target page is added to the top of the page stack, regardless of whether a page with the same URL exists in
+     * the stack.
+     *
+     * **NOTE**
+     *
+     * If no routing mode is used, the navigation will be carried out according to the default multi-instance mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
+    Standard = 0,
+
     /**
-     * Single route mode.
-     * If the target page already has the same url page in the page stack,
-     * the same url page closest to the top of the stack will be moved to the top of the stack.
-     * If the target page url does not exist in the page stack, route will use default route mode.
+     * Singleton mode.
+     *
+     * If the URL of the target page already exists in the page stack, the page is moved to the top of the stack.
+     *
+     * If the URL of the target page does not exist in the page stack, the page is redirected to in multi-instance mode.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
-    /**
-     * Single route mode.
-     * If the target page already has the same url page in the page stack,
-     * the same url page closest to the top of the stack will be moved to the top of the stack.
-     * If the target page url does not exist in the page stack, route will use default route mode.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
-     */
-    Single,
+    Single = 1
   }
 
   /**
-   * @typedef RouterOptions
+   * Describes the page routing options.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 8
-   */
-  /**
-   * @typedef RouterOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * @typedef RouterOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @crossplatform
-   * @atomicservice
-   * @since 19 dynamic
+   * @crossplatform [since 19]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   interface RouterOptions {
+
     /**
-     * URI of the destination page, which supports the following formats:
-     * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
-     *    Example:
-     *      pages/index/index
-     *      pages/detail/detail
-     * 2. Particular path. If the URI is a slash (/), the home page is displayed.
+     * URL of the target page, in either of the following formats:
      *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 8
-     */
-    /**
-     * URI of the destination page, which supports the following formats:
-     * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
-     *    Example:
-     *      pages/index/index
-     *      pages/detail/detail
-     * 2. Particular path. If the URI is a slash (/), the home page is displayed.
+     * - Absolute path of the page. The value is available in the pages list in the **config.json** file, for example:
+     *  - pages/index/index
+     *  - pages/detail/detail
+     * - special value. If the value of **url** is **"/"**, the application navigates to the home page. By default, the
+     * home page is set to the first item in the **src** value array.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * URI of the destination page, which supports the following formats:
-     * 1. Absolute path of the page, which is provided by the pages list in the config.json file.
-     *    Example:
-     *      pages/index/index
-     *      pages/detail/detail
-     * 2. Particular path. If the URI is a slash (/), the home page is displayed.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @crossplatform
-     * @atomicservice
-     * @since 19 dynamic
+     * @crossplatform [since 19]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     url: string;
 
     /**
-     * Data that needs to be passed to the destination page during navigation.
-     * After the destination page is displayed, the parameter can be directly used for the page.
-     * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+     * Data that needs to be passed to the target page during redirection. The received data becomes invalid when the
+     * page is switched to another page. The target page can use **router.getParams()** to obtain the passed parameters,
+     * for example, **this.keyValue** (**keyValue** is the value of a key in **params**). In the web-like paradigm,
+     * these parameters can be directly used on the target page. If the field specified by **key** already exists on the
+     * target page, the passed value of the key will be displayed.
      *
-     * @type { ?Object }
-     * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @since 8
-     */
-    /**
-     * Data that needs to be passed to the destination page during navigation.
-     * After the destination page is displayed, the parameter can be directly used for the page.
-     * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+     * **NOTE**
      *
-     * @type { ?Object }
-     * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Data that needs to be passed to the destination page during navigation.
-     * After the destination page is displayed, the parameter can be directly used for the page.
-     * For example, this.data1 (data1 is the key value of the params used for page navigation.)
+     * The **params** parameter can only carry serializable data. Objects returned by methods and system APIs (for
+     * example, **PixelMap** objects defined and returned by media APIs) cannot be passed. To pass such objects, extract
+     * from them the basic type attributes to be passed, and then construct objects of the object type.
      *
-     * @type { ?Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
-     * @crossplatform
-     * @atomicservice
-     * @since 19 dynamic
+     * @crossplatform [since 19]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     params?: Object;
 
     /**
-     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
-     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     * Whether the corresponding page is recoverable.
      *
-     * @type { ?boolean }
+     * Default value: **true**.
+     *
+     * **true**: The corresponding page is recoverable.
+     *
+     * **false**: The corresponding page is not recoverable.
+     *
+     * **NOTE**
+     *
+     * If an application is switched to the background and is later closed by the system due to resource constraints or
+     * other reasons, a page marked as recoverable can be restored by the system when the application is brought back to
+     * the foreground. For more details, see
+     * [UIAbility Backup and Restore](docroot://application-models/ability-recover-guideline.md).
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @since 14 dynamic
      */
@@ -228,109 +166,48 @@ declare namespace router {
   }
 
   /**
-   * @typedef RouterState
+   * Describes the page routing state.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * @typedef RouterState
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * @typedef RouterState
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   interface RouterState {
+
     /**
-     * Index of the current page in the stack.
-     * NOTE: The index starts from 1 from the bottom to the top of the stack.
+     * Index of the current page in the stack. The index starts from 1 from the bottom to the top of the stack.
      *
-     * @type { number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Index of the current page in the stack.
-     * NOTE: The index starts from 1 from the bottom to the top of the stack.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Index of the current page in the stack.
-     * NOTE: The index starts from 1 from the bottom to the top of the stack.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     index: number;
 
     /**
      * Name of the current page, that is, the file name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Name of the current page, that is, the file name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the current page, that is, the file name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     name: string;
 
     /**
      * Path of the current page.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * Path of the current page.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * Path of the current page.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     path: string;
-    
+
     /**
-     * Data that passed to the destination page during navigation.
+     * Parameters carried on the current page.
      *
-     * @type { Object }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -341,761 +218,581 @@ declare namespace router {
   }
 
   /**
-   * @typedef EnableAlertOptions
+   * Describes the page routing state.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * @typedef EnableAlertOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * @typedef EnableAlertOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   interface EnableAlertOptions {
+
     /**
-     * dialog context.
+     * Content displayed in the confirm dialog box.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 8
-     */
-    /**
-     * dialog context.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @since 10
-     */
-    /**
-     * dialog context.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @atomicservice [since 11]
+     * @since 8 dynamic
      */
     message: string;
   }
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options - Options.
+   * @param { RouterOptions } options - Page routing parameters.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.router.router#pushUrl
+   * @useinstead @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions)
    */
   function push(options: RouterOptions): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { RouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushUrl
+   * @useinstead @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, callback: AsyncCallback<void>)
    */
   function pushUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { RouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushUrl
+   * @useinstead @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions)
    */
   function pushUrl(options: RouterOptions): Promise<void>;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { RouterOptions } options - Page routing parameters.
+   * @param { RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushUrl
+   * @useinstead @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)
    */
   function pushUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a specified page in the application.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { RouterOptions } options - Page routing parameters.
+   * @param { RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100002 - Uri error. The URI of the page to redirect is incorrect or does not exist
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushUrl
+   * @useinstead @ohos.arkui.UIContext:Router#pushUrl(options: router.RouterOptions, mode: router.RouterMode)
    */
   function pushUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * @param { RouterOptions } options - Options.
+   * @param { RouterOptions } options - Description of the new page.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.router.router#replaceUrl
+   * @useinstead @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions)
    */
   function replace(options: RouterOptions): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 9
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @param { RouterOptions } options - Description of the new page.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
+   *     not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @reserved ["liteWearable"]
-   * @useinstead ohos.arkui.UIContext.Router#replaceUrl
+   * @reserved ["liteWearable"] [since 11]
+   * @useinstead @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, callback: AsyncCallback<void>)
    */
   function replaceUrl(options: RouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page. This API cannot be
+   * used to configure page transition effects. To configure page transition effects, use the
+   * [Navigation](docroot://ui/arkts-navigation-architecture.md) component.
    *
-   * @param { RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 9
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @param { RouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @param { RouterOptions } options - Description of the new page.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
+   *     not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @reserved ["liteWearable"]
-   * @useinstead ohos.arkui.UIContext.Router#replaceUrl
+   * @reserved ["liteWearable"] [since 11]
+   * @useinstead @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions)
    */
   function replaceUrl(options: RouterOptions): Promise<void>;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 9
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of replaceUrl.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @param { RouterOptions } options - Description of the new page.
+   * @param { RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
+   *     not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @reserved ["liteWearable"]
-   * @useinstead ohos.arkui.UIContext.Router#replaceUrl
+   * @reserved ["liteWearable"] [since 11]
+   * @useinstead @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one in the application and destroys the current page.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @since 9
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @param { RouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does not exist.
+   * @param { RouterOptions } options - Description of the new page.
+   * @param { RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard
+   *     system.
+   * @throws { BusinessError } 200002 - Uri error. The URI of the page to be used for replacement is incorrect or does
+   *     not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Lite
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @reserved ["liteWearable"]
-   * @useinstead ohos.arkui.UIContext.Router#replaceUrl
+   * @reserved ["liteWearable"] [since 11]
+   * @useinstead @ohos.arkui.UIContext:Router#replaceUrl(options: router.RouterOptions, mode: router.RouterMode)
    */
   function replaceUrl(options: RouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * Returns to the previous page or a specified page.
+   * Returns to the previous page or a specified page, which deletes all pages between the current page and the target
+   * page.
    *
-   * @param { RouterOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Returns to the previous page or a specified page.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @param { RouterOptions } options - Options.
+   * @param { RouterOptions } options - Description of the target page. The **url** parameter indicates the URL of the
+   *     page to return to. If the specified page does not exist in the navigation stack, no action is taken. If no URL
+   *     is set, the application returns to the previous page, and the page is not rebuilt. Pages are only reclaimed
+   *     after being popped from the navigation stack. Setting **url** to the special value **"/"** has no effect. If
+   *     the named route is used, the provided URL must be the name of the named route.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Returns to the previous page or a specified page.
-   *
-   * @param { RouterOptions } options - Options.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#back
+   * @useinstead @ohos.arkui.UIContext:Router#back(options?: router.RouterOptions)
    */
   function back(options?: RouterOptions): void;
 
- /**
-   * Returns to the specified page.
+  /**
+   * Returns to the specified page, which deletes all pages between the current page and the target page.
    *
-   * @param { number } index - index of page.
-   * @param { Object } [params] - params of page.
+   * > **NOTE**
+   * >
+   * > - Since API version 12, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { number } index - Index of the target page to navigate to. The index starts from 1 from the bottom to the
+   *     top of the stack.
+   * @param { Object } [params] - Parameters carried when returning to the page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#back
+   * @useinstead @ohos.arkui.UIContext:Router#back(index: number, params?: Object)
    */
- function back(index: number, params?: Object): void;
+  function back(index: number, params?: Object): void;
 
   /**
-   * Clears all historical pages and retains only the current page at the top of the stack.
+   * Clears all historical pages in the stack and retains only the current page at the top of the stack.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Clears all historical pages and retains only the current page at the top of the stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Clears all historical pages and retains only the current page at the top of the stack.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#clear
+   * @useinstead @ohos.arkui.UIContext:Router#clear
    */
   function clear(): void;
 
   /**
    * Obtains the number of pages in the current stack.
    *
-   * @returns { string } Number of pages in the stack. The maximum value is 32.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Obtains the number of pages in the current stack.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @returns { string } Number of pages in the stack. The maximum value is 32.
+   * @returns { string } Number of pages in the stack. The maximum value is **32**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains the number of pages in the current stack.
-   *
-   * @returns { string } Number of pages in the stack. The maximum value is 32.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#getLength
+   * @useinstead @ohos.arkui.UIContext:Router#getLength
    */
   function getLength(): string;
 
   /**
-   * Obtains information about the current page state.
+   * Obtains state information about the page at the top of the navigation stack.
    *
-   * @returns { RouterState } Page state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Obtains information about the current page state.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
-   * @returns { RouterState } Page state.
+   * @returns { RouterState } Page routing state.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains information about the current page state.
-   *
-   * @returns { RouterState } Page state.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#getState
+   * @useinstead @ohos.arkui.UIContext:Router#getState
    */
   function getState(): RouterState;
 
-   /**
-   * Obtains page information by index.
+  /**
+   * Obtains the status information about a page by its index.
    *
-   * @param { number } index - Index of page.
-   * @returns { RouterState | undefined } Page state.
+   * > **NOTE**
+   * >
+   * > - Since API version 12, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { number } index - Index of the target page. The index starts from 1 from the bottom to the top of the
+   *     stack.
+   * @returns { RouterState | undefined } State information about the target page; **undefined** if the specified index
+   *     does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#getStateByIndex
+   * @useinstead @ohos.arkui.UIContext:Router#getStateByIndex
    */
-   function getStateByIndex(index: number): RouterState | undefined;
+  function getStateByIndex(index: number): RouterState | undefined;
 
-   /**
-    * Obtains page information by url.
-    *
-    * @param { string } url - URL of page.
-    * @returns { Array<RouterState> } Page state.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamiconly
-    * @deprecated since 18
-    * @useinstead ohos.arkui.UIContext.Router#getStateByUrl
-    */
-   function getStateByUrl(url: string): Array<RouterState>;
- 
   /**
-   * Pop up dialog to ask whether to back
+   * Obtains the status information about a page by its URL.
    *
-   * @param { EnableAlertOptions } options - Options.
+   * > **NOTE**
+   * >
+   * > - Since API version 12, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { string } url - URL of the target page.
+   * @returns { Array<RouterState> } Page routing state.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamiconly
+   * @deprecated since 18
+   * @useinstead @ohos.arkui.UIContext:Router#getStateByUrl
+   */
+  function getStateByUrl(url: string): Array<RouterState>;
+
+  /**
+   * Enables the display of a confirm dialog box before returning to the previous page.
+   *
+   * @param { EnableAlertOptions } options - Description of the dialog box.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.router.router#showAlertBeforeBackPage
+   * @useinstead @ohos.arkui.UIContext:Router#showAlertBeforeBackPage
    */
   function enableAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
-   * Pop up alert dialog to ask whether to back
+   * Enables the display of a confirm dialog box before returning to the previous page.
    *
-   * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { EnableAlertOptions } options - Description of the dialog box.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Pop up alert dialog to ask whether to back
-   *
-   * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Pop up alert dialog to ask whether to back
-   *
-   * @param { EnableAlertOptions } options - Options.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#showAlertBeforeBackPage
+   * @useinstead @ohos.arkui.UIContext:Router#showAlertBeforeBackPage
    */
   function showAlertBeforeBackPage(options: EnableAlertOptions): void;
 
   /**
-   * Cancel enableAlertBeforeBackPage
+   * Disables the display of a confirm dialog box before returning to the previous page.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 8 dynamiconly
    * @deprecated since 9
-   * @useinstead ohos.router.router#hideAlertBeforeBackPage
+   * @useinstead @ohos.arkui.UIContext:Router#hideAlertBeforeBackPage
    */
   function disableAlertBeforeBackPage(): void;
 
   /**
-   * Hide alert before back page
+   * Disables the display of a confirm dialog box before returning to the previous page.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Hide alert before back page
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Hide alert before back page
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#hideAlertBeforeBackPage
+   * @useinstead @ohos.arkui.UIContext:Router#hideAlertBeforeBackPage
    */
   function hideAlertBeforeBackPage(): void;
 
   /**
-   * Obtains information about the current page params.
+   * Obtains the parameters passed from the page that initiates redirection to the current page.
    *
-   * @returns { Object } Page params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Obtains information about the current page params.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   * >
+   * > **getParams** obtains only the parameters of the current page and does not clear the parameters associated with
+   * > the page.
    *
-   * @returns { Object } Page params.
+   * @returns { Object } Parameters passed from the page that initiates redirection to the current page.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Obtains information about the current page params.
-   *
-   * @returns { Object } Page params.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#getParams
+   * @useinstead @ohos.arkui.UIContext:Router#getParams
    */
   function getParams(): Object;
 
   /**
-   * @typedef NamedRouterOptions
+   * Describes the named route options.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * @typedef NamedRouterOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   interface NamedRouterOptions {
+
     /**
-     * Name of the destination named route.
+     * Name of the target named route.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Name of the destination named route.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     name: string;
 
     /**
-     * Data that needs to be passed to the destination page during navigation.
+     * Data that needs to be passed to the target page during redirection. The target page can use
+     * **router.getParams()** to obtain the passed parameters, for example, **this.keyValue** (**keyValue** is the value
+     * of a key in **params**). In the web-like paradigm, these parameters can be directly used on the target page. If
+     * the field specified by **key** already exists on the target page, the passed value of the key will be displayed.
      *
-     * @type { ?Object }
+     * **NOTE**
+     *
+     * The **params** parameter cannot pass objects returned by methods and system APIs, for example, **PixelMap**
+     * objects defined and returned by media APIs. To pass such objects, extract from them the basic type attributes to
+     * be passed, and then construct objects of the object type.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Data that needs to be passed to the destination page during navigation.
-     *
-     * @type { ?Object }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     params?: Object;
 
     /**
-     * Set router page stack can be recovered after application is destroyed. When router page stack is recovered,
-     * top page will be recovered, other page recovered when it backs. the default value is 'true'.
+     * Whether the corresponding page is recoverable.
      *
-     * @type { ?boolean }
+     * Default value: **true**.
+     *
+     * **true**: The corresponding page is recoverable.
+     *
+     * **false**: The corresponding page is not recoverable.
+     *
+     * **NOTE**
+     *
+     * If an application is switched to the background and is later closed by the system due to resource constraints or
+     * other reasons, a page marked as recoverable can be restored by the system when the application is brought back to
+     * the foreground. For more details, see
+     * [UIAbility Backup and Restore](docroot://application-models/ability-recover-guideline.md).
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Lite
      * @since 14 dynamic
      */
@@ -1103,314 +800,238 @@ declare namespace router {
   }
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Page routing parameters.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)
    */
   function pushNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Page routing parameters.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions)
    */
   function pushNamedRoute(options: NamedRouterOptions): Promise<void>;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Page routing parameters.
+   * @param { RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of pushNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)
    */
   function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
+   * Navigates to a page using the named route. This API uses a promise to return the result.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Page routing parameters.
+   * @param { RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Navigates to a specified page in the application based on the page URL and parameters.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 100003 - Page stack error. Too many pages are pushed.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#pushNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#pushNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)
    */
   function pushNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one using the named route and destroys the current page.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Description of the new page.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, callback: AsyncCallback<void>)
    */
   function replaceNamedRoute(options: NamedRouterOptions, callback: AsyncCallback<void>): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one using the named route and destroys the current page.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Description of the new page.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions)
    */
   function replaceNamedRoute(options: NamedRouterOptions): Promise<void>;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one using the named route and destroys the current page.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Description of the new page.
+   * @param { RouterMode } mode - Routing mode.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the
+   *     standard system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @param { AsyncCallback<void> } callback - the callback of replaceNamedRoute.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - The UI execution context is not found. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode, callback: AsyncCallback<void>)
    */
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
+   * Replaces the current page with another one using the named route and destroys the current page.
    *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getRouter](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getrouter) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Router]{@link @ohos.arkui.UIContext} object associated
+   * > with the current UI context.
+   *
+   * @param { NamedRouterOptions } options - Description of the new page.
+   * @param { RouterMode } mode - Routing mode.
+   * @returns { Promise<void> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard
+   *     system.
    * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Replaces the current page with another one in the application. The current page is destroyed after replacement.
-   *
-   * @param { NamedRouterOptions } options - Options.
-   * @param { RouterMode } mode - RouterMode.
-   * @returns { Promise<void> } the promise returned by the function.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Failed to get the delegate. This error code is thrown only in the standard system.
-   * @throws { BusinessError } 100004 - Named route error. The named route does not exist.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
-   * @useinstead ohos.arkui.UIContext.Router#replaceNamedRoute
+   * @useinstead @ohos.arkui.UIContext:Router#replaceNamedRoute(options: router.NamedRouterOptions, mode: router.RouterMode)
    */
   function replaceNamedRoute(options: NamedRouterOptions, mode: RouterMode): Promise<void>;
 }

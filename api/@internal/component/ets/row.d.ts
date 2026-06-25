@@ -19,9 +19,14 @@
  */
 
 /**
- * Define options used to construct a row.
+ * Sets the spacing between child components of the **Row** component.
  *
- * @interface RowOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While starting version information is preserved for historical anonymous objects, there may be cases where the
+ * > outer element's @since version number is higher than inner element's. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,44 +36,15 @@
  */
 declare interface RowOptions {
   /**
-   * Row spacing.
+   * Spacing between child components.
+   * Since API version 9, this parameter does not take effect when it is set to a negative number or when
+   * **justifyContent** is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround** or **FlexAlign.SpaceEvenly**.
+   * Unit: vp. If an invalid value is set, the default value is used instead.
+   * > **NOTE**
+   * >
+   * > The value of **space** can be a number greater than or equal to 0 or a string that can be converted to a number.
+   * > Default value: **0**.
    *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Row spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Row spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Row spacing.
-   *
-   * @type { ?(string | number) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Row spacing.
-   *
-   * Anonymous Object Rectification
-   * @type { ?(string | number) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
    * @form
@@ -78,10 +54,16 @@ declare interface RowOptions {
   space?: string | number;
 }
 
+
 /**
- * Define options used to construct a row.
+ * Sets the spacing between child components of the **Row** component.
  *
- * @interface RowOptionsV2
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While starting version information is preserved for historical anonymous objects, there may be cases where the
+ * > outer element's @since version number is higher than inner element's. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -91,9 +73,15 @@ declare interface RowOptions {
  */
 interface RowOptionsV2 {
   /**
-   * Vertical layout element spacing.
+   * Spacing between child components.
+   * This parameter does not take effect if the value specified is a negative number, or if **justifyContent** is set to
+   * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
+   * Unit: vp. Invalid values are treated as the default value.
+   * > **NOTE**
+   * >
+   * > The value of **space** can be a number greater than or equal to 0, a string that can be converted to a number, or a
+   * > Resource type that can be converted to a number. Default value: **0**.
    *
-   * @type { ?SpaceType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -107,94 +95,44 @@ interface RowOptionsV2 {
 /**
  * The components are laid out horizontally
  *
- * @interface RowInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * The components are laid out horizontally
- *
- * @interface RowInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * The components are laid out horizontally
- *
- * @interface RowInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * The components are laid out horizontally
- *
- * @interface RowInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 interface RowInterface {
   /**
-   * Called when the layout is set in the horizontal direction.
+   * Creates a horizontal linear layout container. You can set the spacing between child components.
+   * 
+   * > **NOTE**
+   * >
+   * > Excessive component nesting (either too deep a hierarchy or too many nested components) incurs significant 
+   * > performance overhead. For performance purposes, you are advised to remove redundant nodes to simplify the 
+   * > component tree, use layout boundaries to reduce redundant layout calculations, properly apply rendering control 
+   * > syntax and layout component methods to minimize unnecessary re-renders and computations. For details about the 
+   * > best practices, see 
+   * > [Layout Optimization](https://developer.huawei.com/consumer/en/doc/best-practices/bpta-improve-layout-performance)
+   * > .
    *
-   * @param { object } value
+   * @param { object } value [since 7 - 17]
+   * @param { ?RowOptions } options - Spacing between elements in the horizontal layout. The value can be of the number
+   *     or string type. [since 18]
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the layout is set in the horizontal direction.
-   *
-   * @param { object } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the layout is set in the horizontal direction.
-   *
-   * @param { object } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the layout is set in the horizontal direction.
-   *
-   * @param { object } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Called when the layout is set in the horizontal direction.
-   *
-   * Anonymous Object Rectification
-   * @param { ?RowOptions } [options] - row options
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (options?: RowOptions): RowAttribute;
+
   /**
-   * Called when the layout is set in the horizontal direction.
+   * Creates a horizontal linear layout container. You can set the spacing between child components.
    *
-   * Anonymous Object Rectification
-   * @param { ?(RowOptions | RowOptionsV2) } [options] - row options
+   * @param { ?(RowOptions | RowOptionsV2) } options - Spacing between elements in a horizontal layout. The value can be
+   *     of the number, string, or Resource type.
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -207,117 +145,43 @@ interface RowInterface {
 }
 
 /**
- * Defines the row attribute functions.
+ * In addition to the [universal attributes]{@link CommonMethod}, the following attributes are supported.
  *
- * @extends CommonMethod<RowAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the row attribute functions.
+ * The [universal events]{@link CommonMethod} are supported.
  *
- * @extends CommonMethod<RowAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the row attribute functions.
- *
- * @extends CommonMethod<RowAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the row attribute functions.
- *
- * @extends CommonMethod<RowAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare class RowAttribute extends CommonMethod<RowAttribute> {
   /**
-   * Called when the vertical alignment is set.
+   * Sets the alignment mode of child components in the vertical direction.
    *
-   * @param { VerticalAlign } value
+   * @param { VerticalAlign } value - Alignment mode of child components in the vertical direction.<br>Default value:
+   *     **VerticalAlign.Center**
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the vertical alignment is set.
-   *
-   * @param { VerticalAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the vertical alignment is set.
-   *
-   * @param { VerticalAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the vertical alignment is set.
-   *
-   * @param { VerticalAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   alignItems(value: VerticalAlign): RowAttribute;
 
   /**
-   * Called when the horizontal alignment is set.
+   * Sets the alignment mode of the child components in the horizontal direction.
    *
-   * @param { FlexAlign } value
+   * @param { FlexAlign } value - Alignment mode of child components in the horizontal direction.<br>Default value:
+   *     **FlexAlign.Start**
    * @returns { RowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the horizontal alignment is set.
-   *
-   * @param { FlexAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Called when the horizontal alignment is set.
-   *
-   * @param { FlexAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Called when the horizontal alignment is set.
-   *
-   * @param { FlexAlign } value
-   * @returns { RowAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   justifyContent(value: FlexAlign): RowAttribute;
   /**
@@ -332,9 +196,11 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
    */
   pointLight(value: PointLightStyle): RowAttribute;
   /**
-   * Called when the Main-Axis's direction is set reversed or not
+   * Sets whether to reverse the horizontal arrangement of child components.
    *
-   * @param { Optional<boolean> } isReversed - If the main axis is reversed.
+   * @param { Optional<boolean> } isReversed - Whether to reverse the horizontal arrangement of child components.<br>
+   *     Default value: **true**. **true**: Child components are arranged in reverse order horizontally. **false**:
+   *     Child components are arranged in normal order horizontally.
    * @returns { RowAttribute } The attribute of the row.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -347,34 +213,22 @@ declare class RowAttribute extends CommonMethod<RowAttribute> {
 }
 
 /**
- * Defines Row Component.
+ * The **Row** component lays out child components horizontally.
+ * > **NOTE**
+ * >
+ * > If no width or height is set for the **Row** component, the component automatically adapts to the size of its child
+ * > components in the main axis and cross axis respectively.
+ * >
+ * > **Child Components**
+ * >
+ * > Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Row Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Row Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Row Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const Row: RowInterface;
 
@@ -382,30 +236,10 @@ declare const Row: RowInterface;
  * Defines Row Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Row Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Row Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Row Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const RowInstance: RowAttribute;

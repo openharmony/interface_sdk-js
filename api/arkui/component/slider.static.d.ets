@@ -22,7 +22,7 @@ import { Axis, CrownSensitivity } from './enums';
 import { ResourceStr, ResourceColor, Length, Dimension, SizeOptions } from './units';
 import { CircleShape, EllipseShape, PathShape, RectShape } from '../../@ohos.arkui.shape';
 import { LinearGradient } from './dataPanel';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder } from './builder';
 import { AttributeModifier, CommonMethod } from './common';
 import { ComponentContent } from '../ComponentContent';
 import { ColorMetrics } from '../Graphics';
@@ -872,7 +872,18 @@ export declare interface SliderAttribute extends CommonMethod {
      * @since 23 static
      */
     default trackColorMetrics(color: ColorMetricsLinearGradient | undefined): this;
-}
+
+    /**
+     * Set slider options.
+     *
+     * @param { SliderOptions } [options] - slider constructor options
+     * @returns { SliderAttribute } Returns the instance of the SliderAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSliderOptions(options?: SliderOptions): this;
+ }
 
 /**
  * Defines Slider Component.
@@ -886,6 +897,23 @@ export declare interface SliderAttribute extends CommonMethod {
  */
 @ComponentBuilder
 export declare function Slider(
-    options?: SliderOptions, 
+    options?: SliderOptions,
+    content_?: CustomBuilder,
+): SliderAttribute
+
+/**
+ * Defines Slider Component.
+ *
+ * @param { CustomBuilderT<SliderAttribute> } style_ - slider attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { SliderAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Slider(
+    style_: CustomBuilderT<SliderAttribute>,
     content_?: CustomBuilder,
 ): SliderAttribute

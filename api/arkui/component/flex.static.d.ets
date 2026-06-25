@@ -18,7 +18,7 @@
  */
 import { LengthMetrics } from '../Graphics';
 import { FlexWrap, FlexDirection, ItemAlign, FlexAlign } from './enums';
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { ComponentBuilder, CustomBuilder, CustomBuilderT, Builder} from './builder';
 import { AttributeModifier, CommonMethod, PointLightStyle } from './common';
 /**
  * Describes the layout and alignment of child components within the Flex component.
@@ -143,6 +143,16 @@ export declare interface FlexAttribute extends CommonMethod {
     */
     default pointLight(value: PointLightStyle | undefined): FlexAttribute;
     /**
+ 	 * Set Flex options.
+ 	 *
+ 	 * @param { FlexOptions } [value] - Flex constructor options
+ 	 * @returns { FlexAttribute } Returns the instance of the FlexAttribute.
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 staticonly
+ 	 */
+ 	default setFlexOptions(value?: FlexOptions): this;
+    /**
      * Set the attribute modifier
      *
      * @param { AttributeModifier<FlexAttribute> | AttributeModifier<CommonMethod> | undefined } modifier
@@ -171,3 +181,20 @@ export declare function Flex(
     value?: FlexOptions,
     content_?: CustomBuilder,
 ): FlexAttribute
+
+/**
+ * Defines Flex Component.
+ *
+ * @param { CustomBuilderT<FlexAttribute> } style - the callback to set up component's attributes.
+ * @param { CustomBuilder } [content_] - container
+ * @returns { FlexAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Flex(
+    style: CustomBuilderT<FlexAttribute>,
+    content_?: CustomBuilder,
+): FlexAttribute;

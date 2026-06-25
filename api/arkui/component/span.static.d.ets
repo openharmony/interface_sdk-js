@@ -23,7 +23,7 @@ import { LengthMetrics } from './../Graphics';
 import { Resource } from './../../../api/global/resource';
 import { FontStyle, FontWeight, TextCase } from "./enums";
 import { DecorationStyleInterface } from "./styledString";
-import { ComponentBuilder, CustomBuilder } from './builder';
+import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
 
 /**
@@ -333,9 +333,29 @@ export declare interface SpanAttribute {
      * @returns { this }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 staticonly
+     * @since 26.0.0 staticonly
      */
     default debugLine(sourceLine: string, moduleName?: string): this;
+
+    /**
+     * Set Span options.
+     *
+     * @param { string | Resource } value - Span content.
+     * @returns { SpanAttribute } Returns the instance of the SpanAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSpanOptions(value: string | Resource): this;
+
+    /**
+     * Notify the component is finished setting up its attributes.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default applyAttributesFinish(): void;
 }
 
 /**
@@ -352,3 +372,18 @@ export declare interface SpanAttribute {
 export declare function Span(
     value: string | Resource
 ): SpanAttribute
+
+/**
+ * Defines Span Component.
+ *
+ * @param { CustomBuilderT<SpanAttribute> } style - Span attribute instance
+ * @returns { SpanAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Span(
+    style: CustomBuilderT<SpanAttribute>,
+): SpanAttribute;

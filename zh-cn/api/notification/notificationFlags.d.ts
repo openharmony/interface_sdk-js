@@ -14,6 +14,8 @@
  */
 
 /**
+ * 描述通知标志的实例。
+ * 
  * @file Some states and flags for notifications
  * @kit NotificationKit
  */
@@ -108,8 +110,6 @@ export interface NotificationFlags {
 
   /**
    * 是否启用输入信息提示功能。
-   * 
-   * 此接口为系统接口。
    * 
    * - bit0：铃声提示。0表示关闭，1表示开启。 
    * - bit1：锁屏。0表示关闭，1表示开启。 

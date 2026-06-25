@@ -19,22 +19,54 @@
  */
 
 import type { AsyncCallback } from './@ohos.base';
-import type Want from './@ohos.app.ability.Want';
 import common from '@ohos.app.ability.common';
+import type Want from './@ohos.app.ability.Want';
 
 /**
- * This module provides the capability to manage the administrator of the enterprise devices.
+ * The **adminManager** module provides administrator permission management capabilities for enterprise MDM applications
+ * , including enabling or disabling administrator permissions, subscribing to events, delegating applications, and
+ * granting permissions.
  *
- * @namespace adminManager
+ * > **NOTE**
+ * >
+ * > The APIs of this module can be called only by a device administrator application. For details, see
+ * > [MDM Kit Development](docroot://mdm/mdm-kit-guide.md).
+ *
  * @syscap SystemCapability.Customization.EnterpriseDeviceManager
  * @since 9 dynamic
  * @since 23 static
  */
 declare namespace adminManager {
   /**
-   * Provides the enterprise information.
+   * Defines the policy type for the trustlist or blocklist.
    *
-   * @typedef EnterpriseInfo
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  export enum Policy {
+    /**
+     * Blocklist.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    BLOCK_LIST = 0,
+
+    /**
+     * Trustlist.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 20
+     */
+    TRUST_LIST = 1
+  }
+
+  /**
+   * Represents the enterprise information of a device administrator application.
+   *
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 9 dynamic
@@ -42,9 +74,8 @@ declare namespace adminManager {
    */
   export interface EnterpriseInfo {
     /**
-     * The name of enterprise.
+     * Name of the enterprise.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
@@ -53,9 +84,8 @@ declare namespace adminManager {
     name: string;
 
     /**
-     * The description of enterprise.
+     * Description of the enterprise.
      *
-     * @type { string }
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 9 dynamic
@@ -65,15 +95,14 @@ declare namespace adminManager {
   }
 
   /**
-   * Enum for type of administrator.
+   * Enumerates the types of device administrator applications.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @since 15
    */
   export enum AdminType {
     /**
-     * The value of normal administrator.
+     * Common device administrator application.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
@@ -82,7 +111,7 @@ declare namespace adminManager {
     ADMIN_TYPE_NORMAL = 0x00,
 
     /**
-     * The value of super administrator.
+     * Super device administrator application.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
@@ -91,7 +120,7 @@ declare namespace adminManager {
     ADMIN_TYPE_SUPER = 0x01,
 
     /**
-     * The value of administrator used in BYOD device.
+     * BYOD device administrator application.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 15
@@ -100,15 +129,14 @@ declare namespace adminManager {
   }
 
   /**
-   * Enum for managed event
+   * Enumerates the system management events that can be subscribed to.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @since 12
    */
   export enum ManagedEvent {
     /**
-     * The event of bundle added.
+     * An application is installed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 12
@@ -116,7 +144,7 @@ declare namespace adminManager {
     MANAGED_EVENT_BUNDLE_ADDED = 0,
 
     /**
-     * The event of bundle removed.
+     * An application is uninstalled.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 12
@@ -124,7 +152,7 @@ declare namespace adminManager {
     MANAGED_EVENT_BUNDLE_REMOVED = 1,
 
     /**
-     * The event of app start.
+     * An application is started.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 12
@@ -132,7 +160,7 @@ declare namespace adminManager {
     MANAGED_EVENT_APP_START = 2,
 
     /**
-     * The event of app stop.
+     * An application is stopped.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 12
@@ -140,7 +168,7 @@ declare namespace adminManager {
     MANAGED_EVENT_APP_STOP = 3,
 
     /**
-     * The event of system update.
+     * The system is updated.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 12
@@ -148,7 +176,7 @@ declare namespace adminManager {
     MANAGED_EVENT_SYSTEM_UPDATE = 4,
 
     /**
-     * Event indicating that a system account is added.
+     * An account is created.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
@@ -156,7 +184,7 @@ declare namespace adminManager {
     MANAGED_EVENT_ACCOUNT_ADDED = 5,
 
     /**
-     * Event indicating that a system account is switched.
+     * An account is switched.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
@@ -164,7 +192,7 @@ declare namespace adminManager {
     MANAGED_EVENT_ACCOUNT_SWITCHED = 6,
 
     /**
-     * Event indicating that a system account is removed.
+     * An account is removed.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @since 18
@@ -172,7 +200,7 @@ declare namespace adminManager {
     MANAGED_EVENT_ACCOUNT_REMOVED = 7,
 
     /**
-     * Event indicating that startup guide is completed.
+     * The startup wizard is complete.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -181,7 +209,7 @@ declare namespace adminManager {
     MANAGED_EVENT_STARTUP_GUIDE_COMPLETED = 8,
 
     /**
-     * Event indicating that device boot is completed.
+     * Device startup is complete.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -190,7 +218,8 @@ declare namespace adminManager {
     MANAGED_EVENT_BOOT_COMPLETED = 9,
 
     /**
-     * Event of bundle updated.
+     * Application update events.
+     * **Since**: 26.0.0
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @stagemodelonly
@@ -209,16 +238,16 @@ declare namespace adminManager {
   }
 
   /**
-   * Enum for admin running mode.
+   * Represents the running mode of a device administrator application.
    *
-   * @enum { number }
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @since 19
    */
   export enum RunningMode {
     /**
-     * The default mode.
+     * Default user running mode, indicating that the application runs under the default user (user after the first
+     * device powered-on).
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
@@ -227,60 +256,37 @@ declare namespace adminManager {
     DEFAULT = 0,
 
     /**
-     * Multi-user running mode.
+     * Multi-user running mode, indicating that the application runs under multiple users at the same time.
      *
      * @syscap SystemCapability.Customization.EnterpriseDeviceManager
      * @systemapi
      * @since 19
      */
-    MULTI_USER = 1,
+    MULTI_USER = 1
   }
 
   /**
-   * Enum for Policy.
-   *
-   * @enum { number }
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  export enum Policy {
-    /**
-     * flag block list.
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-    BLOCK_LIST = 0,
-
-    /**
-     * flag trust list.
-     *
-     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-     * @stagemodelonly
-     * @since 20
-     */
-    TRUST_LIST = 1
-  }
-
-  /**
-   * Enables the given ability as a administrator of the device.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Enables a device administrator application. The super device administrator application can be activated only by the
+   * administrator. After the application is enabled, it cannot be uninstalled. The
+   * [EnterpriseAdminExtensionAbility](docroot://mdm/mdm-kit-term.md#enterpriseadminextensionability) component of the
+   * application will automatically start upon device startup and user switching. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
-   * @param { AdminType } type - type indicates the type of administrator to set.
-   * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { EnterpriseInfo } enterpriseInfo - Enterprise information of the device administrator application.
+   * @param { AdminType } type - Type of the device administrator application to enable.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200007 - The system ability works abnormally.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -289,23 +295,26 @@ declare namespace adminManager {
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables the given ability as a administrator of the device.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Enables a device administrator application for the specified user. The super device administrator application can
+   * be activated only by the administrator. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
-   * @param { AdminType } type - type indicates the type of administrator to set.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of enableAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { EnterpriseInfo } enterpriseInfo - Enterprise information of the device administrator application.
+   * @param { AdminType } type - Type of the device administrator application to enable.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.<br>The default value is the user ID
+   *     of the caller.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200007 - The system ability works abnormally.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -314,23 +323,26 @@ declare namespace adminManager {
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Enables the given ability as a administrator of the device.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Enables a device administrator application for the current or specified user. The super device administrator
+   * application can be activated only by the administrator. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
-   * @param { AdminType } type - type indicates the type of administrator to set.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the enableAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { EnterpriseInfo } enterpriseInfo - Enterprise information of the device administrator application.
+   * @param { AdminType } type - Type of the device administrator application to enable.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
    * @throws { BusinessError } 9200007 - The system ability works abnormally.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -339,37 +351,20 @@ declare namespace adminManager {
   function enableAdmin(admin: Want, enterpriseInfo: EnterpriseInfo, type: AdminType, userId?: number): Promise<void>;
 
   /**
-   * Enables the given ability as a administrator of the device.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<void> } the promise returned by the enableDeviceAdmin.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
-   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 23
-   */
-  function enableDeviceAdmin(admin: Want): Promise<void>;
-
-  /**
-   * Disables a current normal administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Disables a common device administrator application for the current user. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { AsyncCallback<void> } callback - the callback of disableAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -378,37 +373,22 @@ declare namespace adminManager {
   function disableAdmin(admin: Want, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables a current administrator ability.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @returns { Promise<void> } the promise returned by the disableDeviceAdmin.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device capabilities.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 23
-   */
-  function disableDeviceAdmin(admin: Want): Promise<void>;
-
-  /**
-   * Disables a current normal administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Disables a common device administrator application for the user specified by **userId**. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<void> } callback - the callback of disableAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.<br>The default value is the user ID
+   *     of the caller.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -417,73 +397,44 @@ declare namespace adminManager {
   function disableAdmin(admin: Want, userId: number, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission or the shell uid can call this method.
+   * Disables a device administrator application for the specified user. This API uses a promise to return the result.
    *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the disableAdmin.
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN [since 12 - 19]
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or
+   *     ohos.permission.START_PROVISIONING_MESSAGE [since 20 - 22]
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
+   *     or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN [since 23]
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. When deactivating the BYOD device
+   *     administrator application, you can pass only the **EnterpriseAdminExtensionAbility** component of the current
+   *     application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
    */
-   /**
-   * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
-   *     ohos.permission.START_PROVISIONING_MESSAGE or the shell uid can call this method.
-   *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *                         The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<void> } the promise returned by the disableAdmin.
-   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  /**
-   * Disables a current administrator ability.
-   * Only apps with the ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN permission,
-   *     ohos.permission.START_PROVISIONING_MESSAGE, ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
-   *     or the shell uid can call this method.
-   *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN or ohos.permission.START_PROVISIONING_MESSAGE
-   *     or ohos.permission.ENTERPRISE_DEACTIVATE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
-   *     The admin must have the corresponding permission.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID,
-   *     default value is the current user ID.
-   * @returns { Promise<void> } the promise returned by the disableAdmin.
-   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 23
-   */
   function disableAdmin(admin: Want, userId?: number): Promise<void>;
 
   /**
-   * Disables a current super administrator ability.
-   * Only the administrator app or apps with the shell uid can call this method.
+   * Disables a super device administrator application based on **bundleName**. This API uses an asynchronous callback
+   * to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { String } bundleName - bundleName indicates the administrator bundle information.
-   * @param { AsyncCallback<void> } callback - the callback of disableSuperAdmin.
+   * @param { String } bundleName - Bundle name of the super device administrator application to disable.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -492,17 +443,18 @@ declare namespace adminManager {
   function disableSuperAdmin(bundleName: String, callback: AsyncCallback<void>): void;
 
   /**
-   * Disables a current super administrator ability.
-   * Only the administrator app or apps with the shell uid can call this method.
+   * Disables a super device administrator application based on **bundleName**. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { String } bundleName - bundleName indicates the administrator bundle information.
-   * @returns { Promise<void> } the promise returned by the disableSuperAdmin.
+   * @param { String } bundleName - Bundle name of the super device administrator application to disable.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -511,13 +463,17 @@ declare namespace adminManager {
   function disableSuperAdmin(bundleName: String): Promise<void>;
 
   /**
-   * Get whether the ability is enabled as device administrator.
+   * Checks whether a device administrator application of the current user is enabled. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is a Boolean value (**true** means that the device administrator application
+   *     is enabled; and **false** means the opposite). If the operation fails, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -526,14 +482,19 @@ declare namespace adminManager {
   function isAdminEnabled(admin: Want, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get whether the ability is enabled as device administrator.
+   * Checks whether a device administrator application of the specified user is enabled. This API uses an asynchronous
+   * callback to return the result.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } userId - userId indicates the user ID.
-   * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is enabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } userId - User ID, which must be greater than or equal to 0.<br> The default value is the user ID
+   *     of the caller.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is a Boolean value (**true** means that the device administrator application
+   *     is enabled; and **false** means the opposite). If the operation fails, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -542,14 +503,19 @@ declare namespace adminManager {
   function isAdminEnabled(admin: Want, userId: number, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get whether the ability is enabled as device administrator.
+   * Checks whether a device administrator application of the current or specified user is enabled. This API uses a
+   * promise to return the result.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { number } [userId] - userId indicates the user ID or do not pass user ID.
-   * @returns { Promise<boolean> } promise contained true if the administrator is enabled.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { number } [userId] - User ID, which must be greater than or equal to 0.<br> - If **userId** is passed in,
+   *     this API applies to the specified user.<br> - If **userId** is not passed in, this API applies to the current
+   *     user.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the device administrator
+   *     application is enabled; the value **false** means the opposite.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -558,14 +524,37 @@ declare namespace adminManager {
   function isAdminEnabled(admin: Want, userId?: number): Promise<boolean>;
 
   /**
-   * Get information of the administrator's enterprise.
+   * Checks whether the current application is activated as a BYOD device administrator application based on the
+   * **EnterpriseAdminExtensionAbility** component.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AsyncCallback<EnterpriseInfo> } callback - callback contained the enterprise info of administrator.
+   * @permission ohos.permission.START_PROVISIONING_MESSAGE
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. Only the
+   *     **EnterpriseAdminExtensionAbility** component of the current application can be passed.
+   * @returns { boolean } The value **true** indicates the application is activated as a BYOD device administrator
+   *     application, and the value **false** indicates the opposite.
+   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 20
+   */
+  function isByodAdmin(admin: Want): boolean;
+
+  /**
+   * Obtains the enterprise information of the device administrator application. This API uses an asynchronous callback
+   * to return the result.
+   *
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AsyncCallback<EnterpriseInfo> } callback - Callback invoked to return the result. If the operation is
+   *     successful, **err** is **null** and **data** is the enterprise information of the device administrator
+   *     application obtained. If the operation fails, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -575,14 +564,17 @@ declare namespace adminManager {
   function getEnterpriseInfo(admin: Want, callback: AsyncCallback<EnterpriseInfo>): void;
 
   /**
-   * Get information of the administrator's enterprise.
+   * Obtains the enterprise information of the device administrator application. This API uses a promise to return the
+   * result.
    *
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { Promise<EnterpriseInfo> } promise contained the enterprise info of administrator.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<EnterpriseInfo> } Promise used to return the enterprise information of the device administrator
+   *     application.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -592,18 +584,21 @@ declare namespace adminManager {
   function getEnterpriseInfo(admin: Want): Promise<EnterpriseInfo>;
 
   /**
-   * Set the information of the administrator's enterprise.
-   * Only the administrator app can call this method.
+   * Sets the enterprise information of the device administrator application. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.SET_ENTERPRISE_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
-   * @param { AsyncCallback<void> } callback - the callback of setEnterpriseInfo.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { EnterpriseInfo } enterpriseInfo - Enterprise information of the device administrator application.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -612,18 +607,20 @@ declare namespace adminManager {
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the information of the administrator's enterprise.
-   * Only the administrator app can call this method.
+   * Sets the enterprise information of the device administrator application. This API uses a promise to return the
+   * result.
    *
    * @permission ohos.permission.SET_ENTERPRISE_INFO
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { EnterpriseInfo } enterpriseInfo - enterpriseInfo indicates the enterprise information of the calling application.
-   * @returns { Promise<void> } the promise returned by the setEnterpriseInfo.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { EnterpriseInfo } enterpriseInfo - Enterprise information of the device administrator application.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -632,30 +629,16 @@ declare namespace adminManager {
   function setEnterpriseInfo(admin: Want, enterpriseInfo: EnterpriseInfo): Promise<void>;
 
   /**
-   * Set the running mode for admin.
-   * Only the administrator app can call this method.
+   * Checks whether a super device administrator application is enabled based on **bundleName**. This API uses an
+   * asynchronous callback to return the result.
    *
-   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { RuningMode } mode - indicates the running mode for admin. 
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @systemapi
-   * @stagemodelonly
-   * @since 19
-   */
-  function setAdminRunningMode(admin: Want, mode: RunningMode): void;
-
-  /**
-   * Get whether the ability is enabled as super device administrator.
-   *
-   * @param { String } bundleName - bundleName indicates the administrator bundle information.
-   * @param { AsyncCallback<boolean> } callback - callback contained true if the administrator is super administrator.
+   * @param { String } bundleName - Super device administrator application.
+   * @param { AsyncCallback<boolean> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null** and **data** is a Boolean value (**true** means that the device administrator application
+   *     is enabled; and **false** means the opposite). If the operation fails, **err** is an error object.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -664,13 +647,15 @@ declare namespace adminManager {
   function isSuperAdmin(bundleName: String, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Get whether the ability is enabled as super device administrator.
+   * Checks whether a super device administrator application is enabled based on **bundleName**. This API uses a promise
+   * to return the result.
    *
-   * @param { String } bundleName - bundleName indicates the administrator bundle information.
-   * @returns { Promise<boolean> } promise contained true if the administrator is super administrator.
+   * @param { String } bundleName - Super device administrator application.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means the super device
+   *     administrator application is enabled; the value **false** means the opposite.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types.
+   *     2. Incorrect parameter types.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -679,99 +664,123 @@ declare namespace adminManager {
   function isSuperAdmin(bundleName: String): Promise<boolean>;
 
   /**
-   * Subscribes the managed event of admin.
+   * Subscribes to system management events. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-   * @param { AsyncCallback<void> } callback - the callback of subscribeManagedEvent.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to subscribe to.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
   /**
-   * Subscribes the managed event of admin.
+   * Subscribes to system management events. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-   * @returns { Promise<void> } the promise returned by the subscribeManagedEvent.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to subscribe to.
+   * @returns { Promise<void> } Promise that returns no value. When a system event fails to be subscribed to, an error
+   *     object is thrown.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
   /**
-   * Unsubscribes the managed event of admin.
+   * Unsubscribes from system management events. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-   * @param { AsyncCallback<void> } callback - the callback of unsubscribeManagedEvent.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to unsubscribe from.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
   /**
-   * Unsubscribes the managed event of admin.
+   * Unsubscribes from system management events. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
-   * @returns { Promise<void> } the promise returned by the unsubscribeManagedEvent.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to unsubscribe from.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the unsubscription of
+   *     system management events fails.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
   /**
-   * Administrator authorize permissions to other applications.
+   * Authorizes the administrator permission to a specified application. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
-   * @param { AsyncCallback<void> } callback - the callback of authorizeAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the application to be authorized with the administrator rights.
+   * @param { AsyncCallback<void> } callback - Callback invoked to return the result. If the operation is successful,
+   *     **err** is **null**. Otherwise, **err** is an error object.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -780,19 +789,22 @@ declare namespace adminManager {
   function authorizeAdmin(admin: Want, bundleName: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Administrator authorize permissions to other applications.
+   * Authorizes the administrator permission to a specified application. This API uses a promise to return the result.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } bundleName - bundleName indicates the administrator bundle information.
-   * @returns { Promise<void> } the promise returned by the authorizeAdmin.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the application to be authorized with the administrator rights.
+   * @returns { Promise<void> } Promise that returns no value. An error object is thrown when the permissions of a
+   *     specified application administrator fail to be granted.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
    * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
@@ -801,9 +813,12 @@ declare namespace adminManager {
   function authorizeAdmin(admin: Want, bundleName: string): Promise<void>;
 
   /**
-   * Get the super administrator of device.
+   * Obtains the super device administrator application of this administrator. This API uses a promise to return the
+   * result.
    *
-   * @returns { Promise<Want> } promise contained the want indicates the super administrator of the device.
+   * @returns { Promise<Want> } Promise used to return the super device administrator application obtained. If no super
+   *     device administrator application is activated on the device, **bundleName** and **abilityName** in **Want**
+   *     returned are empty strings.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -814,16 +829,20 @@ declare namespace adminManager {
   function getSuperAdmin(): Promise<Want>;
 
   /**
-   * Subscribes the managed event of admin.
+   * Subscribes to system management events.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to subscribe to.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the
+   *     device. [since 26.0.0]
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -831,16 +850,18 @@ declare namespace adminManager {
   function subscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
 
   /**
-   * Unsubscribes the managed event of admin.
+   * Unsubscribes from system management events.
    *
    * @permission ohos.permission.ENTERPRISE_SUBSCRIBE_MANAGED_EVENT
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { Array<ManagedEvent> } managedEvents - managedEvents indicates the managed events to subscribe.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Array<ManagedEvent> } managedEvents - Array of events to unsubscribe from.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 12
@@ -848,86 +869,21 @@ declare namespace adminManager {
   function unsubscribeManagedEventSync(admin: Want, managedEvents: Array<ManagedEvent>): void;
 
   /**
-   * Administrator delegates access to policies to another application.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
-   * @param { Array<string> } policies - policies indicates the policies accessible to the delegated application.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 14
-   */
-  function setDelegatedPolicies(admin: Want, bundleName: string, policies: Array<string>): void;
-
-  /**
-   * Administrator gets the list of delegation policies for the application.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
-   * @returns { Array<string> } the policies accessible to the delegated application.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 14
-   */
-  function getDelegatedPolicies(admin: Want, bundleName: string): Array<string>;
-
-  /**
-   * Query whether self is a BYOD administrator.
-   *
-   * @permission ohos.permission.START_PROVISIONING_MESSAGE
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @returns { boolean } true if byod admin is active, otherwise false.
-   * @throws { BusinessError } 9200012 - Parameter verification failed.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   *     The application does not have the permission required to call the API.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 20
-   */
-  function isByodAdmin(admin: Want): boolean;
-
-  /**
-   * Administrator gets the delegated applications which access to the policy.
-   *
-   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { string } policy - policy indicates the policy that delegated to other applications.
-   * @returns { Array<string> } the bundle names of the delegated application that access to the policy.
-   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
-   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
-   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
-   * @stagemodelonly
-   * @since 14
-   */
-  function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
-
-  /**
-   * replace old admin with new admin.
+   * Replaces a specified application with a super device administrator application.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { Want } oldAdmin - oldAdmin indicates the old administrator ability information.
-   * @param { Want } newAdmin - newAdmin indicates the new administrator ability information.
-   * @param { boolean } isKeepPolicy - true indicates whether keep admin policy.
+   * @param { Want } oldAdmin - Old EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the old
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { Want } newAdmin - New EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the new
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { boolean } isKeepPolicy - A Boolean value indicates whether to retain the policy of the old
+   *     **EnterpriseAdminExtensionAbility**. The value **true** means that the policy is retained, and the value
+   *     **false** means the opposite.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
    * @throws { BusinessError } 9200011 - Failed to replace the administrator application of the device.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -937,16 +893,121 @@ declare namespace adminManager {
   function replaceSuperAdmin(oldAdmin: Want, newAdmin: Want, isKeepPolicy: boolean): void;
 
   /**
-   * Starts an ability of admin provision application.
+   * Delegates other applications to set device management policies. The applications must request the permissions
+   * required.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the delegated application. The distribution type of the delegated
+   *     application must be **enterprise_normal** or **enterprise_mdm**. You can call the
+   *     [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   *     API to query the [BundleInfo]{@link ./bundleManager/BundleInfo} of the application, where
+   *     **BundleInfo.appInfo.appDistributionType** indicates the distribution type.
+   * @param { Array<string> } policies -
+   *     [Delegation Policy List](docroot://reference/apis-mdm-kit/js-apis-enterprise-adminManager.md#delegation-policy-list)
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function setDelegatedPolicies(admin: Want, bundleName: string, policies: Array<string>): void;
+
+  /**
+   * Delegates other applications to set device management policies. The applications must request the permissions
+   * required.
+   *
+   * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
+   * @param { string } bundleName - Bundle name of the app to be delegated. The distribution type of the delegated app
+   *     must be **enterprise_normal** or **enterprise_mdm**. You can call the
+   *     [bundleManager.getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   *     API to query the app **BundleInfo**. **BundleInfo.appInfo.appDistributionType** indicates the app distribution
+   *     type.
+   * @param { number } accountId - User ID, which must be greater than or equal to 0. You can use
+   *     [getOsAccountLocalId]{@link @ohos.account.osAccount:osAccount.AccountManager.getOsAccountLocalId(callback: AsyncCallback<int>)}
+   *     to obtain the user ID.
+   * @param { Array<string> } policies -
+   *     [Delegation policy list](docroot://reference/apis-mdm-kit/js-apis-enterprise-adminManager.md#delegation-policy-list)
+   *     .
+   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @systemapi
+   * @stagemodelonly
+   * @since 20
+   */
+  function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+
+  /**
+   * Queries the list of policies that can be accessed by the delegated application.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } bundleName - Bundle name of the delegated application. The distribution type of the delegated
+   *     application must be **enterprise_normal** or **enterprise_mdm**. You can call the
+   *     [getBundleInfoForSelf]{@link @ohos.bundle.bundleManager:bundleManager.getBundleInfoForSelf(bundleFlags: int)}
+   *     API to query the [BundleInfo]{@link ./bundleManager/BundleInfo} of the application, where
+   *     **BundleInfo.appInfo.appDistributionType** indicates the distribution type.
+   * @returns { Array<string> } Delegation policy list.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDelegatedPolicies(admin: Want, bundleName: string): Array<string>;
+
+  /**
+   * Queries the delegated applications that can access a delegation policy and output the list of delegated
+   * applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DELEGATED_POLICY
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { string } policy - Delegation policy.
+   * @returns { Array<string> } List of delegated applications.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 14
+   */
+  function getDelegatedBundleNames(admin: Want, policy: string): Array<string>;
+
+  /**
+   * Enables the device administrator application to open a page for the BYOD administrator to perform activation.
    *
    * @permission ohos.permission.START_PROVISIONING_MESSAGE
-   * @param { Want } admin - admin indicates the administrator ability information.
-   * @param { AdminType } type - type indicates the type of administrator to set.
-   * @param { common.Context } context - context indicates the context of application.
-   * @param { Record<string, string> } parameters - the parameters indicates the custom parameters of start an administrator provision.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { AdminType } type - Type of the activated device administrator application. Only the **ADMIN_TYPE_BYOD**
+   *     type is supported.
+   * @param { common.Context } context - Context information of the administrator application.
+   * @param { Record<string, string> } parameters - Custom parameters. The key value must contain **activateId** and may
+   *     optionally include **customizedInfo** and **localDeactivationPolicy**.<br>- **activateId**: project activation
+   *     ID.<br>- **customizedInfo**: enterprise-defined information.<br>- **localDeactivationPolicy**: local
+   *     deactivation delay (unit: hour). This parameter is supported since API version 22<!--RP1--><!--RP1End-->.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   *                                 2. Incorrect parameter types; 3. Parameter verification failed.
+   *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @stagemodelonly
    * @since 15
@@ -954,9 +1015,9 @@ declare namespace adminManager {
   function startAdminProvision(admin: Want, type: AdminType, context: common.Context, parameters: Record<string, string>): void;
 
   /**
-   * Gets administrators of device.
+   * Queries all device administrator applications of the current user. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<Want>> } returns the want list indicates the administrators of the device.
+   * @returns { Promise<Array<Want>> } Promise that contains all activated device administrator applications.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
@@ -966,21 +1027,69 @@ declare namespace adminManager {
   function getAdmins(): Promise<Array<Want>>;
 
   /**
-   * Administrator delegates access to policies to another application.
+   * Sets the running mode of the device management application.
    *
    * @permission ohos.permission.MANAGE_ENTERPRISE_DEVICE_ADMIN
-   * @param { string } bundleName - bundleName indicates the bundle name of the delegated application.
-   * @param { Array<string> } policies - policies indicates the policies accessible to the delegated application.
-   * @param { number } accountId - accountId indicates the local ID of the OS account.
-   * @throws { BusinessError } 9200009 - Failed to grant the permission to the application.
-   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission required to call the API.
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @param { RunningMode } mode - Running mode. <br>The value **DEFAULT** means the application runs under the default
+   *     user (user after the first device power-on). The value **MULTI_USER** means the application runs under multiple
+   *     users at the same time.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
+   *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
    * @systemapi
    * @stagemodelonly
-   * @since 20
+   * @since 19
    */
-  function setDelegatedPolicies(bundleName: string, accountId: number, policies: Array<string>): void;
+  function setAdminRunningMode(admin: Want, mode: RunningMode): void;
+
+  /**
+   * Allows a [super device administrator application](docroot://mdm/mdm-kit-term.md#sda) to enable other
+   * [device administrator applications](docroot://mdm/mdm-kit-term.md#da). This API uses a promise to return the
+   * result. This API can be called only by super device administrator applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function enableDeviceAdmin(admin: Want): Promise<void>;
+
+  /**
+   * Allows a [super device administrator application](docroot://mdm/mdm-kit-term.md#sda) to disable other
+   * [device administrator applications](docroot://mdm/mdm-kit-term.md#da). This API uses a promise to return the
+   * result. This API can be called only by super device administrator applications.
+   *
+   * @permission ohos.permission.ENTERPRISE_MANAGE_DEVICE_ADMIN
+   * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   * @returns { Promise<void> } Promise that returns no value. If the operation fails, an error object will be thrown.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200005 - Failed to deactivate the administrator application of the device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 23
+   */
+  function disableDeviceAdmin(admin: Want): Promise<void>;
 
   /**
    * Gets enterprise message tips.
@@ -993,6 +1102,30 @@ declare namespace adminManager {
    * @since 23 dynamic&static
    */
   function getEnterpriseManagedTips(): Promise<string>;
+
+  /**
+   * Enables self as a device administrator.
+   *
+   * @permission ohos.permission.ENTERPRISE_ACTIVATE_DEVICE_ADMIN
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   *     The admin must have the corresponding permission.
+   * @param { string } credential - credential indicates the credential for activating self as an administrator.
+   * @returns { Promise<void> } the promise returned by the enableSelfDeviceAdmin.
+   * @throws { BusinessError } 9200003 - The administrator ability component is invalid.
+   * @throws { BusinessError } 9200004 - Failed to activate the administrator application of the device.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 9200017 - The self-activation credential of the enterprise device administrator
+   *     is invalid.
+   * @throws { BusinessError } 9200018 - This device is not an enterprise device.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function enableSelfDeviceAdmin(admin: Want, credential: string): Promise<void>;
 }
 
 export default adminManager;

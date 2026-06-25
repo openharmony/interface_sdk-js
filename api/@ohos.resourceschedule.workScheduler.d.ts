@@ -21,9 +21,11 @@
 import { AsyncCallback } from './@ohos.base';
 
 /**
- * Work scheduler interface.
+ * The **workScheduler** module provides the APIs for registering, canceling, and querying deferred tasks. You can use 
+ * the APIs to register tasks that do not have high requirements on real-time performance as deferred tasks. The system 
+ * schedules and executes the deferred tasks at an appropriate time, subject to the storage space, power consumption, 
+ * and more. For details, see [Deferred Task Scheduling](docroot://task-management/work-scheduler.md).
  *
- * @namespace workScheduler
  * @syscap SystemCapability.ResourceSchedule.WorkScheduler
  * @stagemodelonly
  * @since 9 dynamic
@@ -31,9 +33,8 @@ import { AsyncCallback } from './@ohos.base';
  */
 declare namespace workScheduler {
   /**
-   * The info of work.
+   * Represents the deferred task information, which is used to set the trigger condition.
    *
-   * @interface WorkInfo
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
@@ -41,9 +42,8 @@ declare namespace workScheduler {
    */
   export interface WorkInfo {
     /**
-     * The id of the current work.
+     * ID of the deferred task.
      *
-     * @type { int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -51,9 +51,8 @@ declare namespace workScheduler {
      */
     workId: int;
     /**
-     * The bundle name of the current work.
+     * Bundle name of the application where the deferred task is located.
      *
-     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -61,9 +60,8 @@ declare namespace workScheduler {
      */
     bundleName: string;
     /**
-     * The ability name of the current work.
+     * Ability name in the bundle.
      *
-     * @type { string }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -71,9 +69,11 @@ declare namespace workScheduler {
      */
     abilityName: string;
     /**
-     * Whether the current work will be saved.
+     * Whether the registered deferred task can be saved in the system. The default value is **false**.
+     * 
+     * - **true**: The task can be saved. That is, the task can be restored after the system restarts.
+     * - **false**: The task cannot be saved.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -81,9 +81,8 @@ declare namespace workScheduler {
      */
     isPersisted?: boolean;
     /**
-     * The network type of the current work.
+     * Network type.
      *
-     * @type { ?NetworkType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -91,9 +90,11 @@ declare namespace workScheduler {
      */
     networkType?: NetworkType;
     /**
-     * Whether a charging state has been set for triggering the work.
+     * Whether the device needs to enter the charging state. The default value is **false**.
+     * 
+     * - **true**: The device needs to enter the charging state to trigger deferred task scheduling.
+     * - **false**: The device does not need to enter the charging state to trigger deferred task scheduling.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -101,9 +102,8 @@ declare namespace workScheduler {
      */
     isCharging?: boolean;
     /**
-     * The charger type based on which the work is triggered.
+     * Charging type.
      *
-     * @type { ?ChargingType }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -111,9 +111,10 @@ declare namespace workScheduler {
      */
     chargerType?: ChargingType;
     /**
-     * The battery level for triggering a work.
+     * Battery level.
+     * 
+     * Value range: [0, 100]
      *
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -121,9 +122,8 @@ declare namespace workScheduler {
      */
     batteryLevel?: int;
     /**
-     * The battery status for triggering a work.
+     * Battery status.
      *
-     * @type { ?BatteryStatus }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -131,9 +131,8 @@ declare namespace workScheduler {
      */
     batteryStatus?: BatteryStatus;
     /**
-     * Whether a storage state has been set for triggering the work.
+     * Storage status.
      *
-     * @type { ?StorageRequest }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -141,10 +140,8 @@ declare namespace workScheduler {
      */
     storageRequest?: StorageRequest;
     /**
-     * The interval at which the work is repeated.
-     * <br>Unit:ms
+     * Repeat interval, in milliseconds.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -152,9 +149,11 @@ declare namespace workScheduler {
      */
     repeatCycleTime?: int;
     /**
-     * Whether the work has been set to repeat at the specified interval.
+     * Whether the task is repeated. The default value is **false**.
+     * 
+     * - **true**: The task is repeated.
+     * - **false**: The task is not repeated.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -162,9 +161,8 @@ declare namespace workScheduler {
      */
     isRepeat?: boolean;
     /**
-     * The repeat of the current work.
+     * Number of repeat times.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -172,9 +170,12 @@ declare namespace workScheduler {
      */
     repeatCount?: int;
     /**
-     * Whether the device deep idle state has been set for triggering the work.
+     * Whether the device needs to enter the idle state to trigger deferred task scheduling. The default value is 
+     * **false**.
+     * 
+     * - **true**: The device needs to enter the idle state to trigger deferred task scheduling.
+     * - **false**: The device does not need to enter the idle state to trigger deferred task scheduling.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -182,10 +183,8 @@ declare namespace workScheduler {
      */
     isDeepIdle?: boolean;
     /**
-     * The idle wait time based on which the work is triggered.
-     * <br>Unit:ms
+     * Idle wait time, in milliseconds.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -193,9 +192,8 @@ declare namespace workScheduler {
      */
     idleWaitTime?: int;
     /**
-     * The parameters of the work. The value is only supported basic type(Int, Double, String, Boolean).
+     * Carried parameters.
      *
-     * @type { ?Record<string, int | double | string | boolean> }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
@@ -203,10 +201,10 @@ declare namespace workScheduler {
      */
     parameters?: Record<string, int | double | string | boolean>;
     /**
-     * From now on, the earliest time work can be triggered.
-     * <br>Unit:ms
+     * Interval between the initial execution time and the request time for a task, in milliseconds. The default value
+     * is **0**, and the value must be greater than or equal to 0.
+     * The value range is all integers.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 22 dynamic
@@ -216,15 +214,35 @@ declare namespace workScheduler {
   }
 
   /**
-   * Add a work to the queue. A work can be executed only when it meets the preset triggering condition
-   * <p> and complies with the rules of work scheduler manager. </p>
+   * The last condition met when the current task is triggered.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const WORK_SCHEDULER_CONDITION: string;
+
+  /**
+   * Whether the requested task is executed immediately.
+   *
+   * @syscap SystemCapability.ResourceSchedule.WorkScheduler
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  const EXECUTE_IMMEDIATE: string;
+
+  /**
+   * Requests a deferred task. Upon successful request, the deferred task is added to the execution queue and will be 
+   * executed by the system once the trigger conditions are met.
    *
    * @param { WorkInfo } work - The info of work.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @throws { BusinessError } 9700005 - Calling startWork failed.
@@ -236,15 +254,16 @@ declare namespace workScheduler {
   function startWork(work: WorkInfo): void;
 
   /**
-   * Stop a work.
+   * Stops a deferred task.
    *
-   * @param { WorkInfo } work - The info of work.
-   * @param { boolean } needCancel - True if need to be canceled after being stopped, otherwise false.
+   * @param { WorkInfo } work - Deferred task to stop.
+   * @param { boolean } needCancel - Whether to clear the task while stopping it.<br>The value **true** means to clear
+   *     the task while stopping it, and **false** means to stop the task only. The default value is **false**.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types; 3. Parameter verification failed.
+   *     2. Incorrect parameters types; 3. Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -255,14 +274,15 @@ declare namespace workScheduler {
   function stopWork(work: WorkInfo, needCancel?: boolean): void;
 
   /**
-   * Obtains the work info of the wordId.
+   * Obtains the information a deferred task. This API uses an asynchronous callback to return the result.
    *
-   * @param { int } workId - The id of work.
-   * @param { AsyncCallback<WorkInfo> } callback - The callback of the function.
+   * @param { int } workId - ID of the deferred task.
+   * @param { AsyncCallback<WorkInfo> } callback - Callback used to return the result. If **workId** is valid, the task
+   *     information obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -273,14 +293,15 @@ declare namespace workScheduler {
   function getWorkStatus(workId: int, callback: AsyncCallback<WorkInfo>): void;
 
   /**
-   * Obtains the work info of the wordId.
+   * Obtains the information a deferred task. This API uses a promise to return the result.
    *
-   * @param { int } workId - The id of work.
-   * @returns { Promise<WorkInfo> } The promise returned by the function.
+   * @param { int } workId - ID of the deferred task.
+   * @returns { Promise<WorkInfo> } Promise used to return the result. If **workId** is valid, the task information
+   *     obtained from WorkSchedulerService is returned. Otherwise, an exception is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -291,33 +312,36 @@ declare namespace workScheduler {
   function getWorkStatus(workId: int): Promise<WorkInfo>;
 
   /**
-   * Get all works of the calling application.
+   * Obtains all the deferred tasks. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @returns { Array<WorkInfo> } the work info list.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If all the deferred tasks are
+   *     obtained, **err** is **undefined**. Otherwise, **err** is an error object.
+   * @returns { Array<WorkInfo> } List of deferred tasks. If deferred tasks have been added to the execution queue, the
+   *     list of all deferred tasks in the current application is returned. Otherwise, an empty list is returned.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types.
+   *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamiconly
    * @deprecated since 10
-   * @useinstead ohos.resourceschedule.workScheduler#obtainAllWorks
+   * @useinstead workScheduler.obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>)
    */
   function obtainAllWorks(callback: AsyncCallback<void>): Array<WorkInfo>;
 
   /**
-   * Get all works of the calling application.
+   * Obtains all the deferred tasks. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<Array<WorkInfo>> } callback - The callback of the function.
+   * @param { AsyncCallback<Array<WorkInfo>> } callback - Callback used to return the list of all deferred tasks in the
+   *     current application. If the list fails to be obtained, an exception is thrown.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types.
+   *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -327,14 +351,14 @@ declare namespace workScheduler {
   function obtainAllWorks(callback: AsyncCallback<Array<WorkInfo>>): void;
 
   /**
-   * Get all works of the calling application.
+   * Obtains all the deferred tasks. This API uses a promise to return the result.
    *
-   * @returns { Promise<Array<WorkInfo>> } The work info list.
+   * @returns { Promise<Array<WorkInfo>> } Promise used to return all the deferred tasks.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types.
+   *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -344,13 +368,13 @@ declare namespace workScheduler {
   function obtainAllWorks(): Promise<Array<WorkInfo>>;
 
   /**
-   * Stop all and clear all works of the calling application.
+   * Stops and clears all the deferred tasks.
    *
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
-   * <br> 2. Incorrect parameters types.
+   *     2. Incorrect parameters types.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
@@ -360,34 +384,37 @@ declare namespace workScheduler {
   function stopAndClearWorks(): void;
 
   /**
-   * Check whether last work running is timeout. The interface is for repeating work.
+   * Checks whether the last execution of a task timed out. This API uses an asynchronous callback to return the result.
    *
-   * @param { number } workId - The id of work.
-   * @param { AsyncCallback<void> } callback - The callback of the function.
-   * @returns { boolean } true if last work running is timeout, otherwise false.
+   * @param { number } workId - ID of the deferred task.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
+   * @returns { boolean } Whether the last execution of a deferred task timed out. If **workId** is valid, it returns
+   *     whether the last execution of the task obtained from WorkSchedulerService timed out; otherwise, an exception is
+   *     thrown. **true** indicates that the last execution of the deferred task corresponding to the **workId** timed
+   *     out, while **false** indicates the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamiconly
    * @deprecated since 10
-   * @useinstead ohos.resourceschedule.workScheduler#isLastWorkTimeOut
+   * @useinstead workScheduler.isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>)
    */
   function isLastWorkTimeOut(workId: number, callback: AsyncCallback<void>): boolean;
 
   /**
-   * Check whether last work running is timeout. The interface is for repeating work.
+   * Checks whether the last execution of a task timed out. This API uses an asynchronous callback to return the result.
    *
-   * @param { int } workId - The id of work.
-   * @param { AsyncCallback<boolean> } callback - The callback of the function.
+   * @param { int } workId - ID of the deferred task.
+   * @param { AsyncCallback<boolean> } callback - Callback used to return the result.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -398,14 +425,15 @@ declare namespace workScheduler {
   function isLastWorkTimeOut(workId: int, callback: AsyncCallback<boolean>): void;
 
   /**
-   * Check whether last work running is timeout. The interface is for repeating work.
+   * Checks whether the last execution of a task timed out. This API uses a promise to return the result.
    *
-   * @param { int } workId - The id of work.
-   * @returns { Promise<boolean> } True if last work running is timeout, otherwise false.
+   * @param { int } workId - ID of the deferred task.
+   * @returns { Promise<boolean> } Promise used to return the result. The value **true** means that the last execution
+   *     of the specified task times out, and **false** means the opposite.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: Parameter verification failed.
    * @throws { BusinessError } 9700001 - Memory operation failed.
    * @throws { BusinessError } 9700002 - Failed to write data into parcel. Possible reasons: 1. Invalid parameters;
-   * <br> 2. Failed to apply for memory.
+   *     2. Failed to apply for memory.
    * @throws { BusinessError } 9700003 - System service operation failed.
    * @throws { BusinessError } 9700004 - Check on workInfo failed.
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
@@ -416,18 +444,17 @@ declare namespace workScheduler {
   function isLastWorkTimeOut(workId: int): Promise<boolean>;
 
   /**
-   * Describes network type.
+   * Enumerates the network types that trigger deferred task callback.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name NetworkType
-  */
+   */
   export enum NetworkType {
     /**
-     * Describes any network connection.
+     * Any network type.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -436,65 +463,64 @@ declare namespace workScheduler {
      */
     NETWORK_TYPE_ANY = 0,
     /**
-     * Describes a mobile network connection.
+     * Mobile network.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_MOBILE,
+    NETWORK_TYPE_MOBILE = 1,
     /**
-     * Describes a wifi network connection.
+     * Wi-Fi network.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_WIFI,
+    NETWORK_TYPE_WIFI = 2,
     /**
-     * Describes a bluetooth network connection.
+     * Bluetooth network.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_BLUETOOTH,
+    NETWORK_TYPE_BLUETOOTH = 3,
     /**
-     * Describes a wifi p2p network connection.
+     * Wi-Fi P2P network.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_WIFI_P2P,
+    NETWORK_TYPE_WIFI_P2P = 4,
     /**
-     * Describes a wifi wire network connection.
+     * Ethernet.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    NETWORK_TYPE_ETHERNET
+    NETWORK_TYPE_ETHERNET = 5
   }
 
   /**
-   * Describes charging type.
+   * Enumerates the charging types that trigger deferred task callback.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name ChargingType
-  */
+   */
   export enum ChargingType {
     /**
-     * Describes any charger is connected.
+     * Any charging type.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -503,47 +529,46 @@ declare namespace workScheduler {
      */
     CHARGING_PLUGGED_ANY = 0,
     /**
-     * Describes ac charger is connected.
+     * DC charging.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    CHARGING_PLUGGED_AC,
+    CHARGING_PLUGGED_AC = 1,
     /**
-     * Describes usb charger is connected.
+     * USB charging.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    CHARGING_PLUGGED_USB,
+    CHARGING_PLUGGED_USB = 2,
     /**
-     * Describes wireless charger is connected.
+     * Wireless charging.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    CHARGING_PLUGGED_WIRELESS
+    CHARGING_PLUGGED_WIRELESS = 3
   }
 
   /**
-   * Describes the battery status.
+   * Enumerates the battery status that triggers the deferred task callback.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name BatteryStatus
-  */
+   */
   export enum BatteryStatus {
     /**
-     * Describes battery status is to low.
+     * A low battery alert is displayed.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -552,38 +577,37 @@ declare namespace workScheduler {
      */
     BATTERY_STATUS_LOW = 0,
     /**
-     * Describes battery status is to ok.
+     * The battery level is restored from low to normal.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    BATTERY_STATUS_OKAY,
+    BATTERY_STATUS_OKAY = 1,
     /**
-     * Describes battery status is to low or ok.
+     * The battery level is restored from low to normal, or a low battery alert is displayed.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    BATTERY_STATUS_LOW_OR_OKAY
+    BATTERY_STATUS_LOW_OR_OKAY = 2
   }
 
   /**
-   * Describes the storage request.
+   * Enumerates the storage status that triggers the deferred task callback.
    *
-   * @enum { int }
    * @syscap SystemCapability.ResourceSchedule.WorkScheduler
    * @stagemodelonly
    * @since 9 dynamic
    * @since 23 static
    * @name StorageRequest
-  */
+   */
   export enum StorageRequest {
     /**
-     * Describes storage is to low.
+     * The storage space is insufficient.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
@@ -592,23 +616,23 @@ declare namespace workScheduler {
      */
     STORAGE_LEVEL_LOW = 0,
     /**
-     * Describes storage is to ok.
+     * The storage space is restored from insufficient to normal.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    STORAGE_LEVEL_OKAY,
+    STORAGE_LEVEL_OKAY = 1,
     /**
-     * Describes storage is to low or ok.
+     * The storage space is insufficient, or the storage space is restored from insufficient to normal.
      *
      * @syscap SystemCapability.ResourceSchedule.WorkScheduler
      * @stagemodelonly
      * @since 9 dynamic
      * @since 23 static
      */
-    STORAGE_LEVEL_LOW_OR_OKAY
+    STORAGE_LEVEL_LOW_OR_OKAY = 2
   }
 }
 export default workScheduler;

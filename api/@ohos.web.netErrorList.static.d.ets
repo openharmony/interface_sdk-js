@@ -363,7 +363,7 @@ export declare enum WebNetErrorList {
      */
     ERR_SSL_RENEGOTIATION_REQUESTED = -114,
     /**
-     * The proxy requested authentication (for tunnel establishment, with an
+     * The proxy requested authentication (for tunnel establishment) with an
      * unsupported method.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -525,7 +525,7 @@ export declare enum WebNetErrorList {
     ERR_TEMPORARILY_THROTTLED = -139,
     /**
      * A request to create an SSL tunnel connection through the HTTPS proxy
-     * received a 302 (temporary redirect, response.  The response body might
+     * received a 302 (temporary redirect) response.  The response body might
      * include a description of why the request failed.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -600,7 +600,7 @@ export declare enum WebNetErrorList {
     /**
      * An SSL peer sent us a fatal decrypt_error alert. This typically occurs when
      * a peer could not correctly verify a signature (in CertificateVerify or
-     * ServerKeyExchange, or validate a Finished message.
+     * ServerKeyExchange) or validate a Finished message.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -737,7 +737,7 @@ export declare enum WebNetErrorList {
     ERR_WS_UPGRADE = -173,
     /**
      * Socket ReadIfReady support is not implemented. This error should not be user
-     * visible, because the normal Read(, method is used as a fallback.
+     * visible, because the normal Read() method is used as a fallback.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1059,7 +1059,7 @@ export declare enum WebNetErrorList {
      */
     ERR_METHOD_UNSUPPORTED = -322,
     /**
-     * The response was 407 (Proxy Authentication Required,, yet we did not send
+     * The response was 407 (Proxy Authentication Required), yet we did not send
      * the request to a proxy.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -1088,7 +1088,7 @@ export declare enum WebNetErrorList {
      */
     ERR_PAC_SCRIPT_FAILED = -327,
     /**
-     * The response was 416 (Requested range not satisfiable, and the server cannot
+     * The response was 416 (Requested range not satisfiable) and the server cannot
      * satisfy the range requested.
      *
      * @syscap SystemCapability.Web.Webview.Core
@@ -1175,7 +1175,7 @@ export declare enum WebNetErrorList {
      */
     ERR_ENCODING_DETECTION_FAILED = -340,
     /**
-     * (GSSAPI, No Kerberos credentials were available during HTTP Authentication.
+     * (GSSAPI) No Kerberos credentials were available during HTTP Authentication.
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static
@@ -1190,7 +1190,7 @@ export declare enum WebNetErrorList {
     ERR_UNEXPECTED_SECURITY_LIBRARY_STATUS = -342,
     /**
      * The environment was not set up correctly for authentication (for
-     * example, no KDC could be found or the principal is unknown.
+     * example, no KDC could be found or the principal is unknown).
      *
      * @syscap SystemCapability.Web.Webview.Core
      * @since 23 static

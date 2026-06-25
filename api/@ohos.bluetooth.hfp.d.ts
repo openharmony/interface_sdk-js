@@ -23,7 +23,6 @@ import type baseProfile from './@ohos.bluetooth.baseProfile';
 /**
  * Provides methods to accessing bluetooth call-related capabilities.
  *
- * @namespace hfp
  * @syscap SystemCapability.Communication.Bluetooth.Core
  * @since 10 dynamic
  * @since 23 static
@@ -32,7 +31,6 @@ declare namespace hfp {
   /**
    * Base interface of profile.
    *
-   * @typedef { baseProfile.BaseProfile } BaseProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
    * @since 23 static
@@ -44,7 +42,7 @@ declare namespace hfp {
    *
    * @returns { HandsFreeAudioGatewayProfile } Returns the instance of profile.
    * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-   * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+   *     2. Incorrect parameter types. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - Capability not supported.
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
@@ -53,10 +51,19 @@ declare namespace hfp {
   function createHfpAgProfile(): HandsFreeAudioGatewayProfile;
 
   /**
+   * create the instance of HF(Hands-Free Unit) for HFP(Hands-Free Profile).
+   *
+   * @returns { HandsFreeHfProfile } Returns the instance of profile.
+   * @throws { BusinessError } 801 - Capability not supported.
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function createHfpHfProfile(): HandsFreeHfProfile;
+
+  /**
    * Manager hfp source profile.
    *
-   * @extends BaseProfile
-   * @typedef HandsFreeAudioGatewayProfile
    * @syscap SystemCapability.Communication.Bluetooth.Core
    * @since 10 dynamic
    * @since 23 static
@@ -70,7 +77,7 @@ declare namespace hfp {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -91,7 +98,7 @@ declare namespace hfp {
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
      * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified.
-     * <br>2. Incorrect parameter types. 3. Parameter verification failed.
+     *     2. Incorrect parameter types. 3. Parameter verification failed.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 2900001 - Service stopped.
      * @throws { BusinessError } 2900003 - Bluetooth disabled.
@@ -101,6 +108,53 @@ declare namespace hfp {
      * @systemapi
      * @since 10 dynamic
      * @since 23 static
+     */
+    disconnect(deviceId: string): void;
+  }
+
+  /**
+   * Manage hfp sink profile.
+   *
+   * @syscap SystemCapability.Communication.Bluetooth.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface HandsFreeHfProfile extends BaseProfile {
+    /**
+     * Initiate the HFP connection to a remote device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    connect(deviceId: string): void;
+
+    /**
+     * Disconnect the HFP connection with the remote device.
+     *
+     * @permission ohos.permission.ACCESS_BLUETOOTH
+     * @param { string } deviceId - Indicates device ID. For example, "11:22:33:AA:BB:FF".
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
+     * @throws { BusinessError } 801 - Capability not supported.
+     * @throws { BusinessError } 2900001 - Service stopped.
+     * @throws { BusinessError } 2900003 - Bluetooth disabled.
+     * @throws { BusinessError } 2900004 - Profile not supported.
+     * @throws { BusinessError } 2900099 - Internal system error. For example, IPC error.
+     * @syscap SystemCapability.Communication.Bluetooth.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
      */
     disconnect(deviceId: string): void;
   }

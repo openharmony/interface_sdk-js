@@ -18,18 +18,20 @@
  * @kit ArkUI
  */
 
-
-
-
 import { AttributeModifier } from '@ohos.arkui.component';
+
 import { TextInputAttribute } from '@ohos.arkui.component';
+
+import { TextInputAttribute } from './component/textInput';
+
+import { AttributeModifier } from './component/common';
 
 /**
  * Defines TextInput Modifier
  *
- * @implements { TextInputAttribute, AttributeModifier<TextInputAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare class TextInputModifier implements TextInputAttribute, AttributeModifier<TextInputAttribute> {}

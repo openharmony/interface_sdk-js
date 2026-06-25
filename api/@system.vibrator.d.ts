@@ -16,8 +16,6 @@
 /**
  * The **Vibrator** module provides APIs for controlling LED lights and vibrators. You can use the APIs to query the LED
  * light list, vibrator list, and vibration effect, and turn on or off the LED light and the vibrator.
- * The **Vibrator** module provides APIs for controlling LED lights and vibrators. You can use the APIs to query the LED
- * light list, vibrator list, and vibration effect, and turn on or off the LED light and the vibrator.
  * 
  * Misc devices refer to LED lights and vibrators on devices. LED lights are mainly used for indication (for example, 
  * indicating the charging state) and blinking (such as tri-colored lights). Vibrators are mainly used in scenarios such
@@ -29,7 +27,8 @@
  * > >   - For lite wearables, this module is constantly maintained and available.
  * > >   - For other device types, this module is no longer maintained since API version 8, and You are advised to use 
  * > the new [@ohos.vibrator]{@link @ohos.vibrator:vibrator} module.
- * >
+ * > - The initial APIs of this module are supported since API version 3. 
+ * > Newly added APIs will be marked with a superscript to indicate their earliest API version.
  * > - This module requires hardware support and can only be debugged on real devices.
  *
  * @file
@@ -113,8 +112,7 @@ export default class Vibrator {
    * > **NOTE**
    * >
    * > Except for lite wearables. You are advised to use
-   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)}
-   * > instead.
+   * > [vibrator.startVibration()]{@link @ohos.vibrator:vibrator.startVibration(effect: VibrateEffect, attribute: VibrateAttribute, callback: AsyncCallback<void>)} since API version 8.
    *
    * @permission ohos.permission.VIBRATE
    * @param { VibrateOptions } options - Vibration options.

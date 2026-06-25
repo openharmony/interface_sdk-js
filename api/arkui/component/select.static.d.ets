@@ -17,7 +17,7 @@
  * @file
  * @kit ArkUI
  */
-import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode } from './common';
+import { CommonConfiguration, CommonMethod, ContentModifier, BlurStyle, Bindable, MenuKeyboardAvoidMode, DistortionMode, EdgeLightMode } from './common';
 import { ControlSize } from './button';
 import { LengthMetrics } from '../Graphics';
 import { DividerOptions } from './textPicker';
@@ -25,8 +25,8 @@ import { ResourceStr, Dimension, EdgeOutlineWidths, ResourceColor, EdgeColors, R
 import { SymbolGlyphModifier } from '../SymbolGlyphModifier';
 import { TextModifier } from '../TextModifier';
 import { OptionWidthMode } from './enums';
-import { ComponentBuilder,  CustomBuilder } from './builder';
-import { AttributeModifier, CommonMethod, SystemUiMaterial } from './common';
+import { ComponentBuilder,  CustomBuilder, CustomBuilderT, Builder } from './builder';
+import { AttributeModifier, CommonMethod, SystemUiMaterial, BackgroundBlurStyleOptions, BackgroundEffectOptions } from './common';
 /**
  * The declare of selectOption.
  *
@@ -562,11 +562,67 @@ export declare interface SelectAttribute extends CommonMethod {
      *     retaining the original visual style of the select's menu.
      * @returns { SelectAttribute } - The attribute of the select.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
+     * @systemapi [since 23-24]
+     * @publicapi [since 26.0.0]
      * @stagemodelonly
      * @since 23 static
      */
     default menuSystemMaterial(material: SystemUiMaterial | undefined): this;
+    /**
+     * Defines the select menu's background blur style options.
+     *
+     * @param { BackgroundBlurStyleOptions | undefined } blurStyle - The background blur style options of menu.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuBackgroundBlurStyleOptions(blurStyle: BackgroundBlurStyleOptions | undefined): this;
+    /**
+     * Defines the select menu's background effect with options
+     *
+     * @param { BackgroundEffectOptions | undefined } effect - Background effect, including saturation,
+     *     brightness, and color.
+     *     <br>The configuration does not take effect when it is undefined.
+     * @returns { SelectAttribute } - The attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuBackgroundEffect(effect: BackgroundEffectOptions | undefined): this;
+    /**
+     * Sets the distortion animation mode of the select with the new material.
+     *
+     * @param { DistortionMode | undefined } mode - Animation mode. The default value is DistortionMode.DISTORTION_AUTO.
+     * @returns { SelectAttribute } - the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuDistortionMode(mode: DistortionMode | undefined): this;
+    /**
+     * Sets the edgelight animation mode of the select with the new material.
+     *
+     * @param { EdgeLightMode | undefined } mode - Animation mode.
+     *     The default value is EdgeLightMode.EDGELIGHT_DISABLED.
+     * @returns { SelectAttribute } - the attribute of the select.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default menuEdgeLightMode(mode: EdgeLightMode | undefined): this;
+    /**
+     * Set select options.
+     *
+     * @param { Array<SelectOption> } optionArray - select constructor options
+     * @returns { SelectAttribute } Returns the instance of the SelectAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSelectOptions(optionArray: Array<SelectOption>): this;
 }
 /**
  * MenuItemConfiguration used by menu item content modifier.
@@ -647,5 +703,22 @@ export declare interface MenuItemConfiguration extends CommonConfiguration<MenuI
 @ComponentBuilder
 export declare function Select(
     options: Array<SelectOption>,
+    content_?: CustomBuilder,
+): SelectAttribute
+
+/**
+ * Defines Select Component.
+ *
+ * @param { CustomBuilderT<SelectAttribute> } style_ - select attribute instance
+ * @param { CustomBuilder } [content_] - container
+ * @returns { SelectAttribute }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 staticonly
+ * @noninterop
+ */
+@Builder
+export declare function Select(
+    style_: CustomBuilderT<SelectAttribute>,
     content_?: CustomBuilder,
 ): SelectAttribute

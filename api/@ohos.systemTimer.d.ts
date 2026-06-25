@@ -14,7 +14,7 @@
  */
 
 /**
- * @file
+ * @file System Timer
  * @kit BasicServicesKit
  */
 
@@ -22,9 +22,9 @@ import { AsyncCallback } from './@ohos.base';
 import { WantAgent } from './@ohos.app.ability.wantAgent';
 
 /**
- * Provides js api for systemTimer
+ * The **systemTimer** module provides system timer features. You can use the APIs of this module to implement the alarm
+ * clock and other timer services.
  *
- * @namespace systemTimer
  * @syscap SystemCapability.MiscServices.Time
  * @systemapi Hide this for inner system use.
  * @since 7 dynamic
@@ -32,9 +32,8 @@ import { WantAgent } from './@ohos.app.ability.wantAgent';
  */
 declare namespace systemTimer {
   /**
-   * Indicates the timing policy the timer use, which can be REALTIME or UTC.
+   * CPU time type. (The start time of the timer cannot be later than the current system time.)
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -43,9 +42,8 @@ declare namespace systemTimer {
   const TIMER_TYPE_REALTIME: int;
 
   /**
-   * Describes whether a timer will wake the device up.
+   * Wakeup type. (If the wakeup type is not set, the system does not wake up until it exits the sleep state.)
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -54,9 +52,8 @@ declare namespace systemTimer {
   const TIMER_TYPE_WAKEUP: int;
 
   /**
-   * Describes whether a timer will be delivered precisely at a scheduled time.
+   * Exact type. (If the system time is changed, the offset may be 1s at most.)
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -65,9 +62,8 @@ declare namespace systemTimer {
   const TIMER_TYPE_EXACT: int;
 
   /**
-   * Indicates whether the timer waking up the system is supported in low-power mode.
+   * Idle timer type (supported only for system services).
    *
-   * @type { int }
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -76,13 +72,22 @@ declare namespace systemTimer {
   const TIMER_TYPE_IDLE: int;
 
   /**
-   * Creates a timer.
+   * Creates a timer. This API uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > This API must be used together with 
+   * > [systemTimer.destroyTimer]{@link systemTimer.destroyTimer(timer: long, callback: AsyncCallback<void>)}. Otherwise
+   * > , memory leakage occurs.
    *
-   * @param { TimerOptions } options - The timer options.
-   * @param { AsyncCallback<long> } callback - {long} is the timer ID.
+   * @param { TimerOptions } options - Timer initialization options, including the timer type, whether the timer is a
+   *     repeating timer, interval, and **WantAgent** options.
+   * @param { AsyncCallback<long> } callback - Callback used to return the timer ID.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -91,13 +96,22 @@ declare namespace systemTimer {
   function createTimer(options: TimerOptions, callback: AsyncCallback<long>): void;
 
   /**
-   * Creates a timer.
+   * Creates a timer. This API uses a promise to return the timer ID.
+   * 
+   * > **NOTE**
+   * >
+   * > This API must be used together with 
+   * > [systemTimer.destroyTimer]{@link systemTimer.destroyTimer(timer: long, callback: AsyncCallback<void>)}. Otherwise
+   * > , memory leakage occurs.
    *
-   * @param { TimerOptions } options - The timer options.
-   * @returns { Promise<long> } the timer ID.
+   * @param { TimerOptions } options - Timer initialization options, including the timer type, whether the timer is a
+   *     repeating timer, interval, and **WantAgent** options.
+   * @returns { Promise<long> } Promise used to return the timer ID.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types;
-   *     3.Parameter verification failed.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter type.
+   *     <br> 3. Parameter verification failed.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -106,15 +120,19 @@ declare namespace systemTimer {
   function createTimer(options: TimerOptions): Promise<long>;
 
   /**
-   * Starts a timer.
+   * Starts a timer. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in milliseconds.
-   *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
-   *                   value is smaller than the current time plus 5000 milliseconds.
-   * @param { AsyncCallback<void> } callback - The callback function.
+   * @param { long } timer - ID of the timer.
+   * @param { long } triggerTime - Time when the timer is triggered, in milliseconds.<br>If **TIMER_TYPE_REALTIME** is
+   *     set as the timer type, the value of **triggerTime** is the system startup time, which can be obtained by
+   *     calling [systemDateTime.getUptime(STARTUP)]{@link @ohos.systemDateTime:systemDateTime.getUptime}.<br>If
+   *     **TIMER_TYPE_REALTIME** is not set, the value of **triggerTime** is the wall time, which can be obtained by
+   *     calling [systemDateTime.getTime()]{@link @ohos.systemDateTime:systemDateTime.getTime}.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -123,15 +141,19 @@ declare namespace systemTimer {
   function startTimer(timer: long, triggerTime: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Starts a timer.
+   * Starts a timer. This API uses a promise to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @param { long } triggerTime - Indicates the time at which the timer is triggered for the first time, in milliseconds.
-   *                   The time will be automatically set to 5000 milliseconds after the current time if the passed
-   *                   value is smaller than the current time plus 5000 milliseconds.
-   * @returns { Promise<void> } return a promise object.
+   * @param { long } timer - ID of the timer.
+   * @param { long } triggerTime - Time when the timer is triggered, in milliseconds.<br>If **TIMER_TYPE_REALTIME** is
+   *     set as the timer type, the value of **triggerTime** is the system startup time, which can be obtained by
+   *     calling [systemDateTime.getUptime(STARTUP)]{@link @ohos.systemDateTime:systemDateTime.getUptime}.<br>If
+   *     **TIMER_TYPE_REALTIME** is not set, the value of **triggerTime** is the wall time, which can be obtained by
+   *     calling [systemDateTime.getTime()]{@link @ohos.systemDateTime:systemDateTime.getTime}.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -140,12 +162,14 @@ declare namespace systemTimer {
   function startTimer(timer: long, triggerTime: long): Promise<void>;
 
   /**
-   * Stops a timer.
+   * Stops the timer. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @param { AsyncCallback<void> } callback - The callback function.
+   * @param { long } timer - ID of the timer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -154,12 +178,14 @@ declare namespace systemTimer {
   function stopTimer(timer: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Stops a timer.
+   * Stops a timer. This API uses a promise to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @returns { Promise<void> } return a promise object.
+   * @param { long } timer - ID of the timer.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -168,12 +194,14 @@ declare namespace systemTimer {
   function stopTimer(timer: long): Promise<void>;
 
   /**
-   * Destroy a timer.
+   * Destroys a timer. This API uses an asynchronous callback to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @param { AsyncCallback<void> } callback - The callback function.
+   * @param { long } timer - ID of the timer.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -182,12 +210,14 @@ declare namespace systemTimer {
   function destroyTimer(timer: long, callback: AsyncCallback<void>): void;
 
   /**
-   * Destroy a timer.
+   * Destroys a timer. This API uses a promise to return the result.
    *
-   * @param { long } timer - The timer ID.
-   * @returns { Promise<void> } return a promise object.
+   * @param { long } timer - ID of the timer.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2.Incorrect parameter types.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameter types.
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -196,10 +226,8 @@ declare namespace systemTimer {
   function destroyTimer(timer: long): Promise<void>;
 
   /**
-   * When the repeat is false,the interval is not needed, choose one of wantAgent and callback.
-   * When the repeat is true,the interval is required, the wantAgent is required, and the callback can be left blank.
+   * Defines the initialization options for the system timer.
    *
-   * @interface TimerOptions
    * @syscap SystemCapability.MiscServices.Time
    * @systemapi Hide this for inner system use.
    * @since 7 dynamic
@@ -207,9 +235,8 @@ declare namespace systemTimer {
    */
   interface TimerOptions {
     /**
-     * The timer type.
+     * Timer types. Use pipe (|) symbol
      *
-     * @type { int }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -218,9 +245,9 @@ declare namespace systemTimer {
     type: int;
 
     /**
-     * Indicates a repeating timer
+     * Whether the timer is a repeating timer. The value **true** means that the timer is a repeating timer, and 
+     * **false** means that the timer is a one-shot timer.
      *
-     * @type { boolean }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -229,10 +256,15 @@ declare namespace systemTimer {
     repeat: boolean;
 
     /**
-     * Indicates the interval between two consecutive triggers, in milliseconds.
-     * The interval will be set to 5000 milliseconds automatically if the passed value is smaller than 5000.
+     * Interval between two consecutive timers, in milliseconds.
+     * 
+     * For a repeating timer, the minimum value of **interval** is 1s and the maximum value is 365 days. It is 
+     * recommended that the value be greater than or equal to 5000 ms.
+     * 
+     * For a one-shot timer, the value is **0**.
+     * 
+     * Default value: **0**.
      *
-     * @type { ?long }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -241,9 +273,11 @@ declare namespace systemTimer {
     interval?: long;
 
     /**
-     * Indicates the intent to send when the timer goes off.
+     * **WantAgent** object of the notification to be sent when the timer expires. (An application **MainAbility** can 
+     * be started, but not a **ServiceAbility**.)
+     * 
+     * The default value is empty.
      *
-     * @type { ?WantAgent }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -252,9 +286,10 @@ declare namespace systemTimer {
     wantAgent?: WantAgent;
 
     /**
-     * Called back when the timer goes off.
+     * Callback to be executed by the user.
+     * 
+     * The default value is empty.
      *
-     * @type { ?function }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi Hide this for inner system use.
      * @since 7 dynamic
@@ -263,11 +298,16 @@ declare namespace systemTimer {
     callback?: () => void;
 
     /**
-     * Indicates whether the timer is restored after the system restarts.
-     * True indicates the timer is restored, and false indicates the timer is not restored.
-     * The default value is false.
+     * Whether the timer is restored after the device is restarted.
+     * 
+     * The value **true** means that the timer is restored after the restart, and the value **false** means the 
+     * opposite.
+     * 
+     * This parameter can be set to **true** only for timers that are not of the **TIMER_TYPE_REALTIME** type and have 
+     * **wantAgent** configured.
+     * 
+     * The default value is **false**.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
      * @since 15 dynamic
@@ -276,11 +316,13 @@ declare namespace systemTimer {
     autoRestore?: boolean;
 
     /**
-     * Indicates the name of the timer.
-     * The default value is empty string.
-     * The length of the name cannot be longer than 64 bytes, and the name can not be set the same name as other timers under the same UID.
+     * Timer name, with a maximum length of 64 bytes.
+     * 
+     * A UID cannot contain two timers with the same name. If a timer with the same name as an existing timer is created
+     * , the existing timer is destroyed.
+     * 
+     * The default value is an empty string.
      *
-     * @type { ?string }
      * @syscap SystemCapability.MiscServices.Time
      * @systemapi
      * @since 15 dynamic

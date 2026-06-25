@@ -19,34 +19,33 @@
  */
 
 /**
- * Indicates the point of the gesture.
+ * The **GesturePoint** module provides APIs
+ * for creating gesture touch point information required for an accessibility application to inject gestures.
  *
  * @syscap SystemCapability.BarrierFree.Accessibility.Core
  * @since 9 dynamiconly
  */
 export declare class GesturePoint {
   /**
-   * A constructor used to create a GesturePoint object.
+   * Defines a constructor used to create a **GesturePoint** instance.
    *
-   * @param { double } positionX - Indicates the X coordinate of point, in units of px.
-   * @param { double } positionY - Indicates the Y coordinate of point, in units of px.
+   * @param { double } positionX - X coordinate of the touch point, in pixels (px).
+   * @param { double } positionY - Y coordinate of the touch point, in pixels (px).
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    * @deprecated since 12
    */
   constructor(positionX: double, positionY: double);
   /**
-   * Indicates the X coordinate of point, in units of px.
+   * X coordinate of the touch point, in pixels (px).
    *
-   * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */
   positionX: double;
   /**
-   * Indicates the Y coordinate of point, in units of px.
+   * Y coordinate of the touch point, in pixels (px).
    *
-   * @type { double }
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @since 9 dynamiconly
    */

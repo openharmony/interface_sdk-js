@@ -22,7 +22,8 @@ import { AsyncCallback } from './@ohos.base';
 import type Context from './application/Context';
 
 /**
- * This provides calendar data access abilities.
+ * The calendarManager module provides APIs for calendar and event management,
+ * including those for creating, deleting, modifying, and querying calendars and events.
  *
  * @syscap SystemCapability.Applications.CalendarData
  * @atomicservice [since 11]
@@ -30,10 +31,11 @@ import type Context from './application/Context';
  */
 declare namespace calendarManager {
   /**
-   * Returns an instance of CalendarManager
+   * Obtains a CalendarManager object based on the context.
    *
-   * @param { Context } context - Hap context information
-   * @returns { CalendarManager } Instance of CalendarManager
+   * @param { Context } context - Application context. For details about the application context
+   * of the stage model, see Context.
+   * @returns { CalendarManager } CalendarManager object obtained.
    * @syscap SystemCapability.Applications.CalendarData
    * @StageModelOnly
    * @atomicservice [since 11]
@@ -52,11 +54,12 @@ declare namespace calendarManager {
 
   export interface CalendarManager {
     /**
-     * Create calendar instance.
+     * Creates a Calendar object based on the calendar account information.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-     * @returns { Promise<Calendar> } the promise with calendar corresponding to account
+     * @param { CalendarAccount } calendarAccount - Calendar account information.
+     * @returns { Promise<Calendar> } Promise used to return the created Calendar object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -72,11 +75,12 @@ declare namespace calendarManager {
     createCalendar(calendarAccount: CalendarAccount): Promise<Calendar>;
 
     /**
-     * Create calendar instance.
+     * Creates a Calendar object based on the calendar account information.
+     * This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - calendar account to create calendar
-     * @param { AsyncCallback<Calendar> } callback - the callback of createCalendar
+     * @param { CalendarAccount } calendarAccount - Calendar account information.
+     * @param { AsyncCallback<Calendar> } callback - Callback used to return the created Calendar object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -92,11 +96,11 @@ declare namespace calendarManager {
     createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
     /**
-     * Delete calendar instance.
+     * Deletes a specified Calendar object. This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { Calendar } calendar - calendar to be deleted
-     * @returns { Promise<void> } the promise returned by the function.
+     * @param { Calendar } calendar - Calendar object to delete. The default account cannot be deleted.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -112,11 +116,11 @@ declare namespace calendarManager {
     deleteCalendar(calendar: Calendar): Promise<void>;
 
     /**
-     * Delete calendar instance.
+     * Deletes a specified Calendar object. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR
-     * @param { Calendar } calendar - calendar to be deleted
-     * @param { AsyncCallback<void> } callback - the callback of deleteCalendar
+     * @param { Calendar } calendar - Calendar object to delete. The default account cannot be deleted.
+     * @param { AsyncCallback<void> } callback - Asynchronous callback that returns no value.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -132,10 +136,11 @@ declare namespace calendarManager {
     deleteCalendar(calendar: Calendar, callback: AsyncCallback<void>): void;
 
     /**
-     * Get calendar instance from database.
+     * Obtains the default or specified Calendar object. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } [calendarAccount] - specify calendar account to retrieve
+     * @param { CalendarAccount } [calendarAccount] - Calendar account information, which is used to obtain
+     * a specified Calendar object. If this parameter is not set, the default Calendar object is obtained.
      * @returns { Promise<Calendar> } the promise returned by the function.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
@@ -152,11 +157,11 @@ declare namespace calendarManager {
     getCalendar(calendarAccount?: CalendarAccount): Promise<Calendar>;
 
     /**
-     * Get calendar instance from database by specified account.
+     * Obtains a specified Calendar object. This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { CalendarAccount } calendarAccount - specify calendar account to retrieve
-     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar
+     * @param { CalendarAccount } calendarAccount - Calendar account information.
+     * @param { AsyncCallback<Calendar> } callback - Callback used to return the obtained Calendar object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -174,10 +179,12 @@ declare namespace calendarManager {
     getCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>): void;
 
     /**
-     * Get default calendar instance from database.
+     * Obtains the default Calendar object, which is created when the data storage runs for the first time.
+     * This API uses an asynchronous callback to return the result.
+     * You can call this API instead of createCalendar() to use the default calendar for a new event.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param { AsyncCallback<Calendar> } callback - the callback of getCalendar with default calendar instance
+     * @param { AsyncCallback<Calendar> } callback - Callback used to return the obtained Calendar object.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -194,10 +201,11 @@ declare namespace calendarManager {
     getCalendar(callback: AsyncCallback<Calendar>): void;
 
     /**
-     * Get all calendar instance.
+     * Obtains the created and default Calendar objects of the current application.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @returns { Promise<Calendar[]> } the promise returned by the function.
+     * @returns { Promise<Calendar[]> } Promise used to return an array of obtained Calendar objects.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported.
@@ -211,10 +219,11 @@ declare namespace calendarManager {
     getAllCalendars(): Promise<Calendar[]>;
 
     /**
-     * Get all calendar instance.
+     * Obtains the created and default Calendar objects of the current application.
+     * This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR
-     * @param {AsyncCallback<Calendar[]>} callback - the callback of getAllCalendars
+     * @param {AsyncCallback<Calendar[]>} callback - Callback used to return an array of the obtained Calendar objects.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *     <br>1. Mandatory parameters are left unspecified;
@@ -230,10 +239,13 @@ declare namespace calendarManager {
     getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
 
     /**
-     * Edits an event on the event creation page, with no event ID specified in **Event**. This API uses a promise to 
-     * return the result. Events created using this API can be obtained and modified by the system calendar. Third-party
-     * applications can obtain and modify the events after they requested the **READ_WHOLE_CALENDAR** permission and the
-     * **WRITE_WHOLE_CALENDAR** permission, respectively.
+     * Edits an event on the event creation page, with no event ID specified in **Event**. The **instanceStartTime**, **instanceEndTime**,
+     * **identifier**, **attendee**, **service**, **isLunar**, and **timeZone** attributes cannot be set. Important events cannot be added either.
+     * This API uses a promise to return the result.   
+     * 
+     * Events created using this API can be obtained and modified by the system calendar. 
+     * Third-party applications can obtain and modify the events after they requested the **READ_WHOLE_CALENDAR** 
+     * permission and the **WRITE_WHOLE_CALENDAR** permission, respectively. 
      *
      * @param { Event } event - **Event** object.
      * @returns { Promise<number> } Promise used to return the event ID. The event ID is the unique identifier of an 
@@ -249,8 +261,10 @@ declare namespace calendarManager {
 
   /**
    * In the following API examples, you need to use 
-   * [createCalendar()]{@link calendarManager.CalendarManager.createCalendar(calendarAccount: CalendarAccount, callback: AsyncCallback<Calendar>)}
-   * or [getCalendar()]{@link calendarManager.CalendarManager.getCalendar(callback: AsyncCallback<Calendar>)} to obtain 
+   * [createCalendar()]{@link calendarManager.CalendarManager.createCalendar(calendarAccount: CalendarAccount,
+   * callback: AsyncCallback<Calendar>)} or [getCalendar()]{@link calendarManager.CalendarManager.getCalendar
+   * (callback: AsyncCallback<Calendar>)} to obtain 
+   * 
    * a **Calendar** object before calling related APIs.
    *
    * @syscap SystemCapability.Applications.CalendarData
@@ -260,7 +274,9 @@ declare namespace calendarManager {
 
   export interface Calendar {
     /**
-     * Id of the calendar
+     * Calendar account ID, which is the unique identifier of a calendar account and is the auto-increment primary
+     * key of the database. If the value is less than 0, the account creation fails;
+     * if the value is greater than 0, the account creation succeeds.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -269,11 +285,12 @@ declare namespace calendarManager {
     readonly id: number;
 
     /**
-     * Add a single event.
+     * Adds an event, with no event ID, instanceStartTime, and instanceEndTime specified in Event.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23]
-     * @param { Event } event - Indicates the information about a single event.
-     * @returns { Promise<number> } The event ID.
+     * @param { Event } event - Event object.
+     * @returns { Promise<number> } Promise used to return the event ID. The ID is greater than 0.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -286,11 +303,14 @@ declare namespace calendarManager {
     addEvent(event: Event): Promise<number>;
 
     /**
-     * Add a single event.
+     * Adds an event, with no event ID, instanceStartTime, and instanceEndTime specified in Event.
+     * This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23]
-     * @param { Event } event - a single event to add.
-     * @param { AsyncCallback<number> } callback - callback of addEvent.
+     * @param { Event } event - Event object.
+     * @param { AsyncCallback<number> } callback - Callback used to return the event ID. The event ID is the unique
+     * identifier of an event and is the auto-increment primary key of the database. If the value is less than 0,
+	 * the event creation fails; if the value is greater than 0, the event creation succeeds.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -303,11 +323,12 @@ declare namespace calendarManager {
     addEvent(event: Event, callback: AsyncCallback<number>): void;
 
     /**
-     * Add multiple events.
+     * Adds events in batches, with no event ID, instanceStartTime, and instanceEndTime specified in Event.
+     * This API uses a promise to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23]
-     * @param { Event[] } events - multiple events to add.
-     * @returns { Promise<void> } The promise returned by function.
+     * @param { Event[] } events - Array of Event objects.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -319,11 +340,12 @@ declare namespace calendarManager {
     addEvents(events: Event[]): Promise<void>;
 
     /**
-     * Add multiple events.
+     * Adds events in batches, with no event ID, instanceStartTime, and instanceEndTime specified in Event.
+     * This API uses an asynchronous callback to return the result.
      *
      * @permission ohos.permission.WRITE_CALENDAR or ohos.permission.WRITE_WHOLE_CALENDAR [since 23]
-     * @param { Event[] } events - Indicates the information about multiple events.
-     * @param { AsyncCallback<void> } callback - The callback of addEvents
+     * @param { Event[] } events - Array of Event objects.
+     * @param { AsyncCallback<void> } callback - Callback used to return the result.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -335,10 +357,10 @@ declare namespace calendarManager {
     addEvents(events: Event[], callback: AsyncCallback<void>): void;
 
     /**
-     * Delete a single event.
+     * Deletes an event with the specified ID. This API uses a promise to return the result.
      *
-     * @param { number } id - Indicates the ID of an event.
-     * @returns { Promise<void> } The promise returned by function.
+     * @param { number } id - Event ID.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -348,7 +370,7 @@ declare namespace calendarManager {
      * Deletes an event with the specified ID. This API uses an asynchronous callback to return the result.
      *
      * @param { number } id - Event ID, which is the unique identifier of an event. If the input event ID is an integer,
-     *     the event is created.
+     * the event is created.
      * @param {AsyncCallback<void>} callback - Callback used to return the result.
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 21]
@@ -357,10 +379,10 @@ declare namespace calendarManager {
     deleteEvent(id: number, callback: AsyncCallback<void>): void;
 
     /**
-     * Delete multiple events.
+     * Deletes a batch of events with the specified IDs. This API uses a promise to return the result.
      *
-     * @param { number[] } ids - The id array of multiple events.
-     * @returns { Promise<void> } The promise returned by function.
+     * @param { number[] } ids - Array of event IDs.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -378,19 +400,19 @@ declare namespace calendarManager {
     deleteEvents(ids: number[], callback: AsyncCallback<void>): void;
 
     /**
-     * Update a single event.
+     * Updates an event. This API uses a promise to return the result.
      *
-     * @param { Event } event - Indicates the information about a single event.
-     * @returns { Promise<void> } The promise returned by function.
+     * @param { Event } event - Event object.
+     * @returns { Promise<void> } Promise that returns no value.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
     updateEvent(event: Event): Promise<void>;
 
     /**
-     * Update a single event.
+     * Updates an event. This API uses an asynchronous callback to return the result.
      *
-     * @param { Event } event - Indicates the information about a single event.
+     * @param { Event } event - Event object.
      * @param { AsyncCallback<void> } callback - The callback of updateEvent.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -398,14 +420,18 @@ declare namespace calendarManager {
     updateEvent(event: Event, callback: AsyncCallback<void>): void;
 
     /**
-     * Query events based on filter conditions.
+     * Obtains all events in a calendar that match the filter criteria. This API uses a promise to return the result.
+     * If there is only one input parameter, the filter criteria, corresponding to the type EventFilter, must be set as the parameter.
+     * If no input parameter is specified, all events under the specified calendar account can be queried.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23]
-     * @param { EventFilter } [eventFilter] - Indicates the filtering conditions of events.
-     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned. Default columns are id、
-     *     type、title、startTime、endTime、isAllDay、description、timeZone、
-     *     location、service、attendee、reminderTime、identifier.
-     * @returns { Promise<Event[]> } Information about events that match the filter conditions.
+     * @param { EventFilter } [eventFilter] - Filter criteria.
+     * @param { (keyof Event)[] } [eventKey] - Filter field. For versions earlier than API version 20, the default
+     * fields to be obtained include id, type, title, startTime, endTime, isAllDay, description, timeZone, location,
+     * service, attendee, and reminderTime if this parameter is left empty. Since API version 20, the default fields
+     * to be obtained include id, type, title, startTime, endTime, isAllDay, description, timeZone, location, service,
+     * attendee, reminderTime, and identifier if this parameter is left empty. The field is not returned if it is empty.
+     * @returns { Promise<Event[]> } Promise used to return the result, which is an array of Event objects.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -417,12 +443,13 @@ declare namespace calendarManager {
     getEvents(eventFilter?: EventFilter, eventKey?: (keyof Event)[]): Promise<Event[]>;
 
     /**
-     * Query events based on filter conditions.
+     * Obtains all events in a calendar that match the filter criteria. This API uses an asynchronous
+     * callback to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23]
-     * @param { EventFilter } eventFilter - Indicates the filtering conditions of events.
-     * @param { (keyof Event)[] } eventKey - Expected column to be returned.
-     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents.
+     * @param { EventFilter } eventFilter - Filter criteria.
+     * @param { (keyof Event)[] } eventKey - Filter field.
+     * @param { AsyncCallback<Event[]> } callback - Callback used to return an array of events.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -434,11 +461,15 @@ declare namespace calendarManager {
     getEvents(eventFilter: EventFilter, eventKey: (keyof Event)[], callback: AsyncCallback<Event[]>):void;
 
     /**
-     * Query all events with id、type、title、startTime、endTime、isAllDay、description、
-     * timeZone、location、service、attendee、reminderTime、identifier from current calendar instance.
+     * Obtains all events in the current calendar. This API uses an asynchronous callback to return the result.
+     *
+     * For versions earlier than API version 20, the default fields to be obtained include id, type, title, startTime,
+     * endTime, isAllDay, description, timeZone, location, service, attendee, and reminderTime. Since API version 20,
+     * the default fields to be obtained include id, type, title, startTime, endTime, isAllDay, description, timeZone,
+     * location, service, attendee, reminderTime, and identifier. The field is not returned if it is empty.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23]
-     * @param { AsyncCallback<Event[]> } callback - The callback of getEvents with all events.
+     * @param { AsyncCallback<Event[]> } callback - Callback used to return an array of events.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -450,19 +481,19 @@ declare namespace calendarManager {
     getEvents(callback: AsyncCallback<Event[]>):void;
 
     /**
-     * Get calendar configure.
+     * Obtains the calendar configuration information.
      *
-     * @returns { CalendarConfig } configure of current calendar.
+     * @returns { CalendarConfig } Calendar configuration information.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
     getConfig(): CalendarConfig;
 
     /**
-     * Set calendar configure.
+     * Sets the calendar configuration information. This API uses a promise to return the result.
      *
-     * @param { CalendarConfig } config - calendar config to set
-     * @returns { Promise<void> } The promise returned by function.
+     * @param { CalendarConfig } config - Calendar configuration information.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 23900001 – Parameter value error. [since 23]
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
@@ -481,23 +512,25 @@ declare namespace calendarManager {
     setConfig(config: CalendarConfig, callback: AsyncCallback<void>): void;
 
     /**
-     * Get calendar account.
+     * Obtains the calendar account information.
      *
-     * @returns { CalendarAccount } calendar account of current calendar.
+     * @returns { CalendarAccount } Calendar account information.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
     getAccount(): CalendarAccount;
 
     /**
-     * Query event instances based on the conditions.
+     * Queries the event instance with a specified event key in a calendar. This API uses a promise to return the result.
      *
      * @permission ohos.permission.READ_CALENDAR or ohos.permission.READ_WHOLE_CALENDAR [since 23]
-     * @param { number } start - start time of query range
-     * @param { number } end - end time of query range
-     * @param { number[] } [ids] - Indicates the IDs of multiple events
-     * @param { (keyof Event)[] } [eventKey] - Expected column to be returned
-     * @returns { Promise<Event[]> } Information about events that match the condition
+     * @param { number } start - Start time of an event. The value is a 13-digit timestamp.
+     * @param { number } end - End time of an event. The value is a 13-digit timestamp.
+     * @param { number[] } [ids] - Array of event IDs to be queried, which can be empty or undefined.
+     * @param { (keyof Event)[] } [eventKey] - Event key for querying events. If this parameter is left empty, the
+     * default fields for filtering are id, title, startTime, endTime, instanceStartTime, instanceEndTime,
+     * isAllDay, description, timeZone, location, and service. The field is not returned if it is empty.
+     * @returns { Promise<Event[]> } Promise used to return the result, which is an array of Event objects.
      * @throws { BusinessError } 201 - Permission denied. [since 23]
      * @throws { BusinessError } 23900004 - Internal program errors. Possible causes:
      *     <br>1. dataShare database execution error;
@@ -508,8 +541,8 @@ declare namespace calendarManager {
      * @since 18
      */
     queryEventInstances(start: number, end: number, ids?: number[], eventKey?: (keyof Event)[]): Promise<Event[]>;
-
-    /**
+	
+	/**
      * Opens the event edit page.
      * @param { number } id - The ID of the event to be edited.
      * @returns { Promise<void> } the promise returned by the function.
@@ -533,7 +566,7 @@ declare namespace calendarManager {
 
   interface CalendarAccount {
     /**
-     * Name of the calendar
+     * Account name (defined by developers), with a maximum of 5,000 characters.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -551,7 +584,7 @@ declare namespace calendarManager {
     type: CalendarType;
 
     /**
-     * Account name displayed on the calendar application (defined by users). If this parameter is not specified, the 
+     * Account name displayed on the calendar application (defined by users). If this parameter is not specified, the
      * default value is an empty string with a maximum of 64 characters.
      *
      * @syscap SystemCapability.Applications.CalendarData
@@ -733,7 +766,7 @@ declare namespace calendarManager {
     service?: EventService;
 
     /**
-     * Unique identifier of the event
+     * Unique ID of an event, with a maximum of 5,000 characters. If this parameter is not specified, the default value is null.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -742,7 +775,7 @@ declare namespace calendarManager {
     identifier?: string;
 
     /**
-     * Whether the event is lunar.
+     * Unique ID of an event, with a maximum of 5,000 characters. If this parameter is not specified, the default value is null.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -751,7 +784,9 @@ declare namespace calendarManager {
     isLunar?: boolean;
 
     /**
-     * Start time of the event instance.
+     * Start time of an event. The value is a 13-digit timestamp. This parameter does not need to be set in
+     * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)}
+     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)}.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -760,7 +795,9 @@ declare namespace calendarManager {
     instanceStartTime?: number;
 
     /**
-     * End time of the event instance.
+     * End time of an event. The value is a 13-digit timestamp. This parameter does not need to be set in 
+	 * [addEvent()]{@link calendarManager.Calendar.addEvent(event: Event, callback: AsyncCallback<number>)}
+     * or [addEvents()]{@link calendarManager.Calendar.addEvents(events: Event[], callback: AsyncCallback<void>)}.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -770,7 +807,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for all calendar type.
+   * Enumerates the account types.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice [since 11]
@@ -833,7 +870,7 @@ declare namespace calendarManager {
 
   interface Location {
     /**
-     * Event location. If this parameter is not set, the default null value is used.
+     * Location, with a maximum of 5,000 characters. If this parameter is not specified, the default value is an empty string.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice [since 11]
@@ -863,38 +900,43 @@ declare namespace calendarManager {
   }
 
   /**
-   * Provides the abilities to retrive event filter.
+   * Implements an event filter.
+   *
+   * You can use [filterById()]{@link calendarManager.EventFilter.filterById},
+   * [filterByTime()]{@link calendarManager.EventFilter.filterByTime},
+   * [filterByTitle()]{@link calendarManager.EventFilter.filterByTitle} to 
+   * obtain an event filter, and then pass the filter in getEvents() for filtering.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @since 10
    */
   class EventFilter {
     /**
-     * Filter events by event id.
+     * Defines a filter based on the event ID.
      *
-     * @param {number[]} ids id array to retrieve
-     * @returns { EventFilter } Returns the EventFilter with ids.
+     * @param {number[]} An array of event IDs, where each event ID must be an integer.
+     * @returns { EventFilter } EventFilter object.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
     static filterById(ids: number[]): EventFilter;
 
     /**
-     * Filter events by event start time and end time.
+     * Defines a filter based on the event time.
      *
-     * @param { number } start - start time of query range
-     * @param { number } end - end time of query range
-     * @returns { EventFilter } Returns the EventFilter with time range.
+     * @param { number } start - Start time. The value is a 13-digit timestamp.
+     * @param { number } end - End time. The value is a 13-digit timestamp.
+     * @returns { EventFilter } EventFilter object.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
     static filterByTime(start: number, end: number): EventFilter;
 
     /**
-     * Filter events by event title.
+     * Filters events by event title. This API supports fuzzy match.
      *
-     * @param { string } title - event title to query
-     * @returns {EventFilter } Returns the EventFilter with title.
+     * @param { string } title - Event title, with a maximum of 5,000 characters.
+     * @returns {EventFilter } EventFilter object.
      * @syscap SystemCapability.Applications.CalendarData
      * @since 10
      */
@@ -902,7 +944,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for supported events type.
+   * Enumerates event types.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice [since 11]
@@ -961,7 +1003,10 @@ declare namespace calendarManager {
     expire?: number;
 
     /**
-     * Repetition count of recurrence event.
+     * Number of times that an event recurs. The value is a non-negative integer. If the value is a floating point number,
+     * it is rounded down. If this parameter is left empty, the default value is 0, indicating that the number of recurrence
+     * times is not limited and the event will continuously recur. If the value is negative, the effect is the same as that of 0.
+     * If count, interval, and expire are set at the same time, the restriction that is reached first prevails.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -970,7 +1015,13 @@ declare namespace calendarManager {
     count?: number;
 
     /**
-     * Repeat interval of recurrence event.
+     * Recurrence interval of a recurring event. The value is a non-negative integer. If the value is a floating point number, it is rounded down.
+     * If this parameter is not specified, the default value is 0. If the value is 0, 1, or negative, the event recurs every day, week, month, or year.
+     * If interval, count, and expire are set at the same time, the restriction that is reached first prevails.
+     * This property is related to the recurrenceFrequency rule. The recurrence interval varies according to the
+     * recurrence rule. For example, if the interval value is 2, the following situations occur:
+     * Daily recurrence: The event recurs every two days. Weekly recurrence: The event recurs every two weeks.
+     * Monthly recurrence: The event recurs every two months. Yearly recurrence: The event recurs every two years.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -979,7 +1030,8 @@ declare namespace calendarManager {
     interval?: number;
 
     /**
-     * Excluded dates of recurrence event.
+     * Excluded dates set for a duplicate calendar event, in timestamp format. The value must be exactly the same as the start time (hour, minute, and second) of the event. 
+     * Otherwise, the setting does not take effect. This parameter is not specified by default. If the value is 0 or a negative number, it is treated as an empty value.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -988,7 +1040,10 @@ declare namespace calendarManager {
     excludedDates?: number[];
 
     /**
-     * The days of the week associated with the recurrence event.
+     * Repeats by day of a week. If this parameter is not set, the default value is empty, indicating that there is no recurrence rule.
+     * The value range is [1, 7], corresponding to Monday to Sunday. Other values are invalid and have the same effect as the empty value.
+     * The relevant field arrays are in one-to-one mapping. For example, if the values of weeksOfMonth and daysOfWeek are [1, 2, 3],
+     * the event recurs on Monday of the first week, Tuesday of the second week, and Wednesday of the third week of each month.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -997,7 +1052,12 @@ declare namespace calendarManager {
     daysOfWeek?: number[];
 
     /**
-     * The days of the month associated with the recurrence event.
+     * Repeats by day of a month. If this parameter is not set, the default value is empty, indicating that there is no
+     * recurrence rule. The value range is [1, 31], corresponding to the first to the last days of each month.
+     * Other values are invalid and have the same effect as the empty value. The value 29, 30, or 31 is invalid if the
+     * corresponding date does not exist in the current month. The relevant field arrays are in one-to-one mapping.
+     * For example, if the values of monthsOfYear and daysOfMonth are [1, 2, 3], the event recurs on January 1,
+     * February 2, and March 3.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1006,7 +1066,9 @@ declare namespace calendarManager {
     daysOfMonth?: number[];
 
     /**
-     * The days of the year associated with the recurrence event.
+     * Repeats by day of a year. If this parameter is not set, the default value is empty, indicating that there is no
+     * recurrence rule. The value range is [1, 366], corresponding to the first to the last days of each year. Other
+     * values are invalid and have the same effect as the empty value. If this year only has 365 days, the value 366 is invalid.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1015,7 +1077,9 @@ declare namespace calendarManager {
     daysOfYear?: number[];
 
     /**
-     * The weeks of the month associated with the recurrence event.
+     * Repeats by week of a month. If this parameter is not set, the default value is empty, indicating that there is no recurrence rule.
+     * The value range is [1, 5], corresponding to the first to the last weeks of each month. Other values are invalid and have the same effect as the empty value.
+     * If this month only has four weeks, the value 5 is invalid.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1024,7 +1088,8 @@ declare namespace calendarManager {
     weeksOfMonth?: number[];
 
     /**
-     * The weeks of the year associated with the recurrence event.
+     * Repeats by week of a year. If this parameter is not set, the default value is empty, indicating that there is no recurrence rule. The value range is [1, 53],
+     * corresponding to the first to the last weeks of each year. Other values are invalid and have the same effect as the empty value.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1033,7 +1098,8 @@ declare namespace calendarManager {
     weeksOfYear?: number[];
 
     /**
-     * The months of the year associated with the recurrence event.
+     * Repeats by month of a year. If this parameter is not set, the default value is empty, indicating that there is no recurrence rule. The value range is [1, 12],
+     * corresponding to the first to the last months of each year. Other values are invalid and have the same effect as the empty value.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1043,7 +1109,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for the recurrence type by different period
+   * Enumerates the types of the event recurrence rule.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice [since 11]
@@ -1124,7 +1190,7 @@ declare namespace calendarManager {
     role?: AttendeeRole;
 
     /**
-     * Type of the Attendee.
+     * Type of the attendee. If this parameter is not set, the default value is empty.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1133,7 +1199,7 @@ declare namespace calendarManager {
     type?: AttendeeType;
 
     /**
-     * Status of the Attendee.
+     * Status of the attendee. If this parameter is not set, the default value is empty.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1143,7 +1209,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for the attendee role
+   * Enumerates the attendee role types in a conference event.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
@@ -1151,7 +1217,7 @@ declare namespace calendarManager {
    */
   export enum AttendeeRole {
     /**
-     * The organizer of a meeting.
+     * Conference organizer.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1160,7 +1226,7 @@ declare namespace calendarManager {
     ORGANIZER = 'organizer',
 
     /**
-     * The participant of a meeting.
+     * Conference participant.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1170,7 +1236,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for the attendee type
+   * Enumerates the types of attendees invited to a conference event.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
@@ -1178,7 +1244,7 @@ declare namespace calendarManager {
    */
   export enum AttendeeType {
     /**
-     * A mailbox user who is a required attendee to the meeting.
+     * Required attendee.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1187,7 +1253,7 @@ declare namespace calendarManager {
     REQUIRED = 1,
 
     /**
-     * A mailbox user who is an optional attendee to the meeting.
+     * Optional attendee.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1196,7 +1262,7 @@ declare namespace calendarManager {
     OPTIONAL = 2,
 
     /**
-     * A resource such as a TV or projector that is scheduled for use in the meeting.
+     * Resources (such as TVs or projectors) used in a conference.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1206,7 +1272,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Enum for the attendee states
+   * Enumerates the status types of an attendee.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice
@@ -1214,7 +1280,7 @@ declare namespace calendarManager {
    */
   export enum AttendeeStatus {
     /**
-     * The acceptance status of the participant is unknown.
+     * The attendee status is unknown.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1223,7 +1289,7 @@ declare namespace calendarManager {
     UNKNOWN = 0,
 
     /**
-     * The acceptance status of the participant is tentative.
+     * The attendee status is tentative.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1232,7 +1298,7 @@ declare namespace calendarManager {
     TENTATIVE = 1,
 
     /**
-     * The acceptance status of the participant is accepted.
+     * The attendee has accepted the conference invitation.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1241,7 +1307,7 @@ declare namespace calendarManager {
     ACCEPTED = 2,
 
     /**
-     * The acceptance status of the participant is declined.
+     * The attendee has rejected the conference invitation.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1250,7 +1316,7 @@ declare namespace calendarManager {
     DECLINED = 3,
 
     /**
-     * The acceptance status of the participant is unresponsive.
+     * The attendee does not respond.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice
@@ -1299,7 +1365,7 @@ declare namespace calendarManager {
   }
 
   /**
-   * Defines event service type
+   * Enumerates the event service types.
    *
    * @syscap SystemCapability.Applications.CalendarData
    * @atomicservice [since 11]

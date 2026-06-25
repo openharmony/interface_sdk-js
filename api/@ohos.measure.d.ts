@@ -14,329 +14,247 @@
  */
 
 /**
- * @file
+ * The **measure** module provides APIs for measuring text metrics, such as text height and width.
+ * 
+ * > **NOTE**
+ * >
+ * > - This module cannot be used in the file declaration of the [UIAbility]{@link @ohos.app.ability.UIAbility}. In 
+ * > other words, the APIs of this module can be used only after a component instance is created; they cannot be called 
+ * > in the lifecycle of the UIAbility.
+ * >
+ * > - To perform more complex text measurements, you are advised to call the corresponding graphics measurement API, 
+ * > specifically [Paragraph]{@link @ohos.graphics.text:text.ParagraphStyle}.
+ * >
+ * > - Avoid using [ApplicationContext.setFontSizeScale]{@link ApplicationContext:ApplicationContext#setFontSizeScale} 
+ * > during text measurement API calls. To ensure timing consistency and the accuracy of measurement results, manually 
+ * > listen for font scale changes.
+ * >
+ * > - For measuring text after truncation, direct use of the string length for truncation may lead to inaccuracies. 
+ * > This is because certain Unicode characters (for example, emojis) have code points with a length greater than 1, and
+ * > truncating by string length can split these multi-code-point characters, resulting in incorrect text display or 
+ * > measurement errors. As such, you are advised to perform iterative processing based on Unicode code points during 
+ * > truncation.
+ *
+ * @file Text Measurement
  * @kit ArkUI
  */
 
 /**
- * Defines the options of MeasureText.
+ * Provides attributes of the measured text.
  *
- * @interface MeasureOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the options of MeasureText.
- *
- * @interface MeasureOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 11
- */
-/**
- * Defines the options of MeasureText.
- *
- * @interface MeasureOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 11]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  */
 export interface MeasureOptions {
+
   /**
-   * Text to display.
+   * Content of the measured text.
    *
-   * @type { string | Resource }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Text to display.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 10
-   */
-  /**
-   * Text to display.
-   *
-   * @type { string | Resource }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   textContent: string | Resource;
 
   /**
-   * Text display area of width.
+   * Layout width of the measured text.
    *
-   * @type { ?(number | string | Resource) }
+   * **NOTE**
+   *
+   * The default unit is vp. The value cannot be a percentage. If this parameter is not set, the value of
+   * **SizeOptions** is the maximum width allowed for the single-line text.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Text display area of width.
-   *
-   * @type { ?(number | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   constraintWidth?: number | string | Resource;
 
   /**
-   * Font Size.
+   * Font size of the text to be measured. When **fontSize** is of the number type, the unit is vp.
    *
-   * @type { ?(number | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Font Size.
+   * Default value: **16**
    *
-   * @type { ?(number | string | Resource) }
+   * **NOTE**
+   *
+   * The value cannot be a percentage.
+   *
+   * Since API version 12, the fp unit is used when **fontSize** is of the number type.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   fontSize?: number | string | Resource;
 
   /**
-   * Font style.
+   * Font style of the measured text.
    *
-   * @type { ?(number | FontStyle) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Font style.
+   * Default value: **FontStyle.Normal**
    *
-   * @type { ?(number | FontStyle) }
+   * Value range for the number type: [0, 1], with intervals of 1, corresponding to the values in the **FontStyle** enum
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   fontStyle?: number | FontStyle;
 
   /**
-   * Font weight.
+   * Font width of the measured text. For the number type, the value ranges from 100 to 900, at an interval of 100. A
+   * larger value indicates a heavier font weight. The default value is **400**. For the string type, only strings of
+   * the number type are supported, for example, **400**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
+   * **"medium"**, which correspond to the enumerated values in **FontWeight**.
    *
-   * @type { ?(number | string | FontWeight) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Font weight.
+   * Default value: **FontWeight.Normal**
    *
-   * @type { ?(number | string | FontWeight) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   fontWeight?: number | string | FontWeight;
 
   /**
-   * Font list of text.
+   * Font family of the measured text. Default value: **'HarmonyOS Sans'**
    *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Font list of text.
+   * Only the default font is supported.
    *
-   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   fontFamily?: string | Resource;
 
   /**
-   * Distance between text fonts.
+   * Letter spacing of the measured text.
    *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Distance between text fonts.
+   * Default value: **0**
    *
-   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 9 dynamic
    */
   letterSpacing?: number | string;
 
   /**
-   * Alignment of text.
+   * Horizontal alignment mode of the measured text.
    *
-   * @type { ?(number | TextAlign) }
+   * Default value: **TextAlign.Start**
+   *
+   * Value range for the number type: [0, 3], with intervals of 1, corresponding to the values in the **TextAlign** enum
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Alignment of text.
-   *
-   * @type { ?(number | TextAlign) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   textAlign?: number | TextAlign;
 
   /**
-   * Overflow mode of the font.
+   * Display mode when the measured text is too long.
    *
-   * @type { ?(number | TextOverflow) }
+   * Default value: **1**
+   *
+   * Value range for the number type: [0, 3], with intervals of 1, corresponding to the values in the **TextOverflow**
+   * enum
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Overflow mode of the font.
-   *
-   * @type { ?(number | TextOverflow) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   overflow?: number | TextOverflow;
 
   /**
-   * Maximum number of lines of text.
+   * Maximum number of lines in the measured text.
    *
-   * @type { ?number }
+   * Value range: [0, *INT32_MAX*]
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Maximum number of lines of text.
-   *
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   maxLines?: number;
 
   /**
-   * Vertical center mode of the font.
+   * Line height of the measured text.
    *
-   * @type { ?(number | string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Vertical center mode of the font.
-   *
-   * @type { ?(number | string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   lineHeight?: number | string | Resource;
 
   /**
-   * Baseline offset.
+   * Baseline offset of the measured text.
    *
-   * @type { ?(number | string) }
+   * Default value: **0**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Baseline offset.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   baselineOffset?: number | string;
 
   /**
-   * Type of letter in the text font
+   * Case of the measured text.
    *
-   * @type { ?(number | TextCase) }
+   * Default value: **TextCase.Normal**
+   *
+   * Value range for the number type: [0, 2], with intervals of 1, corresponding to the values in the **TextCase** enum
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Type of letter in the text font
-   *
-   * @type { ?(number | TextCase) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 10 dynamic
    */
   textCase?: number | TextCase;
- 
+
   /**
-   * Specify the indentation of the first line in a text-block.
+   * Indentation of the first line. Default value: **0**.
    *
-   * @type { ?(number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Specify the indentation of the first line in a text-block.
-   *
-   * @type { ?(number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   textIndent?: number | string;
 
   /**
-   * Set the word break type.
+   * Line break rule.
    *
-   * @type { ?WordBreak }
+   * Default value: **WordBreak.BREAK_WORD**
+   *
+   * **NOTE**
+   *
+   * When used with **{overflow: TextOverflow.Ellipsis}** and **maxLines**, **WordBreak.BREAK_ALL** can insert line
+   * breaks between letters when overflow occurs and display excess content with an ellipsis (...).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set the word break type.
-   *
-   * @type { ?WordBreak }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   wordBreak?: WordBreak;
 }
@@ -345,77 +263,58 @@ export interface MeasureOptions {
  * Defines the Measure interface.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Defines the Measure interface.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 12]
+ * @since 9 dynamic
  */
 export default class MeasureText {
+
   /**
-   * Displays the textWidth.
+   * Measures the single-line display width of the specified text. For multi-line text (separated by newline characters
+   * **\n**), this API returns the width of the longest line.
    *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Displays the textWidth.
+   * > **NOTE**
+   * >
+   * > - Since API version 12, you can use the
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MeasureUtils]{@link @ohos.arkui.UIContext} object
+   * > associated with the current UI context.
+   * >
+   * > - **measureText** always measures single-line text width. Layout constraints in **options** (**constraintWidth**,
+   * > **maxLines**, and more) do not affect results. For layout-constrained width measurement, use
+   * > [measureTextSize](docroot://reference/apis-arkui/arkts-apis-uicontext-measureutils.md#measuretextsize12).
    *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number }
+   * @param { MeasureOptions } options - Information about the measured text.
+   * @returns { number } Text width.
+   *     <br>Unit: px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Displays the textWidth.
-   *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 11]
+   * @atomicservice [since 12]
+   * @since 9 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.MeasureUtils#measureText
    */
   static measureText(options: MeasureOptions): number;
 
   /**
-   * Displays the text width and height.
+   * Measures the width and height of the given text.
    *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display \
+   * > **NOTE**
+   * >
+   * > - Since API version 12, you can use the
+   * > [getMeasureUtils](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getmeasureutils12) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [MeasureUtils]{@link @ohos.arkui.UIContext} object
+   * > associated with the current UI context.
+   *
+   * @param { MeasureOptions } options - Information about the measured text.
+   * @returns { SizeOptions } Layout width and height occupied by the text.
+   *     <br>**NOTE**
+   *     <br>The return values for text width and height are both in px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Displays the text width and height.
-   *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display \
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * Displays the text width and height.
-   *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display \
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 11]
+   * @atomicservice [since 12]
+   * @since 10 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.MeasureUtils#measureTextSize
    */

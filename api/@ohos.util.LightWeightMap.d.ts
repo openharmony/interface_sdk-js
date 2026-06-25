@@ -80,9 +80,6 @@ declare class LightWeightMap<K, V> {
    * @param { LightWeightMap<K, V> } map - **LightWeightMap** instance to be used for comparison.
    * @returns { boolean } Check result. The value **true** is returned if all the elements in the specified
    *     LightWeightMap are contained; otherwise, **false** is returned.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @throws { BusinessError } 10200011 - The hasAll method cannot be bound.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
@@ -126,9 +123,6 @@ declare class LightWeightMap<K, V> {
    *
    * @param { int } minimumCapacity - Minimum number of elements to accommodate in this LightWeightMap.
    * @throws { BusinessError } 10200011 - The increaseCapacityTo method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -164,7 +158,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Returns the value to which the specified key is mapped, or undefined if this map contains no mapping for the key
    *
-   * @param { K } key - key key the index in LightWeightMap
+   * @param { K } key - The key to look up in the LightWeightMap
    * @returns { V | undefined } value if associated with key presents, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -220,10 +214,6 @@ declare class LightWeightMap<K, V> {
    * @returns { K } Key obtained. If the key is not found, **undefined** is returned.
    * @throws { BusinessError } 10200011 - The getKeyAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -233,7 +223,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the key at the location identified by index in an LightWeightMap container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index to look up in the LightWeightMap
    *     The value should be an integer.
    * @returns { K | undefined } the key of key-value pairs or undefined
    * @throws { BusinessError } 10200001 - The value of index is out of range.
@@ -261,9 +251,6 @@ declare class LightWeightMap<K, V> {
    *
    * @param { LightWeightMap<K, V> } map - LightWeightMap whose elements are to be added to the current LightWeightMap.
    * @throws { BusinessError } 10200011 - The setAll method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -301,7 +288,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Remove the mapping for this key from this map if present
    *
-   * @param { K } key - key key Target to be deleted
+   * @param { K } key - The key to remove from the map
    * @returns { V | undefined } the value associated with the key if it was removed, undefined otherwise
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform
@@ -318,9 +305,6 @@ declare class LightWeightMap<K, V> {
    * @returns { boolean } Operation result. The value **true** is returned if the element is removed; otherwise,
    *     **false** is returned.
    * @throws { BusinessError } 10200011 - The removeAt method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -349,10 +333,6 @@ declare class LightWeightMap<K, V> {
    *     **false** is returned.
    * @throws { BusinessError } 10200011 - The setValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -367,9 +347,6 @@ declare class LightWeightMap<K, V> {
    * @param { Object } [thisArg] - Value of **this** to use when **callbackFn** is invoked. The default value is this
    *     instance.
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -431,10 +408,6 @@ declare class LightWeightMap<K, V> {
    * @returns { V } Value obtained.
    * @throws { BusinessError } 10200011 - The getValueAt method cannot be bound.
    * @throws { BusinessError } 10200001 - The value of index is out of range.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types;
-   *     3.Parameter verification failed.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -444,7 +417,7 @@ declare class LightWeightMap<K, V> {
   /**
    * Obtains the value identified by index in an LightWeightMap container
    *
-   * @param { int } index - index index Target subscript for search
+   * @param { int } index - The index to look up in the map
    *     The value should be an integer.
    * @returns { V | undefined } the value of key-value pairs or undefined
    * @throws { BusinessError } 10200001 - The value of index is out of range.

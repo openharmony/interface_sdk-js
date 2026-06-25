@@ -17,6 +17,7 @@ const fs = require('fs');
 const path = require('path');
 const ts = require('typescript');
 const commander = require('commander');
+const deleteDynamicApiConfig = require('./handle_api_dynamic_delete.json');
 
 // 工具处理文件结果输出目录
 let output = '';
@@ -25,12 +26,9 @@ let dirType = '';
 // 是否需要打包静态SDK
 let sdkBuildArkts = false;
 /** @type {Array<string>}  只打包动态版本SDK需要过滤文件 */
-const deleteFilesOnlydynamicList = ['/api/@ohos.app.ability.InteropAbilityLifecycleCallback.d.ts'];
+const deleteFilesOnlydynamicList = deleteDynamicApiConfig.deleteFilesOnlydynamicList;
 /** @type {Map<string, Array<string>>} 只打包动态版本SDK需要接口  */
-const deleteApisOnlydynamicMap = new Map([
-  ['api/arkui/FrameNode.d.ts', ['isTransferred():boolean;']],
-  ['api/arkui/ComponentContent.d.ts', ['isTransferred():boolean;']]
-]);
+const deleteApisOnlydynamicMap = new Map(deleteDynamicApiConfig.deleteApisOnlydynamicMap);
 const deleteApiSet = new Set();
 const importNameSet = new Set();
 const ARKTS_FLAG = 'use static';
@@ -773,9 +771,11 @@ function transformer(outputPath) {
       if (node.kind === ts.SyntaxKind.Constructor && node.parent.kind === ts.SyntaxKind.StructDeclaration) {
         return undefined;
       }
-
       // 判断是否为要删除的变量声明
-      if ((apiNodeTypeArr.includes(node.kind) || validateExportDeclaration(node)) && judgeIsDeleteApi(node, outputPath)) {
+      if (
+        (apiNodeTypeArr.includes(node.kind) || validateExportDeclaration(node) || ts.isImportDeclaration(node)) &&
+        judgeIsDeleteApi(node, outputPath)
+      ) {
         collectDeletionApiName(node);
         // 删除该节点
         return undefined;
@@ -812,6 +812,7 @@ function deleteApi(sourceFile, outputPath) {
   let fileContent = printer.printFile(newSourceFile);
   result = ts.transform(newSourceFile, [transformExportApi], { etsAnnotationsEnable: true });
   fileContent = printer.printFile(result.transformed[0]);
+  importNameSet.clear();
   deleteApiSet.clear();
   return fileContent.replace(/export\s*(?:type\s*)?\{\s*\}\s*(;)?/g, '');
 }
@@ -930,13 +931,22 @@ function isEmptyFile(node) {
 }
 
 function collectDeletionApiName(node) {
-  if (!ts.isImportClause(node)) {
+  if (!ts.isImportClause(node) && !ts.isImportDeclaration(node)) {
     deleteApiSet.add(node.name?.getText());
     return;
   }
 
-  if (ts.isImportDeclaration(node) && node.importClause?.name) {
-    deleteApiSet.add(node.importClause.name.escapedText.toString());
+  if (ts.isImportDeclaration(node)) {
+    if (node.importClause?.name) {
+      deleteApiSet.add(node.importClause.name.escapedText.toString());
+    }
+    if(node.importClause?.namedBindings){
+      node.importClause.namedBindings.forEachChild((child) => {
+        if (ts.isImportSpecifier(child) && child.name) {
+          deleteApiSet.add(child.name.escapedText.toString());
+        }
+      });
+    }
     return;
   }
   const namedBindings = node.namedBindings;
@@ -1013,6 +1023,9 @@ function judgeIsDeleteApi(node, outputPath) {
     if (deleteApisOnlydynamic.includes(apiText)) {
       return true;
     }
+  }
+  if (ts.isImportDeclaration(node)) {
+    return false;
   }
   // 删除api适配arkts标签
   const notesContent = node.getFullText().replace(node.getText(), '');

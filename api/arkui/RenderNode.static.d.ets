@@ -18,7 +18,9 @@
  * @file
  * @kit ArkUI
  */
+
 import { DrawContext, Size, NodeOffset, NodePosition, Pivot, Scale, Translation, Matrix4, Rotation, Frame, NodeBorderRadiuses, ShapeMask, ShapeClip, NodeEdges, LengthMetricsUnit, BackgroundBlur, ContentBlur, ForegroundBlur } from 'arkui.Graphics';
+
 import { BorderStyle } from '@ohos.arkui.component';
 
 /**
@@ -29,6 +31,7 @@ import { BorderStyle } from '@ohos.arkui.component';
  * @since 23 static
  */
 export declare class RenderNode {
+
   /**
    * Constructor.
    *
@@ -351,8 +354,7 @@ export declare class RenderNode {
   /**
    * Set shadow color of the RenderNode.
    *
-   * @param { int } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by
-   * number.
+   * @param { int } color - the shadow color of the RenderNode. Colors are defined as ARGB format represented by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -362,8 +364,8 @@ export declare class RenderNode {
   /**
    * Get shadow color of the RenderNode.
    *
-   * @returns { int } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented by
-   * number.
+   * @returns { int } - Returns the shadow color of the RenderNode. Colors are defined as ARGB format represented
+   *     by number.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -483,7 +485,7 @@ export declare class RenderNode {
   /**
    * Get border style of the RenderNode.
    *
-   * @returns { NodeEdges<BorderStyle> } - Returns the border style of the RenderNode.
+   * @returns { NodeEdges<BorderStyle> | undefined } - Returns the border style of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -503,8 +505,7 @@ export declare class RenderNode {
   /**
    * Get border width of the RenderNode.
    *
-   * @returns { NodeEdges<double> } - Returns the border width of the RenderNode.
-   * @default 0
+   * @returns { NodeEdges<double> | undefined } - Returns the border width of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -524,8 +525,7 @@ export declare class RenderNode {
   /**
    * Get border color of the RenderNode.
    *
-   * @returns { NodeEdges<int> } - Returns the border color of the RenderNode.
-   * @default 0XFF000000
+   * @returns { NodeEdges<int> | undefined } - Returns the border color of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -545,8 +545,7 @@ export declare class RenderNode {
   /**
    * Get border radius of the RenderNode.
    *
-   * @returns { NodeBorderRadiuses } - Returns the border radius of the RenderNode.
-   * @default 0
+   * @returns { NodeBorderRadiuses | undefined } - Returns the border radius of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -566,7 +565,7 @@ export declare class RenderNode {
   /**
    * Get shape mask of the RenderNode.
    *
-   * @returns { ShapeMask } - Returns the shape mask of the RenderNode.
+   * @returns { ShapeMask | undefined } - Returns the shape mask of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -648,7 +647,7 @@ export declare class RenderNode {
    * @returns { boolean } - Returns true if the RenderNode is disposed, false otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   isDisposed(): boolean;
 
