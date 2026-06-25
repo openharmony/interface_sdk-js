@@ -7827,6 +7827,67 @@ declare namespace audio {
   }
 
   /**
+    * This interface is used to notify the listener of personalized spatialization enabled
+    * state change of any device.
+    *
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  interface AudioPersonalizedSpatialEnabledChangeForAnyDevice {
+    /**
+     * Audio device description.
+     *
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     deviceDescriptor: AudioDeviceDescriptor;
+
+    /**
+      * Personalized spatialization enable state.
+      *
+      * @syscap SystemCapability.Multimedia.Audio.Spatialization
+      * @systemapi
+      * @stagemodelonly
+      * @since 26.0.0 dynamic&static
+      */
+     enabled: boolean;
+  }
+
+  /**
+    * Anonymous personalzied HRTF file descriptor for cross-process transfer.
+    *
+    * @syscap SystemCapability.Multimedia.Audio.Spatialization
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+  */
+  interface AudioHRTFAnonymousDescriptor {
+    /**
+     * The file descriptor of personalzied HRTF.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    fd: int;
+
+    /**
+     * Total size of personalzied HRTF data in bytes.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    length: long;
+  }
+
+  /**
+   * Implements audio spatialization management.
+   * @typedef AudioSpatializationManager
    * This interface implements spatial audio management.
    *
    * Before calling any API in AudioSpatializationManager, you must use
@@ -7899,6 +7960,18 @@ declare namespace audio {
      * @since 23 static
      */
     isHeadTrackingSupportedForDevice(deviceDescriptor: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Checks whether personalized spatialization is supported by system.
+     *
+     * @returns { boolean } Whether personalized spatialization is supported by system.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalizedSpatializationSupported(): boolean;
 
     /**
      * Sets the spatialization enabled or disabled. This method uses an asynchronous callback to return the result.
@@ -8480,6 +8553,80 @@ declare namespace audio {
      * @since 24 dynamic&static
      */
     offSpatialAudioSourceTypeChange(callback?: Callback<SpatialAudioSourceType>): void;
+
+    /**
+     * Checks whether the personalized spatialization is enabled by the specified device.
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
+     * @returns { boolean } Returns true if the Personalized spatialization is successfully enabled;
+     *     returns false otherwise.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 6800101 - Parameter verification failed.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor): boolean;
+
+    /**
+     * Set the personalized spatialization enabled or disabled by the specified device.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioDeviceDescriptor } selectedAudioDevice - Audio device description.
+     * @param { boolean } enable - Whether to enable personalized spatialization.
+     * @returns { Promise<void> } Promise used to return the result.
+     * @throws { BusinessError } 201 - Permission denied. Return by promise.
+ 	 * @throws { BusinessError } 202 - Not system App.
+ 	 * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setPersonalizedSpatializationEnabled(selectedAudioDevice: AudioDeviceDescriptor, enable: boolean): Promise<void>;
+
+    /**
+     * Subscribes to the personalized spatialization enable state change events by the specified device.
+     * When the state changes, registered clients will receive the callback.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Caller is not a system application.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onPersonalizedSpatializationEnabledChangeForAnyDevice(
+        callback: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+
+    /**
+     * Unsubscribes to the personalized spatialization enable state change events by the specified device.
+     * @param { AudioPersonalizedSpatialEnabledChangeForAnyDevice } callback - Callback used to get the personalized
+     *     spatialization enable state by the specified device.
+     * @throws { BusinessError } 202 - Not system App.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offPersonalizedSpatializationEnabledChangeForAnyDevice(
+        callback?: Callback<AudioPersonalizedSpatialEnabledChangeForAnyDevice>): void;
+
+    /**
+     * Downloads personalized HRTF data from anonymous file descriptor.
+     * @permission ohos.permission.MANAGE_SYSTEM_AUDIO_EFFECTS
+     * @param { AudioHRTFAnonymousDescriptor } hrtfDescriptor - Personalized HRTF data descriptor.
+     * @throws { BusinessError } 201 - Permission denied.
+     * @throws { BusinessError } 202 - Not system App.
+     * @throws { BusinessError } 801 - Capability not supported on the device.
+     * @throws { BusinessError } 6800101 - Parameter verification failed, fd or length wrong.
+     * @throws { BusinessError } 6800105 - Time out when saving HRTF on disk.
+     * @throws { BusinessError } 6800301 - System error, fail to save HRTF on disk.
+     * @syscap SystemCapability.Multimedia.Audio.Spatialization
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    downloadPersonalizedHRTF(hrtfDescriptor: AudioHRTFAnonymousDescriptor): Promise<void>;
   }
 
   /**
