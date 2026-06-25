@@ -1177,6 +1177,24 @@ declare namespace volumeManager {
    * @since 26.0.0 dynamic&static
    */
   function formatPartition(diskId: string, partitionNum: int, params: FormatParams): Promise<void>;
+
+  /**
+   * Query whether the specified volume is currently in use. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
+   * @param { string } volumePath - Volume Path.
+   * @returns { Promise<boolean> } Promise used to return whether the specified volume is currently in use.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   * @throws { BusinessError } 202 - The caller is not a system application.
+   * @throws { BusinessError } 13600001 - IPC error.
+   * @throws { BusinessError } 13600010 - The input parameter is invalid.
+   * @throws { BusinessError } 13600033 - Failed to query whether the specified volume is currently in use.
+   * @syscap SystemCapability.FileManagement.StorageService.Volume
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function isVolumeInUse(volumePath: string): Promise<boolean>;
 }
 
 export default volumeManager;
