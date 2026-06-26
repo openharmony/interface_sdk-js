@@ -1290,7 +1290,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 20
    * @deprecated since 26.0.0
-   * @useinstead restrictions.getUserRestriction(admin: Want, settingsItem: SettingsForDevice)
+   * @useinstead restrictions.getUserRestricted(admin: Want, settingsItem: SettingsForDevice)
    */
   function getUserRestricted(admin: Want, settingsItem: string): boolean;
 
@@ -1346,7 +1346,7 @@ declare namespace restrictions {
    * @stagemodelonly
    * @since 23
    * @deprecated since 26.0.0
-   * @useinstead restrictions.getUserRestrictionForAccount(admin: Want | null, settingsItem: SettingsForAccount, accountId: int)
+   * @useinstead restrictions.getUserRestrictedForAccount(admin: Want | null, settingsItem: SettingsForAccount, accountId: int)
    */
   function getUserRestrictedForAccount(admin: Want | null, settingsItem: string, accountId: int): boolean;
 
