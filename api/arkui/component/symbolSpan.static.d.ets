@@ -18,8 +18,8 @@
  * @kit ArkUI
  */
 import { Resource } from './../../../api/global/resource';
-import { CommonMethod, ResourceStr, AttributeModifier } from "./common";
-import { ResourceColor } from "./units";
+import { CommonMethod, AttributeModifier } from "./common";
+import { ResourceColor, ResourceStr } from "./units";
 import { FontWeight } from "./enums";
 import { SymbolEffectStrategy, SymbolRenderingStrategy } from './symbolglyph';
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
