@@ -213,3 +213,12 @@ export declare const GETINSPECTORBYKEY: (id: string) => string;
  * @since 23 static
  */
 export declare const GETINSPECTORTREE: () => RecordData;
+
+/** 
+ * export function sendEventByKey from inspector namespace and provide it for kit ArkUI. 
+ * @constant 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full 
+ * @stagemodelonly 
+ * @since 23 static 
+ */ 
+export declare const SENDEVENTBYKEY: (id: string, action: int, params: string) => boolean;
