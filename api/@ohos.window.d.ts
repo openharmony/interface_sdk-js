@@ -4138,6 +4138,8 @@ declare namespace window {
    *
    * @param { long } displayId - Indicate the id of display.
    * @param { int } windowId - A main window id which will be moved.
+   * @param { int } [userId] - Indicate the user ID of the target application space. 
+   *     If not provided, the current user is used by default.
    * @returns { Promise<void> } - Promise that returns no value indicates complete.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -4153,7 +4155,7 @@ declare namespace window {
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
    */
-  function moveMainWindowToTargetDisplay(displayId: long, windowId: int): Promise<void>;
+  function moveMainWindowToTargetDisplay(displayId: long, windowId: int, userId?: int): Promise<void>;
 
   /**
    * Enumerates the window orientations. <!--Del-->For details of the differences between different enumerated values,
