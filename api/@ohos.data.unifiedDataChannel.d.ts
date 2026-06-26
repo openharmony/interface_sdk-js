@@ -213,6 +213,7 @@ declare namespace unifiedDataChannel {
      * Customized tag. The default value is an empty string.
      *
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
+     * @stagemodelonly
      * @atomicservice
      * @since 12 dynamic
      * @since 23 static
@@ -652,9 +653,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     get details(): Record<string, string> | undefined;
@@ -664,9 +662,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { Record<string, string> | undefined } the details of unified text [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     set details(value: Record<string, string> | undefined);
@@ -794,9 +789,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the description of a link. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     get description(): string | undefined;
@@ -806,9 +798,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string | undefined } the description of a link [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     set description(value: string | undefined);
@@ -867,9 +856,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { string | undefined } the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     get plainContent(): string | undefined;
@@ -879,9 +865,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { string | undefined} the plain content of html [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     set plainContent(value: string | undefined);
@@ -939,9 +922,6 @@ declare namespace unifiedDataChannel {
      *
      * @returns { Record<string, string> | undefined } the details of unified File [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     get details(): Record<string, string> | undefined;
@@ -951,9 +931,6 @@ declare namespace unifiedDataChannel {
      *
      * @param { Record<string, string> } the details of unified File. [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @crossplatform [since 14 - 22]
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     set details(value: Record<string, string> | undefined);
@@ -1184,8 +1161,6 @@ declare namespace unifiedDataChannel {
      * @returns { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     get details(): Record<string, int | long | double | string | Uint8Array> | undefined;
@@ -1196,8 +1171,6 @@ declare namespace unifiedDataChannel {
      * @param { Record<string, int | long | double | string | Uint8Array> | undefined } the details of system defined
      *     data [since 23]
      * @syscap SystemCapability.DistributedDataManager.UDMF.Core
-     * @stagemodelonly
-     * @atomicservice [since 11 - 22]
      * @since 23 static
      */
     set details(value: Record<string, int | long | double | string | Uint8Array> | undefined);
