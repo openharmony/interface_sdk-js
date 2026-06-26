@@ -441,8 +441,8 @@ export declare @interface Env {
    * Key value input by the user.
    * On API 26.0.0 and above, it can also support a string literal in the
    * format "ReadonlyEnvKey.<keyName>" or "WritableEnvKey.<keyName>".
-   * The key name must be one declared in {@link ReadonlyEnvKey} or
-   * {@link WritableEnvKey}. Arbitrary strings are not supported.
+   * The key name must be one declared in [ReadonlyEnvKey]{@link ReadonlyEnvKey} or
+   * [WritableEnvKey]{@link WritableEnvKey}. Arbitrary strings are not supported.
    *
    * @type { SystemProperties } key - key value input by the user. [since 22 - 24]
    * @type { string } key - key value input by the user, only support . [since 26.0.0]
