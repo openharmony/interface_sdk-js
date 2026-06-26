@@ -2401,6 +2401,24 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
+   * 批量获取多个应用的指定渠道类型的使能状态。使用Promise异步回调。
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - 应用包信息数组。
+   * @param { SlotType } type - 渠道类型。所有应用共享同一个渠道类型。
+   * @returns { Promise<Map<BundleOption, boolean>> } 以Promise形式返回批量查询结果，key为应用包信息，value为渠道使能状态
+   *     （true：使能，false：禁止）。未创建渠道的应用不会出现在返回结果中。
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
+
+  /**
    * 设置是否将通知同步到未安装应用程序的设备(callback形式)。
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER

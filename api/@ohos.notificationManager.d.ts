@@ -2527,7 +2527,27 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
-   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API 
+   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
+   * promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
+   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
+   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
+   *     opposite. Bundles whose slot has not been created will not appear in the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
+
+  /**
+   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API
    * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
