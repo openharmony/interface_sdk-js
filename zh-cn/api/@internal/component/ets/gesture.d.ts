@@ -2446,6 +2446,8 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * 取值范围：[0, +∞)，当设定的值小于0时，按默认值处理。
    * 
    * 从API version 19开始，手写笔默认值为8，单位为vp。
+   * 
+   * 使用[gestureModifier]{@link CommonMethod#gestureModifier}配置该字段时，单位为px。
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

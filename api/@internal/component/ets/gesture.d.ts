@@ -2551,6 +2551,8 @@ interface PanGestureHandlerOptions extends BaseHandlerOptions {
    * 
    * Since API version 19, the default value is **8**, in vp, for the stylus.
    *
+   * When configuring this field with [gestureModifier]{@link CommonMethod#gestureModifier}, the unit is px.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
