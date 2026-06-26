@@ -675,6 +675,7 @@ export interface PositionWithAffinity {
      * Affinity of the position.
      * @type { Affinity }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
      * @since 23 static
      */
     affinity: Affinity;
