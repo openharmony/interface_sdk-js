@@ -1235,6 +1235,88 @@ declare namespace observer {
   function offIccAccountInfoChange(callback?: Callback<void>): void;
 
   /**
+<<<<<<< HEAD
+   * Callback when the communication state corresponding to the default sim card is updated.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } type - communicationStateChange.
+   * @param { Callback<boolean> } callback - Specifies whether the communication technology is advanced.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 26
+   */
+  function on(type: 'communicationStateChange', callback: Callback<boolean>): void;
+
+  /**
+   * Callback when the communication state corresponding to the monitored {@code slotId} is updated.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { string } type - communicationStateChange.
+   * @param { ObserverOptions } options - Indicates the options for observer.
+   * @param { Callback<boolean> } callback - Specifies whether the communication technology is advanced.
+   * @throws { BusinessError } 201 - Permission denied
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 26
+   */
+  function on(type: 'communicationStateChange', options: ObserverOptions, callback: Callback<boolean>): void;
+
+  /**
+   * Cancel callback when the communication state is updated.
+   *
+   * @param { string } type - communicationStateChange.
+   * @param { Callback<boolean> } callback - Indicates the callback to unsubscribe from the communicationStateChange event.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified.
+   *     2. Incorrect parameter types.
+   * @throws { BusinessError } 8300001 - Invalid parameter value.
+   * @throws { BusinessError } 8300002 - Operation failed. Cannot connect to service.
+   * @throws { BusinessError } 8300003 - System internal error.
+   * @throws { BusinessError } 8300999 - Unknown error code.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @since 26
+   */
+  function off(type: 'communicationStateChange', callback?: Callback<boolean>): void;
+=======
+   * This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function onCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
+
+  /**
+   * Unsubscribe from the callback for listening to the 5A state.
+   *
+   * @permission ohos.permission.GET_NETWORK_INFO
+   * @param { Callback<boolean> } callback - Callback used to return the result.
+   *     The value **true** indicates 5A state, and **false** indicates not 5A state.
+   * @param { ObserverOptions } [options] - Indicates the options for observer.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @syscap SystemCapability.Telephony.StateRegistry
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  function offCommunicationStateChange(callback: Callback<boolean>, options?: ObserverOptions): void;
+>>>>>>> 98e3c3c686... 5A状态变化事件新增接口
+
+  /**
    * Indicates SIM card type and status.
    *
    * @interface SimStateData
