@@ -1122,7 +1122,7 @@ declare namespace screen {
     EXTERNAL = 1,
 
     /**
-     * An virtual display created by software,typically used for screen casting,
+     * An virtual display created by software, typically used for screen casting,
      * screen recording, or multi-screen collaboration.
      *
      * @syscap SystemCapability.Window.SessionManager
