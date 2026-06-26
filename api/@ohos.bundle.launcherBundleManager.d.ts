@@ -28,7 +28,7 @@ import StartOptions from './@ohos.app.ability.StartOptions';
  * [launcher ability information]{@link ./bundleManager/LauncherAbilityInfo:LauncherAbilityInfo}.
  *
  * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
- * @since 18 dynamic
+ * @since 9 dynamic
  * @since 23 static
  */
 declare namespace launcherBundleManager {
@@ -344,7 +344,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi [since 9 - 19]
    * @publicapi [since 20]
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   export type ShortcutInfo = _ShortcutInfo;
@@ -355,7 +355,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi [since 9 - 19]
    * @publicapi [since 20]
-   * @since 20 dynamic
+   * @since 9 dynamic
    * @since 23 static
    */
   export type ShortcutWant = _ShortcutWant;
@@ -365,7 +365,7 @@ declare namespace launcherBundleManager {
    * @syscap SystemCapability.BundleManager.BundleFramework.Launcher
    * @systemapi [since 12 - 19]
    * @publicapi [since 20]
-   * @since 20 dynamic
+   * @since 12 dynamic
    * @since 23 static
    */
   export type ParameterItem = _ParameterItem;
