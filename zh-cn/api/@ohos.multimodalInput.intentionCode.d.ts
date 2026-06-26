@@ -19,9 +19,7 @@
  */
 
 /**
- * The **intentionCode** module maps the original events of the keyboard to intention codes for normalized interaction.
- * For example, if the mapped event of the space bar on the keyboard is **INTENTION_SELECT**, the intent is to select an
- * item.
+ * 将键盘输入设备的原始事件映射为归一化交互的意图事件，如键盘上空格键映射后的事件为INTENTION_SELECT，意图为选中。
  *
  * @syscap SystemCapability.MultimodalInput.Input.Core
  * @atomicservice [since 12]
@@ -31,7 +29,7 @@
 export declare enum IntentionCode {
 
   /**
-   * Unknown intent
+   * 未知意图
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -41,7 +39,7 @@ export declare enum IntentionCode {
   INTENTION_UNKNOWN = -1,
 
   /**
-   * Up
+   * 上
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -51,7 +49,7 @@ export declare enum IntentionCode {
   INTENTION_UP = 1,
 
   /**
-   * Down
+   * 下
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -61,7 +59,7 @@ export declare enum IntentionCode {
   INTENTION_DOWN = 2,
 
   /**
-   * Left
+   * 左
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -71,7 +69,7 @@ export declare enum IntentionCode {
   INTENTION_LEFT = 3,
 
   /**
-   * Right
+   * 右
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -81,7 +79,7 @@ export declare enum IntentionCode {
   INTENTION_RIGHT = 4,
 
   /**
-   * Select
+   * 选中
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -91,7 +89,7 @@ export declare enum IntentionCode {
   INTENTION_SELECT = 5,
 
   /**
-   * Escape
+   * 退出
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -101,7 +99,7 @@ export declare enum IntentionCode {
   INTENTION_ESCAPE = 6,
 
   /**
-   * Back
+   * 返回
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -111,7 +109,7 @@ export declare enum IntentionCode {
   INTENTION_BACK = 7,
 
   /**
-   * Forward
+   * 前进
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -121,7 +119,7 @@ export declare enum IntentionCode {
   INTENTION_FORWARD = 8,
 
   /**
-   * Menu
+   * 菜单
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -131,7 +129,7 @@ export declare enum IntentionCode {
   INTENTION_MENU = 9,
 
   /**
-   * Page up
+   * 上一页
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -141,7 +139,7 @@ export declare enum IntentionCode {
   INTENTION_PAGE_UP = 11,
 
   /**
-   * Page down
+   * 下一页
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -151,7 +149,7 @@ export declare enum IntentionCode {
   INTENTION_PAGE_DOWN = 12,
 
   /**
-   * Zoom out
+   * 缩小键
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]
@@ -161,7 +159,7 @@ export declare enum IntentionCode {
   INTENTION_ZOOM_OUT = 13,
 
   /**
-   * Zoom in
+   * 放大键
    *
    * @syscap SystemCapability.MultimodalInput.Input.Core
    * @atomicservice [since 12]

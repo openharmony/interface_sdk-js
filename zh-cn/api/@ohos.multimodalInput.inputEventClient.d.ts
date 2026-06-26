@@ -25,7 +25,11 @@ import { KeyCode} from './@ohos.multimodalInput.keyCode';
 import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 
 /**
- * The **inputEventClient** module provides the capability of injecting key, mouse/touchpad, and touchscreen events.
+ * 输入事件注入模块，提供输入按键、鼠标/触控板、触屏输入事件注入能力。
+ * 
+ * > **说明：**
+ * >
+ * > - 本模块接口为系统接口。
  *
  * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
  * @systemapi hide for inner use [since 8 - 24]
@@ -36,7 +40,7 @@ import { TouchEvent } from './@ohos.multimodalInput.touchEvent';
 declare namespace inputEventClient {
 
   /**
-   * Defines the key event to inject.
+   * 按键注入描述信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -46,9 +50,9 @@ declare namespace inputEventClient {
   interface KeyEvent {
 
     /**
-     * Whether the key is pressed.
-     *
-     * The value **true** indicates that the key is pressed, and the value **false** indicates that the key is released.
+     * 按键是否按下。
+     * 
+     * true表示按键按下，false表示按键抬起。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -58,7 +62,7 @@ declare namespace inputEventClient {
     isPressed: boolean;
 
     /**
-     * Key code. Currently, only the **KEYCODE_BACK** key is supported.
+     * 按键键值。当前仅支持返回键/KEYCODE_BACK键。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -68,7 +72,7 @@ declare namespace inputEventClient {
     keyCode: int;
 
     /**
-     * Duration of key press, in microseconds (μs).
+     * 按键按下持续时间，单位为微秒（μs）。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -78,10 +82,9 @@ declare namespace inputEventClient {
     keyDownDuration: int;
 
     /**
-     * Whether the key event can be intercepted.
-     *
-     * The value **true** indicates that the key event can be intercepted, and the value **false** indicates the
-     * opposite.
+     * 按键是否可以被拦截。
+     * 
+     * true表示可以被拦截，false表示不可被拦截。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -92,7 +95,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Defines the mouse event data.
+   * 鼠标注入描述信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -102,7 +105,7 @@ declare namespace inputEventClient {
   interface MouseEventData {
 
     /**
-     * Mouse event.
+     * 鼠标事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -112,11 +115,7 @@ declare namespace inputEventClient {
     mouseEvent: MouseEvent;
 
     /**
-     * Whether to use global coordinates to calculate the injected mouse event. The default value is **false**. If this
-     * parameter is set to **false**, the coordinates of the relative coordinate system with the upper left corner of
-     * the specified screen as the origin are used to calculate the injected mouse event. If this parameter is set to
-     * **true**, the coordinates of the global coordinate system with the upper left corner of the primary screen as the
-     * origin are used to calculate the injected mouse event.
+     * 是否使用全局坐标来计算注入的鼠标事件。默认值为false，取值为false表示使用以指定屏幕左上角为原点的相对坐标系的坐标来计算注入的鼠标事件。取值为true表示使用以主屏左上角为原点的全局坐标系的坐标来计算注入的鼠标事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -127,7 +126,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Defines the touch event data.
+   * 触屏注入描述信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -137,7 +136,7 @@ declare namespace inputEventClient {
   interface TouchEventData {
 
     /**
-     * Touch event.
+     * 触屏输入事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -147,11 +146,8 @@ declare namespace inputEventClient {
     touchEvent: TouchEvent;
 
     /**
-     * Whether to use global coordinates to calculate the injected touch event. The default value is **false**. If this
-     * parameter is set to **false**, the coordinates of the relative coordinate system with the upper left corner of
-     * the specified screen as the origin are used to calculate the injected touch event. If this parameter is set to
-     * **true**, the coordinates of the global coordinate system with the upper left corner of the primary screen as the
-     * origin are used to calculate the injected touch event.
+     * 是否使用全局坐标来计算注入的触屏输入事件。默认值为false，取值为false表示使用以指定屏幕左上角为原点的相对坐标系的坐标来计算注入的触屏输入事件。取值为true表示使用以主屏左上角为原点的全局坐标系的坐标来计算注入的触屏
+     * 输入事件。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -162,7 +158,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Defines the key event to inject.
+   * 按键注入描述信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -172,7 +168,7 @@ declare namespace inputEventClient {
   interface KeyEventData {
 
     /**
-     * Key event to inject.
+     * 按键注入描述信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -183,7 +179,7 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Defines the key event information injected by the user.
+   * 定义用户注入的按键事件信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @systemapi hide for inner use
@@ -192,7 +188,7 @@ declare namespace inputEventClient {
   interface KeyEventInfo {
 
     /**
-     * Key injection description.
+     * 按键注入描述信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @systemapi hide for inner use
@@ -202,10 +198,10 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Injects key events (for both single keys and combination keys).
+   * 按键(包括单个按键和组合键)事件注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
-   * @param { KeyEventData } keyEvent - Key event to inject.
+   * @param { KeyEventData } keyEvent - 按键事件注入描述信息。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -218,10 +214,10 @@ declare namespace inputEventClient {
   function injectKeyEvent(keyEvent: KeyEventData): void;
 
   /**
-   * Injects keys (including single keys and combination keys).
+   * 按键(包括单个按键和组合键)注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
-   * @param { { KeyEvent } } KeyEvent - Key event to inject.
+   * @param { { KeyEvent } } KeyEvent - 按键注入描述信息。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 201 - Permission denied. [since 12]
@@ -233,10 +229,10 @@ declare namespace inputEventClient {
   function injectEvent({ KeyEvent: KeyEvent }): void;
 
   /**
-   * Inject system keys.
+   * 按键(包括单个按键和组合键)注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { KeyEventInfo } keyEvent - the key event to be injected.
+   * @param { KeyEventInfo } keyEvent - 按键注入描述信息。.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission denied, non-system app called system api.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -248,11 +244,11 @@ declare namespace inputEventClient {
   function injectEvent(keyEvent: KeyEventInfo): void;
 
   /**
-   * Injects a mouse/touchpad event.
+   * 鼠标/触控板事件注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
-   * @param { MouseEventData } mouseEvent - Mouse/touchpad event to inject.
-   *     [Action]{@link @ohos.multimodalInput.mouseEvent:Action} in this parameter cannot be set to **CANCEL**.
+   * @param { MouseEventData } mouseEvent - 鼠标/触控板事件注入描述信息。此参数中[Action]{@link @ohos.multimodalInput.mouseEvent:Action}属性
+   *     不支持设置为CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -265,11 +261,11 @@ declare namespace inputEventClient {
   function injectMouseEvent(mouseEvent: MouseEventData): void;
 
   /**
-   * Injects a touch event.
+   * 触屏输入事件注入。
    *
    * @permission ohos.permission.INJECT_INPUT_EVENT [since 12]
-   * @param { TouchEventData } touchEvent - Touch event data. [Action]{@link @ohos.multimodalInput.touchEvent:Action} in
-   *     this parameter cannot be set to **CANCEL**.
+   * @param { TouchEventData } touchEvent - 触屏注入描述信息。此参数中[Action]{@link @ohos.multimodalInput.touchEvent:Action}属性不支持设置为
+   *     CANCEL。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -282,11 +278,10 @@ declare namespace inputEventClient {
   function injectTouchEvent(touchEvent: TouchEventData): void;
 
   /**
-   * Specifies whether to authorize event injection.
-   *
+    * 允许事件注入权限。
+    *
    * @permission ohos.permission.INJECT_INPUT_EVENT
-   * @param { boolean } result - Authorization result. The value **true** indicates that event injection is allowed,
-   *     and the value **false** indicates the opposite.
+   * @param { boolean } result - 授权结果（true表示：允许事件注入，false表示：不允许事件注入）。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -299,13 +294,11 @@ declare namespace inputEventClient {
   function permitInjection(result: boolean): void;
 
   /**
-   * Provides the capability of simulating key operations. The simulated key operation sequence must meet the following
-   * requirements:
-   *
-   * 1. A key can only be pressed when it is in the released state, or when it is the most recently pressed key and
-   * has not been released.
-   * 2. A key can only be released after it has been pressed.
-   * 3. A maximum of five keys can be pressed and held simultaneously.
+   * 提供模拟按键操作的功能。模拟按键操作序列必须满足以下要求：
+   * 
+   * 1. 按键只能在抬起状态下被按下，或者在该按键是最近按下的按键且未抬起的情况下被按下。
+   * 2. 按键只能在被按下后才能抬起。
+   * 3. 最多可以同时按下并保持五个按键。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -314,11 +307,11 @@ declare namespace inputEventClient {
   interface KeyboardController {
 
     /**
-     * Presses a key. This API uses a promise to return the result.
+     * 按下按键。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { KeyCode } keyCode - Key code of the key to be pressed.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { KeyCode } keyCode - 要按下的按键键码。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is already pressed and is not the most recently
@@ -331,11 +324,11 @@ declare namespace inputEventClient {
     pressKey(keyCode: KeyCode): Promise<void>;
 
     /**
-     * Releases a key. This API uses a promise to return the result.
+     * 抬起按键。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { KeyCode } keyCode - Key code of the key to be released.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { KeyCode } keyCode - 要抬起的按键键码。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The key is not pressed.
@@ -348,10 +341,10 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Creates a keyboard controller for simulating key operations. This API uses a promise to return the result.
+   * 创建键盘控制器，用于模拟按键操作。使用Promise异步回调。
    *
    * @permission ohos.permission.CONTROL_DEVICE
-   * @returns { Promise<KeyboardController> } Promise used to return the keyboard controller instance.
+   * @returns { Promise<KeyboardController> } Promise对象，返回键盘控制器实例。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -363,14 +356,12 @@ declare namespace inputEventClient {
   function createKeyboardController(): Promise<KeyboardController>;
 
   /**
-   * Provides the capability of simulating mouse operations. The simulated mouse operation sequence must meet the
-   * following requirements:
-   *
-   * 1. A mouse button can be pressed only when it is in the released state.
-   * 2. A mouse button can only be released after it has been pressed.
-   * 3. A valid axis event sequence must begin with a **beginAxis** call, followed by zero or more **updateAxis** calls,
-   * and end with an **endAxis** call.
-   * 4. Only one axis event sequence can be in progress at a time.
+   * 提供模拟鼠标操作的功能。模拟鼠标操作序列必须满足以下要求：
+   * 
+   * 1. 鼠标按键只能在抬起状态下被按下。
+   * 2. 鼠标按键只能在被按下后才能抬起。
+   * 3. 有效的轴事件序列必须先调用beginAxis开始事件，然后调用零次或多次updateAxis更新事件，最后调用endAxis结束事件。
+   * 4. 同一时间只能有一个进行中的轴事件序列。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -379,15 +370,13 @@ declare namespace inputEventClient {
   interface MouseController {
 
     /**
-     * Moves the mouse cursor to the specified display coordinates. This API uses a promise to return the result.
+     * 将鼠标光标移动到指定的显示器坐标。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { int } displayId - ID of the target display.
-     * @param { int } displayX - X coordinate relative to the left edge of the display, in px. If the value exceeds the
-     *     valid range of the display, the actual coordinate will be clamped to the valid range [0, display width - 1].
-     * @param { int } displayY - Y coordinate relative to the top edge of the display, in px. If the value exceeds the
-     *     valid range of the display, the actual coordinate will be clamped to the valid range [0, display height - 1].
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { int } displayId - 目标显示器ID。
+     * @param { int } displayX - 目标位置相对于显示器左边缘的X坐标，单位为像素（px）。若超出显示器有效范围，则实际坐标值会规约到有效范围[0, 显示器宽度-1]。
+     * @param { int } displayY - 目标位置相对于显示器上边缘的Y坐标，单位为像素（px）。若超出显示器有效范围，则实际坐标值会规约到有效范围[0, 显示器高度-1]。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300002 - The display does not exist.
@@ -399,11 +388,11 @@ declare namespace inputEventClient {
     moveTo(displayId: int, displayX: int, displayY: int): Promise<void>;
 
     /**
-     * Presses a mouse button. This API uses a promise to return the result.
+     * 按下鼠标按键。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { Button } button - Mouse button to be pressed.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Button } button - 要按下的鼠标按键。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The mouse button is already pressed.
@@ -415,11 +404,11 @@ declare namespace inputEventClient {
     pressButton(button: Button): Promise<void>;
 
     /**
-     * Release a mouse button. This API uses a promise to return the result.
+     * 抬起鼠标按键。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { Button } button - Mouse button to be released.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Button } button - 要抬起的鼠标按键。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The mouse button is not pressed.
@@ -431,12 +420,12 @@ declare namespace inputEventClient {
     releaseButton(button: Button): Promise<void>;
 
     /**
-     * Starts an axis event. This API uses a promise to return the result.
+     * 开始轴事件。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { Axis } axis - Axis type.
-     * @param { int } value - Axis value.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Axis } axis - 轴类型。
+     * @param { int } value - 轴值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event in progress.
@@ -448,12 +437,12 @@ declare namespace inputEventClient {
     beginAxis(axis: Axis, value: int): Promise<void>;
 
     /**
-     * Updates an axis event. This API uses a promise to return the result.
+     * 更新轴事件。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { Axis } axis - Axis type.
-     * @param { int } value - Axis value.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Axis } axis - 轴类型。
+     * @param { int } value - 轴值。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event is not in progress.
@@ -465,11 +454,11 @@ declare namespace inputEventClient {
     updateAxis(axis: Axis, value: int): Promise<void>;
 
     /**
-     * Ends an axis event. This API uses a promise to return the result.
+     * 结束轴事件。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { Axis } axis - Axis type.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Axis } axis - 轴类型。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - The axis event is not in progress.
@@ -482,10 +471,10 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Creates a mouse controller for simulating mouse operations. This API uses a promise to return the result.
+   * 创建鼠标控制器，用于模拟鼠标操作。使用Promise异步回调。
    *
    * @permission ohos.permission.CONTROL_DEVICE
-   * @returns { Promise<MouseController> } Promise used to return the mouse controller instance.
+   * @returns { Promise<MouseController> } Promise对象，返回鼠标控制器实例。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.
@@ -497,7 +486,7 @@ declare namespace inputEventClient {
   function createMouseController(): Promise<MouseController>;
 
   /**
-   * Represents information about a single touch point on the display.
+   * 表示屏幕上的单个触点信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -506,7 +495,7 @@ declare namespace inputEventClient {
   interface TouchPoint {
 
     /**
-     * Unique ID of a touch point. The value must be an integer in the range of [0, 9].
+     * 触点唯一标识。取值范围为[0, 9]，且必须为整数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -515,7 +504,7 @@ declare namespace inputEventClient {
     id: int;
 
     /**
-     * Unique ID of the display where the touch point is located. The value must be an integer.
+     * 触点所在屏幕的唯一标识，必须为整数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -524,8 +513,7 @@ declare namespace inputEventClient {
     displayId: int;
 
     /**
-     * X coordinate of the touch point relative to the left edge of the display, in pixels. The value must be an
-     * integer.
+     * 触点相对于屏幕左边缘的X坐标，单位为像素（px），必须为整数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -534,7 +522,7 @@ declare namespace inputEventClient {
     displayX: int;
 
     /**
-     * Y coordinate of the touch point relative to the top edge of the display, in pixels. The value must be an integer.
+     * 触点相对于屏幕上边缘的Y坐标，单位为像素（px），必须为整数。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
      * @stagemodelonly
@@ -544,12 +532,10 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Provides the capability of simulating touch operations. The simulated touch operation sequence must meet the
-   * following requirements:
-   *
-   * 1. All touch points must share the same **displayId**.
-   * 2. Each touch point must begin with a **touchDown()** call, followed by zero or more **touchMove()** calls, and end
-   * with an **touchUp()** call.
+   * 提供模拟触控操作的功能。模拟触控操作序列必须满足以下要求：
+   * 
+   * 1. 所有触点的displayId必须相同。
+   * 2. 每个触点都必须以`touchDown()`开始，以`touchUp()`结束，中间可包含多个`touchMove()`。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputSimulator
    * @stagemodelonly
@@ -558,11 +544,11 @@ declare namespace inputEventClient {
   interface TouchController {
 
     /**
-     * Presses down a touch point. This API uses a promise to return the result.
+     * 触点按下。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { TouchPoint } touch - Information about the touch point that is in contact with the display.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TouchPoint } touch - 与屏幕接触的触点信息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
@@ -577,11 +563,11 @@ declare namespace inputEventClient {
     touchDown(touch: TouchPoint): Promise<void>;
 
     /**
-     * Moves a touch point. This API uses a promise to return the result.
+     * 触点移动。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { TouchPoint } touch - Information about the touch point to be moved.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TouchPoint } touch - 需要移动的触点信息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
@@ -595,11 +581,11 @@ declare namespace inputEventClient {
     touchMove(touch: TouchPoint): Promise<void>;
 
     /**
-     * Releases a touch point. This API uses a promise to return the result.
+     * 触点抬起。使用Promise异步回调。
      *
      * @permission ohos.permission.CONTROL_DEVICE
-     * @param { TouchPoint } touch - Information about the touch point to be released.
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { TouchPoint } touch - 即将离开屏幕的触点信息。
+     * @returns { Promise<void> } Promise对象，无返回结果。
      * @throws { BusinessError } 201 - Permission verification failed.
      *     The application does not have the permission required to call the API.
      * @throws { BusinessError } 4300001 - Invalid input event sequence. Possible causes:
@@ -614,10 +600,10 @@ declare namespace inputEventClient {
   }
 
   /**
-   * Creates a touch controller for simulating touch operations. This API uses a promise to return the result.
+   * 创建触控控制器，用于模拟触控操作。使用Promise异步回调。
    *
    * @permission ohos.permission.CONTROL_DEVICE
-   * @returns { Promise<TouchController> } Promise used to return the touch controller instance.
+   * @returns { Promise<TouchController> } Promise对象，返回触控控制器实例。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 801 - Capability not supported.

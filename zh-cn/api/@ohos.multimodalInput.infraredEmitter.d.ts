@@ -19,8 +19,9 @@
  */
 
 /**
- * The **infraredEmitter** module generates IR signals of the specified frequency and size, and queries the frequency
- * range supported by the device.
+ * 红外管理模块提供产生特定频率和大小的红外信号，以及查询设备支持的频率范围等功能。
+ * 
+ * > **说明**：
  *
  * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
  * @since 12 dynamic
@@ -29,7 +30,7 @@
 declare namespace infraredEmitter {
 
   /**
-   * Defines the frequency range of IR signals.
+   * 红外信号的频率范围。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
    * @systemapi hide for inner use [since 12 - 14]
@@ -40,7 +41,7 @@ declare namespace infraredEmitter {
   interface InfraredFrequency {
 
     /**
-     * Maximum frequency, in Hz.
+     * 最大支持频率，单位：Hz。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use [since 12 - 14]
@@ -51,7 +52,7 @@ declare namespace infraredEmitter {
     max: long;
 
     /**
-     * Minimum frequency, in Hz.
+     * 最小支持频率，单位：Hz。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
      * @systemapi hide for inner use [since 12 - 14]
@@ -63,11 +64,10 @@ declare namespace infraredEmitter {
   }
 
   /**
-   * Checks whether the device has an infrared transmitter. This API uses a promise to return the result.
+   * 查询设备是否配备红外发射器。使用Promise异步回调。
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Promise<boolean> } Promise used to return the result. **true** is returned if the device has an infrared
-   *     emitter, and **false** is returned if the device does not have an infrared emitter.
+   * @returns { Promise<boolean> } Promise对象。返回true表示设备具有红外发射器；返回false表示设备不具有红外发射器。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 3800001 - Input service exception.
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter
@@ -76,15 +76,12 @@ declare namespace infraredEmitter {
   function hasIrEmitter(): Promise<boolean>;
 
   /**
-   * Generates IR signals at the specified frequency and level.
+   * 产生特定频率和特定电平大小的红外信号。
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @param { long } infraredFrequency - IR frequency, in Hz.
-   * @param { Array<long>} pattern - Infrared level signal, in microseconds (μs). The number of infrared level signals
-   *     ranges from 0 to 1024. The value of this parameter must be greater than 0. If this parameter is set to **0**,
-   *     the API does not take effect. <br/>For example, in the level signal array [100,200,300,400], **100** indicates
-   *     a high-level signal, **200** indicates a low-level signal, **300** is a high-level signal, and **400** is a low
-   *     -level signal.
+   * @param { long } infraredFrequency - 红外频率，单位：Hz。
+   * @param { Array<long>} pattern - 红外电平信号，单位为微秒（μs）。电平信号的数量取值范围为[0,1024]，取值为0时，接口调用不生效。电平信号的取值需大于0。<br/>比如
+   *     [100,200,300,400]该电平信号数组，其中100μs为高电平信号、200μs为低电平信号、300μs为高电平信号、400μs为低电平信号。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
@@ -98,13 +95,10 @@ declare namespace infraredEmitter {
   function transmitInfrared(infraredFrequency: long, pattern: Array<long>): void;
 
   /**
-   * Queries the frequency range of IR signals supported by the device.
+   * 查询设备支持的红外信号的频率范围。
    *
    * @permission ohos.permission.MANAGE_INPUT_INFRARED_EMITTER
-   * @returns { Array<InfraredFrequency> } Frequency range of IR signals, including multiple groups of maximum and
-   *     minimum frequencies.
-   *     <br>Since API version 23, one group of maximum and minimum frequencies, both of which are **0** Hz, are
-   *     returned.
+   * @returns { Array<InfraredFrequency> } 红外信号的频率范围，包含多组最大和最小频率。<br/>从API version 23开始，当设备不具有红外发射器，返回一组最大和最小频率，且均为0Hz。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application. [since 12 - 14]
    * @syscap SystemCapability.MultimodalInput.Input.InfraredEmitter

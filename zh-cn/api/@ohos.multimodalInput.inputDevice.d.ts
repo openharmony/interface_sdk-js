@@ -23,9 +23,10 @@ import type { Callback, AsyncCallback } from './@ohos.base';
 import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 
 /**
- * The inputDevice module implements input device management functions such as listening for the connection and
- * disconnection of input devices and querying input device information such as the device name.
- *
+* 本模块提供输入设备管理能力，包括监听输入设备的连接和断开状态，查询设备名称等输入设备信息。
+*
+* > **说明**：
+*
  * @syscap SystemCapability.MultimodalInput.Input.InputDevice
  * @since 8 dynamic
  * @since 23 static
@@ -33,10 +34,10 @@ import type { KeyCode } from './@ohos.multimodalInput.keyCode';
 declare namespace inputDevice {
 
   /**
-   * Enumerates hot swap events.
+   * 监听设备热插拔事件类型。
    *
-   * @unionmember { 'add' } Device insertion.
-   * @unionmember { 'remove' } Device removal.
+   * @unionmember { 'add' } 插入输入设备。
+   * @unionmember { 'remove' } 移除输入设备。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
    * @since 23 static
@@ -44,15 +45,14 @@ declare namespace inputDevice {
   type ChangedType = 'add' | 'remove';
 
   /**
-   * Input sources supported by the input device, including the keyboard, mouse, touchscreen, trackball, touchpad, and
-   * joystick.
+   * 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。
    *
-   * @unionmember { 'keyboard' } The input device is a keyboard.
-   * @unionmember { 'mouse' } The input device is a mouse.
-   * @unionmember { 'touchpad' } The input device is a touchpad.
-   * @unionmember { 'touchscreen' } The input device is a touchscreen.
-   * @unionmember { 'joystick' } The input device is a joystick.
-   * @unionmember { 'trackball' } The input device is a trackball.
+   * @unionmember { 'keyboard' } 表示输入设备是键盘。
+   * @unionmember { 'mouse' } 表示输入设备是鼠标。
+   * @unionmember { 'touchpad' } 表示输入设备是触控板。
+   * @unionmember { 'touchscreen' } 表示输入设备是触摸屏。
+   * @unionmember { 'joystick' } 表示输入设备是操纵杆。
+   * @unionmember { 'trackball' } 表示输入设备是轨迹球。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
    * @since 23 static
@@ -60,17 +60,17 @@ declare namespace inputDevice {
   type SourceType = 'keyboard' | 'mouse' | 'touchpad' | 'touchscreen' | 'joystick' | 'trackball';
 
   /**
-   * Defines the axis type of an input device.
+   * 输入设备的轴类型。
    *
-   * @unionmember { 'touchmajor' } Major axis of the elliptical touching area.
-   * @unionmember { 'touchminor' } Minor axis of the elliptical touching area.
-   * @unionmember { 'orientation' } Orientation axis.
-   * @unionmember { 'x' } Horizontal axis.
-   * @unionmember { 'y' } Vertical axis.
-   * @unionmember { 'pressure' } Pressure axis.
-   * @unionmember { 'toolminor' } Minor axis of the tool area.
-   * @unionmember { 'toolmajor' } Major axis of the tool area.
-   * @unionmember { 'null' } None.
+   * @unionmember { 'touchmajor' } 椭圆触摸区域长轴。
+   * @unionmember { 'touchminor' } 椭圆触摸区域短轴。
+   * @unionmember { 'orientation' } 方向轴。
+   * @unionmember { 'x' } 横坐标轴。
+   * @unionmember { 'y' } 纵坐标轴。
+   * @unionmember { 'pressure' } 压力轴。
+   * @unionmember { 'toolminor' } 工具区域短轴。
+   * @unionmember { 'toolmajor' } 工具区域长轴。
+   * @unionmember { 'null' } 无类型。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
    * @since 23 static
@@ -87,7 +87,7 @@ declare namespace inputDevice {
     | 'null';
 
   /**
-   * Enumerates keyboard types.
+   * 键盘输入设备的类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
@@ -96,7 +96,7 @@ declare namespace inputDevice {
   enum KeyboardType {
 
     /**
-     * Keyboard without keys.
+     * 表示无按键设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -105,7 +105,7 @@ declare namespace inputDevice {
     NONE = 0,
 
     /**
-     * Keyboard with unknown keys.
+     * 表示未知按键设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -114,7 +114,7 @@ declare namespace inputDevice {
     UNKNOWN = 1,
 
     /**
-     * Full keyboard.
+     * 表示全键盘设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -123,7 +123,7 @@ declare namespace inputDevice {
     ALPHABETIC_KEYBOARD = 2,
 
     /**
-     * Keypad.
+     * 表示小键盘设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -132,7 +132,7 @@ declare namespace inputDevice {
     DIGITAL_KEYBOARD = 3,
 
     /**
-     * Stylus.
+     * 表示手写笔设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -141,7 +141,7 @@ declare namespace inputDevice {
     HANDWRITING_PEN = 4,
 
     /**
-     * Remote control.
+     * 表示遥控器设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -151,7 +151,7 @@ declare namespace inputDevice {
   }
 
   /**
-   * Enumerates function key types.
+   * 功能键的类型。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 15 dynamic
@@ -160,7 +160,7 @@ declare namespace inputDevice {
   enum FunctionKey {
 
     /**
-     * CapsLock key. This key can be enabled or disabled only for the input keyboard extension.
+     * CapsLock键，仅支持对输入键盘扩展的CapsLock键设置使能。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 15 dynamic
@@ -170,7 +170,7 @@ declare namespace inputDevice {
   }
 
   /**
-   * Provides hot swap information about an input device.
+   * 描述输入设备热插拔的信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
@@ -179,7 +179,7 @@ declare namespace inputDevice {
   interface DeviceListener {
 
     /**
-     * Device change type, which indicates whether an input device is inserted or removed.
+     * 输入设备插入或者移除。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -188,7 +188,7 @@ declare namespace inputDevice {
     type: ChangedType;
 
     /**
-     * Unique ID of the input device. If a physical device is repeatedly reinstalled or restarted, its ID may change.
+     * 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -198,11 +198,10 @@ declare namespace inputDevice {
   }
 
   /**
-   * Enables listening for device hot swap events. When performing this operation, you need to connect to external
-   * devices such as a mouse, keyboard, and touchscreen. This API uses an asynchronous callback to return the result.
+   * 注册监听输入设备的热插拔事件，使用时需连接鼠标、键盘、触摸屏等外部设备。使用callback异步回调。
    *
-   * @param { 'change' } type - Event type. This field has a fixed value of **change**.
-   * @param { Callback<DeviceListener> } listener - Callback used to return the input device hot swap events.
+   * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
+   * @param { Callback<DeviceListener> } listener - 回调函数，返回输入设备热插拔事件。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -222,12 +221,10 @@ declare namespace inputDevice {
   function onChange(listener: Callback<DeviceListener>): void;
 
   /**
-   * Disables listening for device hot swap events. This API is called before the application exits. This API uses an
-   * asynchronous callback to return the result.
+   * 取消监听输入设备的热插拔事件。在应用退出前调用，取消监听。使用callback异步回调。
    *
-   * @param { 'change' } type - Event type. This field has a fixed value of **change**.
-   * @param { Callback<DeviceListener> } listener - Callback to unregister. If this parameter is left unspecified,
-   *     listening for hot swap events of all input devices will be canceled.
+   * @param { 'change' } type - 输入设备的事件类型，固定值为'change'。
+   * @param { Callback<DeviceListener> } listener - 取消监听的回调函数，缺省时取消所有输入设备热插拔事件的监听。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -247,7 +244,7 @@ declare namespace inputDevice {
   function offChange(listener?: Callback<DeviceListener>): void;
 
   /**
-   * Defines the axis range of an input device.
+   * 输入设备的轴信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamic
@@ -256,8 +253,7 @@ declare namespace inputDevice {
   interface AxisRange {
 
     /**
-     * Input sources supported by the input device, including the keyboard, mouse, touchscreen, trackball, touchpad, and
-     * joystick.
+     * 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -266,7 +262,7 @@ declare namespace inputDevice {
     source: SourceType;
 
     /**
-     * Axis type of an input device.
+     * 输入设备的轴类型。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -275,7 +271,7 @@ declare namespace inputDevice {
     axis: AxisType;
 
     /**
-     * Maximum value of the axis.
+     * 轴的最大值。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -284,7 +280,7 @@ declare namespace inputDevice {
     max: int;
 
     /**
-     * Minimum value of the axis.
+     * 轴的最小值。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -293,7 +289,7 @@ declare namespace inputDevice {
     min: int;
 
     /**
-     * Fuzzy value of the axis.
+     * 轴的模糊值。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -302,7 +298,7 @@ declare namespace inputDevice {
     fuzz: int;
 
     /**
-     * Benchmark value of the axis.
+     * 轴的基准值。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -311,7 +307,7 @@ declare namespace inputDevice {
     flat: int;
 
     /**
-     * Resolution of the axis.
+     * 轴的分辨率。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -321,7 +317,7 @@ declare namespace inputDevice {
   }
 
   /**
-   * Provides information about an input device.
+   * 描述输入设备的信息。
    *
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamic
@@ -330,7 +326,7 @@ declare namespace inputDevice {
   interface InputDeviceData {
 
     /**
-     * Unique ID of the input device. If a physical device is repeatedly plugged and unplugged, its ID may change.
+     * 输入设备的唯一标识，同一个物理设备反复插拔，设备ID可能会发生变化。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -339,7 +335,7 @@ declare namespace inputDevice {
     id: int;
 
     /**
-     * Name of the input device.
+     * 输入设备的名称。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -348,8 +344,7 @@ declare namespace inputDevice {
     name: string;
 
     /**
-     * Input sources supported by the input device, including the keyboard, mouse, touchscreen, trackball, touchpad, and
-     * joystick.
+     * 输入设备的输入能力。包括键盘、鼠标、触摸屏、轨迹球、触控板、操纵杆等。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -358,7 +353,7 @@ declare namespace inputDevice {
     sources: Array<SourceType>;
 
     /**
-     * Axis information of the input device.
+     * 输入设备的轴信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 8 dynamic
@@ -367,7 +362,7 @@ declare namespace inputDevice {
     axisRanges: Array<AxisRange>;
 
     /**
-     * Bus type of the input device. By default, the bus type reported by the input device prevails.
+     * 输入设备的总线类型，该值以输入设备上报为准。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -376,7 +371,7 @@ declare namespace inputDevice {
     bus: int;
 
     /**
-     * Product information of the input device.
+     * 输入设备的产品信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -385,7 +380,7 @@ declare namespace inputDevice {
     product: int;
 
     /**
-     * Vendor information of the input device.
+     * 输入设备的厂商信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -394,7 +389,7 @@ declare namespace inputDevice {
     vendor: int;
 
     /**
-     * Version information of the input device.
+     * 输入设备的版本信息。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -403,7 +398,7 @@ declare namespace inputDevice {
     version: int;
 
     /**
-     * Physical address of the input device.
+     * 输入设备的物理地址。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -412,7 +407,7 @@ declare namespace inputDevice {
     phys: string;
 
     /**
-     * Unique ID of the input device.
+     * 输入设备的唯一标识。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 9 dynamic
@@ -421,10 +416,9 @@ declare namespace inputDevice {
     uniq: string;
 
     /**
-     * Whether the input device is a virtual device.
+     * 输入设备是否为虚拟设备。
      *
-     * The value **true** indicates that the device is a virtual device, and the value **false** indicates that the
-     * device is a non-virtual device.
+     * true表示是虚拟设备，false表示是非虚拟设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 23 dynamic&static
@@ -432,10 +426,9 @@ declare namespace inputDevice {
     isVirtual?: boolean;
 
     /**
-     * Whether the input device is a local device.
+     * 输入设备是否为本地设备。
      *
-     * The value **true** indicates that the device is a local device, and the value **false** indicates that the device
-     * is a non-local device.
+     * true表示是本地设备，false表示是非本地设备。
      *
      * @syscap SystemCapability.MultimodalInput.Input.InputDevice
      * @since 23 dynamic&static
@@ -444,15 +437,11 @@ declare namespace inputDevice {
   }
 
   /**
-   * Obtains the IDs of all input devices. This API uses an asynchronous callback to return the result.
+   * 获取所有输入设备的ID列表，使用callback异步回调。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [inputDevice.getDeviceList]{@link inputDevice.getDeviceList} instead.
+   * > **说明**：
    *
-   * @param { AsyncCallback<Array<number>> } callback - Callback function. If the operation is successful, **err** is
-   *     **undefined**, and **data** is the ID list of all input devices. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Array<number>> } callback - 回调函数。当获取成功，err为undefined，data为所有输入设备的ID列表；否则为错误对象。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -461,15 +450,11 @@ declare namespace inputDevice {
   function getDeviceIds(callback: AsyncCallback<Array<number>>): void;
 
   /**
-   * Obtains the IDs of all input devices. This API uses a promise to return the result.
+   * 获取所有输入设备的ID列表，使用Promise异步回调。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [inputDevice.getDeviceList]{@link inputDevice.getDeviceList} instead.
+   * > **说明**：
    *
-   * @returns { Promise<Array<number>> } Promise used to return the IDs of all input devices. **id** is the unique ID of
-   *     an input device.
+   * @returns { Promise<Array<number>> } Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -478,18 +463,12 @@ declare namespace inputDevice {
   function getDeviceIds(): Promise<Array<number>>;
 
   /**
-   * Obtains the information about the input device with the specified ID. This API uses an asynchronous callback to
-   * return the result.
+   * 获取指定id的输入设备信息，使用callback异步回调。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [inputDevice.getDeviceInfo]{@link inputDevice.getDeviceInfo} instead.
+   * > **说明**：
    *
-   * @param { number } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { AsyncCallback<InputDeviceData> } callback - Callback function. If the retrieval is successful, **err** is
-   *     **undefined**, and **data** is the input device information. Otherwise, **err** is an error object.
+   * @param { number } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { AsyncCallback<InputDeviceData> } callback - 回调函数。当获取成功，err为undefined，data为输入设备信息；否则为错误对象。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -498,17 +477,12 @@ declare namespace inputDevice {
   function getDevice(deviceId: number, callback: AsyncCallback<InputDeviceData>): void;
 
   /**
-   * Obtains the information about the input device with the specified ID. This API uses a promise to return the result.
+   * 获取指定id的输入设备信息，使用Promise异步回调。
    *
-   * > **NOTE**
-   * >
-   * > This API is supported since API version 8 and deprecated since API version 9. Use
-   * > [inputDevice.getDeviceInfo]{@link inputDevice.getDeviceInfo} instead.
+   * > **说明**：
    *
-   * @param { number } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @returns { Promise<InputDeviceData> } Promise used to return information about the input device, including device
-   *     ID, name, supported source, physical address, version information, and product information.
+   * @param { number } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @returns { Promise<InputDeviceData> } Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 8 dynamiconly
    * @deprecated since 9
@@ -517,11 +491,9 @@ declare namespace inputDevice {
   function getDevice(deviceId: number): Promise<InputDeviceData>;
 
   /**
-   * Obtains the IDs of all input devices. This API uses an asynchronous callback to return the result.
+   * 获取所有输入设备的ID列表，使用callback异步回调。
    *
-   * @param { AsyncCallback<Array<int>> } callback - Callback function. If the operation is successful, **err** is
-   *     **undefined**, and **data** is the ID list of all input devices (the ID is the unique identifier of an input
-   *     device). Otherwise, **err** is an error object.
+   * @param { AsyncCallback<Array<int>> } callback - 回调函数。当获取成功，err为undefined，data为所有输入设备的ID列表（ID是输入设备的唯一标识）；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -531,10 +503,9 @@ declare namespace inputDevice {
   function getDeviceList(callback: AsyncCallback<Array<int>>): void;
 
   /**
-   * Obtains the IDs of all input devices. This API uses a promise to return the result.
+   * 获取所有输入设备的ID列表，使用Promise异步回调。
    *
-   * @returns { Promise<Array<int>> } Promise used to return the IDs of all input devices. The ID is the unique ID of an
-   *     input device.
+   * @returns { Promise<Array<int>> } Promise对象，返回所有输入设备的ID列表。ID是输入设备的唯一标识。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 9 dynamic
    * @since 23 static
@@ -542,13 +513,11 @@ declare namespace inputDevice {
   function getDeviceList(): Promise<Array<int>>;
 
   /**
-   * Obtains information about the specified input device. This API uses an asynchronous callback to return the result.
+   * 获取指定输入设备的信息，使用callback异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { AsyncCallback<InputDeviceData> } callback - Callback function. If the retrieval is successful, **err** is
-   *     **undefined**, and **data** is the input device information (including the device ID, name, supported input
-   *     capabilities). Otherwise, **err** is an error object.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { AsyncCallback<InputDeviceData> } callback - 回调函数。当获取成功，err为undefined，data为输入设备信息（包括输入设备ID、名称、支持的输入能力等）；否则为
+   *     错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -558,12 +527,10 @@ declare namespace inputDevice {
   function getDeviceInfo(deviceId: int, callback: AsyncCallback<InputDeviceData>): void;
 
   /**
-   * Obtains the information about the input device with the specified ID. This API uses a promise to return the result.
+   * 获取指定id的输入设备信息，使用Promise异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @returns { Promise<InputDeviceData> } Promise used to return information about the input device, including device
-   *     ID, name, supported source, physical address, version information, and product information.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @returns { Promise<InputDeviceData> } Promise对象，返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -573,12 +540,10 @@ declare namespace inputDevice {
   function getDeviceInfo(deviceId: int): Promise<InputDeviceData>;
 
   /**
-   * Obtains information about the specified input device.
+   * 获取指定输入设备的信息。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @returns { InputDeviceData } Information about the input device, including the device ID, name, supported source,
-   *     physical address, version information, and product information.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @returns { InputDeviceData } 返回输入设备信息，包括输入设备ID、名称、支持的输入能力、物理地址、版本信息及产品信息等。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -588,16 +553,12 @@ declare namespace inputDevice {
   function getDeviceInfoSync(deviceId: int): InputDeviceData;
 
   /**
-   * Queries whether a specified input device supports specified keys. This API uses an asynchronous callback to return
-   * the result.
+   * 查询指定输入设备是否支持指定按键，使用callback异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { Array<KeyCode> } keys - Keys to be queried. A maximum of five keys can be specified.
-   * @param { AsyncCallback<Array<boolean>> } callback - Callback function. If the query is successful, **err** is
-   *     **undefined**, and **data** is the key support query result (elements in the array correspond one-to-one to
-   *     those in **keys**; **true** indicates supported, and **false** indicates not supported). Otherwise, **err** is
-   *     an error object.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { Array<KeyCode> } keys - 需要查询的键值，最多支持5个按键查询。
+   * @param { AsyncCallback<Array<boolean>> } callback - 回调函数。当查询成功，err为undefined，data为按键支持查询结果（数组元素与keys参数一一对应，true表示支
+   *     持，false表示不支持）；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -607,13 +568,11 @@ declare namespace inputDevice {
   function supportKeys(deviceId: int, keys: Array<KeyCode>, callback: AsyncCallback<Array<boolean>>): void;
 
   /**
-   * Checks whether the input device supports the specified keys. This API uses a promise to return the result.
+   * 查询指定输入设备是否支持指定按键，使用Promise异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { Array<KeyCode> } keys - Keys to be queried. A maximum of five keys can be specified.
-   * @returns { Promise<Array<boolean>> } Promise object, returning the query result. true indicates supported, false
-   *     indicates not supported.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { Array<KeyCode> } keys - 需要查询的键值，最多支持查询5个按键。
+   * @returns { Promise<Array<boolean>> } Promise对象，返回查询结果。true表示支持，false表示不支持。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -623,13 +582,11 @@ declare namespace inputDevice {
   function supportKeys(deviceId: int, keys: Array<KeyCode>): Promise<Array<boolean>>;
 
   /**
-   * Checks whether the input device supports the specified keys.
+   * 查询指定id的输入设备对指定键值的支持情况。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { Array<KeyCode> } keys - Keys to be queried. A maximum of five keys can be specified.
-   * @returns { Array<boolean> } Result indicating whether the input device supports the keycode value. The value
-   *     **true** indicates yes, and the value **false** indicates no.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { Array<KeyCode> } keys - 需要查询的键值，最多支持查询5个按键。
+   * @returns { Array<boolean> } 返回查询结果。true表示支持，false表示不支持。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -639,14 +596,10 @@ declare namespace inputDevice {
   function supportKeysSync(deviceId: int, keys: Array<KeyCode>): Array<boolean>;
 
   /**
-   * Obtains the keyboard type of the input device, such as full keyboard and numeric keypad. The keyboard type of the
-   * input device is subject to the result returned by this API. This API uses an asynchronous callback to return the
-   * result.
+   * 获取输入设备的键盘类型，如全键盘、小键盘等。输入设备的键盘类型以接口返回结果为准。使用callback异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { AsyncCallback<KeyboardType> } callback - Callback function. If the query is successful, **err** is
-   *     **undefined**, and **data** is the keyboard type of the input device. Otherwise, **err** is an error object.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { AsyncCallback<KeyboardType> } callback - 回调函数。当查询成功，err为undefined，data为输入设备的键盘类型；否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -656,11 +609,10 @@ declare namespace inputDevice {
   function getKeyboardType(deviceId: int, callback: AsyncCallback<KeyboardType>): void;
 
   /**
-   * Obtains the keyboard type of an input device. This API uses a promise to return the result.
+   * 获取输入设备的键盘类型，使用Promise异步回调。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @returns { Promise<KeyboardType> } Promise used to return the keyboard type of the input device.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @returns { Promise<KeyboardType> } Promise对象，返回输入设备的键盘类型。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -670,11 +622,10 @@ declare namespace inputDevice {
   function getKeyboardType(deviceId: int): Promise<KeyboardType>;
 
   /**
-   * Obtains the keyboard type of the input device.
+   * 获取输入设备的键盘类型。
    *
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @returns { KeyboardType } Keyboard type.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @returns { KeyboardType } 返回查询结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
@@ -684,12 +635,10 @@ declare namespace inputDevice {
   function getKeyboardTypeSync(deviceId: int): KeyboardType;
 
   /**
-   * Sets the keyboard repeat delay. This API uses an asynchronous callback to return the result.
+   * 设置键盘按键的重复时延，使用callback异步回调。
    *
-   * @param { int } delay - Keyboard repeat delay, in ms. The value range is [300, 1000] and the default value is
-   *     **500**.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { int } delay - 键盘按键重复延迟时间，默认值500ms，调节范围[300ms，1000ms]。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复延迟时间成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -701,11 +650,10 @@ declare namespace inputDevice {
   function setKeyboardRepeatDelay(delay: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the keyboard repeat delay. This API uses a promise to return the result.
+   * 设置键盘按键的重复时延，使用Promise异步回调。
    *
-   * @param { int } delay - Keyboard repeat delay, in ms. The value range is [300, 1000] and the default value is
-   *     **500**.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } delay - 键盘按键重复延迟时间，默认值500ms，调节范围[300ms，1000ms]。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -717,10 +665,9 @@ declare namespace inputDevice {
   function setKeyboardRepeatDelay(delay: int): Promise<void>;
 
   /**
-   * Obtains the keyboard repeat delay. This API uses an asynchronous callback to return the result.
+   * 获取键盘按键的重复时延，使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**, and **data** is the keyboard repeat rate. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<int> } callback - 回调函数。当获取成功，err为undefined，data为键盘按键重复延迟时间；否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -732,9 +679,9 @@ declare namespace inputDevice {
   function getKeyboardRepeatDelay(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the keyboard repeat delay. This API uses a promise to return the result.
+   * 获取键盘按键的重复时延，使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the keyboard repeat delay.
+   * @returns { Promise<int> } Promise对象，返回键盘按键的重复时延。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -746,11 +693,10 @@ declare namespace inputDevice {
   function getKeyboardRepeatDelay(): Promise<int>;
 
   /**
-   * Sets the keyboard repeat rate. This API uses an asynchronous callback to return the result.
+   * 设置键盘按键的重复速率，使用callback异步回调。
    *
-   * @param { int } rate - Keyboard repeat rate, in ms/time. The value range is [36, 100] and the default value is 50.
-   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**. Otherwise, **err** is an error object.
+   * @param { int } rate - 键盘按键重复速率，默认值50ms/次，调节范围[36ms/次，100ms/次]。
+   * @param { AsyncCallback<void> } callback - 回调函数。当设置键盘按键重复速率成功，err为undefined，否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -762,10 +708,10 @@ declare namespace inputDevice {
   function setKeyboardRepeatRate(rate: int, callback: AsyncCallback<void>): void;
 
   /**
-   * Sets the keyboard repeat rate. This API uses a promise to return the result.
+   * 设置键盘按键的重复速率，使用Promise异步回调。
    *
-   * @param { int } rate - Keyboard repeat rate, in ms/time. The value range is [36, 100] and the default value is 50.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } rate - 键盘按键重复速率，默认值50ms/次，调节范围[36ms/次，100ms/次]。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -777,10 +723,9 @@ declare namespace inputDevice {
   function setKeyboardRepeatRate(rate: int): Promise<void>;
 
   /**
-   * Obtains the keyboard repeat rate. This API uses an asynchronous callback to return the result.
+   * 获取键盘按键的重复速率，使用callback异步回调。
    *
-   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the operation is successful,
-   *     **err** is **undefined**, and **data** is the keyboard repeat rate. Otherwise, **err** is an error object.
+   * @param { AsyncCallback<int> } callback - 回调函数。当获取成功，err为undefined，data为键盘按键的重复速率；否则为错误对象。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -792,9 +737,9 @@ declare namespace inputDevice {
   function getKeyboardRepeatRate(callback: AsyncCallback<int>): void;
 
   /**
-   * Obtains the keyboard repeat rate. This API uses a promise to return the result.
+   * 获取键盘按键的重复速率，使用Promise异步回调。
    *
-   * @returns { Promise<int> } Promise used to return the keyboard repeat rate.
+   * @returns { Promise<int> } Promise对象，返回键盘按键的重复速率。
    * @throws { BusinessError } 202 - SystemAPI permission error.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -806,11 +751,9 @@ declare namespace inputDevice {
   function getKeyboardRepeatRate(): Promise<int>;
 
   /**
-   * Obtains the interval (including the device sleep time) elapsed since the last system input event. This API uses a
-   * promise to return the result.
+   * 获取距离上次系统输入事件的时间间隔（包含设备休眠时间），使用Promise异步回调。
    *
-   * @returns { Promise<long> } Promise used to return the time elapsed since the last system input event, in
-   *     microseconds (μs).
+   * @returns { Promise<long> } Promise对象，返回距离上次系统输入事件的时间间隔，单位为微秒（μs）。
    * @syscap SystemCapability.MultimodalInput.Input.InputDevice
    * @since 14 dynamic
    * @since 23 static
@@ -818,16 +761,12 @@ declare namespace inputDevice {
   function getIntervalSinceLastInput(): Promise<long>;
 
   /**
-   * Sets the input switch status of an input device. Take the touchscreen as an example. If the input switch is off,
-   * the touchscreen does not respond when being touched. If the input switch is on, the touchscreen wakes up when being
-   * touched. This API uses a promise to return the result.
+   * 设置输入设备的开关状态。以触摸屏为例：关闭时，点击触摸屏设备不响应；开启时，可正常操作触摸屏。使用Promise异步回调。
    *
    * @permission ohos.permission.INPUT_DEVICE_CONTROLLER
-   * @param { int } deviceId - Unique ID of the input device. If a physical device is repeatedly reinstalled or
-   *     restarted, its ID may change.
-   * @param { boolean } enabled - Switch status of the input device. The value **true** indicates that the input device
-   *     is enabled, and the value **false** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { int } deviceId - 输入设备的唯一标识，同一个物理设备反复插拔或重启，设备ID可能会发生变化。
+   * @param { boolean } enabled - 输入设备的开关状态，取值为true表示开启输入设备，取值为false表示关闭输入设备。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @throws { BusinessError } 202 - Permission verification failed.
@@ -845,14 +784,12 @@ declare namespace inputDevice {
   function setInputDeviceEnabled(deviceId: int, enabled: boolean): Promise<void>;
 
   /**
-   * Specifies whether to enable a function key (for example, **CapsLock**). This API uses a promise to return the
-   * result.
+   * 设置功能键（如：CapsLock键）使能状态。使用Promise异步回调。
    *
    * @permission ohos.permission.INPUT_KEYBOARD_CONTROLLER
-   * @param { FunctionKey } functionKey - Type of the function key.
-   * @param { boolean } enabled - Status of the function key. The value **true** indicates that the function key is
-   *     enabled, and the value **false** indicates the opposite.
-   * @returns { Promise<void> } Promise that returns no value.
+   * @param { FunctionKey } functionKey - 需要设置的功能键类型。
+   * @param { boolean } enabled - 功能键使能状态。取值为true表示使能功能键，取值为false表示不使能功能键。
+   * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
@@ -865,12 +802,10 @@ declare namespace inputDevice {
   function setFunctionKeyEnabled(functionKey: FunctionKey, enabled: boolean): Promise<void>;
 
   /**
-   * Checks whether the specified function key (for example, **CapsLock**) is enabled. This API uses a promise to return
-   * the result.
+   * 检查功能键（如：CapsLock键）是否使能。使用Promise异步回调。
    *
-   * @param { FunctionKey } functionKey - Type of the function key.
-   * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates that the function key
-   *     is enabled, and the value **false** indicates the opposite.
+   * @param { FunctionKey } functionKey - 需要设置的功能键类型。
+   * @returns { Promise<boolean> } Promise对象。返回查询结果，true表示功能键使能，false表示功能键未使能。
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;
    *     <br>2. Incorrect parameter types; 3. Parameter verification failed.
    * @throws { BusinessError } 3900002 - There is currently no keyboard device connected.
