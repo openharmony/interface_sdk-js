@@ -3310,7 +3310,27 @@ declare namespace commonEventManager {
      * @syscap SystemCapability.Notification.CommonEvent
      * @since 23 dynamic&static
      */
-    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED'
+    COMMON_EVENT_LID_STATE_CHANGED = 'usual.event.LID_STATE_CHANGED',
+
+    /**
+     * Indicates that the sandbox application has been installed on the device.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_ADDED = 'usual.event.SANDBOX_BUNDLE_ADDED',
+
+    /**
+     * Indicates that the sandbox application has been uninstalled on the device.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_REMOVED = 'usual.event.SANDBOX_BUNDLE_REMOVED'
   }
 
   /**

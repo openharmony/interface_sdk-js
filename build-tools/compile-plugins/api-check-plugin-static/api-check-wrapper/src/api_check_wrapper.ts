@@ -101,7 +101,7 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
     }
     if (currProgram.peer !== program.peer) {
       const name: string = fileNames.get(currProgram.peer)!;
-      if (globalObject.projectConfig.compileFiles.includes(path.normalize(currProgram.sourceFilePath))) {
+      if (currProgram.isBuiltSimultaneously && globalObject.projectConfig.compileFiles.includes(path.normalize(currProgram.sourceFilePath))) {
         fileCheckCount++;
         curApiCheckWrapper.fileName = currProgram.sourceFilePath;
         curFileCheckModuleInfo.currentFileName = currProgram.fileName;

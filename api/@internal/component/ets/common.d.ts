@@ -608,11 +608,12 @@ declare const Observed: ClassDecorator;
  * Defining ObservedV2 ClassDecorator.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
+ * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 declare const ObservedV2: ClassDecorator;
 
@@ -9952,7 +9953,7 @@ declare interface ClickEvent extends BaseEvent {
    *
    * Unit: vp
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -9968,7 +9969,7 @@ declare interface ClickEvent extends BaseEvent {
    *
    * Unit: vp
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10228,7 +10229,7 @@ declare interface HoverEvent extends BaseEvent {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10243,7 +10244,7 @@ declare interface HoverEvent extends BaseEvent {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10296,7 +10297,7 @@ declare interface MouseEvent extends BaseEvent {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10311,7 +10312,7 @@ declare interface MouseEvent extends BaseEvent {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10813,7 +10814,7 @@ declare interface TouchObject {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -10829,7 +10830,7 @@ declare interface TouchObject {
    *
    * Unit: vp.
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11230,7 +11231,7 @@ declare interface AxisEvent extends BaseEvent {
    *
    * Unit: vp
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -11245,7 +11246,7 @@ declare interface AxisEvent extends BaseEvent {
    *
    * Unit: vp
    *
-   * Value range: [0, +∞).
+   * Value range: (-∞, +∞).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -12319,7 +12320,7 @@ declare interface DragEvent {
    * Obtains the x-coordinate of the drag point relative to the upper left corner of the global screen.
    *
    * @returns { number } X-coordinate of the drag point relative to the upper left corner of the global screen.
-   *     <br>Unit: vp. Value range: [0, +∞)
+   *     <br>Unit: vp. Value range: (-∞, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -12331,7 +12332,7 @@ declare interface DragEvent {
    * Obtains the y-coordinate of the drag point relative to the upper left corner of the global screen.
    *
    * @returns { number } Y-coordinate of the drag point relative to the upper left corner of the global screen.
-   *     <br>Unit: vp. Value range: [0, +∞)
+   *     <br>Unit: vp. Value range: (-∞, +∞)
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice

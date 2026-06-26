@@ -54,8 +54,9 @@ declare namespace formObserver {
    * <p>You can use this method to listen to the event of add form.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running  form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -89,8 +90,9 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo>} observerCallback - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -124,8 +126,9 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
+   *                                                                    form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -157,8 +160,9 @@ declare namespace formObserver {
    * <p>You can use this method to listen to the event of remove form.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -192,8 +196,9 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -226,9 +231,10 @@ declare namespace formObserver {
    * <p>You can use this method to cancel listening to the event of remove form.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -262,7 +268,7 @@ declare namespace formObserver {
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -299,9 +305,10 @@ declare namespace formObserver {
    * <p>You can use this method to listen to the event of notifyVisible type change for a particular card host.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param {string} hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
+   *                                                                         the running form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -309,7 +316,10 @@ declare namespace formObserver {
    * @systemapi
    * @since 23 static
    */
-  function onNotifyVisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
+  function onNotifyVisible(
+    hostBundleName: string,
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>
+  ): void;
 
   /**
    * Listens to the event of notifyInvisible type change.
@@ -335,7 +345,7 @@ declare namespace formObserver {
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -369,13 +379,13 @@ declare namespace formObserver {
 
   /**
    * Listens to the event of notifyInvisible type change.
-   * <p>You can use this method to listen to the event of notifyInvisible type change.</p>
-   * 
+   * <p>You can use this method to listen to the event of notifyInvisible type change for a particular card host.</p>
+   *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param {string} hostBundleName - Indicates the bundle name of the form host application.
+   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
    * @param { Callback<Array<formInfo.RunningFormInfo>> } observerCallback - The callback is used to return
    *                                                                         the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -383,7 +393,10 @@ declare namespace formObserver {
    * @systemapi
    * @since 23 static
    */
-  function onNotifyInvisible(hostBundleName: string, observerCallback: Callback<Array<formInfo.RunningFormInfo>>): void;
+  function onNotifyInvisible(
+    hostBundleName: string,
+    observerCallback: Callback<Array<formInfo.RunningFormInfo>>
+  ): void;
 
   /**
    * Cancels listening to the event of notifyVisible type change.
@@ -413,8 +426,9 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
+   *                                                                  the running form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -422,7 +436,10 @@ declare namespace formObserver {
    * @systemapi
    * @since 23 static
    */
-  function offNotifyVisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
+  function offNotifyVisible(
+    hostBundleName?: string,
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>
+  ): void;
 
   /**
    * Cancels listening to the event of notifyInvisible type change.
@@ -452,8 +469,9 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
-   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return the running form info.
-   * @throws { BusinessError } 201 - Permission denied.
+   * @param { Callback<Array<formInfo.RunningFormInfo>> } [observerCallback] - The callback is used to return
+   *                                                                         the running form info.
+   * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -461,7 +479,10 @@ declare namespace formObserver {
    * @systemapi
    * @since 23 static
    */
-  function offNotifyInvisible(hostBundleName?: string, observerCallback?: Callback<Array<formInfo.RunningFormInfo>>): void;
+  function offNotifyInvisible(
+    hostBundleName?: string,
+    observerCallback?: Callback<Array<formInfo.RunningFormInfo>>
+  ): void;
 
   /**
    * Obtains the RunningFormInfo objects provided by a specific card host application on the device.
@@ -709,7 +730,8 @@ declare namespace formObserver {
    * <p>This interface requires permission to receive callback.</p>
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -744,7 +766,8 @@ declare namespace formObserver {
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
    * @param { string } hostBundleName - Indicates the bundle name of the form host application.
-   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running form info.
+   * @param { Callback<formInfo.RunningFormInfo> } observerCallback - The callback is used to return the running
+   *                                                                  form info.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -984,7 +1007,7 @@ declare namespace formObserver {
    * Unregister form call event Listening.
    *
    * @permission ohos.permission.OBSERVE_FORM_RUNNING
-   * @param { string } hostBundleName - Indicates the bundle name of the form host application.
+   * @param { string } [hostBundleName] - Indicates the bundle name of the form host application.
    * @param { Callback<formInfo.RunningFormInfo> } [observerCallback] - The callback is used to return the running
    *                                                                    form info.
    * @throws { BusinessError } 201 - Permissions denied.

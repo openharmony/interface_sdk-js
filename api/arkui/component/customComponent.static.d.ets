@@ -259,7 +259,6 @@ export declare enum ReusableMemOptStrategy {
 /**
  * Defines the options of Custom Component.
  *
- * @interface CustomComponentBaseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -489,18 +488,6 @@ export declare abstract class CustomComponent<T extends CustomComponent<T, T_Opt
      * @since 23 static
      */
     aboutToReuse(params: ReuseObject): void;
-
-  /**
-   * ReInitialize @Consume variable.
-   *
-   * @param { string } alias - @Consume alias.
-   * @param { string } varName - variable name.
-   * @param { T } [defaultValue] - default value.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  reInitializeConsume<T>(alias: string, varName: string, defaultValue?: T): void;
 }
 
 /**
@@ -682,7 +669,6 @@ export interface LayoutCallbacks {
 /**
  * Defining interface for _invokeImpl options.
  *
- * @typedef CustomComponentInvokeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 24 static

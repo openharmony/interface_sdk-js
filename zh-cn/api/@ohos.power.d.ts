@@ -290,7 +290,7 @@ declare namespace power {
    * 按场景名称查询电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型且最大长度128字节。
+   * @param { string } sceneName - 电源配置的场景名称。最大长度128字节。
    * @returns { string } 返回电源配置值。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -311,8 +311,8 @@ declare namespace power {
    * 根据场景名称设置电源配置值。
    *
    * @permission ohos.permission.POWER_CONFIG
-   * @param { string } sceneName - 表示电源配置的场景名称。sceneName参数必须是字符串类型且最大长度128字节；
-   * @param { string } value - 表示电源配置值。value参数必须是字符串类型且最大长度128字节。
+   * @param { string } sceneName - 电源配置的场景名称。最大长度128字节。
+   * @param { string } value - 电源配置值。最大长度128字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.

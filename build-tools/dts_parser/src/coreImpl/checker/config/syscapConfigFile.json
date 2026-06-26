@@ -187,7 +187,6 @@
     "SystemCapability.FileManagement.File.FileIO",
     "SystemCapability.FileManagement.File.FileIO.Lite",
     "SystemCapability.FileManagement.File.Environment",
-    "SystemCapability.FileManagement.File.DistributedFile",
     "SystemCapability.FileManagement.File.Environment.FolderObtain",
     "SystemCapability.FileManagement.AppFileService",
     "SystemCapability.FileManagement.AppFileService.FolderAuthorization",

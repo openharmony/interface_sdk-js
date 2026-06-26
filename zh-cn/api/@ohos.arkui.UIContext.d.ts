@@ -5036,18 +5036,9 @@ export class UIContext {
    * @returns { FocusController } 焦点控制器
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 22]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * 获取焦点控制器。
-   *
-   * @returns { FocusController } 焦点控制器
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
    */
   getFocusController(): FocusController;
 

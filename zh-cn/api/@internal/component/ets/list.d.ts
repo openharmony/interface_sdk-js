@@ -760,7 +760,7 @@ interface ListOptions {
    * <br/>**说明：**
    * <br/>设置为负数或者大于等于List内容区长度时，按默认值显示。
    * <br/>space参数值小于List分割线宽度时，子组件主轴方向的间隔取分割线宽度。
-   * <br/> List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。<br/>
+   * <br/>List子组件的visibility属性设置为None时不显示，但该子组件上下的space还是会生效。<br/>
    *
    * @default 0 [since 18]
    * @syscap SystemCapability.ArkUI.ArkUI.Full

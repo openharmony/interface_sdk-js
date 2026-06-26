@@ -25,7 +25,7 @@ export interface PerformanceMonitorConfig {
   reportThreshold: number;    // 报告阈值(ms)，超过此阈值才记录
   reportSummary: boolean;     // 是否报告汇总信息
   reportToConsole: boolean;   // 是否同时输出到控制台
-  outputDir: string;          // 报告输出目录
+  outputDir?: string;          // 报告输出目录，未指定时回退到 __dirname
 }
 
 /**
@@ -37,8 +37,14 @@ export const PERF_MONITOR_CONFIG: PerformanceMonitorConfig = {
   reportThreshold: 0,
   reportSummary: true,
   reportToConsole: false,
-  outputDir: 'D://'
+  outputDir: undefined        // 默认 undefined，使用时由 getOutputDir() 回退到 __dirname
 };
+
+/**
+ * 插件总开关：是否执行 api-check 插件校验。
+ * 默认 true 执行；测试时设为 false，index 入口回调将直接返回，整个插件不执行。
+ */
+export const API_CHECK_PLUGIN_ENABLED = true;
 
 /**
  * 单个打点的原始统计数据
@@ -85,26 +91,24 @@ export class PerformanceMonitor {
   private globalStart: number;
 
   constructor(config?: Partial<PerformanceMonitorConfig>) {
-    const getCwd = (): string => {
-      try {
-        type GlobalWithProcess = typeof globalThis & { process?: { cwd?: () => string } };
-        return (globalThis as GlobalWithProcess).process?.cwd?.() || '.';
-      } catch {
-        return '.';
-      }
-    };
-
     this.config = {
       enabled: config?.enabled ?? false,
       includeDebugLogs: config?.includeDebugLogs ?? false,
       reportThreshold: config?.reportThreshold ?? 0,
       reportSummary: config?.reportSummary ?? true,
       reportToConsole: config?.reportToConsole ?? false,
-      outputDir: config?.outputDir ?? getCwd()
+      outputDir: config?.outputDir
     };
     this.stats = new Map();
     this.callStack = [];
     this.globalStart = 0;
+  }
+
+  /**
+   * 获取报告输出目录：未指定（undefined）时回退到当前文件所在目录 __dirname
+   */
+  getOutputDir(): string {
+    return this.config.outputDir ?? __dirname;
   }
 
   enable(): void { this.config.enabled = true; }
@@ -398,7 +402,7 @@ export class PerformanceMonitor {
     // 追加写入按日期命名的文件
     try {
       const fileName = `api-check-perf-${dateStr}.log`;
-      const filePath = path.join(this.config.outputDir, fileName);
+      const filePath = path.join(this.getOutputDir(), fileName);
       fs.appendFileSync(filePath, reportContent + '\n', 'utf-8');
       console.log(`[API_CHECK_PERF] Report appended to: ${filePath}`);
     } catch (e) {
@@ -414,7 +418,7 @@ export class PerformanceMonitor {
     try {
       const dateStr = new Date().toISOString().slice(0, 10);
       const fileName = `api-check-perf-${dateStr}.log`;
-      const filePath = path.join(this.config.outputDir, fileName);
+      const filePath = path.join(this.getOutputDir(), fileName);
       if (fs.existsSync(filePath)) {
         const content = fs.readFileSync(filePath, 'utf-8');
         // 检查最后500个字符中是否有跳过标记
@@ -433,7 +437,7 @@ export class PerformanceMonitor {
   private getPreviousTotalTime(): number {
     try {
       const dateStr = new Date().toISOString().slice(0, 10);
-      const filePath = path.join(this.config.outputDir, `api-check-perf-${dateStr}.log`);
+      const filePath = path.join(this.getOutputDir(), `api-check-perf-${dateStr}.log`);
       if (!fs.existsSync(filePath)) {return 0;}
 
       const content = fs.readFileSync(filePath, 'utf-8');
@@ -459,7 +463,7 @@ export class PerformanceMonitor {
 
     try {
       const dateStr = new Date().toISOString().slice(0, 10);
-      const filePath = path.join(this.config.outputDir, `api-check-perf-${dateStr}.log`);
+      const filePath = path.join(this.getOutputDir(), `api-check-perf-${dateStr}.log`);
       if (!fs.existsSync(filePath)) {return accumulated;}
 
       const content = fs.readFileSync(filePath, 'utf-8');

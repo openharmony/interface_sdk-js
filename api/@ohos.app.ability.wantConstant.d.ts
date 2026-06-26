@@ -551,6 +551,24 @@ declare namespace wantConstant {
      */
     EMBEDDED_HALF = 2
   }
+
+  /**
+   * Enumerates the action constants of the Want object. **action** specifies the operation to execute.
+   *
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export enum Action {
+    /**
+     * Action of launching the UI for sending a message to a specified recipient.
+     *
+     * @syscap SystemCapability.Ability.AbilityBase
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    ACTION_SEND_TO_DATA = 'ohos.want.action.sendToData'
+  }
 }
 
 export default wantConstant;
