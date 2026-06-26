@@ -1149,8 +1149,9 @@ declare namespace i18n {
     static convertCanonicalLocaleIdentifier(locale: string): string;
 
     /**
-     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and LTR (left-to-right).
-     * NOTE: The setting does not take effect within strong characters (characters with an intrinsic, unambiguous writing direction).
+     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and
+     * LTR (left-to-right). NOTE: The setting does not take effect within strong characters (characters
+     *  with an intrinsic, unambiguous writing direction).
      *
      * @param { string } text - Text for which the direction needs to be set.
      * @param { 'RTL' | 'LTR' } direction - The value can be "RTL" or "LTR".
@@ -1349,7 +1350,8 @@ declare namespace i18n {
     /**
      * Sets the date and time for a **Calendar** object based on the input timestamp.
      *
-     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the Unix epoch.
+     * @param { double } time - Unix timestamp, which indicates the number of milliseconds
+     *     that have elapsed since the Unix epoch.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -2453,8 +2455,9 @@ declare namespace i18n {
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the default time zone object used by an application. If the default time zone has been set by calling setAppDefaultTimeZoneById,
-     * the default time zone object is returned. Otherwise, the system time zone object is returned.
+     * Obtains the default time zone object used by an application.
+     * If the default time zone has been set by calling setAppDefaultTimeZoneById, the default time zone object
+     * is returned. Otherwise, the system time zone object is returned.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
      * @syscap SystemCapability.Global.I18n
@@ -4322,7 +4325,8 @@ declare namespace i18n {
     /**
      * A constructor used to create a ISO8601DateTimeFormat object.
      *
-     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object that complies with ISO 8601.
+     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object
+     *     that complies with ISO 8601.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice

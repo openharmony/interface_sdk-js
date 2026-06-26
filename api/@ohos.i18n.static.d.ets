@@ -239,6 +239,7 @@ declare namespace i18n {
      * @param { string } language - Valid ID of the language to be added as a preferred language.
      * @param { int } [index] - Position to which the preferred language is added. The default value is the length
      *     of the preferred language list.
+     *     <br>The value should be an integer.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -257,6 +258,7 @@ declare namespace i18n {
      *
      * @permission ohos.permission.UPDATE_CONFIGURATION
      * @param { int } index - Position of the preferred language to delete.
+     *     <br>The value should be an integer.
      * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
      *     required to call the API.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
@@ -790,6 +792,7 @@ declare namespace i18n {
      * Obtains the localized expression of the specified time in the specified locale.
      *
      * @param { int } hour - Specified time, for example, 16.
+     *     <br>The value should be an integer.
      * @param { string } [locale] - System locale, which consists of the language, script, and country/region. for
      *     example, "zh-Hans-CN". The default value is the current system locale.
      * @returns { string } Localized expression of the specified time in the specified locale.
@@ -887,8 +890,9 @@ declare namespace i18n {
     static convertCanonicalLocaleIdentifier(locale: string): string;
 
     /**
-     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and LTR (left-to-right).
-     * Note: The setting does not take effect within strong characters (characters with an intrinsic, unambiguous writing direction).
+     * Sets the text direction for certain text within a paragraph, including RTL (right-to-left) and
+     * LTR (left-to-right).Note: The setting does not take effect within strong characters (characters with
+     * an intrinsic, unambiguous writing direction).
      *
      * @param { string } text - Input characters need to set direction.
      * @param { 'RTL' | 'LTR' } direction - The value can be "RTL" or "LTR".
@@ -1058,7 +1062,8 @@ declare namespace i18n {
     /**
      * Sets the date and time for a Calendar object.
      *
-     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that have elapsed since the Unix epoch.
+     * @param { double } time - Unix timestamp, which indicates the number of milliseconds that
+     *     have elapsed since the Unix epoch.
      * @syscap SystemCapability.Global.I18n
      * @crossplatform
      * @atomicservice
@@ -1312,6 +1317,7 @@ declare namespace i18n {
      * @param { int } [index] - Number of line break points for moving the break iterator. The value is an integer.
      *                             A positive number means to move the break iterator backward, and a negative number
      *     means to move the break iterator forward. The default value is 1.
+     *     <br>The value should be an integer.
      * @returns { int } Position of the break iterator in the text after movement. The value -1 is returned if the
      *     position of the break iterator is outside of the processed text after movement.
      * @syscap SystemCapability.Global.I18n
@@ -1348,6 +1354,7 @@ declare namespace i18n {
      * Moves the line break iterator to the line break point after the specified position.
      *
      * @param { int } offset - Offset of the line break point.
+     *     <br>The value should be an integer.
      * @returns { int } Position of the break iterator in the text after movement. The value -1 is returned if the
      *     position of the break iterator is outside of the processed text after movement.
      * @syscap SystemCapability.Global.I18n
@@ -1372,6 +1379,7 @@ declare namespace i18n {
      * Checks whether the specified position is a line break point.
      *
      * @param { int } offset - Specified position in the text.
+     *     <br>The value should be an integer.
      * @returns { boolean } Whether the specified position is a line break point. The value "true" indicates that the
      *                      specified position is a line break point, and the value "false" indicates the opposite.
      *                      If true is returned, the break iterator is moved to the position specified by offset.
@@ -1791,7 +1799,8 @@ declare namespace i18n {
     static setAppDefaultTimeZoneById(zoneID: string): void;
 
     /**
-     * Obtains the default time zone object used by an application. If the default time zone has been set by calling setAppDefaultTimeZoneById,
+     * Obtains the default time zone object used by an application. If the default time zone has been
+     * set by calling setAppDefaultTimeZoneById,
      * the default time zone object is returned. Otherwise, the system time zone object is returned.
      *
      * @returns { TimeZone } TimeZone object, first set by application, then system time zone, last GMT time zone.
@@ -2158,6 +2167,7 @@ declare namespace i18n {
 
     /**
      * Offset of the time zone ID.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
@@ -2176,6 +2186,7 @@ declare namespace i18n {
 
     /**
      * Fixed offset of the time zone ID.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @systemapi
@@ -2269,6 +2280,7 @@ declare namespace i18n {
 
     /**
      * Year of the holiday.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
@@ -2279,6 +2291,7 @@ declare namespace i18n {
 
     /**
      * Month of the holiday.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
@@ -2289,6 +2302,7 @@ declare namespace i18n {
 
     /**
      * Day of the holiday.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
@@ -2379,7 +2393,8 @@ declare namespace i18n {
     /**
      * Obtains the holiday information list of the specified year.
      *
-     * @param { int } [year] - Specified year, for example, 2023.<br>The default value is the current year.
+     * @param { int } [year] - <br>The value should be an integer.
+     *     - Specified year, for example, 2023.<br>The default value is the current year.
      * @returns { Array<HolidayInfoItem> } Holiday information list.
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified;
      *     2.Incorrect parameter types.
@@ -2403,6 +2418,7 @@ declare namespace i18n {
   export interface EntityInfoItem {  
     /**
      * Start position of the entity in the input string.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
@@ -2413,6 +2429,7 @@ declare namespace i18n {
 
     /**
      * End position of the entity the input string.
+     * The value should be an integer.
      *
      * @syscap SystemCapability.Global.I18n
      * @crossplatform [since 24]
@@ -3386,8 +3403,8 @@ declare namespace i18n {
     /**
      * A constructor used to create a ISO8601DateTimeFormat object.
      *
-     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object that complies with ISO 8601.
-     *     Default format is yyyy-MM-ddThh:mm:ssZZZZZ.
+     * @param { ISO8601DateTimeFormatOptions } [options] - Options for creating a date formatting object that
+     *     complies with ISO 8601. Default format is yyyy-MM-ddThh:mm:ssZZZZZ.
      * @syscap SystemCapability.Global.I18n
      * @stagemodelonly
      * @atomicservice
