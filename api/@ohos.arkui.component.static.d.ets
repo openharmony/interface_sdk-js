@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 Huawei Device Co., Ltd.
+ * Copyright (C) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -155,6 +155,14 @@ export * from './arkui/component/unionEffectContainer';
 export * from './arkui/component/uiPickerComponent';
 export * from './arkui/component/dynamicComponent';
 export * from './arkui/component/securityUIExtensionComponent';
+export {
+ 	     SecurityDpiFollowStrategy,
+ 	     SecurityUIExtensionOptions,
+ 	     SecurityUIExtensionProxy,
+ 	     SecurityUIExtensionComponentAttribute,
+ 	     SecurityUIExtensionComponent
+ 	 } from './arkui/component/securityUIExtensionComponent';
+export { ReceiveCallback } from './arkui/component/uiExtensionComponent';
 
 // Many xts-acts tests rely on the following bindings from 'component': 
 export * from './arkui/ComponentContent';

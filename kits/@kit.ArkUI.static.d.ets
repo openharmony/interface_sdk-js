@@ -1,6 +1,6 @@
 'use static'
 /*
- * Copyright (c) 2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2025-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -61,6 +61,8 @@ export * from '@ohos.arkui.advanced.ChipGroupV2';
 export * from '@ohos.arkui.advanced.SegmentButtonV2';
 export * from '@ohos.arkui.components.ArkLazyWaterFlowLayout';
 export * from '@ohos.arkui.components.ArkLazyColumnLayout';
+export { AccessibilityOptions, IconOptions } from '@ohos.arkui.component';
+
 export { GETINSPECTORBYKEY as getInspectorByKey, GETINSPECTORTREE as getInspectorTree , SENDEVENTBYKEY as sendEventByKey } from '@ohos.arkui.inspector';
 
 export { window, display, screen, screenshot, uiExtensionHost };

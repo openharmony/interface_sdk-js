@@ -605,17 +605,6 @@ declare interface TabBarOptions {
    * @since 7 dynamic
    */
   text?: string | Resource;
-
-  /**
-   * TabBar badge.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  badge?: BadgeParamWithNumber | BadgeParamWithString;
 }
 
 /**
