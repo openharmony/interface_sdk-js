@@ -289,9 +289,10 @@ declare namespace certificateManagerDialog {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - 表示应用的上下文信息。
-   * @param { CertificateType } certType - 表示安装证书类型，目前仅支持CA_CERT、CREDENTIAL_USER、CREDENTIAL_SYSTEM
-   * @param { CertificateScope } certScope - 表示安装证书的使用范围，目前仅支持CURRENT_USER、NOT_SPECIFIED
-   * @param { Uint8Array } cert - 表示安装证书数据。
+   * @param { CertificateType } certType - 表示安装证书类型，目前仅支持CA_CERT、CREDENTIAL_USER、CREDENTIAL_SYSTEM。
+   * @param { CertificateScope } certScope - 表示安装证书的使用范围，目前仅支持CURRENT_USER、NOT_SPECIFIED。
+   * @param { Uint8Array } cert - 表示证书数据，大小不超过8KB。<br>当certType为CA_CERT，应为PEM或DER编码格式的证书数据。<br>当certType为CREDENTIAL_USER或CREDENTIAL_SYSTEM，应为P12编码格式的
+   *     证书凭据数据。
    * @returns { Promise<string> } Promise对象。表示返回证书uri的结果，最大长度为256字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -308,7 +309,7 @@ declare namespace certificateManagerDialog {
    *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
    *     whether the device supports opening the dialog box for installing a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
-   *     device does not allow users to manage the ca certificate of the global user. [since 18]
+   *     device does not allow users to manage the CA certificate of the global user. [since 18]
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 14 dynamic
@@ -324,7 +325,7 @@ declare namespace certificateManagerDialog {
    * @returns { Promise<string> } Promise对象。表示返回授权证书uri的结果，最大长度为256字节。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. A mandatory parameter is left
    *     unspecified.
    *     2. Incorrect parameter type. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - The certificate management application Hap is not preinstalled in the system,
@@ -344,8 +345,8 @@ declare namespace certificateManagerDialog {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - 表示应用的上下文信息。
-   * @param { Uint8Array } cert - 表示安装证书数据。
-   * @param { CertificateDialogProperty } property - 表示打开证书管理对话框的属性
+   * @param { Uint8Array } cert - 表示证书数据。
+   * @param { CertificateDialogProperty } property - 表示打开证书管理对话框的属性。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -370,8 +371,7 @@ declare namespace certificateManagerDialog {
    * @param { common.Context } context - 表示应用的上下文信息。
    * @param { CertificateType } certType - 表示待卸载证书类型，目前仅支持CA_CERT。
    *     <br>目前仅支持CA_CERT类型。
-   * @param { string } certUri - 表示待卸载证书的唯一标识符，
-   *     <br>最大长度为256字节。
+   * @param { string } certUri - 表示待卸载证书的唯一标识符，可通过安装CA证书接口或查询CA证书列表接口获取。
    * @returns { Promise<void> } Promise对象。无返回结果的Promise对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -386,7 +386,7 @@ declare namespace certificateManagerDialog {
    *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
    *     whether the device can open the dialog box for deleting a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
-   *     device does not allow users to manage the ca certificate of the global user.
+   *     device does not allow users to manage the CA certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic

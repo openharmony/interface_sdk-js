@@ -114,7 +114,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
     /**
-     * 表示设备进入坚盾守护模式。
+     * 表示设备进入坚盾守护模式。该模式下CA证书安装操作受限。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -984,7 +984,7 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * 完成验签的操作，使用Callback异步回调。
+   * 完成验签的操作，是验签流程的最后一步，需要先调用init和update接口。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - 表示操作句柄，需先调用init方法获得。
@@ -1024,11 +1024,11 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * 表示中止签名、验签的操作，使用Callback异步回调。
+   * 中止签名、验签的操作。与finish方法互斥，一个签名验签流程只能选择调用其中一个方法。使用Callback异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，
-   *     <br>最大长度为8字节。
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，。
+   *     <br>最大长度为8。
    * @param { AsyncCallback<void> } callback - 回调函数。当中止签名、验签成功时，err为null，否则为错误对象。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -1043,10 +1043,11 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * 表示中止签名、验签的操作。使用Promise异步回调。
+   * 中止签名、验签的操作。与finish方法互斥，一个签名验签流程只能选择调用其中一个方法。使用Promise异步回调。
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，最大长度为8字节。
+   * @param { Uint8Array } handle - 表示初始化操作返回的句柄，。
+   *     <br>最大长度为8。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -1485,7 +1486,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
@@ -1614,8 +1615,7 @@ declare namespace certificateManager {
    */
   export interface CertBlob {
     /**
-     * 表示证书文件数据。
-     * 最大长度为8196且不能为空。
+     * 表示证书文件数据。当certFormat传入PEM_DER，最大长度为8KB。当certFormat传入P7B，最大长度为300KB。
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @stagemodelonly
@@ -1916,7 +1916,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Parameter verification failed.
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
@@ -1948,13 +1948,13 @@ declare namespace certificateManager {
    * 导入证书到USB Key
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - 表示USB key证书凭据的uri.
+   * @param { string } keyUri - 表示USB Key证书凭据的uri.
    *     <br>最大长度为256且不能为空。
    *     <br>keyUri参数用于标识证书实体，可以通过调用[getUkeyCertificateList]{@link certificateManager.getUkeyCertificateList}接口得到。
-   * @param { Uint8Array } cert - 表示待导入的证书数据
+   * @param { Uint8Array } cert - 表示待导入的证书数据。
    *     <br>最大长度为10240且不能为空。
-   *     <br>证书数据格式遵循SKF规范的定义
-   * @param { UkeyInfo } ukeyInfo - 表示USB key证书属性信息
+   *     <br>证书数据格式遵循SKF（Smart Key Framework）规范的定义。
+   * @param { UkeyInfo } ukeyInfo - 表示USB Key证书属性信息。
    *     <br>UkeyInfo.CertificatePurpose只能取值为PURPOSE_SIGN、PURPOSE_ENCRYPT或PURPOSE_DEFAULT。
    * @returns { Promise<void> } Promise对象，无返回结果
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -1962,8 +1962,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyUri does not exist
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
