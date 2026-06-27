@@ -31,12 +31,13 @@
 declare type DrawingCanvas = import('../api/@ohos.graphics.drawing').default.Canvas;
 
 /**
- * Filling style algorithm, which determines whether a point is within or outside the path.
+ * Defines the fill pattern algorithm used to determine whether a point is inside or outside a path. The value type is a
+ * union of the types listed in the table below.
  *
- * @unionmember { "evenodd" } The inside part of a shape is determined based on whether the counting
- *     result is an odd number or not. This rule determines whether a point is inside a shape by casting
- *     a ray from the point on the canvas in any direction and counting the number of intersections between
- *     the ray and the shape path. If the number of intersections is odd, the point is inside the shape.
+ * @unionmember { "evenodd" } The inside part of a shape is determined based on whether the counting result is an odd
+ *     number or not. This rule determines whether a point is inside a shape by casting a ray from the point on the
+ *     canvas in any direction and counting the number of intersections between the ray and the shape path. If the
+ *     number of intersections is odd, the point is inside the shape.
  *     Otherwise, the point is outside the shape.
  * @unionmember { "nonzero" } The inside part of a shape is determined based on whether the counting result
  *     is zero or not. This rule determines whether a point is inside a shape by casting a ray from the
@@ -73,8 +74,8 @@ declare type CanvasFillRule = "evenodd" | "nonzero";
 declare type CanvasLineCap = "butt" | "round" | "square";
 
 /**
- * Sets the attribute of how two connected parts (line segments, arcs, and curves) whose length
- * is not 0 are connected together.
+ * Defines the type of join between two non-zero-length segments (lines, arcs, and curves). The value type is a union of
+ * the types listed in the table below.
  *
  * @unionmember { "bevel" } The intersection is a triangle. The rectangular corner of each line
  *     is independent.
@@ -92,7 +93,7 @@ declare type CanvasLineCap = "butt" | "round" | "square";
 declare type CanvasLineJoin = "bevel" | "miter" | "round";
 
 /**
- * Indicates the attribute of the current text direction.
+ * Defines the current text direction. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "inherit" } Inherits the text direction set in the general attributes of the canvas
  *     component. If the **direction** attribute is not set on the canvas component, the system text
@@ -109,7 +110,7 @@ declare type CanvasLineJoin = "bevel" | "miter" | "round";
 declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 
 /**
- * Describes the alignment mode for drawing text.
+ * Defines the type of text alignment. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "center" } The text is center-aligned.
  * @unionmember { "end" } The text is aligned with the end bound (left alignment refers to the local
@@ -128,7 +129,7 @@ declare type CanvasDirection = "inherit" | "ltr" | "rtl";
 declare type CanvasTextAlign = "center" | "end" | "left" | "right" | "start";
 
 /**
- * Text baseline, which supports the following configurations.
+ * Defines the text baseline type. The value type is a union of the types listed in the table below.
  *
  * @unionmember { "alphabetic" } The text baseline is the normal alphabetic baseline.
  * @unionmember { "bottom" } The text baseline is at the bottom of the text bounding box. Its difference
@@ -349,7 +350,7 @@ declare class CanvasPath {
   arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void;
 
   /**
-   * Creates a path for a cubic Bezier curve.
+   * Draws a cubic Bezier curve on the canvas.
    *
    * @param { number } cp1x - X-coordinate of the first parameter of the Bezier curve.<br>In versions
    *     earlier than API version 18, **NaN** or **Infinity** value prevents the entire path from rendering,
@@ -391,7 +392,9 @@ declare class CanvasPath {
   bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void;
 
   /**
-   * Draws a closed path.
+   * Moves the current point of the path back to the start point of the path, and draws a straight line between the
+   * current point and the start point. If the shape has already been closed or has only one point, this method does
+   * nothing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -485,6 +488,14 @@ declare class CanvasPath {
 
   /**
    * Moves a drawing path from the current position to a target position on the canvas.
+   * > **NOTE**
+   * >
+   * > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
+   * > are passed to it, the path starts from (0,0).
+   * >
+   * > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
+   * > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
+   * > **bezierCurveTo**, or **quadraticCurveTo**.
    *
    * @param { number } x - X-coordinate of the target position.<br>In versions earlier than API version 18,
    *     **NaN** or **Infinity** value prevents the entire path from rendering, and **null** or **undefined**
@@ -496,14 +507,6 @@ declare class CanvasPath {
    *     value causes the current API to have no effect. Since API version 18, **NaN**, **Infinity**, **null**,
    *     or **undefined** causes the current API to have no effect, and other path APIs with valid arguments
    *     continue to render correctly.<br>Default unit: vp
-   *     > **NOTE**
-   *     >
-   *     > In versions earlier than API version 18, if the **moveTo** API is not called or invalid arguments
-   *     > are passed to it, the path starts from (0,0).
-   *     >
-   *     > Starting from API version 18, if the **moveTo** API is not executed or invalid arguments are passed
-   *     > to it, the path will begin at the start point of the first valid call to **lineTo**, **arcTo**,
-   *     > **bezierCurveTo**, or **quadraticCurveTo**.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -1315,7 +1318,7 @@ declare class RenderingContextSettings {
 }
 
 /**
- * Defines the options for rendering context.
+ * Defines the specific configuration parameters for the rendering context.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1860,6 +1863,14 @@ declare class CanvasRenderer extends CanvasPath {
    * write-only. You can set its value through an assignment statement, but cannot obtain its
    * current value through a read operation. If you attempt to read its current value,
    * **undefined** will be returned.
+   * 
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource.
    *
    * Available values are as follows:
    *
@@ -1902,8 +1913,8 @@ declare class CanvasRenderer extends CanvasPath {
   filter: string;
 
   /**
-   * Creates a blank **ImageData** object of a specified size. This API involves
-   * time-consuming memory copy. Therefore, avoid frequent calls to it.
+   * Creates a blank ImageData object of a specified size. This API involves time-consuming memory copy. Therefore,
+   * avoid frequent calls to it. The createImageData example is identical to the putImageData example.
    *
    * @param { number } sw - Width of the **ImageData** object.<br>Invalid values **undefined**,
    *     **null**, **NaN**, and **Infinity** are treated as **0**.<br>Default unit: vp
@@ -2047,9 +2058,15 @@ declare class CanvasRenderer extends CanvasPath {
    * **true** means to enable smoothing, and **false** means to disable it. This attribute is
    * write-only. You can set its value through an assignment statement, but cannot obtain its
    * current value through a read operation. If you attempt to read its current value,
-   * **undefined** will be returned.
+   * **undefined** will be returned. Default value: **true**.
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
    *
-   * Default value: **true**
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2065,9 +2082,15 @@ declare class CanvasRenderer extends CanvasPath {
    * This attribute is write-only. You can set its value through an assignment statement, but
    * cannot obtain its current value through a read operation. If you attempt to read its
    * current value, **undefined** will be returned. For details, see
-   * {@link ImageSmoothingQuality}.
-   *
-   * Default value: **"low"**
+   * {@link ImageSmoothingQuality}. Default value: **"low"**
+   * > **NOTE**
+   * >
+   * > The resources used in this example are not located in the **src** > **main** > **resource** directory. Starting
+   * > from DevEco Studio 6.0.0 Beta2, the resources that are located outside the **resources** directory are not
+   * > packaged by default when a project or module is created. To package these resources, go to **buildOption** in the
+   * > module's **build-profile.json5** file > **resOptions** > **copyCodeResource**, and set **enable** to **true**.
+   * > For details, see the description of copyCodeResource in **resOptions**.
+   * 
    * @default low
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2079,7 +2102,9 @@ declare class CanvasRenderer extends CanvasPath {
   imageSmoothingQuality: ImageSmoothingQuality;
 
   /**
-   * Sets the line caps. For details, see {@link CanvasLineCap}.
+   * Sets the line caps. This attribute is write-only. You can set its value through an assignment statement, but cannot
+   * obtain its current value through a read operation. If you attempt to read its current value, undefined will be
+   * returned.
    * @default butt
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2095,11 +2120,6 @@ declare class CanvasRenderer extends CanvasPath {
    * takes effect only when **setLineDash** is set. This attribute is write-only. You can set
    * its value through an assignment statement, but cannot obtain its current value through a
    * read operation. If you attempt to read its current value, **undefined** will be returned.
-   *
-   * In versions earlier than API version 18, if **NaN** or **Infinity** is set, dashed lines
-   * are rendered as solid lines. In API version 18 and later versions, if **NaN** or
-   * **Infinity** is set, the current API does not take effect, and dashed lines are rendered
-   * normally.
    *
    * Default value: **0.0**
    *
@@ -2192,8 +2212,8 @@ declare class CanvasRenderer extends CanvasPath {
   /**
    * Obtains the dash line style.
    *
-   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>
-   *     Default unit: vp
+   * @returns { number[] } Interval of alternate line segments and the length of spacing.<br>Values undefined and null
+   *     are treated as invalid.<br>Default unit: vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -2396,8 +2416,7 @@ declare class CanvasRenderer extends CanvasPath {
   restore(): void;
 
   /**
-   * Saves all states of the canvas in the stack. This API is usually called when the drawing
-   * state needs to be saved.
+   * Saves the current drawing context.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -2435,9 +2454,9 @@ declare class CanvasRenderer extends CanvasPath {
    * Returns a **TextMetrics** object used to obtain the width of specified text. Note that the width
    * obtained may vary by device.
    *
-   * @param { string } text - Text to measure.<br>If the input value is **undefined** or **null**, the
+   * @param { string } text - Text to measure.
+   * @returns { TextMetrics } **TextMetrics** object.<br>If the input value is **undefined** or **null**, the
    *     value is calculated based on "undefined" or "null".
-   * @returns { TextMetrics } **TextMetrics** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
    * @crossplatform [since 10]
@@ -3495,7 +3514,7 @@ declare interface Size {
   /**
    * Height of the **DrawingRenderingContext** object, which corresponds to the height of the
    * associated **Canvas** component.
-   *
+   *    
    * Default unit: vp.
    *
    * If the unit mode of the **DrawingRenderingContext** object is set to px, the unit is px.
