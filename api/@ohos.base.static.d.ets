@@ -32,7 +32,7 @@
  * callback.
  *
  * @syscap SystemCapability.Base
- * @param { T } data Common callback information.
+ * @param { T } data - Common callback information.
  * @since 23 static
  */
 export type Callback<T> = (data: T) => void;
@@ -42,7 +42,7 @@ export type Callback<T> = (data: T) => void;
  * the [BusinessError]{@link BusinessError} type.
  *
  * @syscap SystemCapability.Base
- * @param { T } err Common error information about the API invoking failure.
+ * @param { T } err - Common error information about the API invoking failure.
  * @since 23 static
  */
 export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
@@ -53,8 +53,8 @@ export type ErrorCallback<T extends Error = BusinessError> = (err: T) => void;
  * developer.
  *
  * @syscap SystemCapability.Base
- * @param { BusinessError } err Common error information about the API invoking failure.
- * @param { T } data Common callback information.
+ * @param { BusinessError } err - Common error information about the API invoking failure.
+ * @param { T } data - Common callback information.
  * @since 23 static
  */
 export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T | undefined) => void;
@@ -63,7 +63,7 @@ export type AsyncCallback<T, E = void> = (err: BusinessError<E> | null, data: T 
  * Defines the error parameter.
  *
  * @syscap SystemCapability.Base
- * @param { T } data Common callback information. If this parameter is left empty, no related information is returned.
+ * @param { T } data - Common callback information. If this parameter is left empty, no related information is returned.
  * @since 23 static
  */
 export declare class BusinessError<T = void> extends Error {
@@ -77,7 +77,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor();
 
   /**
-   * Defines a constructor used to create a BusinessError object.
+   * Defines a constructor used to create a **BusinessError** object.
    *
    * @param { int } code - Common error information about the API invoking failure.
    * @param { Error } error - Defines the error parameter.
@@ -87,7 +87,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, error: Error);
 
   /**
-   * Defines a constructor used to create a BusinessError object.
+   * Defines a constructor used to create a **BusinessError** object.
    *
    * @param { int } code - Common error information about the API invoking failure.
    * @param { T } data - Common callback information.
@@ -98,7 +98,7 @@ export declare class BusinessError<T = void> extends Error {
   constructor(code: int, data: T, error: Error);
 
   /**
-   * Defines a constructor used to create a BusinessError object.
+   * Defines a constructor used to create a **BusinessError** object.
    *
    * @param { int } code - Common error information about the API invoking failure.
    * @param { string } message - Error message returned when the API call fails.

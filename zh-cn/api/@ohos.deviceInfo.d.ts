@@ -666,29 +666,20 @@ declare namespace deviceInfo {
     const bootCount: number;
 
   /**
-   * <!--RP13-->
-   * 
    * 检查指定的API版本在当前设备上是否可用。
-   * 
    * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
    *
-   * @param { string | number } version - 需要校验的API版本号，支持整数版本号和点分版本号。
-   * @returns { boolean } Returns `true` if the specified API version is available on the
-   *     current device, `false` otherwise.
+   * @param { string | number } version -    * 此方法提供跨不同OpenHarmony/分布式操作系统版本的兼容性检查。它会根据输入格式和API版本范围自动选择合适的版本检查方法。
+   *     -带点的字符串格式（例如，“26.0.0”、“5.0.1”）：
+   *     -对于API 26+（版本>= 26.0.0）：表示OpenHarmetric和Distribution OS API版本
+   *     -对于API 26-（版本< 26.0.0）：表示分发操作系统API版本
+   *     -数字格式（例如13）：表示OpenHar笔SDK API版本（仅API 26）
+   * @returns { boolean } 布尔值。返回true表示当前设备API版本大于等于入参版本号；返回false则表示当前设备API版本小于入参版本号
    * @syscap SystemCapability.Startup.SystemInfo
    * @FaAndStageModel
    * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
-   * @example
-   *     ```typescript
-   *     // Check API 26.0.0 (String format for API 26+ represents both OpenHarmony and Distribution OS)
-   *     if (apiAvailable("26.0.0"))
-   *     // Check API 5.0.1 (Distribution OS version, API 26-)
-   *     if (apiAvailable("5.0.1"))
-   *     // Check API 13 (OpenHarmony SDK version, API 26-)
-   *     if (apiAvailable(13))
-   *     ```
    */
   function apiAvailable(version: string | number): boolean;
 

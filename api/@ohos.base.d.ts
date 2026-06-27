@@ -15,6 +15,9 @@
 
 /**
  * The **Base** module defines the public callback types of ArkTS APIs, including the common and error callbacks.
+ * These callbacks provide a unified asynchronous processing mechanism for processing asynchronous operation
+ * results and error messages. They can help developers simplify the asynchronous programming model and improve
+ * code readability and maintainability.
  *
  * > **NOTE**
  * >
@@ -43,7 +46,8 @@ export interface Callback<T> {
 
   /**
    *
-   * @param { T } data - Common callback information.
+   * @param { T } data - Common callback information. The type is defined by the developer. 
+   *     The callback is used to return data of the corresponding type.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -68,7 +72,7 @@ export interface ErrorCallback<T extends Error = BusinessError> {
 
   /**
    *
-   * @param { T } err - Common error information about the API invoking failure.
+   * @param { T } err - Common error message returned when the API fails to be called.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @atomicservice [since 11]
@@ -94,8 +98,9 @@ export interface AsyncCallback<T, E = void> {
 
   /**
    *
-   * @param { BusinessError<E> } err - Common error information about the API invoking failure.
-   * @param { T } data - Common callback information.
+   * @param { BusinessError<E> } err - Common error message returned when the API fails to be called.
+   * @param { T } data - Data returned asynchronously when the API is successfully called. The data type is defined by
+   *     the developer. This parameter is unavailable when the API fails to be called.
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
    * @form [since 12]
@@ -119,7 +124,7 @@ export interface AsyncCallback<T, E = void> {
 export interface BusinessError<T = void> extends Error {
 
   /**
-   * Common error information about the API invoking failure.
+   * Error code returned when the API fails to be called.
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]
@@ -130,7 +135,8 @@ export interface BusinessError<T = void> extends Error {
   code: number;
 
   /**
-   * Common callback information. If this parameter is left empty, no related information is returned.
+   * Error message returned when the API fails to be called. If this parameter is left empty, the error object does
+   * not contain additional data.
    *
    * @syscap SystemCapability.Base
    * @crossplatform [since 10]

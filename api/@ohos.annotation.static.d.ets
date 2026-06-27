@@ -42,8 +42,8 @@
 export @interface Available {
 
   /**
-   * minApiVersion is used to indicate the minimum Available version. Composed of two parts: System Type + Version
-   * Number. The system type can be omitted only when the type is OpenHarmony.For example: 'OpenHarmony 20' '20'
+   * Minimum available version, which consists of two parts: system type and version number. The system type can be
+   * omitted only when it is OpenHarmony, for example, **'OpenHarmony 20'** or **'20'**.
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
