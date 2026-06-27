@@ -540,7 +540,7 @@ declare namespace zlib {
      * @syscap SystemCapability.BundleManager.Zlib
      * @stagemodelonly
      * @atomicservice
-     * @since 26.1.0 dynamic&static
+     * @since 26.0.0 dynamic&static
      */
     keepTopLevelFolder?: boolean;
   }
