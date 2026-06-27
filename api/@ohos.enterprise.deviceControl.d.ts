@@ -37,6 +37,24 @@ import type Want from './@ohos.app.ability.Want';
 declare namespace deviceControl {
 
   /**
+   * The operation to be performed.
+   *
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  enum Operation {  
+    /**
+     * Disk erasure.
+     *
+     * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+     * @stagemodelonly
+     * @since 26.0.0
+     */
+    DISK_ERASURE = 0,
+  }
+
+  /**
    * Restores factory settings. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ENTERPRISE_RESET_DEVICE
@@ -179,6 +197,28 @@ declare namespace deviceControl {
    * @since 12
    */
   function operateDevice(admin: Want, operate: string, addition?: string): void;
+
+  /**
+   * Allows the administrator to operate devices.
+   *
+   * @permission ohos.permission.ENTERPRISE_OPERATE_DEVICE
+   * @param { Want } admin - admin indicates the enterprise admin extension ability information.
+   * @param { string } operation - operation indicates the operation to performed.
+   * @param { string } [addition] - addition indicates the specified additional parameters
+   *     when performing the operation.
+   * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200010 - A conflict policy has been configured.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 801 - Capability not supported.
+   *     Failed to call the API due to limited device capabilities.
+   * @syscap SystemCapability.Customization.EnterpriseDeviceManager
+   * @stagemodelonly
+   * @since 26.0.0
+   */
+  function operateDevice(admin: Want, operation: Operation, addition?: string): void;
 }
 
 export default deviceControl;
