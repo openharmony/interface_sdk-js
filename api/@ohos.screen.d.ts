@@ -1089,7 +1089,7 @@ declare namespace screen {
      * @stagemodelonly
      * @since 26.1.0 dynamic&static
      */
-    readonly screenType: ScreenType;
+    readonly screenType?: ScreenType;
   }
 
   /**
