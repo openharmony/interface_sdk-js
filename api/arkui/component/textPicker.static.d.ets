@@ -920,37 +920,6 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 23 static
    */
   enableHapticFeedback?: boolean;
-  /**
-   * Set system-styled materials for dialog. Different materials have different effects,
-   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  systemMaterial?: SystemUiMaterial;
-
-  /**
-   * Sets the distortion animation Mode of the dialog.
-   *
-   * @default DistortionMode.DISTORTION_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  distortionMode?: DistortionMode;
-
-  /**
-   * Sets the edgeLight animation Mode of the dialog.
-   *
-   * @default EdgeLightMode.EDGELIGHT_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  edgeLightMode?: EdgeLightMode;
 }
 /**
  * Defines the TextPickerDialogOptionsExt for Text Picker Dialog.
@@ -1268,6 +1237,38 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 23 static
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
+
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation Mode of the dialog.
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edgeLight animation Mode of the dialog.
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**
