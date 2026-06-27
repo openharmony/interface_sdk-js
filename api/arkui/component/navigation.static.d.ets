@@ -45,6 +45,8 @@ import { ComponentBuilder } from './builder';
 
 import { ComponentContent } from '@ohos.arkui.node';
 
+import uiMaterial from '../../@ohos.arkui.uiMaterial';
+
 /**
  * Import the SystemBarStyle type for Navigation.
  *
@@ -1441,6 +1443,18 @@ export declare interface NavigationTitleOptions {
    * @since 26.0.0 static
    */
   scrollEffectOptions?: ScrollEffectOptions;
+
+  /**
+   * Set system-styled materials for the TitleBar. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the titleBar.
+   * Device Behavior Differences:The effect of the same material may vary across different devices depending on
+   * their computing power.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  systemMaterial?: uiMaterial.Material;
 }
 
 /**
@@ -1611,6 +1625,34 @@ export declare interface MoreButtonOptions {
    * @since 23 static
    */
   backgroundEffect?: BackgroundEffectOptions;
+}
+
+/**
+ * Navigation configuration options.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface NavigationConfiguration {
+
+  /**
+   * Navigation page stack size limit.
+   *
+   * Description:
+   * - Limits to maximum number of active page nodes in Navigation page stack.
+   * - When limit is exceeded, oldest page nodes are automatically destroyed
+   *   in FIFO (First-In-First-Out) order.
+   * - NavPathInfo of pages is completely retained, supporting page recreation.
+   * - value <=0 No limit on page stack size (default value).
+   * - value >0 Limit stack size to specified value.
+   *
+   * @default 0 (nolimit)
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  stackSizeLimit?: int;
 }
 
 /**
@@ -1957,6 +1999,17 @@ export declare interface NavigationAttribute extends CommonMethod {
    * @since 26.0.0 static
    */
   default enableVisibilityLifecycleWithContentCover(isEnabled: boolean | undefined): this;
+
+  /**
+   * Sets Navigation configuration.
+   *
+   * @param { NavigationConfiguration | undefined } config - Navigation configuration options.
+   * @returns { NavigationAttribute } Returns instance of NavigationAttribute.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  default configuration(config: NavigationConfiguration | undefined): this;
 
   /**
    * Sets Navigation options.
