@@ -1117,37 +1117,6 @@ export declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 23 static
    */
   enableHapticFeedback?: boolean;
-
-  /**
-     * 为对话框设置系统风格的材质。不同的材质具有不同的效果，可以影响对话框的背景颜色、边框、阴影等视觉属性。
-     *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  systemMaterial?: SystemUiMaterial;
-
-  /**
-     * 设置对话框的形变动画模式。
-     *
-   * @default DistortionMode.DISTORTION_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  distortionMode?: DistortionMode;
-
-  /**
-     * 设置对话框的边缘光动画模式。
-     *
-   * @default EdgeLightMode.EDGELIGHT_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  edgeLightMode?: EdgeLightMode;
 }
 
 /**
@@ -1594,6 +1563,37 @@ export declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 23 static
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
+
+  /**
+   * 为对话框设置系统风格的材质。不同的材质具有不同的效果，可以影响对话框的背景颜色、边框、阴影等视觉属性。
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * 设置对话框的形变动画模式。
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * 设置对话框的边缘光动画模式。
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
 /**

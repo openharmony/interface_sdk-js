@@ -1513,43 +1513,6 @@ declare interface TextPickerDialogOptions extends TextPickerOptions {
    * @since 20 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
-
-  /**
-   * Set system-styled materials for dialog. Different materials have different effects,
-   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 26.0.0 dynamic
-   */
-  systemMaterial?: SystemUiMaterial;
-
-  /**
-   * Sets the distortion animation mode for the dialog.
-   *
-   * Default Value: DistortionMode.DISTORTION_AUTO
-   *
-   * @default DistortionMode.DISTORTION_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  distortionMode?: DistortionMode;
-
-  /**
-   * Sets the edge light animation mode for the dialog.
-   *
-   * Default Value: EdgeLightMode.EDGELIGHT_AUTO
-   *
-   * @default EdgeLightMode.EDGELIGHT_AUTO
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic
-   */
-  edgeLightMode?: EdgeLightMode;
 }
 
 /**
@@ -1900,31 +1863,54 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
    * @since 20 dynamic
    */
   selectedBackgroundStyle?: PickerBackgroundStyle;
+
+  /**
+   * Set system-styled materials for dialog. Different materials have different effects,
+   * which can influence backgroundColor, border, shadow, and other visual attributes of dialog.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  systemMaterial?: SystemUiMaterial;
+
+  /**
+   * Sets the distortion animation mode for the dialog.
+   *
+   * Default Value: DistortionMode.DISTORTION_AUTO
+   *
+   * @default DistortionMode.DISTORTION_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  distortionMode?: DistortionMode;
+
+  /**
+   * Sets the edge light animation mode for the dialog.
+   *
+   * Default Value: EdgeLightMode.EDGELIGHT_AUTO
+   *
+   * @default EdgeLightMode.EDGELIGHT_AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic
+   */
+  edgeLightMode?: EdgeLightMode;
 }
 
-/**
- * Defines TextPickerDialog which uses show method to show TextPicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 8
- */
-/**
- * Defines TextPickerDialog which uses show method to show TextPicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
+
 /**
  * A text picker dialog box is a dialog box that allows users to select text from the given range.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class TextPickerDialog {
 
