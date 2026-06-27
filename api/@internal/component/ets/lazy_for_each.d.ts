@@ -630,6 +630,24 @@ interface DataReloadOperation {
    * @since 12 dynamic
    */
   type: DataOperationType.RELOAD;
+
+  /**
+   * Whether to enable the feature that reuse old child components when \@Reuseable or \@ReuseableV2 is used and
+   * recycle pool is empty.
+   *
+   * **true**: Enable the feature.
+   *
+   * **false**: Disable the feature.
+   *
+   * Default value: **false**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  reuseImmediately?: boolean;
 }
 
 /**
@@ -681,6 +699,23 @@ declare interface DataChangeListener {
    * @since 7 dynamic
    */
   onDataReloaded(): void;
+
+  /**
+   * Invoked when all data is reloaded. When \@Reuseable or \@ReuseableV2 is used and recycle pool is empty, old child
+   * components will be recycled and then be reused as new child components. If no old child component can be reused,
+   * new child components will be created.
+   *
+   * @param { boolean } reuseImmediately - Whether to enable the feature that reuse old child components when
+   *     \@Reuseable or \@ReuseableV2 is used and recycle pool is empty.
+   *     <br>**true**: Enable the feature.
+   *     <br>**false**: Disable the feature.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  onDataReloaded(reuseImmediately: boolean): void;
 
   /**
    * Invoked when data is added to the position indicated by the specified index.
@@ -1023,4 +1058,4 @@ interface LazyForEachInterface {
  * @since 7 dynamic
  * @noninterop
  */
-declare const LazyForEach: LazyForEachInterface;
+declare const LazyForEach: LazyForEachInterface;
