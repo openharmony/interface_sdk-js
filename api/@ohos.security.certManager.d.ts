@@ -116,7 +116,7 @@ declare namespace certificateManager {
     CM_ERROR_NO_AUTHORIZATION = 17500005,
 
     /**
-     * The device enters the advanced security mode.
+     * The device enters the advanced security mode. In this mode, CA certificate installation is restricted.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @since 18 dynamic
@@ -1006,7 +1006,8 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, callback: AsyncCallback<CMResult>): void;
 
   /**
-   * Finishes the signature verification operation. This API uses an asynchronous callback to return the result.
+   * Finishes the signature verification operation. This is the last step in the signature verification process. The
+   * init and update interfaces need to be invoked first. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Handle of initialization. You need to invoke the init method to obtain the handle.
@@ -1048,8 +1049,9 @@ declare namespace certificateManager {
   function finish(handle: Uint8Array, signature?: Uint8Array): Promise<CMResult>;
 
   /**
-   * Aborts the signing or signature verification operation. This API uses an asynchronous callback to return the
-   * result.
+   * Aborts the signing or signature verification operation. This method is mutually exclusive with the finish method.
+   * Only one method can be invoked in a signature verification process. This API uses an asynchronous callback to
+   * return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
@@ -1068,7 +1070,8 @@ declare namespace certificateManager {
   function abort(handle: Uint8Array, callback: AsyncCallback<void>): void;
 
   /**
-   * Aborts the signing or signature verification operation. This API uses a promise to return the result.
+   * Aborts the signing or signature verification operation. This method is mutually exclusive with the finish method.
+   * Only one method can be invoked in a signature verification process. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { Uint8Array } handle - Handle of initialization. The value contains up to 8 bytes.
@@ -1521,7 +1524,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
    * @throws { BusinessError } 17500002 - Indicates that the certificate does not exist.
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
@@ -1655,8 +1658,8 @@ declare namespace certificateManager {
    */
   export interface CertBlob {
     /**
-     * Certificate file data.
-     * The maximum length is 8196 and cannot be empty.
+     * Certificate file data. When certFormat is transferred to PEM_DER, the maximum length is 8 KB. When certFormat is
+     * set to P7B, the maximum length is 300 KB.
      *
      * @syscap SystemCapability.Security.CertificateManager
      * @stagemodelonly
@@ -1972,7 +1975,7 @@ declare namespace certificateManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error.
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Parameter verification failed.
    *     <br> Possible causes: the ukeyInfo parameter is invalid.
    *     For example, the parameter format is incorrect or the value range is invalid.
@@ -2002,18 +2005,18 @@ declare namespace certificateManager {
   function uninstallAllAppCertificate() : Promise<void>;
 
   /**
-   * Import the certificate to the USB key.
+   * Import the certificate to the USB Key.
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
-   * @param { string } keyUri - Indicates the USB key credentials URI
+   * @param { string } keyUri - Indicates the USB Key credentials URI.
    *     <br>The maximum length is 256 and cannot be empty.
    *     <br>
    *     The keyUri parameter identifies a certificate entity, which can be obtained
    *     <br>by calling the [getUkeyCertificateList]{@link certificateManager.getUkeyCertificateList} interface.
-   * @param { Uint8Array } cert - Indicates the certificate data to be imported
+   * @param { Uint8Array } cert - Indicates the certificate data to be imported.
    *     <br>The maximum length is 10240 and cannot be empty.
-   *     <br>The certificate data format complies with the SKF specification.
-   * @param { UkeyInfo } ukeyInfo - Indicates USB key certificate attribute information
+   *     <br>The certificate data format complies with the Smart Key Framework (SKF) specifications.
+   * @param { UkeyInfo } ukeyInfo - Indicates USB Key certificate attribute information.
    *     <br>UkeyInfo.CertificatePurpose can only be set to PURPOSE_SIGN, PURPOSE_ENCRYPT or PURPOSE_DEFAULT.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed.
@@ -2021,8 +2024,8 @@ declare namespace certificateManager {
    * @throws { BusinessError } 801 - Capability not supported.
    * @throws { BusinessError } 17500001 - Internal error. Possible causes: 1. IPC communication failed;
    *     <br>2. Memory operation error; 3. File operation error. Please try again.
-   * @throws { BusinessError } 17500002 - The certificate identified by keyuri does not exist
-   * @throws { BusinessError } 17500010 - Indicates that access USB key service failed.
+   * @throws { BusinessError } 17500002 - The certificate identified by keyUri does not exist
+   * @throws { BusinessError } 17500010 - Indicates that access USB Key service failed.
    * @throws { BusinessError } 17500011 - Indicates that the input parameters validation failed.
    *     For example, the parameter format is incorrect or the value range is invalid.
    * @syscap SystemCapability.Security.CertificateManager
