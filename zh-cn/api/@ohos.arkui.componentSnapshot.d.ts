@@ -491,7 +491,7 @@ declare namespace componentSnapshot {
    *
    * @param { string } id - 目标组件的[组件标识]{@link common}。
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
-   * @returns { Promise<image.PixelMap> } Promise used to return the result.
+   * @returns { Promise<image.PixelMap> } 截图返回的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -572,7 +572,7 @@ declare namespace componentSnapshot {
    * @param { boolean } [checkImageStatus] - 指定是否允许在截图之前，校验图片解码状态。如果为true，则会在截图之前检查所有Image组件是否已经解码完成。为false，则不会校验图片解码状态。
    *     如果没有完成检查，则会放弃截图并返回异常。<br/>默认值：false [since 12]
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。 [since 12]
-   * @returns { Promise<image.PixelMap> } Promise used to return the result.
+   * @returns { Promise<image.PixelMap> } 截图返回的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -600,7 +600,7 @@ declare namespace componentSnapshot {
    *
    * @param { string } id - 目标组件的[组件标识]{@link common}。
    * @param { SnapshotOptions } [options] - 截图相关的自定义参数。
-   * @returns { image.PixelMap } Promise used to return the result.
+   * @returns { image.PixelMap } 截图返回的结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
