@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,14 +40,6 @@ import type pointer from './@ohos.multimodalInput.pointer';
 /**
  * class Font
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * class Font
- *
  * <p><strong>NOTE</strong>:
  * <br>You must first use getFont() in UIContext to obtain a Font instance,
  * and then call the APIs using the obtained instance.
@@ -56,10 +48,11 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class Font {
+
   /**
    * Register a customized font in the FontManager.
    *
@@ -74,7 +67,7 @@ export class Font {
 
   /**
    * Gets a list of fonts supported by system.
-   * 
+   *
    * <p><strong>NOTE</strong>:
    * <br>This API takes effect only on 2-in-1 devices.
    * </p>
