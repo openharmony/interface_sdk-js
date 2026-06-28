@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 2021-2023 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -1640,6 +1640,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic&static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -1853,6 +1855,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic&static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -2066,6 +2070,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic&static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -2113,6 +2119,7 @@ declare namespace http {
       * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
       * @throws { BusinessError } 2300078 - Remote file not found.
       * @throws { BusinessError } 2300094 - Authentication error.
+      * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global interceptor.
       * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
       * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
       * @throws { BusinessError } 2300999 - Internal error.
@@ -2282,6 +2289,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -2289,6 +2298,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 26.1.0 static
      */
     requestInStream(url: string, callback: AsyncCallback<int>): void;
 
@@ -2451,6 +2461,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -2458,6 +2470,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 26.1.0 static
      */
     requestInStream(url: string, options: HttpRequestOptions, callback: AsyncCallback<int>): void;
 
@@ -2620,6 +2633,8 @@ declare namespace http {
      * @throws { BusinessError } 2300077 - The SSL CA certificate does not exist or is inaccessible.
      * @throws { BusinessError } 2300078 - Remote file not found.
      * @throws { BusinessError } 2300094 - Authentication error.
+     * @throws { BusinessError } 2300996 - The request was intercepted by the HTTP global
+     *     interceptor. [since 26.0.0 dynamic, 26.1.0 static]
      * @throws { BusinessError } 2300997 - Cleartext traffic not permitted.
      * @throws { BusinessError } 2300998 - It is not allowed to access this domain.
      * @throws { BusinessError } 2300999 - Internal error.
@@ -2627,6 +2642,7 @@ declare namespace http {
      * @crossplatform
      * @atomicservice
      * @since 18 dynamic
+     * @since 26.1.0 static
      */
     requestInStream(url: string, options?: HttpRequestOptions): Promise<int>;
 
@@ -5194,3 +5210,4 @@ declare namespace http {
 }
 
 export default http;
+
