@@ -347,7 +347,7 @@ declare namespace uiMaterial {
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    SMOOTH = 2,
+    SMOOTH = 2
   }
 
   /**
