@@ -1998,13 +1998,13 @@ export declare interface NavigationAttribute extends CommonMethod {
   /**
    * Set placeholder in split mode.
    *
-   * @param { ComponentContent<T> } placeholder - Set placeholder in split mode.
+   * @param { ComponentContent<Object> | undefined } placeholder - Set placeholder in split mode.
    * @returns { NavigationAttribute } - Returns the instance of the NavigationAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
-  default splitPlaceholder<T extends Object>(placeholder: ComponentContent<T>): this;
+  default splitPlaceholder(placeholder: ComponentContent<Object> | undefined): this;
 }
 
 /**
