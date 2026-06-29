@@ -61,6 +61,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.deviceSettings:deviceSettings.setValue
    */
   function setDateTime(admin: Want, time: number, callback: AsyncCallback<void>): void;
 
@@ -83,6 +85,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.deviceSettings:deviceSettings.setValue
    */
   function setDateTime(admin: Want, time: number): Promise<void>;
 
@@ -107,6 +111,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function disallowModifyDateTime(admin: Want, disallow: boolean, callback: AsyncCallback<void>): void;
 
@@ -131,6 +137,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function disallowModifyDateTime(admin: Want, disallow: boolean): Promise<void>;
 
@@ -154,6 +162,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isModifyDateTimeDisallowed(admin: Want, callback: AsyncCallback<boolean>): void;
 
@@ -176,6 +186,8 @@ declare namespace dateTimeManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isModifyDateTimeDisallowed(admin: Want): Promise<boolean>;
 }

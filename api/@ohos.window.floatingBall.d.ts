@@ -274,9 +274,9 @@ declare namespace floatingBall {
      *     Callback is null or not callable.
      * @throws { BusinessError } 1300022 - Repeated floating ball operation.
      * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
-     *     The floating ball controller is null.
+     *     System error, such as a null pointer, insufficient memory.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
-     *     The floating ball window has not been created or has been destroyed.
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
@@ -291,9 +291,9 @@ declare namespace floatingBall {
      * @throws { BusinessError } 1300019 - Wrong parameters for operating the floating ball. Possible cause:
      *     Callback is null or not callable.
      * @throws { BusinessError } 1300023 - Floating ball internal error. Possible cause:
-     *     The floating ball controller is null.
+     *     System error, such as a null pointer, insufficient memory.
      * @throws { BusinessError } 1300024 - The floating ball window state is abnormal. Possible cause:
-     *     The floating ball window has not been created or has been destroyed.
+     *     The floating ball controller has been destroyed.
      * @syscap SystemCapability.Window.SessionManager
      * @stagemodelonly
      * @since 26.0.0 dynamic&static

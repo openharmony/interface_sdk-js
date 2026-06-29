@@ -29,8 +29,14 @@ import {
   FormatCheckerFunction,
   VersionValidationResult
 } from './api_check_plugin_define';
-import { ParsedVersion, DistributionOSApiAvailableVersionResult } from './api_check_plugin_typedef';
+import { ParsedVersion, DistributionOSApiAvailableVersionResult, AnnotationAllowedAstNode } from './api_check_plugin_typedef';
 import { globalObject, externalApiCheckPlugin } from '../index';
+
+
+export function isAnnotationAllowed(node: arkts.AstNode): node is AnnotationAllowedAstNode {
+  const annotations: readonly arkts.AnnotationUsage[] | undefined = (node as AnnotationAllowedAstNode).annotations;
+  return !!annotations && Array.isArray(annotations);
+}
 
 export function defaultFormatChecker(since: string): boolean {
   const regex = /^(?:[1-9]\d{0,2}|[1-9]\d{0,2}\.\d{1,3}\.\d{1,3}|[1-9]\d{0,2}\.\d{1,3}\.\d{1,3}\([1-9]\d{0,2}\)|[1-9]\d?\.\d{1,2}\.\d{1,2})$/;

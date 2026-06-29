@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License"),
@@ -19,33 +20,32 @@
  * @kit ArkUI
  */
 
-import { Builder, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable, CustomBuilderT } from '@ohos.arkui.component'; 
+import { Builder, ComponentBuilder, CommonMethod, Optional, ColorMetrics, Font, BlurStyle, LengthMetrics, Bindable, CustomBuilderT } from '@ohos.arkui.component';
 
 /**
  * Define the initialization parameters of the arc alphabet index bar
  *
- * @interface ArcAlphabetIndexerInitInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface ArcAlphabetIndexerInitInfo {
+
   /**
    * Array of alphabetic indexed strings, cannot be set to empty.
    *
-   * @type { string[] }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   arrayValue: string[];
+
   /**
    * The index value of the initial selected item.If it is out of the index range, the default value is 0
    *
-   * @type { int | Bindable<int> }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   selected: int | Bindable<int>;
 }
@@ -53,34 +53,32 @@ export declare interface ArcAlphabetIndexerInitInfo {
 /**
  * Callback when index bar is selected.
  *
- * @typedef { function } OnSelectCallback
  * @param { int } index - the selected index
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare type OnSelectCallback = (index: int) => void;
 
 /**
  * Defines the arc alphabet index bar attribute functions.
  *
- * @extends CommonMethod
- * @interface ArcAlphabetIndexerAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  * @noninterop
  */
 export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
+
   /**
-   * Defines text color.
+   * Definitions text color.
    *
    * @param { Optional<ColorMetrics> } color - Text color.
    *     Default value: 0xFFFFFF.
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   color(color: Optional<ColorMetrics>): this;
 
@@ -92,7 +90,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   selectedColor(color: Optional<ColorMetrics>): this;
 
@@ -104,7 +102,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   popupColor(color: Optional<ColorMetrics>): this;
 
@@ -116,7 +114,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   selectedBackgroundColor(color: Optional<ColorMetrics>): this;
 
@@ -128,7 +126,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   popupBackground(color: Optional<ColorMetrics>): this;
 
@@ -141,7 +139,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   usePopup(enabled: Optional<boolean>): this;
 
@@ -158,7 +156,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   selectedFont(font: Optional<Font>): this;
 
@@ -176,12 +174,12 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   popupFont(font: Optional<Font>): this;
 
   /**
-   * Defines fonts.
+   * Definitions fonts.
    *
    * @param { Optional<Font> } font - Default font style of the letter index bar.
    *     Default value:
@@ -194,7 +192,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   font(font: Optional<Font>): this;
 
@@ -207,7 +205,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   itemSize(size: Optional<LengthMetrics>): this;
 
@@ -219,7 +217,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   selected(index: Optional<int> | Bindable<int>): this;
 
@@ -233,7 +231,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   autoCollapse(enable: Optional<boolean>): this;
 
@@ -244,7 +242,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   onSelect(handler: Optional<OnSelectCallback>): this;
 
@@ -257,7 +255,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * @returns { this }
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
-   * @since 24 static
+   * @since 26.0.0 static
    */
   popupBackgroundBlurStyle(style: Optional<BlurStyle>): this;
 
@@ -265,7 +263,7 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
    * Set arcAlphabetIndexer options.
    *
    * @param { ArcAlphabetIndexerInitInfo } info - arcAlphabetIndexer constructor options
-   * @returns { ArcAlphabetIndexerAttribute } Returns  instance of  ArcAlphabetIndexerAttribute.
+   * @returns { ArcAlphabetIndexerAttribute } Returns instance of  ArcAlphabetIndexerAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Circle
    * @stagemodelonly
    * @since 26.0.0 staticonly
@@ -280,13 +278,13 @@ export declare interface ArcAlphabetIndexerAttribute extends CommonMethod {
  * @returns { ArcAlphabetIndexerAttribute } -The attribute of the ArcAlphabetIndexer.
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  * @noninterop
  */
 @ComponentBuilder
 export declare function ArcAlphabetIndexer(
     info: ArcAlphabetIndexerInitInfo
-): ArcAlphabetIndexerAttribute
+): ArcAlphabetIndexerAttribute;
 
 /**
  * Defines ArcAlphabetIndexer Component.
@@ -296,9 +294,8 @@ export declare function ArcAlphabetIndexer(
  * @syscap SystemCapability.ArkUI.ArkUI.Circle
  * @stagemodelonly
  * @since 26.0.0 staticonly
- * @noninterop
  */
 @Builder
 export declare function ArcAlphabetIndexer(
-    style_: CustomBuilderT<ArcAlphabetIndexerAttribute>,
-): ArcAlphabetIndexerAttribute
+   style_: CustomBuilderT<ArcAlphabetIndexerAttribute>,
+): ArcAlphabetIndexerAttribute;

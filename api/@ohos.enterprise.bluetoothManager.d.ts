@@ -188,6 +188,8 @@ declare namespace bluetoothManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setBluetoothDisabled(admin: Want, disabled: boolean): void;
 
@@ -209,6 +211,8 @@ declare namespace bluetoothManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isBluetoothDisabled(admin: Want): boolean;
 
@@ -267,7 +271,11 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<string> } MAC addresses of allowed Bluetooth devices obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -279,7 +287,7 @@ declare namespace bluetoothManager {
    * @stagemodelonly
    * @since 12
    */
-  function getAllowedBluetoothDevices(admin: Want): Array<string>;
+  function getAllowedBluetoothDevices(admin: Want | null): Array<string>;
 
   /**
    * Enables Bluetooth. After Bluetooth is enabled, the user can manually disable it.
@@ -368,7 +376,11 @@ declare namespace bluetoothManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_BLUETOOTH
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 20 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<string> } MAC addresses of disallowed Bluetooth devices obtained.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -378,7 +390,7 @@ declare namespace bluetoothManager {
    * @stagemodelonly
    * @since 20
    */
-  function getDisallowedBluetoothDevices(admin: Want): Array<string>;
+  function getDisallowedBluetoothDevices(admin: Want | null): Array<string>;
 
   /**
    * Adds disallowed Bluetooth protocols. Specified users cannot use the disallowed Bluetooth protocols to send files to

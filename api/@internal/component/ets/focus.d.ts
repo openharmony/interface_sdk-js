@@ -19,9 +19,8 @@
  */
 
 /**
- * Focus box style.
+ * Sets the system focus box style for the component.
  *
- * @interface FocusBoxStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29,10 +28,13 @@
  * @since 12 dynamic
  */
 declare interface FocusBoxStyle {
+
   /**
-   * Describes the focus-box margin.
+   * Distance of the focus box from the component's edge.
    *
-   * @type { ?LengthMetrics }
+   * A positive number indicates the outside, and a negative number indicates the inside. The value cannot be in
+   * percentage.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -40,10 +42,10 @@ declare interface FocusBoxStyle {
    * @since 12 dynamic
    */
   margin?: LengthMetrics;
+
   /**
-   * Describes the focus-box color.
+   * Stroke color of the focus box.
    *
-   * @type { ?ColorMetrics }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -51,10 +53,12 @@ declare interface FocusBoxStyle {
    * @since 12 dynamic
    */
   strokeColor?: ColorMetrics;
+
   /**
-   * Describes the focus-box stroke width.
+   * Stroke width of the focus box.
    *
-   * @type { ?LengthMetrics }
+   * Negative numbers and percentages are not supported.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -65,9 +69,8 @@ declare interface FocusBoxStyle {
 }
 
 /**
- * Focus Priority
+ * Sets the focus priority of a component.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -75,8 +78,9 @@ declare interface FocusBoxStyle {
  * @since 12 dynamic
  */
 declare enum FocusPriority {
+
   /**
-   * Default priority.
+   * Default priority, that is, the focus priority assigned by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -87,7 +91,7 @@ declare enum FocusPriority {
   AUTO = 0,
 
   /**
-   * Prior priority.
+   * Priority that indicates the component is prioritized in the container. This level is higher than **AUTO**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -98,7 +102,7 @@ declare enum FocusPriority {
   PRIOR = 2000,
 
   /**
-   * Previous focus priority.
+   * Priority of a previously focused node in the container. This level is higher than **PRIOR**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -106,14 +110,12 @@ declare enum FocusPriority {
    * @atomicservice
    * @since 12 dynamic
    */
-  PREVIOUS = 3000,
+  PREVIOUS = 3000
 }
 
 /**
- * Key processing mode.
- * Determines the priority of key event processing when component cannot handle the key event.
+ * Enumerates the modes for processing key events.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -121,8 +123,10 @@ declare enum FocusPriority {
  * @since 15 dynamic
  */
 declare enum KeyProcessingMode {
+
   /**
-   * Key events are used to move focus.
+   * Default value. When the current component does not consume the key event, focus navigation using the **Tab** and
+   * arrow keys preferentially stays within the current container.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -133,7 +137,8 @@ declare enum KeyProcessingMode {
   FOCUS_NAVIGATION = 0,
 
   /**
-   * Key events bubble up to ancestors.
+   * When the current component does not consume the key event, focus navigation using the **Tab** and arrow keys is
+   * bubbled up to the parent component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -141,5 +146,5 @@ declare enum KeyProcessingMode {
    * @atomicservice
    * @since 15 dynamic
    */
-  ANCESTOR_EVENT = 1,
+  ANCESTOR_EVENT = 1
 }

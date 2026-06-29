@@ -239,10 +239,13 @@ declare namespace calendarManager {
     getAllCalendars(callback: AsyncCallback<Calendar[]>): void;
 
     /**
-     * Edits an event on the event creation page, with no event ID specified in **Event**. This API uses a promise to 
-     * return the result. Events created using this API can be obtained and modified by the system calendar. Third-party
-     * applications can obtain and modify the events after they requested the **READ_WHOLE_CALENDAR** permission and the
-     * **WRITE_WHOLE_CALENDAR** permission, respectively.
+     * Edits an event on the event creation page, with no event ID specified in **Event**. The **instanceStartTime**, **instanceEndTime**,
+     * **identifier**, **attendee**, **service**, **isLunar**, and **timeZone** attributes cannot be set. Important events cannot be added either.
+     * This API uses a promise to return the result.   
+     * 
+     * Events created using this API can be obtained and modified by the system calendar. 
+     * Third-party applications can obtain and modify the events after they requested the **READ_WHOLE_CALENDAR** 
+     * permission and the **WRITE_WHOLE_CALENDAR** permission, respectively. 
      *
      * @param { Event } event - **Event** object.
      * @returns { Promise<number> } Promise used to return the event ID. The event ID is the unique identifier of an 
@@ -1027,8 +1030,8 @@ declare namespace calendarManager {
     interval?: number;
 
     /**
-     * Excluded date of a recurrent event. The value is in the timestamp format. If this parameter is not set, the default value is empty,
-     * indicating that no date is excluded; if the value is 0 or a negative number, the effect is the same as that of the empty value.
+     * Excluded dates set for a duplicate calendar event, in timestamp format. The value must be exactly the same as the start time (hour, minute, and second) of the event. 
+     * Otherwise, the setting does not take effect. This parameter is not specified by default. If the value is 0 or a negative number, it is treated as an empty value.
      *
      * @syscap SystemCapability.Applications.CalendarData
      * @atomicservice

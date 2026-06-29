@@ -683,6 +683,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -706,6 +708,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.subscribeManagedEventSync
    */
   function subscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -729,6 +733,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>, callback: AsyncCallback<void>): void;
 
@@ -752,6 +758,8 @@ declare namespace adminManager {
    * @systemapi
    * @stagemodelonly
    * @since 9
+   * @deprecated since 26.0.0
+   * @useinstead adminManager.unsubscribeManagedEventSync
    */
   function unsubscribeManagedEvent(admin: Want, managedEvents: Array<ManagedEvent>): Promise<void>;
 
@@ -828,6 +836,8 @@ declare namespace adminManager {
    *     EnterpriseAdminExtensionAbility and the bundle name of the application.
    * @param { Array<ManagedEvent> } managedEvents - Array of events to subscribe to.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
+   * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the
+   *     device. [since 26.0.0]
    * @throws { BusinessError } 9200008 - The specified system event is invalid.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.

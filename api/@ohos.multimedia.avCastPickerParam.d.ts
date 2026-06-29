@@ -20,16 +20,10 @@
 
 /**
  * Definition of av cast picker state
- * @enum { int }
+ *
  * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @since 11
- */
-/**
- * Definition of av cast picker state
- * @enum { int }
- * @syscap SystemCapability.Multimedia.AVSession.AVCast
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  * @since 23 static
  */
 export declare enum AVCastPickerState {

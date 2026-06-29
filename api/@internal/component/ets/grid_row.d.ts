@@ -414,14 +414,13 @@ declare interface GridRowOptions {
    * Array of breakpoint values and the corresponding reference based on the application window or container size.
    * 
    * Default value:
-   * 
+   *
+   * ```
    * {
-   * 
-   * value: ["320vp", "600vp", "840vp"],
-   * 
-   * reference: BreakpointsReference.WindowSize
-   * 
-   * } 
+   *   value: ["320vp", "600vp", "840vp"],
+   *   reference: BreakpointsReference.WindowSize
+   * }
+   * ```
    * 
    * Invalid values are treated as the default value.
    * 
@@ -452,7 +451,7 @@ declare interface GridRowOptions {
 }
 
 /**
- * Defines the the new version of grid-container component.
+ * Defines the new version of grid-container component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -514,7 +513,7 @@ declare class GridRowAttribute extends CommonMethod<GridRowAttribute> {
    *
    * @param { ItemAlign } value - Alignment mode of the **GridCol** components along the vertical main axis of the
    *     **GridRow** component.<br>Default value: **ItemAlign.Start**<br>Invalid values are treated as the default
-   *     value.<br>**NOTE**<br>**ItemAlign** supports the following enums: **ItemAlign.Start**, **ItemAlign.Center**,
+   *     value.<br><br>**NOTE**<br>**ItemAlign** supports the following enums: **ItemAlign.Start**, **ItemAlign.Center**,
    *     **ItemAlign.End**, and **ItemAlign.Stretch**.
    * @returns { GridRowAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full

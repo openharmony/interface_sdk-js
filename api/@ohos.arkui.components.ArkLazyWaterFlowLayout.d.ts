@@ -155,6 +155,11 @@ export declare class LazyVWaterFlowLayoutAttribute extends LazyWaterFlowLayoutAt
    *
    * @param { string | ItemFillPolicy | undefined } value - Number of columns in the layout.
    *     <br>Default value: '1fr'
+   *     <br>When the value is a string, it sets the number of columns or the minimum column width
+   *     of the current <em>LazyVWaterFlowLayout</em>. For example,
+   *     <em>columnsTemplate('1fr 1fr 2fr')</em> divides the <em>LazyVWaterFlowLayout</em> into 3 columns,
+   *     splitting the width into 4 equal parts: column 1 takes 1 part, column 2 takes 1 part,
+   *     and column 3 takes 2 parts.
    * @returns { LazyVWaterFlowLayoutAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -21,7 +21,7 @@
 import advertising from './@ohos.advertising';
 
 /**
- * This module provides the capability of displaying ads.
+ * This module provides the capability of displaying ads, covering native, roll, splash, and other ad styles.
  *
  * @syscap SystemCapability.Advertising.Ads
  * @atomicservice [since 12]
@@ -31,6 +31,8 @@ import advertising from './@ohos.advertising';
 declare struct AdComponent {
   /**
    * Array of ad objects.
+   * 
+   * NOTE: For non-roll ad types, the component only displays the first data in the array.
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -48,7 +50,7 @@ declare struct AdComponent {
   displayOptions: advertising.AdDisplayOptions;
 
   /**
-   * Ad status change callback.
+   * Callback for ad status changes.
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]
@@ -57,7 +59,10 @@ declare struct AdComponent {
   interactionListener: advertising.AdInteractionListener;
 
   /**
-   * Ad self-rendering.
+   * Application self-rendered ad style. The application self-rendered ad style is a restricted capability. For details,
+   * please consult 
+   * [Traffic Monetization Official Website Customer Support](https://developer.huawei.com/consumer/en/doc/monetize/
+   * support-0000001061434261).
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 20]
@@ -67,10 +72,12 @@ declare struct AdComponent {
   adRenderer?: () => void;
 
   /**
-   * Roll ad state. The value **1** means that the roll ad is playing,
-   * and the value **2** (default) means that the roll ad is paused.
-   * Other values are invalid and the previous playback state is not changed.
-   *
+   * Used to provide the playback status of roll ads externally. Set to 1 for playing and 2 for paused. The default 
+   * value is 2. Other values are invalid and do not change the previous playback status. The page where the roll ad is 
+   * located needs to be associated with the property through @State. For usage methods, refer to the 
+   * [sample code](https://developer.huawei.com/consumer/en/doc/harmonyos-guides/
+   * ads-publisher-service-roll#section4281165885118).
+   * 
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 20]
    * @since 15

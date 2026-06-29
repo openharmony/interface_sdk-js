@@ -44,9 +44,21 @@ declare namespace pasteboard {
    * @syscap SystemCapability.MiscServices.Pasteboard
    * @atomicservice [since 11]
    * @since 7 dynamic
-   * @since 23 static
    */
   const MAX_RECORD_NUM = 512;
+
+  /**
+   * Maximum number of records in a **PasteData** object. In versions earlier than API version 10, the value is 512,
+   * indicating that no more records can be added once the number of records reaches 512.
+   * Since API version 10, no limit is placed on the number of records in a **PasteData** object.
+   * Unit: Numbers, the value must be an integer within [512, 512].
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MAX_RECORD_NUM: int;
+
   /**
    * MIME type of the HTML content.
    *
@@ -54,9 +66,18 @@ declare namespace pasteboard {
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 7 dynamic
-   * @since 23 static
    */
   const MIMETYPE_TEXT_HTML = 'text/html';
+
+  /**
+   * MIME type of the HTML content. The value is 'text/html'.
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MIMETYPE_TEXT_HTML: string;
+
   /**
    * MIME type of the Want content.
    *
@@ -64,9 +85,18 @@ declare namespace pasteboard {
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 7 dynamic
-   * @since 23 static
    */
   const MIMETYPE_TEXT_WANT = 'text/want';
+
+  /**
+   * MIME type of the Want content. The value is 'text/want'.
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MIMETYPE_TEXT_WANT: string;
+
   /**
    * MIME type of the plain text content.
    *
@@ -74,9 +104,18 @@ declare namespace pasteboard {
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 7 dynamic
-   * @since 23 static
    */
   const MIMETYPE_TEXT_PLAIN = 'text/plain';
+
+  /**
+   * MIME type of the plain text content. The value is 'text/plain'.
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MIMETYPE_TEXT_PLAIN: string;
+
   /**
    * MIME type of the URI content.
    *
@@ -84,9 +123,18 @@ declare namespace pasteboard {
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 7 dynamic
-   * @since 23 static
    */
   const MIMETYPE_TEXT_URI = 'text/uri';
+
+  /**
+   * MIME type of the URI content. The value is 'text/uri'.
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MIMETYPE_TEXT_URI: string;
+
   /**
    * MIME type of the PixelMap content.
    *
@@ -94,9 +142,17 @@ declare namespace pasteboard {
    * @crossplatform [since 24]
    * @atomicservice [since 11]
    * @since 9 dynamic
-   * @since 23 static
    */
   const MIMETYPE_PIXELMAP = 'pixelMap';
+
+  /**
+   * MIME type of the PixelMap content. The value is 'pixelMap'.
+   *
+   * @syscap SystemCapability.MiscServices.Pasteboard
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const MIMETYPE_PIXELMAP: string;
 
   /**
    * Indicates type of value.

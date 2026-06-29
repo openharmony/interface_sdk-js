@@ -18,18 +18,20 @@
  * @kit ArkUI
  */
 
-
-
-
 import { AttributeModifier } from '@ohos.arkui.component';
+
 import { HyperlinkAttribute } from '@ohos.arkui.component';
+
+import { HyperlinkAttribute } from './component/hyperlink';
+
+import { AttributeModifier } from './component/common';
 
 /**
  * Defines Hyperlink Modifier
  *
- * @implements { HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare class HyperlinkModifier implements HyperlinkAttribute, AttributeModifier<HyperlinkAttribute> {}

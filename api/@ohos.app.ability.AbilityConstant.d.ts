@@ -40,9 +40,19 @@ declare namespace AbilityConstant {
    * @stagemodelonly
    * @atomicservice
    * @since 20 dynamic
-   * @since 23 static
    */
   const REASON_MESSAGE_DESKTOP_SHORTCUT = 'ReasonMessage_DesktopShortcut';
+
+  /**
+   * The UIAbility is launched via a home screen shortcut. If this string is obtained from the **launchReasonMessage**
+   * property in [LaunchParam]{@link AbilityConstant.LaunchParam}, the UIAbility is initiated by touching a shortcut on
+   * the home screen.
+   *
+   * @syscap SystemCapability.Ability.AbilityBase
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const REASON_MESSAGE_DESKTOP_SHORTCUT: string;
 
   /**
    * Describes the launch parameters, which mainly include the ability launch reasons and reasons for the last exit. The
@@ -616,6 +626,7 @@ declare namespace AbilityConstant {
    *
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    * @since 23 static
@@ -628,6 +639,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -640,6 +652,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -653,6 +666,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice [since 11]
      * @since 9 dynamic
      * @since 23 static
@@ -664,6 +678,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -674,6 +689,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -684,6 +700,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */
@@ -694,6 +711,7 @@ declare namespace AbilityConstant {
      *
      * @syscap SystemCapability.Ability.AbilityRuntime.Core
      * @stagemodelonly
+     * @crossplatform [since 26.0.0]
      * @atomicservice
      * @since 24 dynamic&static
      */

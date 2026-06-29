@@ -34,7 +34,8 @@ import {
   defaultValueChecker,
   getFormatChecker,
   getValueChecker,
-  getVersionByValueChecker
+  getVersionByValueChecker,
+  isAnnotationAllowed
 } from '../api_check_base_utils';
 import {
   isAvailableDecorator,
@@ -90,12 +91,15 @@ export abstract class BaseValidator {
    * @param node - Node to extract name from
    * @returns Primary name or undefined
    */
-  protected getPrimaryNameFromNode(node: arkts.AstNode): string | undefined {
+  protected getPrimaryNameFromNode(node: arkts.AstNode | undefined): string | undefined {
+    if (!node) {
+      return undefined;
+    }
     if (arkts.isIdentifier(node)) {
       return node.name;
     }
     if (arkts.isCallExpression(node)) {
-      return this.getPrimaryNameFromNode(node.expression);
+      return this.getPrimaryNameFromNode(node.callee);
     }
     if (arkts.isMemberExpression(node)) {
       return this.getPrimaryNameFromNode(node.property);
@@ -132,14 +136,14 @@ export abstract class BaseValidator {
    * @param ifStatement - The if statement
    * @returns True if in then block
    */
-  protected isNodeInIfThenBlock(node: arkts.AstNode, ifNode: arkts.AstNode): boolean {
+  protected isNodeInIfThenBlock(node: arkts.AstNode, ifNode: arkts.IfStatement): boolean {
     if (!ifNode.consequent) {
       return false;
     }
 
-    const nodeStartPos = node.startPosition?.index() || 0;
-    const thenStartPos = ifNode.consequent.startPosition?.index() || 0;
-    const thenEndPos = ifNode.consequent.endPosition?.index() || 0;
+    const nodeStartPos = node.startPosition?.getIndex() || 0;
+    const thenStartPos = ifNode.consequent.startPosition?.getIndex() || 0;
+    const thenEndPos = ifNode.consequent.endPosition?.getIndex() || 0;
 
     return nodeStartPos >= thenStartPos && nodeStartPos <= thenEndPos;
   }
@@ -165,11 +169,11 @@ export abstract class BaseValidator {
     const annotationRegex = /\s*@SuppressWarnings\s*(\()/g;
     const contentRegex = sceneName === 'comment_suppressWarnings' ? commentRegex : annotationRegex;
     const nodeDecl = arkts.getDecl(node);
-    const program = arkts.getProgramFromAstNode(nodeDecl);
+    const program = !nodeDecl ? undefined : arkts.getProgramFromAstNode(nodeDecl);
     if (!program) {
       return true;
     }
-    const nodeSourceText = program.astNode.dumpSrc() || '';
+    const nodeSourceText = program.ast.dumpSrc() || '';
     const nodeSourceFile = program.fileName;
     const mapKey = `${warnName}_${sceneName}_${nodeSourceFile}`;
     if (suppressWarningsCheckPlugin.has(mapKey)) {
@@ -246,10 +250,10 @@ export class UndefinedCheckValidator extends BaseValidator implements NodeValida
       return false;
     }
 
-    return this.checkBinaryExpressionForUndefined(testNode, targetName);
+    return this.checkBinaryExpressionForUndefined(testNode as arkts.BinaryExpression, targetName);
   }
 
-  private checkBinaryExpressionForUndefined(binaryNode: arkts.AstNode, targetName: string): boolean {
+  private checkBinaryExpressionForUndefined(binaryNode: arkts.BinaryExpression, targetName: string): boolean {
     const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, binaryNode.peer);
     if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION || !binaryNode.left || !binaryNode.right || !binaryNode.operatorType) {
       return false;
@@ -322,14 +326,12 @@ export class SdkComparisonValidator extends BaseValidator implements NodeValidat
 
   private isNodeWrappedInSdkComparison(node: arkts.AstNode): boolean {
     const nodeDecl = arkts.getDecl(node);
-    const program = arkts.getProgramFromAstNode(nodeDecl);
-    const sourceText = program?.astNode.dumpSrc() || '';
+    const program = !nodeDecl ? undefined : arkts.getProgramFromAstNode(nodeDecl);
+    const sourceText = program?.ast.dumpSrc() || '';
 
     if (!sourceText) {
       return false;
     }
-
-    let currentNode: arkts.AstNode | null = node.parent;
 
     return (this.findParentNode(node, (parent) => {
       return this.checkIfStatementForSdkComparison(parent, node);
@@ -407,7 +409,7 @@ export class AvailableComparisonValidator extends BaseValidator implements NodeV
       return null;
     }
 
-    const annotation: arkts.AstNode | null = getValidAnnotationFromNode(node, isAvailableDecorator);
+    const annotation: arkts.AnnotationUsage | null = getValidAnnotationFromNode(node, isAvailableDecorator);
     if (annotation === null) {
       return null;
     }
@@ -469,29 +471,27 @@ export class AnnotateSuppressWarningsValidator extends BaseValidator implements 
   }
 
   private checkAnnotationWarning(node: arkts.AstNode): boolean {
-    const decoratorNodes: arkts.AstNode[] = this.getTagDecoratorFromNode(node);
+    const decoratorNodes: arkts.AnnotationUsage[] = this.getTagDecoratorFromNode(node);
     return decoratorNodes.some(item => this.extractRulesFromDecorator(item));
   }
 
-  private findTagDecorator(decorator: arkts.AstNode): boolean {
+  private findTagDecorator(decorator: arkts.AnnotationUsage): boolean {
     if (!decorator || !decorator.expr) {
       return false;
     }
 
     const expr = decorator.expr;
-    if (expr.expression && expr.expression.name) {
-      return expr.expression.name === 'SuppressWarnings';
-    } else if (expr.name) {
+    if (arkts.isIdentifier(expr) && expr.name) {
       return expr.name === 'SuppressWarnings';
     }
 
     return false;
   }
 
-  private getTagDecoratorFromNode(node: arkts.AstNode): arkts.AstNode[] {
-    const decoratorArray: arkts.AstNode[] = [];
+  private getTagDecoratorFromNode(node: arkts.AstNode): arkts.AnnotationUsage[] {
+    const decoratorArray: arkts.AnnotationUsage[] = [];
 
-    if (node.annotations && Array.isArray(node.annotations)) {
+    if (isAnnotationAllowed(node)) {
       decoratorArray.push(...node.annotations);
     }
 
@@ -505,27 +505,24 @@ export class AnnotateSuppressWarningsValidator extends BaseValidator implements 
     return [...currentSuppressWarningDecorators, ...parentSuppressWarning];
   }
 
-  private extractRulesFromDecorator(decorator: arkts.AstNode): boolean {
+  private extractRulesFromDecorator(decorator: arkts.AnnotationUsage): boolean {
     if (!decorator || !decorator.expr) {
       return false;
     }
 
-    const expr = decorator.expr;
-    if (!expr.arguments || expr.arguments.length === 0) {
+    if (!decorator || !decorator.properties || decorator.properties.length === 0) {
       return false;
     }
 
-    const arg = expr.arguments[0];
-    if (!arg || !arg.properties || arg.properties.length === 0) {
+    const prop = decorator.properties[0];
+    if (!arkts.isClassProperty(prop)) {
+      return false;
+    }
+    if (!prop.key || !arkts.isIdentifier(prop.key) || prop.key.name !== 'rules') {
       return false;
     }
 
-    const prop = arg.properties[0];
-    if (!prop.key || prop.key.name !== 'rules') {
-      return false;
-    }
-
-    if (!prop.value || !prop.value.elements || prop.value.elements.length === 0) {
+    if (!prop.value || !arkts.isArrayExpression(prop.value) || prop.value.elements.length === 0) {
       return false;
     }
 
@@ -535,7 +532,10 @@ export class AnnotateSuppressWarningsValidator extends BaseValidator implements 
     }
 
     return prop.value.elements.some((item: arkts.AstNode) => {
-      const elementName = item.name || item.text || '';
+      let elementName: string = '';
+      if (arkts.isIdentifier(item)) {
+        elementName = item.name;
+      }
       return elementName.includes(ruleValues);
     });
   }
@@ -560,7 +560,26 @@ export class WhiteListValidator extends BaseValidator implements NodeValidator {
     if (!declFilePath) {
       return false;
     }
-    const apiName: string = this.declaration?.key?.name || this.declaration?.ident?.name || '';
+
+    let apiName: string = '';
+    if (arkts.isClassDefinition(this.declaration)) {
+      apiName = this.declaration.ident?.name || '';
+    } else if (arkts.isETSModule(this.declaration) && this.declaration.isNamespace) {
+      apiName = this.declaration.ident?.name || '';
+    } else if (arkts.isTSInterfaceDeclaration(this.declaration)) {
+      apiName = this.declaration.id?.name || '';
+    } else if (arkts.isMethodDefinition(this.declaration)) {
+      apiName = this.declaration.id?.name || '';
+    } else if (arkts.isTSTypeAliasDeclaration(this.declaration)) {
+      apiName = this.declaration.id?.name || '';
+    } else if (arkts.isVariableDeclarator(this.declaration)) {
+      apiName = !!this.declaration.id && arkts.isIdentifier(this.declaration.id) ? this.declaration.id.name : '';
+    } else if (arkts.isClassProperty(this.declaration)) {
+      apiName = !!this.declaration.key && arkts.isIdentifier(this.declaration.key) ? this.declaration.key.name : '';
+    } else if (arkts.isTSEnumMember(this.declaration)) {
+      apiName = !!this.declaration.key && arkts.isIdentifier(this.declaration.key) ? this.declaration.key.name : '';
+    }
+
     return globalObject.projectConfig.externalApiPaths.some((externalApiPath: string) => {
       const fileName: string = path.relative(externalApiPath, declFilePath).replace(/\\/g, '/');
       return API_INTERFACE_WHITE_LIST.get(fileName)?.includes(apiName);

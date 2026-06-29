@@ -1,375 +1,261 @@
 /*
-  * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
-  * Licensed under the Apache License, Version 2.0 (the "License");
-  * you may not use this file except in compliance with the License.
-  * You may obtain a copy of the License at
-  *
-  *     http://www.apache.org/licenses/LICENSE-2.0
-  *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
-  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  * See the License for the specific language governing permissions and
-  * limitations under the License.
-  */
-
-import uiMaterial from './@ohos.arkui.uiMaterial';
+ * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 /**
  * @file
  * @kit ArkUI
  */
 
+import uiMaterial from './@ohos.arkui.uiMaterial';
+
 /**
- * Construct parameter types for EditorMenuOptions.
+ * Describes the edit menu options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
- /**
- * Construct parameter types for EditorMenuOptions.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
- */
-
-
 export interface EditorMenuOptions {
+
   /**
-   * The icon of icon and text item.
+   * Icon.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The icon of icon and text item.
-   *
-   * @type { ResourceStr }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   icon: ResourceStr;
 
   /**
-   * Symbol style of menu icon.
-   * @type { ?SymbolGlyphModifier }.
+   * Symbol icon resource, which has higher priority than **icon**.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * Symbol style of menu icon.
-   * @type { ?SymbolGlyphModifier }.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   symbolStyle?: SymbolGlyphModifier;
 
   /**
-   * Callback function when click the icon.
-   * 
-   * @type { ?function }
+   * Action triggered when the menu option is clicked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback function when click the icon.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   action?: () => void;
 
   /**
-   * Callback builder when click the icon.
-   * 
-   * @type { ?function }
+   * Builder of the custom component displayed upon click. It must be used with @Builder for building the custom
+   * component.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback builder when click the icon.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   builder?: () => void;
 }
 
 /**
- * Construct parameter types for ExpandedMenuOptions.
+ * Describes the expanded drop-down menu options.
  *
- * @extends MenuItemOptions
+ * Inherits from [MenuItemOptions]{@link MenuItemOptions}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Construct parameter types for ExpandedMenuOptions.
- *
- * @extends MenuItemOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 export interface ExpandedMenuOptions extends MenuItemOptions {
+
   /**
-   * Callback function when click the option.
-   * 
-   * @type { ?function }
+   * Action triggered when the menu option is clicked.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Callback function when click the option.
-   * 
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   action?: () => void;
 }
 
 /**
- * Defines the editor event info.
+ * Provides the information about the selected content.
  *
- * @interface EditorEventInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Defines the editor event info.
- *
- * @interface EditorEventInfo
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 export interface EditorEventInfo {
+
   /**
-   * Edit information.
+   * Information about the selected content.
    *
-   * @type { ?RichEditorSelection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Edit information.
-   *
-   * @type { ?RichEditorSelection }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   content?: RichEditorSelection;
 }
 
 /**
- * Construct parameter types for SelectionMenuOptions.
+ * Defines the configuration options of the **SelectionMenu** component.
  *
- * @extends MenuItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Construct parameter types for SelectionMenuOptions.
- *
- * @extends MenuItemOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 export interface SelectionMenuOptions {
+
   /**
-   * The options of EditorMenu.
+   * Edit menu.
    *
-   * @type { ?Array<EditorMenuOptions> }
+   * If **editorMenuOptions** is not set, the edit menu is not displayed.
+   *
+   * When both **action** and **builder** in **EditorMenuOptions** are configured, clicking the edit icon will trigger
+   * both.
+   *
+   * By default, the context menu is not closed when the edit menu icon is clicked. You can configure
+   * **closeSelectionMenu** of **RichEditorController** in **action** to enable the menu to be closed.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * The options of EditorMenu.
-   *
-   * @type { ?Array<EditorMenuOptions> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   editorMenuOptions?: Array<EditorMenuOptions>;
 
   /**
-   * Expansion of SelectionMenu.
+   * Expanded drop-down menu options.
    *
-   * @type { ?Array<ExpendMenuOptions> }
+   * If this parameter is left empty, the expanded drop-down menu is not displayed.
+   *
+   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
+   * shows the expanded drop-down menu.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Expansion of SelectionMenu.
-   *
-   * @type { ?Array<ExpendMenuOptions> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   expandedMenuOptions?: Array<ExpandedMenuOptions>;
 
   /**
-   * Expansion of SelectionMenu.
+   * Expanded drop-down menu options.
    *
-   * @type { ?RichEditorController }
+   * If this parameter is left empty, the expanded drop-down menu is not displayed.
+   *
+   * The options configured for **ExpandedMenuOptions** are displayed in the **More** menu option, and clicking **More**
+   * shows the expanded drop-down menu.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Expansion of SelectionMenu.
-   *
-   * @type { ?RichEditorController }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   controller?: RichEditorController;
+
   /**
-   * Replace the built-in paste function.
+   * Event callback to take the place of the preset paste menu option.
    *
-   * @type { ?function }
+   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   *
+   * **NOTE**
+   *
+   * **event** indicates the returned information.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Replace the built-in paste function.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onPaste?: (event?: EditorEventInfo) => void;
 
   /**
-   * Replace the built-in replication feature.
+   * Event callback to take the place of the preset copy menu option.
    *
-   * @type { ?function }
+   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   *
+   * **NOTE**
+   *
+   * **event** indicates the returned information.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Replace the built-in replication feature.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onCopy?: (event?: EditorEventInfo) => void;
 
   /**
-   * Replace the built-in cut function.
+   * Event callback to take the place of the preset cut menu option.
    *
-   * @type { ?function }
+   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   *
+   * **NOTE**
+   *
+   * **event** indicates the returned information.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Replace the built-in cut function.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onCut?: (event?: EditorEventInfo) => void;
 
   /**
-   * Replace the built-in select all function.
+   * Event callback to take the place of the preset select-all menu option.
    *
-   * @type { ?function }
+   * It is effective only when the **controller** parameter is set and the preset menu is available.
+   *
+   * **NOTE**
+   *
+   * **event** indicates the returned information.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-   /**
-   * Replace the built-in select all function.
-   *
-   * @type { ?function }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   onSelectAll?: (event?: EditorEventInfo) => void;
 
@@ -377,7 +263,6 @@ export interface SelectionMenuOptions {
    * Set system-styled materials for the component. Different materials have different effects,
    * which can influence the backgroundColor, border, shadow, and other visual attributes.
    *
-   * @type { ?uiMaterial.Material }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -388,23 +273,19 @@ export interface SelectionMenuOptions {
 }
 
 /**
- * Declare Builder SelectionMenu.
+ * Defines a **SelectionMenu** component. When the input parameter is empty, both the component and its content area
+ * have a zero size, making the component invisible. For example, when a **SelectionMenu** component activated via right
+ * -click is bound to a [RichEditor]{@link rich_editor} component using
+ * [bindSelectionMenu]{@link RichEditorAttribute#bindSelectionMenu}, it will not be displayed when the **RichEditor**
+ * component receives a right-click event.
  *
- * @param { SelectionMenuOptions } options - Selection menu options.
+ * @param { SelectionMenuOptions } options - Configuration options of the **SelectionMenu** component.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
- /**
- * Declare Builder SelectionMenu.
- *
- * @param { SelectionMenuOptions } options - Selection menu options.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 @Builder
 export declare function SelectionMenu(options: SelectionMenuOptions): void;

@@ -268,6 +268,16 @@ export interface BundleInfo {
    * @since 23 dynamic&static
    */
   readonly buildVersion?: string;
+
+  /**
+   * Bundle name of the sandbox application creator
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  readonly sandboxCreatorBundleName?: string;
 }
 
 /**

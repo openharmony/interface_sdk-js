@@ -27,8 +27,6 @@ import { AttributeModifier } from "./common";
 /**
  * Defines the QRCode component attributes.
  *
- * @extends CommonMethod
- * @interface QRCodeAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -57,8 +55,10 @@ export declare interface QRCodeAttribute extends CommonMethod {
     default backgroundColor(value: ResourceColor | undefined): this;
     /**
      * Set the opacity of the QR code content color.
-     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color. The value is between 0 and 1, with a default value of 1.
-     * @returns { QRCodeAttribute } the attribute of the QR code
+     *
+     * @param { double | Resource | undefined } value - indicates the opacity of the QR code content color.
+     *     The value is between 0 and 1, with a default value of 1.
+     * @returns { QRCodeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -90,7 +90,7 @@ export declare interface QRCodeAttribute extends CommonMethod {
  * Defines the QRCode component.
  *
  * @param { ResourceStr } value - qrcode string.
- * @returns { QRCodeAttribute } The attribute of the QRCode.
+ * @returns { QRCodeAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

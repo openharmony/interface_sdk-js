@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
@@ -25,7 +26,6 @@ import { IDecoratedV1Variable } from '../stateManagement/decorator';
 /**
  * Defines the info of compatible custom component.
  *
- * @typedef CompatibleComponentInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -34,7 +34,6 @@ export interface CompatibleComponentInfo {
     /**
      * the name of compatible custom component
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -44,7 +43,6 @@ export interface CompatibleComponentInfo {
     /**
      * the compatible custom component
      *
-     * @type { ESValue }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -55,7 +53,6 @@ export interface CompatibleComponentInfo {
 /**
  * Defines the callback for initializing compatible custom component.
  *
- * @typedef { function } CompatibleInitCallback
  * @param { ESValue } parent - the parent of compatible custom component
  * @returns { CompatibleComponentInfo } the info of compatible custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -67,7 +64,6 @@ export type CompatibleInitCallback = (parent: ESValue) => CompatibleComponentInf
 /**
  * Defines the callback for updating compatible custom component.
  *
- * @typedef { function } CompatibleUpdateCallback
  * @param { ESValue } component - the compatible custom component
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -116,8 +112,8 @@ export declare function getCompatibleState<T>(state: IDecoratedV1Variable<T>): E
 export declare function compatibleWrappedBuilder(builder: Any, ...args: FixedArray<ESValue>): void;
 
 /**
- * Transfer compatible Builder
- * 
+ * Transfer compatible Builder.
+ *
  * @param { T } builder - the source builder
  * @returns { ESValue } the compatible builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,7 +125,6 @@ export declare function transferCompatibleBuilder<T extends Function>(@Builder b
 /**
  * Defines the source builder for updating compatible builder.
  *
- * @typedef { function } CompatibleUpdatableBuilder<T>
  * @param { T } arg - the argument of the source builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -137,10 +132,10 @@ export declare function transferCompatibleBuilder<T extends Function>(@Builder b
  */
 @Builder
 export type CompatibleUpdatableBuilder<T> = (arg: T) => void;
- 
+
 /**
  * Transfer compatible and updatable Builder
- * 
+ *
  * @param { CompatibleUpdatableBuilder<T> } builder - the source builder
  * @returns { ESValue } the compatible builder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -153,7 +148,7 @@ export declare function transferCompatibleUpdatableBuilder<T extends Object>(
 
 /**
  * Enable compatible ObservedV2 for Dynamic
- * 
+ *
  * @param { T } value - the source value
  * @returns { T } the result
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -164,7 +159,7 @@ export declare function enableCompatibleObservedV2ForDynamic<T>(value: T): T;
 
 /**
  * Enable compatible ObservedV2 for Static
- * 
+ *
  * @param { T } value - the source value
  * @returns { T } the result
  * @syscap SystemCapability.ArkUI.ArkUI.Full

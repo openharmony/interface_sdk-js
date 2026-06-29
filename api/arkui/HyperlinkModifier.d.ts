@@ -18,34 +18,21 @@
  * @kit ArkUI
  */
 
-
-
 /**
  * Defines Hyperlink Modifier
  *
- * @extends HyperlinkAttribute
- * @implements AttributeModifier<HyperlinkAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines Hyperlink Modifier
- *
- * @extends HyperlinkAttribute
- * @implements AttributeModifier<HyperlinkAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class HyperlinkModifier extends HyperlinkAttribute implements AttributeModifier<HyperlinkAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { HyperlinkAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

@@ -14,10 +14,9 @@
  */
 
 /**
- * The AdsServiceExtensionAbility module provides ExtensionAbilities for the ads service. Device vendors can implement 
- * the callbacks for ads requests.
+ * 本模块为设备厂商提供广告扩展能力，设备厂商可自主实现请求广告的回调。
  *
- * @file ExtensionAbility for Ads
+ * @file 广告扩展服务
  * @kit AdsKit
  */
 
@@ -54,7 +53,8 @@ export default class AdsServiceExtensionAbility {
    * @systemapi
    * @since 11
    */
-  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions, respCallback: RespCallback);
+  onLoadAdWithMultiSlots(adParams: advertising.AdRequestParams[], adOptions: advertising.AdOptions, 
+    respCallback: RespCallback);
 }
 
 /**
@@ -67,7 +67,8 @@ export interface RespCallback {
   /**
    * 广告请求回调。
    *
-   * @param { Map<string, Array<advertising.Advertisement>> } respData - 广告请求回调数据，是以广告位ID为键，存储请求到的广告内容的映射集合。
+   * @param { Map<string, Array<advertising.Advertisement>> } respData - 广告请求回调数据，是以广告位ID为键，
+   *     存储请求到的广告内容的映射集合。
    * @syscap SystemCapability.Advertising.Ads
    * @since 11
    */

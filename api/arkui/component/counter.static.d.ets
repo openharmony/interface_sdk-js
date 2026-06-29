@@ -26,8 +26,6 @@ import { AttributeModifier } from "./common";
 /**
  * Defines the Counter component attributes.
  *
- * @extends CommonMethod
- * @interface CounterAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -61,7 +59,7 @@ export declare interface CounterAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } value - If true, the decrease button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
-     * @returns { CounterAttribute } The attribute of the counter.
+     * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -72,7 +70,7 @@ export declare interface CounterAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } value - If true, the increase button is available and can respond to
      *     operations such as clicking. If false, click operations are not responded.
-     * @returns { CounterAttribute } The attribute of the counter.
+     * @returns { CounterAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -118,7 +116,7 @@ export declare function Counter(
  * Defines Counter Component.
  *
  * @param { CustomBuilderT<CounterAttribute> } style - Counter attribute instance
- * @param { CustomBuilder } [content_] - container
+ * @param { CustomBuilder } [content_] - Child component
  * @returns { CounterAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -23,6 +23,7 @@ import type { AsyncCallback } from './@ohos.base';
 /*** endif */
 /*** if arkts static */
 import Context from './application/Context';
+import window from '@ohos.window';
 /*** endif */
 
 /**
@@ -45,11 +46,13 @@ declare namespace userAuth {
   const MAX_ALLOWABLE_REUSE_DURATION: 300000;
   /**
    * Maximum reuse duration of the authentication result, in milliseconds. The value is 300000.
+   * The value range is all integers.
    *
    * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
    * @since 23 static
    */
-  const MAX_ALLOWABLE_REUSE_DURATION: int = 300000;
+  const MAX_ALLOWABLE_REUSE_DURATION: int;
 
   /**
    * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
@@ -57,9 +60,18 @@ declare namespace userAuth {
    * @syscap SystemCapability.UserIAM.UserAuth.Core
    * @atomicservice
    * @since 22 dynamic
-   * @since 23 static
    */
   const PERMANENT_LOCKOUT_DURATION: int = 0x7fffffff;
+
+  /**
+   * Permanent lockout duration, in milliseconds. The value is 0x7fffffff.
+   * The value range is all integers.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @stagemodelonly
+   * @since 23 static
+   */
+  const PERMANENT_LOCKOUT_DURATION: int;
 
   /**
    * Enumerates the authentication results.
@@ -1503,10 +1515,10 @@ declare namespace userAuth {
     windowMode?: WindowModeType;
 
     /**
-     * Whether to display the authentication dialog box in modal application mode. This mode is applicable only to 2-in-
-     * 1 devices. If this mode is not used or other types of devices are used, the authentication dialog box is
-     * displayed in modal system mode. By default, the identity authentication dialog box is displayed in modal system
-     * mode.
+     * Provide this parameter to display the authentication dialog box in modal application mode. This mode is
+     * applicable only to phone, tablet and 2-in-1 devices. If this mode is not used or other types of devices are used,
+     * the authentication dialog box is displayed in modal system mode. By default, the identity authentication dialog
+     * box is displayed in modal system mode.
      *
      * This API can be used in atomic services since API version 18.
      *
@@ -1516,6 +1528,18 @@ declare namespace userAuth {
      * @since 23 static
      */
     uiContext?: Context;
+
+    /**
+     * This parameter is also provided to display the authentication dialog box in modal application mode.
+     * If uiContext has been provided, this parameter would be ignored.
+     *
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @stagemodelonly
+     * @systemapi Hide this for inner system use.
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    appWindow?: window.Window;
   }
 
   /**
@@ -2379,6 +2403,96 @@ declare namespace userAuth {
    * @since 23 static
    */
   function queryReusableAuthResult(authParam: AuthParam): Uint8Array;
+
+  /**
+   * Called to get the information presented on the user authentication page for remote authentication.
+   *
+   * @typedef { function } WidgetParamCallback
+   * @param { Uint8Array } challenge - Challenge value, which can be passed in Uint8Array([]) format.
+   * @returns { WidgetParam } widgetParam - Parameters on the user authentication page.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  type WidgetParamCallback = (challenge: Uint8Array) => WidgetParam;
+
+  /**
+   * Called to return the authentication result. If the authentication is successful,
+   * UserAuthResult contains the token information.
+   *
+   * @typedef { function } ResultCallback
+   * @param { Uint8Array } challenge - Challenge value, which can be passed in Uint8Array([]) format.
+   * @param { UserAuthResult } result - Authentication result.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+    type ResultCallback = (challenge: Uint8Array, result: UserAuthResult) => void;
+
+  /**
+   * Provides APIs for getting WidgetParam in remote authentication scenarios.
+   *
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface IRemoteAuthCallback {
+    /**
+     * Called to get the information presented on the user authentication page for remote authentication.
+     *
+     * @type { WidgetParamCallback }.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onGetRemoteAuthWidgetParam: WidgetParamCallback;
+
+    /**
+     * Called to return the authentication result. If the authentication is successful,
+     * UserAuthResult contains the token information.
+     *
+     * @type { ResultCallback }.
+     * @syscap SystemCapability.UserIAM.UserAuth.Core
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onRemoteAuthResult: ResultCallback;
+  }
+
+  /**
+   * Registers the callback for remote authentication.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @param { IRemoteAuthCallback } callback - Callback used to get remote authentication WidgetParam and return the
+   *     result
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function registerRemoteAuthCallback(callback: IRemoteAuthCallback): void;
+
+  /**
+   * Unregisters the callback for remote authentication.
+   *
+   * @permission ohos.permission.ACCESS_USER_AUTH_INTERNAL
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Permission denied. Called by non-system application.
+   * @throws { BusinessError } 12500002 - General operation error.
+   * @syscap SystemCapability.UserIAM.UserAuth.Core
+   * @systemapi Hide this for inner system use.
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function unregisterRemoteAuthCallback(): void;
 }
 
 export default userAuth;

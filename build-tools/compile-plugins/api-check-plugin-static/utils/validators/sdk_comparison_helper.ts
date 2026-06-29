@@ -225,22 +225,26 @@ export class SdkComparisonHelper {
     matchedApi: string
   ): { operator: string; value: string; apiPosition: 'left' | 'right' } | undefined {
     const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, expression.peer);
-    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION || !expression.operatorType) {
+    if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
+      return undefined;
+    }
+    const _expression: arkts.BinaryExpression = expression as arkts.BinaryExpression;
+    if (!_expression.operationType) {
       return undefined;
     }
 
-    const operator = this.getOperatorText(expression.operatorType);
-    const leftText = this.getNodeText(expression.left);
-    const rightText = this.getNodeText(expression.right);
+    const operator = this.getOperatorText(_expression.operatorType);
+    const leftText = this.getNodeText(_expression.left);
+    const rightText = this.getNodeText(_expression.right);
 
     let targetValue: string;
     let apiPosition: 'left' | 'right';
 
     if (leftText.includes(matchedApi)) {
-      targetValue = this.extractVersionValue(expression.right);
+      targetValue = this.extractVersionValue(_expression.right);
       apiPosition = 'left';
     } else if (rightText.includes(matchedApi)) {
-      targetValue = this.extractVersionValue(expression.left);
+      targetValue = this.extractVersionValue(_expression.left);
       apiPosition = 'right';
     } else {
       return undefined;
@@ -249,13 +253,13 @@ export class SdkComparisonHelper {
     return { operator, value: targetValue, apiPosition };
   }
 
-  private extractVersionValue(node: arkts.AstNode | null): string {
+  private extractVersionValue(node: arkts.AstNode | null | undefined): string {
     if (!node) {
       return '';
     }
-    if (arkts.isIdentifier(node) && arkts.getDecl(node) && arkts.getDecl(node).parent) {
-      const variableDecl = arkts.getDecl(node).parent;
-      return variableDecl.initializer ? variableDecl.initializer.dumpSrc() : '';
+    if (arkts.isIdentifier(node) && arkts.getDecl(node) && arkts.getDecl(node)?.parent) {
+      const variableDecl = arkts.getDecl(node)?.parent;
+      return arkts.isVariableDeclarator(variableDecl) && variableDecl.init ? variableDecl.init.dumpSrc() : '';
     }
     if (arkts.isNumberLiteral(node)) {
       return node.dumpSrc();
@@ -263,15 +267,12 @@ export class SdkComparisonHelper {
     return this.getNodeText(node);
   }
 
-  private getNodeText(node: arkts.AstNode | null): string {
+  private getNodeText(node: arkts.AstNode | null | undefined): string {
     if (!node) {
       return '';
     }
-    if (node.name) {
+    if (arkts.isIdentifier(node) && node.name) {
       return node.name;
-    }
-    if (node.text) {
-      return node.text.toString();
     }
     if (node.dumpSrc()) {
       return node.dumpSrc();
@@ -391,14 +392,15 @@ export class SdkComparisonHelper {
   private findValidImportApiIdentifier(expression: arkts.AstNode, api: string): arkts.AstNode | undefined {
     const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, expression.peer);
     if (kind === arkts.Es2pandaAstNodeType.AST_NODE_TYPE_BINARY_EXPRESSION) {
-      return this.extractApiIdentifierFromExpression(expression.left, api) ||
-        this.extractApiIdentifierFromExpression(expression.right, api);
+      const _expression: arkts.BinaryExpression = expression as arkts.BinaryExpression;
+      return this.extractApiIdentifierFromExpression(_expression.left, api) ||
+        this.extractApiIdentifierFromExpression(_expression.right, api);
     }
     return this.extractApiIdentifierFromExpression(expression, api);
   }
 
   private extractApiIdentifierFromExpression(
-    expression: arkts.AstNode | null,
+    expression: arkts.AstNode | null | undefined,
     targetProperty: string
   ): arkts.AstNode | undefined {
     if (!expression) {
@@ -408,24 +410,26 @@ export class SdkComparisonHelper {
     if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_MEMBER_EXPRESSION) {
       return undefined;
     }
-    const name = this.getNodeText(expression.property);
+    const _expression: arkts.MemberExpression = expression as arkts.MemberExpression;
+    const name = this.getNodeText(_expression.property);
     if (name !== targetProperty) {
       return undefined;
     }
-    return this.getRootIdentifier(expression.object);
+    return this.getRootIdentifier(_expression.object);
   }
 
-  private getRootIdentifier(expression: arkts.AstNode | null): arkts.AstNode | undefined {
+  private getRootIdentifier(expression: arkts.AstNode | null | undefined): arkts.AstNode | undefined {
     if (!expression) {
       return undefined;
     }
-    let current: arkts.AstNode | null = expression;
+    let current: arkts.AstNode | null | undefined = expression;
     while (current) {
       const kind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, current.peer);
       if (kind !== arkts.Es2pandaAstNodeType.AST_NODE_TYPE_MEMBER_EXPRESSION) {
         break;
       }
-      current = current.expression;
+      const _current: arkts.MemberExpression = current as arkts.MemberExpression;
+      current = _current.object;
     }
     if (current) {
       const currentKind = arkts.arktsGlobal.generatedEs2panda._AstNodeTypeConst(arkts.arktsGlobal.context, current.peer);
@@ -441,7 +445,7 @@ export class SdkComparisonHelper {
       return false;
     }
     const nodeDecl = arkts.getDecl(identifier);
-    const program = arkts.getProgramFromAstNode(nodeDecl);
+    const program = nodeDecl ? arkts.getProgramFromAstNode(nodeDecl) : undefined;
     const declarationFile = program?.sourceFilePath || '';
     if (!declarationFile) {
       return false;

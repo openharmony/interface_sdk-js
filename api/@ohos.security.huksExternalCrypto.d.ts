@@ -252,9 +252,9 @@ declare namespace huksExternalCrypto {
   function unregisterProvider(providerName: string, params?: Array<HuksExternalCryptoParam>): Promise<void>;
 
   /**
-   * Authenticates a Ukey PIN. This API uses a promise to return the result.
+   * Authenticates a UKey PIN. This API uses a promise to return the result.
    *
-   * @param { string } resourceId - Resource ID of a container in the Ukey, which can be obtained using
+   * @param { string } resourceId - Resource ID of a container in the UKey, which can be obtained using
    *     [certificateManagerDialog.openAuthorizeDialog22+]{@link @ohos.security.certManagerDialog:certificateManagerDialog.openAuthorizeDialog(context: common.Context, authorizeRequest: AuthorizeRequest)}
    *     . The result contains **resourceId**.
    * @param { Array<HuksExternalCryptoParam> } params - Parameters to be passed during the operation. The mandatory tag
@@ -418,7 +418,7 @@ declare namespace huksExternalCrypto {
    *     including the bundle name, ability name, and the related information to get the resource ID.
    * @returns { Promise<string> } The promise returned by the function.
    * @throws { BusinessError } 801 - API is not supported.
-   * @throws { BusinessError } 12000002 - The ability name or bundle name parameter is missing.
+   * @throws { BusinessError } 12000002 - The ability name, bundle name parameter or resource information is missing.
    * @throws { BusinessError } 12000005 - IPC communication failed.
    * @throws { BusinessError } 12000011 - The provider is not found.
    * @throws { BusinessError } 12000012 - Device environment or input parameters are abnormal.
@@ -495,7 +495,6 @@ declare namespace huksExternalCrypto {
    * Get the detailed error information.
    *
    * @returns { HuksExternalErrorInfo } The returned error information.
-   * @throws { BusinessError } 801 - API is not supported.
    * @syscap SystemCapability.Security.Huks.CryptoExtension
    * @stagemodelonly
    * @since 26.0.0

@@ -17,6 +17,21 @@ import * as arkts from '@koalaui/libarkts';
 import { JSDoc, JsDocNodeCheckConfigItem } from '../api-check-wrapper';
 import { PermissionValidTokenState } from './api_check_plugin_define';
 
+export type AnnotationAllowedAstNode = arkts.AnnotationDeclaration |
+  arkts.ArrowFunctionExpression |
+  arkts.ClassDefinition |
+  arkts.ClassProperty |
+  arkts.ETSModule |
+  arkts.ETSParameterExpression |
+  arkts.FunctionDeclaration |
+  arkts.ScriptFunction |
+  arkts.TSEnumDeclaration |
+  arkts.TSInterfaceDeclaration |
+  arkts.TSTypeAliasDeclaration |
+  arkts.TSTypeParameter |
+  arkts.TypeNode |
+  arkts.VariableDeclaration;
+
 /**
  * 定义与显示窗口相关的配置
  */
@@ -121,9 +136,9 @@ export interface SdkConfig {
   prefix: string;
   apiPath: string[];
   osName?: string;
-  apiCheckPlugin?: Map<string, string>;
-  annotationCheckPlugin?: Map<string, string>;
-  apiCheckPlugins?: Map<string, string>;
+  apiCheckPlugin?: Record<string, string>;
+  annotationCheckPlugin?: Record<string, string>;
+  apiCheckPlugins?: Record<string, string>;
 }
 
 export interface GlobalObject {
@@ -188,6 +203,7 @@ export interface SdkHvigorLogInfo {
   description: string;
   cause: string;
   position: string;
+  solutions: string[];
 }
 
 export interface Logger {

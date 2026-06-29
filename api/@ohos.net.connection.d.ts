@@ -1609,7 +1609,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1630,7 +1630,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1652,7 +1652,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.
    * @stagemodelonly
@@ -1674,7 +1674,7 @@ declare namespace connection {
    * @throws { BusinessError } 202 - Nonsystem applications use system APIs.
    * @throws { BusinessError } 2100002 - Failed to connect to the service.
    * @throws { BusinessError } 2100003 - System internal error.
-   * @throws { BusinessError } 2100400 - The input network interface card name is incorrect.
+   * @throws { BusinessError } 2100400 - The input network interface name is incorrect.
    * @throws { BusinessError } 2100401 - The input IP address is not found.
    * @syscap SystemCapability.Communication.NetManager.Core
    * @systemapi Hide this for inner system use. Only used for system app.

@@ -26,7 +26,6 @@ import { AttributeModifier } from "./common";
 /**
  * DataPanelType enum
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -51,7 +50,7 @@ export declare enum DataPanelType {
 }
 /**
  * ColorStop type
- * @typedef { object } ColorStop
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -60,7 +59,6 @@ export declare interface ColorStop {
     /**
      * Color property.
      *
-     * @type { ResourceColor } color - the color value.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -69,7 +67,6 @@ export declare interface ColorStop {
     /**
      * Offset property.
      *
-     * @type { Length } offset - the color offset.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -97,8 +94,6 @@ export declare class LinearGradient {
 /**
  * Defines the options of Shadow.
  *
- * @extends MultiShadowOptions
- * @interface DataPanelShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -107,7 +102,6 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
     /**
      * Current shadow colors.
      *
-     * @type { ?Array<ResourceColor | LinearGradient> }
      * @default Consistent with valueColors
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -118,7 +112,6 @@ export declare interface DataPanelShadowOptions extends MultiShadowOptions {
 /**
  * Defines the options of DataPanel.
  *
- * @interface DataPanelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -127,7 +120,6 @@ export declare interface DataPanelOptions {
     /**
      * Current data value. the max length is 9.
      *
-     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -135,17 +127,17 @@ export declare interface DataPanelOptions {
     values: double[];
     /**
      * Maximum value of the current data.
+     * Default value: 100.
      *
-     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     max?: double;
     /**
-     * DataPanel Type
+     * DataPanel Type.
+     * Default value: DataPanelType.Circle.
      *
-     * @type { ?DataPanelType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -155,8 +147,6 @@ export declare interface DataPanelOptions {
 /**
  * DataPanelConfiguration used by dataPanel content modifier
  *
- * @extends CommonConfiguration<DataPanelConfiguration>
- * @interface DataPanelConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -165,7 +155,6 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
     /**
      * Current data value. the max length is 9.
      *
-     * @type { double[] }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -174,7 +163,6 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
     /**
      * Maximum value of the current data.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -184,8 +172,6 @@ export declare interface DataPanelConfiguration extends CommonConfiguration<Data
 /**
  * Defines the Button component attributes.
  *
- * @extends CommonMethod
- * @interface ButtonAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -278,7 +264,7 @@ export declare interface DataPanelAttribute extends CommonMethod {
  * Defines the DataPanel component.
  *
  * @param { DataPanelOptions } options - data panel options.
- * @returns { DataPanelAttribute } The attribute of the DataPanel.
+ * @returns { DataPanelAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

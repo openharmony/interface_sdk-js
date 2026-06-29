@@ -2527,7 +2527,27 @@ declare namespace notificationManager {
   function isNotificationSlotEnabled(bundle: BundleOption, type: SlotType): Promise<boolean>;
 
   /**
-   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API 
+   * Checks whether a notification slot type is enabled for the specified applications in batch. This API uses a
+   * promise to return the result.
+   *
+   * @permission ohos.permission.NOTIFICATION_CONTROLLER
+   * @param { Array<BundleOption> } bundles - Array of bundle information of the applications.
+   * @param { SlotType } type - Notification slot type. All bundles share the same slot type.
+   * @returns { Promise<Map<BundleOption, boolean>> } Promise used to return the result. The key is the bundle
+   *     information, and the value **true** means that the notification slot type is enabled, and **false** means the
+   *     opposite. Bundles whose slot has not been created will not appear in the result.
+   * @throws { BusinessError } 201 - Permission denied.
+   * @throws { BusinessError } 202 - Not system application to call the interface.
+   * @throws { BusinessError } 1600001 - Internal error.
+   * @throws { BusinessError } 1600003 - Failed to connect to the service.
+   * @syscap SystemCapability.Notification.Notification
+   * @systemapi
+   * @since 26.0.0 dynamic&static
+   */
+  function isNotificationSlotEnabledByBundles(bundles: Array<BundleOption>, type: SlotType): Promise<Map<BundleOption, boolean>>;
+
+  /**
+   * Sets whether to enable the notification sync feature for devices where the application is not installed. This API
    * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
@@ -3577,13 +3597,16 @@ declare namespace notificationManager {
   function isSilentReminderEnabled(bundle: BundleOption): Promise<SwitchState>;
 
   /**
-   * Sets the notification switch state. This API uses a promise to return the result.
+   * Sets the status of the notification switch. Use Promise asynchronous callback.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
-   * @param { boolean } switchState - Whether to enable the notification switch. The value **true** means to enable the
-   *     notification switch, and **false** means the opposite.
-   * @param { int } userId - User ID
+   * @param { string } switchName - Notification switch name. Values are:
+   *     DEAL (transaction-related notification aggregation switch) and
+   *     LOGISTICS (logistics-related notification aggregation switch).
+   * @param { boolean } switchState - Whether to enable the notification switch.
+   *     - true: enabled.
+   *     - false: disabled.
+   * @param { int } userId - User ID.
    *     <br>The value range is all integers.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
@@ -3601,13 +3624,15 @@ declare namespace notificationManager {
   function setNotificationSwitch(switchName: string, switchState: boolean, userId: int): Promise<void>;
 
   /**
-   * Gets the notification switch state. This API uses a promise to return the result.
+   * Obtains the status of the notification switch. Use Promise asynchronous callbacks.
    *
    * @permission ohos.permission.NOTIFICATION_CONTROLLER
-   * @param { string } switchName - Notification switch name. The valid values are: **DEAL**, **LOGISTICS**.
-   * @param { int } userId - User ID
+   * @param { string } switchName - Notification switch name. Values ​​are:
+   *     DEAL (transaction-related notification aggregation switch) and
+   *     LOGISTICS (logistics-related notification aggregation switch).
+   * @param { int } userId - User ID.
    *     <br>The value range is all integers.
-   * @returns { Promise<SwitchState> } Promise used to return the result.
+   * @returns { Promise<SwitchState> } Promise used to return the notification switch status.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Not system application to call the interface.
    * @throws { BusinessError } 1600001 - Internal error. Database operation failed.

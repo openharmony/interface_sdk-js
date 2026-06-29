@@ -190,7 +190,7 @@ export default inspector;
  * @stagemodelonly
  * @since 23 static
  */
-export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
+export declare const GETINSPECTORBYKEY: (id: string) => string;
 /**
  * export function getInspectorTree from inspector namespace and provide it for kit ArkUI.
  * @constant
@@ -198,7 +198,7 @@ export const GETINSPECTORBYKEY = inspector.getInspectorByKey;
  * @stagemodelonly
  * @since 23 static
  */
-export const GETINSPECTORTREE = inspector.getInspectorTree;
+export declare const GETINSPECTORTREE: () => RecordData;
 /**
  * export function sendEventByKey from inspector namespace and provide it for kit ArkUI.
  * @constant
@@ -206,4 +206,4 @@ export const GETINSPECTORTREE = inspector.getInspectorTree;
  * @stagemodelonly
  * @since 23 static
  */
-export const SENDEVENTBYKEY = inspector.sendEventByKey;
+export declare const SENDEVENTBYKEY: (id: string, action: int, params: string) => boolean;

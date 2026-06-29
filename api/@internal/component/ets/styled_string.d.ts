@@ -17,10 +17,11 @@
  * @file
  * @kit ArkUI
  */
+
 /**
- * Defines the StyledStringMarshallingValue Type.
+ * Defines a custom marshalling object for styled strings, which you need to define marshalling and unmarshalling
+ * methods.
  *
- * @typedef { UserDataSpan } StyledStringMarshallingValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -28,13 +29,11 @@
  */
 declare type StyledStringMarshallingValue = UserDataSpan;
 
-
 /**
- * Defines the callback type used in marshalling.
+ * Defines a callback for marshalling [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
  *
- * @typedef { function } StyledStringMarshallCallback
- * @param { StyledStringMarshallingValue } marshallableVal - value that will be serialized to array buffer
- * @returns { ArrayBuffer } Array buffer from the serialized marshalling value
+ * @param { StyledStringMarshallingValue } marshallableVal - Object to be marshaled.
+ * @returns { ArrayBuffer } Marshaled data of [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -43,11 +42,12 @@ declare type StyledStringMarshallingValue = UserDataSpan;
 declare type StyledStringMarshallCallback = (marshallableVal: StyledStringMarshallingValue) => ArrayBuffer;
 
 /**
- * Defines the callback type used in unmarshalling.
+ * Defines a callback for unmarshalling an ArrayBuffer to obtain
+ * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
  *
- * @typedef { function } StyledStringUnmarshallCallback
- * @param { ArrayBuffer } buf - The buffer that will be deserialized to a StyledStringMarshallingValue.
- * @returns { StyledStringMarshallingValue } Marshalling value from the deserialized ArrayBuffer.
+ * @param { ArrayBuffer } buf - Marshaled data of [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+ * @returns { StyledStringMarshallingValue } [StyledStringMarshallingValue]{@link StyledStringMarshallingValue} obtained
+ *     after unmarshalling.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -65,209 +65,265 @@ declare type StyledStringUnmarshallCallback = (buf: ArrayBuffer) => StyledString
  * @since 12 dynamic
  */
 declare class StyledString {
-    /**
-     * constructor.
-     *
-     * @param { string | ImageAttachment | CustomSpan } value - indicates the current object value of the StyledString.
-     * @param { Array<StyleOptions> } [styles] - indicates the SpanStyle objects.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
-    /**
-     * Get the length of the StyledString's characters.
-     *
-     * @type { number } - the length of the StyledString's characters.
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly length: number;
+  /**
+   * A constructor used to create a styled string.
+   *
+   * @param { string | ImageAttachment | CustomSpan } value - Text of the styled string.<br>**NOTE**<br>If this
+   *     parameter is of the ImageAttachment or CustomSpan type, the **styles** parameter has no effect.<br>To set
+   *     **styles**, use methods such as [setStyle]{@link MutableStyledString#setStyle}.
+   * @param { Array<StyleOptions> } [styles] - Initialization options of the styled string.<br>**NOTE**<br>If **start**
+   *     is set to an invalid value, it uses the default value **0**.<br>If the **length** value is invalid, **length**
+   *     will default to the actual length of the styled string starting from the start position.<br>If
+   *     **StyledStringKey** does not match **StyledStringValue**, **styles** has no effect.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: string | ImageAttachment | CustomSpan, styles?: Array<StyleOptions>);
 
-    /**
-    * Get the literal content of the StyledString.
-    *
-    * @returns { string } - the literal content of the StyledString
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    getString(): string;
+  /**
+   * Length of the styled string.
+   *
+   * **NOTE**
+   *
+   * Both **ImageAttachment** and **CustomSpan** in the styled string are counted as length 1.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly length: number;
 
-    /**
-     * Get the attribute objects of the subStyledString.
-     *
-     * @param { number } start - the start position of the subStyledString.
-     * @param { number } length - the length of the subStyledString's characters.
-     * @param { StyledStringKey } [styledKey] - the specified type.
-     * @returns { Array<SpanStyle> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
+  /**
+   * Obtains the text of this styled string.
+   *
+   * @returns { string } Text of the styled string.
+   *     <br>**NOTE**
+   *     <br>If the styled string contains an image or [CustomSpan]{@link CustomSpan} elements, they are represented as space
+   *     characters in the returned result.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getString(): string;
 
-    /**
-     * Judge if two attribute strings are equal.
-     *
-     * @param { StyledString } other - another StyledString.
-     * @returns { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    equals(other: StyledString): boolean;
+  /**
+   * Obtains the styles in the specified range of a styled string. The specified range must not exceed the string's
+   * length.
+   *
+   * This API returns only styles explicitly set by the developer.
+   *
+   * @param { number } start - Subscript that corresponds to the target range in the styled string.
+   * @param { number } length - Length of the target range in the styled string.
+   * @param { StyledStringKey } [styledKey] - Style key of the styled string.
+   * @returns { Array<SpanStyle> } Array of styles.
+   *     <br>**NOTE**
+   *     <br>If no style is set for the specified range in the styled string, an empty array is returned.
+   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
+   *     passed as **undefined**, an exception is thrown.
+   *     <br>If **styledKey** is set to an invalid value or **undefined**, an exception is thrown.
+   *     <br>If **styledKey** is a **CustomSpan** object, the style returned is the one passed to create the object.
+   *     That is, modifying the style object also affects the actual display effect.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  getStyles(start: number, length: number, styledKey?: StyledStringKey): Array<SpanStyle>;
 
-    /**
-     * Get the substring of the StyledString.
-     *
-     * @param { number } start - the start position of the subStyledString.
-     * @param { number } [length] - the length of the subStyledString's characters.
-     * @returns { StyledString }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    subStyledString(start: number, length?: number): StyledString;
+  /**
+   * Checks whether this styled string the same as another styled string.
+   *
+   * @param { StyledString } other - **StyledString** object to compare.
+   * @returns { boolean } Whether two styled strings are equal.
+   *     <br>**true** if the two styled strings are equal; **false** otherwise.
+   *     <br>**NOTE**
+   *     <br>The two styled strings are the same if they have the same text and style.
+   *     <br>[GestureStyle]{@link GestureStyle} in styled strings is not compared. This means that, if two styled strings are
+   *     the same except for the event configured, they are treated as the same.
+   *     <br>In comparing [CustomSpan]{@link CustomSpan} or [LeadingMarginSpan]{@link LeadingMarginSpan} objects, addresses
+   *     are compared. The objects that have the same address are the same.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  equals(other: StyledString): boolean;
 
-    /**
-     * Returns StyledString from the provided HTML string.
-     *
-     * @param { string } html - the html text will be converted to a StyledString.
-     * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 170001 - Convert Error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    /**
-     * Returns StyledString from the provided HTML string.
-     *
-     * @param { string } html - the html text will be converted to a StyledString.
-     * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 170001 - Convert Error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
-     */
-    static fromHtml(html: string): Promise<StyledString>;
+  /**
+   * Obtains a substring of this styled string. The specified range must not exceed the string's length.
+   *
+   * @param { number } start - Subscript that corresponds to the start position of the styled substring.
+   * @param { number } [length] - Length of the styled substring.
+   * @returns { StyledString } Styled substring.
+   *     <br>**NOTE**
+   *     <br>If the value of **start** is valid, the difference between the length of the styled string and the value of
+   *     **start** is used as the default value of **length**.
+   *     <br>If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is
+   *     passed as **undefined**, an exception is thrown.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  subStyledString(start: number, length?: number): StyledString;
 
-    /**
-     * Returns HTML string from the provided StyledString.
-     *
-     * @param { StyledString } styledString - the StyledString will be converted to a HTML string.
-     * @returns { string } Returns the HTML string converted from the provided StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    static toHtml(styledString: StyledString): string;
+  /**
+   * Converts an HTML string into a styled string. Currently, the following HTML tags are supported for conversion: \<p>
+   * , \<span>, \<img>, \
+   *
+   * , \<strong>, \<b>, \<a>, \<i>, \<em>, \<s>, \<u>, \<del>, \<sup>, \<sub>. The **style** attribute within tags can
+   * be converted to the corresponding style in the styled string.
+   *
+   * For details about how to use this API, see
+   * [Example 12: Implementing Conversion Using fromHtml and toHtml]
+   * (docroot://reference/apis-arkui/arkui-ts/
+   * ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
+   *
+   * | Tag Name| Description                  |
+   * | ------------- | ---------------------------- |
+   * | \<p\>       | Paragraph tag, which separates text into paragraphs.        |
+   * | \<span\>    | Inline text supporting style configuration.    |
+   * | \<img\>     | Image tag, used to insert an image.                  |
+   * | \<strong\>  | Bold text tag.                  |
+   * | &lt;br&gt;<sup>20+</sup>      | Line break tag.                      |
+   * | \<b\><sup>20+</sup>       | Bold text tag.                  |
+   * | \<a\><sup>20+</sup>       | Hyperlink tag.                    |
+   * | \<i\><sup>20+</sup>       | Italic text tag.                  |
+   * | \<em\><sup>20+</sup>      | Italic text tag.                  |
+   * | \<s\><sup>20+</sup>       | Strikethrough tag, which adds a line through the text.          |
+   * | \<u\><sup>20+</sup>       | Underline tag, which adds a decorative underline to the text.                    |
+   * | \<del\><sup>20+</sup>     | Strikethrough tag, which adds a line through the text.          |
+   * | \<sup\><sup>20+</sup>     | Superscript tag.                  |
+   * | \<sub\><sup>20+</sup>     | Subscript tag.                  |
+   *
+   * @param { string } html - HTML-formatted string.
+   * @returns { Promise<StyledString> } Styled string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 170001 - Convert Error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  static fromHtml(html: string): Promise<StyledString>;
 
-    /**
-     * Returns ArrayBuffer from the serialized styled string.
-     *
-     * @param { StyledString } styledString - StyledString parameter.
-     * @param { function } callback - When marshalling StyledStringMarshingValue, will trigger this callback to get ArrayBuffer
-     * @returns { ArrayBuffer }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 19 dynamic
-     */
-    static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
+  /**
+   * Converts a styled string into an HTML-formatted string. The supported styled string keys for conversion, as
+   * detailed in [StyledStringKey]{@link StyledStringKey}, include: **StyledStringKey.FONT**,
+   * **StyledStringKey.DECORATION**, **StyledStringKey.LETTER_SPACING**, **StyledStringKey.TEXT_SHADOW**,
+   * **StyledStringKey.LINE_HEIGHT**, and **StyledStringKey.IMAGE**.
+   *
+   * For details about how to use this API, see
+   * [Example 12: Implementing Conversion Using fromHtml and toHtml](docroot://reference/apis-arkui/arkui-ts/ts-universal-styled-string.md#example-12-implementing-conversion-using-fromhtml-and-tohtml).
+   *
+   * @param { StyledString } styledString - Styled string.
+   * @returns { string } HTML string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  static toHtml(styledString: StyledString): string;
 
-    /**
-     * Returns StyledString from the deserialized ArrayBuffer.
-     *
-     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @param { function } callback - When unmarshalling ArrayBuffer, will trigger this callback to get StyledStringMarshingValue
-     * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 170002 - Styled string decode error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 19 dynamic
-     */
-    static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
+  /**
+   * Marshals a styled string by defining a callback to marshal
+   * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+   *
+   * @param { StyledString } styledString - Styled string to marshal.
+   * @param { function } callback - Callback defining how to marshal
+   *     [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+   * @returns { ArrayBuffer } Buffer information after marshalling.
+   *     <br>**NOTE**
+   *     <br>Currently, text and images are supported.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 19 dynamic
+   */
+  static marshalling(styledString: StyledString, callback: StyledStringMarshallCallback): ArrayBuffer;
 
-    /**
-     * Returns ArrayBuffer from the serialized styled string.
-     *
-     * @param { StyledString } styledString - StyledString parameter.
-     * @returns { ArrayBuffer }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 13 dynamic
-     */
-    static marshalling(styledString: StyledString): ArrayBuffer;
+  /**
+   * Unmarshals a styled string by defining a callback to
+   * [StyledStringMarshallingValue]{@link StyledStringMarshallingValue}.
+   *
+   * @param { ArrayBuffer } buffer - Data marshaled from a styled string.
+   * @param { function } callback - Callback defining how to marshal **ArrayBuffer**.
+   * @returns { Promise<StyledString> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 170002 - Styled string decode error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 19 dynamic
+   */
+  static unmarshalling(buffer: ArrayBuffer, callback: StyledStringUnmarshallCallback): Promise<StyledString>;
 
-    /**
-     * Returns StyledString from the deserialized ArrayBuffer.
-     *
-     * @param { ArrayBuffer } buffer - The buffer will be deserialized to a StyledString.
-     * @returns { Promise<StyledString> }
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @throws { BusinessError } 170002 - Styled string decode error.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @since 13 dynamic
-     */
-    static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
+  /**
+   * Marshals a styled string.
+   *
+   * @param { StyledString } styledString - Styled string to marshal.
+   * @returns { ArrayBuffer } Buffer information after marshalling.
+   *     <br>**NOTE**
+   *     <br>Currently, text and images are supported.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 13 dynamic
+   */
+  static marshalling(styledString: StyledString): ArrayBuffer;
+
+  /**
+   * Unmarshals a buffer to obtain a styled string.
+   *
+   * @param { ArrayBuffer } buffer - Data marshaled from a styled string.
+   * @returns { Promise<StyledString> } Promise used to return the result.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 170002 - Styled string decode error.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @since 13 dynamic
+   */
+  static unmarshalling(buffer: ArrayBuffer): Promise<StyledString>;
 }
 
 /**
- * StyleOptions
+ * Describes the style options.
  *
- * @interface StyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -275,59 +331,59 @@ declare class StyledString {
  * @since 12 dynamic
  */
 declare interface StyleOptions {
-    /**
-     * The start position of the StyleOptions.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    start?: number;
+  /**
+   * Start position of the styled string style.
+   *
+   * If the value is less than 0 or exceeds the string length, it is treated as **0**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  start?: number;
 
-    /**
-     * The length of the modifiedStyledString's characters.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    length?: number;
+  /**
+   * Length of the styled string style.
+   *
+   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
+   * treated as the difference between the string length and the value of **start**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  length?: number;
 
-    /**
-     * The attribute key of the StyleOptions.
-     *
-     * @type { StyledStringKey }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    styledKey: StyledStringKey;
+  /**
+   * Style key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  styledKey: StyledStringKey;
 
-    /**
-     * The attribute value of the StyleOptions.
-     *
-     * @type { StyledStringValue }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    styledValue: StyledStringValue;
+  /**
+   * Style object.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  styledValue: StyledStringValue;
 }
 
 /**
- * SpanStyle
+ * Describes the span style.
  *
- * @interface SpanStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -335,57 +391,57 @@ declare interface StyleOptions {
  * @since 12 dynamic
  */
 declare interface SpanStyle {
-    /**
-     * The start position of the SpanStyle.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    start: number;
 
-    /**
-     * The length of the modifiedStyledString's characters.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    length: number;
+  /**
+   * Start position of the styled string style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  start: number;
 
-    /**
-     * The attribute key of the SpanStyle.
-     *
-     * @type { StyledStringKey }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    styledKey: StyledStringKey;
+  /**
+   * Length of the styled string style.
+   *
+   * If the value is less than 0 or exceeds the difference between the string length and the value of **start**, it is
+   * treated as the difference between the string length and the value of **start**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  length: number;
 
-    /**
-     * The attribute value of the SpanStyle.
-     *
-     * @type { StyledStringValue }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    styledValue: StyledStringValue;
+  /**
+   * Style key.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  styledKey: StyledStringKey;
+
+  /**
+   * Style object.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  styledValue: StyledStringValue;
 }
 
 /**
- * Defines TextStyle.
+ * Describes the text style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -395,163 +451,164 @@ declare interface SpanStyle {
  */
 declare class TextStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { TextStyleInterface } [value] - font property object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value?: TextStyleInterface);
+  /**
+   * A constructor used to create a text style.
+   *
+   * @param { TextStyleInterface } [value] - Font style options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value?: TextStyleInterface);
 
-    /**
-     * Get the fontColor of the StyledString.
-     *
-     * @type { ?ResourceColor } - the set fontColor of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly fontColor?: ResourceColor;
+  /**
+   * Text color of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly fontColor?: ResourceColor;
 
-    /**
-     * Get the fontFamily of the StyledString.
-     *
-     * @type { ?string } - the fontFamily of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly fontFamily?: string;
+  /**
+   * Font family of the styled string.
+   *
+   * Returns **undefined** by default.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly fontFamily?: string;
 
-    /**
-     * Get the fontSize of the StyledString.
-     * If not undefined, the unit is vp.
-     *
-     * @type { ?number } - the fontSize of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly fontSize?: number;
+  /**
+   * Font size of the styled string.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly fontSize?: number;
 
-    /**
-     * Get the fontWeight of the StyledString.
-     *
-     * @type { ?number } - the fontWeight of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly fontWeight?: number;
+  /**
+   * Font weight of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly fontWeight?: number;
+  
 
-    /**
-     * Get the fontStyle of the StyledString.
-     *
-     * @type { ?FontStyle  } - the fontStyle of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly fontStyle?: FontStyle;
+  /**
+   * Font style of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly fontStyle?: FontStyle;
 
-    /**
-     * Get the stroke width of the StyledString with the unit 'vp'.
-     *
-     * @type { ?number } - the stroke width of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly strokeWidth?: number;
+  /**
+   * Superscript or subscript for the styled string.
+   *
+   * Default value: **SuperscriptStyle.NORMAL**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly superscript?: SuperscriptStyle;
 
-    /**
-     * Get the stroke color of the StyledString.
-     *
-     * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly strokeColor?: ResourceColor;
+  /**
+   * Text stroke width of the styled string.
+   *
+   * Default value: **0**, in [vp]{@link common}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly strokeWidth?: number;
 
-    /**
-     * Get the superscript style of the StyledString.
-     *
-     * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly superscript?: SuperscriptStyle;
+  /**
+   * Text stroke color of the styled string.
+   *
+   * Default value: same as the text color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly strokeColor?: ResourceColor;
 
-    /**
-     * Get the fontConfigs of the StyledString.
-     *
-     * @type { ?FontConfigs } - the fontConfigs of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    readonly fontConfigs?: FontConfigs;
+  /**
+   * Font configuration of the styled string.
+   *
+   * Default value: **undefined**, indicating that fontConfigs is not set.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  readonly fontConfigs?: FontConfigs;
 
-    /**
-     * Get the font variation of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    readonly fontVariations?: Array<FontVariation>;
+  /**
+   * Array of variable font attributes.
+   *
+   * Default value: **undefined**, indicating that variable font attributes are not set.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly fontVariations?: Array<FontVariation>;
 
-   /**
-    * Get the stroke join style of the StyledString.
-    *
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 26.0.0 dynamic
-    */
-    readonly strokeJoinStyle?: StrokeJoinStyle;
+  /**
+   * Text stroke join style of the styled string.
+   *
+   * Default value: **StrokeJoinStyle.MITER_JOIN**.
+   *
+   * **Since**: 26.0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly strokeJoinStyle?: StrokeJoinStyle;
 }
 
 /**
  * TextStyleInterface
  *
- * @interface TextStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -559,141 +616,168 @@ declare class TextStyle {
  * @since 12 dynamic
  */
 declare interface TextStyleInterface {
-    /**
-     * The fontColor value of the font property object.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontColor?: ResourceColor;
 
-    /**
-     * The fontFamily value of the font property object.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontFamily?: ResourceStr;
+  /**
+   * Font color.
+   *
+   * Default value: theme color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontColor?: ResourceColor;
 
-    /**
-     * The fontSize value of the font property object.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontSize?: LengthMetrics;
+  /**
+   * Font family.
+   *
+   * Default value: theme font.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontFamily?: ResourceStr;
 
-    /**
-     * The fontWeight value of the font property object.
-     *
-     * @type { ?(number | FontWeight | string) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontWeight?: number | FontWeight | string;
+  /**
+   * Font size.
+   *
+   * Default value: 16 fp.
+   *
+   * If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 16 fp is used instead.
+   *
+   * Unit: [fp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontSize?: LengthMetrics;
 
-    /**
-     * The fontStyle value of the font property object.
-     *
-     * @type { ?FontStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontStyle?: FontStyle;
+  /**
+   * Font weight.
+   *
+   * For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates a heavier
+   * font weight. The default value is **400**. For the string type, only strings that represent a number, for example,
+   * **400**, and the following enumerated values of **FontWeight** are supported: **bold**, **bolder**, **lighter**,
+   * **regular**, and **medium**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontWeight?: number | FontWeight | string;
 
-    /**
-     * The stroke width of the text.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    strokeWidth?: LengthMetrics;
+  /**
+   * Font style.
+   *
+   * Default value: **FontStyle.Normal**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontStyle?: FontStyle;
 
-    /**
-     * The stroke color of the text.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    strokeColor?: ResourceColor;
+  /**
+   * Text stroke width. If **unit** of **LengthMetrics** is percent, the setting does not take effect, and 0 is used
+   * instead.
+   *
+   * If the value is less than 0, the text is solid. If the value is greater than 0, the text is hollow.
+   *
+   * Default value: **0**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeWidth?: LengthMetrics;
 
-    /**
-     * The superscript value of the font property object.
-     *
-     * @type { ?SuperscriptStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    superscript?: SuperscriptStyle;
+  /**
+   * Text stroke color.
+   *
+   * Default value: text color. If invalid values are provided, the text color is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  strokeColor?: ResourceColor;
 
-    /**
-     * The fontConfigs value of the text.
-     *
-     * @type { ?FontConfigs }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    fontConfigs?: FontConfigs;
+  /**
+   * Superscript or subscript for the text.
+   *
+   * Default value: **SuperscriptStyle.NORMAL**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  superscript?: SuperscriptStyle;
 
-    /**
-     * The font variation value of the text.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    fontVariations?: Array<FontVariation>;
+  /**
+   * Font configuration. The default value is inherited from [FontConfigs]{@link FontConfigs}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontConfigs?: FontConfigs;
 
-    /**
-     * The stroke join style of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    strokeJoinStyle?: StrokeJoinStyle;
+  /**
+   * Variable font attributes.
+   *
+   * Default value: **undefined**, indicating that variable font attributes are not set.
+   *
+   * The priority of **fontVariations** is higher than that of **fontWeight**.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  fontVariations?: Array<FontVariation>;
+
+  /**
+   * Text stroke join style.
+   *
+   * Default value: **StrokeJoinStyle.MITER_JOIN**.
+   *
+   * **Since**: 26.0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  strokeJoinStyle?: StrokeJoinStyle;
 }
 
 /**
- * Defines DecorationOptions for Decoration.
+ * Provides additional configuration options for the text decoration line style.
  *
- * @interface DecorationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -701,21 +785,27 @@ declare interface TextStyleInterface {
  * @since 20 dynamic
  */
 declare interface DecorationOptions {
-    /**
-     * Enable to show multi TextDecorationType at a time.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    enableMultiType?: boolean;
+
+  /**
+   * Whether to enable the display of multiple decoration lines.
+   *
+   * Default value: **undefined**. **true**: Enable the display of multiple decoration lines. **false** or
+   * **undefined**: Disable the display of multiple decoration lines.
+   *
+   * To display all decoration lines, this option must be enabled. The overlapping area of multiple decoration lines
+   * will show a combined effect, with the style, color, and thickness consistent with the last decoration line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  enableMultiType?: boolean;
 }
 
 /**
- * Defines DecorationStyle.
+ * Describes the text decorative line style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -725,101 +815,102 @@ declare interface DecorationOptions {
  */
 declare class DecorationStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { DecorationStyleInterface } value - text decoration value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: DecorationStyleInterface);
+  /**
+   * A constructor used to create a text decorative line style.
+   *
+   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID <br>}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: DecorationStyleInterface);
 
-    /**
-     * constructor.
-     *
-     * @param { DecorationStyleInterface } value - text decoration value.
-     * @param { DecorationOptions } [options] - decoration options.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    constructor(value: DecorationStyleInterface, options?: DecorationOptions);
+  /**
+   * Constructor of a text decoration line style, including additional configuration options.
+   *
+   * @param { DecorationStyleInterface } value - Text decorative line options.<br>Default value:<br>{<br> type:
+   *     TextDecorationType.None,<br> color: Color.Black,<br> style: TextDecorationStyle.SOLID, <br> thicknessScale: 1.0
+   *     <br>}
+   * @param { DecorationOptions } [options] - Additional configuration options for the text decoration line.<br>Default
+   *     value:<br>{<br> enableMultiType: undefined<br>}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  constructor(value: DecorationStyleInterface, options?: DecorationOptions);
 
-    /**
-     * Get the text decoration type of the StyledString.
-     *
-     * @type { TextDecorationType } - the decoration type of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly type: TextDecorationType;
+  /**
+   * Type of the text decorative line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly type: TextDecorationType;
 
-    /**
-     * Get the decorationColor of the StyledString.
-     *
-     * @type { ?ResourceColor } - the decorationColor of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly color?: ResourceColor;
+  /**
+   * Color of the text decorative line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly color?: ResourceColor;
 
-    /**
-     * Get the decorationStyle of the StyledString.
-     *
-     * @type { ?TextDecorationStyle } - the decorationStyle of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly style?: TextDecorationStyle;
+  /**
+   * Style of the text decorative line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly style?: TextDecorationStyle;
 
-    /**
-     * Get the thickness scale of the StyledString.
-     *
-     * @type { ?number } - the thickness scale of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly thicknessScale?: number;
+  /**
+   * Scale factor for the thickness of the text decoration line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly thicknessScale?: number;
 
-    /**
-     * Get the DecorationOptions of the StyledString.
-     *
-     * @type { ?DecorationOptions } - the decorationOptions of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly options?: DecorationOptions;
+  /**
+   * Additional configuration options for the text decoration line style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly options?: DecorationOptions;
 }
 
 /**
- * DecorationStyleInterface
+ * Describes the API object for text decoration line styles.
  *
- * @interface DecorationStyleInterface
+ * > **NOTE**
+ * >
+ * > When the bottom contour of a character intersects with the decoration, underline avoidance is triggered, commonly
+ * > affecting characters like "g", "j", "y", "q", and "p."
+ * >
+ * > If the decoration color is set to **Color.Transparent**, it inherits the text color of the first character in each
+ * > line. If the decoration color is set to **"#00FFFFFF"**, the line becomes fully transparent.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -827,57 +918,66 @@ declare class DecorationStyle {
  * @since 12 dynamic
  */
 declare interface DecorationStyleInterface {
-    /**
-     * The type value of the decoration property object.
-     *
-     * @type { TextDecorationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    type: TextDecorationType;
 
-    /**
-     * The color value of the decoration property object.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    color?: ResourceColor;
+  /**
+   * Type of the text decorative line.
+   *
+   * Default value: **TextDecorationType.None**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  type: TextDecorationType;
 
-    /**
-     * The style value of the decoration property object.
-     *
-     * @type { ?TextDecorationStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    style?: TextDecorationStyle;
+  /**
+   * Color of the text decorative line.
+   *
+   * Default value: **Color.Black**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  color?: ResourceColor;
 
-    /**
-     * The thickness scale of the decoration
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    thicknessScale?: number;
+  /**
+   * Style of the text decorative line.
+   *
+   * Default value: **TextDecorationStyle.SOLID**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  style?: TextDecorationStyle;
+
+  /**
+   * Scale factor for the decoration line thickness.
+   *
+   * Default value: **1.0**.
+   *
+   * Value range: [0, +∞).
+   *
+   * Note: Negative values are treated as the default value.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  thicknessScale?: number;
 }
 
 /**
- * Defines BaselineOffsetStyle.
+ * Describes the text baseline offset style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -886,36 +986,36 @@ declare interface DecorationStyleInterface {
  * @since 12 dynamic
  */
 declare class BaselineOffsetStyle {
-    
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } value - baseline offset value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: LengthMetrics);
 
-    /**
-     * Get the baselineOffset value of the StyledString.
-     * The unit is vp.
-     *
-     * @type { number } - the baselineOffset value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly baselineOffset: number;
+  /**
+   * A constructor used to create a text baseline offset style.
+   *
+   * @param { LengthMetrics } value - Text baseline offset options. This API does not work if **unit** of
+   *     **LengthMetrics** is percent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: LengthMetrics);
+
+  /**
+   * Text baseline offset.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly baselineOffset: number;
 }
 
 /**
- * Defines LetterSpacingStyle.
+ * Describes the letter spacing style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -924,36 +1024,36 @@ declare class BaselineOffsetStyle {
  * @since 12 dynamic
  */
 declare class LetterSpacingStyle {
-   
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } value - letter space value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: LengthMetrics);
 
-    /**
-     * Get the letterSpacing value of the StyledString.
-     * The unit is vp.
-     * 
-     * @type { number } - the letterSpacing value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly letterSpacing: number;
+  /**
+   * A constructor used to create a text letter spacing style.
+   *
+   * @param { LengthMetrics } value - Letter spacing options. This API does not work if **unit** of **LengthMetrics** is
+   *     percent.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: LengthMetrics);
+
+  /**
+   * Letter spacing.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly letterSpacing: number;
 }
 
 /**
- * Defines TextShadowStyle.
+ * Describes the text shadow style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -962,35 +1062,35 @@ declare class LetterSpacingStyle {
  * @since 12 dynamic
  */
 declare class TextShadowStyle {
-   
-    /**
-     * constructor.
-     *
-     * @param { ShadowOptions | Array<ShadowOptions> } value - text shadow value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: ShadowOptions | Array<ShadowOptions>);
 
-    /**
-     * Get the textShadow value of the StyledString.
-     *
-     * @type { Array<ShadowOptions> } - the textShadow value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly textShadow: Array<ShadowOptions>;
+  /**
+   * A constructor used to create a text shadow style.
+   *
+   * The **ShadowOptions** object does not support the **fill** field.
+   *
+   * @param { ShadowOptions | Array<ShadowOptions> } value - Text shadow options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: ShadowOptions | Array<ShadowOptions>);
+
+  /**
+   * Text shadow of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly textShadow: Array<ShadowOptions>;
 }
 
 /**
- * Defines Sets the property string background color.
+ * Describes the text background color style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1000,34 +1100,43 @@ declare class TextShadowStyle {
  */
 declare class BackgroundColorStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { TextBackgroundStyle } textBackgroundStyle - textBackgroundStyle value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    constructor(textBackgroundStyle: TextBackgroundStyle);
+  /**
+   * A constructor used to create a text background style.
+   *
+   * @param { TextBackgroundStyle } textBackgroundStyle - Options of the text background color.<br>Default value:<br>{<
+   *     br>  color: Color.Transparent,<br>  radius: 0<br>}
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  constructor(textBackgroundStyle: TextBackgroundStyle);
 
-    /**
-     * Get the textBackgroundStyle value of the StyledString.
-     *
-     * @type { TextBackgroundStyle } - the textBackgroundStyle value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    readonly textBackgroundStyle: TextBackgroundStyle;
+  /**
+   * Text background color of the styled string.
+   *
+   * Default value:
+   *
+   * {
+   *
+   * color: Color.Transparent,
+   *
+   * radius: 0
+   *
+   * }
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  readonly textBackgroundStyle: TextBackgroundStyle;
 }
 
 /**
- * Defines GestureStyle.
+ * Describes the event gesture style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1037,23 +1146,22 @@ declare class BackgroundColorStyle {
  */
 declare class GestureStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { GestureStyleInterface } [value] - gesture event object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value?: GestureStyleInterface);
+  /**
+   * A constructor used to create a gesture style.
+   *
+   * @param { GestureStyleInterface } [value] - Event options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value?: GestureStyleInterface);
 }
 
 /**
  * Defines the Gesture Events.
  *
- * @interface GestureStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1061,45 +1169,51 @@ declare class GestureStyle {
  * @since 12 dynamic
  */
 declare interface GestureStyleInterface {
-    /**
-     * Trigger a click event when a click is clicked.
-     *
-     * @type { ?Callback<ClickEvent> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    onClick?: Callback<ClickEvent>;
 
-    /**
-     * Trigger a gesture event when long press event is complete.
-     *
-     * @type { ?Callback<GestureEvent> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    onLongPress?: Callback<GestureEvent>;
+  /**
+   * Callback for click events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onClick?: Callback<ClickEvent>;
 
-    /**
-     * Trigger a touch event when touched.
-     *
-     * @type { ?Callback<TouchEvent> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    onTouch?: Callback<TouchEvent>;
+  /**
+   * Callback for long press events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  onLongPress?: Callback<GestureEvent>;
+
+  /**
+   * Callback for touch events.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  onTouch?: Callback<TouchEvent>;
 }
 
 /**
- * Defines ParagraphStyle.
+ * Describes the text paragraph style.
+ *
+ * Except the first paragraph, all paragraphs are formed using the escape character '\n'.
+ *
+ * The style of a paragraph is the one (if any) set for the first element or the paragraph style of the bound component.
+ *
+ * Before API version 26.0.0, if the first placeholder in a paragraph of the styled string is a
+ * [CustomSpan]{@link CustomSpan} or [ImageAttachment]{@link ImageAttachment}, the paragraph style set for that
+ * paragraph does not take effect. From API version 26.0.0, the paragraph style takes effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1109,166 +1223,169 @@ declare interface GestureStyleInterface {
  */
 declare class ParagraphStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { ParagraphStyleInterface } [value] - paragraph property object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value?: ParagraphStyleInterface);
+  /**
+   * A constructor used to create a text paragraph style.
+   *
+   * @param { ParagraphStyleInterface } [value] - Paragraph style options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value?: ParagraphStyleInterface);
 
-    /**
-     * Get the text alignment of the StyledString.
-     *
-     * @type { ?TextAlign } - the text alignment of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly textAlign?: TextAlign;
+  /**
+   * Horizontal alignment mode of the text paragraph.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly textAlign?: TextAlign;
 
-    /**
-     * Get the text vertical alignment of the StyledString.
-     *
-     * @type { ?TextVerticalAlign } - the text vertical alignment of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    readonly textVerticalAlign?: TextVerticalAlign;
+  /**
+   * Vertical alignment mode of the text paragraph.
+   *
+   * The effect of this attribute is noticeable only when the same font size is used in a paragraph and
+   * [lineHeight]{@link TextAttribute#lineHeight} is set, or when different font sizes are used in a paragraph and the
+   * font sizes are mixed. The **SuperscriptStyle** in [TextStyle]{@link TextStyle} takes effect only when the value of
+   * [TextVerticalAlign]{@link TextVerticalAlign} is set to **TextVerticalAlign.BASELINE**. In other vertical alignment
+   * modes, the superscript and subscript texts are displayed in the same way as the normal text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  readonly textVerticalAlign?: TextVerticalAlign;
 
-    /**
-     * Get the first line indentation of the StyledString.
-     * The unit is vp.
-     *
-     * @type { ?number } - the first line indentation of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly textIndent?: number;
+  /**
+   * First line indent of the text paragraph.
+   *
+   * Unit: VP.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly textIndent?: number;
 
-    /**
-     * Get the maximum number of lines of the StyledString.
-     *
-     * @type { ?number } - the maximum number of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly maxLines?: number;
+  /**
+   * Maximum number of lines in the text paragraph.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly maxLines?: number;
 
-    /**
-     * Get the overflow mode of the StyledString.
-     *
-     * @type { ?TextOverflow } - the overflow mode of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly overflow?: TextOverflow;
+  /**
+   * Display mode when the text is too long in the text paragraph.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly overflow?: TextOverflow;
 
-    /**
-     * Get the wordBreak mode of the StyledString.
-     *
-     * @type { ?WordBreak } - the wordBreak mode of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly wordBreak?: WordBreak;
+  /**
+   * Word break rule of the text paragraph.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly wordBreak?: WordBreak;
 
-    /**
-     * Get the leading margin of the StyledString.
-     *
-     * @type { ?(number | LeadingMarginPlaceholder) } - the leading margin of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly leadingMargin?: number | LeadingMarginPlaceholder;
+  /**
+   * Indent of the text paragraph.
+   *
+   * If the return value is of the number type, the unit is vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly leadingMargin?: number | LeadingMarginPlaceholder;
 
-    /**
-     * Get the paragraph spacing of the StyledString.
-     * The unit is vp.
-     *
-     * @type { ?number }
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 19 dynamic
-     */
-    readonly paragraphSpacing?: number;
+  /**
+   * Paragraph spacing of the styled string text.
+   *
+   * Unit: vp
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 19 dynamic
+   */
+  readonly paragraphSpacing?: number;
 
-    /**
-     * Get the leading margin span of the StyledString.
-     *
-     * @type { ?LeadingMarginSpan } - the leading margin span of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly leadingMarginSpan?: LeadingMarginSpan;
+  /**
+   * Custom indentation information for text paragraphs in the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  readonly leadingMarginSpan?: LeadingMarginSpan;
 
-    /**
-     * Get the text direction of the StyledString.
-     *
-     * @type { ?TextDirection } - the text direction of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
-     */
-    readonly textDirection?: TextDirection;
+  /**
+   * Text direction.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  readonly textDirection?: TextDirection;
 
-    /**
-     * Get the shader style of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-	readonly shaderStyle?: ShaderStyle;
+  /**
+   * Text shader effect.
+   *
+   * **Since**: 26.0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly shaderStyle?: ShaderStyle;
+
+  /**
+   * Get the tail indentation of the StyledString.
+   * The unit is vp.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly tailIndents?: Array<number>;
 }
 
 /**
  * ParagraphStyleInterface
  *
- * @interface ParagraphStyleInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1276,140 +1393,177 @@ declare class ParagraphStyle {
  * @since 12 dynamic
  */
 declare interface ParagraphStyleInterface {
-    /**
-     * Alignment of text.
-     *
-     * @type { ?TextAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    textAlign?: TextAlign;
 
-    /**
-     * Vertical alignment of text.
-     *
-     * @type { ?TextVerticalAlign }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 20 dynamic
-     */
-    textVerticalAlign?: TextVerticalAlign;
+  /**
+   * Horizontal alignment of the text paragraph.
+   *
+   * Default value: **TextAlign.Start**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  textAlign?: TextAlign;
 
-    /**
-     * Set the first line indentation.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    textIndent?: LengthMetrics;
+  /**
+   * Vertical alignment mode of text paragraphs.
+   *
+   * Default value: **TextVerticalAlign.BASELINE**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 20 dynamic
+   */
+  textVerticalAlign?: TextVerticalAlign;
 
-    /**
-     * The maximum number of lines of content.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    maxLines?: number;
+  /**
+   * First line indent of the text paragraph. The value cannot be in percentage.
+   *
+   * Default value: **0**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  textIndent?: LengthMetrics;
 
-    /**
-     * The overflow mode of the content.
-     *
-     * @type { ?TextOverflow }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    overflow?: TextOverflow;
+  /**
+   * Maximum number of lines in the text paragraph. By default, the number of lines is not limited.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  maxLines?: number;
 
-    /**
-     * Set word break type.
-     *
-     * @type { ?WordBreak }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    wordBreak?: WordBreak;
+  /**
+   * Display mode when the text is too long in the text paragraph.
+   *
+   * Default value: **TextOverflow.None**.
+   *
+   * This parameter must be used with **maxLines** for the settings to take effect. **TextOverflow.MARQUEE** is not
+   * supported.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  overflow?: TextOverflow;
 
-    /**
-     * Leading margin.
-     *
-     * @type { ?(LengthMetrics | LeadingMarginPlaceholder) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
+  /**
+   * Word break rule of the text paragraph.
+   *
+   * Default value: **WordBreak.NORMAL**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  wordBreak?: WordBreak;
 
-    /**
-     * Set the paragraph spacing of the StyledString.
-     *
-     * @type { ?LengthMetrics }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 19 dynamic
-     */
-    paragraphSpacing?: LengthMetrics;
+  /**
+   * Indent of the text paragraph. The value cannot be in percentage.
+   *
+   * Default value: **0**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  leadingMargin?: LengthMetrics | LeadingMarginPlaceholder;
 
-    /**
-     * Leading margin span.
-     *
-     * @type { ?LeadingMarginSpan }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    leadingMarginSpan?: LeadingMarginSpan;
+  /**
+   * Paragraph spacing of the styled string text.
+   *
+   * Default value: **0**. The value cannot be in percentage.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 19 dynamic
+   */
+  paragraphSpacing?: LengthMetrics;
 
-    /**
-     * Set the text direction of the StyledString.
-     *
-     * @type { ?TextDirection }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
-     */
-    textDirection?: TextDirection;
+  /**
+   * Custom indentation information for text paragraphs. The value cannot be in percentage.
+   *
+   * Default value: **0**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  leadingMarginSpan?: LeadingMarginSpan;
 
-    /**
-     * Set the shader style of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-	shaderStyle?: ShaderStyle;
+  /**
+   * Text direction.
+   *
+   * Default value: **TextDirection.DEFAULT**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  textDirection?: TextDirection;
+
+  /**
+   * Text shader effect.
+   *
+   * This API does not take effect when used together with [TextStyleInterface]{@link TextStyleInterface}
+   * **strokeWidth**. **shaderStyle** has a higher priority than [TextStyleInterface]{@link TextStyleInterface}
+   * **fontColor**.
+   *
+   * **Since**: 26.0.0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  shaderStyle?: ShaderStyle;
+
+  /**
+   * Specify the tail indentation for each line in a paragraph.
+   *
+   * <p><strong>NOTE</strong>:
+   * <br>When a single LengthMetrics value is provided, all lines share the same tail indent.
+   * <br>When an array is provided, the i-th element specifies the tail indent for the i-th line.
+   * If the number of text lines exceeds the array length, the last element in the array is used
+   * for the remaining lines.
+   * <br>Negative values are treated as 0.
+   * </p>
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  tailIndents?: LengthMetrics | Array<LengthMetrics>;
 }
 
 /**
- * Defines LineHeightStyle.
+ * Describes the text line height style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1418,60 +1572,78 @@ declare interface ParagraphStyleInterface {
  * @since 12 dynamic
  */
 declare class LineHeightStyle {
-   
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } lineHeight - line height value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(lineHeight: LengthMetrics);
 
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } lineHeight - line height value.
-     * @param { number } [lineHeightMultiple] - line height multiple value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
+  /**
+   * A constructor used to create a text line height style.
+   *
+   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
+   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(lineHeight: LengthMetrics);
 
-    /**
-     * Get the lineHeight value of the StyledString.
-     * The unit is vp.
-     * 
-     * @type { number } - the lineHeight value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly lineHeight: number;
+  /**
+   * A constructor used to create a text line height and multiple.
+   *
+   * > **NOTE**
+   * >
+   * > - When **lineHeightMultiple** is set together with **lineHeight** or [LineSpacingStyle]{@link LineSpacingStyle},
+   * > only **lineHeightMultiple** takes effect. The line height is the product of the highest font height in the line
+   * > and the multiplier.
+   * >
+   * > - When **lineHeightMultiple** is less than 0 or **undefined**, it does not take effect. Use **lineHeight** and
+   * > [LineSpacingStyle]{@link LineSpacingStyle} to set the line height and line spacing.
+   * >
+   * > - When **lineHeightMultiple** is set to 0, it is equivalent to setting it to 1.
+   *
+   * **Since**: 26.0.0
+   *
+   * @param { LengthMetrics } lineHeight - Text line height options. If **value** of **LengthMetrics** is less than or
+   *     equal to 0, the text line height is unlimited and automatically adapts to the font size.
+   * @param { number } [lineHeightMultiple] - Multiplier for the text line height.<br>Value range:
+   *     [0, +∞). Decimals are supported.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  constructor(lineHeight: LengthMetrics, lineHeightMultiple?: number);
 
-    /**
-     * Get the line height multiple value of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    readonly lineHeightMultiple?: number;
+  /**
+   * Text line height of the styled string.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly lineHeight: number;
+
+  /**
+   * Multiplier for the text line height. The effective line height is the product of the highest font height in the
+   * line and the multiplier.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly lineHeightMultiple?: number;
 }
 
 /**
- * Defines LineSpacingStyle.
+ * Describes the text line spacing style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1481,46 +1653,54 @@ declare class LineHeightStyle {
  */
 declare class LineSpacingStyle {
 
-    /**
-     * constructor.
-     *
-     * @param { LengthMetrics } lineSpacing - line spacing value.
-     * @param { LineSpacingOptions } [options] - line spacing options value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
+  /**
+   * A constructor used to create a text line spacing style.
+   *
+   * **Since**: 26.0.0
+   *
+   * @param { LengthMetrics } lineSpacing - Text line spacing.<br>Default value: **0.0**<br>Value range:
+   *     [0, +∞) <br>**NOTE** If **value** of **LengthMetrics** is less than 0, the default value **0.0** is used.
+   * @param { LineSpacingOptions } [options] - Line spacing options.<br>Default value: **{ onlyBetweenLines: false }**
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  constructor(lineSpacing: LengthMetrics, options?: LineSpacingOptions);
 
-    /**
-     * Get the lineSpacing value of the StyledString.
-     * The unit is vp.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    readonly lineSpacing: number;
+  /**
+   * Text line spacing.
+   *
+   * Value range: [0, +∞)
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly lineSpacing: number;
 
-    /**
-     * Get the lineSpacing options value of the StyledString.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    readonly options?: LineSpacingOptions;
+  /**
+   * Line spacing options.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  readonly options?: LineSpacingOptions;
 }
 
 /**
- * Defines the URLStyle hyperlink that allows setting a URL string. When clicking on the text to
- * which the span is attached, the URLStyle will try to open the URL.
+ * Describes the hyperlink style.
+ *
+ * The default color, font size, and font weight are **'#ff0a59f7'**, **'16fp'**, and **'FontWeight.Regular'**,
+ * respectively. If the styled string has **TextStyle** set, the **TextStyle** settings take precedence.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1530,74 +1710,67 @@ declare class LineSpacingStyle {
  */
 declare class UrlStyle {
 
-    /**
-     * Constructor.
-     *
-     * @param { string } url - URL value.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    constructor(url: string);
+  /**
+   * A constructor used to create a URL object.
+   *
+   * @param { string } url - Options of the hyperlink.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  constructor(url: string);
 
-    /**
-     * Get the URL value of the StyledString.
-     *
-     * @type { string } - the URL value of the StyledString
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    readonly url: string;
+  /**
+   * Hyperlink content of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  readonly url: string;
 }
 
 /**
- * Defines the Span Type.
+ * Defines the style for a styled string.
  *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | CustomSpan |
- * UserDataSpan } StyledStringValue
+ * @unionmember { TextStyle } Text style.
+ * @unionmember { DecorationStyle } Text decorative line style.
+ * @unionmember { BaselineOffsetStyle } Text baseline offset style.
+ * @unionmember { LetterSpacingStyle } Text letter spacing style.
+ * @unionmember { TextShadowStyle } Text shadow style.
+ * @unionmember { GestureStyle } Gesture style.
+ * @unionmember { ImageAttachment } Image style.
+ * @unionmember { ParagraphStyle } Text paragraph style.
+ * @unionmember { LineHeightStyle } Text line height style.
+ * @unionmember { UrlStyle } URL style. [since 14]
+ * @unionmember { CustomSpan } Custom span style.
+ * @unionmember { UserDataSpan } User data span style.
+ * @unionmember { BackgroundColorStyle } Text background color style. [since 14]
+ * @unionmember { LineSpacingStyle } Text line spacing style. **Since**: 26.0.0 [since 26.0.0]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
-
-/**
- * Defines the Span Type.
- *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
- * UserDataSpan | BackgroundColorStyle } StyledStringValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 14 dynamic
- */
-/**
- * Defines the StyledString style type.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 26.0.0 dynamic
- */
 declare type StyledStringValue = TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle |
 TextShadowStyle | GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
 UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
 
 /**
- * MutableStyledString
+ * Inherits from the [StyledString]{@link StyledString} class.
  *
- * @extends StyledString
+ * > **An exception is thrown in the following cases:**
+ * >
+ * > If the values of **start** and **length** are out of the acceptable range or if any mandatory parameter is passed
+ * > as **undefined**, an exception is thrown.
+ * >
+ * > **styledKey** or **styledValue** is set to an invalid value or they do not match.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1605,186 +1778,208 @@ UserDataSpan | BackgroundColorStyle | LineSpacingStyle;
  * @since 12 dynamic
  */
 declare class MutableStyledString extends StyledString {
-    /**
-     * Replace the string of the specified range.
-     *
-     * @param { number } start - the start position of the replacedString.
-     * @param { number } length - the length of the replacedString's characters.
-     * @param { string } other - must be unicode string.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    replaceString(start: number, length: number, other: string): void;
 
-    /**
-    * Insert the string at the specified location.
-    *
-    * @param { number } start - the start position of the insertedString.
-    * @param { string } other - must be unicode string.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-    * <br> 1. Mandatory parameters are left unspecified.
-    * <br> 2. Incorrect parameters types.
-    * <br> 3. Parameter verification failed.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    insertString(start: number, other: string): void;
+  /**
+   * Replaces the string in the specified range of this styled string.
+   *
+   * @param { number } start - Subscript of the target range.
+   * @param { number } length - Length of the target range.
+   * @param { string } other - String to replace the content in the target range.<br>**NOTE**<br>The string specified
+   *     here uses the style of the character at the **start** position.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  replaceString(start: number, length: number, other: string): void;
 
-    /**
-    * Remove the string of the specified range.
-    *
-    * @param { number } start - the start position of the removedString.
-    * @param { number } length - the length of the removedString's characters.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-    * <br> 1. Mandatory parameters are left unspecified.
-    * <br> 2. Incorrect parameters types.
-    * <br> 3. Parameter verification failed.
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    removeString(start: number, length: number): void;
+  /**
+   * Inserts a string.
+   *
+   * @param { number } start - Subscript of the position where the string will be inserted.
+   * @param { string } other - String to insert.<br>**NOTE**<br>The string specified here uses the style of the
+   *     character at the **start** - 1 position or, if that character does not have style set, the style of the
+   *     character at the **start** position.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  insertString(start: number, other: string): void;
 
-    /**
-     * Replace the specified range string attribute.
-     *
-     * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    replaceStyle(spanStyle: SpanStyle): void;
+  /**
+   * Removes the string in the specified range of this styled string.
+   *
+   * This API equally works when the styled string contains an image or [CustomSpan]{@link CustomSpan}.
+   *
+   * @param { number } start - Subscript of the target range.
+   * @param { number } length - Length of the target range.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  removeString(start: number, length: number): void;
 
-    /**
-     * Add attributes to the specified range string.
-     *
-     * @param { SpanStyle } spanStyle - the SpanStyle Object.
-     * @throws { BusinessError } 401 - The parameter check failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    setStyle(spanStyle: SpanStyle): void;
+  /**
+   * Replaces the style in the specified range of this styled string.
+   *
+   * @param { SpanStyle } spanStyle - Style object.<br>**NOTE**<br>By default, the original style is removed and
+   *     replaced with the new style.<br>If **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API
+   *     takes effect only when an image or custom span with the length of 1 is at the **start** position.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  replaceStyle(spanStyle: SpanStyle): void;
 
-    /**
-     * Delete the specified type attributes for the specified range string.
-     *
-     * @param { number } start - the start position of the removedAttributeStyledString.
-     * @param { number } length - the length of the removedAttributeStyledString's characters.
-     * @param { StyledStringKey } styledKey - the specified attribute type's key.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
+  /**
+   * Sets a new style for the specified range of this styled string.
+   *
+   * @param { SpanStyle } spanStyle - Style object.<br>By default, the new style is applied without removing the
+   *     original style. If the **StyledStringValue** types are the same, the new style overwrites the old one.<br>If
+   *     **styledKey** of **SpanStyle** is **IMAGE** or **CUSTOM_SPAN**, this API takes effect only when an image or
+   *     custom span with the length of 1 is at the **start** position.
+   * @throws { BusinessError } 401 - The parameter check failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  setStyle(spanStyle: SpanStyle): void;
 
-    /**
-     * Delete all attributes for the specified range styledString.
-     *
-     * @param { number } start - the start position of the attributeRemovedStyledString's characters.
-     * @param { number } length - the length of the attributeRemovedStyledString's characters.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    removeStyles(start: number, length: number): void;
+  /**
+   * Removes the style for the specified range of this styled string.
+   *
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * is used. If the value is not set, the default value is used.
+   *
+   * This API equally works when the styled string contains an image.
+   *
+   * @param { number } start - Subscript that corresponds to the start position of the target range.
+   * @param { number } length - Length of the target range.
+   * @param { StyledStringKey } styledKey - Styled key.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  removeStyle(start: number, length: number, styledKey: StyledStringKey): void;
 
-    /**
-     * Delete all attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    clearStyles(): void;
+  /**
+   * Removes all styles for the specified range of this styled string.
+   *
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * is used. If the value is not set, the default value is used.
+   *
+   * This API equally works when the styled string contains an image.
+   *
+   * @param { number } start - Subscript that corresponds to the start position of the target range.
+   * @param { number } length - Length of the target range.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  removeStyles(start: number, length: number): void;
 
-    /**
-     * Replace the StyledString of the specified range.
-     *
-     * @param { number } start - the start position of the replacedStyledString.
-     * @param { number } length - the length of the replacedStyledString's characters.
-     * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    replaceStyledString(start: number, length: number, other: StyledString): void;
+  /**
+   * Removes all styles of this styled string.
+   *
+   * After a style is removed, the value set for the corresponding style attribute in the [Text]{@link text} component
+   * is used. If the value is not set, the default value is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  clearStyles(): void;
 
-    /**
-     * Insert new StyledString at the specified location.
-     *
-     * @param { number } start - the start position of the insertedStyledString.
-     * @param { StyledString } other - new StyledString.
-     * @throws { BusinessError } 401 - Parameter error. Possible causes: 
-     * <br> 1. Mandatory parameters are left unspecified.
-     * <br> 2. Incorrect parameters types.
-     * <br> 3. Parameter verification failed.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    insertStyledString(start: number, other: StyledString): void;
+  /**
+   * Replaces the styled string in the specified range.
+   *
+   * @param { number } start - Subscript that corresponds to the start position of the target range.
+   * @param { number } length - Length of the target range.
+   * @param { StyledString } other - New styled string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  replaceStyledString(start: number, length: number, other: StyledString): void;
 
-    /**
-     * Append new StyledString at the end.
-     *
-     * @param { StyledString } other - new StyledString.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    appendStyledString(other: StyledString): void;
+  /**
+   * Inserts a new styled string at the specified position.
+   *
+   * @param { number } start - Subscript of the position to insert the styled string.
+   * @param { StyledString } other - New styled string.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  insertStyledString(start: number, other: StyledString): void;
+
+  /**
+   * Appends a styled string.
+   *
+   * @param { StyledString } other - New styled string.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  appendStyledString(other: StyledString): void;
 }
 
-
 /**
- * the attribute type of the StyledString
+ * Sets the style for a range styled string.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1792,155 +1987,166 @@ declare class MutableStyledString extends StyledString {
  * @since 12 dynamic
  */
 declare enum StyledStringKey {
-    /**
-     * The key of TextStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    FONT = 0,
 
-    /**
-     * The key of DecorationStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    DECORATION = 1,
-    /**
-     * The key of BaselineOffsetStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    BASELINE_OFFSET = 2,
-    /**
-     * The key of LetterSpacingStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    LETTER_SPACING = 3,
-    /**
-     * The key of TextShadowStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    TEXT_SHADOW = 4,
-    /**
-     * The key of LineHeightStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    LINE_HEIGHT = 5,
-    /**
-     * The key of BackgroundColorStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    BACKGROUND_COLOR = 6,
-    /**
-     * The key of UrlStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 14 dynamic
-     */
-    URL = 7,
-    /**
-     * The key of LineSpacingStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    LINE_SPACING = 8,
-    /**
-     * The key of GestureStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    GESTURE = 100,
+  /**
+   * Font style key, applicable to [TextStyle]{@link TextStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  FONT = 0,
 
-    /**
-     * The key of ParagraphStyle.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    PARAGRAPH_STYLE = 200,
+  /**
+   * Text decorative line style key, applicable to [DecorationStyle]{@link DecorationStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  DECORATION = 1,
 
-    /**
-     * The key of ImageAttachment.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    IMAGE = 300,
+  /**
+   * Text baseline offset style key, applicable to [BaselineOffsetStyle]{@link BaselineOffsetStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  BASELINE_OFFSET = 2,
 
-    /**
-     * The key of CustomSpan.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    CUSTOM_SPAN = 400,
+  /**
+   * Text letter spacing style key, applicable to [LetterSpacingStyle]{@link LetterSpacingStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  LETTER_SPACING = 3,
 
-    /**
-     * The key of UserDataSpan.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    USER_DATA = 500
+  /**
+   * Text shadow style key, applicable to [TextShadowStyle]{@link TextShadowStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  TEXT_SHADOW = 4,
+
+  /**
+   * Text line height style key, applicable to [LineHeightStyle]{@link LineHeightStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  LINE_HEIGHT = 5,
+
+  /**
+   * Text background color style key, applicable to [BackgroundColorStyle]{@link BackgroundColorStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  BACKGROUND_COLOR = 6,
+
+  /**
+   * Hyperlink style key, applicable to [UrlStyle]{@link UrlStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 14 dynamic
+   */
+  URL = 7,
+
+  /**
+   * Text line spacing style key, applicable to [LineSpacingStyle]{@link LineSpacingStyle}.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  LINE_SPACING = 8,
+
+  /**
+   * Gesture key, applicable to [GestureStyle]{@link GestureStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  GESTURE = 100,
+
+  /**
+   * Paragraph style key, applicable to [ParagraphStyle]{@link ParagraphStyle}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  PARAGRAPH_STYLE = 200,
+
+  /**
+   * Image key, applicable to [ImageAttachment]{@link ImageAttachment}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  IMAGE = 300,
+
+  /**
+   * Custom span key, applicable to [CustomSpan]{@link CustomSpan}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  CUSTOM_SPAN = 400,
+
+  /**
+   * User data span key, applicable to [UserDataSpan]{@link UserDataSpan}.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  USER_DATA = 500
 }
 
 /**
- * Defines ImageAttachment.
+ * Describes the image attachment.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1950,138 +2156,136 @@ declare enum StyledStringKey {
  */
 declare class ImageAttachment {
 
-    /**
-     * constructor.
-     *
-     * @param { ImageAttachmentInterface } value - image attachment object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    constructor(value: ImageAttachmentInterface);
+  /**
+   * A constructor used to create an image object.
+   *
+   * @param { ImageAttachmentInterface } value - Image attachment options.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  constructor(value: ImageAttachmentInterface);
 
-    /**
-     * constructor supported by AttachmentType.
-     *
-     * @param { Optional<AttachmentType> } attachment - image attachment object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    constructor(attachment: Optional<AttachmentType>);
-    /**
-     * Get the image content of the StyledString.
-     *
-     * @type { PixelMap } - the image content of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly value: PixelMap;
+  /**
+   * A constructor used to create an image object. Compared to the constructor with a **value** type parameter, this
+   * constructor with an **attachment** type parameter supports images of **undefined** and
+   * [ResourceStr]{@link ResourceStr} types.
+   *
+   * @param { Optional<AttachmentType> } attachment - Image attachment, which can be of type PixelMap or
+   *     [ResourceStr]{@link ResourceStr}.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  constructor(attachment: Optional<AttachmentType>);
 
-    /**
-     * Get the imageSize of the StyledString.
-     *
-     * @type { ?SizeOptions } - the imageSize of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly size?: SizeOptions;
+  /**
+   * Image data source of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly value: PixelMap;
 
-    /**
-     * Get the imageSize of the StyledString.
-     *
-     * @type { ?SizeOptions } - the imageSize of the StyledString in vp unit or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 21 dynamic
-     */
-    readonly sizeInVp?: SizeOptions;
+  /**
+   * Image size of the styled string.
+   *
+   * Number-type values use px as the unit.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly size?: SizeOptions;
 
-    /**
-     * Get the ImageSpanAlignment of the StyledString.
-     *
-     * @type { ?ImageSpanAlignment } - the ImageSpanAlignment of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly verticalAlign?: ImageSpanAlignment;
+  /**
+   * Image size of the styled string.
+   *
+   * Number-type values use vp as the unit.
+   *
+   * If **ImageAttachment** is set to a negative value or **undefined**, **undefined** is returned.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 21 dynamic
+   */
+  readonly sizeInVp?: SizeOptions;
 
-    /**
-     * Get the imageFit of the StyledString.
-     *
-     * @type { ?ImageFit } - the imageFit of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly objectFit?: ImageFit;
+  /**
+   * Image alignment mode of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly verticalAlign?: ImageSpanAlignment;
 
-    /**
-     * Get the imageAttachmentLayoutStyle of the StyledString.
-     *
-     * @type { ?ImageAttachmentLayoutStyle } - the imageAttachmentLayoutStyle of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    readonly layoutStyle?: ImageAttachmentLayoutStyle;
+  /**
+   * Image scale type of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly objectFit?: ImageFit;
 
-    /**
-     * Get the imageAttachment colorFilter of the StyledString.
-     *
-     * @type { ?ColorFilterType } - the imageAttachment colorFilter of the StyledString or undefined
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    readonly colorFilter?: ColorFilterType;
+  /**
+   * Image layout of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  readonly layoutStyle?: ImageAttachmentLayoutStyle;
 
-    /**
-     * Gets the svg support state.
-     *
-     * @type { ?boolean } - If color filter support svg.
-     * @readonly
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    readonly supportSvg2?: boolean;
+  /**
+   * Image color filter of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  readonly colorFilter?: ColorFilterType;
+
+  /**
+   * Whether to enable
+   * [enhanced SVG tag parsing capabilities](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
+   *
+   * **true**: Enable enhanced SVG tag parsing. **false**: Use original SVG tag parsing.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  readonly supportSvg2?: boolean;
 }
 
 /**
- * Defines the ResourceImageAttachmentOptions.
+ * Defines the settings for images of the ResourceStr type.
  *
- * @interface ResourceImageAttachmentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2089,109 +2293,113 @@ declare class ImageAttachment {
  * @since 15 dynamic
  */
 declare interface ResourceImageAttachmentOptions {
-    /**
-     * The content of the ResourceImageAttachment.
-     *
-     * @type { Optional<ResourceStr> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    resourceValue: Optional<ResourceStr>;
 
-    /**
-     * size of the ResourceImage.
-     *
-     * @type { ?SizeOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    size?: SizeOptions;
+  /**
+   * Image data source.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  resourceValue: Optional<ResourceStr>;
 
-    /**
-     * Image vertical align.
-     *
-     * @type { ?ImageSpanAlignment }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    verticalAlign?: ImageSpanAlignment;
+  /**
+   * Image size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  size?: SizeOptions;
 
-    /**
-     * Sets the zoom type of the ImageAttachment.
-     *
-     * @type { ?ImageFit }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    objectFit?: ImageFit;
+  /**
+   * Alignment mode of the image with the text.
+   *
+   * Default value: **ImageSpanAlignment.BOTTOM**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  verticalAlign?: ImageSpanAlignment;
 
-    /**
-     * The Image Layout Style of the Resource Image.
-     *
-     * @type { ?ImageAttachmentLayoutStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    layoutStyle?: ImageAttachmentLayoutStyle;
+  /**
+   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
+   *
+   * Default value: **ImageFit.Cover**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  objectFit?: ImageFit;
 
-    /**
-     * Sets the color filter effect on the image attachment.
-     *
-     * @type { ?ColorFilterType } filter ColorFilter object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    colorFilter?: ColorFilterType;
+  /**
+   * Image layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  layoutStyle?: ImageAttachmentLayoutStyle;
 
-    /**
-     * Sets the synchronous or asynchronous mode for image loading.
-     * The default parameter type is bool, and the default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    syncLoad?: boolean;
+  /**
+   * Image color filter of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  colorFilter?: ColorFilterType;
 
-    /**
-     * Sets the range of SVG parsing capabilities supported through enable switch.
-     * The default value is false.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    supportSvg2?: boolean;
+  /**
+   * Whether to load the image synchronously. By default, the image is loaded asynchronously. During synchronous
+   * loading, the UI thread is blocked and the placeholder image is not displayed.
+   *
+   * **true**: synchronous loading; **false**: asynchronous loading.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  syncLoad?: boolean;
+
+  /**
+   * Whether to enable
+   * [enhanced SVG tag parsing capabilities](docroot://reference/apis-arkui/arkui-ts/ts-image-svg2-capabilities.md).
+   *
+   * **true**: Enable enhanced SVG tag parsing. **false**: Use original SVG tag parsing.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  supportSvg2?: boolean;
 }
 
 /**
  * Defines the ImageAttachmentInterface.
  *
- * @interface ImageAttachmentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2199,83 +2407,88 @@ declare interface ResourceImageAttachmentOptions {
  * @since 12 dynamic
  */
 declare interface ImageAttachmentInterface {
-    /**
-     * The content of the ImageAttachment.
-     *
-     * @type { PixelMap }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    value: PixelMap;
 
-    /**
-     * Image size.
-     *
-     * @type { ?SizeOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    size?: SizeOptions;
+  /**
+   * Image data source.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  value: PixelMap;
 
-    /**
-     * Image vertical align.
-     *
-     * @type { ?ImageSpanAlignment }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    verticalAlign?: ImageSpanAlignment;
+  /**
+   * Image size, which does not support percentage values.
+   *
+   * The default value of **size** depends on the value of **objectFit**. For example, if the value of **objectFit** is
+   * **Cover**, the image height is the component height minus the top and bottom paddings, and the image width is the
+   * component width minus the left and right paddings.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  size?: SizeOptions;
 
-    /**
-     * Image fit.
-     *
-     * @type { ?ImageFit }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    objectFit?: ImageFit;
+  /**
+   * Alignment mode of the image with the text.
+   *
+   * Default value: **ImageSpanAlignment.BOTTOM**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  verticalAlign?: ImageSpanAlignment;
 
-    /**
-     * The Image Layout Style.
-     *
-     * @type { ?ImageAttachmentLayoutStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    layoutStyle?: ImageAttachmentLayoutStyle;
+  /**
+   * Image scaling type. The **ImageFit.MATRIX** enum value is not supported.
+   *
+   * Default value: **ImageFit.Cover**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  objectFit?: ImageFit;
 
-    /**
-     * Sets the color filter effect on the image attachment.
-     *
-     * @type { ?ColorFilterType } filter ColorFilter object.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 15 dynamic
-     */
-    colorFilter?: ColorFilterType;
+  /**
+   * Image layout.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  layoutStyle?: ImageAttachmentLayoutStyle;
+
+  /**
+   * Image color filter of the styled string.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 15 dynamic
+   */
+  colorFilter?: ColorFilterType;
 }
 
 /**
- * Defines the Attachment Type.
+ * Defines the image attachment type, which is used to set images of PixelMap or [ResourceStr]{@link ResourceStr} type
+ * for styled strings.
  *
- * @typedef { ImageAttachmentInterface | ResourceImageAttachmentOptions } AttachmentType
+ * @unionmember { ImageAttachmentInterface } Settings for images of the PixelMap type.
+ * @unionmember { ResourceImageAttachmentOptions } Settings for images of the ResourceStr type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2285,9 +2498,10 @@ declare interface ImageAttachmentInterface {
 declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachmentOptions;
 
 /**
- * Defines the ColorFilter Type.
+ * Defines the type for image color filter settings.
  *
- * @typedef { ColorFilter | DrawingColorFilter } ColorFilterType
+ * @unionmember { ColorFilter } Color filter settings of the ColorFilter type.
+ * @unionmember { DrawingColorFilter } Color filter settings of the DrawingColorFilter type.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2297,9 +2511,8 @@ declare type AttachmentType = ImageAttachmentInterface | ResourceImageAttachment
 declare type ColorFilterType = ColorFilter | DrawingColorFilter;
 
 /**
- * Defines the  ImageAttachment Layout Style.
+ * Defines the ImageAttachment Layout Style.
  *
- * @interface ImageAttachmentLayoutStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2307,47 +2520,56 @@ declare type ColorFilterType = ColorFilter | DrawingColorFilter;
  * @since 12 dynamic
  */
 declare interface ImageAttachmentLayoutStyle {
-    /**
-     * Outer Margin.
-     *
-     * @type { ?(LengthMetrics | Margin) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    margin?: LengthMetrics | Margin;
 
-    /**
-     * Inner margin.
-     *
-     * @type { ?(LengthMetrics | Padding) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    padding?: LengthMetrics | Padding;
+  /**
+   * Image margin.
+   *
+   * Default value: **0**.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  margin?: LengthMetrics | Margin;
 
-    /**
-     * Border radius.
-     *
-     * @type { ?(LengthMetrics | BorderRadiuses) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    borderRadius?: LengthMetrics | BorderRadiuses;
+  /**
+   * Image padding.
+   *
+   * Default value: **0**.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  padding?: LengthMetrics | Padding;
+
+  /**
+   * Radius of the image border corners.
+   *
+   * Default value: **0**.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  borderRadius?: LengthMetrics | BorderRadiuses;
 }
 
 /**
  * Defines the CustomSpanMetrics interface.
  *
- * @interface CustomSpanMetrics
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2355,38 +2577,38 @@ declare interface ImageAttachmentLayoutStyle {
  * @since 12 dynamic
  */
 declare interface CustomSpanMetrics {
-    /**
-     * CustomSpan Width.
-     * The unit is vp.
-     *
-     * @type { number }
-     * @default 0
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    width: number;
 
-    /**
-     * CustomSpan Height.
-     * The unit is vp.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    height?: number;
+  /**
+   * Width of the custom span.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @default 0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  width: number;
+
+  /**
+   * Height of the custom span.
+   *
+   * Unit: [vp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  height?: number;
 }
 
 /**
  * Defines the CustomSpanDrawInfo interface.
  *
- * @interface CustomSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2394,63 +2616,63 @@ declare interface CustomSpanMetrics {
  * @since 12 dynamic
  */
 declare interface CustomSpanDrawInfo {
-    /**
-     * CustomSpan's offset relative to the parent component.
-     * The unit is px.
-     * 
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    x: number;
 
-    /**
-     * The top position of the line where customSpan is located.
-     * The unit is px.
-     * 
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    lineTop: number;
+  /**
+   * Offset of the custom span relative to the mounted component.
+   *
+   * Unit: [px]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  x: number;
 
-    /**
-     * The bottom position of the line where customSpan is located.
-     * The unit is px.
-     * 
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    lineBottom: number;
+  /**
+   * Top margin of the custom span relative to the **Text** component.
+   *
+   * Unit: [px]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  lineTop: number;
 
-    /**
-     * The baseline offset of the line where customSpan is located.
-     * The unit is px.
-     * 
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    baseline: number;
+  /**
+   * Bottom margin of the custom span relative to the **Text** component.
+   *
+   * Unit: [px]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  lineBottom: number;
+
+  /**
+   * Baseline offset of the line where the custom span is located.
+   *
+   * Unit: [px]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  baseline: number;
 }
 
 /**
  * Defines the CustomSpanMeasureInfo interface.
  *
- * @interface CustomSpanMeasureInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2458,47 +2680,56 @@ declare interface CustomSpanDrawInfo {
  * @since 12 dynamic
  */
 declare interface CustomSpanMeasureInfo {
-    /**
-     * Current component's fontSize value.
-     * The unit is fp.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    fontSize: number;
-    /**
-     * The max width constraint of custom span.
-     * The unit is px.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    maxWidth?: number;
-    /**
-     * The layoutPolicy of custom span.
-     *
-     * @type { ?LayoutPolicy }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 26.0.0 dynamic
-     */
-    layoutPolicy?: LayoutPolicy;
+
+  /**
+   * Text font size.
+   *
+   * Unit: [fp]{@link common}
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  fontSize: number;
+
+  /**
+   * Maximum width constraint of the custom span within the parent component's content area.
+   *
+   * Unit: [px]{@link common}
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  maxWidth?: number;
+
+  /**
+   * Width layout policy of the parent component of the custom span.
+   *
+   * **NOTE**
+   *
+   * When the value is **null** or **undefined**, the parent component does not have a width layout policy set.
+   *
+   * **Since**: 26.0.0
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  layoutPolicy?: LayoutPolicy;
 }
 
 /**
- * Defines the LeadingMarginSpanDrawInfo interface.
+ * Provides the custom drawing information.
  *
- * @interface LeadingMarginSpanDrawInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2506,109 +2737,124 @@ declare interface CustomSpanMeasureInfo {
  * @since 22 dynamic
  */
 declare interface LeadingMarginSpanDrawInfo {
-    /**
-     * The x offset of the line.
-     * The unit is px.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    x: number;
 
-    /**
-     * The top position of the line.
-     * The unit is px.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    top: number;
+  /**
+   * Horizontal offset of the current line relative to the component. For right-to-left (RTL) scripts (direction set to
+   * **RTL**), this value represents the distance between the right side of the current line and the component's right
+   * edge.
+   *
+   * Unit: [px]{@link common}
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  x: number;
 
-    /**
-     * The bottom position of the line.
-     * The unit is px.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    bottom: number;
+  /**
+   * Distance from the top of the current line to the component's upper edge.
+   *
+   * Unit: [px]{@link common}
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  top: number;
 
-    /**
-     * The baseline offset of the line.
-     * The unit is px.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    baseline: number;
+  /**
+   * Distance from the bottom of the current line to the component's upper edge.
+   *
+   * Unit: [px]{@link common}
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  bottom: number;
 
-    /**
-     * The direction of text. The default value is TextDirection.DEFAULT.
-     *
-     * @type { TextDirection }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    direction: TextDirection;
+  /**
+   * Distance from the baseline of the current line to the component's upper edge.
+   *
+   * Unit: [px]{@link common}
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  baseline: number;
 
-    /**
-     * The start index of the first character in the current line relative to the component text content.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    start: number;
+  /**
+   * Direction of the text content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  direction: TextDirection;
 
-    /**
-     * The end index of the first character in the current line relative to the component text content.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    end: number;
+  /**
+   * Start index of the current line.
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  start: number;
 
-    /**
-     * Whether current line is first line of a paragraph.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    first: boolean;
+  /**
+   * End index of the current line.
+   *
+   * The value must be greater than or equal to 0.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  end: number;
+
+  /**
+   * Whether the current line is the first line of the paragraph.
+   *
+   * **true**: first line; **false**: non-first line.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  first: boolean;
 }
 
 /**
- * Defines CustomSpan.
+ * Describes the custom span. Only the base class is provided. You need to define the specific implementation.
+ *
+ * The drag preview of a custom span is blank.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2617,46 +2863,57 @@ declare interface LeadingMarginSpanDrawInfo {
  * @since 12 dynamic
  */
 declare abstract class CustomSpan {
-    /**
-     * Measure the size of custom span.
-     *
-     * @param { CustomSpanMeasureInfo } measureInfo
-     * @returns { CustomSpanMetrics } - CustomSpan Size
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
 
-    /**
-     * Draw the custom span.
-     *
-     * @param { DrawContext } context
-     * @param { CustomSpanDrawInfo } drawInfo
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
-     */
-    abstract onDraw(context: DrawContext, drawInfo: CustomSpanDrawInfo): void;
+  /**
+   * Called to obtain the size of a custom span.
+   *
+   * @param { CustomSpanMeasureInfo } measureInfo - Font size of the text.
+   * @returns { CustomSpanMetrics } Size of the custom span.
+   *     <br>**NOTE**
+   *     <br>The final height of the custom span is subject to the line height of the **Text** component. If no value is
+   *     specified for **height**, the custom span takes the **fontSize** value of the **Text** component as its height.
+   *     If the value specified is greater than the height of other child components on the same line, the custom span
+   *     takes the line height of the **Text** component as its height.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  abstract onMeasure(measureInfo: CustomSpanMeasureInfo) : CustomSpanMetrics;
 
-    /**
-     * Invalidate all components that use the object, which will cause a re-render of all components.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 13 dynamic
-     */
-    invalidate(): void;
+  /**
+   * Called to draw a custom span.
+   *
+   * @param { DrawContext } context - Drawing context.<br>**NOTE**<br>The **canvas** method of **DrawContext** obtains
+   *     the canvas of the **Text** component. As such, the custom span does not extend beyond the area of the **Text**
+   *     component.
+   * @param { CustomSpanDrawInfo } drawInfo - Drawing information of the custom span.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  abstract onDraw(context: DrawContext,  drawInfo: CustomSpanDrawInfo): void;
+
+  /**
+   * Manually triggers a refresh of the **Text** component that uses this **CustomSpan**.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 13 dynamic
+   */
+  invalidate(): void;
 }
 
 /**
- * Defines UserDataSpan. Used to store and obtain user data.
+ * Implements a **UserDataSpan** object for storing and obtaining user data. Only the base class is provided. You need
+ * to define the specific implementation.
+ *
+ * The extended user data does not affect the display effect.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2667,7 +2924,8 @@ declare abstract class CustomSpan {
 declare abstract class UserDataSpan {}
 
 /**
- * Defines LeadingMarginSpan.
+ * Defines custom indentation for text paragraphs. Only a base class is provided; the specific implementation is left to
+ * developers.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2676,27 +2934,32 @@ declare abstract class UserDataSpan {}
  * @since 22 dynamic
  */
 declare abstract class LeadingMarginSpan {
-    /**
-     * Draw the leading margin span.
-     *
-     * @param { DrawContext } context
-     * @param { LeadingMarginSpanDrawInfo } drawInfo
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
-    /**
-     * Get the amount by which to adjust the leading margin.
-     *
-     * @returns { LengthMetrics } - the literal content of the StyledString
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 22 dynamic
-     */
-    abstract getLeadingMargin(): LengthMetrics;
+
+  /**
+   * Draws a custom pattern. This API is triggered once for each line of text in a paragraph.
+   *
+   * @param { DrawContext } context - Drawing context.<br>The **canvas** method of **DrawContext** obtains the canvas
+   *     of the component. As such, the custom span does not extend beyond the area of the component.
+   * @param { LeadingMarginSpanDrawInfo } drawInfo - Custom drawing information.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  abstract onDraw(context: DrawContext, drawInfo: LeadingMarginSpanDrawInfo): void;
+
+  /**
+   * Returns the indentation distance for a text paragraph.
+   *
+   * @returns { LengthMetrics } Paragraph indentation distance. The value cannot be in percentage.
+   *     <br>Default value: **0**.
+   *     <br>
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  abstract getLeadingMargin(): LengthMetrics;
 }

@@ -30,7 +30,7 @@ export interface CliToolEvent {
   /**
    * Tool event data.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -40,7 +40,7 @@ export interface CliToolEvent {
   /**
    * Tool event data.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -51,16 +51,16 @@ export interface CliToolEvent {
 /**
  * Enum for query entity mode.
  *
- * @syscap SystemCapability.Ability.AbilityRuntime.Core
+ * @syscap SystemCapability.Ability.AgentRuntime.Core
+ * @systemapi
  * @stagemodelonly
- * @atomicservice
  * @since 26.0.0 dynamiconly
  */
 export enum ToolEventType {
   /**
    * stdout event.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -70,7 +70,7 @@ export enum ToolEventType {
   /**
    * stderr event.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -80,7 +80,7 @@ export enum ToolEventType {
   /**
    * exit event.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly
@@ -90,7 +90,7 @@ export enum ToolEventType {
   /**
    * error event.
    *
-   * @syscap SystemCapability.Ability.AbilityRuntime.Core
+   * @syscap SystemCapability.Ability.AgentRuntime.Core
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 dynamiconly

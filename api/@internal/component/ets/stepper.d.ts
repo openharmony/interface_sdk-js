@@ -19,58 +19,35 @@
  */
 
 /**
- * Declare the stepper.
+ * The **Stepper** component provides a step navigator, suitable for guiding users through a step-by-step task
+ * completion process.
+ *
+ * > **NOTE**
  *
  * @interface StepperInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Declare the stepper.
- *
- * @interface StepperInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Declare the stepper.
- *
- * @interface StepperInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper#SwiperInterface
+ * @noninterop
  */
 interface StepperInterface {
+
   /**
-   * Called when the stepper component is used.
+   * Creates a **Stepper** component.
    *
-   * @param { object } value
+   * > **NOTE**
+   *
+   * @param { object } value - Index of the **StepperItem** that is currently displayed.<br>Default value: **0**<br>
+   *     Since API version 10, this parameter supports two-way binding through
+   *     [$$](docroot://ui/state-management/arkts-two-way-sync.md).
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when the stepper component is used.
-   *
-   * @param { object } value
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the stepper component is used.
-   *
-   * @param { object } value
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#index
    */
@@ -82,178 +59,105 @@ interface StepperInterface {
  *
  * @extends CommonMethod<StepperAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines the stepper attribute functions
- *
- * @extends CommonMethod<StepperAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the stepper attribute functions
- *
- * @extends CommonMethod<StepperAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper#SwiperAttribute
+ * @noninterop
  */
 declare class StepperAttribute extends CommonMethod<StepperAttribute> {
+
   /**
-   * Callback when the finish label is clicked.
+   * Triggered when [nextLabel]{@link StepperItemAttribute#nextLabel} of the last [StepperItem]{@link stepper_item} in
+   * the stepper is clicked and the [ItemState]{@link ItemState} attribute is **Normal**.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Invoked when the **nextLabel** of the last **StepperItem** in the **Stepper** is
+   *     clicked and the **ItemState** attribute is set to **Normal**.
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Callback when the finish label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback when the finish label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#onChange
    */
   onFinish(callback: () => void): StepperAttribute;
 
   /**
-   * Callback when the skip label is clicked.
+   * Triggered when [nextLabel]{@link StepperItemAttribute#nextLabel} is clicked and the
+   * [StepperItem]{@link stepper_item} status is **ItemState.Skip**.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Invoked when the current **StepperItem** is **ItemState.Skip** and the **nextLabel**
+   *     is clicked.
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Callback when the skip label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback when the skip label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#onChange
    */
   onSkip(callback: () => void): StepperAttribute;
 
   /**
-   * Callback when the change label is clicked.
+   * Triggered when the step navigation switches by clicking [prevLabel]{@link StepperItemAttribute#prevLabel} of the
+   * **StepperItem** component; or when clicking [nextLabel]{@link StepperItemAttribute#nextLabel} of the current
+   * **StepperItem** component, provided that the current page is not the last **StepperItem** in the stepper and the
+   * [ItemState]{@link ItemState} attribute is **Normal**.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Callback triggered when the page is switched.<br/>prevIndex: Index of the step page
+   *     before the switching.<br>Value range:
+   *     [0, +¡Þ).<br/>index: Index of the step page after the switching, that is, index of the previous or next page.
+   *     <br>Value range: [0, +¡Þ).
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Callback when the change label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback when the change label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#onChange
    */
   onChange(callback: (prevIndex: number, index: number) => void): StepperAttribute;
 
   /**
-   * Callback when the next label is clicked.
+   * Triggered when switching to the next step by clicking [nextLabel]{@link StepperItemAttribute#nextLabel} of a
+   * **StepperItem**, provided that the current page is not the last **StepperItem** in the stepper and the
+   * [ItemState]{@link ItemState} attribute is **Normal**.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Callback triggered when the page is switched.<br/>index: Index of the current step
+   *     page.<br/>pendingIndex: Index of the next step page.
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Callback when the next label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback when the next label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#onChange
    */
   onNext(callback: (index: number, pendingIndex: number) => void): StepperAttribute;
 
   /**
-   * Callback when the previous label is clicked.
+   * Triggered when switching to the previous step by clicking [prevLabel]{@link StepperItemAttribute#prevLabel} of a
+   * **StepperItem**.
    *
-   * @param { function } callback
+   * > **NOTE**
+   *
+   * @param { function } callback - Callback triggered when the page is switched.<br/>index: Index of the current step
+   *     page.<br/>pendingIndex: Index of the next step page.
    * @returns { StepperAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Callback when the previous label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Callback when the previous label is clicked.
-   *
-   * @param { function } callback
-   * @returns { StepperAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamiconly
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamiconly
    * @deprecated since 22
    * @useinstead Swiper.SwiperAttribute#onChange
    */
@@ -261,27 +165,23 @@ declare class StepperAttribute extends CommonMethod<StepperAttribute> {
 }
 
 /**
- * Defines Stepper Component.
+ * The **Stepper** component provides a step navigator, suitable for guiding users through a step-by-step task
+ * completion process.
+ *
+ * > **NOTE**
+ *
+ *
+ * ###### Child Components
+ *
+ * Only the child component [StepperItem]{@link stepper_item} is supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 8
- */
-/**
- * Defines Stepper Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines Stepper Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamiconly
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper
+ * @noninterop
  */
 declare const Stepper: StepperInterface;
 
@@ -307,5 +207,6 @@ declare const Stepper: StepperInterface;
  * @since 11 dynamiconly
  * @deprecated since 22
  * @useinstead Swiper
+ * @noninterop
  */
 declare const StepperInstance: StepperAttribute;

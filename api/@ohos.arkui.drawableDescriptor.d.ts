@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023-2025 Huawei Device Co., Ltd.
+ * Copyright (c) 2023-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,7 +14,14 @@
  */
 
 /**
- * @file
+ * This module provides capabilities for layered icon composition (foreground, background, mask), animated image 
+ * control, and basic image processing.
+ * 
+ * > **NOTE**
+ * >
+ * > - You can preview how this component looks on a real device, but not in DevEco Studio Previewer.
+ *
+ * @file DrawableDescriptor
  * @kit ArkUI
  */
 
@@ -22,9 +29,8 @@ import image from './@ohos.multimedia.image';
 import drawing from './@ohos.graphics.drawing';
 
 /**
- * The result of loading image.
+ * Represents the result of loading an image resource or URI.
  *
- * @typedef DrawableDescriptorLoadedResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -33,20 +39,22 @@ import drawing from './@ohos.graphics.drawing';
  */
 export interface DrawableDescriptorLoadedResult {
   /**
-   * The width of the image, in px.
+   * Image width.
+   * 
+   * Unit: px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 21 dynamic
    */
-  imageWidth: number
+  imageWidth: number,
   /**
-   * The height of the image, in px.
+   * Image height.
+   * 
+   * Unit: px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -57,28 +65,14 @@ export interface DrawableDescriptorLoadedResult {
 }
 
 /**
- * Use the DrawableDescriptor class to get drawable image.
+ * Represents the base class providing overridable methods for [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} 
+ * acquisition and image resource loading.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Use the DrawableDescriptor class to get drawable image.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Use the DrawableDescriptor class to get drawable image.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class DrawableDescriptor {
   /**
@@ -90,12 +84,11 @@ export class DrawableDescriptor {
    * @since 10 dynamic
    */
   constructor();
-
   /**
-   * Get pixelMap of drawable image.
+   * Obtains this **PixelMap** instance.
    *
-   * @returns { image.PixelMap } Return the PixelMap of the calling DrawableDescriptor object.
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { image.PixelMap } **PixelMap** object.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,38 +97,42 @@ export class DrawableDescriptor {
    * @since 10 dynamic
    */
   getPixelMap(): image.PixelMap;
-
   /**
-   * Synchronously loads image and return loading result.
+   * Synchronously loads the image resource and returns the loading result.
    *
-   * @returns { DrawableDescriptorLoadedResult } The image loading result.
-   * @throws { BusinessError } 111001 - resource loading failed. [since 21]
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { DrawableDescriptorLoadedResult } Image resource loading result.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform [since 21]
-   * @atomicservice [since 21]
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 21 dynamic
    */
   loadSync(): DrawableDescriptorLoadedResult;
-
   /**
-   * Asynchronously loads image and return loading result.
+   * Asynchronously loads the image resource and returns the loading result. This API uses a promise to return the 
+   * result.
    *
-   * @returns { Promise<DrawableDescriptorLoadedResult> } The image loading result.
-   * @throws { BusinessError } 111001 - resource loading failed. [since 21]
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { Promise<DrawableDescriptorLoadedResult> } Image resource loading result.
+   * @throws { BusinessError } 111001 - resource loading failed.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform [since 21]
-   * @atomicservice [since 21]
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
    * @since 21 dynamic
    */
   load(): Promise<DrawableDescriptorLoadedResult>;
-
   /**
-   * Release the DrawableDescriptor object. After relase, any method call that
-   *     Access to the object's internal data will fail.
+   * Releases the resource held by **DrawableDescriptor**. After the **release** API is called, the object becomes 
+   * unavailable. In this case, if you call APIs such as [getPixelMap]{@link DrawableDescriptor#getPixelMap}, 
+   * [getForeground]{@link LayeredDrawableDescriptor#getForeground}, 
+   * [getBackground]{@link LayeredDrawableDescriptor#getBackground}, [getMask]{@link LayeredDrawableDescriptor#getMask},
+   * [loadSync]{@link DrawableDescriptor#loadSync}, and [load]{@link DrawableDescriptor#load} again, error code 111002 
+   * will be thrown. No crash occurs when the **release** API is called repeatedly.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -145,10 +142,15 @@ export class DrawableDescriptor {
    */
   release(): void;
   /**
-   * Checks whether the DrawableDescriptor is released. If so, then any method call that
-   *     accesses the object's internal data will fail.
+   * Checks whether **DrawableDescriptor** is released. If **true** is returned, the object has been released. In this 
+   * case, calling APIs such as [getPixelMap]{@link DrawableDescriptor#getPixelMap}, 
+   * [getForeground]{@link LayeredDrawableDescriptor#getForeground}, 
+   * [getBackground]{@link LayeredDrawableDescriptor#getBackground}, [getMask]{@link LayeredDrawableDescriptor#getMask},
+   * [loadSync]{@link DrawableDescriptor#loadSync}, and [load]{@link DrawableDescriptor#load} will throw error code 1110
+   * 02. If **false** is returned, the object has not been released and can be used normally.
    *
-   * @returns { boolean } Return true if the DrawableDescriptor object has been released, or false if not.
+   * @returns { boolean } Whether **DrawableDescriptor** is released. The value **true** indicates that the object is
+   *     released, and **false** indicates that the object is not released.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -156,9 +158,10 @@ export class DrawableDescriptor {
    * @since 26.0.0 dynamic
    */
   isReleased(): boolean;
-
   /**
-   * Redraw the DrawableDescriptor. Does nothing if the DrawableDescriptor is not bound to any component.
+   * Redraws **DrawableDescriptor**. Currently, this API is supported for the 
+   * [PictureDrawableDescriptor]{@link PictureDrawableDescriptor} type, and does not take effect for other 
+   * **DrawableDescriptor** subtypes. If no component is bound to **DrawableDescriptor**, no operation is performed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -170,55 +173,31 @@ export class DrawableDescriptor {
 }
 
 /**
- * Use the LayeredDrawableDescriptor class to get the foreground, the background and the mask DrawableDescriptor.
+ * Creates a **LayeredDrawableDescriptor** object when the passed resource ID or name belongs to a JSON file that 
+ * contains foreground and background resources. Inherits from 
+ * [DrawableDescriptor]{@link DrawableDescriptorLoadedResult}.
+ * 
+ * The **drawable.json** file is located under **entry/src/main/resources/base/media** in the project directory. Below 
+ * shows the file content:
  *
- * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * Use the LayeredDrawableDescriptor class to get the foreground, the background and the mask DrawableDescriptor.
- *
- * @extends DrawableDescriptor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * Use the LayeredDrawableDescriptor class to get the foreground, the background and the mask DrawableDescriptor.
- *
- * @extends DrawableDescriptor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class LayeredDrawableDescriptor extends DrawableDescriptor {
   /**
-   * Creates a new LayeredDrawableDescriptor.
+   * A constructor used to create a **LayeredDrawableDescriptor** object.
    *
-   * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
-   * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
-   * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
+   * @param { DrawableDescriptor } [foreground] - Options for the foreground image of the layered drawable.
+   * @param { DrawableDescriptor } [background] - Options for the background image of the layered drawable.
+   * @param { DrawableDescriptor } [mask] - Options for the mask of the layered drawable.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Creates a new LayeredDrawableDescriptor.
-   *
-   * @param { DrawableDescriptor } [foreground] - Indicates the foreground option to create LayeredDrawableDescriptor.
-   * @param { DrawableDescriptor } [background] - Indicates the background option to create LayeredDrawableDescriptor.
-   * @param { DrawableDescriptor } [mask] - Indicates the mask option to create LayeredDrawableDescriptor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   constructor(
     foreground?: DrawableDescriptor,
@@ -227,10 +206,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   );
 
   /**
-   * Get DrawableDescriptor for the foreground.
+   * Obtains the **DrawableDescriptor** object of the foreground.
    *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of foreground.
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { DrawableDescriptor } **DrawableDescriptor** object.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -241,10 +220,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   getForeground(): DrawableDescriptor;
 
   /**
-   * Get DrawableDescriptor for the background.
+   * Obtains the **DrawableDescriptor** object of the background.
    *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of background.
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { DrawableDescriptor } **DrawableDescriptor** object.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -255,10 +234,10 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   getBackground(): DrawableDescriptor;
 
   /**
-   * Get DrawableDescriptor for the mask.
+   * Obtains the **DrawableDescriptor** object of the mask.
    *
-   * @returns { DrawableDescriptor } Return the DrawableDescriptor object of mask.
-   * @throws { BusinessError } 111002 - The native memory referenced by 
+   * @returns { DrawableDescriptor } **DrawableDescriptor** object.
+   * @throws { BusinessError } 111002 - The native memory referenced by
    *     the drawableDescriptor has been released. [since 26.0.0]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -269,38 +248,13 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
   getMask(): DrawableDescriptor;
 
   /**
-   * Get the clip path info of the adaptive icon mask.
+   * Sets the blend mode of **LayeredDrawableDescriptor**. If this API is called for multiple times on the same 
+   * **LayeredDrawableDescriptor** object, only the last call before the drawing completion takes effect. This API does 
+   * not support dynamic switching. The default drawing order of **LayeredDrawableDescriptor** is background, mask, and 
+   * foreground. After the blend mode is set, the drawing order changes to background, foreground, and mask. If the 
+   * specified value is invalid, the default drawing order is used.
    *
-   * @returns { string } Return the clip path info of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get the clip path info of the adaptive icon mask.
-   *
-   * @returns { string } Return the clip path info of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get the clip path info of the adaptive icon mask.
-   *
-   * @returns { string } Return the clip path info of mask.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  static getMaskClipPath(): string;
-
-  /**
-   * Set the composition mode.
-   *
-   * @param { drawing.BlendMode } mode - Indicates the composition mode to set.
+   * @param { drawing.BlendMode } mode - Blend mode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -308,51 +262,50 @@ export class LayeredDrawableDescriptor extends DrawableDescriptor {
    * @since 23 dynamic
    */
   setBlendMode(mode: drawing.BlendMode): void;
+
+  /**
+   * Obtains the built-in clipping path parameters of the system. It is a static method of 
+   * **LayeredDrawableDescriptor**.
+   *
+   * @returns { string } String of the clipping path.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
+  static getMaskClipPath(): string;
 }
 
 /**
- * Use the PixelMapDrawableDescriptor class to get the resource of pixelmap or resource descriptor information.
+ * Implements a **PixelMapDrawableDescriptor** object, which can be created by passing in a **PixelMap** object. 
+ * Inherits from [DrawableDescriptor]{@link DrawableDescriptorLoadedResult}.
  *
- * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 23]
  * @atomicservice
  * @since 12 dynamic
  */
-/**
- * Use the PixelMapDrawableDescriptor class to get the resource of pixelmap or resource descriptor information.
- *
- * @extends DrawableDescriptor
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
- */
 export class PixelMapDrawableDescriptor extends DrawableDescriptor {
   /**
-   * Creates a new PixelMapDrawableDescriptor.
-   * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
+   * A constructor used to create a **PixelMapDrawableDescriptor** object.
+   *
+   * @param { image.PixelMap } src - **PixelMap** image data.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 12 dynamic
-   */
-  /**
-   * Creates a new PixelMapDrawableDescriptor.
-   * @param { image.PixelMap } src - Indicates the resource to create PixelMapDrawableDescriptor.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   constructor(src?: image.PixelMap);
 
   /**
-   * Creates a new PixelMapDrawableDescriptor.
+   * A constructor used to create a **PixelMapDrawableDescriptor** object through the PixelMap type or **ResourceStr**.
    *
-   * @param { image.PixelMap | ResourceStr } [src] - Pixelmap or ResourceStr to create PixelMapDrawableDescriptor.
+   * @param { image.PixelMap | ResourceStr } [src] - **PixelMap** image data. You can use application resources, system
+   *     resources, sandbox paths (file://<bundleName>/<sandboxPath>), and Base64 strings to create
+   *     **PixelMapDrawableDescriptor** objects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -363,9 +316,8 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
 }
 
 /**
- * Animation stop mode.
- * 
- * @enum { number }
+ * Enumerates the stop modes of an animation.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -374,8 +326,8 @@ export class PixelMapDrawableDescriptor extends DrawableDescriptor {
  */
 export enum AnimationStopMode {
   /**
-   * First frame.
-   * 
+   * The animation returns to the first frame when it stops.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -384,8 +336,8 @@ export enum AnimationStopMode {
    */
   FIRST_FRAME = 0,
   /**
-   * Last frame.
-   * 
+   * The animation stays at the last frame when it stops.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -396,9 +348,9 @@ export enum AnimationStopMode {
 }
 
 /**
- * Animation control options
+ * Provides the configuration options for animation playback, including the playback duration, number of playback times,
+ * and autoplay behavior.
  *
- * @interface AnimationOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -407,9 +359,17 @@ export enum AnimationStopMode {
  */
 declare interface AnimationOptions {
   /**
-   * The duration of animation playback once.
+   * Total playback duration for the image sequence.
+   * 
+   * For **PixelMap** arrays, the default value is 1s per image. For local or application resources, the duration is 
+   * determined by the playback delay embedded in the image resource.
+   * 
+   * Unit: ms.
+   * 
+   * Value range: [0, +∞).
+   * 
+   * Negative values are treated as the default value.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -418,9 +378,13 @@ declare interface AnimationOptions {
    */
   duration?: number;
   /**
-   * Animation playback times.
+   * Number of playback times for the image sequence.
+   * 
+   * A value of **-1** indicates infinite playback, **0** indicates no playback, and a value greater than 0 represents 
+   * the number of playback times.
+   * 
+   * The default value is **1**.
    *
-   * @type { ?number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -429,9 +393,15 @@ declare interface AnimationOptions {
    */
   iterations?: number;
   /**
-   * Animation frames duration of playback once.
+   * Per-frame playback duration. The setting overrides **duration** if specified.
+   * 
+   * If **duration** and **frameDurations** are set, **duration** is ignored.
+   * 
+   * If the value of **frameDurations** is inconsistent with the image count, animation timing distributes across the 
+   * total duration.
+   * 
+   * Unit: ms.
    *
-   * @type { ?Array<number> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -440,9 +410,13 @@ declare interface AnimationOptions {
    */
   frameDurations?: Array<number>;
   /**
-   * Auto play animated images, default value is true.
+   * Whether to enable autoplay.
+   * 
+   * **true** to enable, **false** otherwise.
+   * 
+   * The default value is **true**.
    *
-   * @type { ?boolean }
+   * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -451,9 +425,11 @@ declare interface AnimationOptions {
    */
   autoPlay?: boolean;
   /**
-   * Mode in which animation stops.
+   * Sets the stop mode for an animation.
    * 
-   * @type { ?AnimationStopMode }
+   * The default value is **AnimationStopMode.FIRST_FRAME**, indicating that the animation returns to the first frame 
+   * when it stops.
+   *
    * @default AnimationStopMode.FIRST_FRAME
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -465,9 +441,9 @@ declare interface AnimationOptions {
 }
 
 /**
- * Define the data structure for PixelMap animations.
+ * Implements an animation controller object. It provides APIs for playing, stopping, resuming, and pausing animations, 
+ * as well as querying the status.
  *
- * @interface AnimationController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -475,67 +451,68 @@ declare interface AnimationOptions {
  * @since 21 dynamic
  */
 export interface AnimationController {
-  /**
-   * Start animation playback.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly 
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  start(): void;
+    /**
+     * Starts playback from the first frame.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    start(): void;
 
-  /**
-   * Stop animation playback, and reset to first frame.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  stop(): void;
+    /**
+     * Stops playback and resets to the first frame.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    stop(): void;
 
-  /**
-   * Pause animation playback, and keep it to the current frame.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  pause(): void;
+    /**
+     * Pauses playback on the current frame.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    pause(): void;
 
-  /**
-   * Resume animation playback from the current frame.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  resume(): void;
+    /**
+     * Resumes playback from the current frame.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    resume(): void;
 
-  /**
-   * Get animation status of the current component.
-   *
-   * @returns { AnimationStatus } Return the status of animation.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 21 dynamic
-   */
-  getStatus(): AnimationStatus;
+    /**
+     * Obtains the current animation playback status.
+     *
+     * @returns { AnimationStatus } Current animation state: initial, running, paused, or stopped.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform
+     * @atomicservice
+     * @since 21 dynamic
+     */
+    getStatus(): AnimationStatus;
 }
 
 /**
- * Define the data structure for PixelMap animations.
+ * Defines a descriptor object used to play animated content (for example, **PixelMap** arrays or animated image 
+ * resources) using the [Image]{@link ./@internal/component/ets/image} component. It inherits from 
+ * [DrawableDescriptor]{@link DrawableDescriptorLoadedResult}.
  *
- * @extends DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -544,10 +521,10 @@ export interface AnimationController {
  */
 export class AnimatedDrawableDescriptor extends DrawableDescriptor {
   /**
-   * Creates a new AnimatedDrawableDescriptor.
+   * A constructor used to create an **AnimatedDrawableDescriptor** object.
    *
-   * @param { Array<image.PixelMap> } pixelMaps - PixelMap List.
-   * @param { AnimationOptions } [options] - Animation control options.
+   * @param { Array<image.PixelMap> } pixelMaps - **PixelMap** image data.
+   * @param { AnimationOptions } [options] - Animation options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -557,10 +534,13 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
   constructor(pixelMaps: Array<image.PixelMap>, options?: AnimationOptions);
 
   /**
-   * Creates a new AnimatedDrawableDescriptor.
+   * A constructor used to create an **AnimatedDrawableDescriptor** object.
    *
-   * @param { ResourceStr | Array<image.PixelMap> } src - animated images or local resource.
-   * @param { AnimationOptions } [options] - Animation control options.
+   * @param { ResourceStr | Array<image.PixelMap> } src - Animated image source address or
+   *     [PixelMap]{@link @ohos.multimedia.image:image.PixelMap} array.<br> The address (**ResourceStr**) supports the
+   *     following formats: application resources (**Resource**), sandbox path (file://<bundleName>/<sandboxPath>), and
+   *     Base64 string.
+   * @param { AnimationOptions } [options] - Animation playback configuration.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -570,10 +550,21 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
   constructor(src: ResourceStr | Array<image.PixelMap>, options?: AnimationOptions);
 
   /**
-   * Get the animation controller of the component based on the component id.
+   * Obtains the animation controller for playback control.
    *
-   * @param { string } [id] - component id.
-   * @returns { AnimationController | undefined } Return the component of animation controller.
+   * @param { string } [id] - ID of the target component.<br>Optional when the
+   *     [Image]{@link ./@internal/component/ets/image} component and **AnimatedDrawableDescriptor** object have a 1:1
+   *     relationship.<br>Required when the same **AnimatedDrawableDescriptor** object is bound to multiple
+   *     [Image]{@link ./@internal/component/ets/image} components (in this case, you must ensure the ID uniqueness).<br
+   *     >This rule is based on the design principle of the animation system: Animation data can be shared across
+   *     multiple components, but each component's animation runs independently. Correspondingly, an
+   *     **AnimationController** object maintains a strict 1:1 relationship with a component, meaning one component is
+   *     paired with exactly one **AnimationController** object.<br>In addition,
+   *     [AnimatedDrawableDescriptor]{@link AnimatedDrawableDescriptor} supports the feature for automatically pausing
+   *     animation playback when the bound component is not visible (for example, when the component is scrolled out of
+   *     the screen or hidden). For specific implementation details, see [onVisibleAreaChange]
+   *     {@link CommonMethod#onVisibleAreaChange(ratios: Array<number>, event: VisibleAreaChangeCallback)}.
+   * @returns { AnimationController | undefined } Animation controller object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -582,9 +573,8 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
    */
   getAnimationController(id?: string): AnimationController | undefined;
 }
-
 /**
- * Options for HDR composition configuration.
+ * Provides HDR composition configuration.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -592,18 +582,20 @@ export class AnimatedDrawableDescriptor extends DrawableDescriptor {
  * @since 26.0.0 dynamic
  */
 declare interface HdrCompositionConfig {
-/**
- * Rectangle area for HDR composition.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 26.0.0 dynamic
- */
-rect: Rectangle;
+  /**
+   * Rectangle area for HDR composition.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  rect: Rectangle;
 }
 
 /**
- * Use the PictureDrawableDescriptor class to get the resource of picture or resource descriptor information.
+ * Creates a **PictureDrawableDescriptor** object by passing a **Picture** object. This API inherits from 
+ * [DrawableDescriptor]{@link DrawableDescriptorLoadedResult}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -612,24 +604,24 @@ rect: Rectangle;
  */
 export class PictureDrawableDescriptor extends DrawableDescriptor {
   /**
-  * Creates a new PictureDrawableDescriptor.
-  *
-  * @param { image.Picture } src - Indicates the resource to create PictureDrawableDescriptor.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 26.0.0 dynamic
-  */
+   * A constructor used to create a **PictureDrawableDescriptor** object.
+   *
+   * @param { image.Picture } src - **Picture** object for creating **PictureDrawableDescriptor**.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   constructor(src: image.Picture);
 
   /**
-  * Set HDR composition config.
-  *
-  * @param { HdrCompositionConfig } config - Indicates the HDR composition config.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 26.0.0 dynamic
-  */
+   * Sets HDR composition.
+   *
+   * @param { HdrCompositionConfig } config - HDR composition configuration.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
   setHdrComposition(config: HdrCompositionConfig): void;
 }

@@ -336,6 +336,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000010 - IPC failed.
    * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
    * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @throws { BusinessError } 24000019 - Each value of {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED}
    *     in the array is not consistent.
@@ -1279,39 +1280,6 @@ declare namespace asset {
      * @since 18
      */
     WRAP_TYPE = TagType.NUMBER | 0x49,
-    /**
-     * 数据安全级别类型
-     *
-     * 相比原来，新增了TEE级别数据存储和云同步
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    SECURITY_TYPE = TagType.NUMBER | 0x50,
-    /**
-     * uuid字段的tag
-     *
-     * 无
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    DATA_UUID = TagType.BYTES | 0x51,
-    /**
-     * 标识盐值字段的tag
-     *
-     * 无
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    DATA_SALT = TagType.BYTES | 0x52
   }
 
   /**

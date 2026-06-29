@@ -18,142 +18,88 @@
  * @kit ArkUI
  */
 /**
- * Provides a button component.
+ * Enumerates the button types.
+ * 
+ * > **NOTE**
+ * >
+ * > - The corner radius of the rounded rectangle button is set using the universal attribute 
+ * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)}.
+ * >
+ * > - For a button of the **Capsule** type, the **borderRadius** settings do not take effect, and the radius of its 
+ * > rounded corner is always half of the button height or width, whichever is smaller.
+ * >
+ * > - For a button of the **Circle** type: (1) If both its width and height are set, **borderRadius** does not take 
+ * > effect, and the button radius is half of the width or height (whichever is smaller). (2) If either its width or 
+ * > height is set, **borderRadius** does not take effect, and the button radius is half of the set width or height. (3)
+ * > If neither its width nor height is set, the button radius is as specified by **borderRadius**; if **borderRadius** 
+ * > is set to a negative value, the value **0** will be used.
+ * >
+ * > - The button text is set using [fontSize]{@link ButtonAttribute#fontSize}, 
+ * > [fontColor]{@link ButtonAttribute#fontColor}, [fontStyle]{@link ButtonAttribute#fontStyle}, 
+ * > [fontFamily]{@link ButtonAttribute#fontFamily}, and [fontWeight]{@link ButtonAttribute#fontWeight}.
+ * >
+ * > - Before setting the [gradient color]{@link common}, you need to set 
+ * > [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)} to transparent.
+ * >
+ * > - When **borderRadius** is not set, the corner radius of the rounded rectangle button remains at the default value.
+ * > In this case, the corner radius does not change with the button height and is subject to the **controlSize** 
+ * > property. When **controlSize** is **NORMAL**, the corner radius is 20 vp; when **controlSize** is **SMALL**, the 
+ * > corner radius is 14 vp.
+ * >
+ * > - When [border]{@link CommonMethod#border(value: BorderOptions)} is set for the 
+ * > button, a default 
+ * > [borderRadius]{@link CommonMethod#borderRadius(value: Length | BorderRadiuses | LocalizedBorderRadiuses)} value is 
+ * > automatically applied. When both **border** and **borderRadius** attributes are used, **borderRadius** must be 
+ * > specified after **border** to prevent the border radius from being overridden by the default radius value in the 
+ * > border style.
  *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides a button component.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Provides a button component.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Provides a button component.
- *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare enum ButtonType {
   /**
-   * Capsule button (rounded corners default to half the height).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Capsule button (rounded corners default to half the height).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Capsule button (rounded corners default to half the height).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Capsule button (rounded corners default to half the height).
+   * Capsule-type button (the round corner is half of the height by default).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Capsule,
 
   /**
-   * Round buttons.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Round buttons.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Round buttons.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Round buttons.
+   * Circular button.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Circle,
 
   /**
-   * Common button (no rounded corners by default).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Common button (no rounded corners by default).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Common button (no rounded corners by default).
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Common button (no rounded corners by default).
+   * Normal button, with no rounded corners by default.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   Normal,
 
   /**
-   * Rounded rectangle button.
+   * Rounded rectangle button (default value: when **controlSize** is **NORMAL**, the corner radius is 20 vp; when 
+   * controlSize is **SMALL**, the corner radius is 14 vp).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -166,93 +112,54 @@ declare enum ButtonType {
 }
 
 /**
- * Enum for button style type.
+ * Enumerates the button importance levels.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Enum for button style type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum ButtonStyleMode {
     /**
-     * Normal button (with normal background color).
+     * Normal button (used to direct the user to a common task).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * Normal button (with normal background color).
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     NORMAL = 0,
     /**
-     * Emphasized button (with emphasized background color).
+     * Emphasized button (used to direct the user to the most important task).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * Emphasized button (with emphasized background color).
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     EMPHASIZED = 1,
     /**
-     * Textual button (with none background color).
+     * Text button (displayed as simple text without any background color).
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * Textual button (with none background color).
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     TEXTUAL = 2
 }
 
 /**
- * Enum for button role.
+ * Role of the button.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -273,7 +180,7 @@ declare enum ButtonRole {
      */
     NORMAL = 0,
     /**
-     * Error button.
+     * Warning button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -286,11 +193,10 @@ declare enum ButtonRole {
 }
 
 /**
- * Defines the callback type used in ButtonConfiguration.
+ * Defines the callback type used in **ButtonConfiguration**.
  *
- * @typedef {function} ButtonTriggerClickCallback
- * @param { number } xPos - The value of xPos is x coordinate.
- * @param { number } yPos - The value of yPos is y coordinate.
+ * @param { number } xPos - X-coordinate of the click point.<br>Unit: vp
+ * @param { number } yPos - Y-coordinate of the click point.<br>Unit: vp
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -300,10 +206,9 @@ declare enum ButtonRole {
 declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
 /**
- * ButtonConfiguration used by button content modifier.
+ * You need a custom class to implement the **ContentModifier** API. Inherits from 
+ * [CommonConfiguration]{@link CommonConfiguration}.
  *
- * @extends CommonConfiguration<ButtonConfiguration>
- * @interface ButtonConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -313,9 +218,10 @@ declare type ButtonTriggerClickCallback = (xPos: number, yPos: number) => void;
 
 declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfiguration> {
     /**
-     * Button with inner text label.
+     * Text label of the button.
+     * 
+     * Note: If the text is longer than the width of the button, it is truncated.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -324,9 +230,16 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      */
     label: string;
     /**
-     * Indicates whether the button is pressed.
+     * Whether the button is pressed.
+     * 
+     * **true**: pressed; **false**: not pressed.
+     * 
+     * Default value: **false**
+     * 
+     * **NOTE**
+     * 
+     * This setting applies to the original button size, not to any new component constructed using the builder.
      *
-     * @type { boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -335,9 +248,8 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
      */
     pressed: boolean;
     /**
-     * Trigger button click x coordinate and y coordinate.
+     * Click event of the new component constructed using the builder.
      *
-     * @type { ButtonTriggerClickCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -348,229 +260,133 @@ declare interface ButtonConfiguration extends CommonConfiguration<ButtonConfigur
 }
 
 /**
- * Enum for Control Size.
+ * Button size.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * Enum for Control Size.
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum ControlSize {
     /**
-     * The component size is small.
+     * Small button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * The component size is small.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     SMALL = 'small',
     /**
-     * The component size is normal.
+     * Normal button.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * The component size is normal.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     NORMAL = 'normal'
 }
 
 /**
- * Defines the button options.
+ * Describes the button style.
  *
- * @interface ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the button options.
- *
- * @interface ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the button options.
- *
- * @interface ButtonOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the button options.
- *
- * @interface ButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface ButtonOptions {
     /**
-     * Defines the button type.
+     * Button display style.
+     * 
+     * Default value: **ButtonType.ROUNDED_RECTANGLE**
+     * 
+     * API version 18 and later: The default value is **ButtonType.ROUNDED_RECTANGLE**. Versions earlier than API 
+     * version 18: The default value is **ButtonType.Capsule**.
      *
-     * @type { ?ButtonType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Defines the button type.
-     *
-     * @type { ?ButtonType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    /**
-     * Defines the button type.
-     *
-     * @type { ?ButtonType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @since 10
-     */
-    /**
-     * Defines the button type.
-     *
-     * @type { ?ButtonType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @form [since 9]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     type?: ButtonType;
     /**
-     * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+     * Whether to enable the pressed state effect when the button is clicked.
+     * 
+     * **true**: The pressed state effect is enabled. **false**: The pressed state effect is disabled.
+     * 
+     * Default value: **true**
+     * 
+     * **NOTE**
+     * 
+     * When the pressed state effect is enabled and a custom pressed state style is configured, the resulting color 
+     * displayed after pressing is a composite blend of the original background color and the newly defined pressed 
+     * state color.
      *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    /**
-     * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @since 10
-     */
-    /**
-     * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-     *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @form [since 9]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     stateEffect?: boolean;
     /**
-     * Describes the button style.
+     * Style and importance of the button. The system automatically adjusts the button background color and text color 
+     * based on the enumerated value. You can also use the 
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+     * [fontColor]{@link ButtonAttribute#fontColor}, and [role]{@link ButtonAttribute#role} APIs to set the background 
+     * color and text color. The actual displayed effect will be determined by the last setting.
+     * 
+     * Default value: **ButtonStyleMode.EMPHASIZED**
+     * 
+     * **NOTE**
+     * 
+     * The button primacy is as follows, from high to low: emphasized button, normal button, text button.
      *
-     * @type { ?ButtonStyleMode }
      * @default ButtonStyleMode.EMPHASIZED
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * Describes the button style.
-     *
-     * @type { ?ButtonStyleMode }
-     * @default ButtonStyleMode.EMPHASIZED
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     buttonStyle?: ButtonStyleMode;
     /**
-     * Describes the button size.
+     * Button size.
+     * 
+     * Default value: **ControlSize.NORMAL**
      *
-     * @type { ?ControlSize }
      * @default ControlSize.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
      * @form
-     * @since 11
-     */
-    /**
-     * Describes the button size.
-     *
-     * @type { ?ControlSize }
-     * @default ControlSize.NORMAL
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 12 dynamic
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     controlSize?: ControlSize;
     /**
-     * Describes the button role.
+     * Role of the button. The system automatically adjusts the button background color and text color based on the 
+     * enumerated value. You can also use the 
+     * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+     * [fontColor]{@link ButtonAttribute#fontColor}, and [buttonStyle]{@link ButtonAttribute#buttonStyle} APIs to set 
+     * the background color and text color. The actual displayed effect will be determined by the last setting.
+     * 
+     * Default value: **ButtonRole.NORMAL**
      *
-     * @type { ?ButtonRole }
      * @default ButtonRole.NORMAL
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -583,310 +399,171 @@ declare interface ButtonOptions {
 }
 
 /**
- * Defines the Button Component.
+ * The **Button** component can be used to create different types of buttons.
+ * 
+ * > **NOTE**
  *
- * @interface ButtonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the Button Component.
- *
- * @interface ButtonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the Button Component.
- *
- * @interface ButtonInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Button Component.
- *
- * @interface ButtonInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 interface ButtonInterface {
     /**
-     * Button object
-     *
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Button object
-     *
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    /**
-     * Button object
-     *
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @since 10
-     */
-    /**
-     * Button object
+     * Creates an empty button.
      *
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @form [since 9]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     (): ButtonAttribute;
     /**
-     * Create Button with Text child.
+     * Creates a button that can contain a single child component.
      *
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Create Button with Text child.
-     *
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    /**
-     * Create Button with Text child.
-     *
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @since 10
-     */
-    /**
-     * Create Button with Text child.
-     *
-     * @param { ButtonOptions } options
+     * @param { ButtonOptions } options - Button settings.
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @form [since 9]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     (options: ButtonOptions): ButtonAttribute;
     /**
-     * Create Button with inner text label.
+     * Creates a button based on text content. In this case, the component cannot contain child components.
+     * 
+     * By default, the text content is displayed in a one line.
      *
-     * @param { ResourceStr } label
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 7
-     */
-    /**
-     * Create Button with inner text label.
-     *
-     * @param { ResourceStr } label
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @form
-     * @since 9
-     */
-    /**
-     * Create Button with inner text label.
-     *
-     * @param { ResourceStr } label
-     * @param { ButtonOptions } options
-     * @returns { ButtonAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @form
-     * @since 10
-     */
-    /**
-     * Create Button with inner text label.
-     *
-     * @param { ResourceStr } label
-     * @param { ButtonOptions } options
+     * @param { ResourceStr } label - Button text.<br>Note: If the text is longer than the width of the button, it is
+     *     truncated.
+     * @param { ButtonOptions } options - Button settings.
      * @returns { ButtonAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @FaAndStageModel
-     * @crossplatform
-     * @form
-     * @atomicservice
-     * @since 11 dynamic
+     * @crossplatform [since 10]
+     * @form [since 9]
+     * @atomicservice [since 11]
+     * @since 7 dynamic
      */
     (label: ResourceStr, options?: ButtonOptions): ButtonAttribute;
 }
 
 /**
- * LabelStyle object.
+ * Label text and font style of the button.
  *
- * @interface LabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * LabelStyle object.
- *
- * @interface LabelStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface LabelStyle {
     /**
-     * overflow mode.
+     * Display mode when the label text is too long. Text is clipped at the transition between words. To clip text in 
+     * the middle of a word, add zero-width spaces between characters.
+     * 
+     * Default value: **TextOverflow.Ellipsis**
      *
-     * @type { ?TextOverflow }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * overflow mode.
-     *
-     * @type { ?TextOverflow }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     overflow?: TextOverflow;
     /**
-     * Label max lines.
+     * Maximum number of lines in the label text. If this attribute is specified, the text will not exceed the specified
+     * number of lines. If there is extra text, you can use **overflow** to specify how it is displayed.
+     * 
+     * Default value: **1**
+     * 
+     * **NOTE**
+     * 
+     * If this parameter is set to a value less than or equal to 0, the default value is used.
      *
-     * @type { ?number }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Label max lines.
-     *
-     * @type { ?number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     maxLines?: number;
     /**
-     * Min font size for adapted height.
+     * Minimum font size of the label text. For the setting to take effect, this attribute must be used together with 
+     * **maxFontSize**, **maxLines**, or layout constraint settings.
+     * 
+     * **NOTE**
+     * 
+     * If the value of **minFontSize** is less than or equal to 0, the adaptive font size does not take effect.
      *
-     * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Min font size for adapted height.
-     *
-     * @type { ?(number | ResourceStr) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     minFontSize?: number | ResourceStr;
     /**
-     * Max font size for adapted height.
+     * Maximum font size of the label text. For the setting to take effect, this attribute must be used together with 
+     * **minFontSize**, **maxLines**, or layout constraint settings.
      *
-     * @type { ?(number | ResourceStr) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Max font size for adapted height.
-     *
-     * @type { ?(number | ResourceStr) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     maxFontSize?: number | ResourceStr;
     /**
-     * Adapt text height option.
+     * How the adaptive height is determined for the label text.
+     * 
+     * Default value: **TextHeightAdaptivePolicy.MAX_LINES_FIRST**
      *
-     * @type { ?TextHeightAdaptivePolicy }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Adapt text height option.
-     *
-     * @type { ?TextHeightAdaptivePolicy }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     heightAdaptivePolicy?: TextHeightAdaptivePolicy;
     /**
-     * Font style.
+     * Font of the label text.
+     * 
+     * Default value:
+     * 
+     * {
+     * 
+     * size:'16.0fp',
+     * 
+     * weight:FontWeight.Medium,
+     * 
+     * style:FontStyle.Normal,
+     * 
+     * family:'HarmonyOS Sans'
+     * 
+     * }
      *
-     * @type { ?Font }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
-     * @since 10
-     */
-    /**
-     * Font style.
-     *
-     * @type { ?Font }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 11 dynamic
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     font?: Font;
     /**
-     * Set the horizontal center mode of the content.
+     * Horizontal alignment of the label text. This attribute does not take effect when the **Text** component of the 
+     * child node is used to set the label. The actual text alignment mode is determined by the **textAlign** attribute 
+     * of the **Text** component of the child node.
+     * 
+     * The default value is **TextAlign.Center** for wearables and **TextAlign.Start** for other devices.
      *
-     * Device Behavior Differences:Default value is TextAlign.Start.
-     * The default value on wearable devices is TextAlign.Center.
-     *
-     * @type { ?TextAlign }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @crossplatform
@@ -896,177 +573,96 @@ declare interface LabelStyle {
     textAlign?: TextAlign;
 }
 /**
- * Defines the button attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * 
+ * The [universal events]{@link common} are supported.
  *
- * @extends CommonMethod<ButtonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the button attribute functions.
- *
- * @extends CommonMethod<ButtonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the button attribute functions.
- *
- * @extends CommonMethod<ButtonAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the button attribute functions.
- *
- * @extends CommonMethod<ButtonAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   /**
-   * Describes the button style.
+   * Sets the button type.
    *
-   * @param { ButtonType } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Describes the button style.
-   *
-   * @param { ButtonType } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Describes the button style.
-   *
-   * @param { ButtonType } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Describes the button style.
-   *
-   * @param { ButtonType } value
+   * @param { ButtonType } value - Button type.<br>API version 18 and later: The default value is
+   *     **ButtonType.ROUNDED_RECTANGLE**.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   type(value: ButtonType): ButtonAttribute;
 
   /**
-   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
+   * Specifies whether to enable the pressed state effect when the button is clicked.
    *
-   * @param { boolean } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   *
-   * @param { boolean } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   *
-   * @param { boolean } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Indicates whether to enable the switchover effect when the button is pressed. When the status is set to false, the switchover effect is disabled.
-   *
-   * @param { boolean } value
+   * @param { boolean } value - Whether to enable the pressed state effect when the button is clicked.<br>**true**: The
+   *     pressed state effect is enabled. **false**: The pressed state effect is disabled.<br>Default value: **true**
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   stateEffect(value: boolean): ButtonAttribute;
 
   /**
-   * Describes the button style.
+   * Sets the style and primacy for the button. The system automatically adjusts the button background color and text 
+   * color based on the enumerated value. You can also use the 
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [fontColor]{@link ButtonAttribute#fontColor}, and [role]{@link ButtonAttribute#role} APIs to set the background 
+   * color and text color. The actual displayed effect will be determined by the last setting.
+   * 
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
    *
-   * @param { ButtonStyleMode } value - button style mode
+   * @param { ButtonStyleMode } value - Style and primacy of the button<br>Default value: **ButtonStyleMode.EMPHASIZED**
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Describes the button style.
-   *
-   * @param { ButtonStyleMode } value - button style mode
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   buttonStyle(value: ButtonStyleMode): ButtonAttribute;
-  
-  /** 
-   * Set the Button size.
-   * 
-   * @param { ControlSize } value - control size
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @since 11
-   */
-  /** 
-   * Set the Button size.
-   * 
-   * @param { ControlSize } value - control size
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  controlSize(value: ControlSize): ButtonAttribute;
 
   /** 
-   * Set the Button role.
+   * Sets the size for the button.
    * 
-   * @param { ButtonRole } value - button role
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   * 
+   * @param { ControlSize } value - Size of the button.<br>Default value: **ControlSize.NORMAL**
+   * @returns { ButtonAttribute }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
+  controlSize(value: ControlSize): ButtonAttribute;
+  
+  /** 
+   * Sets the role of the button. The system automatically adjusts the button background color and text color based on 
+   * the enumerated value. You can also use the 
+   * [backgroundColor]{@link CommonMethod#backgroundColor(value: ResourceColor)}, 
+   * [fontColor]{@link ButtonAttribute#fontColor}, and [buttonStyle]{@link ButtonAttribute#buttonStyle} APIs to set the 
+   * background color and text color. The actual displayed effect will be determined by the last setting.
+   *
+   * @param { ButtonRole } value - Role of the button.<br>Default value: **ButtonRole.NORMAL**
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1078,214 +674,88 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   role(value: ButtonRole): ButtonAttribute;
 
   /**
-   * Text color.
+   * Sets the font color for the button.
    *
-   * @param { ResourceColor } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Text color.
-   *
-   * @param { ResourceColor } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text color.
-   *
-   * @param { ResourceColor } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text color.
-   *
-   * @param { ResourceColor } value
+   * @param { ResourceColor } value - Font color of the button.<br>Default value: **$r('sys.color.font_on_primary')**,
+   *     which means white
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontColor(value: ResourceColor): ButtonAttribute;
 
   /**
-   * Text size.
+   * Sets the font size for the button.
    *
-   * @param { Length } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Text size.
-   *
-   * @param { Length } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Text size.
-   *
-   * @param { Length } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Text size.
-   *
-   * @param { Length } value
+   * @param { Length } value - Font size of the button.<br>Default value:<br>**$r('sys.float.Body_L')** when
+   *     **controlSize** is set to **ControlSize.NORMAL**<br>**$r('sys.float.Body_S')** when **controlSize** is set to
+   *     **ControlSize.SMALL**<br>Note: For the string type, percentage values are not supported.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontSize(value: Length): ButtonAttribute;
 
   /**
-   * Font weight.
+   * Sets the font weight for the button.
    *
-   * @param { number | FontWeight | string } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Font weight.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Font weight.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Font weight.
-   *
-   * @param { number | FontWeight | string } value
+   * @param { number | FontWeight | string } value - Font weight of the button. For the number type, the value ranges
+   *     from 100 to 900, at an interval of 100. A larger value indicates a thicker font.<br>Default value: **500**<br>
+   *     For the string type, only strings that represent a number, for example, **'400'**, and the following enumerated
+   *     values of **FontWeight** are supported: **'bold'**, **'bolder'**, **'lighter'**, **'regular'**, and
+   *     **'medium'**.<br>If the value is abnormal or invalid, the font weight defaults to 400.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   fontWeight(value: number | FontWeight | string): ButtonAttribute;
 
   /**
-   * Font style.
+   * Sets the font style for the button.
    *
-   * @param { FontStyle } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Font style.
-   *
-   * @param { FontStyle } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Font style.
-   *
-   * @param { FontStyle } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Font style.
-   *
-   * @param { FontStyle } value
+   * @param { FontStyle } value - Font style of the button.<br>Default value: **FontStyle.Normal**
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontStyle(value: FontStyle): ButtonAttribute;
 
   /**
-   * Font family.
+   * Sets the font family.
    *
-   * @param { string | Resource } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Font family.
-   *
-   * @param { string | Resource } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Font family.
-   *
-   * @param { string | Resource } value
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Font family.
-   *
-   * @param { string | Resource } value
+   * @param { string | Resource } value - Font family. The 'HarmonyOS Sans' font and
+   *     [registered custom fonts]{@link @ohos.font:font} are supported.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   fontFamily(value: string | Resource): ButtonAttribute;
 
   /**
-   * Set the content modifier of button.
+   * Creates a content modifier.
    *
-   * @param { ContentModifier<ButtonConfiguration> } modifier - The content modifier of button.
+   * @param { ContentModifier<ButtonConfiguration> } modifier - Content modifier to apply to the button.<br>
+   *     **modifier**: content modifier. You need a custom class to implement the **ContentModifier** API.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1296,105 +766,63 @@ declare class ButtonAttribute extends CommonMethod<ButtonAttribute> {
   contentModifier(modifier: ContentModifier<ButtonConfiguration>): ButtonAttribute;
 
   /**
-   * Set button label style.
+   * Sets the label style for the button.
    *
-   * @param { LabelStyle } value - The label style configuration on button.
+   * @param { LabelStyle } value - Label style of the button.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set button label style.
-   *
-   * @param { LabelStyle } value - The label style configuration on button.
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   labelStyle(value: LabelStyle): ButtonAttribute;
   
   /**
-   * Sets the minimum zoom-out ratio of the button text.
+   * Sets the minimum font scale factor for text.
    *
-   * @param { number | Resource } scale
+   * @param { number | Resource } scale - Minimum font scale factor for text.<br>Value range: [0, 1]<br>**NOTE**<br>A
+   *     value less than 0 is handled as **0**. A value greater than 1 is handled as **1**. Abnormal values are
+   *     ineffective by default.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * Sets the minimum zoom-out ratio of the button text.
-   *
-   * @param { number | Resource } scale
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   minFontScale(scale: number | Resource): ButtonAttribute;
 
   /**
-   * Sets the maximum magnification of the button text.
+   * Sets the maximum font scale factor for text.
    *
-   * @param { number | Resource  } scale
+   * @param { number | Resource  } scale - Maximum font scale factor for text.<br>Value range:
+   *     [1, +∞)<br>**NOTE**<br>A value less than 1 is handled as **1**. Abnormal values are ineffective by default.<br>If this parameter is not configured, the maximum scale for a circular button is 1x, while the maximum scale for capsule-type buttons, standard buttons, and rounded rectangle buttons defaults to the system-defined value.
    * @returns { ButtonAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 18
-   */
-  /**
-   * Sets the maximum magnification of the button text.
-   *
-   * @param { number | Resource  } scale
-   * @returns { ButtonAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 18 dynamic
    */
   maxFontScale(scale: number | Resource): ButtonAttribute;
 }
 
 /**
- * Defines Button Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Button Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Button Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Button Component.
+ * The **Button** component can be used to create different types of buttons.
+ * 
+ * > **NOTE**
+ * 
+ * ###### Child Components
+ * 
+ * This component can contain only one child component.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const Button: ButtonInterface;
 
@@ -1402,31 +830,10 @@ declare const Button: ButtonInterface;
  * Defines Button Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Button Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Button Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Button Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare const ButtonInstance: ButtonAttribute;

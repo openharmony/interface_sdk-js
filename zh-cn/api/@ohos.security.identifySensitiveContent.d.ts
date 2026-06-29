@@ -17,7 +17,9 @@
  * @kit DataProtectionKit
  */
 /**
- * 识别敏感内容功能的实现是通过输入的[扫描策略]{@link identifySensitiveContent.Policy}来检测指定文件中的敏感信息。
+ * 识别敏感内容通过输入的[Policy]{@link identifySensitiveContent.Policy}来检测指定文件中的敏感信息。
+ * 系统根据提供的[Policy]{@link identifySensitiveContent.Policy}策略（包括敏感标签、关键字集合和正则表达式），
+ * 对文件内容进行关键字匹配和正则表达式匹配，返回匹配到的敏感内容结果。
  *
  * @syscap SystemCapability.Security.DataLossPrevention
  * @since 21
@@ -25,28 +27,31 @@
 declare namespace identifySensitiveContent {
     /**
      * 定义敏感内容识别策略。
+     * 单个策略内，关键字与正则表达式为顺序组合关系，实行两级匹配：首先进行关键字匹配，若命中，则仅在该关键字匹配位置的前后50字节窗口内，进行正则表达式匹配。
+     * 多个Policy策略之间独立，扫描时会分别应用每个策略。
+     * sensitiveLabel用于标记匹配结果，便于识别具体匹配的策略。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export interface Policy {
         /**
-         * 表示识别策略的标签。最大30字节。
+         * 表示识别策略的标签，用于标识和分类匹配结果。长度范围1-30字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         sensitiveLabel: string;
         /**
-         * 表示关键字集合。Array最大50，每个元素最大30字节。
+         * 表示关键字集合，用于匹配文件中的敏感关键字。
+         * 系统会在文件内容中搜索这些关键字，匹配时区分大小写，匹配成功则返回识别结果。Array最大50，每个元素最大30字节。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         keywords: Array<string>;
         /**
-         * 表示正则表达式内容。最大512字节。 
-         * 
+         * 表示匹配敏感内容的正则表达式。系统将在文件内容中按此正则表达式进行模式匹配，匹配成功的内容将返回在结果中。长度范围0-512字节。
          * 在输入字符串时，需检查某些特殊字符（如反斜杠 \、双引号 "、换行符等），不会被自动转义，确保字符串的输入效果。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
@@ -55,28 +60,28 @@ declare namespace identifySensitiveContent {
         regex: string;
     }
     /**
-     * 显示敏感内容的识别结果。
+     * 表示敏感内容的识别结果。
      *
      * @syscap SystemCapability.Security.DataLossPrevention
      * @since 21
      */
     export interface MatchResult {
         /**
-         * 表示识别策略的标签。
+         * 表示识别策略的标签，与输入策略中的sensitiveLabel对应，用于标识匹配结果对应的识别策略。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         readonly sensitiveLabel: string;
         /**
-         * 表示匹配内容。
+         * 表示匹配到的敏感内容片段，即文件中实际匹配到关键字或正则表达式的文本内容。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
          */
         readonly matchContent: string;
         /**
-         * 表示识别内容的总数。
+         * 表示匹配内容的总数。
          *
          * @syscap SystemCapability.Security.DataLossPrevention
          * @since 21
@@ -84,12 +89,12 @@ declare namespace identifySensitiveContent {
         readonly matchNumber: number;
     }
     /**
-     * 根据设置的策略，识别指定文件中的敏感内容。结果通过Promise方式异步返回。
+     * 根据设置的策略，识别指定文件中的敏感内容，返回识别的结果数组，包含匹配的敏感标签、匹配内容及匹配数量。使用Promise异步回调。
      *
      * @permission ohos.permission.ENTERPRISE_DATA_IDENTIFY_FILE
-     * @param { string } filePath - 识别的文件路径。
-     * @param { Array<Policy> } identifyPolicies - 识别的策略。
-     * @returns { Promise<Array<MatchResult>> } Promise对象。返回敏感内容识别的结果。
+     * @param { string } filePath - 识别的文件路径，需使用物理路径，路径指向的文件必须存在且支持访问。
+     * @param { Array<Policy> } identifyPolicies - 用于识别敏感内容的策略数组。每个Policy定义识别规则（标签、关键字、正则表达式），系统将根据这些规则扫描文件内容并返回匹配结果。
+     * @returns { Promise<Array<MatchResult>> } Promise对象，返回敏感内容识别的结果。成功时返回匹配结果数组，异常返回错误码。
      * @throws { BusinessError } 201 - permission denied.
      * @throws { BusinessError } 801 - Capability not supported.
      * @throws { BusinessError } 19110001 - Parameter error. Possible causes:

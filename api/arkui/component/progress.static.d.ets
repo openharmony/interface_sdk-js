@@ -29,7 +29,6 @@ import { AttributeModifier } from "./common";
 /**
  * Defines the option of Progress.
  *
- * @interface ProgressOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -38,7 +37,6 @@ export declare interface ProgressOptions {
     /**
      * Sets the value of Progress.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -46,8 +44,8 @@ export declare interface ProgressOptions {
     value: double;
     /**
      * Sets the total of Progress.
+     * Default value: 100.
      *
-     * @type { ?double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -55,8 +53,8 @@ export declare interface ProgressOptions {
     total?: double;
     /**
      * Sets the type of Progress.
+     * Default value: ProgressType.Linear.
      *
-     * @type { ?ProgressType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -66,7 +64,6 @@ export declare interface ProgressOptions {
 /**
  * Type of progress bar
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -116,7 +113,6 @@ export declare enum ProgressType {
 /**
  * Current status of progress bar.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -142,8 +138,6 @@ export declare enum ProgressStatus {
 /**
  * Defines style options for progress component.
  *
- * @extends CommonProgressStyleOptions
- * @interface ProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -151,8 +145,8 @@ export declare enum ProgressStatus {
 export declare interface ProgressStyleOptions extends CommonProgressStyleOptions {
     /**
      * Defines the strokeWidth property.
+     * Default value: 4vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -160,8 +154,9 @@ export declare interface ProgressStyleOptions extends CommonProgressStyleOptions
     strokeWidth?: Length;
     /**
      * Defines the scaleCount property.
+     * The value should be an integer. Default value: 120.
+     * <br>If the value exceeds the value range, the progress bar is displayed as a ring without scale.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -169,8 +164,8 @@ export declare interface ProgressStyleOptions extends CommonProgressStyleOptions
     scaleCount?: int;
     /**
      * Defines the scaleWidth property.
+     * Default value: 2vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -180,7 +175,6 @@ export declare interface ProgressStyleOptions extends CommonProgressStyleOptions
 /**
  * Progress common style options.
  *
- * @interface CommonProgressStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -188,8 +182,8 @@ export declare interface ProgressStyleOptions extends CommonProgressStyleOptions
 export declare interface CommonProgressStyleOptions {
     /**
      * Enable smooth effect.
+     * Default value: true.
      *
-     * @type { ?boolean }
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -200,7 +194,6 @@ export declare interface CommonProgressStyleOptions {
 /**
  * Defines the enable scan effect.
  *
- * @interface ScanEffectOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -208,8 +201,8 @@ export declare interface CommonProgressStyleOptions {
 export declare interface ScanEffectOptions {
     /**
      * Enable scan effect.
+     * Default value: false.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -220,19 +213,14 @@ export declare interface ScanEffectOptions {
 /**
  * Defines the Eclipse style Options.
  *
- * @extends CommonProgressStyleOptions
- * @interface EclipseStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
-export declare interface EclipseStyleOptions extends CommonProgressStyleOptions {
-}
+export declare interface EclipseStyleOptions extends CommonProgressStyleOptions {}
 /**
  * Defines the ScaleRing style Options.
  *
- * @extends CommonProgressStyleOptions
- * @interface ScaleRingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -240,8 +228,8 @@ export declare interface EclipseStyleOptions extends CommonProgressStyleOptions 
 export declare interface ScaleRingStyleOptions extends CommonProgressStyleOptions {
     /**
      * Defines the strokeWidth property.
+     * Default value: 4vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -249,8 +237,8 @@ export declare interface ScaleRingStyleOptions extends CommonProgressStyleOption
     strokeWidth?: Length;
     /**
      * Defines the scaleWidth property.
+     * Default value: 2vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -258,8 +246,8 @@ export declare interface ScaleRingStyleOptions extends CommonProgressStyleOption
     scaleWidth?: Length;
     /**
      * Defines the scaleCount property.
+     * The value should be an integer. Default value: 120.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -269,8 +257,6 @@ export declare interface ScaleRingStyleOptions extends CommonProgressStyleOption
 /**
  * Defines the ring style Options.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface RingStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -278,8 +264,8 @@ export declare interface ScaleRingStyleOptions extends CommonProgressStyleOption
 export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
     /**
      * Defines the strokeWidth property.
+     * Default value: 4vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -287,8 +273,8 @@ export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgr
     strokeWidth?: Length;
     /**
      * Enables progress shadow.
+     * Default value: false.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -296,8 +282,8 @@ export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgr
     shadow?: boolean;
     /**
      * The status of progress, default is PROGRESSING. Set to LOADING status will trigger the loading animation.
+     * Default value: ProgressStatus.PROGRESSING.
      *
-     * @type { ?ProgressStatus }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -307,8 +293,6 @@ export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgr
 /**
  * Defines the linear style Options.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface LinearStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -316,8 +300,8 @@ export declare interface RingStyleOptions extends ScanEffectOptions, CommonProgr
 export declare interface LinearStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
     /**
      * Defines the strokeWidth property.
+     * Default value: 4vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -325,8 +309,8 @@ export declare interface LinearStyleOptions extends ScanEffectOptions, CommonPro
     strokeWidth?: Length;
     /**
      * Defines the stroke radius property.
+     * Default value: strokeWidth / 2.
      *
-     * @type { ?(PX | VP | LPX | Resource) }
      * @default strokeWidth / 2
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -337,8 +321,6 @@ export declare interface LinearStyleOptions extends ScanEffectOptions, CommonPro
 /**
  * Defines the capsule style Options.
  *
- * @extends ScanEffectOptions, CommonProgressStyleOptions
- * @interface CapsuleStyleOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -346,8 +328,8 @@ export declare interface LinearStyleOptions extends ScanEffectOptions, CommonPro
 export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressStyleOptions {
     /**
      * Set the inner border color.
+     * Default value: '#33007dff'.
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -355,8 +337,8 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     borderColor?: ResourceColor;
     /**
      * Set the border width.
+     * Default value: 1vp.
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -365,7 +347,6 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     /**
      * Set the text content.
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -373,8 +354,9 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     content?: string;
     /**
      * Set the text style.
+     * Default value: Text size (percentage setting is not supported): 12 fp
+     * Other text parameters follow the theme value of the [Text]{@link text} component.
      *
-     * @type { ?Font }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -382,8 +364,8 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     font?: Font;
     /**
      * Set the text fontColor.
+     * Default value: '#ff182431'.
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -391,8 +373,8 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     fontColor?: ResourceColor;
     /**
      * show default percentage.
+     * Default value: false.
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -401,9 +383,9 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
     showDefaultPercentage?: boolean;
     /**
      * Set border rounded corner radius.
+     * Default value: min(width, height) / 2.
      *
-     * @type { ?LengthMetrics }
-     * @default height / 2
+     * @default min(width, height) / 2
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -413,7 +395,6 @@ export declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonPr
 /**
  * Type of progress bar
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -463,8 +444,6 @@ export declare enum ProgressStyle {
 /**
  * Defines the Progress component attributes.
  *
- * @extends CommonMethod
- * @interface ProgressAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -485,7 +464,7 @@ export declare interface ProgressAttribute extends CommonMethod {
      * Called when the progress bar foreground is set.
      *
      * @param { ResourceColor | LinearGradient | undefined } value - indicates the color of the progress.
-     * @returns { ProgressAttribute } the attribute of the progress.
+     * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -494,9 +473,9 @@ export declare interface ProgressAttribute extends CommonMethod {
     /**
      * Called when the style of progress bar is set.
      *
-     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined } value - 
+     * @param { LinearStyleOptions | RingStyleOptions | CapsuleStyleOptions | ProgressStyleOptions | undefined} value -
      *     indicates the style of the progress.
-     * @returns { ProgressAttribute } the attribute of the progress.
+     * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -506,7 +485,7 @@ export declare interface ProgressAttribute extends CommonMethod {
      * Sets if mark to privacy sensitive.
      *
      * @param { boolean | undefined } isPrivacySensitiveMode - indicates if mark to privacy sensitive.
-     * @returns { ProgressAttribute } the attribute of the progress.
+     * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -516,7 +495,7 @@ export declare interface ProgressAttribute extends CommonMethod {
      * Set the contentModifier of progress.
      *
      * @param { ContentModifier<ProgressConfiguration> | undefined } modifier - The contentModifier of progress.
-     * @returns { ProgressAttribute } the attribute of the progress.
+     * @returns { ProgressAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -547,8 +526,6 @@ export declare interface ProgressAttribute extends CommonMethod {
 /**
  * ProgressConfiguration used by progress contentModifier
  *
- * @extends CommonConfiguration<ProgressConfiguration>
- * @interface ProgressConfiguration
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -557,7 +534,6 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
     /**
      * The value of Progress.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -566,7 +542,6 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
     /**
      * The total of Progress.
      *
-     * @type { double }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -577,7 +552,7 @@ export declare interface ProgressConfiguration extends CommonConfiguration<Progr
  * Defines the Progress component.
  *
  * @param { ProgressOptions } options - progress options.
- * @returns { ProgressAttribute } The attribute of the Progress.
+ * @returns { ProgressAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

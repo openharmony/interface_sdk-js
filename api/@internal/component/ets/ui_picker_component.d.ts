@@ -19,9 +19,8 @@
  */
 
 /**
- * Defines the options of Picker.
+ * Describes the parameters of the **UIPickerComponent** container.
  *
- * @interface UIPickerComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -29,10 +28,20 @@
  * @since 22 dynamic
  */
 declare interface UIPickerComponentOptions {
+
   /**
-   * Current selected subscript.
+   * Index of the selected item.
    *
-   * @type { ?number }
+   * Value range: an integer in the range of [0, Number of child components – 1]. If the value is not within the value
+   * range, the default value is used. If a decimal number is set, the integer part after rounding down is used.
+   *
+   * Default value: 0
+   *
+   * NOTE
+   *
+   * When counting the number of child components, the **Row** container and its child components are counted as one
+   * child component.
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -44,9 +53,35 @@ declare interface UIPickerComponentOptions {
 }
 
 /**
- * UIPickerComponentInterface
+ * The **UIPickerComponent** container is used to implement user selection operations. It supports single selection from
+ * a limited set of options and can be applied to various scenarios such as time selection, date selection, region
+ * selection, and status selection. Its display effect is a three-dimensional wheel style, supporting customizable
+ * options including text type, image type, and text-image combination type.
  *
- * @interface UIPickerComponentInterface
+ * NOTE
+ *
+ * - The height of the **UIPickerComponent** container options is fixed at 40 vp, and a maximum of seven options can
+ *   be displayed. Due to the three-dimensional wheel display effect, options other than the selected one will be
+ *   rotated at different angles, so the actual visible height will be less than 40 vp.
+ *
+ * - It is recommended that the [height]{@link CommonMethod#height(value: Length)} of the **UIPickerComponent**
+ *   container be set to 200 vp. When the set height is greater than or equal to this recommended value, all 7 options
+ *   can be fully displayed. Otherwise, the display area will be cropped from the top and bottom edges towards the
+ *   center, and the number of displayed options will be reduced accordingly, always keeping the selected item
+ *   vertically centered.
+ *
+ * - When the **UIPickerComponent** container's [width]{@link CommonMethod#width(value: Length)} is not set, the
+ *   maximum width of the visible child components in the current view is taken as the container width. You are advised
+ *   to set the width of the **UIPickerComponent** container or set the same width for each child component to avoid
+ *   dynamic changes in container width during sliding, which affects the display effect.
+ *
+ * - The alignment mode of child components in the **UIPickerComponent** container is fixed to center alignment, and
+ *   cannot be changed via the [align]{@link CommonMethod#align(value: Alignment)} attribute.
+ *
+ * - Currently, the **UIPickerComponent** container does not support wearables.
+ *
+ * - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -54,10 +89,13 @@ declare interface UIPickerComponentOptions {
  * @since 22 dynamic
  */
 interface UIPickerComponentInterface {
+
   /**
-   * Defines the Picker constructor.
+   * Creates a **UIPickerComponent** container, whose selected item is determined by the **selectedIndex** attribute in
+   * the **options** parameter.
    *
-   * @param { UIPickerComponentOptions } [options]
+   * @param { UIPickerComponentOptions } [options] - Parameters of the **UIPickerComponent** container. If the parameter
+   *     is left empty, the component is a placeholder but the content is empty.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -69,9 +107,11 @@ interface UIPickerComponentInterface {
 }
 
 /**
- * Callback of Picker item is selected event.
+ * Defines the callback types for the [onChange]{@link UIPickerComponentAttribute#onChange} and
+ * [onScrollStop]{@link UIPickerComponentAttribute#onScrollStop} events.
  *
- * @typedef {function} OnUIPickerComponentCallback
+ * Value range: an integer in the range of [0, Number of child components – 1].
+ *
  * @param { number } selectedIndex - Index of the selected item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -82,9 +122,8 @@ interface UIPickerComponentInterface {
 declare type OnUIPickerComponentCallback = (selectedIndex: number) => void;
 
 /**
- * PickerIndicatorType
- * 
- * @enum { number }
+ * Enumerates the types of the selected item indicator.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -92,8 +131,9 @@ declare type OnUIPickerComponentCallback = (selectedIndex: number) => void;
  * @since 22 dynamic
  */
 declare enum PickerIndicatorType {
+
   /**
-   * Background marks the selected item.
+   * Identifies the selected item by adding a background to it.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -104,7 +144,7 @@ declare enum PickerIndicatorType {
   BACKGROUND = 0,
 
   /**
-   * Divider marks the selected item.
+   * Identifies the selected item by adding dividers above and below its edges.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -112,13 +152,12 @@ declare enum PickerIndicatorType {
    * @atomicservice
    * @since 22 dynamic
    */
-  DIVIDER = 1,
+  DIVIDER = 1
 }
 
 /**
- * Defines the options of Indicator style.
+ * Sets parameters of the selected item indicator style.
  *
- * @interface PickerIndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -126,10 +165,16 @@ declare enum PickerIndicatorType {
  * @since 22 dynamic
  */
 declare interface PickerIndicatorStyle {
+
   /**
-   * The type of indicator.
+   * Type of the selected item indicator.
    *
-   * @type { PickerIndicatorType } type
+   * Default value: PickerIndicatorType.BACKGROUND
+   *
+   * If the value of **type** is a decimal number, the integer after rounding down is used. If the value of **type** is
+   * not within the value range of **PickerIndicatorType**, the default value is used.
+   *
+   * @default PickerIndicatorType.BACKGROUND
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -139,10 +184,23 @@ declare interface PickerIndicatorStyle {
   type: PickerIndicatorType;
 
   /**
-   * The width of divider stroke.
+   * Stroke width of the divider.
    *
-   * @type { ?LengthMetrics } strokeWidth
-   * @default $r('sys.float.border_medium')
+   * Default value: 2.0px.
+   *
+   * Unit: same as that of **LengthMetrics**
+   *
+   * Value range: [0, half the height of the selected item (that is, 20 vp)]. If the value of **strokeWidth** is less
+   * than 0 or greater than half the height of the selected item, the default value is used. Percentages are not
+   * supported.
+   *
+   * NOTE
+   *
+   * 1. This parameter takes effect only when **type** is set to **PickerIndicatorType.DIVIDER**.
+   * 2. If this parameter is set in **LengthMetrics.resource** mode, the value of a non-length attribute will be treated
+   * as 0 vp.
+   *
+   * @default 2.0px
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -152,9 +210,14 @@ declare interface PickerIndicatorStyle {
   strokeWidth?: LengthMetrics;
 
   /**
-   * The color of Divider.
+   * Color of the divider.
    *
-   * @type { ?ResourceColor } dividerColor
+   * Default value: 'sys.color.comp_divider'
+   *
+   * **NOTE**
+   *
+   * This parameter takes effect only when **type** is set to **PickerIndicatorType.DIVIDER**.
+   *
    * @default $r('sys.color.comp_divider')
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -165,10 +228,21 @@ declare interface PickerIndicatorStyle {
   dividerColor?: ResourceColor;
 
   /**
-   * The startMargin of Divider.
+   * Distance between the divider and the start edge of the **UIPickerComponent** container.
    *
-   * @type { ?LengthMetrics } startMargin
-   * @default 0vp
+   * Default value: 0
+   *
+   * Unit: same as that of **LengthMetrics**
+   *
+   * Value range: The sum of **startMargin** and **endMargin** must not exceed the width of the **UIPickerComponent**
+   * container. If the value is less than 0 or the sum of **startMargin** and **endMargin** exceeds the width of the
+   * **UIPickerComponent** container, the default value is used. Percentages are not supported.
+   *
+   * NOTE
+   *
+   * This parameter takes effect only when **type** is set to **PickerIndicatorType.DIVIDER**.
+   *
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -178,10 +252,21 @@ declare interface PickerIndicatorStyle {
   startMargin?: LengthMetrics;
 
   /**
-   * The endMargin of Divider.
+   * Distance between the divider and the end edge of the **UIPickerComponent** container.
    *
-   * @type { ?LengthMetrics } endMargin
-   * @default 0vp
+   * Default value: 0
+   *
+   * Unit: same as that of **LengthMetrics**
+   *
+   * Value range: The sum of **startMargin** and **endMargin** must not exceed the width of the **UIPickerComponent**
+   * container. If the value is less than 0 or the sum of **startMargin** and **endMargin** exceeds the width of the
+   * **UIPickerComponent** container, the default value is used. Percentages are not supported.
+   *
+   * **NOTE**
+   *
+   * This parameter takes effect only when **type** is set to **PickerIndicatorType.DIVIDER**.
+   *
+   * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -191,10 +276,15 @@ declare interface PickerIndicatorStyle {
   endMargin?: LengthMetrics;
 
   /**
-   * Define the background color of selected item.
+   * Background color of the selected item.
    *
-   * @type { ?ResourceColor } backgroundColor
-   * @default $r('sys.color.comp_background_tertiary')
+   * Default value: 'sys.color.comp_background_tertiary'
+   *
+   * **NOTE**
+   *
+   * This parameter takes effect only when **type** is set to **PickerIndicatorType.BACKGROUND**.
+   *
+   * @default 'sys.color.comp_background_tertiary'
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -204,10 +294,24 @@ declare interface PickerIndicatorStyle {
   backgroundColor?: ResourceColor;
 
   /**
-   * Defines the border radius of selected items.
+   * Background border radius of the selected item.
    *
-   * @type { ?(LengthMetrics | BorderRadiuses | LocalizedBorderRadiuses) } borderRadius
-   * @default $r('sys.float.corner_radius_level6')
+   * Value range: no more than half of the smaller value between the width and height of the selected item. If the value
+   * Default value: { value:12, unit:LengthUnit.vp }, meaning 12 vp for all corners
+   *
+   * is less than 0, the default value is used. If the value is greater than the maximum value, the maximum value is
+   * used.
+   *
+   * NOTE
+   *
+   * 1. This parameter takes effect only when **type** is set to **PickerIndicatorType.BACKGROUND**.
+   * 2. [LengthMetrics]{@link Graphics:LengthMetrics}: Sets the size and unit of the four corner radii
+   * in a unified manner.
+   * 3. [BorderRadiuses]{@link BorderRadiuses}: Sets the size (unit: vp) of the four corner radii individually.
+   * 4. [LocalizedBorderRadiuses]{@link LocalizedBorderRadiuses}: Sets the size and unit of the four corner radii
+   * individually.
+   *
+   * @default { value:12, unit:LengthUnit.vp }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -218,9 +322,10 @@ declare interface PickerIndicatorStyle {
 }
 
 /**
- * Style the picker.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<UIPickerComponentAttribute>
+ * In addition to the [universal events]{@link common}, the following events are supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -228,23 +333,39 @@ declare interface PickerIndicatorStyle {
  * @since 22 dynamic
  */
 declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentAttribute> {
+
   /**
-   * This event is triggered when a Picker item is selected.
+   * Triggered when the selected item changes.
    *
-   * @param { Optional<OnUIPickerComponentCallback> } callback - the callback of onChange.
+   * If callback is set to undefined, the callback is not used.
+   *
+   * NOTE
+   *
+   * - If more than half of an option's area enters the selected item area, the option becomes the selected item.
+   *
+   * - The selected item area can be identified by setting
+   *   [selectionIndicator]{@link UIPickerComponentAttribute#selectionIndicator}. If the selected item indicator is set
+   *   to the background, the background area is the selected item area. If the selected item indicator is set to the
+   *   divider, the area between the center lines of the upper and lower dividers is the selected item area.
+   *
+   * @param { Optional<OnUIPickerComponentCallback> } callback - Callback triggered when the selected item changes.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 22 dynamic
-   */  
+   */
   onChange(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute;
 
   /**
-   * This event is triggered when a Picker item is selected and scrolling has stopped.
+   * Triggered when the picker scrolling stops. The picker scrolling stops when the scrolling animation triggered by an
+   * action is complete. If a new scrolling animation is triggered before the previous one finishes, it does not count
+   * as scrolling stop.
    *
-   * @param { Optional<OnUIPickerComponentCallback> } callback - the callback of onScrollStop.
+   * If callback is set to undefined, the callback is not used.
+   *
+   * @param { Optional<OnUIPickerComponentCallback> } callback - Callback triggered when the picker scrolling stops.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -255,9 +376,17 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
   onScrollStop(callback: Optional<OnUIPickerComponentCallback>): UIPickerComponentAttribute;
 
   /**
-   * Can scroll loop if true is set, on the contrary it can not.
+   * Sets whether the option list can loop scrolling.
    *
-   * @param { Optional<boolean> } isLoop
+   * - true: Loop scrolling is enabled.
+   * - false: Loop scrolling is disabled.
+   *
+   * Default value: true
+   * If the value of isLoop is undefined, the default value is used.
+   * If the number of child components is less than 8,
+   * loop scrolling will not occur regardless of whether isLoop is set to true or false.
+   *
+   * @param { Optional<boolean> } isLoop - Whether loop scrolling is enabled.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -268,9 +397,19 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
   canLoop(isLoop: Optional<boolean>): UIPickerComponentAttribute;
 
   /**
-   * Enable or disable haptic feedback.
+   * Sets whether to enable haptic feedback.
    *
-   * @param { Optional<boolean> } enable - Default value is true, set false to disable haptic feedback.
+   * To enable haptic feedback, you must declare the following permission under **requestPermissions** in **module** in
+   * **src/main/module.json5** of the project.
+   *
+   * - true: Enable haptic feedback.
+   * - false: Disable haptic feedback.
+   *
+   * Default value: true
+   * If the value of enable is undefined, the default value is used.
+   * After this function is enabled, whether haptic feedback is available depends on the hardware support of the system.
+   *
+   * @param { Optional<boolean> } enable - Whether to enable haptic feedback.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -281,9 +420,13 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
   enableHapticFeedback(enable: Optional<boolean>): UIPickerComponentAttribute;
 
   /**
-   * Sets the indicator's type and style.
+   * Sets the style of the selected item indicator.
    *
-   * @param { Optional<PickerIndicatorStyle> } style
+   * Default value: { type: PickerIndicatorType.BACKGROUND, borderRadius: { value:12, unit:LengthUnit.vp },
+   * backgroundColor: 'sys.color.comp_background_tertiary' }
+   * If the value of style is undefined, the default value is used.
+   *
+   * @param { Optional<PickerIndicatorStyle> } style - Style of the selected item indicator.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -309,7 +452,7 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
   /**
    * Sets the total number of visible items.
    *
-   * @param { Optional<int> } count - Total number of visible items.
+   * @param { Optional<int> } count - The total number of visible items.
    * @returns { UIPickerComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -321,9 +464,70 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
 }
 
 /**
- * Defines Picker Component.
+ * The **UIPickerComponent** container is used to implement user selection operations. It supports single selection from
+ * a limited set of options and can be applied to various scenarios such as time selection, date selection, region
+ * selection, and status selection. Its display effect is a three-dimensional wheel style, supporting customizable
+ * options including text type, image type, and text-image combination type.
  *
- * @type { UIPickerComponentInterface } UIPickerComponent
+ * NOTE
+ *
+ * - The height of the **UIPickerComponent** container options is fixed at 40 vp, and a maximum of seven options can
+ *   be displayed. Due to the three-dimensional wheel display effect, options other than the selected one will be
+ *   rotated at different angles, so the actual visible height will be less than 40 vp.
+ *
+ * - It is recommended that the [height]{@link CommonMethod#height(value: Length)} of the **UIPickerComponent**
+ *   container be set to 200 vp. When the set height is greater than or equal to this recommended value, all 7 options
+ *   can be fully displayed. Otherwise, the display area will be cropped from the top and bottom edges towards the
+ *   center, and the number of displayed options will be reduced accordingly, always keeping the selected item
+ *   vertically centered.
+ *
+ * - When the **UIPickerComponent** container's [width]{@link CommonMethod#width(value: Length)} is not set, the
+ *   maximum width of the visible child components in the current view is taken as the container width. You are advised
+ *   to set the width of the **UIPickerComponent** container or set the same width for each child component to avoid
+ *   dynamic changes in container width during sliding, which affects the display effect.
+ *
+ * - The alignment mode of child components in the **UIPickerComponent** container is fixed to center alignment, and
+ *   cannot be changed via the [align]{@link CommonMethod#align(value: Alignment)} attribute.
+ *
+ * - Currently, the **UIPickerComponent** container does not support wearables.
+ *
+ * - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ *
+ * Child Components
+ *
+ * - Multiple child components are supported.
+ * - Supported child component types: [Text]{@link text}, [Image]{@link image}, [Row]{@link row}, and
+ *   [SymbolGlyph]{@link symbolglyph}
+ * - Supported rendering control types: [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md) and
+ *   [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md)
+ *
+ * NOTE
+ *
+ * - When the Row **container** is used as a child component, the **Row** container can contain only the **Text**,
+ *   **Image**, and **SymbolGlyph** basic components. Including other container components may affect the display effect
+ *   or cause sliding functionality abnormalities.
+ *
+ * - When counting the number of child components, the **Row** container and its child components are counted as one
+ *   child component.
+ *
+ * - When the child component is **Text**, **Image**, or **SymbolGlyph**, the
+ *   [height]{@link CommonMethod#height(value: Length)} attribute does not take effect and is fixed at 40 vp.
+ *
+ * - When the child component is a **Row** container, its [height]{@link CommonMethod#height(value: Length)} attribute
+ *   does not take effect and is fixed at 40 vp. The [height]{@link CommonMethod#height(value: Length)} attribute of the
+ *   child components in the **Row** container takes effect. The final display effect is determined by the **Row**
+ *   container.
+ *
+ * - The text-image combination option requires that the **Row** container contain the **Text** and **Image**
+ *   components. When using the text-image combination option, you are advised to set the image's
+ *   [height]{@link CommonMethod#height(value: Length)} to 40 vp or below to avoid cropping when images are large.
+ *
+ * - The **fontSize** attribute of all text components (including the **Text** components in the **Row** container) in
+ *   the **UIPickerComponent** container is 20 fp by default. User settings will override the default value, and
+ *   abnormal values will be processed according to the result of handling the text component's
+ *   [fontSize]{@link TextAttribute#fontSize}. You are advised to set the **fontSize** attribute to a unified value or
+ *   not to set it to ensure a good display effect.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -333,9 +537,8 @@ declare class UIPickerComponentAttribute extends CommonMethod<UIPickerComponentA
 declare const UIPickerComponent: UIPickerComponentInterface;
 
 /**
- * Defines Picker Component instance.
+ * Defines UIPickerComponent instance.
  *
- * @type { UIPickerComponentAttribute } UIPickerComponentInstance
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

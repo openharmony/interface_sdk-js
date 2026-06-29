@@ -19,9 +19,8 @@
  */
 
 /**
- * CustomTheme.
+ * Defines a custom theme.
  *
- * @typedef {import('../api/@ohos.arkui.theme').CustomTheme} CustomTheme
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -31,9 +30,8 @@
 declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
 
 /**
- * Defines the struct of WithThemeOptions.
+ * Defines the default theme and color mode for components within the **WithTheme** scope.
  *
- * @interface WithThemeOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -41,75 +39,79 @@ declare type CustomTheme = import('../api/@ohos.arkui.theme').CustomTheme;
  * @since 12 dynamic
  */
 declare interface WithThemeOptions {
-    /**
-    * Custom Theme.
-    *
-    * @type { ?CustomTheme }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    theme?: CustomTheme;
 
-    /**
-    * Theme Color Mode.
-    *
-    * @type { ?ThemeColorMode }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    colorMode?: ThemeColorMode;
+  /**
+   * Default theme for components in the **WithTheme** scope.
+   *
+   * Default value: **undefined**. The default style follows the
+   * [default token style](docroot://ui/theme_skinning.md#system-default-token-color-values).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  theme?: CustomTheme;
+
+  /**
+   * Color mode for components in the **WithTheme** scope.
+   *
+   * Default value: **ThemeColorMode.SYSTEM**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  colorMode?: ThemeColorMode;
 }
 
 /**
-* Define the function of WithThemeInterface.
-*
-* @typedef { function } WithThemeInterface
-* @param { WithThemeOptions } options
-* @returns { WithThemeAttribute } withThemeAttribute object
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Define the function of WithThemeInterface.
+ *
+ * @param { WithThemeOptions } options
+ * @returns { WithThemeAttribute } withThemeAttribute object
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
 declare type WithThemeInterface = (options: WithThemeOptions) => WithThemeAttribute;
 
 /**
-* Defines the WithTheme attribute functions..
-*
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
-declare class WithThemeAttribute {
-}
+ * The [universal attributes]{@link common} are not supported.
+ *
+ * The [universal events]{@link common} are not supported.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+declare class WithThemeAttribute {}
 
 /**
-* Defines WithTheme Logic Component.
-*
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Defines WithTheme Logic Component.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
 declare const WithTheme: WithThemeInterface;
 
 /**
-* Defines WithTheme Logic Component Instance.
-*
-* @syscap SystemCapability.ArkUI.ArkUI.Full
-* @stagemodelonly
-* @crossplatform
-* @atomicservice
-* @since 12 dynamic
-*/
+ * Defines WithTheme Logic Component Instance.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
 declare const WithThemeInstance: WithThemeAttribute;

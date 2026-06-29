@@ -14,7 +14,7 @@
  */
 
 /**
- * @file Carousel Ad Component
+ * @file 轮播广告展示组件
  * @kit AdsKit
  */
 

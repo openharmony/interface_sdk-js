@@ -939,9 +939,81 @@ declare namespace commonEventManager {
     COMMON_EVENT_USER_STOPPED = 'usual.event.USER_STOPPED',
 
     /**
+     * 表示创建系统账号子身份。
+     *
+     * 系统账号子身份创建成功时，会触发公共事件服务发布该事件，携带系统账号ID和子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_CREATED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_CREATED',
+
+    /**
+     * 表示删除系统账号子身份。
+     *
+     * 系统账号子身份被删除时，触发公共事件服务发布该事件，携带系统账号ID和子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_DELETED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_DELETED',
+
+    /**
+     * 表示系统账号子身份开始切换。
+     *
+     * 系统账号子身份开始切换时，触发公共事件服务发布该事件，携带系统账号ID、切换到的子身份ID和切换前的子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_SWITCHING = 'usual.event.OS_ACCOUNT_SUB_PROFILE_SWITCHING',
+
+    /**
+     * 表示系统账号子身份切换完成。
+     *
+     * 系统账号子身份切换完成时，触发公共事件服务发布此事件，携带系统账号ID、切换到的子身份ID和切换前的子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_OS_ACCOUNT_SUB_PROFILE_SWITCHED = 'usual.event.OS_ACCOUNT_SUB_PROFILE_SWITCHED',
+
+    /**
+     * 表示绑定分布式账号。
+     *
+     * 分布式账号绑定时，会触发公共事件服务发布该事件，携带系统账号ID和子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_BOUND = 'usual.event.DISTRIBUTED_ACCOUNT_BOUND',
+
+    /**
+     * 表示已解绑分布式账号。
+     *
+     * 分布式账号解绑时，会触发公共事件服务发布该事件，携带系统账号ID和子身份ID。
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_DISTRIBUTED_ACCOUNT_UNBOUND = 'usual.event.DISTRIBUTED_ACCOUNT_UNBOUND',
+
+    /**
      * 表示分布式账号登录成功的动作。
      *
-     * 分布式账号登录成功时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID。
+     * 分布式账号登录成功时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
      *
      * 与这个公共事件相关的接口：setOsAccountDistributedInfo、updateOsAccountDistributedInfo(已废弃)，这些为公共API，
      * setOsAccountDistributedInfoByLocalId为系统API，具体参看[分布式账号接口文档](docroot://reference/js-apis-distributed-account.md)。
@@ -956,7 +1028,7 @@ declare namespace commonEventManager {
     /**
      * 表示分布式账号登出成功的动作。
      *
-     * 分布式账号登出时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID。
+     * 分布式账号登出时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
      *
      * 与这个公共事件相关的接口：setOsAccountDistributedInfo、updateOsAccountDistributedInfo(已废弃)，这些为公共API，
      * setOsAccountDistributedInfoByLocalId为系统API，具体参看[分布式账号接口文档](docroot://reference/js-apis-distributed-account.md)。
@@ -971,7 +1043,7 @@ declare namespace commonEventManager {
     /**
      * 表示分布式账号token令牌无效的动作。
      *
-     * 分布式账号的token令牌无效时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID。
+     * 分布式账号的token令牌无效时会触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
      *
      * 与这个公共事件相关的接口：setOsAccountDistributedInfo、updateOsAccountDistributedInfo(已废弃)，这些为公共API，
      * setOsAccountDistributedInfoByLocalId为系统API，具体参看[分布式账号接口文档](docroot://reference/js-apis-distributed-account.md)。
@@ -986,7 +1058,7 @@ declare namespace commonEventManager {
     /**
      * 表示分布式账号注销的动作。
      *
-     * 分布式账号注销成功会时触发事件通知服务发布该系统公共事件，事件携带系统账号ID。
+     * 分布式账号注销成功会时触发事件通知服务发布该系统公共事件，事件携带系统账号ID和子身份ID。
      *
      * 与这个公共事件相关的接口：setOsAccountDistributedInfo、updateOsAccountDistributedInfo(已废弃)，这些为公共API，
      * setOsAccountDistributedInfoByLocalId为系统API，具体参看[分布式账号接口文档](docroot://reference/js-apis-distributed-account.md)。
@@ -2562,6 +2634,16 @@ declare namespace commonEventManager {
      *
      * 具体枚举值及其对应的连接状态如下表所示：
      *
+     * > **说明**
+     * > 具体枚举值及其对应的连接状态如下表所示：
+     * >
+     * > | 枚举值  |  连接状态  |
+     * > | ------ | ---------- |
+     * > |    2   |   连接中   |
+     * > |    3   |   已连接   |
+     * > |    4   |   正在断开 |
+     * > |    5   |   已断开   |。
+     *
      * @syscap SystemCapability.Notification.CommonEvent
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -2632,8 +2714,9 @@ declare namespace commonEventManager {
     COMMON_EVENT_PACKAGE_INSTALLATION_STARTED = 'usual.event.PACKAGE_INSTALLATION_STARTED',
 
     /**
-     * This common event means an application package enables or disables a dynamic icon.
-     * This is a protected common event that can only be sent by system.
+     * 表示应用动态图标发生变化的公共事件。
+     *
+     * 在应用的动态图标发生变更时，会发送此公共事件。
      *
      * @syscap SystemCapability.Notification.CommonEvent
      * @systemapi
@@ -2994,6 +3077,26 @@ declare namespace commonEventManager {
      * @since 26.0.0 dynamic&static
      */
     COMMON_EVENT_VOLUME_ENCRYPTION_POLICY_SET = 'usual.event.VOLUME_ENCRYPTION_POLICY_SET',
+
+    /**
+     * 表示设备上已安装新的沙箱应用的公共事件.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_ADDED = 'usual.event.SANDBOX_BUNDLE_ADDED',
+
+    /**
+     * 表示设备上安装的沙箱应用被卸载的公共事件.
+     *
+     * @syscap SystemCapability.Notification.CommonEvent
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    COMMON_EVENT_SANDBOX_BUNDLE_REMOVED = 'usual.event.SANDBOX_BUNDLE_REMOVED'
   }
 
   /**

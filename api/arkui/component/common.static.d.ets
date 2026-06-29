@@ -7813,6 +7813,18 @@ export declare interface SheetOptions extends BindOptions {
      * @since 26.0.0 static
      */
     edgeLightMode?: EdgeLightMode;
+    /**
+ 	 * Specifies whether to enable blur optimization for the sheet.
+ 	 * When enabled, the sheet background will be rendered using a blur snapshot.
+ 	 * This property cannot be dynamically switched after the sheet is presented.
+ 	 *
+ 	 * @default false
+ 	 * @syscap SystemCapability.ArkUI.ArkUI.Full
+ 	 * @systemapi
+ 	 * @stagemodelonly
+ 	 * @since 26.0.0 static
+ 	 */
+ 	enableBlurSnapshot?: boolean;
 }
 /**
  * The custom styles function block.
@@ -10348,7 +10360,6 @@ export declare class TouchResult {
 /**
  * 3D vector in depth space.
  *
- * @interface DepthVector3
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -10358,7 +10369,7 @@ export declare interface DepthVector3 {
   /**
    * X component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10369,7 +10380,7 @@ export declare interface DepthVector3 {
   /**
    * Y component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10380,7 +10391,7 @@ export declare interface DepthVector3 {
   /**
    * Z component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10392,7 +10403,6 @@ export declare interface DepthVector3 {
 /**
  * 4D vector in depth space.
  *
- * @interface DepthVector4
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -10402,7 +10412,7 @@ export declare interface DepthVector4 {
   /**
    * X component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10413,7 +10423,7 @@ export declare interface DepthVector4 {
   /**
    * Y component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10424,7 +10434,7 @@ export declare interface DepthVector4 {
   /**
    * Z component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10435,7 +10445,7 @@ export declare interface DepthVector4 {
   /**
    * W component.
    *
-   * @type { double }
+   * @default 0.0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10457,7 +10467,7 @@ export declare interface DepthColorRGB {
   /**
    * Red component (0-255).
    *
-   * @type { int }
+   * @default 255
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10468,7 +10478,7 @@ export declare interface DepthColorRGB {
   /**
    * Green component (0-255).
    *
-   * @type { int }
+   * @default 255
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10479,7 +10489,7 @@ export declare interface DepthColorRGB {
   /**
    * Blue component (0-255).
    *
-   * @type { int }
+   * @default 255
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10491,7 +10501,6 @@ export declare interface DepthColorRGB {
 /**
  * Spatial corner positions in 3D space.
  *
- * @interface SpatialPosition
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -10501,7 +10510,6 @@ export declare interface SpatialPosition {
   /**
    * Left-top corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10512,7 +10520,6 @@ export declare interface SpatialPosition {
   /**
    * Right-top corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10523,7 +10530,6 @@ export declare interface SpatialPosition {
   /**
    * Left-bottom corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10534,7 +10540,6 @@ export declare interface SpatialPosition {
   /**
    * Right-bottom corner position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -10546,7 +10551,6 @@ export declare interface SpatialPosition {
 /**
  * Spatial effect params.
  *
- * @interface SpatialEffectParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -10556,19 +10560,17 @@ export declare interface SpatialEffectParams {
   /**
    * Spatial position defined by corner points.
    *
-   * @type { SpatialPosition }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  position: SpatialPosition;
+  position: SpatialPosition | double;
 
   /**
    * Occlusion weight for spatial effect.
    * Value range:[0, 1]Default value: 0.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -15597,6 +15599,19 @@ export declare interface ScrollableCommonMethod extends CommonMethod {
      * @since 23 static
      */
     default backToTop(backToTop: boolean | undefined): this;
+    /**
+     * Sets the scrollbar track height.
+     *
+     * @param { LengthMetrics | undefined } height - Scrollbar track height.
+     *     <br>The value must be greater than or equal to 0, If set to undefined or a value less than 0, the default
+     *     value is used, If set to 0, the scrollbar is not displayed.
+     *     <br>Default value: adaptive to the height of the scrollable component.
+     * @returns { this }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default scrollBarHeight(height: LengthMetrics | undefined): this;
 }
 /**
  * The actual offset by which the scrollable scrolls.

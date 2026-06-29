@@ -142,7 +142,6 @@ declare interface CameraBufferCrop {
 /**
  * Camera parameters struct.
  *
- * @interface DepthCameraParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -153,7 +152,6 @@ declare interface DepthCameraParams {
   /**
    * Camera position in 3D space.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -166,7 +164,6 @@ declare interface DepthCameraParams {
    * Camera rotation as quaternion (x, y, z, w).
    * Represents the orientation of the camera in 3D space.
    *
-   * @type { DepthVector4 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -178,7 +175,6 @@ declare interface DepthCameraParams {
   /**
    * Vertical field of view in radians.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -190,7 +186,6 @@ declare interface DepthCameraParams {
   /**
    * Near clipping plane distance.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -202,7 +197,6 @@ declare interface DepthCameraParams {
   /**
    * Far clipping plane distance.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -226,7 +220,6 @@ declare interface DepthCameraParams {
 /**
  * Lighting parameters struct.
  *
- * @interface DepthLightParams
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -237,7 +230,6 @@ declare interface DepthLightParams {
   /**
    * Light direction vector.
    *
-   * @type { DepthVector3 }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -249,7 +241,6 @@ declare interface DepthLightParams {
   /**
    * Light color.
    *
-   * @type { DepthColorRGB }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -261,7 +252,6 @@ declare interface DepthLightParams {
   /**
    * Light intensity.
    *
-   * @type { double }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -274,7 +264,6 @@ declare interface DepthLightParams {
 /**
  * Defines the options of DepthComponent.
  *
- * @interface DepthComponentOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -285,7 +274,6 @@ declare interface DepthComponentOptions {
   /**
    * Depth space type.
    *
-   * @type { ?DepthSpaceType } depthSpace
    * @default DepthSpace.INSTANCE
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -294,12 +282,24 @@ declare interface DepthComponentOptions {
    * @since 26.0.0 dynamic
    */
   depthSpace?: DepthSpaceType;
+
+  /**
+   * Scale factor for 3D rendering window, applied to both width and height. The value range is (0.0, 1.0]. Values
+   * outside this range are invalid and the default value is used.
+   *
+   * @default 1.0
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic
+   */
+  render3DScale?: double;
 }
 
 /**
  * Information about the background resource loaded successfully.
  *
- * @interface DepthComponentCompleteEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -333,7 +333,6 @@ declare interface DepthComponentCompleteEvent {
 /**
  * Callback invoked when the background resource is loaded successfully.
  *
- * @typedef { function } DepthComponentCompleteCallback
  * @param { DepthComponentCompleteEvent } event
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -341,12 +340,11 @@ declare interface DepthComponentCompleteEvent {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-type DepthComponentCompleteCallback = (event: DepthComponentCompleteEvent) => void;
+declare type DepthComponentCompleteCallback = (event: DepthComponentCompleteEvent) => void;
 
 /**
  * Information about the background resource loading error.
  *
- * @interface DepthComponentErrorEvent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -391,7 +389,6 @@ declare interface DepthComponentErrorEvent {
 /**
  * Callback invoked when an error occurs during background resource loading.
  *
- * @typedef { function } DepthComponentErrorCallback
  * @param { DepthComponentErrorEvent } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -399,12 +396,11 @@ declare interface DepthComponentErrorEvent {
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-type DepthComponentErrorCallback = (error: DepthComponentErrorEvent) => void;
+declare type DepthComponentErrorCallback = (error: DepthComponentErrorEvent) => void;
 
 /**
  * Callback invoked when the depth map resource is loaded.
  *
- * @typedef { function } DepthMapCallback
  * @param { BusinessError<void> } error
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
@@ -412,12 +408,11 @@ type DepthComponentErrorCallback = (error: DepthComponentErrorEvent) => void;
  * @atomicservice
  * @since 26.0.0 dynamic
  */
-type DepthMapCallback = (error: BusinessError<void>) => void;
+declare type DepthMapCallback = (error: BusinessError<void>) => void;
 
 /**
  * Style the DepthComponent.
  *
- * @extends CommonMethod<DepthComponentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -495,7 +490,6 @@ declare class DepthComponentAttribute extends CommonMethod<DepthComponentAttribu
 /**
  * DepthComponentInterface
  *
- * @interface DepthComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -521,7 +515,6 @@ interface DepthComponentInterface {
 /**
  * Defines DepthComponent Component.
  *
- * @type { DepthComponentInterface } DepthComponent
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -533,7 +526,6 @@ declare const DepthComponent: DepthComponentInterface;
 /**
  * Defines DepthComponent Component instance.
  *
- * @type { DepthComponentAttribute } DepthComponentInstance
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly

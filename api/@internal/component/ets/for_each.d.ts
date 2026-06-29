@@ -19,121 +19,68 @@
  */
 
 /**
- * Declare ForEachAttribute.
+ * The [drag-and-drop sorting]{@link common} attribute is supported.
  *
- * @extends DynamicNode<ForEachAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
-declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {
-}
+declare class ForEachAttribute extends DynamicNode<ForEachAttribute> {}
 
 /**
- * Looping function.
+ * **ForEach** enables rendering of repeated content based on array type data.
  *
- * @interface ForEachInterface
+ * > **NOTE**
+ *
+ * For details about the development, see
+ * [ForEach: Rendering Repeated Content](docroot://ui/rendering-control/arkts-rendering-control-foreach.md).
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
- */
-/**
- * Looping function.
- *
- * @interface ForEachInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Looping function.
- *
- * @interface ForEachInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Looping function.
- *
- * @interface ForEachInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface ForEachInterface {
+
   /**
-   * Set the value, array, and key.
+   * **ForEach** enables rendering of repeated content based on array type data. It must be used in a container
+   * component, and the component it returns must be one allowed inside the container component. For example, a
+   * **ListItem** component is allowed only when the parent container component of **ForEach** is [List]{@link list} or
+   * [ListItemGroup]{@link list_item_group}.
    *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
+   * @param { Array<any> } arr - Data source, which is an array.<br>If this parameter is set to **undefined**, the
+   *     **ForEach** API does not take effect.<br>**NOTE**<br>- You can set this parameter to an empty array. In this
+   *     case, no child component is created.<br>- You can also set this parameter to a function whose return value is
+   *     an array, for example, **arr.slice (1, 3)**. However, the set function cannot change any state variables
+   *     including the array itself. For example, **Array.splice**, **Array.sort**, and **Array.reverse** functions are
+   *     not allowed, as they may change the array.
+   * @param { function } itemGenerator - Component generator.<br>- It generates a component for each data item in an
+   *     array. <br>- (Optional) **item**: data item in the **arr** array.<br>- (Optional) **index**: index of the data
+   *     item in the **arr** array.<br>**NOTE**<br>- The type of the created component must be the one allowed inside
+   *     the parent container component of **ForEach**. For example, a **ListItem** component is allowed only when the
+   *     parent container component of **ForEach** is **List**.
+   * @param { function } keyGenerator - Key generator.<br>- It generates a unique and persistent key for each array item
+   *     of the data source **arr**. You can customize the key generation rule using this function.<br>- (Optional)
+   *     **item**: data item in the **arr** array.<br>- (Optional) **index**: index of the data item in the **arr**
+   *     array.<br>**NOTE**<br>- If this function is not specified, the default key generator of the framework is used:
+   *     **(item: T, index: number) => { return index + '__' + JSON.stringify(item); }**.<br>- The key generator should
+   *     not change any component state.
+   * @returns { ForEachInterface } [since 7 - 11]
+   * @returns { ForEachAttribute } [since 12]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @form
-   * @since 9
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachInterface }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the value, array, and key.
-   *
-   * @param { Array<any> } arr
-   * @param { function } itemGenerator
-   * @param { function } keyGenerator
-   * @returns { ForEachAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
+   * @noninterop
    */
   (
     arr: Array<any>,
@@ -143,37 +90,18 @@ interface ForEachInterface {
 }
 
 /**
- * Defines ForEach Component.
+ * **ForEach** enables rendering of repeated content based on array type data.
+ *
+ * > **NOTE**
+ *
+ * For details about the development, see
+ * [ForEach: Rendering Repeated Content](docroot://ui/rendering-control/arkts-rendering-control-foreach.md).
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 7
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
-/**
- * Defines ForEach Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @form
- * @since 9
- */
-/**
- * Defines ForEach Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines ForEach Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
- */
-declare const ForEach: ForEachInterface;
+declare const ForEach: ForEachInterface;

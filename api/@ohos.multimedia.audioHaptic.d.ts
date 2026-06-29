@@ -22,9 +22,10 @@ import type { Callback } from './@ohos.base';
 import type audio from './@ohos.multimedia.audio';
 
 /**
- * Provides audio haptic collaborative play interfaces.
+ * Audio-haptic enables users to get rhythmic auditory and haptic feedback while having incoming calls or messages.
+ * 
+ * **Device behavior difference**: For a device without a vibration component, no vibration effect is generated.
  *
- * @namespace audioHaptic
  * @syscap SystemCapability.Multimedia.AudioHaptic.Core
  * @since 11 dynamic
  * @since 23 static
@@ -32,6 +33,7 @@ import type audio from './@ohos.multimedia.audio';
 declare namespace audioHaptic {
   /**
    * Obtains an {@link AudioHapticManager} instance. This object is singleton in one process.
+   *
    * @returns { AudioHapticManager } AudioHapticManager instance.
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
@@ -40,15 +42,16 @@ declare namespace audioHaptic {
   function getAudioHapticManager(): AudioHapticManager;
 
   /**
-   * Audio Latency mode.
-   * @enum {int}
+   * Enumerates the audio latency modes.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
    */
   enum AudioLatencyMode {
     /**
-     * Normal audio mode.
+     * Normal latency mode.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -56,8 +59,10 @@ declare namespace audioHaptic {
     AUDIO_LATENCY_MODE_NORMAL = 0,
 
     /**
-     * Low latency mode. This mode should be used when duration of the audio source is short. If duration of the audio 
-     * source is long, it may be truncated. This behavior is the same with sound pool.
+     * Low latency mode. This mode is applicable to short audio files. A long audio file may be truncated in this mode. 
+     * It functions the same as 
+     * [SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool).
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -66,16 +71,17 @@ declare namespace audioHaptic {
   }
 
   /**
-   * Audio haptic player options object.
-   * @typedef AudioHapticPlayerOptions
+   * Describes the options for the audio-haptic player.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
    */
   interface AudioHapticPlayerOptions {
     /**
-     * Mute audio.
-     * @type {?boolean}
+     * Whether to mute the audio. **true** to mute, **false** otherwise. If this parameter is not specified, the default
+     * value **false** is used.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -83,8 +89,9 @@ declare namespace audioHaptic {
     muteAudio?: boolean;
 
     /**
-     * Mute haptics.
-     * @type {?boolean}
+     * Whether to mute haptics feedback. **true** to mute, **false** otherwise. If this parameter is not specified, the 
+     * default value **false** is used.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -93,23 +100,39 @@ declare namespace audioHaptic {
   }
 
   /**
-   * Audio haptic manager object.
-   * @typedef AudioHapticManager
+   * Manages the audio-haptic feature. Before calling any API in AudioHapticManager, you must use 
+   * [getAudioHapticManager]{@link audioHaptic.getAudioHapticManager} to create an AudioHapticManager instance.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
    */
   interface AudioHapticManager {
     /**
-     * Register audio and haptic file into manager. Audio and haptic works are paired while playing. After registering
-     * source, it will returns the source id. This method uses a promise to return the source id.
-     * <p><strong>NOTE</strong>:
-     * The maximum number one application can register is 128, exceeding this limit will lead to registration failure.
-     * </p>
-     * @param { string } audioUri - Audio file uri.
-     * @param { string } hapticUri - Haptic file uri.
-     * @returns { Promise<int> } Promise used to return the source id. Source id is non-negative in normal case, if it
-     *     is negative, you should check if sources registered exceeded the limit.
+     * Registers audio and haptic resources via URIs. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > A maximum of 128 resources can be registered at the same time for an application. Any attempt to register 
+     * > beyond this limit will fail (returning a negative resource ID). You are advised to reasonably manage the number
+     * > of registered resources. For resources that are no longer used, you are advised to unregister them in a timely 
+     * > manner.
+     *
+     * @param { string } audioUri - URI of the audio source.<br>- For details about the supported audio resource formats
+     *     and path formats in the normal latency mode, see [AVPlayer]{@link @ohos.multimedia.media:media}.<br>- For
+     *     details about the supported audio resource formats in the low-latency mode, see
+     *     [SoundPool](docroot://reference/apis-media-kit/js-apis-inner-multimedia-soundPool.md#soundpool). The path
+     *     format must meet the requirements described in
+     *     [fileIo.open](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopen).<br>- In both modes, you
+     *     are advised to pass in the absolute path of the file.
+     * @param { string } hapticUri - URI of the haptic source.<br>For details about the supported haptic resource
+     *     formats, see [HapticFileDescriptor]{@link @ohos.vibrator:vibrator.HapticFileDescriptor}. The path format must
+     *     meet the requirements described in
+     *     [fileIo.open](docroot://reference/apis-core-file-kit/js-apis-file-fs.md#fileioopen).<br>You are advised to
+     *     pass in the absolute path of the file.
+     * @returns { Promise<int> } Promise, which returns the registered resource ID.
+     *     <br>In normal cases, the returned resource ID is a non-negative number. A negative ID indicates a registration
+     *     failure. In this case, check whether the number of registered resources exceeds the upper limit.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
      *                                 1.Mandatory parameters are left unspecified;
      *                                 2.Incorrect parameter types.
@@ -120,15 +143,18 @@ declare namespace audioHaptic {
     registerSource(audioUri: string, hapticUri: string): Promise<int>;
 
     /**
-     * Unregister source. This method uses a promise to return the result.
-     * <p><strong>NOTE</strong>:
-     * Application should unregister the source once it is out of use to avoid exceeding th resource limit.
-     * </p>
-     * @param { int } id source id.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Unregisters an audio-haptic source. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > For resources that are no longer used, you are advised to unregister them in a timely manner to avoid issues 
+     * > such as resource leaks or the number of resources exceeding the upper limit.
+     *
+     * @param { int } id - Source ID.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -136,12 +162,13 @@ declare namespace audioHaptic {
     unregisterSource(id: int): Promise<void>;
 
     /**
-     * Set the audio latency mode of one source.
-     * @param { int } id - Source id.
+     * Sets the latency mode for an audio-haptic source.
+     *
+     * @param { int } id - Source ID.
      * @param { AudioLatencyMode } latencyMode - Audio latency mode.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
@@ -150,13 +177,14 @@ declare namespace audioHaptic {
     setAudioLatencyMode(id:int, latencyMode: AudioLatencyMode): void;
 
     /**
-     * Set the stream usage of one source.
-     * @param { int } id - Source id.
+     * Sets the stream usage for an audio-haptic source.
+     *
+     * @param { int } id - Source ID.
      * @param { audio.StreamUsage } usage - Stream usage.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types;
-     *                                 3.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types;
+     *     3.Parameter verification failed.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
@@ -167,14 +195,15 @@ declare namespace audioHaptic {
     /**
      * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
      * should have the permission of ohos.permission.VIBRATE.
+     *
      * @permission ohos.permission.VIBRATE
-     * @param { number } id - Source id.
-     * @param { AudioHapticPlayerOptions } options - Options when creating audio haptic player.
-     * @returns { Promise<AudioHapticPlayer> } Promise used to return the result.
+     * @param { number } id - Source ID.
+     * @param { AudioHapticPlayerOptions } options - Options of the audio-haptic player.
+     * @returns { Promise<AudioHapticPlayer> } Promise used to return the audio-haptic player.
      * @throws { BusinessError } 201 - Permission denied.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Incorrect parameter types.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Incorrect parameter types.
      * @throws { BusinessError } 5400102 - Operation not allowed.
      * @throws { BusinessError } 5400103 - I/O error.
      * @throws { BusinessError } 5400106 - Unsupport format.
@@ -186,6 +215,7 @@ declare namespace audioHaptic {
     /**
      * Create an audio haptic player. This method uses a promise to return the result. If haptics is needed, caller
      * should have the permission of ohos.permission.VIBRATE.
+     *
      * @permission ohos.permission.VIBRATE
      * @param { int } id - Source id.
      * @param { AudioHapticPlayerOptions } [options] - Options when creating audio haptic player.
@@ -200,15 +230,22 @@ declare namespace audioHaptic {
     createPlayer(id: int, options?: AudioHapticPlayerOptions): Promise<AudioHapticPlayer | null>;
 
     /**
-     * Register audio and haptic file represented by fd into manager. Audio and haptic works are paired while playing.
-     * After registering source, it will returns the source id. This method uses a promise to return the source id.
-     * <p><strong>NOTE</strong>:
-     * The maximum number one application can register is 128, exceeding this limit will lead to registration failure.
-     * </p>
-     * @param { AudioHapticFileDescriptor } audioFd : The file descriptor of audio source from file system.
-     * @param { AudioHapticFileDescriptor } hapticFd : The file descriptor of haptic source from file system.
-     * @returns { Promise<int> } Promise used to return the source id. Source id is non-negative in normal case, if it
-     *     is negative, you should check if sources registered exceeded the limit.
+     * Registers audio and haptic resources via file descriptors. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > A maximum of 128 resources can be registered at the same time for an application. Any attempt to register 
+     * > beyond this limit will fail (returning a negative resource ID). You are advised to reasonably manage the number
+     * > of registered resources. For resources that are no longer used, you are advised to unregister them in a timely 
+     * > manner.
+     *
+     * @param { AudioHapticFileDescriptor } audioFd - Valid file descriptor object that has been opened, used to
+     *     describe the audio file. The offset and length must match the actual file length.
+     * @param { AudioHapticFileDescriptor } hapticFd - Valid file descriptor object that has been opened, used to
+     *     describe the haptic file. The offset and length must match the actual file length.
+     * @returns { Promise<int> } Promise, which returns the registered resource ID.
+     *     <br>In normal cases, the returned resource ID is a non-negative number. A negative ID indicates a registration
+     *     failure. In this case, check whether the number of registered resources exceeds the upper limit.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -217,8 +254,8 @@ declare namespace audioHaptic {
   }
 
   /**
-   * Type of audio haptic.
-   * @enum {int}
+   * Enumerates the audio haptic types.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
@@ -226,6 +263,7 @@ declare namespace audioHaptic {
   enum AudioHapticType {
     /**
      * Audio.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -234,6 +272,7 @@ declare namespace audioHaptic {
 
     /**
      * Haptic.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -242,17 +281,20 @@ declare namespace audioHaptic {
   }
 
   /**
-   * Describes audio haptic file descriptor.
-   * Caller needs to ensure the fd is valid and the offset and length are correct.
-   * @typedef AudioHapticFileDescriptor
+   * Describes the audio-haptic file descriptor.
+   * 
+   * > **NOTE**
+   * >
+   * > Ensure that **fd** is an available file descriptor and the values of **offset** and **length** are correct.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 20 dynamic
    * @since 23 static
    */
   interface AudioHapticFileDescriptor {
     /**
-     * The file descriptor of the source.
-     * @type { int }
+     * File descriptor of the audio-haptic file, which is generally greater than or equal to 0.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -260,9 +302,9 @@ declare namespace audioHaptic {
     fd: int;
 
     /**
-     * The length in bytes of the data to be read.
-     * By default, the length is the rest of bytes in the file from the offset.
-     * @type { ?long }
+     * Number of bytes to read. By default, the length is the number of bytes remaining in the file from the offset 
+     * position.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -270,9 +312,8 @@ declare namespace audioHaptic {
     length?: long;
 
     /**
-     * The offset into the file where the data to be read.
-     * By default, the offset is 0, unit is byte.
-     * @type { ?long }
+     * Offset for reading data from the file, in bytes. By default, the offset is 0.
+     *
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic
      * @since 23 static
@@ -281,20 +322,24 @@ declare namespace audioHaptic {
   }
 
   /**
-   * Audio haptic player object.
-   * @typedef AudioHapticPlayer
+   * Implements audio-haptic playback. Before calling any API in AudioHapticPlayer, you must use 
+   * [createPlayer]{@link audioHaptic.AudioHapticManager.createPlayer(id: number, options?: AudioHapticPlayerOptions)} 
+   * to create an AudioHapticPlayer instance.
+   *
    * @syscap SystemCapability.Multimedia.AudioHaptic.Core
    * @since 11 dynamic
    * @since 23 static
    */
   interface AudioHapticPlayer {
     /**
-     * Is muted for one AudioHapticType
-     * @param { AudioHapticType } type - Indicates the type to query.
-     * @returns { boolean } - Is muted.
+     * Checks whether an audio-haptic type is muted.
+     *
+     * @param { AudioHapticType } type - Audio-haptic type.
+     * @returns { boolean } Check result for whether the audio-haptic type is muted. **true** if muted, **false**
+     *     otherwise.
      * @throws { BusinessError } 401 - Parameter error. Possible causes:
-     *                                 1.Mandatory parameters are left unspecified;
-     *                                 2.Parameter verification failed.
+     *     1.Mandatory parameters are left unspecified;
+     *     2.Parameter verification failed.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      * @since 23 static
@@ -302,8 +347,9 @@ declare namespace audioHaptic {
     isMuted(type: AudioHapticType): boolean;
 
     /**
-     * Start this player. This method uses a promise to return the result.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Starts playback. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit.
      * @throws { BusinessError } 5400103 - IO error.
      * @throws { BusinessError } 5400105 - Service died.
@@ -314,8 +360,9 @@ declare namespace audioHaptic {
     start(): Promise<void>;
 
     /**
-     * Stop this player. This method uses a promise to return the result.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Stops playback. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit.
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -325,8 +372,9 @@ declare namespace audioHaptic {
     stop(): Promise<void>;
 
     /**
-     * Release this player. This method uses a promise to return the result.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Releases this audio-haptic player. This API uses a promise to return the result.
+     *
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400105 - Service died.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
@@ -335,9 +383,12 @@ declare namespace audioHaptic {
     release(): Promise<void>;
 
     /**
-     * Subscribes end of stream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
+     * Subscribes to end of stream (EOS) event, which is triggered when the audio stream playback ends. This API uses an
+     * asynchronous callback to return the result.
+     *
+     * @param { 'endOfStream' } type - Event type. The event **'endOfStream'** is triggered when the audio stream
+     *     playback ends.
+     * @param { Callback<void> } callback - Callback that returns no value.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      */
@@ -345,6 +396,7 @@ declare namespace audioHaptic {
 
     /**
      * Subscribes end of stream event.
+     *
      * @param { Callback<void> } callback - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
@@ -352,9 +404,11 @@ declare namespace audioHaptic {
     onEndOfStream(callback: Callback<void>): void;
 
     /**
-     * Unsubscribes end of stream event.
-     * @param { 'endOfStream' } type - Type of the playback event to listen for.
-     * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
+     * Unsubscribes from the EOS event. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'endOfStream' } type - Event type. The event **'endOfStream'** is triggered when the audio stream
+     *     playback ends.
+     * @param { Callback<void> } [callback] - Callback that returns no value.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      */
@@ -362,6 +416,7 @@ declare namespace audioHaptic {
 
     /**
      * Unsubscribes end of stream event.
+     *
      * @param { Callback<void> } [callback] - Callback used to listen for the playback end of stream.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
@@ -369,9 +424,12 @@ declare namespace audioHaptic {
     offEndOfStream(callback?: Callback<void>): void;
 
     /**
-     * Subscribes audio interrupt event.
-     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
-     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
+     * Subscribes to the audio interruption event, which is triggered when the audio focus is changed. This API uses an 
+     * asynchronous callback to return the result.
+     *
+     * @param { 'audioInterrupt' } type - Event type. The event **'audioInterrupt'** is triggered when the audio focus
+     *     is changed.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to return the event information.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      */
@@ -379,6 +437,7 @@ declare namespace audioHaptic {
 
     /**
      * Subscribes audio interrupt event.
+     *
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 23 static
@@ -386,9 +445,11 @@ declare namespace audioHaptic {
     onAudioInterrupt(callback: Callback<audio.InterruptEvent>): void;
 
     /**
-     * Unsubscribes audio interrupt event.
-     * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
-     * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
+     * Unsubscribes from the audio interruption event. This API uses an asynchronous callback to return the result.
+     *
+     * @param { 'audioInterrupt' } type - Event type. The event **'audioInterrupt'** is triggered when the audio focus
+     *     is changed.
+     * @param { Callback<audio.InterruptEvent> } callback - Callback used to return the event information.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 11 dynamic
      */
@@ -396,6 +457,7 @@ declare namespace audioHaptic {
 
     /**
      * Unsubscribes audio interrupt event.
+     *
      * @param { 'audioInterrupt' } type - Type of the playback event to listen for.
      * @param { Callback<audio.InterruptEvent> } callback - Callback used to listen for audio interrupt info.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -406,6 +468,7 @@ declare namespace audioHaptic {
     /**
      * Enable haptics when the ringer mode is silent mode.
      * This function should be called before player start or after stop, and before release.
+     *
      * @param { boolean } enable - use {@code true} if application want to enable this feature.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
@@ -417,11 +480,14 @@ declare namespace audioHaptic {
     enableHapticsInSilentMode(enable: boolean): void;
 
     /**
-     * Set audio volume for this player. This method uses a promise to return the result.
-     * This function should be called before player release.
-     * @param { double } volume - Target audio volume.
-     *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum volume (100%).
-     * @returns { Promise<void> } Promise used to return the result.
+     * Sets the volume for this audio-haptic player. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API must be called before the audio-haptic player is released.
+     *
+     * @param { double } volume - Volume, in the range [0.00, 1.00], where 1.00 indicates the maximum volume (100%).
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @throws { BusinessError } 5400105 - Service died.
      * @throws { BusinessError } 5400108 - Parameter out of range.
@@ -433,6 +499,7 @@ declare namespace audioHaptic {
 
     /**
      * Check whether the device supports haptics intensity adjustment.
+     *
      * @returns { boolean } - {@code true} means supported.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -445,6 +512,7 @@ declare namespace audioHaptic {
     /**
      * Set haptics intensity for this player. This method uses a promise to return the result.
      * This function should be called before player release, and can only set once for each starting process.
+     *
      * @param { double } intensity - Target Haptics intensity value.
      *     The value ranges from 0.00 to 1.00. 1.00 indicates the maximum intensity (100%).
      * @returns { Promise<void> } Promise used to return the result.
@@ -461,6 +529,7 @@ declare namespace audioHaptic {
 
     /**
      * Check whether the device supports haptics intensity ramp effect.
+     *
      * @returns { boolean } - {@code true} means supported.
      * @throws { BusinessError } 202 - Caller is not a system application.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
@@ -473,6 +542,7 @@ declare namespace audioHaptic {
     /**
      * Set haptics intensity ramp effect for this player. This method uses a promise to return the result.
      * This function should be called before player start or after stop, and before release.
+     *
      * @param { int } duration - ramp duration to set, unit is milliseconds.
      *     The value should be an integer, and not less than 100.
      * @param { double } startIntensity - Starting intensity for Haptics ramp to set.
@@ -492,10 +562,14 @@ declare namespace audioHaptic {
     setHapticsRamp(duration: int, startIntensity: double, endIntensity: double): Promise<void>;
 
     /**
-     * Set the playback to be looping. This method uses a promise to return the result.
-     * This function should be called before player release.
-     * @param { boolean } loop - Whether to loop or not, value true means loop.
-     * @returns { Promise<void> } Promise used to return the result.
+     * Sets this audio-haptic player to play in a loop. This API uses a promise to return the result.
+     * 
+     * > **NOTE**
+     * >
+     * > This API must be called before the audio-haptic player is released.
+     *
+     * @param { boolean } loop - Whether to play in a loop. **true** to play in a loop, **false** otherwise.
+     * @returns { Promise<void> } Promise that returns no value.
      * @throws { BusinessError } 5400102 - Operate not permit in current state.
      * @syscap SystemCapability.Multimedia.AudioHaptic.Core
      * @since 20 dynamic

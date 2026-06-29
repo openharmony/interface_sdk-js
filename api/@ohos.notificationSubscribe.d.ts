@@ -758,7 +758,9 @@ declare namespace notificationSubscribe {
   export type NotificationClassification = _NotificationClassification;
   
   /**
-   * Defines a callback function to listen for the notification switch state changes.
+   * Register the callback function type for notification switch state changes set by the interface of
+   * [notificationManager.setNotificationSwitch]{@link
+   * ./@ohos.notificationManager:notificationManager.setNotificationSwitch}.
    *
    * @syscap SystemCapability.Notification.Notification
    * @systemapi

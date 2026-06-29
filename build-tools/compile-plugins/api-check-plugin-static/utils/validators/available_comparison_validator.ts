@@ -39,7 +39,7 @@ import { globalObject } from '../../index';
 
 
 export class AvailableAnnotationChecker extends BaseVersionChecker {
-  private formatChecker: FormatCheckerFunction;
+  private formatChecker: FormatCheckerFunction | null = null;
 
   constructor() {
     super();
@@ -62,7 +62,7 @@ export class AvailableAnnotationChecker extends BaseVersionChecker {
       return false;
     }
 
-    const annotation: arkts.AstNode | null = getValidAnnotationFromNode(node, isAvailableDecorator);
+    const annotation: arkts.AnnotationUsage | null = getValidAnnotationFromNode(node, isAvailableDecorator);
     if (annotation === null) {
       return false;
     }

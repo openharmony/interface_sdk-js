@@ -1,5 +1,5 @@
-'use static';
 
+'use static';
 /*
 * Copyright (C) 2025 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,15 +21,18 @@
  */
 
 import { Component, BuilderParam, Builder, ResourceStr, SizeOptions, ResourceColor, VoidCallback, Length, Callback } from './@ohos.arkui.component';
+
 import { PropRef, Require } from './@ohos.arkui.stateManagement';
+
 import { ChipSize, ChipSymbolGlyphOptions, CloseOptions, ChipSuffixSymbolGlyphOptions } from './@ohos.arkui.advanced.Chip';
+
 import { SymbolGlyphModifier } from './@ohos.arkui.modifier';
+
 import uiMaterial from './@ohos.arkui.uiMaterial';
 
 /**
  * Defines icon options.
  *
- * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -37,90 +40,82 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
  */
 export interface IconOptions {
 
-    /**
-     * Image resource.
-     *
-     * @type { ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    src: ResourceStr;
+  /**
+   * Image resource.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  src: ResourceStr;
 
-    /**
-     * Image size option.
-     *
-     * @type { ?SizeOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    size?: SizeOptions;
+  /**
+   * Image size option.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  size?: SizeOptions;
 }
 
 /**
  * Defines suffix icon options.
  *
- * @extends IconOptions
- * @interface SuffixImageIconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface SuffixImageIconOptions extends IconOptions {
-    /**
-     * Called when the suffix image icon is clicked.
-     *
-     * @type { ?VoidCallback }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    action?: VoidCallback;
 
-    /**
-     * Set accessibility text for icon.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityText?: ResourceStr;
+  /**
+   * Called when the suffix image icon is clicked.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  action?: VoidCallback;
 
-    /**
-     * Set accessibility description for icon.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityDescription?: ResourceStr;
+  /**
+   * Set accessibility text for icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityText?: ResourceStr;
 
-    /**
-     * Set accessibility level for icon.
-     *
-     * @type { ?string }
-     * @default "auto"
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityLevel?: string;
+  /**
+   * Set accessibility description for icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * Set accessibility level for icon.
+   *
+   * @default auto
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityLevel?: string;
 }
 
 /**
  * Defines label options.
  *
- * @interface ChipItemLabelOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -128,23 +123,20 @@ export interface SuffixImageIconOptions extends IconOptions {
  */
 export interface ChipItemLabelOptions {
 
-    /**
-     * Text content.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    text: string;
+  /**
+   * Text content.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  text: string;
 }
-
 
 /**
  * Defines chipItem options.
  *
- * @interface ChipGroupItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -152,123 +144,111 @@ export interface ChipItemLabelOptions {
  */
 export interface ChipGroupItemOptions {
 
-    /**
-     * Prefix icon.
-     *
-     * @type { ?IconOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    prefixIcon?: IconOptions;
+  /**
+   * Prefix icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  prefixIcon?: IconOptions;
 
-    /**
-     * Prefix symbol.
-     *
-     * @type { ?ChipSymbolGlyphOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    prefixSymbol?: ChipSymbolGlyphOptions;
+  /**
+   * Prefix symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  prefixSymbol?: ChipSymbolGlyphOptions;
 
-    /**
-     * Chip label.
-     *
-     * @type { ChipItemLabelOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    label: ChipItemLabelOptions;
+  /**
+   * Chip label.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  label: ChipItemLabelOptions;
 
-    /**
-     * Suffix icon.
-     *
-     * @type { ?SuffixImageIconOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    suffixImageIcon?: SuffixImageIconOptions;
+  /**
+   * Suffix icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  suffixImageIcon?: SuffixImageIconOptions;
 
-    /**
-     * suffix symbol.
-     *
-     * @type { ?ChipSymbolGlyphOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    suffixSymbol?: ChipSymbolGlyphOptions;
+  /**
+   * suffix symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  suffixSymbol?: ChipSymbolGlyphOptions;
 
-    /**
-     * Set options for suffix symbol.
-     *
-     * @type { ?ChipSuffixSymbolGlyphOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
+  /**
+   * Set options for suffix symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  suffixSymbolOptions?: ChipSuffixSymbolGlyphOptions;
 
-    /**
-     * Allow close.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    allowClose?: boolean;
+  /**
+   * Allow close.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  allowClose?: boolean;
 
-    /**
-     * Set options for default close icon when 'allowaClose' is true.
-     *
-     * @type { ?CloseOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    closeOptions?: CloseOptions;
+  /**
+   * Set options for default close icon when 'allowClose' is true.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  closeOptions?: CloseOptions;
 
-    /**
-     * Set accessibility description for ChipGroup item.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityDescription?: ResourceStr;
+  /**
+   * Set accessibility description for ChipGroup item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityDescription?: ResourceStr;
 
-     /**
-      * Set accessibility level for ChipGroup item.
-      *
-      * @type { ?string }
-      * @default "auto"
-      * @syscap SystemCapability.ArkUI.ArkUI.Full
-      * @stagemodelonly
-      * @since 23 static
-      * @noninterop
-      */
-     accessibilityLevel?: string;
+  /**
+   * Set accessibility level for ChipGroup item.
+   *
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityLevel?: string;
 }
-
 
 /**
  * Defines ChipItemStyle.
  *
- * @interface ChipItemStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -276,67 +256,60 @@ export interface ChipGroupItemOptions {
  */
 export interface ChipItemStyle {
 
-    /**
-     * Chip size.
-     *
-     * @type { ?(ChipSize | SizeOptions) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    size?: ChipSize | SizeOptions;
+  /**
+   * Chip size.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  size?: ChipSize | SizeOptions;
 
-    /**
-     * ChipItem background color.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    backgroundColor?: ResourceColor;
+  /**
+   * ChipItem background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  backgroundColor?: ResourceColor;
 
-    /**
-     * Text font color.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    fontColor?: ResourceColor;
+  /**
+   * Text font color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  fontColor?: ResourceColor;
 
-    /**
-     * Selected Text font color.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    selectedFontColor?: ResourceColor;
+  /**
+   * Selected Text font color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  selectedFontColor?: ResourceColor;
 
-    /**
-     * Selected chip item background color.
-     *
-     * @type { ?ResourceColor }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    selectedBackgroundColor?: ResourceColor;
+  /**
+   * Selected chip item background color.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  selectedBackgroundColor?: ResourceColor;
 }
-
 
 /**
  * Defines chip group space.
  *
- * @interface ChipGroupSpaceOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -344,211 +317,195 @@ export interface ChipItemStyle {
  */
 export interface ChipGroupSpaceOptions {
 
-    /**
-     * Space between items.
-     *
-     * @type { ?(string | double) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    itemSpace?: string | double;
+  /**
+   * Space between items.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  itemSpace?: string | double;
 
-    /**
-     * Start space.
-     *
-     * @type { ?Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    startSpace?: Length;
+  /**
+   * Start space.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  startSpace?: Length;
 
-    /**
-     * End space.
-     *
-     * @type { ?Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    endSpace?: Length;
+  /**
+   * End space.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  endSpace?: Length;
 }
 
 /**
  * Defines IconItemOptions.
  *
- * @interface IconItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface IconItemOptions {
-    /**
-     * IconOptions.
-     *
-     * @type { IconOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    icon: IconOptions;
 
-    /**
-     * Icon Action.
-     *
-     * @type { VoidCallback }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    action: VoidCallback;
+  /**
+   * IconOptions.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  icon: IconOptions;
 
-    /**
-     * Set accessibility text for icon.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityText?: ResourceStr;
+  /**
+   * Icon Action.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  action: VoidCallback;
 
-    /**
-     * Set accessibility description for icon.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityDescription?: ResourceStr;
+  /**
+   * Set accessibility text for icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityText?: ResourceStr;
 
-    /**
-     * Set accessibility level for icon.
-     *
-     * @type { ?string }
-     * @default "auto"
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityLevel?: string;
+  /**
+   * Set accessibility description for icon.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * Set accessibility level for icon.
+   *
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityLevel?: string;
 }
 
 /**
  * Defines symbol item options.
  *
- * @interface SymbolItemOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface SymbolItemOptions {
-    /**
-     * Set symbol.
-     *
-     * @type { ?SymbolGlyphModifier }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    symbol: SymbolGlyphModifier;
 
-    /**
-     * Called when the symbol item is clicked.
-     *
-     * @type { VoidCallback }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    action: VoidCallback;
+  /**
+   * Set symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  symbol: SymbolGlyphModifier;
 
-    /**
-     * Set accessibility text for symbol.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityText?: ResourceStr;
+  /**
+   * Called when the symbol item is clicked.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  action: VoidCallback;
 
-    /**
-     * Set accessibility description for symbol.
-     *
-     * @type { ?ResourceStr }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityDescription?: ResourceStr;
+  /**
+   * Set accessibility text for symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityText?: ResourceStr;
 
-    /**
-     * Set accessibility level for symbol.
-     *
-     * @type { ?string }
-     * @default "auto"
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    accessibilityLevel?: string;
+  /**
+   * Set accessibility description for symbol.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityDescription?: ResourceStr;
+
+  /**
+   * Set accessibility level for symbol.
+   *
+   * @default "auto"
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  accessibilityLevel?: string;
 }
 
 /**
  * Defines ChipGroupPaddingOptions.
  *
- * @interface ChipGroupPaddingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface ChipGroupPaddingOptions {
-    /**
-     * Top of chip group padding.
-     *
-     * @type { Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    top: Length;
 
-    /**
-     * Bottom of chip group padding.
-     *
-     * @type { Length }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    bottom: Length;
+  /**
+   * Top of chip group padding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  top: Length;
+
+  /**
+   * Bottom of chip group padding.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  bottom: Length;
 }
 
 /**
  * Defines IconGroupSuffix.
  *
- * @struct IconGroupSuffix
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -556,45 +513,45 @@ export interface ChipGroupPaddingOptions {
  */
 @Component
 export declare struct IconGroupSuffix {
-    /**
-     * Suffix item.
-     *
-     * @type { Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @Require @PropRef
-    items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
 
-    /**
-     * Set system-styled materials for the component. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of the component.
-     *
-     * @type { ?uiMaterial.Material }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     * @noninterop
-     */
-    @PropRef
-    iconBackgroundSystemMaterial?: uiMaterial.Material;
+  /**
+   * Suffix item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @Require
+  @PropRef
+  items: Array<IconItemOptions | SymbolGlyphModifier | SymbolItemOptions>;
 
-    /**
-     * The method to build component.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 staticonly
-     */
-    @Builder
-    build(): void;
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   * @noninterop
+   */
+  @PropRef
+  iconBackgroundSystemMaterial?: uiMaterial.Material;
+
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }
 
 /**
  * Defines the suffix builder of the Chip Group.
  *
- * @typedef { function } ChipGroupSuffixBuilder
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -606,7 +563,6 @@ export type ChipGroupSuffixBuilder = () => void;
 /**
  * Defines chipGroup.
  *
- * @struct ChipGroup
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -615,132 +571,125 @@ export type ChipGroupSuffixBuilder = () => void;
 @Component
 export declare struct ChipGroup {
 
-    /**
-     * Chip item.
-     *
-     * @type { ChipGroupItemOptions[] }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @Require @PropRef
-    items: ChipGroupItemOptions[];
+  /**
+   * Chip item.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @Require
+  @PropRef
+  items: ChipGroupItemOptions[];
 
-    /**
-     * Chip item style.
-     *
-     * @type { ?ChipItemStyle }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @PropRef
-    itemStyle?: ChipItemStyle;
+  /**
+   * Chip item style.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @PropRef
+  itemStyle?: ChipItemStyle;
 
-    /**
-     * Default selected chip item indexes.
-     *
-     * @type { ?Array<int> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @PropRef
-    selectedIndexes?: Array<int>;
+  /**
+   * Default selected chip item indexes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @PropRef
+  selectedIndexes?: Array<int>;
 
-    /**
-     * Support multiple chip item selection.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @PropRef
-    multiple?: boolean;
+  /**
+   * Support multiple chip item selection.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @PropRef
+  multiple?: boolean;
 
-    /**
-     * Chip group space.
-     *
-     * @type { ?ChipGroupSpaceOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @PropRef
-    chipGroupSpace?: ChipGroupSpaceOptions;
+  /**
+   * Chip group space.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @PropRef
+  chipGroupSpace?: ChipGroupSpaceOptions;
 
-     /**
-     * Chip group padding (only support top and bottom).
-     *
-     * @type { ?ChipGroupPaddingOptions }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-     @PropRef
-     chipGroupPadding?: ChipGroupPaddingOptions;
+  /**
+   * Chip group padding (only support top and bottom).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @PropRef
+  chipGroupPadding?: ChipGroupPaddingOptions;
 
-    /**
-     * Set system-styled materials for the component. Different materials have different effects, which can influence
-     * the backgroundColor, border, shadow, and other visual attributes of the component.
-     *
-     * @type { ?uiMaterial.Material }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     * @noninterop
-     */
-    @PropRef
-    backgroundSystemMaterial?: uiMaterial.Material;
+  /**
+   * Set system-styled materials for the component. Different materials have different effects, which can influence
+   * the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   * @noninterop
+   */
+  @PropRef
+  backgroundSystemMaterial?: uiMaterial.Material;
 
-    /**
-     * Set system-styled materials for the component when selected. Different materials have different effects,
-     * which can influence the backgroundColor, border, shadow, and other visual attributes of the component.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     * @noninterop
-     */
-    @PropRef
-    selectedBackgroundMaterial?: uiMaterial.Material;
+  /**
+   * Set system-styled materials for the component when selected. Different materials have different effects,
+   * which can influence the backgroundColor, border, shadow, and other visual attributes of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   * @noninterop
+   */
+  @PropRef
+  selectedBackgroundSystemMaterial?: uiMaterial.Material;
 
-    /**
-     * Chip group callback. when chip status is changed, this onChange is called.
-     *
-     * @type { ?Callback<Array<int>> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    onChange?: Callback<Array<int>>;
+  /**
+   * Chip group callback. when chip status is changed, this onChange is called.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  onChange?: Callback<Array<int>>;
 
-    /**
-     * The builder function which will be rendered in the suffix of ChipGroup.
-     *
-     * @type { ?ChipGroupSuffixBuilder }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     * @noninterop
-     */
-    @BuilderParam
-    suffix?: ChipGroupSuffixBuilder;
+  /**
+   * The builder function which will be rendered in the suffix of ChipGroup.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   * @noninterop
+   */
+  @BuilderParam
+  suffix?: ChipGroupSuffixBuilder;
 
-    /**
-     * The method to build component.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 staticonly
-     */
-    @Builder
-    build(): void;
+  /**
+   * The method to build component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 staticonly
+   */
+  @Builder
+  build(): void;
 }

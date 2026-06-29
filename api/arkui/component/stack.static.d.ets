@@ -76,14 +76,14 @@ export declare interface StackAttribute extends CommonMethod {
     /**
      * Set whether to synchronously load child nodes within one frame.
      *
-     * @param { boolean } enable - Indicates whether to load subnodes in a frame synchronously.
+     * @param { boolean | undefined } enable - Indicates whether to load subnodes in a frame synchronously.
      *     <br>Default value: <em>true</em>
      * @returns { StackAttribute } The attribute of the Stack.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 26.0.0 static
      */
-    default syncLoad(enable: boolean): this;
+    default syncLoad(enable: boolean | undefined): this;
     /**
      * Set Stack options.
      *

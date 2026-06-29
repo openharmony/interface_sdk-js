@@ -298,7 +298,9 @@ declare namespace certificateManagerDialog {
    *     **CREDENTIAL_SYSTEM** are currently supported.
    * @param { CertificateScope } certScope - Usage scope of the certificate to install. **CURRENT_USER** and
    *     **NOT_SPECIFIED** are currently supported.
-   * @param { Uint8Array } cert - Data of the certificate to install.
+   * @param { Uint8Array } cert - The certificate data. The size cannot exceed 8 KB. <br>When certType is set to
+   *     CA_CERT, the certificate data must be in PEM or DER format. <br>When certType is set to CREDENTIAL_USER or
+   *     CREDENTIAL_SYSTEM, the value must be in the P12 encoding format.
    * @returns { Promise<string> } Promise used to return the certificate URI. The value contains up to 256 bytes.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -315,7 +317,7 @@ declare namespace certificateManagerDialog {
    *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
    *     whether the device supports opening the dialog box for installing a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
-   *     device does not allow users to manage the ca certificate of the global user. [since 18]
+   *     device does not allow users to manage the CA certificate of the global user. [since 18]
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 14 dynamic
@@ -335,7 +337,7 @@ declare namespace certificateManagerDialog {
    *     256 bytes.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the
    *     permission required to call the API.
-   * @throws { BusinessError } 401 - Invalid parameter. Possible causes: 1. A mandatory parameter is left
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. A mandatory parameter is left
    *     unspecified.
    *     2. Incorrect parameter type. 3. Parameter verification failed.
    * @throws { BusinessError } 801 - The certificate management application Hap is not preinstalled in the system,
@@ -357,7 +359,7 @@ declare namespace certificateManagerDialog {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
-   * @param { Uint8Array } cert - Data of the certificate to install.
+   * @param { Uint8Array } cert - The certificate Data.
    * @param { CertificateDialogProperty } property - Property of the certificate management dialog box.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
@@ -382,9 +384,10 @@ declare namespace certificateManagerDialog {
    *
    * @permission ohos.permission.ACCESS_CERT_MANAGER
    * @param { common.Context } context - Context of the application.
-   * @param { CertificateType } certType - The type of the certificate to uninstall,  only CA_CERT is supported.
+   * @param { CertificateType } certType - The type of the certificate to uninstall, only CA_CERT is supported.
    *     <br>Currently, only the CA_CERT type is supported.
-   * @param { string } certUri - Unique identifier of the certificate to uninstall. The value contains up to 256 bytes
+   * @param { string } certUri - Unique identifier of the certificate to uninstall. You can obtain the certUri by using
+   *     the API for installing a CA certificate or querying the CA certificate list.
    * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
@@ -399,7 +402,7 @@ declare namespace certificateManagerDialog {
    *     You can use the [supportsCACertDialog]{@link certificateManagerDialog.supportsCACertDialog} to determine
    *     whether the device can open the dialog box for deleting a CA certificate with certType set to CA.
    * @throws { BusinessError } 29700005 - The operation does not comply with the device security policy, such as the
-   *     device does not allow users to manage the ca certificate of the global user.
+   *     device does not allow users to manage the CA certificate of the global user.
    * @syscap SystemCapability.Security.CertificateManagerDialog
    * @stagemodelonly
    * @since 18 dynamic

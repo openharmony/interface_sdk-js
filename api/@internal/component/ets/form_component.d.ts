@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 Huawei Device Co., Ltd.
+ * Copyright (c) 2021-2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,20 +14,27 @@
  */
 
 /**
+ * The **FormComponent** is used to display widgets.
+ * 
+ * > **NOTE**
+ * >
+ * > - This component is intended for the widget host. For details about the widget provider, see 
+ * > [JS Service Widget UI Components](docroot://reference/apis-arkui/js-service-widget-ui/js-service-widget-file.md).
+ *
  * @file
  * @kit ArkUI
  */
+
 /**
- * Defines the FormDimension enum.
+ * Enumerates widget sizes.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
  */
 declare enum FormDimension {
   /**
-   * 1 x 2 cards
+   * 1 x 2 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -36,7 +43,7 @@ declare enum FormDimension {
   Dimension_1_2 = 0,
 
   /**
-   * 2 x 2 cards
+   * 2 x 2 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -45,7 +52,7 @@ declare enum FormDimension {
   Dimension_2_2 = 1,
 
   /**
-   * 2 x 4 cards
+   * 2 x 4 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -54,7 +61,7 @@ declare enum FormDimension {
   Dimension_2_4 = 2,
 
   /**
-   * 4 x 4 cards
+   * 4 x 4 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -63,7 +70,7 @@ declare enum FormDimension {
   Dimension_4_4 = 3,
 
   /**
-   * 2 x 1 cards
+   * 2 x 1 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -73,8 +80,7 @@ declare enum FormDimension {
   Dimension_2_1 = 4,
 
   /**
-   * 1 x 1 cards
-   * The default value is 6
+   * 1 x 1 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -83,7 +89,7 @@ declare enum FormDimension {
   DIMENSION_1_1 = 6,
 
   /**
-   * 6 x 4 cards
+   * 6 x 4 widget.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -92,7 +98,7 @@ declare enum FormDimension {
   DIMENSION_6_4 = 7,
 
   /**
-   * 2 x 3 cards used for wearable devices
+   * 2 x 3 widget. Available for wearable devices.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -101,7 +107,7 @@ declare enum FormDimension {
   DIMENSION_2_3 = 8,
 
   /**
-   * 3 x 3 cards used for wearable devices
+   * 3 x 3 widget. Available for wearable devices.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -111,9 +117,8 @@ declare enum FormDimension {
 }
 
 /**
- * Defines the FormRenderingMode enum.
+ * Enumerates the widget rendering modes.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 11 dynamic
@@ -121,7 +126,7 @@ declare enum FormDimension {
 declare enum FormRenderingMode {
 
   /**
-   *  Full color mode, this is default value
+   * Full color mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -130,7 +135,7 @@ declare enum FormRenderingMode {
   FULL_COLOR = 0,
 
   /**
-   *  single color mode
+   * Single color mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -142,7 +147,6 @@ declare enum FormRenderingMode {
 /**
  * Defines the FormShape enum.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
@@ -168,9 +172,8 @@ declare enum FormShape {
 }
 
 /**
- * Form color mode.
+ * Enumerates the card color modes.
  *
- * @enum { int }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -178,7 +181,7 @@ declare enum FormShape {
  */
 enum FormColorMode {  
   /**
-   * Automatic mode.
+   * Same with the system.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -188,7 +191,7 @@ enum FormColorMode {
   MODE_AUTO = -1,
 
   /**
-   * Dark mode.
+   * Dark.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -198,7 +201,7 @@ enum FormColorMode {
   MODE_DARK = 0,
 
   /**
-   * Light mode.
+   * Light.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -209,18 +212,22 @@ enum FormColorMode {
 }
 
 /**
- * Defines the FormInfo.
+ * Provides the widget information.
  *
- * @interface FormInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
  */
 declare interface FormInfo {
   /**
-   * The id the form.
+   * Widget ID. Set this parameter to **0** for a new widget.
+   * 
+   * **NOTE**
+   * 
+   * Different widget hosts cannot use the same ID.
+   * 
+   * If a widget host uses the same ID for two widgets, the one added later is displayed.
    *
-   * @type { number | string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -228,9 +235,8 @@ declare interface FormInfo {
   id: number | string;
 
   /**
-   * The name of the form.
+   * Widget name.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -238,9 +244,8 @@ declare interface FormInfo {
   name: string;
 
   /**
-   * The bundle of the form.
+   * Bundle name of the widget.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -248,9 +253,8 @@ declare interface FormInfo {
   bundle: string;
 
   /**
-   * The ability of the form.
+   * Ability name of the widget.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -258,9 +262,8 @@ declare interface FormInfo {
   ability: string;
 
   /**
-   * The module of the form.
+   * Module name of the widget.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -268,9 +271,10 @@ declare interface FormInfo {
   module: string;
 
   /**
-   * The dimension of the form.
+   * Dimensions of the widget. The 2 x 2, 4 x 4, 4 x 2, and more options are available.
+   * 
+   * Default value: **Dimension_2_2**
    *
-   * @type { ?FormDimension }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -278,9 +282,11 @@ declare interface FormInfo {
   dimension?: FormDimension;
 
   /**
-   * Whether the form is temporary.
+   * Whether the widget is a temporary widget. **true**: The widget is a temporary widget. **false**: The widget is not 
+   * a temporary widget.
+   * 
+   * Default value: **false**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -290,7 +296,6 @@ declare interface FormInfo {
   /**
    * The want of the form.
    *
-   * @type { ?import('../api/@ohos.app.ability.Want').default }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -298,9 +303,18 @@ declare interface FormInfo {
   want?: import('../api/@ohos.app.ability.Want').default;
 
   /**
-   * The renderingMode of the form.
+   * Widget rendering mode. Default value: **FULL_COLOR**. The options are as follows:
+   * 
+   * - **FULL_COLOR**: full color mode, where the widget framework does not change the widget effect, which means that 
+   * the widget is displayed in the effect as you set it.
+   * - **SINGLE_COLOR**: single color mode, where the widget framework sets the widget background to transparent. In 
+   * this mode you need to set the widget style based on the best practices.
+   * 
+   * **NOTE**
+   * 
+   * If the system does not support unified rendering, the widget framework does not set the widget background to 
+   * transparent in single color mode.
    *
-   * @type { ?FormRenderingMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -310,7 +324,6 @@ declare interface FormInfo {
   /**
    * The shape of the form.
    *
-   * @type { ?FormShape }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -318,9 +331,12 @@ declare interface FormInfo {
   shape?: FormShape;
 
   /**
-   * Exempt app lock
+   * Whether the widget is exempt from app lock. **true**: The widget is exempt from app lock management. No app lock 
+   * overlay is displayed when an app lock is applied to the host application. **false**: The widget is managed by app 
+   * lock. The app lock overlay is displayed when an app lock is applied to the host application.
+   * 
+   * Default value: **false**.
    *
-   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 20 dynamic
@@ -331,73 +347,50 @@ declare interface FormInfo {
 /**
  * Defines the FormComponent.
  *
- * @interface FormComponentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
  */
 interface FormComponentInterface {
   /**
-   * Set a new value.
-   *
-   * @param { {
-   * id: number;
-   * name: string;
-   * bundle: string;
-   * ability: string;
-   * module: string;
-   * dimension?: FormDimension;
-   * temporary?: boolean;
-   * want?: import('../api/@ohos.app.ability.Want').default;
-   * } } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Set a new value.
-   *
-   * @param { object } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 9
-   */
-  /**
-   * Set a new value.
-   *
-   * @param { object } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 11
-   */
-  /**
    * Set a new value of form info.
    *
-   * @param { FormInfo } value
+   * @param { {
+   *     id: number;
+   *     name: string;
+   *     bundle: string;
+   *     ability: string;
+   *     module: string;
+   *     dimension?: FormDimension;
+   *     temporary?: boolean;
+   *     want?: import('../api/@ohos.app.ability.Want').default;
+   *     } } value [since 7 - 11]
+   * @param { object } value [since 9 - 11]
+   * @param { FormInfo } value [since 12]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 12 dynamic
+   * @since 7 dynamic
    */
   (value: FormInfo): FormComponentAttribute;
 }
 
 /**
- * Defines the FormCallbackInfo.
+ * Represents the parameters for obtaining a widget ID (**formId**) when querying or uninstalling a widget.
  *
- * @interface FormCallbackInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 12 dynamic
  */
 interface FormCallbackInfo {
   /**
-   * The id of the form.
+   * Widget ID of the number type.
+   * 
+   * **NOTE**
+   * 
+   * If the obtained ID is **-1**, the ID is greater than or equal to 2^53. In this case, you need to use **idString** 
+   * to obtain the ID.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -405,9 +398,8 @@ interface FormCallbackInfo {
   id: number;
 
   /**
-   * The string id of the form.
+   * Widget ID of the string type.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 12 dynamic
@@ -417,7 +409,6 @@ interface FormCallbackInfo {
   /**
    * Indicates whether the form is locked.
    *
-   * @type { boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 22 dynamic
@@ -425,19 +416,16 @@ interface FormCallbackInfo {
   isLocked: boolean;
 }
 /**
- * Defines the size of Form.
+ * Provides the widget size information.
  *
- * @interface FormSize
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 18 dynamic
  */
 interface FormSize {
   /**
-   * The width of the form.
-   * Anonymous Object Rectification
+   * Width of the widget, in vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 18 dynamic
@@ -445,10 +433,8 @@ interface FormSize {
   width: number;
 
   /**
-   * The height of the form.
-   * Anonymous Object Rectification
+   * Height of the widget, in vp.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 18 dynamic
@@ -457,19 +443,16 @@ interface FormSize {
 }
 
 /**
- * Defines error information for card loading.
+ * Provides the widget error information.
  *
- * @typedef ErrorInformation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 18 dynamic
  */
 interface ErrorInformation {
   /**
-   * Error code.
-   * Anonymous Object Rectification
+   * [Error code](docroot://reference/apis-form-kit/errorcode-form.md).
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 18 dynamic
@@ -477,10 +460,8 @@ interface ErrorInformation {
   errcode: number;
 
   /**
-   * Error information.
-   * Anonymous Object Rectification
+   * Error message.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @since 18 dynamic
@@ -489,7 +470,7 @@ interface ErrorInformation {
 }
 
 /**
- * @extends CommonMethod<FormComponentAttribute>
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @since 7 dynamic
@@ -497,22 +478,14 @@ interface ErrorInformation {
 declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute> {
   /**
    * Sets the display area size of the card.
-   *
-   * @param { object } value
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Sets the display area size of the card.
    * Anonymous Object Rectification
    *
-   * @param { FormSize } formSize - The size of Form.
+   * @param { object } value [since 7 - 17]
+   * @param { FormSize } formSize - The size of Form. [since 18]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18 dynamic
+   * @since 7 dynamic
    */
   size(formSize: FormSize): FormComponentAttribute;
 
@@ -576,104 +549,63 @@ declare class FormComponentAttribute extends CommonMethod<FormComponentAttribute
    * This function is triggered after card information is obtained.
    * For details about the form information, see the definition of the original capability subsystem.
    *
-   * @param { function } callback
+   * @param { function } callback [since 7 - 11]
+   * @param { Callback<FormCallbackInfo> } callback [since 12]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
-   */
-  /**
-   * This function is triggered after card information is obtained.
-   * For details about the form information, see the definition of the original capability subsystem.
-   *
-   * @param { Callback<FormCallbackInfo> } callback
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12 dynamic
+   * @since 7 dynamic
    */
   onAcquired(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
   /**
    * Card loading error.
-   *
-   * @param { function } callback
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Card loading error.
    * Anonymous Object Rectification
    *
-   * @param { Callback<ErrorInformation> } callback
+   * @param { function } callback [since 7 - 17]
+   * @param { Callback<ErrorInformation> } callback [since 18]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18 dynamic
+   * @since 7 dynamic
    */
   onError(callback: Callback<ErrorInformation>): FormComponentAttribute;
 
   /**
    * Card to be redirected.
-   *
-   * @param { function } callback
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 7
-   */
-  /**
-   * Card to be redirected.
    * Anonymous Object Rectification
    *
-   * @param { Callback<object> } callback
+   * @param { function } callback [since 7 - 17]
+   * @param { Callback<object> } callback [since 18]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18 dynamic
+   * @since 7 dynamic
    */
   onRouter(callback: Callback<object>): FormComponentAttribute;
 
   /**
    * Uninstall Card.
    *
-   * @param { function } callback
+   * @param { function } callback [since 7 - 11]
+   * @param { Callback<FormCallbackInfo> } callback [since 12]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 7
-   */
-  /**
-   * Uninstall Card.
-   *
-   * @param { Callback<FormCallbackInfo> } callback
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 12 dynamic
+   * @since 7 dynamic
    */
   onUninstall(callback: Callback<FormCallbackInfo>): FormComponentAttribute;
 
   /**
    * Card to be loaded.
-   *
-   * @param { function } callback
-   * @returns { FormComponentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @since 10
-   */
-  /**
-   * Card to be loaded.
    * Anonymous Object Rectification
    *
-   * @param { VoidCallback } callback
+   * @param { function } callback [since 10 - 17]
+   * @param { VoidCallback } callback [since 18]
    * @returns { FormComponentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
-   * @since 18 dynamic
+   * @since 10 dynamic
    */
   onLoad(callback: VoidCallback): FormComponentAttribute;
 

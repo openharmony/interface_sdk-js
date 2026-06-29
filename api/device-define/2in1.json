@@ -2,6 +2,7 @@
   "SysCaps": [
     "SystemCapability.Security.DataLossPrevention",
     "SystemCapability.Multimedia.Media.AVTranscoder",
+    "SystemCapability.Security.Cipher",
     "SystemCapability.Security.CryptoFramework.Kdf",
     "SystemCapability.Security.CryptoFramework.Rand",
     "SystemCapability.Security.CryptoFramework.Mac",

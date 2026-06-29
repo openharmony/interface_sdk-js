@@ -89,6 +89,14 @@ export const comparisonFunctions = {
   formatChecker: new Map<string, FormatCheckerFunction>()
 };
 
+export interface SdkHvigorLogInfo {
+  code: string;
+  description: string;
+  cause: string;
+  position: string;
+  solutions: string[];
+}
+
 export const CONSTANT_STEP_0: number = 0;
 export const CONSTANT_STEP_1: number = 1;
 export const CONSTANT_STEP_2: number = 2;
@@ -121,3 +129,13 @@ export const SUPPRESSWARNINGS_RULE_INFO: Map<string, string> = new Map([
   [SYSCAP_TAG_CHECK_NAME, 'SuppressWarnings'],
   [PERMISSION_TAG_CHECK_NAME, 'SuppressWarnings']
 ]);
+
+export const ERROR_CODE_INFO: Map<string, Omit<SdkHvigorLogInfo, 'cause' | 'position'>> = new Map([
+  [AVAILABLE_VERSION_FORMAT_ERROR_PREFIX, { code: '11706016', description: 'Invalid version format in @Available decorator.', solutions: ['Change the version number to an integer between 1 and 999, or use the standardized M.S.F format.'] }],
+  [AVAILABLE_OSNAME_ERROR, { code: '11706017', description: 'Invalid OS name in @Available decorator.', solutions: ['Use the correct OS name matching the project runtime OS.'] }]
+])
+
+export enum NodeTraverseMode {
+  TS_TRAVERSE,
+  CPP_TRAVERSE_FILTER,
+}

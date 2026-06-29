@@ -24,9 +24,10 @@ import Want from './@ohos.app.ability.Want';
 import formInfo from './@ohos.app.form.formInfo';
 
 /**
- * Interface of formHost.
+ * The **formHost** module provides APIs related to the widget host, which is an application that displays the widget 
+ * content and controls the position where the widget is displayed. You can use the APIs to delete, release, and update
+ * widgets installed by the same user, and obtain widget information and status.
  *
- * @namespace formHost
  * @syscap SystemCapability.Ability.Form
  * @systemapi
  * @since 9 dynamic
@@ -35,7 +36,8 @@ import formInfo from './@ohos.app.form.formInfo';
 declare namespace formHost {
   /**
    * Add a form.
-   * <p>You can use this method to create a theme form.</p>
+   * 
+   * You can use this method to create a theme form.
    *
    * @permission ohos.permission.REQUIRE_FORM
    * @param { Want } want - Indicates want of the form.
@@ -56,13 +58,13 @@ declare namespace formHost {
   function addForm(want: Want): Promise<formInfo.RunningFormInfo>;
 
   /**
-   * Deletes an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application and the Form Manager
-   * Service no longer keeps the cache information about the form.</p>
+   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
+   * will not retain the widget information. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @param { AsyncCallback<void> } callback - The callback of deleteForm.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is deleted, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -80,13 +82,12 @@ declare namespace formHost {
   function deleteForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Deletes an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application and the Form Manager
-   * Service no longer keeps the cache information about the form.</p>
+   * Deletes a widget. After this API is called, the application can no longer use the widget, and the Widget Manager 
+   * will not retain the widget information. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -104,14 +105,14 @@ declare namespace formHost {
   function deleteForm(formId: string): Promise<void>;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * still retains the widget cache and storage information. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { AsyncCallback<void> } callback - The callback of releaseForm.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -129,15 +130,17 @@ declare namespace formHost {
   function releaseForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * retains the storage information about the widget and retains or releases the cache information based on the 
+   * setting. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { boolean } isReleaseCache - Indicates whether release cache or not.
-   * @param { AsyncCallback<void> } callback - The callback of releaseForm.
+   * @param { string } formId - Widget ID.
+   * @param { boolean } isReleaseCache - Whether to release the cache.
+   *     <br>**true**: Release the cache.
+   *     <br>**false**: Not release the cache.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is released, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -155,15 +158,16 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Releases an obtained form by its ID.
-   * <p>After this method is called, the form won't be available for use by the application, but the Form Manager
-   * Service still keeps the cache information about the form, so that the application can quickly obtain it based on
-   * the {@code formId}.</p>
+   * Releases a widget. After this API is called, the application can no longer use the widget, but the Widget Manager 
+   * retains the storage information about the widget and retains or releases the cache information based on the 
+   * setting. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID
-   * @param { boolean } [isReleaseCache] - Indicates whether release cache or not.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @param { boolean } [isReleaseCache] - Whether to release the cache. The default value is **false**.
+   *     <br>**true**: Release the cache.
+   *     <br>**false**: Not release the cache.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -181,15 +185,12 @@ declare namespace formHost {
   function releaseForm(formId: string, isReleaseCache?: boolean): Promise<void>;
 
   /**
-   * Requests for form update.
-   * <p>This method must be called when the application has detected that a system setting item (such as the language,
-   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
-   * provider automatically updates the form data (if there is any update) through the form framework, with the update
-   * process being unperceivable by the application.</p>
+   * Requests a widget update. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the form to update.
-   * @param { AsyncCallback<void> } callback - The callback of requestForm.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is updated, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -207,15 +208,11 @@ declare namespace formHost {
   function requestForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Requests for form update.
-   * <p>This method must be called when the application has detected that a system setting item (such as the language,
-   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
-   * provider automatically updates the form data (if there is any update) through the form framework, with the update
-   * process being unperceivable by the application.</p>
+   * Requests a widget update. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the form to update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -233,16 +230,12 @@ declare namespace formHost {
   function requestForm(formId: string): Promise<void>;
 
   /**
-   * Requests for form update.
-   * <p>This method must be called when the application has detected that a system setting item (such as the language,
-   * resolution, or screen orientation) being listened for has changed. Upon receiving the update request, the form
-   * provider automatically updates the form data (if there is any update) through the form framework, with the update
-   * process being unperceivable by the application.</p>
+   * Carries parameters to request a widget update. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the form to update.
-   * @param { Record<string, Object> } [wantParams] - Indicates want params of the form to update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @param { Record<string, Object> } [wantParams] - Parameters used for the update.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -260,11 +253,12 @@ declare namespace formHost {
   function requestFormWithParams(formId: string, wantParams?: Record<string, Object>): Promise<void>;
 
   /**
-   * Converts a specified temporary form that has been obtained by the application into a normal form.
+   * Converts a temporary widget to a normal one. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the temporary form to convert.
-   * @param { AsyncCallback<void> } callback - The callback of castToNormalForm.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is converted to a
+   *     normal one, **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -282,11 +276,11 @@ declare namespace formHost {
   function castToNormalForm(formId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Converts a specified temporary form that has been obtained by the application into a normal form.
+   * Converts a temporary widget to a normal one. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the ID of the temporary form to convert.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -304,13 +298,14 @@ declare namespace formHost {
   function castToNormalForm(formId: string): Promise<void>;
 
   /**
-   * Sends a notification to the form framework to make the specified forms visible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
-   * @param { AsyncCallback<void> } callback - The callback of notifyVisibleForms.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to
+   *     the widget framework to make the widget visible, **error** is undefined; otherwise, **error** is an error
+   *     object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -326,13 +321,12 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends a notification to the form framework to make the specified forms visible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget visible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made visible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -348,13 +342,13 @@ declare namespace formHost {
   function notifyVisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Sends a notification to the form framework to make the specified forms invisible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - The callback of notifyInvisibleForms.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget invisible, **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -370,13 +364,12 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Sends a notification to the form framework to make the specified forms invisible.
-   * <p>After this method is successfully called, onVisibilityChange will be called to notify the form provider of
-   * the form visibility change event.</p>
+   * Instructs the widget framework to make a widget invisible. After this API is called, **onVisibilityChange** is 
+   * invoked to notify the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -392,13 +385,14 @@ declare namespace formHost {
   function notifyInvisibleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Notify the form framework to make the specified forms updatable.
-   * <p>You can use this method to set form refresh state to true, the form can receive new
-   * update from service.</p>
+   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
+   * state and can receive updates from the widget provider. This API uses an asynchronous callback to return the 
+   * result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - The callback of enableFormsUpdate.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget updatable, **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -415,13 +409,12 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the form framework to make the specified forms updatable.
-   * <p>You can use this method to set form refresh state to true, the form can receive new
-   * update from service.</p>
+   * Instructs the widget framework to make a widget updatable. After this API is called, the widget is in the enabled 
+   * state and can receive updates from the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -438,13 +431,14 @@ declare namespace formHost {
   function enableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Notify the form framework to make the specified forms non-updatable.
-   * <p>You can use this method to set form refresh state to false, the form do not receive
-   * new update from service.</p>
+   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive
+   * updates from the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @param { AsyncCallback<void> } callback - The callback of disableFormsUpdate.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If a notification is sent to the
+   *     widget framework to make the widget not updatable, **error** is undefined; otherwise, **error** is an error
+   *     object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -462,13 +456,12 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify the form framework to make the specified forms non updatable.
-   * <p>You can use this method to set form refresh state to false, the form do not receive
-   * new update from service.</p>
+   * Instructs the widget framework to make a widget not updatable. After this API is called, the widget cannot receive 
+   * updates from the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be made invisible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -486,10 +479,10 @@ declare namespace formHost {
   function disableFormsUpdate(formIds: Array<string>): Promise<void>;
 
   /**
-   * Checks whether the system is ready.
-   * <p>You can use this method to obtain the system is ready.</p>
+   * Checks whether the system is ready. This API uses an asynchronous callback to return the result.
    *
-   * @param { AsyncCallback<void> } callback - The callback of isSystemReady.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the check is successful,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -501,10 +494,9 @@ declare namespace formHost {
   function isSystemReady(callback: AsyncCallback<void>): void;
 
   /**
-   * Checks whether the system is ready.
-   * <p>You can use this method to obtain the system is ready.</p>
+   * Checks whether the system is ready. This API uses a promise to return the result.
    *
-   * @returns { Promise<void> } The promise returned by the function.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @syscap SystemCapability.Ability.Form
    * @systemapi
@@ -514,10 +506,13 @@ declare namespace formHost {
   function isSystemReady(): Promise<void>;
 
   /**
-   * Obtains the FormInfo objects provided by all applications on the device.
+   * Obtains the widget information provided by all applications on the device (excluding template widgets). This API 
+   * uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -533,10 +528,11 @@ declare namespace formHost {
   function getAllFormsInfo(callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the FormInfo objects provided by all applications on the device.
+   * Obtains the widget information provided by all applications on the device (excluding template widgets). This API 
+   * uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -550,25 +546,14 @@ declare namespace formHost {
   function getAllFormsInfo(): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the template FormInfo objects provided by all applications on the device.
+   * Obtains the widget information provided by a specified application on the device (excluding template widgets). 
+   * This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo list.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 dynamic&static
-   */
-    function getAllTemplateFormsInfo(): Promise<Array<formInfo.FormInfo>>;
-
-  /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -585,12 +570,15 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, callback: AsyncCallback<Array<formInfo.FormInfo>>): void;
 
   /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a specified application on the device (excluding template widgets). This
+   *  API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { string } moduleName - Indicates the module name of the application.
-   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - The callback is used to return the FormInfo.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } moduleName - Module name.
+   * @param { AsyncCallback<Array<formInfo.FormInfo>> } callback - Callback used to return the result. If the widget 
+   *     information is obtained, **error** is undefined and **data** is the information obtained; otherwise, **error**
+   *     is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -611,12 +599,13 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Obtains the FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a specified application on the device (excluding template widgets). 
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { string } [moduleName] - Indicates the module name of the application.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } [moduleName] - Module name. By default, no value is passed.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -633,27 +622,12 @@ declare namespace formHost {
   function getFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Obtains the template FormInfo objects provided by a specified application on the device.
+   * Obtains the widget information provided by a specified application on the device (excluding template widgets).
+   * This API uses a promise to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { string } bundleName - Indicates the bundle name of the application.
-   * @param { string } [moduleName] - Indicates the module name of the application.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo list.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 dynamic&static
-   */
-    function getTemplateFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
-
-  /**
-   * Obtains the FormInfo objects provided by all application with filter on the device.
-   *
-   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.FormInfoFilter } filter - Indicates the requirements the forms that the formInfos belong to have to meet.
-   * @returns { Promise<Array<formInfo.FormInfo>> } Returns the FormInfo.
+   * @param { formInfo.FormInfoFilter } filter - Filter criterion.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -670,13 +644,12 @@ declare namespace formHost {
   function getFormsInfo(filter: formInfo.FormInfoFilter): Promise<Array<formInfo.FormInfo>>;
 
   /**
-   * Deletes invalid forms of the application in the Form Manager Service based on the list of.
-   * <p>You can use this method to delete invalid forms of the application.</p>
+   * Deletes invalid widgets from the list. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { AsyncCallback<int> } callback - The callback is used to return the number of invalid forms deleted
-   *     by the Form Manager Service.
+   * @param { Array<string> } formIds - List of valid widget IDs.
+   * @param { AsyncCallback<int> } callback - Callback used to return the result. If the invalid widgets are deleted, 
+   *     **error** is undefined and **data** is the number of widgets deleted; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -692,12 +665,11 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>, callback: AsyncCallback<int>): void;
 
   /**
-   * Deletes invalid forms of the application in the Form Manager Service based on the list of.
-   * <p>You can use this method to delete invalid forms of the application.</p>
+   * Deletes invalid widgets from the list. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @returns { Promise<int> } Returns the number of invalid forms deleted by the Form Manager Service.
+   * @param { Array<string> } formIds - List of valid widget IDs.
+   * @returns { Promise<int> } Promise used to return the number of widgets deleted.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -713,12 +685,14 @@ declare namespace formHost {
   function deleteInvalidForms(formIds: Array<string>): Promise<int>;
 
   /**
-   * Obtains the Form state.
-   * <p>You can use this method to obtains the form state.</p>
+   * Obtains the widget state. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - Indicates want of the form.
-   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - The callback is used to return the form state.
+   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
+   *     bundle name, ability name, module name, widget name, and widget dimensions.
+   * @param { AsyncCallback<formInfo.FormStateInfo> } callback - Callback used to return the result. If the widget
+   *     state is obtained, **error** is undefined and **data** is the widget state obtained; otherwise, **error**
+   *     is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -735,12 +709,12 @@ declare namespace formHost {
   function acquireFormState(want: Want, callback: AsyncCallback<formInfo.FormStateInfo>): void;
 
   /**
-   * Obtains the Form state.
-   * <p>You can use this method to obtains the form state.</p>
+   * Obtains the widget state. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { Want } want - Indicates want of the form.
-   * @returns { Promise<formInfo.FormStateInfo> } Returns the form state.
+   * @param { Want } want - **Want** information carried to query the widget state. The information must contain the
+   *     bundle name, ability name, module name, widget name, and widget dimensions.
+   * @returns { Promise<formInfo.FormStateInfo> } Promise used to return the widget state obtained.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -757,11 +731,15 @@ declare namespace formHost {
   function acquireFormState(want: Want): Promise<formInfo.FormStateInfo>;
 
   /**
-   * Listens to the event of uninstall form.
-   * <p>You can use this method to listen to the event of uninstall form.</p>
+   * Subscribes to widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
+   * > is automatically uninstalled.
    *
-   * @param { 'formUninstall' } type - Indicates event type.
-   * @param { Callback<string> } callback - The callback of formUninstall.
+   * @param { "formUninstall" } type - Event type. The value **"formUninstall"** indicates a widget uninstall event.
+   * @param { Callback<string> } callback - Callback used to return the widget ID.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -769,11 +747,12 @@ declare namespace formHost {
    * @systemapi
    * @since 9 dynamic
    */
-  function on(type: 'formUninstall', callback: Callback<string>): void;
+  function on(type: "formUninstall", callback: Callback<string>): void;
 
   /**
    * Listens to the event of uninstall form.
-   * <p>You can use this method to listen to the event of uninstall form.</p>
+   * 
+   * You can use this method to listen to the event of uninstall form.
    *
    * @param { Callback<string> } callback - The callback of formUninstall.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -786,11 +765,18 @@ declare namespace formHost {
   function onFormUninstall(callback: Callback<string>): void;
 
   /**
-   * Cancels listening to the event of uninstall form.
-   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   * Unsubscribes from widget uninstall events. This API uses an asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > Widget uninstall is different from widget removal. When an application is uninstalled, the corresponding widget 
+   * > is automatically uninstalled.
    *
-   * @param { 'formUninstall' } type - Indicates event type.
-   * @param { Callback<string> } [callback] - The callback of formUninstall.
+   * @param { "formUninstall" } type - Event type. The value **"formUninstall"** indicates a widget uninstall event.
+   * @param { Callback<string> } [callback] - Callback used to return the widget ID. If it is left unspecified, it
+   *     indicates the callback for all the events that have been subscribed.
+   *     <br> To cancel the subscription with a given callback, this parameter must be set to the same value as 
+   *     **callback** in **on("formUninstall")**.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -798,11 +784,12 @@ declare namespace formHost {
    * @systemapi
    * @since 9 dynamic
    */
-  function off(type: 'formUninstall', callback?: Callback<string>): void;
-
+  function off(type: "formUninstall", callback?: Callback<string>): void;
+  
   /**
    * Cancels listening to the event of uninstall form.
-   * <p>You can use this method to cancel listening to the event of uninstall form.</p>
+   * 
+   * You can use this method to cancel listening to the event of uninstall form.
    *
    * @param { Callback<string> } [callback] - The callback of formUninstall.
    * @throws { BusinessError } 202 - The application is not a system application.
@@ -815,169 +802,15 @@ declare namespace formHost {
   function offFormUninstall(callback?: Callback<string>): void;
 
   /**
-   * Listens to the event of form's overflow.
-   * <p>You can use this method to listen to the event of form's overflow.</p>
-   *
-   * @param { 'formOverflow' } type - Indicates event type.
-   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function on(type: 'formOverflow', callback: Callback<formInfo.OverflowRequest>): void;
-
-  /**
-   * Listens to the event of formOverflow.
-   * <p>You can use this method to listen to the event of formOverflow.</p>
-   *
-   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function onFormOverflow(callback: Callback<formInfo.OverflowRequest>): void;
-
-  /**
-   * Cancels listening to the event of form's overflow.
-   * <p>You can use this method to cancel listening to the event of form's overflow.</p>
-   *
-   * @param { 'formOverflow' } type - Indicates event type.
-   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function off(type: 'formOverflow', callback?: Callback<formInfo.OverflowRequest>): void;
-
-  /**
-   * Cancels listening to the event of formOverflow.
-   * <p>You can use this method to cancel listening to the event of formOverflow.</p>
-   *
-   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function offFormOverflow(callback?: Callback<formInfo.OverflowRequest>): void;
-
-  /**
-   * Listens to the event of change scene animation state.
-   * <p>You can use this method to listen to the event of change scene animation state.</p>
-   *
-   * @param { 'changeSceneAnimationState' } type - Indicates event type.
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
-   *     change scene animation state.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function on(type: 'changeSceneAnimationState',
-    callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
-
-    /**
-   * Listens to the event of change scene animation state.
-   * <p>You can use this method to listen to the event of change scene animation state.</p>
-   *
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
-   *     change scene animation state.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function onChangeSceneAnimationState(callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
-
-  /**
-   * Cancels listening to the event of change scene animation state.
-   * <p>You can use this method to cancel listening to the event of change scene animation state.</p>
-   *
-   * @param { 'changeSceneAnimationState' } type - Indicates event type.
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
-   *     change scene animation state.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function off(type: 'changeSceneAnimationState',
-    callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
-
-    /**
-   * Cancels listening to the event of change scene animation state.
-   * <p>You can use this method to cancel listening to the event of change scene animation state.</p>
-   *
-   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
-   *     change scene animation state.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function offChangeSceneAnimationState(callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
-
-  /**
-   * Listens to the event of get form rect.
-   * <p>You can use this method to listen to the event of get form rect.</p>
-   *
-   * @param { 'getFormRect' } type - Indicates event type.
-   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
-
-  /**
-   * Listens to the event of get form rect.
-   * <p>You can use this method to listen to the event of get form rect.</p>
-   *
-   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function onGetFormRect(callback: formInfo.GetFormRectInfoCallback): void;
- 
-  /**
-   * Cancels listening to the event of get form rect.
-   * <p>You can use this method to cancel listening to the event of get form rect.</p>
-   *
-   * @param { 'getFormRect' } type - Indicates event type.
-   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   */
-  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
-
-  /**
-   * Cancels listening to the event of get form rect.
-   * <p>You can use this method to cancel listening to the event of get form rect.</p>
-   *
-   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
-   * @throws { BusinessError } 202 - The application is not a system application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 23 static
-   */
-  function offGetFormRect(callback?: formInfo.GetFormRectInfoCallback): void;
-
-  /**
-   * Notify form is Visible
-   * <p>You can use this method to notify form visible state.</p>
+   * Instructs the widgets to make themselves visible. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isVisible - Indicates whether visible.
-   * @param { AsyncCallback<void> } callback - The callback of notifyFormsVisible.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isVisible - Whether the widget is visible.
+   *     <br>**true**: The widget is visible.
+   *     <br>**false**: The widget is invisible.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -994,13 +827,14 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Notify form is Visible
-   * <p>You can use this method to notify form visible state.</p>
+   * Instructs the widgets to make themselves visible. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isVisible - Indicates whether visible.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isVisible - Whether the widget is visible.
+   *     <br>**true**: The widget is visible.
+   *     <br>**false**: The widget is invisible.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1017,13 +851,15 @@ declare namespace formHost {
   function notifyFormsVisible(formIds: Array<string>, isVisible: boolean): Promise<void>;
 
   /**
-   * Notify form enable update state.
-   * <p>You can use this method to notify form enable update state.</p>
+   * Instructs the widgets to enable or disable updates. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isEnableUpdate - Indicates whether enable update.
-   * @param { AsyncCallback<void> } callback - The callback of notifyFormsEnableUpdate.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isEnableUpdate - Whether the widget can be updated.
+   *     <br>**true**: The widget can be updated.
+   *     <br>**false**: The widget cannot be updated.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the notification is sent,
+   *     **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1044,13 +880,14 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Notify form enable update state.
-   * <p>You can use this method to notify form enable update state.</p>
+   * Instructs the widgets to enable or disable updates. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isEnableUpdate - Indicates whether enable update.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - List of widget IDs.
+   * @param { boolean } isEnableUpdate - Whether the widget can be updated.
+   *     <br>**true**: The widget can be updated.
+   *     <br>**false**: The widget cannot be updated.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1067,12 +904,13 @@ declare namespace formHost {
   function notifyFormsEnableUpdate(formIds: Array<string>, isEnableUpdate: boolean): Promise<void>;
 
   /**
-   * Share form by formId and deviceId.
+   * Shares a specified widget with a remote device. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } formId - Indicates the form ID.
-   * @param { string } deviceId - Indicates the remote device ID.
-   * @param { AsyncCallback<void> } callback - The callback of shareForm.
+   * @param { string } formId - Widget ID.
+   * @param { string } deviceId - Remote device ID.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widget is shared, **error**
+   *     is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1089,12 +927,12 @@ declare namespace formHost {
   function shareForm(formId: string, deviceId: string, callback: AsyncCallback<void>): void;
 
   /**
-   * Share form by formId and deviceId.
+   * Shares a specified widget with a remote device. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM and ohos.permission.DISTRIBUTED_DATASYNC
-   * @param { string } formId - Indicates the form ID.
-   * @param { string } deviceId - Indicates the remote device ID.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @param { string } deviceId - Remote device ID.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1111,12 +949,16 @@ declare namespace formHost {
   function shareForm(formId: string, deviceId: string): Promise<void>;
 
   /**
-   * Notify form that privacy whether to be protected.
+   * Notifies that the privacy protection status of the specified widgets changes. This API uses an asynchronous 
+   * callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isProtected - Indicates whether to be protected.
-   * @param { AsyncCallback<void> } callback - The callback of notifyFormsPrivacyProtected.
+   * @param { Array<string> } formIds - ID of the widgets.
+   * @param { boolean } isProtected - Whether a widget requires privacy protection.
+   *     <br>**true**: The widget requires privacy protection.
+   *     <br>**false**: The widget does not require privacy protection.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If privacy protection is set
+   *     successfully, **error** is undefined; otherwise, **error** is an error object.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1136,12 +978,15 @@ declare namespace formHost {
   ): void;
 
   /**
-   * Notify form that privacy whether to be protected.
+   * Notifies that the privacy protection status of the specified widgets changes. This API uses a promise to return
+   * the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the specified form id.
-   * @param { boolean } isProtected - Indicates whether to be protected.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - ID of the widgets.
+   * @param { boolean } isProtected - Whether a widget requires privacy protection.
+   *     <br>**true**: The widget requires privacy protection.
+   *     <br>**false**: The widget does not require privacy protection.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1157,30 +1002,14 @@ declare namespace formHost {
   function notifyFormsPrivacyProtected(formIds: Array<string>, isProtected: boolean): Promise<void>;
 
   /**
-   * Acquire form data by formId.
+   * Requests data from the widget provider. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @param { AsyncCallback<{ [key: string]: Object }> } callback - The callback of acquireFormData.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   *                                      invalid input parameter during form operation
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Acquire form data by formId.
-   *
-   * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @param { AsyncCallback<Record<string, Object>> } callback - The callback of acquireFormData.
+   * @param { string } formId - Widget ID.
+   * @param { AsyncCallback<{ [key: string]: Object }> } callback - Callback used to return the API call result and the
+   *     shared data. [since 10 - 10]
+   * @param { AsyncCallback<Record<string, Object>> } callback - Callback used to return the API call result and the 
+   *     shared data. [since 11]
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -1188,40 +1017,23 @@ declare namespace formHost {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   *                                      invalid input parameter during form operation
+   *     invalid input parameter during form operation
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
-   * @since 11 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   function acquireFormData(formId: string, callback: AsyncCallback<Record<string, Object>>): void;
 
   /**
-   * Acquire form data by formId.
+   * Requests data from the widget provider. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-   * @throws { BusinessError } 16500050 - An IPC connection error happened.
-   * @throws { BusinessError } 16500060 - A service connection error happened, please try again later.
-   * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   *                                      invalid input parameter during form operation
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @StageModelOnly
-   * @since 10
-   */
-  /**
-   * Acquire form data by formId.
-   *
-   * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form ID.
-   * @returns { Promise<Record<string, Object>> } The promise returned by the function.
+   * @param { string } formId - Widget ID.
+   * @returns { Promise<{ [key: string]: Object }> } The promise returned by the function. [since 10 - 10]
+   * @returns { Promise<Record<string, Object>> } Promise used to return the API call result and the shared 
+   *     data. [since 11]
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
@@ -1229,24 +1041,31 @@ declare namespace formHost {
    * @throws { BusinessError } 16500060 - Service connection error.
    * @throws { BusinessError } 16500100 - Failed to obtain the configuration information.
    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   *                                      invalid input parameter during form operation
+   *     invalid input parameter during form operation
    * @syscap SystemCapability.Ability.Form
    * @systemapi
    * @StageModelOnly
-   * @since 11 dynamic
+   * @since 10 dynamic
    * @since 23 static
    */
   function acquireFormData(formId: string): Promise<Record<string, Object>>;
-
   /**
-   * Notify the form framework to set a router proxy for the specified cards.
-   * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
-   * and FMS will not trigger the actual jump.</p>
+   * Sets a router proxy for widgets and obtains the Want information required for redirection. This API uses an 
+   * asynchronous callback to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > Generally, for a widget added to the home screen, in the case of router-based redirection, the widget framework
+   * > checks whether the destination is proper and whether the widget has the redirection permission, and then 
+   * > triggers redirection accordingly. For a widget that is added to a widget host and has a router proxy configured, 
+   * > in the case of router-based redirection, the widget framework does not trigger redirection for the widget.
+   * > - Only one router proxy can be set for a widget. If multiple proxies are set, only the last proxy takes effect.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
-   * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
-   * @param { AsyncCallback<void> } callback - The callback of setRouterProxy.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @param { Callback<Want> } proxy - Callback used to return the Want information required for redirection.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the router proxy is set, **error** is 
+   *     **undefined**; otherwise, an exception is thrown.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1263,38 +1082,47 @@ declare namespace formHost {
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>, callback: AsyncCallback<void>): void;
 
    /**
-    * Notify the form framework to set a router proxy for the specified cards.
-    * <p>Once a card sets up a router proxy, the form framework will no longer invoke its onRouter callback,
-    * and FMS will not trigger the actual jump.</p>
-    *
-    * @permission ohos.permission.REQUIRE_FORM
-    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires setting up a router proxy.
-    * @param { Callback<Want> } proxy - Indicates the router proxy to be set up.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-    * @throws { BusinessError } 16500050 - IPC connection error.
-    * @throws { BusinessError } 16500060 - Service connection error.
-    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-    * @syscap SystemCapability.Ability.Form
-    * @systemapi
-    * @since 11 dynamic
-    * @since 23 static
-    */
+   * Sets a router proxy for widgets and obtains the Want information required for redirection. This API uses a promise 
+   * to return the result. This API uses a promise to return the result.
+   * 
+   * > **NOTE**
+   * >
+   * > - Generally, for a widget added to the home screen, in the case of router-based redirection, the widget framework
+   * >  checks whether the destination is proper and whether the widget has the redirection permission, and then 
+   * > triggers redirection accordingly. For a widget that is added to a widget host and has a router proxy configured, 
+   * > in the case of router-based redirection, the widget framework does not trigger redirection for the widget.
+   * >
+   * > - Only one router proxy can be set for a widget. If multiple proxies are set, only the last proxy takes effect.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @param { Callback<Want> } proxy - Callback used to return the Want information required for redirection.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11 dynamic
+   * @since 23 static
+   */
   function setRouterProxy(formIds: Array<string>, proxy: Callback<Want>): Promise<void>;
 
    /**
-    * Notify the form framework to clear the router proxy set for the specified cards.
-    *
-    * @permission ohos.permission.REQUIRE_FORM
-    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
-    * @param { AsyncCallback<void> } callback - The callback of clearRouterProxy.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * Clears the router proxy set for widgets. This API uses an asynchronous callback to return the result.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the router proxy is cleared,
+   *     **error** is **undefined**; otherwise, an exception is thrown.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
    * @throws { BusinessError } 16500050 - IPC connection error.
    * @throws { BusinessError } 16500060 - Service connection error.
@@ -1308,32 +1136,32 @@ declare namespace formHost {
   function clearRouterProxy(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
    /**
-    * Notify the form framework to clear the router proxy set for the specified cards.
-    *
-    * @permission ohos.permission.REQUIRE_FORM
-    * @param { Array<string> } formIds - Indicates the IDs of the forms that requires clearing of router proxy.
-    * @returns { Promise<void> } The promise returned by the function.
-    * @throws { BusinessError } 201 - Permissions denied.
-    * @throws { BusinessError } 202 - The application is not a system application.
-    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-    *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
-    * @throws { BusinessError } 16500050 - IPC connection error.
-    * @throws { BusinessError } 16500060 - Service connection error.
-    * @throws { BusinessError } 16501000 - An internal functional error occurred.
-    * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-    * @syscap SystemCapability.Ability.Form
-    * @systemapi
-    * @since 11 dynamic
-    * @since 23 static
-    */
+   * Clears the router proxy set for widgets. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   *     1.Mandatory parameters are left unspecified; 2.Incorrect parameter types; 3.Parameter verification failed.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 11 dynamic
+   * @since 23 static
+   */
   function clearRouterProxy(formIds: Array<string>): Promise<void>;
 
   /**
-   * Set result of publish form.
+   * Sets the result for the operation of adding a widget to the home screen.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form id.
-   * @param { formInfo.PublishFormResult } result - The result of publish form.
+   * @param { string } formId - Widget ID.
+   * @param { formInfo.PublishFormResult } result - Result of the operation.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1351,11 +1179,11 @@ declare namespace formHost {
   function setPublishFormResult(formId: string, result: formInfo.PublishFormResult): void;
 
   /**
-   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   * Sets widgets to be recyclable. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1372,11 +1200,12 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>): Promise<void>;
 
   /**
-   * Set permanent dynamic ArkTS forms recyclable, they will be recycled when memory is low.
+   * Sets widgets to be recyclable. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the form id list of permanent dynamic ArkTS forms.
-   * @param { AsyncCallback<void> } callback - The callback of setFormsRecyclable.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widgets are set to be
+   *     recyclable, **error** is **undefined**; otherwise, an exception is thrown.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1393,11 +1222,11 @@ declare namespace formHost {
   function setFormsRecyclable(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Recycle permanent dynamic ArkTS forms.
+   * Recycles widgets, that is, reclaiming widget memory. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the IDs of the forms to be recycled.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1414,11 +1243,12 @@ declare namespace formHost {
   function recycleForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Recover recycled permanent dynamic ArkTS forms.
+   * Recovers recycled widgets and updates their status to non-recyclable, or updates the status of widgets to non-
+   * recyclable if the widgets are not recycled. This API uses a promise to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
-   * @returns { Promise<void> } The promise returned by the function.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1435,11 +1265,12 @@ declare namespace formHost {
   function recoverForms(formIds: Array<string>): Promise<void>;
 
   /**
-   * Recover recycled permanent dynamic ArkTS forms.
+   * Recovers widgets. This API uses an asynchronous callback to return the result.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { Array<string> } formIds - Indicates the form id list of recycled permanent dynamic ArkTS forms.
-   * @param { AsyncCallback<void> } callback - The callback of recoverForms.
+   * @param { Array<string> } formIds - Array of widget IDs.
+   * @param { AsyncCallback<void> } callback - Callback used to return the result. If the widgets are recovered,
+   *     **error** is **undefined**; otherwise, an exception is thrown.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1456,11 +1287,11 @@ declare namespace formHost {
   function recoverForms(formIds: Array<string>, callback: AsyncCallback<void>): void;
 
   /**
-   * Update location of the form.
+   * Updates the widget location.
    *
    * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form id.
-   * @param { formInfo.FormLocation } location - The location of the form.
+   * @param { string } formId - Widget ID.
+   * @param { formInfo.FormLocation } location - Widget location.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - caller is not system app.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1479,6 +1310,231 @@ declare namespace formHost {
   function updateFormLocation(formId: string, location: formInfo.FormLocation): void;
 
   /**
+   * Notifies the update of the widget lock state. This API uses a promise to return the result.
+   * If an application is locked, its widget will also be locked and masked in a locked style. To use the widget, you 
+   * need to enter the password set for the widget.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Widget ID.
+   * @param { boolean } isLocked - A Boolean value indicates whether a widget is in the locked state. The value
+   *     **true** indicates that the widget is in the locked state, and the value **false** indicates the opposite.
+   * @returns { Promise<void> } The promise returned by the function.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @throws { BusinessError } 16500060 - Service connection error.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 22 dynamic
+   * @since 23 static
+   */
+  function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>;
+
+  /**
+   * Subscribes to the interactive widget animation request event. This API uses an asynchronous callback to return the 
+   * result.
+   *
+   * @param { 'formOverflow' } type - Event callback. The supported event is **'formOverflow'**, indicating the
+   *     interactive widget animation request.
+   * @param { Callback<formInfo.OverflowRequest> } callback - Callback used by the widget host to process the animation
+   *     request.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+  function on(type: 'formOverflow', callback: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Listens to the event of formOverflow.
+   * 
+   * You can use this method to listen to the event of formOverflow.
+   *
+   * @param { Callback<formInfo.OverflowRequest> } callback - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function onFormOverflow(callback: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Unsubscribes from the interactive widget animation request event. This API uses an asynchronous callback to return
+   *  the result.
+   *
+   * @param { 'formOverflow' } type - Event callback. The supported event is **'formOverflow'**, indicating the
+   *     interactive widget animation request.
+   * @param { Callback<formInfo.OverflowRequest> } [callback] - Callback function, which corresponds to the subscribed 
+   *     interactive widget animation request. By default, all registered interactive widget animation request events
+   *     are deregistered.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+  function off(type: 'formOverflow', callback?: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Cancels listening to the event of formOverflow.
+   * 
+   * You can use this method to cancel listening to the event of formOverflow.
+   *
+   * @param { Callback<formInfo.OverflowRequest> } [callback] - The callback of formOverflow.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function offFormOverflow(callback?: Callback<formInfo.OverflowRequest>): void;
+
+  /**
+   * Updates the size of the widget.
+   *
+   * @permission ohos.permission.REQUIRE_FORM
+   * @param { string } formId - Widget ID.
+   * @param { formInfo.FormDimension } newDimension - Widget dimension. For example, **Dimension_1_2** indicates a
+   *     1 x 2 widget.
+   * @param { formInfo.Rect } newRect - Widget position information, including the X and Y coordinates of the widget's
+   *     top-left corner, as well as its width and height.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - caller is not system app.
+   * @throws { BusinessError } 16501000 - An internal functional error occurred.
+   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
+   * @throws { BusinessError } 16501012 - The dimension parameter is incorrect
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   * @since 23 static
+   */
+  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
+
+  /**
+   * Subscribes to the event of switching the interactive widget state. An interactive widget can be in the active or 
+   * inactive state. In the inactive state, the interactive widget is the same as a common widget. In the active state, 
+   * the interactive widget can start the **LiveFormExtensionAbility** process developed by the widget host to
+   * implement interactive widget animations. This API uses an asynchronous callback to return the result.
+   *
+   * @param { 'changeSceneAnimationState' } type - Event type. The event **'changeSceneAnimationState'** is triggered
+   *     when the interactive widget state is switched.
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - Callback function, which is used by the
+   *     widget host to process the state switching request.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+  function on(type: 'changeSceneAnimationState', 
+    callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+  
+  /**
+   * Listens to the event of change scene animation state.
+   * 
+   * You can use this method to listen to the event of change scene animation state.
+   *
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } callback - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function onChangeSceneAnimationState(callback: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
+  /**
+   * Unsubscribes from the event of switching the interactive widget state. An interactive widget can be in the active
+   * or inactive state. In the inactive state, the interactive widget is the same as a common widget. In the active
+   * state, the interactive widget can start the **LiveFormExtensionAbility** process developed by the widget host to
+   * implement interactive widget animations. This API uses an asynchronous callback to return the result.
+   *
+   * @param { 'changeSceneAnimationState' } type - Event type. The event **'changeSceneAnimationState'** is triggered
+   *     when the interactive widget state is switched.
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } [callback] - Callback function, which corresponds
+   *     to the request for switching the state of a subscribed interactive widget. By default, all registered 
+   *     interactive widget state switching events are deregistered.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+  function off(type: 'changeSceneAnimationState', 
+    callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+ 
+  /**
+   * Cancels listening to the event of change scene animation state.
+   * 
+   * You can use this method to cancel listening to the event of change scene animation state.
+   *
+   * @param { Callback<formInfo.ChangeSceneAnimationStateRequest> } [callback] - The callback of
+   *     change scene animation state.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function offChangeSceneAnimationState(callback?: Callback<formInfo.ChangeSceneAnimationStateRequest>): void;
+
+  /**
+   * Subscribes to the event of requesting widget position and dimension. This API uses an asynchronous callback to
+   * return the result.
+   *
+   * @param { 'getFormRect' } type - Event callback type. The supported event is **'getFormRect'**, indicating
+   *     requesting widget position and dimension.
+   * @param { formInfo.GetFormRectInfoCallback } callback - Callback function used by the widget host to process the
+   *     request and return the position and dimension of the widget relative to the upper-left corner of the screen.
+   *     The unit is vp.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+   function on(type: 'getFormRect', callback: formInfo.GetFormRectInfoCallback): void;
+
+  /**
+   * Listens to the event of get form rect.
+   * 
+   * You can use this method to listen to the event of get form rect.
+   *
+   * @param { formInfo.GetFormRectInfoCallback } callback - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function onGetFormRect(callback: formInfo.GetFormRectInfoCallback): void;
+
+  /**
+   * Unsubscribes from the event of requesting widget position and dimension. This API uses an asynchronous callback to 
+   * return the result.
+   *
+   * @param { 'getFormRect' } type - Event callback type. The supported event is **'getFormRect'**, indicating
+   *     requesting widget position and dimension.
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - Callback function, corresponding to the subscribed
+   *     widget position and dimension request. By default, all registered widget position and dimension request event
+   *     callbacks are deregistered.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 20 dynamic
+   */
+  function off(type: 'getFormRect', callback?: formInfo.GetFormRectInfoCallback): void;
+  
+  /**
+   * Cancels listening to the event of get form rect.
+   * 
+   * You can use this method to cancel listening to the event of get form rect.
+   *
+   * @param { formInfo.GetFormRectInfoCallback } [callback] - The callback of get form rect.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 static
+   */
+  function offGetFormRect(callback?: formInfo.GetFormRectInfoCallback): void;
+
+  /**
    * Listens to the event of get live form status.
    *
    * @param { 'getLiveFormStatus' } type - Indicates event type.
@@ -1488,8 +1544,7 @@ declare namespace formHost {
    * @systemapi
    * @since 20 dynamic
    */
-  function on(type: 'getLiveFormStatus', 
-    callback: formInfo.GetLiveFormStatusCallback): void;
+  function on(type: 'getLiveFormStatus',  callback: formInfo.GetLiveFormStatusCallback): void;
   
   /**
    * Listens to the event of get live form status.
@@ -1527,51 +1582,44 @@ declare namespace formHost {
   function offGetLiveFormStatus(callback?: formInfo.GetLiveFormStatusCallback): void;
 
   /**
-   * Update size of the form.
-   *
-   * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form id.
-   * @param { formInfo.FormDimension } newDimension - The new dimension of the form.
-   * @param { formInfo.Rect } newRect - The new size of the form.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 202 - caller is not system app.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501012 - The dimension parameter is incorrect
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 20 dynamic
-   * @since 23 static
-   */
-  function updateFormSize(formId: string, newDimension: formInfo.FormDimension, newRect: formInfo.Rect): void;
-
-  /**
-   * Update form lock state.
-   *
-   * @permission ohos.permission.REQUIRE_FORM
-   * @param { string } formId - Indicates the form id.
-   * @param { boolean } isLocked - Indicates whether locked.
-   * @returns { Promise<void> } The promise returned by the function.
-   * @throws { BusinessError } 201 - Permissions denied.
-   * @throws { BusinessError } 202 - caller is not system app.
-   * @throws { BusinessError } 16500050 - IPC connection error.
-   * @throws { BusinessError } 16500060 - Service connection error.
-   * @throws { BusinessError } 16501000 - An internal functional error occurred.
-   * @throws { BusinessError } 16501001 - The ID of the form to be operated does not exist.
-   * @throws { BusinessError } 16501003 - The form cannot be operated by the current application.
-   * @syscap SystemCapability.Ability.Form
-   * @systemapi
-   * @since 22 dynamic
-   * @since 23 static
-   */
-  function updateFormLockedState(formId: string, isLocked: boolean): Promise<void>
-
-  /**
-   * Register the callback of the template form detail info change event.
+   * Obtains the template widget information provided by all applications on the device. This API uses a promise to 
+   * return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.TemplateFormDetailInfoCallback } callback - Indicates the callback of the template form detail info
-   *     change event.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getAllTemplateFormsInfo(): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Obtains the template widget information provided by a specified application on the device. This API uses a 
+   * promise to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { string } bundleName - Bundle name of the application.
+   * @param { string } [moduleName] - Module name. By default, no value is passed.
+   * @returns { Promise<Array<formInfo.FormInfo>> } Promise used to return the information obtained.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @since 23 dynamic&static
+   */
+  function getTemplateFormsInfo(bundleName: string, moduleName?: string): Promise<Array<formInfo.FormInfo>>;
+
+  /**
+   * Subscribes to changes in the static configuration information of template widgets. This API uses an asynchronous
+   * callback to return the result.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.TemplateFormDetailInfoCallback } callback - Callback function used to listen for changes in
+   *     the static configuration information of template widgets.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1583,11 +1631,12 @@ declare namespace formHost {
   function onTemplateFormDetailInfoChange(callback: formInfo.TemplateFormDetailInfoCallback): void;
 
   /**
-   * Unregister the callback of the template form detail info change event.
+   * Unsubscribes from changes in the static configuration information of template widgets. This API uses an
+   * asynchronous callback to return the result.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - Indicates the callback of the template form detail
-   *     info change event.
+   * @param { formInfo.TemplateFormDetailInfoCallback } [callback] - Callback function used to listen for changes
+   *     in the static configuration information of template widgets.
    * @throws { BusinessError } 201 - Permissions denied.
    * @throws { BusinessError } 202 - The application is not a system application.
    * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1599,11 +1648,12 @@ declare namespace formHost {
   function offTemplateFormDetailInfoChange(callback?: formInfo.TemplateFormDetailInfoCallback): void;
 
   /**
-    * Get the IDs of the forms at the current location.
+    * Obtains the list of widget IDs at a specified location on the device. This API uses a promise to return the
+    * result.
     *
     * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
-    * @param { formInfo.FormLocation } location - Identifies the location of the form.
-    * @returns { Promise<Array<string>> } Returns the IDs of the forms at the location.
+    * @param { formInfo.FormLocation } location - Widget location.
+    * @returns { Promise<Array<string>> } Promise used to return the obtained widget ID list.
     * @throws { BusinessError } 201 - Permissions denied.
     * @throws { BusinessError } 202 - The application is not a system application.
     * @throws { BusinessError } 16500050 - IPC connection error.
@@ -1614,8 +1664,7 @@ declare namespace formHost {
     * @since 24 dynamic&static
     */
    function getFormIdsByFormLocation(location: formInfo.FormLocation): Promise<Array<string>>;
-
-  /**
+/**
    * Register callback of getting the want parameters of the form.
    *
    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
@@ -1644,5 +1693,65 @@ declare namespace formHost {
    * @since 26.0.0 dynamic&static
    */
   function offGetWantParamsCallback(callback?: formInfo.GetWantParamsCallback): void;
+
+  /**
+   * Register the callback for updating form config.
+   *
+   * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+   * @param { formInfo.UpdateFormsConfigCallback } callback - Identifies the callback for updating form config.
+   * @throws { BusinessError } 201 - Permissions denied.
+   * @throws { BusinessError } 202 - The application is not a system application.
+   * @throws { BusinessError } 16500050 - IPC connection error.
+   * @syscap SystemCapability.Ability.Form
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function onUpdateFormsConfigCallback(callback: formInfo.UpdateFormsConfigCallback): void;
+
+   /**
+    * Unregister the callback for updating form config.
+    *
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @param { formInfo.UpdateFormsConfigCallback } [callback] - Identifies the callback for updating form config.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  function offUpdateFormsConfigCallback(callback?: formInfo.UpdateFormsConfigCallback): void;
+ 
+   /**
+    * Register the callback for deleting forms.
+    *
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @param { formInfo.DeleteFormsCallback } callback - Identifies the callback for deleting forms.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  function onDeleteFormsCallback(callback: formInfo.DeleteFormsCallback): void;
+   
+   /**
+    * Unregister the callback for deleting forms.
+    *
+    * @permission ohos.permission.GET_BUNDLE_INFO_PRIVILEGED
+    * @param { formInfo.DeleteFormsCallback } [callback] - Identifies the callback for deleting forms.
+    * @throws { BusinessError } 201 - Permissions denied.
+    * @throws { BusinessError } 202 - The application is not a system application.
+    * @throws { BusinessError } 16500050 - IPC connection error.
+    * @syscap SystemCapability.Ability.Form
+    * @systemapi
+    * @stagemodelonly
+    * @since 26.0.0 dynamic&static
+    */
+  function offDeleteFormsCallback(callback?: formInfo.DeleteFormsCallback): void;
 }
 export default formHost;

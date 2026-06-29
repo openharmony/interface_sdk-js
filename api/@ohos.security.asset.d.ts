@@ -339,6 +339,7 @@ declare namespace asset {
    * @throws { BusinessError } 24000010 - IPC failed.
    * @throws { BusinessError } 24000011 - Calling the Bundle Manager service failed.
    * @throws { BusinessError } 24000012 - Calling the OS Account service failed.
+   * @throws { BusinessError } 24000013 - Calling the Access Token service failed.
    * @throws { BusinessError } 24000015 - Getting the system time failed.
    * @throws { BusinessError } 24000019 - Each value of {@link Tag.GROUP_ID} and {@link Tag.REQUIRE_ATTR_ENCRYPTED}
    *     in the array is not consistent.
@@ -1317,33 +1318,6 @@ declare namespace asset {
      * @since 18
      */
     WRAP_TYPE = TagType.NUMBER | 0x49,
-    /**
-     * Security type.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    SECURITY_TYPE = TagType.NUMBER | 0x50,
-    /**
-     * A tag whose value indicates the UUID.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    DATA_UUID = TagType.BYTES | 0x51,
-    /**
-     * A tag whose value indicates the encryption salt.
-     *
-     * @syscap SystemCapability.Security.Asset
-     * @systemapi
-     * @FaAndStageModel
-     * @since 26.0.0
-     */
-    DATA_SALT = TagType.BYTES | 0x52
   }
 
   /**

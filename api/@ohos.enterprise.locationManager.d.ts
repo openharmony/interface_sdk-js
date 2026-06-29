@@ -98,7 +98,11 @@ declare namespace locationManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_LOCATION
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 12 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { LocationPolicy } Enumerated value of the location service policy. **0**: The default policy is used.
    *     **1**: The location service is disabled. **2**: The location service is forcibly enabled.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
@@ -111,7 +115,7 @@ declare namespace locationManager {
    * @stagemodelonly
    * @since 12
    */
-  function getLocationPolicy(admin: Want): LocationPolicy;
+  function getLocationPolicy(admin: Want | null): LocationPolicy;
 }
 
 export default locationManager;

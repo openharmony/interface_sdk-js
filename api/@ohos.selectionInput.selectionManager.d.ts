@@ -45,6 +45,8 @@ declare namespace selectionManager {
    *
    * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
    * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information.
+   *     This callback is triggered only when the user selects text using the mouse or touchpad(by double-clicking,
+   *     triple-clicking, or pressing and sliding the left mouse button) and then presses **Ctrl**.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -58,7 +60,9 @@ declare namespace selectionManager {
    * Registers a callback to listen for the word selection completion event. This API uses an asynchronous callback to 
    * return the result.
    *
-   * @param { Callback<SelectionInfo> } callback - Callback used to listen for the word selection completion event.
+   * @param { Callback<SelectionInfo> } callback - Callback used to return the word selection information.
+   *     This callback is triggered only when the user selects text using the mouse or touchpad(by double-clicking,
+   *     triple-clicking, or pressing and sliding the left mouse button) and then presses **Ctrl**.
    * @throws { BusinessError } 33600003 - The application calling the API does not match the application
    *     selected in the system settings.
    * @syscap SystemCapability.SelectionInput.Selection
@@ -72,7 +76,7 @@ declare namespace selectionManager {
    * callback to return the result.
    *
    * @param { 'selectionCompleted' } type - Event type, which is **'selectionCompleted'**.
-   * @param { Callback<SelectionInfo> } [callback] - Callback used to return Selectioninfo. If this parameter is not specified, this
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
    *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @systemapi [since 20 - 23]
@@ -85,8 +89,8 @@ declare namespace selectionManager {
    * Unregisters the callback used to listen for the word selection completion event. This API uses an asynchronous
    * callback to return the result.
    *
-   * @param { Callback<SelectionInfo> } [callback] - (Optional) Callback used to listen
-   *     for the word selectioncompletion event.
+   * @param { Callback<SelectionInfo> } [callback] - Callback used to return SelectionInfo. If this parameter is not specified, this
+   *     API unregisters all callbacks for the specified type.
    * @syscap SystemCapability.SelectionInput.Selection
    * @stagemodelonly
    * @since 24 static
@@ -113,8 +117,8 @@ declare namespace selectionManager {
 
   /**
    * Creates a word selection panel. This API uses a promise to return the result.
-   * Only one [main panel]{@link @ohos.selectionInput.SelectionPanel} and one 
-   * [menu panel]{@link @ohos.selectionInput.SelectionPanel} can be created for a single word selection application.
+   * Only one [MENU_PANEL]{@link @ohos.selectionInput.SelectionPanel} and one 
+   * [MAIN_PANEL]{@link @ohos.selectionInput.SelectionPanel} can be created for one word selection application.
    *
    * @param { Context } ctx - Context that the current word selection panel depends on.
    * @param { PanelInfo } info - Information about the word selection panel.

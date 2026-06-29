@@ -133,6 +133,9 @@ import {
 import {
   CallbackParam, NodeParam, TreeController, TreeListenType, TreeListener, TreeListenerManager, TreeView
 } from '@ohos.arkui.advanced.TreeView';
+import {
+  CallbackParamV2, NodeParamV2, TreeControllerV2, TreeListenerV2, TreeListenerManagerV2, TreeViewV2
+} from '@ohos.arkui.advanced.TreeViewV2';
 import { InterstitialDialogAction, IconStyle, TitlePosition, BottomOffset } from '@ohos.atomicservice.InterstitialDialogAction';
 import componentSnapshot from '@ohos.arkui.componentSnapshot';
 import componentUtils from '@ohos.arkui.componentUtils';
@@ -157,7 +160,7 @@ ComponentRecycle, ComponentDisappear, CollectionType, ConnectOptionsCollections,
 CustomComponentContext, IReusePool, IReusableInfo } from '@ohos.arkui.StateManagement';
 import { RectShape, CircleShape, EllipseShape, PathShape } from '@ohos.arkui.shape';
 import {
-  AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
+  AtomicServiceBar, ComponentUtils, ContextMenuController, CursorController, DialogPresenter, DragController, Font, KeyboardAvoidMode, MediaQuery, OverlayManager,
   PromptAction, Router, UIContext, UIInspector, UIObserver, PageInfo, SwiperDynamicSyncScene, SwiperDynamicSyncSceneType, MarqueeDynamicSyncScene,
   MarqueeDynamicSyncSceneType, MeasureUtils, FrameCallback, OverlayManagerOptions, TargetInfo, TextMenuController,
   NodeIdentity, NodeRenderState, NodeRenderStateChangeCallback, Magnifier, ResolvedUIContext, TextSelectionClearPolicy
@@ -179,6 +182,9 @@ import floatView from '@ohos.window.floatView';
 import pluginComponentManager, { PluginComponentTemplate } from '@ohos.pluginComponent';
 import prompt from '@ohos.prompt';
 import promptAction, { LevelMode, ImmersiveMode, LevelOrder } from '@ohos.promptAction';
+import dialog, { 
+    DialogBaseAlignment, DialogButtonOrientation, DialogState, DialogResult, DialogDismissal, DialogBaseController
+  } from '@ohos.arkui.dialog';
 import router from '@ohos.router';
 import screen from '@ohos.screen';
 import screenshot from '@ohos.screenshot';
@@ -344,6 +350,7 @@ export {
   LengthMetrics, LengthUnit, ColorMetrics, BackgroundBlur, ContentBlur, ForegroundBlur, LengthMetricsUnit, LayoutConstraint, ComponentContent, ReactiveComponentContent, NodeContent, Content,
   componentSnapshot, componentUtils, curves, display, dragController, dragInteraction, floatingBall, floatView,
   font, inspector, matrix4, mediaquery, performanceMonitor, pluginComponentManager, PluginComponentTemplate, prompt, promptAction, router,
+  dialog, DialogBaseAlignment, DialogButtonOrientation, DialogState, DialogResult, DialogDismissal, DialogBaseController, DialogPresenter,
   LevelMode, ImmersiveMode, LevelOrder, AtomicServiceWeb, OnMessageEvent, OnErrorReceiveEvent, OnHttpErrorReceiveEvent, OnPageBeginEvent, OnPageEndEvent,
   AtomicServiceWebController, OnLoadInterceptEvent, OnProgressChangeEvent, OnLoadInterceptCallback, WebHeader,
   screen, screenshot, uiAppearance, uiExtensionHost, uiObserver, window, windowAnimationManager, CustomContentDialog, PopoverDialog, PopoverOptions,
@@ -408,5 +415,5 @@ export {
   EditableTitleBarMenuItemV2Options, EditableSaveButtonV2, EditableSaveButtonV2Options, EditableTitleBarStyleV2,
   EditableTitleBarStyleV2Options,
   MarginTypeV2, PromptOptionsV2, PromptOptionsV2Config, ExceptionPromptV2,
-  SwipeRefresherV2
+  SwipeRefresherV2, CallbackParamV2, NodeParamV2, TreeControllerV2, TreeListenerV2, TreeListenerManagerV2, TreeViewV2
 };

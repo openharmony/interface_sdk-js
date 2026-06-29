@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2022-2024 Shenzhen Kaihong Digital Industry Development Co., Ltd.
+ * Copyright (c) 2022-2024 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,917 +14,538 @@
  */
 
 /**
- * @file
+ * @file Custom Font Registration
  * @kit ArkUI
  */
 
 /**
- * @namespace font
+ * The **font** module provides APIs for registering custom fonts.
+ *
+ * > **NOTE**
+ * >
+ * > - The functionality of this module depends on UI context. This means that the APIs of this module cannot be used
+ * > where [the UI context is ambiguous](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). For details, see
+ * > [UIContext]{@link @ohos.arkui.UIContext}.
+ * >
+ * > - You are advised to use the [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync} API of the
+ * > font engine to register custom fonts.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * @namespace font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @atomicservice
- * @since 11
- */
-/**
- * @namespace font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare namespace font {
+
   /**
-   * @typedef FontOptions
+   * Information about the custom font to register.
+   *
+   * > **NOTE**
+   * >
+   * > Directly using **font** can lead to the issue of
+   * > [ambiguous UI context](docroot://ui/arkts-global-interface.md#ambiguous-ui-context). To avoid this, obtain the
+   * > [Font]{@link @ohos.arkui.UIContext} object associated with the current UI context by using the
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext}.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * @typedef FontOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * @typedef FontOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   interface FontOptions {
 
     /**
-     * The font name to register.
+     * Name of the custom font to register.
      *
-     * @type { string }
+     * @type { string } [since 9 - 9]
+     * @type { string | Resource } [since 10]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * The font name to register.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * The font name to register.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The font name to register.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     familyName: string | Resource;
 
     /**
-     * The path of the font file.
+     * Path of the custom font file to register.
      *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 9
-     */
-    /**
-     * The path of the font file.
+     * **NOTE**
      *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 10
-     */
-    /**
-     * The path of the font file.
+     * If the font file to specify is a resource located within the system sandbox directory, you are advised to use a
+     * string with the **file://** path prefix. Ensure the target file exists in the sandbox path and has read
+     * permissions granted.
      *
-     * @type { string | Resource }
+     * @type { string } [since 9 - 9]
+     * @type { string | Resource } [since 10]
      * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The path of the font file.
-     *
-     * @type { string | Resource }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 9 dynamic
      */
     familySrc: string | Resource;
   }
 
   /**
-   * @typedef FontInfo
+   * Information about the system font.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * @typedef FontInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * @typedef FontInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   interface FontInfo {
 
     /**
-     * The path of the font file.
+     * File path of the system font.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The path of the font file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The path of the font file.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     path: string;
 
     /**
-     * The name of postscript.
+     * PostScript name of the system font.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The name of postscript.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The name of postscript.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     postScriptName: string;
 
     /**
-     * The font name.
+     * Name of the system font.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The font name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The font name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     fullName: string;
 
     /**
-     * A set of fonts with a common design.
+     * Family of the system font.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * A set of fonts with a common design.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * A set of fonts with a common design.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     family: string;
 
     /**
-     * A subset of the font family.
+     * Subfamily of the system font.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * A subset of the font family.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * A subset of the font family.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     subfamily: string;
 
     /**
-     * The weight of the font.
+     * Weight of the system font.
      *
-     * @type { number }
+     * Value range: [100, 900], with intervals of 100, corresponding to the values in the
+     * [FontWeight]{@link @ohos.graphics.text:text.FontWeight} enum
+     *
+     * Default value: **100**
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The weight of the font.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The weight of the font.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     weight: number;
 
     /**
-     * The width of the font style.
+     * Width of the system font.
      *
-     * @type { number }
+     * Value range: [1, 9], with intervals of 1, corresponding to the values in the
+     * [FontWidth]{@link @ohos.graphics.text:text.FontWidth} enum
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * The width of the font style.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * The width of the font style.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     width: number;
 
     /**
-     * Whether it is italic.
+     * Whether the system font is italic.
      *
-     * @type { boolean }
+     * Default value: **false**
+     *
+     * **true**: The system font is italic. **false**: The system font is not italic.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Whether it is italic.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Whether it is italic.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     italic: boolean;
 
     /**
-     * Whether it is compact.
+     * Whether the system font is monospaced.
      *
-     * @type { boolean }
+     * Default value: **false**
+     *
+     * **true**: The system font is monospaced. **false**: The system font is not monospaced.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Whether it is compact.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Whether it is compact.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     monoSpace: boolean;
 
     /**
-     * Whether symbol fonts are supported.
+     * Whether the system font supports symbols.
      *
-     * @type { boolean }
+     * Default value: **false**
+     *
+     * **true**: The system font supports symbols. **false**: The system font does not support symbols.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 10
-     */
-    /**
-     * Whether symbol fonts are supported.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @atomicservice
-     * @since 11
-     */
-    /**
-     * Whether symbol fonts are supported.
-     *
-     * @type { boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
      */
     symbolic: boolean;
   }
 
   /**
-   * @typedef UIFontConfig
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * @typedef UIFontConfig
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface UIFontConfig {
+
     /**
-     * The paths of system font files.
+     * Path to the system font file.
      *
-     * @type { Array<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * The paths of system font files.
-     *
-     * @type { Array<string> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     fontDir: Array<string>;
 
     /**
-     * The generic font info.
+     * List of supported generic font families.
      *
-     * @type { Array<UIFontGenericInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * The generic font info.
-     *
-     * @type { Array<UIFontGenericInfo> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     generic: Array<UIFontGenericInfo>;
 
     /**
-     * The fallback font info.
+     * List of fallback generic font families.
      *
-     * @type { Array<UIFontFallbackGroupInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * The fallback font info.
-     *
-     * @type { Array<UIFontFallbackGroupInfo> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     fallbackGroups: Array<UIFontFallbackGroupInfo>;
   }
-  
+
   /**
-   * @typedef UIFontGenericInfo
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * @typedef UIFontGenericInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  interface UIFontGenericInfo { 
+  interface UIFontGenericInfo {
+
     /**
-     * Name of the font set.
+     * Font family name, which is the value of **family** specified in the font file.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Name of the font set.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     family: string;
 
     /**
-     * Alias info of the font set.
+     * Font alias configuration information.
      *
-     * @type { Array<UIFontAliasInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Alias info of the font set.
-     *
-     * @type { Array<UIFontAliasInfo> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     alias: Array<UIFontAliasInfo>;
 
     /**
-     * Adjust info of the font set.
+     * Weight of the font when displayed, which corresponds to the original weight.
      *
-     * @type { Array<UIFontAdjustInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Adjust info of the font set.
-     *
-     * @type { Array<UIFontAdjustInfo> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     adjust: Array<UIFontAdjustInfo>;
   }
 
   /**
-   * @typedef UIFontAliasInfo
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * @typedef UIFontAliasInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface UIFontAliasInfo {
+
     /**
-     * Font set name.
+     * Alias name.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Font set name.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     name: string;
 
     /**
-     * Weight the font set contains only fonts with, if weight = 0,
-     * this font set can contain fonts with any weight.
-     * @type { number }
+     * Weight of the fonts included in the font family. If the value is greater than 0, the font family contains only
+     * the fonts with the specified weight. If the value is 0, the font family contains all fonts.
+     *
+     * Valid values are **0**, **100**, **400**, **700**, and **900**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Weight the font set contains only fonts with, if weight = 0,
-     * this font set can contain fonts with any weight.
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     weight: number;
   }
 
   /**
-   * @typedef UIFontAdjustInfo
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * @typedef UIFontAdjustInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface UIFontAdjustInfo {
+
     /**
-     * Original weight of the font
+     * Original weight of the font.
      *
-     * @type { number }
+     * Valid values are **50**, **80**, **100**, and **200**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Original weight of the font
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     weight: number;
+
     /**
-     * Font weight displayed in the app
+     * Weight of the font displayed in the application.
      *
-     * @type { number }
+     * Valid values are **100**, **400**, **700**, and **900**.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Font weight displayed in the app
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     to: number;
   }
 
   /**
-   * @typedef UIFontFallbackGroupInfo
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * @typedef UIFontFallbackGroupInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface UIFontFallbackGroupInfo {
+
     /**
-     * Indicates which font set uses following list for fallback font
-     * if the font set name is "", it means that the following list can be fallback font for all font sets.
+     * Name of the font family corresponding to the fallback fonts.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Indicates which font set uses following list for fallback font
-     * if the font set name is "", it means that the following list can be fallback font for all font sets.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     fontSetName: string;
 
     /**
-     * Fallback font list related.
+     * Fallback fonts for the font family. If **fontSetName** is **""**, it indicates that the fonts can be used as
+     * fallback fonts for all font families.
      *
-     * @type { Array<UIFontFallbackInfo> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Fallback font list related.
-     *
-     * @type { Array<UIFontFallbackInfo> }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     fallback: Array<UIFontFallbackInfo>;
   }
-  
+
   /**
-   * @typedef UIFontFallbackInfo
+   * UI font configuration of the system.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * @typedef UIFontFallbackInfo
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   interface UIFontFallbackInfo {
+
     /**
-     * Language that font set support.
+     * Language supported by the font family. The language format is BCP 47.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Language that font set support.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     language: string;
 
     /**
-     * Font name related.
+     * Font family name, which is the value of **family** specified in the font file.
      *
-     * @type { string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 11
-     */
-    /**
-     * Font name related.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 12 dynamic
+     * @crossplatform [since 12]
+     * @atomicservice [since 12]
+     * @since 11 dynamic
      */
     family: string;
   }
 
   /**
-   * Register a customized font in the FontManager.
+   * Registers a custom font with the font manager.
    *
-   * @param { FontOptions } options - FontOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Register a customized font in the FontManager.
+   * This API is asynchronous and does not support concurrent calls.
    *
-   * @param { FontOptions } options - FontOptions
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Register a customized font in the FontManager.
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
+   * > the current UI context.
    *
-   * @param { FontOptions } options - FontOptions
+   * @param { FontOptions } options - Information about the custom font to register.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 9 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#registerFont
    */
   function registerFont(options: FontOptions): void;
 
   /**
-   * Gets a list of fonts supported by system.
+   * Obtains this system font list.
    *
-   * @returns { Array<string> } A list of font names
+   * This API only takes effect on PCs/2-in-1 devices and returns an empty array on other devices.
+   *
+   * You are advised to use the
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API to obtain the
+   * latest system-supported font list data.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
+   * > the current UI context.
+   *
+   * @returns { Array<string> } List of supported fonts.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Gets a list of fonts supported by system.
-   *
-   * @returns { Array<string> } A list of font names
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Gets a list of fonts supported by system.
-   *
-   * @returns { Array<string> } A list of font names
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getSystemFontList
    */
   function getSystemFontList(): Array<string>;
 
   /**
-   * Get font details according to the font name.
+   * Obtains information about a system font based on the font name.
    *
-   * @param { string } fontName - font name
-   * @returns { FontInfo } Returns the font info
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getFont](docroot://reference/apis-arkui/arkts-apis-uicontext-uicontext.md#getfont) API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [Font]{@link @ohos.arkui.UIContext} object associated with
+   * > the current UI context.
+   *
+   * @param { string } fontName - System font name.
+   * @returns { FontInfo } Information about the system font.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * Get font details according to the font name.
-   *
-   * @param { string } fontName - font name
-   * @returns { FontInfo } Returns the font info
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Get font details according to the font name.
-   *
-   * @param { string } fontName - font name
-   * @returns { FontInfo } Returns the font info
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
    * @deprecated since 18
    * @useinstead ohos.arkui.UIContext.Font#getFontByName
    */
   function getFontByName(fontName: string): FontInfo;
 
   /**
-   * Get font details according to the font name.
+   * Obtains the UI font configuration information in the system font configuration file.
+   *
+   * This API can only obtain the information in the configuration file. If the UI context is not clear, **undefined**
+   * may be returned. If you want to obtain the full font configuration information, you are advised to use the
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API of the font engine.
    *
    * @returns { UIFontConfig } Returns the ui font config
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get font details according to the font name.
-   *
-   * @returns { UIFontConfig } Returns the ui font config
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   function getUIFontConfig(): UIFontConfig;
 }

@@ -1652,13 +1652,13 @@ declare namespace cloudSync {
     /**
      * Clean all downloaded files except those not yet migrated to the cloud or those that are being written to.
      *
-     * @returns { Promise<void> } - Return Promise.
+     * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 13900010 - Try again.
      * @syscap SystemCapability.FileManagement.DistributedFileService.CloudSync.Core
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
-    cleanFileCache(): Promise<void>;
+     cleanAllFileCache(): Promise<void>;
   }
 
   /**

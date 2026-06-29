@@ -5737,6 +5737,16 @@ declare namespace osAccount {
      * @since 23 static
      */
     remoteAuthOptions?: RemoteAuthOptions;
+
+    /**
+     * 表示有关身份验证选项的附加信息。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    additionalInfo?: string;
   }
 
   /**
@@ -6432,6 +6442,16 @@ declare namespace osAccount {
      * @since 23 dynamic&static
      */
     COMPANION_DEVICE = 64,
+
+    /**
+     * 自定义认证。
+     *
+     * @syscap SystemCapability.Account.OsAccount
+     * @systemapi Hide this for inner system use.
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    CUSTOM = 128,
 
     /**
      * 表示域认证类型。

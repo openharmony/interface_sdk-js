@@ -29,6 +29,8 @@ import { SINCE_TAG_NAME } from '../../utils/api_check_plugin_define';
 import { parseJSDoc } from '../custom-plugins/custom-comment-parser';
 import { globalObject } from '../../index';
 import path from 'path';
+import { getGlobalMonitor } from '../../utils/performance_monitor';
+import { PERF } from '../../utils/perf_constants';
 export let curApiCheckWrapper: ApiCheckWrapper;
 export let curFileCheckModuleInfo: FileCheckModuleInfo;
 
@@ -49,36 +51,49 @@ export class ApiCheckWrapper {
     this.fileName = fileName;
   }
 
-  fileName: string // ets源文件位置
+  fileName: string = '' // ets源文件位置
 
-  sourcefile: string // 声明节点位置
+  sourcefile: string = '' // 声明节点位置
 
   apiCheckHost: ApiCheckWrapperServiceHost
 }
 
 /**
  * API检查的入口逻辑，通过获取当前ets文件路径，设置参数，循环遍历节点。
- * 
+ *
  * @param { ApiCheckWrapperServiceHost } apiCheckHost host对象，提供检查配置和工具方法
  * @param { number | undefined } peer 上下文标识
  */
-export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: number | undefined): void {
+export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, peer: arkts.KNativePointer | undefined): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_EXPR + '.total');
+
   const contextPtr = arkts.arktsGlobal.compilerContext?.peer ?? peer;
   if (contextPtr === null || contextPtr === undefined) {
+    monitor.end(PERF.CHECK_EXPR + '.total');
     return;
   }
 
   curApiCheckWrapper = new ApiCheckWrapper(apiCheckHost);
   curFileCheckModuleInfo = {} as FileCheckModuleInfo;
-  let fileNames: Map<number, string> = new Map();
+  let fileNames: Map<arkts.KNativePointer, string> = new Map();
   let legacyModuleList: string[] = [];
   let legacyStructMap: Map<string, LegacyStructMap> = new Map();
 
   // 获取当前ets文件路径，设置参数
+  monitor.start(PERF.GET_CONTEXT);
   let program = arkts.getOrUpdateGlobalContext(contextPtr).program;
-  const visited: Set<number> = new Set();
+  monitor.end(PERF.GET_CONTEXT);
+
+  const visited: Set<arkts.KNativePointer> = new Set();
   const queue: arkts.Program[] = [program];
+
+  monitor.start(PERF.GET_LEGACY);
   getLegacyModule(legacyStructMap, legacyModuleList);
+  monitor.end(PERF.GET_LEGACY);
+
+  monitor.start(PERF.TRAVERSE_FILES);
+  let fileCheckCount = 0;
   while (queue.length > 0) {
     const currProgram = queue.shift()!;
     if (visited.has(currProgram.peer)) {
@@ -86,20 +101,24 @@ export function checkApiExpression(apiCheckHost: ApiCheckWrapperServiceHost, pee
     }
     if (currProgram.peer !== program.peer) {
       const name: string = fileNames.get(currProgram.peer)!;
-      if (globalObject.projectConfig.compileFiles.includes(path.normalize(currProgram.sourceFilePath))) {
+      if (currProgram.isBuiltSimultaneously && globalObject.projectConfig.compileFiles.includes(path.normalize(currProgram.sourceFilePath))) {
+        fileCheckCount++;
         curApiCheckWrapper.fileName = currProgram.sourceFilePath;
         curFileCheckModuleInfo.currentFileName = currProgram.fileName;
         // 清空map对象
         checkedNode = new Map();
-        // 获取根节点，开始遍历
-        traverseProgram(currProgram.astNode);
+        // 获取根节点，开始apiCheck
+        traverseProgram(currProgram.ast as arkts.ETSModule);
       }
     }
     visited.add(currProgram.peer);
-    for (const externalSource of currProgram.externalSources) {
+    for (const externalSource of currProgram.getExternalSources()) {
       visitNextProgramInQueue(queue, visited, externalSource, fileNames);
     }
   }
+  monitor.end(PERF.TRAVERSE_FILES);
+
+  monitor.end(PERF.CHECK_EXPR + '.total');
 }
 
 /**
@@ -156,11 +175,11 @@ function matchPrefix(prefixCollection: (string | RegExp)[], name: string): boole
  */
 function visitNextProgramInQueue(
   queue: arkts.Program[],
-  visited: Set<number>,
+  visited: Set<arkts.KNativePointer>,
   externalSource: arkts.ExternalSource,
-  fileNames: Map<number, string>
+  fileNames: Map<arkts.KNativePointer, string>
 ): void {
-  const nextProgramArr: arkts.Program[] = externalSource.programs ?? [];
+  const nextProgramArr: readonly arkts.Program[] = externalSource.programs ?? [];
   for (const nextProgram of nextProgramArr) {
     fileNames.set(nextProgram.peer, externalSource.getName());
     if (!visited.has(nextProgram.peer)) {
@@ -171,45 +190,59 @@ function visitNextProgramInQueue(
 
 /**
  * 检查Identifier节点对应的声明是否符合API规范（基于JSDoc配置）。
- * 
+ *
  * @param { arkts.AstNode } node 需要检查的标识符AST节点
  */
-export function checkIdentifier(node: arkts.AstNode): void {
+export function checkIdentifier(node: arkts.Identifier): void {
+  const monitor = getGlobalMonitor();
+  monitor.start(PERF.CHECK_ID);
+
   // 获取校验节点的声明节点
+  monitor.start(PERF.GET_DECL);
   const decl = arkts.getDecl(node);
+  monitor.end(PERF.GET_DECL);
 
   if (decl === undefined || decl === null) {
+    monitor.end(PERF.CHECK_ID);
     return;
   }
   // 获取声明节点系统路径
   let sysPath = getSysPath(decl);
 
   if (sysPath === undefined || sysPath === null) {
+    monitor.end(PERF.CHECK_ID);
     return;
   }
+  monitor.start(PERF.GET_CHECK_CFG);
   let checkPram: JsDocNodeCheckConfig = curApiCheckWrapper.apiCheckHost.getJsDocNodeCheckedConfig(
     curFileCheckModuleInfo.currentFileName, sysPath);
+  monitor.end(PERF.GET_CHECK_CFG);
+
   if (!checkPram.nodeNeedCheck) {
+    monitor.end(PERF.CHECK_ID);
     return;
   }
-  // 获取校验节点的行列信息
-  const address = getCurrentAddressByNode(node);
-  if (confirmNodeChecked(node.name, address.line, address.column)) {
+  // 获取校验节点的行列信息, arkUI复制的节点不应该告警
+  if (confirmNodeChecked(node.name, node.startPosition.getIndex())) {
+    monitor.end(PERF.CHECK_ID);
     return;
   }
   //进入检查jsdoc流程
-  expressionCheckByJsDoc(decl, node, address, checkPram.checkConfig);
+  monitor.start(PERF.CHECK_JSDOC);
+  expressionCheckByJsDoc(decl, node, checkPram.checkConfig);
+  monitor.end(PERF.CHECK_JSDOC);
+
+  monitor.end(PERF.CHECK_ID);
 }
 
 /**
  *  获取校验节点的行列信息，实现打印报错去重。
  * 
  * @param { string } nodeName 标识符节点的名称
- * @param { number } line 节点所在的行号
- * @param { number } col 节点所在的列号
+ * @param { number } index 偏移量
  */
-export function confirmNodeChecked(nodeName: string, line: number, col: number): boolean {
-  const nodeKey = `${curApiCheckWrapper.fileName}_${nodeName}_${line}_${col}`;
+export function confirmNodeChecked(nodeName: string, index: number): boolean {
+  const nodeKey = `${curApiCheckWrapper.fileName}_${nodeName}_${index}`;
   if (checkedNode.has(nodeKey) && checkedNode.get(nodeKey) !== undefined) {
     return true;
   } else {
@@ -233,31 +266,42 @@ function getSysPath(decl: arkts.AstNode): string {
  * 通过声明节点获取Jsdoc注释内容
  * 
  * @param { arkts.AstNode } decl 声明节点
- * @returns { string } 注释信息
+ * @returns { string | undefined } 注释信息
  */
-export function getPeerJsDocs(decl: arkts.AstNode): string {
+export function getPeerJsDocs(decl: arkts.AstNode): string | undefined {
   return getJSDocInformation(decl);
 }
 
 /**
  * 遍历jsdoc信息，对AST节点进行规则校验并打印报错信息。
- * 
+ *
  * @param { arkts.AstNode } declaration 声明节点
- * @param { arkts.AstNode } identifier AST节点
+ * @param { arkts.Identifier } identifier AST节点
  * @param { CurrentAddress } address 当前文件地址
  * @param { JsDocNodeCheckConfigItem[] } checkConfig 校验配置
  */
-function expressionCheckByJsDoc(
-  declaration: arkts.AstNode, identifier: arkts.AstNode,
-  address: CurrentAddress, checkConfig: JsDocNodeCheckConfigItem[]): void {
-  const jsDocsString: string = getPeerJsDocs(declaration);
+function expressionCheckByJsDoc(declaration: arkts.AstNode, identifier: arkts.Identifier, checkConfig: JsDocNodeCheckConfigItem[]): void {
+  const monitor = getGlobalMonitor();
+
+  // 解析 JSDoc 字符串
+  monitor.start(PERF.PARSE_JSDOC);
+  const jsDocsString: string | undefined = getPeerJsDocs(declaration);
   const jsDocs: JSDoc[] = parseJSDoc(jsDocsString);
+  monitor.end(PERF.PARSE_JSDOC);
+
+  // 获取当前 JSDoc
+  monitor.start(PERF.GET_CURRENT_JSDOC);
   const jsDocTags: JSDocTag[] = getCurrentJSDoc(jsDocs);
+  monitor.end(PERF.GET_CURRENT_JSDOC);
+
+  let address: CurrentAddress | undefined = undefined;
   for (let i = 0; i < checkConfig.length; i++) {
     const config: JsDocNodeCheckConfigItem = checkConfig[i];
     let tagNameCheckNecessity = true;
     if (config.checkJsDocSuppressorValidCallback) {
+      monitor.start(PERF.CHECK_CALLBACK);
       tagNameCheckNecessity = config.checkJsDocSuppressorValidCallback(jsDocTags, config, identifier, declaration);
+      monitor.end(PERF.CHECK_CALLBACK);
     }
     if (!tagNameCheckNecessity) {
       continue;
@@ -268,19 +312,30 @@ function expressionCheckByJsDoc(
         continue;
       }
       tagNameExisted = true;
-      if (tagNameExisted && !config.tagNameShouldExisted) {
-        curApiCheckWrapper.apiCheckHost.pushLogInfo(
-          identifier.name, 
-          curApiCheckWrapper.fileName,
-          address, 
-          config.type, 
-          config.message
-        );
-        break;
+      if (!tagNameExisted || config.tagNameShouldExisted) {
+        continue;
       }
+      if (address === undefined) {
+        monitor.start(PERF.GET_ADDRESS);
+        address = getCurrentAddressByNode(identifier);
+        monitor.end(PERF.GET_ADDRESS);
+      }
+      curApiCheckWrapper.apiCheckHost.pushLogInfo(
+        identifier.name,
+        curApiCheckWrapper.fileName,
+        address,
+        config.type,
+        config.message
+      );
+      break;
     }
     
     if (config.tagNameShouldExisted && !tagNameExisted) {
+      if (address === undefined) {
+        monitor.start(PERF.GET_ADDRESS);
+        address = getCurrentAddressByNode(identifier);
+        monitor.end(PERF.GET_ADDRESS);
+      }
       curApiCheckWrapper.apiCheckHost.pushLogInfo(
         identifier.name, curApiCheckWrapper.fileName,
         address, config.type, config.message);
@@ -297,8 +352,8 @@ function expressionCheckByJsDoc(
 export function getCurrentAddressByNode(node: arkts.AstNode): CurrentAddress {
   let address = {} as CurrentAddress;
   let startPosition = node.startPosition;
-  address.column = startPosition.col();
-  address.line = startPosition.line() + 1;
+  address.column = startPosition.getCol();
+  address.line = startPosition.getLine() + 1;
   return address;
 }
 

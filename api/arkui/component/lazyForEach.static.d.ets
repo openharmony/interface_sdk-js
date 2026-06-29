@@ -12,72 +12,107 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
 
 import { Builder, CustomBuilderT } from './builder';
+
 import { ComponentBuilder } from './builder';
+
 import { DynamicNode } from './common';
+
+/**
+ * Defines type for memory optimization strategy.
+ *
+ * @enum { number }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export enum LazyForEachMemOptStrategy {
+    /**
+     * No memory optimization.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    DEFAULT = 0,
+    /**
+     * LazyForEach handle the memory optimization.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    ENABLE_AUTO_CACHE_OPTIMIZATION = 1 << 0,
+}
 
 /**
  * Defines the types of data source operations.
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export enum DataOperationType {
-    /**
-     * Add data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    ADD = 'add',
-    /**
-     * Delete data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    DELETE = 'delete',
-    /**
-     * Exchange data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    EXCHANGE = 'exchange',
-    /**
-     * Move data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    MOVE = 'move',
-    /**
-     * Change data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    CHANGE = 'change',
-    /**
-     * Reload data.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    RELOAD = 'reload'
+
+  /**
+   * Add data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  ADD = 'add',
+
+  /**
+   * Delete data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  DELETE = 'delete',
+
+  /**
+   * Exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  EXCHANGE = 'exchange',
+
+  /**
+   * Move data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  MOVE = 'move',
+
+  /**
+   * Change data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  CHANGE = 'change',
+
+  /**
+   * Reload data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  RELOAD = 'reload'
 }
 
 /**
@@ -88,24 +123,26 @@ export enum DataOperationType {
  * @since 26.0.0 static
  */
 export enum LazyForEachReleaseStrategy {
-    /**
-     * Release all discarded nodes during the next idle period.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    BATCH = 0,
-    /**
-     * Release discarded nodes one by one during the next idle period based on the
-     * remaining time of the current frame. Unreleased nodes will continue to be
-     * released in subsequent idle periods based on the available idle time.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    PROGRESSIVE = 1
+
+  /**
+   * Release all discarded nodes during the next idle period.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  BATCH = 0,
+
+  /**
+   * Release discarded nodes one by one during the next idle period based on the
+   * remaining time of the current frame. Unreleased nodes will continue to be
+   * released in subsequent idle periods based on the available idle time.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  PROGRESSIVE = 1
 }
 
 /**
@@ -117,380 +154,388 @@ export enum LazyForEachReleaseStrategy {
  * @since 26.0.0 static
  */
 export enum LazyForEachCustomComponentFreezeMode {
-    /**
-     * Follow the enableCustomComponentFreeze field in Metadata to determine
-     * whether freezing takes effect.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    AUTO = 0,
-    /**
-     * Freezing is disabled for cached custom nodes removed from the component tree.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    DISABLED = 1,
-    /**
-     * Freezing is enabled for cached custom nodes removed from the component tree.
-     * State updates of cached custom components will be frozen.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    ENABLED = 2
+
+  /**
+   * Follow the enableCustomComponentFreeze field in Metadata to determine
+   * whether freezing takes effect.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  AUTO = 0,
+
+  /**
+   * Freezing is disabled for cached custom nodes removed from the component tree.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  DISABLED = 1,
+
+  /**
+   * Freezing is enabled for cached custom nodes removed from the component tree.
+   * State updates of cached custom components will be frozen.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  ENABLED = 2
 }
 
 /**
- * Defines the options for LazyForEach.
+ * Options for LazyForEach.
  *
- * @interface LazyForEachOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
  */
 export interface LazyForEachOptions {
-    /**
-     * Freeze mode for cached custom nodes that have been removed from the
-     * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
-     *
-     * @default LazyForEachCustomComponentFreezeMode.AUTO
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
-    /**
-     * Resource release strategy for LazyForEach discarded nodes.
-     * Default value: LazyForEachReleaseStrategy.BATCH.
-     *
-     * @default LazyForEachReleaseStrategy.BATCH
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 static
-     */
-    releaseStrategy?: LazyForEachReleaseStrategy;
+
+  /**
+   * Freeze mode for cached custom nodes that have been removed from the
+   * component tree. Default value: LazyForEachCustomComponentFreezeMode.AUTO.
+   *
+   * @default LazyForEachCustomComponentFreezeMode.AUTO
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  customComponentFreezeMode?: LazyForEachCustomComponentFreezeMode;
+
+  /**
+   * Resource release strategy for LazyForEach discarded nodes.
+   * Default value:LazyForEachReleaseStrategy.BATCH.
+   *
+   * @default LazyForEachReleaseStrategy.BATCH
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  releaseStrategy?: LazyForEachReleaseStrategy;
+
+  /**
+   * Memory optimization strategy for LazyForEach.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 static
+   */
+  memoryOptimizationStrategy?: LazyForEachMemOptStrategy;
 }
 
 /**
  * Defines add operation.
  *
- * @interface DataAddOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataAddOperation {
-    /**
-     * How to operate added data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
-    /**
-     * Index of added data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    index: int;
-    /**
-     * Count of added data in one operation.
-     * Only validate for ADD and DELETE.
-     *
-     * @type { ?int }
-     * @default 1
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    count?: int;
-    /**
-     * Key of added data.
-     *
-     * @type { ?(string | Array<string>) }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    key?: string | Array<string>;
+
+  /**
+   * How to operate added data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
+
+  /**
+   * Index of added data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  index: int;
+
+  /**
+   * Count of added data in one operation.
+   * Only validate for ADD and DELETE.
+   *
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  count?: int;
+
+  /**
+   * Key of added data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  key?: string | Array<string>;
 }
 
 /**
  * Defines delete operation.
  *
- * @interface DataDeleteOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataDeleteOperation {
-    /**
-     * How to operate deleted data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
-    /**
-     * Index of deleted data.
-     *
-     * @type { number }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    index: int;
-    /**
-     * Count of deleted data in one operation.
-     * Only validate for ADD and DELETE.
-     *
-     * @type { ?int }
-     * @default 1
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    count?: int;
+
+  /**
+   * How to operate deleted data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
+
+  /**
+   * Index of deleted data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  index: int;
+
+  /**
+   * Count of deleted data in one operation.
+   * Only validate for ADD and DELETE.
+   *
+   * @default 1
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  count?: int;
 }
 
 /**
  * Defines change operation.
  *
- * @interface DataChangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataChangeOperation {
-    /**
-     * How to operate changed data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
-    /**
-     * Index of changed data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    index: int;
-    /**
-     * Key of changed data.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    key?: string;
+
+  /**
+   * How to operate changed data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
+
+  /**
+   * Index of changed data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  index: int;
+
+  /**
+   * Key of changed data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  key?: string;
 }
 
 /**
  * Defines position of moved data.
  *
- * @interface MoveIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface MoveIndex {
-    /**
-     * Index of moved data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    from: int;
-    /**
-     * Destination of moved data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    to: int;
+
+  /**
+   * Index of moved data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  from: int;
+
+  /**
+   * Destination of moved data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  to: int;
 }
 
 /**
  * Defines position of exchange data.
  *
- * @interface ExchangeIndex
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface ExchangeIndex {
-    /**
-     * Index of the first exchange data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    start: int;
-    /**
-     * Index of the second exchange data.
-     *
-     * @type { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    end: int;
+
+  /**
+   * Index of the first exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  start: int;
+
+  /**
+   * Index of the second exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  end: int;
 }
 
 /**
  * Defines new key of exchange data.
  *
- * @interface ExchangeKey
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface ExchangeKey {
-    /**
-     * Key of the first exchange data.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    start: string;
-    /**
-     * Key of the second exchange data.
-     *
-     * @type { string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    end: string;
+
+  /**
+   * Key of the first exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  start: string;
+
+  /**
+   * Key of the second exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  end: string;
 }
 
 /**
  * Defines move&exchange operation.
  *
- * @interface DataMoveOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataMoveOperation {
-    /**
-     * How to operate moved data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
-    /**
-     * Index of moved data.
-     *
-     * @type { MoveIndex }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    index: MoveIndex;
-    /**
-     * Key of moved data.
-     *
-     * @type { ?string }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    key?: string;
+
+  /**
+   * How to operate moved data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
+
+  /**
+   * Index of moved data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  index: MoveIndex;
+
+  /**
+   * Key of moved data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  key?: string;
 }
 
 /**
  * Defines exchange operation.
  *
- * @interface DataExchangeOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataExchangeOperation {
-    /**
-     * How to operate exchange data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
-    /**
-     * Index of exchange data.
-     *
-     * @type { ExchangeIndex }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    index: ExchangeIndex;
-    /**
-     * Key of exchange data.
-     *
-     * @type { ?ExchangeKey }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    key?: ExchangeKey;
+
+  /**
+   * How to operate exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
+
+  /**
+   * Index of exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  index: ExchangeIndex;
+
+  /**
+   * Key of exchange data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  key?: ExchangeKey;
 }
 
 /**
  * Defines reload operation.
  *
- * @interface DataReloadOperation
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataReloadOperation {
-    /**
-     * How to operate reload data.
-     *
-     * @type { DataOperationType }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    type: DataOperationType;
+
+  /**
+   * How to operate reload data.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  type: DataOperationType;
 }
 
 /**
  * All data operation types.
  *
- * @typedef { DataAddOperation | DataDeleteOperation | DataChangeOperation | DataMoveOperation | DataExchangeOperation
- *  | DataReloadOperation }
+ * @unionmember { DataAddOperation }
+ * @unionmember { DataDeleteOperation }
+ * @unionmember { DataChangeOperation }
+ * @unionmember { DataMoveOperation }
+ * @unionmember { DataExchangeOperation }
+ * @unionmember { DataReloadOperation }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -501,181 +546,191 @@ export type DataOperation = DataAddOperation | DataDeleteOperation | DataChangeO
 /**
  * Data Change Listener.
  *
- * @interface DataChangeListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface DataChangeListener {
-    /**
-     * Data ready.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDataReloaded(): void;
-    /**
-     * Data added.
-     *
-     * @param { int } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDataAdd(index: int): void;
-    /**
-     * Data moved.
-     *
-     * @param { int } from
-     * @param { int } to
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDataMove(from: int, to: int): void;
-    /**
-     * Data deleted.
-     *
-     * @param { int } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDataDelete(index: int): void;
-    /**
-     * Called when there is a data change.
-     *
-     * @param { int } index
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDataChange(index: int): void;
-    /**
-     * Called when multiple data changes occur.
-     *
-     * @param { Array<DataOperation> } dataOperations
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    onDatasetChange(dataOperations: Array<DataOperation>): void;
+
+  /**
+   * Data ready.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDataReloaded(): void;
+
+  /**
+   * Data added.
+   *
+   * @param { int } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDataAdd(index: int): void;
+
+  /**
+   * Data moved.
+   *
+   * @param { int } from
+   * @param { int } to
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDataMove(from: int, to: int): void;
+
+  /**
+   * Data deleted.
+   *
+   * @param { int } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDataDelete(index: int): void;
+
+  /**
+   * Called when there is a data change.
+   *
+   * @param { int } index
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDataChange(index: int): void;
+
+  /**
+   * Called when multiple data changes occur.
+   *
+   * @param { Array<DataOperation> } dataOperations
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  onDatasetChange(dataOperations: Array<DataOperation>): void;
 }
 
 /**
  * Developers need to implement this interface to provide data to LazyForEach component.
  *
- * @interface IDataSource
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  */
 export interface IDataSource<T> {
-    /**
-     * Total data count.
-     *
-     * @returns { int }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    totalCount(): int;
-    /**
-     * Return the data of index.
-     *
-     * @param { int } index
-     * @returns { T }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    getData(index: int): T;
-    /**
-     * Register data change listener.
-     *
-     * @param { DataChangeListener } listener
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    registerDataChangeListener(listener: DataChangeListener): void;
-    /**
-     * Unregister data change listener.
-     *
-     * @param { DataChangeListener } listener
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    unregisterDataChangeListener(listener: DataChangeListener): void;
+
+  /**
+   * Total data count.
+   *
+   * @returns { int }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  totalCount(): int;
+
+  /**
+   * Return the data of index.
+   *
+   * @param { int } index
+   * @returns { T }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  getData(index: int): T;
+
+  /**
+   * Register data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  registerDataChangeListener(listener: DataChangeListener): void;
+
+  /**
+   * Unregister data change listener.
+   *
+   * @param { DataChangeListener } listener
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  unregisterDataChangeListener(listener: DataChangeListener): void;
 }
 
 /**
  * Declare LazyForEachAttribute.
  *
- * @extends DynamicNode
- * @interface LazyForEachAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
  * @noninterop
  */
 export interface LazyForEachAttribute extends DynamicNode {
-    /**
-     * Set the component's source code redirection information. 
-     * @param { string } sourceLine - the source code line.
-     * @param { string } [moduleName] - module to which the component belongs.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    debugLine(sourceLine: string, moduleName?: string): this;
-    /**
-     * Sets LazyForEach options.
-     *
-     * @param { IDataSource<T> } dataSource - Data source to provide data.
-     * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-     * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-     * @returns { this } LazyForEachAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setLazyForEachOptions<T>(dataSource: IDataSource<T>,
+
+  /**
+   * Set the component's source code redirection information.
+   *
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  debugLine(sourceLine: string, moduleName?: string): this;
+
+  /**
+   * Sets LazyForEach options.
+   *
+   * @param { IDataSource<T> } dataSource - Data source to provide data.
+   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
+   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
+   * @returns { this } LazyForEachAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
         keyGenerator?: KeyGeneratorFunc<T>): this;
-    /**
-     * Sets LazyForEach options.
-     *
-     * @param { IDataSource<T> } dataSource - Data source to provide data.
-     * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
-     * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
-     * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
-     * @returns { this } LazyForEachAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setLazyForEachOptions<T>(dataSource: IDataSource<T>,
+
+  /**
+   * Sets LazyForEach options.
+   *
+   * @param { IDataSource<T> } dataSource - Data source to provide data.
+   * @param { ItemGeneratorFunc<T> } itemGenerator - Item generator function.
+   * @param { KeyGeneratorFunc<T> } [keyGenerator] - Key generator function.
+   * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
+   * @returns { this } LazyForEachAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setLazyForEachOptions<T>(dataSource: IDataSource<T>,
         itemGenerator: ItemGeneratorFunc<T>,
         keyGenerator?: KeyGeneratorFunc<T>,
         options?: LazyForEachOptions): this;
-    /**
-     * Notify LazyForEach has finished setting up its attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    applyAttributesFinish(): void;
+
+  /**
+   * Notify LazyForEach has finished setting up its attributes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  applyAttributesFinish(): void;
 }
 
 /**
  * Defines item generator function.
  *
- * @typedef { function } ItemGeneratorFunc<T>
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -688,7 +743,6 @@ declare type ItemGeneratorFunc<T> = (item: T, index: int) => void;
 /**
  * Defines key generator function.
  *
- * @typedef { function } KeyGeneratorFunc<T>
  * @param { T } item - item in an array
  * @param { int } index - index corresponding to an array item.
  * @returns { string } Character string generated based on item and index
@@ -701,24 +755,13 @@ declare type KeyGeneratorFunc<T> = (item: T, index: int) => string;
 /**
  * Enter the value to obtain the LazyForEach.
  *
- * @param { IDataSource<T> } dataSource - the array collection to be used in UI
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
- * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
- * @returns { LazyForEachAttribute } LazyForEach attribute
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- * @noninterop
- */
-/**
- * Enter the value to obtain the LazyForEach.
- *
- * @param { IDataSource<T> } dataSource - the array collection to be used in UI
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI.
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function.
  * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
  * @returns { LazyForEachAttribute } LazyForEach attribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 26.0.0 static
+ * @since 23 static
  * @noninterop
  */
 @ComponentBuilder
@@ -730,10 +773,10 @@ export declare function LazyForEach<T = Any>(dataSource: IDataSource<T>,
 /**
  * Enter the value to obtain the LazyForEach.
  *
- * @param { IDataSource<T> } dataSource - the array collection to be used in UI
- * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function
- * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function
- * @param { LazyForEachOptions } [options] - options for LazyForEach behavior
+ * @param { IDataSource<T> } dataSource - the array collection to be used in UI.
+ * @param { ItemGeneratorFunc<T> } itemGenerator - item generator function.
+ * @param { KeyGeneratorFunc<T> } [keyGenerator] - key generator function.
+ * @param { LazyForEachOptions } [options] - options for LazyForEach behavior.
  * @returns { LazyForEachAttribute } LazyForEach attribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

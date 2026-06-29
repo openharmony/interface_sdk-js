@@ -28,6 +28,7 @@ import { Callback } from './@ohos.base';
  * @since 26.0.0 dynamic&static
  */
 declare namespace serial {
+
   /**
    * Obtains the serial port list. This API returns the result asynchronously through a promise.
    *
@@ -39,6 +40,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   function getSerialPortList(): Promise<SerialPort[]>;
+
   /**
    * Serial port object, which provides information and communication capabilities of the serial port device.
    *
@@ -47,6 +49,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   interface SerialPort {
+
     /**
      * Serial port information.
      *
@@ -162,7 +165,7 @@ declare namespace serial {
     /**
      * Sets the RTS signal. This API returns the result asynchronously through a promise.
      *
-     * @param {boolean} enable - RTS signal status, indicating whether to request sending data.
+     * @param { boolean } enable - RTS signal status, indicating whether to request sending data.
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 35700001 - Service error.
      * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
@@ -199,7 +202,63 @@ declare namespace serial {
      * @since 26.0.0 dynamic&static
      */
     sendBrk(): Promise<void>;
+
+    /**
+     * This interface is used to listen to the disconnection event of the USB virtual serial port. Use Callback
+     * asynchronous callback.
+     * When the {@link close} interface is invoked, all callbacks are cleared.
+     *
+     * @param { Callback<void> } callback - Callback of the USB virtual serial port disconnection event.
+     * @throws { BusinessError } 35700001 - Service error.
+     * @throws { BusinessError } 35700005 - Port not open.
+     * @syscap SystemCapability.BusManager.Serial
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    onDisconnect(callback: Callback<void>): void;
+
+    /**
+     * This command is used to cancel the monitoring of the USB virtual serial port disconnection event.
+     *
+     * @param { Callback<void> } [callback] - Callback of the USB virtual serial port disconnection event.
+     *     <br>Default value: Clears all callbacks for USB virtual serial port disconnection events.
+     * @throws { BusinessError } 35700001 - Service error.
+     * @throws { BusinessError } 35700005 - Port not open.
+     * @syscap SystemCapability.BusManager.Serial
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    offDisconnect(callback?: Callback<void>): void;
+
+    /**
+     * Sets the DTR signal status. Use Promise asynchronous callbacks.
+     *
+     * @param { boolean } enable - DTR signal status, indicating whether the local end is ready.
+     * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 35700001 - Service error.
+     * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
+     * @throws { BusinessError } 35700005 - Port not open.
+     * @syscap SystemCapability.BusManager.Serial
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    setDtr(enable: boolean): Promise<void>;
+
+    /**
+     * Obtains the DSR signal status. This API returns the result asynchronously through a promise.
+     *
+     * @returns { Promise<boolean> } Promise used to return the result. The value **true** indicates the remote end
+     *     is ready, and **false** indicates the remote end is not ready.
+     * @throws { BusinessError } 35700001 - Service error.
+     * @throws { BusinessError } 35700003 - Virtual serial port disconnected.
+     * @throws { BusinessError } 35700005 - Port not open.
+     * @syscap SystemCapability.BusManager.Serial
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getDsr(): Promise<boolean>;
   }
+
   /**
    * Serial port device information.
    *
@@ -208,6 +267,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   interface SerialPortInfo {
+
     /**
      * Port name.
      *
@@ -253,6 +313,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   enum DataBits {
+
     /**
      * Five data bits.
      *
@@ -298,6 +359,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   enum StopBits {
+
     /**
      * One stop bit.
      *
@@ -325,6 +387,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   enum Parity {
+
     /**
      * No parity bit.
      *
@@ -379,6 +442,7 @@ declare namespace serial {
    * @since 26.0.0 dynamic&static
    */
   interface SerialConfigs {
+
     /**
      * Baud rate.
      * The value must be an integer.

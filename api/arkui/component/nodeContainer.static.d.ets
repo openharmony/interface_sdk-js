@@ -20,41 +20,44 @@
  */
 
 import { NodeController } from '../../@ohos.arkui.node';
+
 import { CommonMethod, AttributeModifier } from './common';
+
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
 
 /**
  * The NodeContainerAttribute.
  *
- * @extends CommonMethod
- * @interface TabsAttribute
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface NodeContainerAttribute extends CommonMethod {
-    /**
-     * Sets the attribute modifier.
-     *
-     * @param { AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier -
-     *     instance of NodeController
-     * @return { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
-    attributeModifier(
+
+  /**
+   * Sets the attribute modifier.
+   *
+   * @param { AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined } modifier -
+   *     instance of NodeController.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 23 static
+   */
+  attributeModifier(
         modifier: AttributeModifier<NodeContainerAttribute> | AttributeModifier<CommonMethod> | undefined): this;
-    /**
-     * Sets NodeContainer options.
-     *
-     * @param { NodeController } controller - Instance of controller of NodeContainer.
-     * @returns { this } NodeContainerAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setNodeContainerOptions(controller: NodeController): this;
+
+  /**
+   * Sets NodeContainer options.
+   *
+   * @param { NodeController } controller - Instance of controller of NodeContainer.
+   * @returns { this } NodeContainerAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setNodeContainerOptions(controller: NodeController): this;
 }
 
 /**

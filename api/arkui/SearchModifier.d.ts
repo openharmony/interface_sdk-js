@@ -18,35 +18,21 @@
  * @kit ArkUI
  */
 
-
-
-
 /**
  * Defines Search Modifier
  *
- * @extends SearchAttribute
- * @implements AttributeModifier<SearchAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
-*/
-/**
- * Defines Search Modifier
- *
- * @extends SearchAttribute
- * @implements AttributeModifier<SearchAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 export declare class SearchModifier extends SearchAttribute implements AttributeModifier<SearchAttribute> {
 
   /**
    * Defines the normal update attribute function.
-   * 
+   *
    * @param { SearchAttribute } instance
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

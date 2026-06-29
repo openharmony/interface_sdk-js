@@ -14,6 +14,14 @@
  */
 
 /**
+ * The **annotation** module defines the annotation types of OpenHarmony ArkTS APIs, such as the minimum available
+ * version of the lifecycle.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 22. Newly added APIs will be marked with
+ * a superscript to indicate their earliest API version.
+ *
  * @file Annotation
  * @kit BasicServicesKit
  */
@@ -30,9 +38,9 @@
  * @form
  * @atomicservice
  * @since 22 dynamic
- * @since 26.0.0 static
  */
 export @interface Available {
+
   /**
    * minApiVersion用于标识最低可用版本，由两部分组成：系统类型+版本号。仅当系统类型为OpenHarmony时可省略系统类型。例如：'OpenHarmony 20'，'20'。
    *
@@ -42,23 +50,22 @@ export @interface Available {
    * @form
    * @atomicservice
    * @since 22 dynamic
-   * @since 26.0.0 static
    */
   minApiVersion: string = '';
 }
 
 /**
- * 本模块定义了OpenHarmony ArkTS API的注解类型，如生命周期最小可用版本等。
- *
+* 支持消除告警的规则。
+*
  * @syscap SystemCapability.Base
  * @stagemodelonly
  * @crossplatform
  * @form
  * @atomicservice
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 export const enum SuppressWarningsType {
+
   /**
    * 支持消除兼容性告警。
    *
@@ -68,9 +75,9 @@ export const enum SuppressWarningsType {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   COMPATIBILITY = 'compatibility',
+
   /**
    * 支持消除多设备告警。
    *
@@ -80,18 +87,18 @@ export const enum SuppressWarningsType {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   SYSCAP = 'syscap',
+
   /**
-   * 支持屏蔽生成的权限警告。
+   * 支持消除权限告警。
    *
    * @syscap SystemCapability.Base
    * @stagemodelonly
    * @crossplatform
    * @form
    * @atomicservice
-   * @since 26.0.0 dynamic&static
+   * @since 26.0.0 dynamic
    */
   PERMISSION = 'permission'
 }
@@ -107,9 +114,9 @@ export const enum SuppressWarningsType {
  * @form
  * @atomicservice
  * @since 23 dynamic
- * @since 26.0.0 static
  */
 export @interface SuppressWarnings {
+
   /**
    * 支持告警消除的规则集合。
    *
@@ -119,7 +126,6 @@ export @interface SuppressWarnings {
    * @form
    * @atomicservice
    * @since 23 dynamic
-   * @since 26.0.0 static
    */
   rules: Array<SuppressWarningsType>;
 }

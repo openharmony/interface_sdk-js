@@ -1,4 +1,5 @@
-'use static'
+
+'use static';
 /*
  * Copyright (c) 2026 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,32 +16,37 @@
  */
 
 /**
- * @file
+ * The **annotation** module defines the annotation types of OpenHarmony ArkTS APIs, such as the minimum available
+ * version of the lifecycle.
+ *
+ * > **NOTE**
+ * >
+ * > - The initial APIs of this module are supported since API version 22. Newly added APIs will be marked with
+ * a superscript to indicate their earliest API version.
+ *
+ * @file Annotation
  * @kit BasicServicesKit
  */
 
 /**
- * Available is an Annotation and it supports class function variable type interface namespace etc
- * Apply this annotation at the source code location, then call the corresponding source code (e.g., class). 
- * During compilation, compatibility checks will be triggered. If minApiVersion exceeds the compatibleSDKVersion
- * specified in build-profile.json5, a compatibility warning will be generated.
+ * Annotates the minimum available version supported by an API. This annotation capability is provided by the system
+ * and can be used on classes, APIs, variables, types, modules, and enums. After the annotation is added to the source
+ * code, the compilation tool checks for potential compatibility issues. If the value of **minApiVersion** is greater
+ * than that of **compatibleSDKVersion** specified in **build-profile.json5**, a compatibility warning is reported.
+ *
  * @syscap SystemCapability.Base
  * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
  * @since 26.0.0 static
  */
 @Retention('SOURCE')
 export @interface Available {
+
   /**
-   * minApiVersion is used to indicate the minimum Available version. Composed of two parts: System Type + Version Number. The system type can be omitted only when the type is OpenHarmony.For example: 'OpenHarmony 20' '20'
-   * @type { string }
+   * minApiVersion is used to indicate the minimum Available version. Composed of two parts: System Type + Version
+   * Number. The system type can be omitted only when the type is OpenHarmony.For example: 'OpenHarmony 20' '20'
+   *
    * @syscap SystemCapability.Base
    * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
    * @since 26.0.0 static
    */
   minApiVersion: string = '';

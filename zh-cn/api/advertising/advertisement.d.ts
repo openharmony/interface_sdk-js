@@ -14,9 +14,10 @@
  */
 
 /**
- * @file Defines the advertisement data model
+ * @file 广告内容
  * @kit AdsKit
  */
+
 /**
  * 本模块为请求的广告内容。
  *
@@ -45,10 +46,13 @@ export interface Advertisement {
 
   /**
    * 服务器验证参数。
-   *
+   * 
    * {
-   *	customData: "test",
-   *	userId: "12345"
+   * 
+   * customData: "test",
+   * 
+   * userId: "12345"
+   * 
    * }
    *
    * @syscap SystemCapability.Advertising.Ads
@@ -105,12 +109,7 @@ export interface Advertisement {
   /**
    * 自定义参数。
    * 
-   * - isFullScreen：类型boolean。开屏广告自定义参数，用于标识返回的广告是否为全屏，true为全屏广告，false为半屏广告。
-   * - biddingInfo：类型Object。用于获取实时竞价相关结果。
-   * - biddingInfo.price：类型number。本条广告的eCPM（Effective Cost Per Mille，每一千次展示可以获得的广告收入）。
-   * - biddingInfo.cur:类型string。 本条广告的价格币种。支持币种：CNY（单位：元）、USD（单位：美元）、EUR（单位：欧元）、GBP（单位：英镑）、JPY（单位：日元）。
-   * - biddingInfo.nurl：类型string。媒体回传竞价成功结果的URL。
-   * - biddingInfo.lurl：类型string。媒体回传竞价失败通知其他DSP竞价成功结果的URL。
+   * <!--RP1--><!--RP1End-->
    *
    * @syscap SystemCapability.Advertising.Ads
    * @atomicservice [since 12]

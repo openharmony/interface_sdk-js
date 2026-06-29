@@ -36,9 +36,17 @@ declare namespace hichecker {
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CAUTION_PRINT_LOG = 9223372036854775808n;
+
+  /**
+   * Alarm rule, which is programmed to print a log when an alarm is generated.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CAUTION_PRINT_LOG: bigint;
 
   /**
    * Alarm rule, which is programmed to force the application to exit when an alarm is generated.
@@ -46,9 +54,17 @@ declare namespace hichecker {
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CAUTION_TRIGGER_CRASH = 4611686018427387904n;
+
+  /**
+   * Alarm rule, which is programmed to force the application to exit when an alarm is generated.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CAUTION_TRIGGER_CRASH: bigint;
 
   /**
    * Caution rule, which is programmed to detect whether any time-consuming function is invoked.
@@ -56,9 +72,17 @@ declare namespace hichecker {
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_THREAD_CHECK_SLOW_PROCESS = 1n;
+
+  /**
+   * Caution rule, which is programmed to detect whether any time-consuming function is invoked.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_THREAD_CHECK_SLOW_PROCESS: bigint;
 
   /**
    * Caution rule, which is programmed to detect whether ability leakage has occurred.
@@ -66,9 +90,17 @@ declare namespace hichecker {
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 8 dynamic
-   * @since 23 static
    */
   const RULE_CHECK_ABILITY_CONNECTION_LEAK = 8589934592n;
+
+    /**
+   * Caution rule, which is programmed to detect whether ability leakage has occurred.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CHECK_ABILITY_CONNECTION_LEAK: bigint;
 
   /**
    * Caution rule, which is programmed to detect the ArkUI performance.
@@ -76,9 +108,17 @@ declare namespace hichecker {
    * @constant
    * @syscap SystemCapability.HiviewDFX.HiChecker
    * @since 11 dynamic
-   * @since 23 static
    */
   const RULE_CHECK_ARKUI_PERFORMANCE = 17179869184n;
+
+  /**
+   * Caution rule, which is programmed to detect the ArkUI performance.
+   *
+   * @syscap SystemCapability.HiviewDFX.HiChecker
+   * @FaAndStageModel
+   * @since 23 static
+   */
+  const RULE_CHECK_ARKUI_PERFORMANCE: bigint;
 
   /**
    * The thread rule check network usage.

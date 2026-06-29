@@ -39,10 +39,11 @@ declare interface RowOptions {
    * Spacing between child components.
    * Since API version 9, this parameter does not take effect when it is set to a negative number or when
    * **justifyContent** is set to **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround** or **FlexAlign.SpaceEvenly**.
-   * Unit: vp, If an invalid value is set, the default value is used instead.
-   * **NOTE**
-   * The value of **space** can be a number greater than or equal to 0 or a string that can be converted to a number.
-   * Default value: **0**.
+   * Unit: vp. If an invalid value is set, the default value is used instead.
+   * > **NOTE**
+   * >
+   * > The value of **space** can be a number greater than or equal to 0 or a string that can be converted to a number.
+   * > Default value: **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform
@@ -75,10 +76,11 @@ interface RowOptionsV2 {
    * Spacing between child components.
    * This parameter does not take effect if the value specified is a negative number, or if **justifyContent** is set to
    * **FlexAlign.SpaceBetween**, **FlexAlign.SpaceAround**, or **FlexAlign.SpaceEvenly**.
-   * Unit: vp, Invalid values are treated as the default value.
-   * **NOTE**
-   * The value of **space** can be a number greater than or equal to 0, a string that can be converted to a number, or a
-   * Resource type that can be converted to a number. Default value: **0**.
+   * Unit: vp. Invalid values are treated as the default value.
+   * > **NOTE**
+   * >
+   * > The value of **space** can be a number greater than or equal to 0, a string that can be converted to a number, or a
+   * > Resource type that can be converted to a number. Default value: **0**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

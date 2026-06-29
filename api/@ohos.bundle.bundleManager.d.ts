@@ -285,6 +285,30 @@ declare namespace bundleManager {
      * @since 23 dynamic&static
      */
     GET_BUNDLE_INFO_WITH_ENTRY_MODULE = 0x00010000,
+    /**
+     * Used to obtain the bundle information of common app clones (appIndex: 1-5).
+     * It is valid only in the {@link bundleManager.getAllAppCloneBundleInfo} API.
+     *
+     * **System API**: This flag can be used only in system APIs.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    GET_BUNDLE_INFO_WITH_COMMON_CLONE = 0x00080000,
+    /**
+     * Used to obtain the bundle information of sandbox app clones (appIndex: 2000-3000).
+     * It is valid only in the {@link bundleManager.getAllAppCloneBundleInfo} API.
+     *
+     * **System API**: This flag can be used only in system APIs.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+     GET_BUNDLE_INFO_WITH_SANDBOX_CLONE = 0x00100000
   }
 
   /**
@@ -884,6 +908,15 @@ declare namespace bundleManager {
      * @since 24 dynamic&static
      */
     AGENT_UI = 38,
+
+    /**
+     * Indicates extension info with type of the modular object extension.
+     *
+     * @syscap SystemCapability.BundleManager.BundleFramework.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    MODULAR_OBJECT = 39,
 
     /**
      * The ability type is not specified. <!--Del-->It can be used in

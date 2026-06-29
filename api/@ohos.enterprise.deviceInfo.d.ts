@@ -56,6 +56,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceSerial(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -77,6 +79,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceSerial(admin: Want): Promise<string>;
 
@@ -100,6 +104,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDisplayVersion(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -121,6 +127,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDisplayVersion(admin: Want): Promise<string>;
 
@@ -144,6 +152,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceName(admin: Want, callback: AsyncCallback<string>): void;
 
@@ -165,6 +175,8 @@ declare namespace deviceInfo {
    * @systemapi
    * @StageModelOnly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead deviceInfo.getDeviceInfo
    */
   function getDeviceName(admin: Want): Promise<string>;
 
@@ -185,6 +197,7 @@ declare namespace deviceInfo {
    *     for example, +8612345678901) that contains the country code.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
+   * @throws { BusinessError } 9200007 - The system ability works abnormally.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameters are left unspecified;

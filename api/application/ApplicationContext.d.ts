@@ -216,6 +216,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -247,6 +248,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -277,6 +279,7 @@ declare class ApplicationContext extends Context {
    *     .Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @stagemodelonly
+   * @crossplatform [since 26.0.0]
    * @atomicservice [since 11]
    * @since 9 dynamic
    */
@@ -894,6 +897,9 @@ declare class ApplicationContext extends Context {
    * </p>
    *
    * @param { number } callbackId - Event type.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly
@@ -937,6 +943,9 @@ declare class ApplicationContext extends Context {
    * called only on the main thread.
    *
    * @param { number } callbackId - Event type.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified.
+   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Ability.AbilityRuntime.Core
    * @systemapi
    * @stagemodelonly

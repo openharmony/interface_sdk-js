@@ -22,893 +22,408 @@ import type image from './@ohos.multimedia.image';
 import type common2D from './@ohos.graphics.common2D';
 
 /**
- * This module provides functionality for component coordinates and sizes.
- * @namespace componentUtils
+ * The **componentUtils** module provides API for obtaining the coordinates and size of the drawing area of a component.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 10
- */
-/**
- * This module provides functionality for component coordinates and sizes.
- * @namespace componentUtils
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 11
- */
-/**
- * This module provides functionality for component coordinates and sizes.
- * @namespace componentUtils
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @crossplatform [since 12]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare namespace componentUtils {
 
   /**
-  * Component information.
-  * @typedef ComponentInfo
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Component information.
-  * @typedef ComponentInfo
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Component information.
-  * @typedef ComponentInfo
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Implements a **ComponentInfo** object, which provides the size, position, translation, scaling, rotation, and
+   * affine matrix information of the component.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface ComponentInfo {
 
     /**
-    * component size.
-    * @type {Size}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * component size.
-    * @type {Size}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * component size.
-    * @type {Size}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    size: Size
+     * Component size.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    size: Size;
 
     /**
-    * Obtain attribute information relative to the local coordinates.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information relative to the local coordinates.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information relative to the local coordinates.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    localOffset: Offset
+     * Offset of the component relative to the parent component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    localOffset: Offset;
 
     /**
-    * Obtain attribute information relative to the window.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information relative to the window.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information relative to the window.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    windowOffset: Offset
+     * Offset of the component relative to the window.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    windowOffset: Offset;
 
     /**
-    * Obtain attribute information relative to the screen.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information relative to the screen.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information relative to the screen.
-    * @type {Offset}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    screenOffset: Offset
+     * Offset of the component relative to the screen.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    screenOffset: Offset;
 
     /**
-    * Obtain attribute information for translation.
-    * @type {TranslateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information for translation.
-    * @type {TranslateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information for translation.
-    * @type {TranslateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    translate: TranslateResult
+     * Translation of the component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    translate: TranslateResult;
 
     /**
-    * Obtain attribute information for scale.
-    * @type {ScaleResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information for scale.
-    * @type {ScaleResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information for scale.
-    * @type {ScaleResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    scale: ScaleResult
+     * Scaling of the component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    scale: ScaleResult;
 
     /**
-    * Obtain attribute information for rotate.
-    * @type {RotateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information for rotate.
-    * @type {RotateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information for rotate.
-    * @type {RotateResult}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    rotate: RotateResult
+     * Rotation of the component.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    rotate: RotateResult;
 
     /**
-    * Obtain attribute information of the transformation matrix.
-    * @type {Matrix4Result}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Obtain attribute information of the transformation matrix.
-    * @type {Matrix4Result}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Obtain attribute information of the transformation matrix.
-    * @type {Matrix4Result}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    transform: Matrix4Result
+     * Affine matrix of the component, which is a 4x4 matrix object created based on the input parameter.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    transform: Matrix4Result;
   }
 
   /**
-  * Defines the size property.
-  * @typedef Size
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Defines the size property.
-  * @typedef Size
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Defines the size property.
-  * @typedef Size
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Defines the size property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface Size {
 
     /**
-    * Defines the width property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Defines the width property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Defines the width property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    width: number
+     * Component width.
+     *
+     * Unit: px
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    width: number;
 
     /**
-    * Defines the height property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Defines the height property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Defines the height property.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    height: number
+     * Component height.
+     *
+     * Unit: px
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    height: number;
   }
 
   /**
-  * Defines the offset property.
-  * @typedef Offset
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Defines the offset property.
-  * @typedef Offset
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Defines the offset property.
-  * @typedef Offset
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Defines the offset property.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface Offset {
 
     /**
-    * Coordinate x of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Coordinate x of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Coordinate x of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    x: number
+     * X-coordinate.
+     *
+     * Unit: px
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    x: number;
 
     /**
-    * Coordinate y of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Coordinate y of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Coordinate y of the Position.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    y: number
+     * Y-coordinate.
+     *
+     * Unit: px
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    y: number;
   }
 
   /**
-  * Translation Result
-  * @typedef TranslateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Translation Result
-  * @typedef TranslateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Translation Result
-  * @typedef TranslateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Translation Result
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface TranslateResult {
 
     /**
-    * Indicates the translation distance of the x-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Indicates the translation distance of the x-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Indicates the translation distance of the x-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    x: number
+     * Translation distance along the x-axis.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    x: number;
 
     /**
-    * Indicates the translation distance of the y-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Indicates the translation distance of the y-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Indicates the translation distance of the y-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    y: number
+     * Translation distance along the y-axis.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    y: number;
 
     /**
-    * Indicates the translation distance of the z-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Indicates the translation distance of the z-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Indicates the translation distance of the z-axis, in vp.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    z: number
+     * Translation distance along the z-axis.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    z: number;
   }
 
   /**
-  * Scale Result
-  * @typedef ScaleResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Scale Result
-  * @typedef ScaleResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Scale Result
-  * @typedef ScaleResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Scale Result
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface ScaleResult {
 
     /**
-    * Zoom factor of the x-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Zoom factor of the x-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Zoom factor of the x-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    x: number
+     * Scale factor along the x-axis.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    x: number;
 
     /**
-    * Zoom factor of the y-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Zoom factor of the y-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Zoom factor of the y-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    y: number
+     * Scale factor along the y-axis.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    y: number;
 
     /**
-    * Zoom factor of the z-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Zoom factor of the z-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Zoom factor of the z-axis.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    z: number
+     * Scale factor along the z-axis.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    z: number;
 
     /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    centerX: number
+     * X-coordinate of the center point.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    centerX: number;
 
     /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    centerY: number
+     * Y-coordinate of the center point.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    centerY: number;
   }
 
   /**
-  * Rotation Result.
-  * @typedef RotateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * Rotation Result.
-  * @typedef RotateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * Rotation Result.
-  * @typedef RotateResult
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * Rotation Result.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   interface RotateResult {
 
     /**
-    * Axis of rotation vector x coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Axis of rotation vector x coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Axis of rotation vector x coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    x: number
+     * X-coordinate of the rotation vector.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    x: number;
 
     /**
-    * Axis of rotation vector y coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Axis of rotation vector y coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Axis of rotation vector y coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    y: number
+     * Y-coordinate of the rotation vector.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    y: number;
 
     /**
-    * Axis of rotation vector z coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Axis of rotation vector z coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Axis of rotation vector z coordinate.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    z: number
+     * Z coordinate of the rotation vector.
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    z: number;
 
     /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Transform the x-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    centerX: number
+     * X-coordinate of the center point.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    centerX: number;
 
     /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Transform the y-axis coordinate of the center point.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    centerY: number
+     * Y-coordinate of the center point.
+     *
+     * Unit: vp
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    centerY: number;
 
     /**
-    * Rotation angle.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 10
-    */
-    /**
-    * Rotation angle.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @atomicservice
-    * @since 11
-    */
-    /**
-    * Rotation angle.
-    * @type {number}
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @atomicservice
-    * @since 12 dynamic
-    */
-    angle: number
+     * Rotation angle.
+     *
+     * Unit: deg
+     *
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @crossplatform [since 12]
+     * @atomicservice [since 11]
+     * @since 10 dynamic
+     */
+    angle: number;
   }
 
   /**
-  * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @since 10
-  */
-  /**
-  * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @atomicservice
-  * @since 11
-  */
-  /**
-  * The matrix is column-first fourth-order matrix.
-  * @typedef { [number, number, number, number, number, number, number, number, number, number, number, number, number, number, number, number,] } Matrix4Result
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+   * The matrix is column-first fourth-order matrix.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 12]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
+   */
   type Matrix4Result = [
     number,
     number,
@@ -1083,28 +598,33 @@ declare namespace componentUtils {
   function getItemsInShapePath(value: GetItemsInShapePathParams): Array<ImageItem>;
 
   /**
-  * Provide the ability to obtain the coordinates and size of component drawing areas.
-  * @param {string} id - component id.
-  * @returns {ComponentInfo} the object of ComponentInfo.
-  * @throws { BusinessError } 100001 - UI execution context not found.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @since 10
-  */
-  /**
-  * Provide the ability to obtain the coordinates and size of component drawing areas.
-  * @param {string} id - component id.
-  * @returns {ComponentInfo} the object of ComponentInfo.
-  * @throws { BusinessError } 100001 - UI execution context not found.
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 11 dynamiconly
-  * @deprecated since 18
-  * @useinstead ohos.arkui.UIContext.ComponentUtils#getRectangleById
-  */
+   * Obtains a **ComponentInfo** object based on the component ID and synchronously returns the geometric properties of
+   * the component.
+   *
+   * > **NOTE**
+   * >
+   * > - Since API version 10, you can use the
+   * > [getComponentUtils]{@link @ohos.arkui.UIContext:UIContext#getComponentUtils} API in
+   * > [UIContext]{@link @ohos.arkui.UIContext} to obtain the [ComponentUtils]{@link @ohos.arkui.UIContext} object
+   * > associated with the current UI context. This API provides access to component coordinates and size information
+   * > after the target component completes layout. It is recommended that you invoke this API within
+   * > [layout completion callbacks]{@link @ohos.arkui.inspector:inspector}. Note that dynamically created components
+   * > must be mounted to the component tree before this API can obtain their information, as unmounted components are
+   * > not measured or laid out by the UI framework. Always ensure that component mounting precedes information
+   * > retrieval attempts.
+   *
+   * @param {string} id - Component ID.
+   * @returns {ComponentInfo} **ComponentInfo** object, which provides the size, position, translation, scaling,
+   *     rotation, and affine matrix information of the component.
+   * @throws { BusinessError } 100001 - UI execution context not found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice [since 11]
+   * @since 10 dynamiconly
+   * @deprecated since 18
+   * @useinstead ohos.arkui.UIContext.ComponentUtils#getRectangleById
+   */
   function getRectangleById(id: string): ComponentInfo;
 }
 

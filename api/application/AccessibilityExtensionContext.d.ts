@@ -32,7 +32,8 @@ import type { GesturePath } from '../@ohos.accessibility.GesturePath';
 /*** endif */
 import type Want from '../@ohos.app.ability.Want';
 import { AccessibilityAction, FocusMoveResultCode, InjectActionType,
-    AccessibilityFocusScene } from '../@ohos.accessibility';
+    AccessibilityFocusScene, FocusRuleType, OperateVirtualNodeResult,
+    AccessibilitySourceType } from '../@ohos.accessibility';
 
 /**
  * The accessibility extension context. Used to configure, query information, and inject gestures.
@@ -498,6 +499,80 @@ declare class AccessibilityExtensionContext extends ExtensionContext {
    * @since 23 static
    */
   getAccessibilityWindowsSync(displayId?: long): Array<AccessibilityElement>;
+
+  /**
+   * Add accessibility virtual nodes.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { long } elementId - Indicates the id of the node to which the accessibility virtual node tree belongs
+   * @param { int } windowId - Indicates the window id
+   *     <br>The value range is all integers.
+   * @param { Array<AccessibilityVirtualNode> } nodes - Indicates accessibility virtual node tree.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.Possible causes:
+   *     <br>1.Internal operation failed.
+   *     <br>2.Failed to obtain the required service or client object (null pointer).
+   *     <br>3.IPC communication failed.
+   *     <br>4.Failed to obtain the accessibility service proxy.
+   *     <br>5.Timed out while waiting for the result of an asynchronous operation.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  addAccessibilityVirtualNodes(elementId: long, windowId: int, nodes: Array<AccessibilityVirtualNode>): Promise<OperateVirtualNodeResult>;
+
+  /**
+   * Update accessibility element property.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { long } elementId - Indicates the id of the accessibility element to be updated
+   * @param { int } windowId - Indicates the window id
+   *     <br>The value range is all integers.
+   * @param { AccessibilityVirtualNode } node - Indicates accessibility virtual node to be updated.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.Possible causes:
+   *     <br>1.Internal operation failed.
+   *     <br>2.Failed to obtain the required service or client object (null pointer).
+   *     <br>3.IPC communication failed.
+   *     <br>4.Failed to obtain the accessibility service proxy.
+   *     <br>5.Timed out while waiting for the result of an asynchronous operation.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  updateAccessibilityElementProperty(elementId: long, windowId: int, node: AccessibilityVirtualNode): Promise<OperateVirtualNodeResult>;
+
+  /**
+   * Remove accessibility virtual nodes.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { long } elementId - Indicates the id of the accessibility element to be removed.
+   * @param { int } windowId - Indicates the window id.
+   *     <br>The value range is all integers.
+   * @returns { Promise<OperateVirtualNodeResult> } Promise used to return the result code.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300000 - System abnormality.Possible causes:
+   *     <br>1.Internal operation failed.
+   *     <br>2.Failed to obtain the required service or client object (null pointer).
+   *     <br>3.IPC communication failed.
+   *     <br>4.Failed to obtain the accessibility service proxy.
+   *     <br>5.Timed out while waiting for the result of an asynchronous operation.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  removeAccessibilityVirtualNodes(elementId: long, windowId: int): Promise<OperateVirtualNodeResult>;
 }
 export default AccessibilityExtensionContext;
 
@@ -1273,7 +1348,7 @@ export declare interface AccessibilityElement {
   /**
    * Movement unit for traversing and reading text.
    * 
-   * Default value: **0**.
+   * Default value: **char**.
    *
    * @syscap SystemCapability.BarrierFree.Accessibility.Core
    * @systemapi
@@ -1628,6 +1703,16 @@ export declare interface AccessibilityElement {
    */
   customActions?: Array<string>;
 
+  /**
+   * Indicates the source of this element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  sourceType?: AccessibilitySourceType;
+
 /**
    * Executes a specific action based on the specified action type and input parameters. This API uses a promise to 
    * return the result.
@@ -1727,6 +1812,24 @@ export declare interface AccessibilityElement {
   findElementByFocusDirection(condition: FocusDirection): Promise<AccessibilityElement>;
 
   /**
+   * Finds elements based on the focus direction. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusDirection } condition - Focus direction.
+   * @param { FocusRuleType } type - Type for finding a focusable node.
+   * @returns { Promise<AccessibilityElement> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission verification failed.The application does not have the permission
+   *     required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @throws { BusinessError } 9300006 - The target application failed to connect to accessibility service.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  findElementByFocusDirection(condition: FocusDirection, type: FocusRuleType): Promise<AccessibilityElement>;
+
+  /**
    * Finds elements based on the hint text. This API uses a promise to return the result.
    *
    * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
@@ -1775,6 +1878,24 @@ export declare interface AccessibilityElement {
    * @since 23 dynamic&static
    */
   findElementsByCondition(rule: FocusRule, condition: FocusCondition): Promise<FocusMoveResult>;
+
+  /**
+   * Finds a focusable node by conditions. This API uses a promise to return the result.
+   *
+   * @permission ohos.permission.ACCESSIBILITY_EXTENSION_ABILITY
+   * @param { FocusRule } rule - Rule for checking the current node and its descendants.
+   * @param { FocusCondition } condition - Condition for finding a focusable node.
+   * @param { FocusRuleType } type - Type for finding a focusable node.
+   * @returns { Promise<FocusMoveResult> } Promise used to return the result.
+   * @throws { BusinessError } 201 - Permission verification failed.
+   *     The application does not have the permission required to call the API.
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  findElementsByCondition(rule: FocusRule, condition: FocusCondition, type: FocusRuleType): Promise<FocusMoveResult>;
 }
 
 /**
@@ -2605,6 +2726,196 @@ export interface ElementAttributeValues {
    * @since 26.0.0 dynamiconly
    */
   customActions?: Array<string>;
+  /**
+   * Indicates the source of this element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  sourceType?: AccessibilitySourceType;
+}
+
+/**
+ * Defines the **AccessibilityVirtualNode**.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export declare interface AccessibilityVirtualNode {
+  /**
+   * ID of the accessibility virtual node.
+   * Default value: **-1**.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  virtualNodeId: long;
+  /**
+   * Text of the accessibility virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  text?: string;
+  /**
+   * Accessibility text information of an accessibility virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityText?: string;
+  /**
+   * Whether the accessibility virtual node is an accessibility group.
+   * The value **true** indicates that the element is an accessibility group, and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityGroup?: boolean;
+  /**
+   * This property determines whether the component can be recognized by accessibility services.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityLevel?: string;
+  /**
+   * Area of the accessibility virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  rect?: Rect;
+  /**
+   * Whether the accessibility virtual node is checkable. The value **true** indicates that the node is checkable,
+   * and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  checkable?: boolean;
+  /**
+   * Whether the accessibility virtual node is checked. The value **true** indicates that the node is checked,
+   * and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  checked?: boolean;
+  /**
+   * Whether the accessibility virtual node is clickable. The value **true** indicates that the node is clickable,
+   * and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  clickable?: boolean;
+  /**
+   * Whether the accessibility virtual node is enabled. The value **true** indicates that the node is enabled,
+   * and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  enabled?: boolean;
+  /**
+   * Whether the accessibility virtual node is selected. The value **true** indicates that the node is selected,
+   * and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  selected?: boolean;
+  /**
+   * Component type of the accessibility virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  customComponentType?: string;
+  /**
+   * Click position of the accessibility virtual node.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  touchPosition?: TouchPosition;
+  /**
+   * Whether the accessibility virtual node is focused for accessibility purposes.
+   * The value **true** indicates that the element is focused, and **false** indicates the opposite.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  accessibilityFocused?: boolean;
+  /**
+   * Parent element id of the accessibility element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  parentId?: long;
+  /**
+   * List of child accessibility virtual node ids of a component.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  childNodeIds?: Array<long>;
+  /**
+   * The id of accessibility element.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  elementId?: long;
+  /**
+   * Supported action names.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  supportedActionNames?: Array<string>;
 }
 
 /**
@@ -2746,4 +3057,35 @@ export declare interface FocusMoveResult {
    * @since 23 dynamic&static
    */
   result: FocusMoveResultCode;
+}
+
+/**
+ * Indicates touch position of accessibility virtual node.
+ *
+ * @syscap SystemCapability.BarrierFree.Accessibility.Core
+ * @systemapi
+ * @stagemodelonly
+ * @since 26.0.0 dynamic&static
+ */
+export declare interface TouchPosition {
+  /**
+   * X coordinate of the touch position on the virtual accessibility node, in pixels (px).
+   * Unit: px, The value range is all integers.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  x: int;
+  /**
+   * Y coordinate of the touch position on the virtual accessibility node, in pixels (px).
+   * Unit: px, The value range is all integers.
+   *
+   * @syscap SystemCapability.BarrierFree.Accessibility.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  y: int;
 }

@@ -1764,6 +1764,50 @@ declare namespace dataShare {
      * @since 23 static
      */
     allowList?: string[];
+
+    /**
+     * Indicates whether the shared configuration is multi-value type. The default value is false, indicating that the
+     * shared configuration is not multi-value type. If the value is true, it indicates that the data being published is
+     * multi-value type, and the [value]{@link ProxyData#value} parameter will be ignored.
+     * Default value: false.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    isMultiValues?: boolean;
+
+    /**
+     * Values of the multi-value type. The first parameter in the **Record** is the key specified by the user, which
+     * must be unique. The second parameter is the value corresponding to the key. A maximum of 10 values can be added
+     * to a single URI for an application. Each value can contain a maximum of 4096 bytes. At the same time, the total
+     * length of all values is limited by the [maxValueLength]{@link DataProxyConfig#maxValueLength} parameter value.
+     * This parameter is valid only when [isMultiValues]{@link ProxyData#isMultiValues} is set to true.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    values?: Record<int, ValueType>;
+
+    /**
+     * List of applications that can add values to the shared configuration of multi-value type. The array can contain a
+     * maximum of 256 elements. Excess elements are invalid.
+     * Each element in the array is the
+     * [appIdentifier](docroot://quick-start/common-problem-of-application.md#what-is-appidentifier) of an application.
+     * The maximum length of an **appIdentifier** is 128 bytes. If the length exceeds 128 bytes, the **appIdentifier**
+     * does not take effect. If this parameter is not set when the shared configuration is published for the first time,
+     * the list is empty by default. If this parameter is not set when the shared configuration is updated, the
+     * list will not be updated. An empty list indicates that only the publisher can add values to the shared
+     * configuration.
+     * The array supports the special string "all" (case-sensitive), which indicates that all applications are allowed
+     * to add values to the shared configuration.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    trustProviders?: string[];
   }
 
   /**
@@ -1805,6 +1849,15 @@ declare namespace dataShare {
      * @since 23 static
      */
     value: ValueType;
+
+    /**
+     * Changed data of the multi-value type. If the changed data is not multi-value type, the **values** is undefined.
+     *
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    values?: ValueType[];
   }
 
   /**
@@ -2213,6 +2266,71 @@ declare namespace dataShare {
      * @since 23 static
      */
     get(uris: string[], config: DataProxyConfig): Promise<DataProxyGetResult[]>;
+
+    /**
+     * Puts a value into the published data. This operation can be performed only on multi-value type data. If the
+     * input **key** does not exist, a new value is added. If the input **key** already exists, the value corresponding
+     * to the key is updated. By default, a maximum of 10 values can be added to a single data record (that is, a URI)
+     * for a single application, and the maximum length of each value is 4096 bytes. In addition, the total length of
+     * all values in a single data record is limited by the value of the **maxValueLength** parameter that is specified
+     * during data publishing. Note that the **maxValueLength** parameter does not take effect in this API. This API
+     * uses a promise to return the result.
+     *
+     * @param { string } uri - Indicates the URI of the data to operate.
+     * @param { int } key - The key corresponding to the added value. It is unique for the same application.
+     *     <br>The value range is all integers.
+     * @param { ValueType } value - The value to be put.
+     * @param { DataProxyConfig } config - Configuration of the data proxy operation.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is
+     *     being restarted abnormally.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+     * @throws { BusinessError } 15700015 - No permission to access the data specified by the URI.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    putValue(uri: string, key: int, value: ValueType, config: DataProxyConfig): Promise<void>;
+
+    /**
+     * Removes the value corresponding to the key. This operation can be performed only on multi-value type data. Only
+     * values added by this application can be removed. This API uses a promise to return the result.
+     *
+     * @param { string } uri - Indicates the URI of the data to operate.
+     * @param { int } key - The key corresponding to the added value.
+     *     <br>The value range is all integers.
+     * @param { DataProxyConfig } config - Configuration of the data proxy operation.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is
+     *     being restarted abnormally.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+     * @throws { BusinessError } 15700015 - No permission to access the data specified by the URI.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    removeValue(uri: string, key: int, config: DataProxyConfig): Promise<void>;
+
+    /**
+     * Obtains all multi-value data under a specified URI. Only the publisher and the applications in the
+     * [allowList]{@link dataShare.ProxyData#allowList} can obtain the data. This API uses a promise to return the
+     * result.
+     *
+     * @param { string } uri - Indicates the URI of the data to operate.
+     * @param { DataProxyConfig } config - Configuration of the data proxy operation.
+     * @returns { Promise<ValueType[]> } Promise used to return an array of all values under the URI.
+     * @throws { BusinessError } 15700000 - Inner error. Possible causes: The service is not ready or is
+     *     being restarted abnormally.
+     * @throws { BusinessError } 15700011 - The URI does not exist.
+     * @throws { BusinessError } 15700014 - The parameter format is incorrect or the value range is invalid.
+     * @throws { BusinessError } 15700015 - No permission to access the data specified by the URI.
+     * @syscap SystemCapability.DistributedDataManager.DataShare.Consumer
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    getValues(uri: string, config: DataProxyConfig): Promise<ValueType[]>;
   }
 }
 

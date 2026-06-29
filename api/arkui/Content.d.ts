@@ -14,12 +14,14 @@
  */
 
 /**
+ * Defines the base class for ComponentContent and NodeContent.
+ *
  * @file
  * @kit ArkUI
  */
 
 /**
- * Defines the base class for ComponentContent and NodeContent.
+ * Defines the base class for {@link ComponentContent} and {@link NodeContent}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -27,5 +29,4 @@
  * @atomicservice
  * @since 12 dynamic
  */
-export abstract class Content{
-}
+export abstract class Content {}

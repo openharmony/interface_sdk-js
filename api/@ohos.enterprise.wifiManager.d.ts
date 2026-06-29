@@ -759,6 +759,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.isWifiActiveSync
    */
   function isWifiActive(admin: Want, callback: AsyncCallback<boolean>): void;
 
@@ -781,6 +783,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.isWifiActiveSync
    */
   function isWifiActive(admin: Want): Promise<boolean>;
 
@@ -825,6 +829,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.setWifiProfileSync
    */
   function setWifiProfile(admin: Want, profile: WifiProfile, callback: AsyncCallback<void>): void;
 
@@ -849,6 +855,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 10
+   * @deprecated since 26.0.0
+   * @useinstead wifiManager.setWifiProfileSync
    */
   function setWifiProfile(admin: Want, profile: WifiProfile): Promise<void>;
 
@@ -890,6 +898,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.setDisallowedPolicy(admin: Want, feature: FeatureForDevice, disallow: boolean)
    */
   function setWifiDisabled(admin: Want, disabled: boolean): void;
 
@@ -912,6 +922,8 @@ declare namespace wifiManager {
    * @systemapi
    * @stagemodelonly
    * @since 11
+   * @deprecated since 26.0.0
+   * @useinstead @ohos.enterprise.restrictions:restrictions.getDisallowedPolicy(admin: Want | null, feature: FeatureForDevice)
    */
   function isWifiDisabled(admin: Want): boolean;
 
@@ -966,7 +978,11 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 19 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<WifiAccessInfo> } Array of disallowed Wi-Fi networks.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -976,7 +992,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 19
    */
-  function getDisallowedWifiList(admin: Want): Array<WifiAccessInfo>;
+  function getDisallowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
    * Adds allowed Wi-Fi networks. The current device can only connect to the allowed Wi-Fi networks.
@@ -1029,7 +1045,11 @@ declare namespace wifiManager {
    *
    * @permission ohos.permission.ENTERPRISE_MANAGE_WIFI
    * @param { Want } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
-   *     EnterpriseAdminExtensionAbility and the bundle name of the application.
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application. [since 19 - 24]
+   * @param { Want | null } admin - EnterpriseAdminExtensionAbility. **Want** must contain the ability name of the
+   *     EnterpriseAdminExtensionAbility and the bundle name of the application.<br>If the device has multiple MDM
+   *     applications, you can pass **admin** to query the corresponding policies. If **null** is passed, the policies
+   *     that actually take effect on the device are returned. [since 26.0.0]
    * @returns { Array<WifiAccessInfo> } Array of allowed Wi-Fi networks.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
@@ -1039,7 +1059,7 @@ declare namespace wifiManager {
    * @stagemodelonly
    * @since 19
    */
-  function getAllowedWifiList(admin: Want): Array<WifiAccessInfo>;
+  function getAllowedWifiList(admin: Want | null): Array<WifiAccessInfo>;
 
   /**
    * Enables Wi-Fi.

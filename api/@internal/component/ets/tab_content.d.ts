@@ -19,9 +19,8 @@
  */
 
 /**
- * Use the DrawableDescriptor class to get drawable image.
+ * Defines the input parameter object of the **drawable** attribute in the **DrawableTabBarIndicator** object.
  *
- * @typedef { import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor } DrawableDescriptor
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -30,285 +29,189 @@
 declare type DrawableDescriptor = import ('../api/@ohos.arkui.drawableDescriptor').DrawableDescriptor;
 
 /**
- * Enum for the mode of the tab bar when selected.
+ * Enumerates the display modes of selected subtabs.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Enum for the mode of the tab bar when selected.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum SelectedMode {
-  /**
-   * The value of indicator
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
+
   /**
    * Indicator mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  INDICATOR,
+  INDICATOR = 0,
 
-  /**
-   * The value of board
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
   /**
    * Board mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  BOARD
+  BOARD = 1
 }
 
 /**
- * Enum for the layout mode of the content in the tab bar.
+ * Enumerates the layout modes of the images and texts on the bottom tabs.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Enum for the layout mode of the content in the tab bar.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum LayoutMode {
 
   /**
-   * The content is laid vertically or horizontally, according to its width.
+   * When the tab width is greater than 104 vp, the tab content is arranged from left to right.
+   *     Otherwise,the tab content is arranged from top to bottom. This parameter is valid only when the tab bar is in
+   *     vertical mode or fixed horizontal mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The content is laid vertically or horizontally, according to its width.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   AUTO = 0,
+
   /**
-   * The content is laid vertically
+   * The tab content is arranged from top to bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The content is laid vertically
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   VERTICAL = 1,
 
   /**
-   * The content is laid horizontally
+   * The tab content is arranged from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * The content is laid horizontally
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   HORIZONTAL = 2
 }
 
-
 /**
- * Provide an interface for the style of an indicator including color, height, width, border radius
- * and margin top
+ * Represents an indicator style object.
  *
- * @interface IndicatorStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provide an interface for the style of an indicator including color, height, width, border radius
- * and margin top
- *
- * @interface IndicatorStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface IndicatorStyle {
-  /**
-   * Define the color of the indicator
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
+
   /**
    * Color of the indicator and board.
    *
-   * @type { ?ResourceColor }
-   * @default #FF007DFF
+   * Default value: **#FF007DFF**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   color?: ResourceColor;
 
   /**
-   * Define the height of the indicator
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Height of the indicator. It cannot be set in percentage.
    *
-   * @type { ?Length }
-   * @default 2vp
+   * Default value: **2.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   height?: Length;
 
   /**
-   * Define the width of the indicator.
-   * If it is 0, the width will be equal to the width of the content
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Width of the indicator. It cannot be set in percentage.
-   * If it is 0, the width will be equal to the width of the content
    *
-   * @type { ?Length }
+   * Default value: **0.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
+   * **NOTE**
+   *
+   * If this parameter is set to **0**, the tab text width will be used instead.
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   width?: Length;
 
   /**
-   * Define the border radius of the indicator
-   *
-   * @type { ?Length }
-   * @default 0
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Rounded corner radius of the indicator. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **0.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderRadius?: Length;
 
   /**
-   * Define the margin top of the indicator
+   * Spacing between the indicator and text. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **8.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @default 8
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Spacing between the indicator and text.It cannot be set in percentage.
-   *
-   * @type { ?Length }
-   * @default 8vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   marginTop?: Length;
 }
 
 /**
- * Provide an interface for the style of a drawable indicator including margin top.
+ * Uses an image resource as the indicator.
  *
- * @interface DrawableTabBarIndicator
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -316,10 +219,15 @@ interface IndicatorStyle {
  * @since 22 dynamic
  */
 declare interface DrawableTabBarIndicator {
+
   /**
-   * Define the drawable object for the indicator.
+   * Image resource of the indicator.
+   * Supported types: [DrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:DrawableDescriptorLoadedResult},
+   * [PixelMapDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:PixelMapDrawableDescriptor},
+   * [LayeredDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:LayeredDrawableDescriptor}, and
+   * [AnimatedDrawableDescriptor]{@link @ohos.arkui.drawableDescriptor:AnimatedDrawableDescriptor}. If an invalid image
+   * resource is passed, the default solid indicator is displayed.
    *
-   * @type { ?DrawableDescriptor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -330,9 +238,15 @@ declare interface DrawableTabBarIndicator {
 
   /**
    * Width of the indicator. It cannot be set in percentage.
-   * If it is 0, the width will be equal to the width of the content
    *
-   * @type { ?Length }
+   * Default value: **0.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
+   * If this parameter is set to **0**, the tab text width will be used instead.
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -345,7 +259,12 @@ declare interface DrawableTabBarIndicator {
   /**
    * Height of the indicator. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **2.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @default 2vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -358,7 +277,12 @@ declare interface DrawableTabBarIndicator {
   /**
    * Rounded corner radius of the indicator. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **0.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -371,7 +295,12 @@ declare interface DrawableTabBarIndicator {
   /**
    * Spacing between the indicator and text. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **8.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
    * @default 8vp
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -383,205 +312,140 @@ declare interface DrawableTabBarIndicator {
 }
 
 /**
- * Provide an interface for the style of an indicator including border radius
+ * Represents a board style object.
  *
- * @interface BoardStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Provide an interface for the style of an indicator including border radius
- *
- * @interface BoardStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface BoardStyle {
+
   /**
-   * Define the border radius of the board
+   * Rounded corner radius of the board. It cannot be set in percentage.
    *
-   * @type { ?Length }
+   * Default value: **8.0**
+   *
+   * Unit: vp
+   *
+   * Value range: [0, +¡Þ)
+   *
+   * @default 8.0vp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Define the border radius of the board
-   *
-   * @type { ?Length }
-   * @default 8.0vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   borderRadius?: Length;
 }
 
 /**
- * LabelStyle object.
+ * Represents a style object for the label text and font.
  *
- * @interface LabelStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * LabelStyle object.
- *
- * @interface LabelStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface LabelStyle {
+
   /**
-   * overflow mode.
+   * Display mode when the label text is too long. By default, an ellipsis (...) is used to represent text overflow.
    *
-   * @type { ?TextOverflow }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Display mode when the label text is too long.
-   *
-   * @type { ?TextOverflow }
-   * @default TextOverflow.Ellipsis
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   overflow?: TextOverflow;
 
   /**
-   * Label max lines.
+   * Maximum number of lines in the label text. If this attribute is specified, the text will not exceed the specified
+   * number of lines. You can use **textOverflow** to specify how to represent text overflow. Default value: **1**
    *
-   * @type { ?number }
+   * Value range: [1, +¡Þ)
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Maximum number of lines in the label text.
-   *
-   * @type { ?number }
-   * @default 1
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   maxLines?: number;
 
   /**
-   * Min font size for adapted height.
+   * Minimum font size of the label text. It cannot be set in percentage. For the setting to take effect, this attribute
+   * must be used together with **maxFontSize**, **maxLines**, or layout constraint settings. When the adaptive text
+   * size is set, **font.size** does not take effect. The default value is **0.0fp**, indicating that the adaptive text
+   * size has no effect.
    *
-   * @type { ?(number | ResourceStr) }
+   * Value range: (0, +¡Þ)
+   *
+   * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Minimum font size of the label text.
-   *
-   * @type { ?(number | ResourceStr) }
-   * @default 0.0fp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   minFontSize?: number | ResourceStr;
 
   /**
-   * Max font size for adapted height.
+   * Maximum font size of the label text. It cannot be set in percentage. For the setting to take effect, this attribute
+   * must be used together with **minFontSize**, **maxLines**, or layout constraint settings. When the adaptive text
+   * size is set, **font.size** does not take effect. The default value is **0.0fp**, indicating that the adaptive text
+   * size has no effect.
    *
-   * @type { ?(number | ResourceStr) }
+   * Value range: [minFontSize, +¡Þ)
+   *
+   * @default 0.0fp [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Maximum font size of the label text.
-   *
-   * @type { ?(number | ResourceStr) }
-   * @default 0.0fp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   maxFontSize?: number | ResourceStr;
 
   /**
-   * Adapt text height option.
+   * How the adaptive height is determined for the label text. By default, the **maxLines** settings are prioritized.
    *
-   * @type { ?TextHeightAdaptivePolicy }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * How the adaptive height is determined for the label text.
-   *
-   * @type { ?TextHeightAdaptivePolicy }
-   * @default TextHeightAdaptivePolicy.MAX_LINES_FIRST
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   heightAdaptivePolicy?: TextHeightAdaptivePolicy;
 
   /**
-   * Font style.
-   *
-   * @type { ?Font }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Font of the label text.
    *
-   * @type { ?Font }
-   * When setting the tabBar to BottomTabBarStyle, the default font size is 10.0fp.
-   * When setting the tabBar to SubTabBarStyle, the default font size is 16.0fp.
+   * When the tab is a subtab, the default font is in 16.0 fp size, 'HarmonyOS Sans' family, normal font style, medium
+   * weight when selected, and normal weight when not selected.
+   *
+   * When the tab is a bottom tab, the default font is in 10.0 fp size, 'HarmonyOS Sans' family, normal font style, and
+   * medium weight.
+   *
+   * The default font size of the bottom tab page is 12.0 fp since API version 12.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   font?: Font;
 
   /**
    * Font color of the label text when it is selected.
    *
-   * @type { ?ResourceColor }
+   * Default value: **#FF007DFF**
+   *
    * @default #FF007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -594,7 +458,8 @@ declare interface LabelStyle {
   /**
    * Font color of the label text when it is not selected.
    *
-   * @type { ?ResourceColor }
+   * Default value: **#99182431**
+   *
    * @default #99182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -606,9 +471,8 @@ declare interface LabelStyle {
 }
 
 /**
- * TabBarIconStyle object.
+ * Represents a label icon style object.
  *
- * @interface TabBarIconStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -616,10 +480,16 @@ declare interface LabelStyle {
  * @since 12 dynamic
  */
 declare interface TabBarIconStyle {
+
   /**
-   * The icon color of the selected tab bar.
+   * Color of the label icon when it is selected.
    *
-   * @type { ?ResourceColor }
+   * Default value: **#FF007DFF**
+   *
+   * **NOTE**
+   *
+   * This attribute only applies to an SVG image. Once set, the fill color will replace that of the SVG image.
+   *
    * @default #FF007DFF
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -630,9 +500,14 @@ declare interface TabBarIconStyle {
   selectedColor?: ResourceColor;
 
   /**
-   * The icon color of the unselected tab bar.
+   * Color of the label icon when it is not selected.
    *
-   * @type { ?ResourceColor }
+   * Default value: **#33182431**
+   *
+   * **NOTE**
+   *
+   * This attribute only applies to an SVG image. Once set, the fill color will replace that of the SVG image.
+   *
    * @default #33182431
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -644,74 +519,65 @@ declare interface TabBarIconStyle {
 }
 
 /**
- * TabBarSymbol object.
+ * Represents a tab bar symbol style object.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * TabBarSymbol object.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
+ * @noninterop
  */
 declare class TabBarSymbol {
+
   /**
    * Symbol icon in the normal style.
    *
-   * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Symbol icon in the normal style.
+   * Default value:
    *
-   * @type { SymbolGlyphModifier }
-   * @default fontColor: #66182431, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * **fontColor**: **#66182431**
+   *
+   * **renderingStrategy**: **SymbolRenderingStrategy.MULTIPLE_OPACITY**
+   *
+   * **fontSize**: **24vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   normal: SymbolGlyphModifier;
 
   /**
    * Symbol icon in the selected style.
    *
-   * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Symbol icon in the selected style.
+   * Default value:
    *
-   * @type { ?SymbolGlyphModifier }
-   * @default fontColor: #ff007dff, renderingStrategy: SymbolRenderingStrategy.MULTIPLE_OPACITY, fontSize: 24vp
+   * **fontColor**: **#ff007dff**
+   *
+   * **renderingStrategy**: **SymbolRenderingStrategy.MULTIPLE_OPACITY**
+   *
+   * **fontSize**: **24vp**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @crossplatform
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   selected?: SymbolGlyphModifier;
 }
 
 /**
- * Icon and text for TabBar.
+ * Defines the options for configuring images and text content on the tabs.
  *
- * @typedef TabBarOptions
+ * > **NOTE**
+ * >
+ * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
+ * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -719,135 +585,57 @@ declare class TabBarSymbol {
  * @since 18 dynamic
  */
 declare interface TabBarOptions {
+
   /**
-   * TabBar icon.
+   * Image for the tab. If this parameter is not set, no image is displayed.
    *
-   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * TabBar icon.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * TabBar icon.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * TabBar icon.
-   * Anonymous Object Rectification
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the icon uses an SVG image, the width and height attributes of the SVG image must be deleted.
-   * Otherwise, the icon size will be determined by the width and height attributes of the SVG image.
-   * </p>
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   icon?: string | Resource;
 
   /**
-   * TabBar text.
+   * Text for the tab. If this parameter is not set, no text is displayed.
    *
-   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
-  /**
-   * TabBar text.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * TabBar text.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * TabBar text.
-   * Anonymous Object Rectification
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
-   */
-  text?: string | Resource
+  text?: string | Resource;
 }
 
 /**
- * Define SubTabBarStyle, the style is text and underline.
+ * Implements the subtab style. A transition animation is played when the user switches between tabs.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Define SubTabBarStyle, the style is text and underline.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Define SubTabBarStyle, the style is text and underline.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class SubTabBarStyle {
+
   /**
-   * constructor.
+   * Constructor used to create a **SubTabBarStyle** instance.
    *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
+   * @param { ResourceStr } content - Text for the tab.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * constructor.
-   *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * constructor.
-   *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor(content: ResourceStr);
+
   /**
-   * constructor.
+   * Constructor used to create a **SubTabBarStyle** instance. You can set custom content with **ComponentContent**.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
+   * @param { ResourceStr | ComponentContent } content - Content on the tab.<br>**NOTE**<br>1. Custom content does not
+   *     support the **labelStyle** attribute.<br>2. If the custom content exceeds the content box of the tab page, the
+   *     excess part is not displayed.<br>3. If the custom content is within the content box of the tab page, it is
+   *     aligned in the center.<br>4. If the custom content is abnormal or no display component is available, a blank
+   *     area is displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -857,35 +645,28 @@ declare class SubTabBarStyle {
   constructor(content: ResourceStr | ComponentContent);
 
   /**
-   * constructor
+   * Static constructor used to create a **SubTabBarStyle** instance.
    *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @static
+   * @param { ResourceStr } content - Text for the tab.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Static constructor used to create a SubTabBarStyle instance.
-   *
-   * @param { ResourceStr } content - indicates the content of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   static of(content: ResourceStr): SubTabBarStyle;
+
   /**
-   * Static constructor used to create a SubTabBarStyle instance. You can set custom content with ComponentContent.
+   * Static constructor used to create a **SubTabBarStyle** instance. You can set custom content with
+   * **ComponentContent**.
    *
-   * @param { ResourceStr | ComponentContent } content - indicates the content of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @static
+   * @param { ResourceStr | ComponentContent } content - Content on the tab. You can set custom content with
+   *     **ComponentContent**.<br>**NOTE**<br>1. Custom content does not support the **labelStyle** attribute.<br>2. If
+   *     the custom content exceeds the content box of the tab page, the excess part is not displayed.<br>3. If the
+   *     custom content is within the content box of the tab page, it is aligned in the center.<br>4. If the custom
+   *     content is abnormal or no display component is available, a blank area is displayed.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -895,33 +676,26 @@ declare class SubTabBarStyle {
   static of(content: ResourceStr | ComponentContent): SubTabBarStyle;
 
   /**
-   * Set the style of the indicator when selected
+   * Sets the indicator style of the selected subtab. It takes effect only in the horizontal layout.
    *
-   * @param { IndicatorStyle } value - indicates the indicator style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { IndicatorStyle } value - Indicator style object for the selected subtab.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the indicator style of the selected subtab.
-   *
-   * @param { IndicatorStyle } value - indicator style object for the selected subtab.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   indicator(value: IndicatorStyle): SubTabBarStyle;
 
   /**
-   * Sets the indicator style of the selected subtab. Use DrawableTabBarIndicator to set image for the indicator.
+   * Sets the indicator style of the selected subtab. Compared with
+   * [indicator]{@link SubTabBarStyle#indicator(value: IndicatorStyle)}, the image format is added. For details about
+   * the display effect of the image, see [ImageFit.Cover]{@link ImageFit}. It takes effect only in the horizontal
+   * layout.
    *
-   * @param { IndicatorStyle | DrawableTabBarIndicator } value - indicator style object for the selected subtab.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { IndicatorStyle | DrawableTabBarIndicator } value - Yes
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -930,122 +704,66 @@ declare class SubTabBarStyle {
   indicator(value: IndicatorStyle | DrawableTabBarIndicator): SubTabBarStyle;
 
   /**
-   * Set the mode of the indicator when selected
+   * Sets the display mode of the selected subtab. It takes effect only in the horizontal layout.
    *
-   * @param { SelectedMode } value - indicates the selected mode of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { SelectedMode } value - Display mode of the selected subtab.<br>Default value: **SelectedMode.INDICATOR**
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the display mode of the selected subtab.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It takes effect only in the horizontal layout.
-   * </p>
-   *
-   * @param { SelectedMode } value - display mode of the selected subtab. Default value is SelectedMode.INDICATOR.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   selectedMode(value: SelectedMode): SubTabBarStyle;
 
   /**
-   * Set the style of the board when selected
+   * Sets the background style (board style) of the selected subtab. It takes effect only in the horizontal layout.
    *
-   * @param { BoardStyle } value - indicates the board style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { BoardStyle } value - Background style object for the selected subtab.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the background style (board style) of the selected subtab.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It takes effect only in the horizontal layout.
-   * </p>
-   *
-   * @param { BoardStyle } value - background style object for the selected subtab.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   board(value: BoardStyle): SubTabBarStyle;
 
   /**
-   * Set the label style of the indicator
-   *
-   * @param { LabelStyle } value - indicates the label style of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the style of the label text and font for the subtab.
    *
-   * @param { LabelStyle } value - style object for the label text and font of the subtab.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { LabelStyle } value - Style object for the label text and font of the subtab.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   labelStyle(value: LabelStyle): SubTabBarStyle;
 
   /**
-   * Set the padding of the sub tab bar
+   * Sets the padding of the subtab. It cannot be set in percentage. When the parameter is of the Dimension type, the
+   * value applies to all sides.
    *
-   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { Padding | Dimension } value - Padding of the subtab.<br>Value range: [0, +¡Þ]<br>Default value:
+   *     **{left:8.0vp,right:8.0vp,top:17.0vp,bottom:18.0vp}**
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the padding of the sub tab bar
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It cannot be set in percentage. 
-   * <br>When the parameter is of the Dimension type, the value applies to all sides.
-   * </p>
-   *
-   * @param { Padding | Dimension } value - indicates the padding of the sub tab bar, default value:
-   *                                        left: 8.0vp, right: 8.0vp, top: 17.0vp, bottom: 18.0vp.
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   padding(value: Padding | Dimension): SubTabBarStyle;
 
   /**
-   * Set the padding of the sub tab bar
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>This API supports mirroring but does not support percentage-based settings.
-   * </p>
+   * Sets the padding of the subtab. This API supports mirroring but does not support percentage-based settings.
    *
-   * @param { LocalizedPadding } padding - indicates the padding of the sub tab bar, default value:
-   *                                       start: LengthMetircs.vp(8), end: LengthMetircs.vp(8),
-   *                                       top: LengthMetircs.vp(17), bottom: LengthMetircs.vp(18).
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { LocalizedPadding } padding - Padding of the subtab.<br>Value range: [0, +¡Þ]<br>Default value:
+   *     **{start:LengthMetrics.vp(8),end:LengthMetrics.vp(8)**<br>
+   *     **top:LengthMetrics.vp(17),bottom:LengthMetrics.vp(18)}**
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1055,297 +773,156 @@ declare class SubTabBarStyle {
   padding(padding: LocalizedPadding): SubTabBarStyle;
 
   /**
-   * Set an id to the sub tab bar to identify it
+   * Sets the [ID]{@link CommonMethod#id} of the subtab.
    *
-   * @param { string } value - id of the sub tab bar to identify it
-   * @returns { SubTabBarStyle } the style of the sub tab bar
+   * @param { string } value - [ID]{@link CommonMethod#id} of the subtab.
+   * @returns { SubTabBarStyle } **SubTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set an id to the sub tab bar to identify it
-   *
-   * @param { string } value - id of the sub tab bar to identify it
-   * @returns { SubTabBarStyle } the style of the sub tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   id(value: string): SubTabBarStyle;
 }
 
 /**
- * Define BottomTabBarStyle, the style is icon and text.
+ * Implements the bottom and side tab style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 9
- */
-/**
- * Define BottomTabBarStyle, the style is icon and text.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Define BottomTabBarStyle, the style is icon and text.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 9 dynamic
  */
 declare class BottomTabBarStyle {
+
   /**
-   * constructor.
+   * A constructor used to create a **BottomTabBarStyle** instance.
    *
-   * @param { ResourceStr } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
+   * @param { ResourceStr } icon - Image for the tab. [since 9 - 11]
+   * @param { ResourceStr | TabBarSymbol } icon - Image for the tab. [since 12]
+   * @param { ResourceStr } text - Text for the tab.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * constructor.
-   *
-   * @param { ResourceStr } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * constructor.
-   *
-   * @param { ResourceStr } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * constructor.
-   *
-   * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   constructor(icon: ResourceStr | TabBarSymbol, text: ResourceStr);
 
   /**
-   * of.
+   * Static constructor used to create a **BottomTabBarStyle** instance.
    *
-   * @param { ResourceStr } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @static
+   * @param { ResourceStr } icon - Image for the tab. [since 10 - 11]
+   * @param { ResourceStr | TabBarSymbol } icon - Image for the tab. [since 12]
+   * @param { ResourceStr } text - Text for the tab.
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object created.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * of.
-   *
-   * @param { ResourceStr } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Static constructor used to create a BottomTabBarStyle instance.
-   *
-   * @param { ResourceStr | TabBarSymbol } icon - indicates the icon of the bottom tab bar
-   * @param { ResourceStr } text - indicates the text of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   static of(icon: ResourceStr | TabBarSymbol, text: ResourceStr): BottomTabBarStyle;
 
   /**
-   * Set the label style of the indicator
-   *
-   * @param { LabelStyle } value - indicates the label style of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the style of the label text and font for the bottom tab.
    *
-   * @param { LabelStyle } value - style of the label text and font for the bottom tab.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { LabelStyle } value - Style of the label text and font for the bottom tab.
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   labelStyle(value: LabelStyle): BottomTabBarStyle;
 
   /**
-   * Set the padding of the bottom tab bar
+   * Sets the padding of the bottom tab. It cannot be set in percentage. When the parameter is of the Dimension type,
+   * the value applies to all sides.
    *
-   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { Padding | Dimension } value - Padding of the bottom tab.<br>Value range: [0, +¡Þ]<br>Default value:
+   *     **{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp}**<br>If of the LocalizedPadding type, this attribute supports
+   *     the mirroring capability.<br>Default value: **{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),**<br>
+   *     **top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)}** [since 10 - 11]
+   * @param { Padding | Dimension | LocalizedPadding } value - Padding of the bottom tab.<br>Value range: [0, +¡Þ]<br>
+   *     Default value: **{left:4.0vp,right:4.0vp,top:0.0vp,bottom:0.0vp}**<br>If of the LocalizedPadding type, this
+   *     attribute supports the mirroring capability.<br>Default value:
+   *     **{start:LengthMetrics.vp(4),end:LengthMetrics.vp(4),**<br>
+   *     **top:LengthMetrics.vp(0),bottom:LengthMetrics.vp(0)}** [since 12]
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the padding of the bottom tab bar
-   *
-   * @param { Padding | Dimension } value - indicates the padding of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Set the padding of the bottom tab bar
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>It cannot be set in percentage.
-   * <br>When the parameter is of the Dimension type, the value applies to all sides.
-   * </p>
-   *
-   * @param { Padding | Dimension | LocalizedPadding } value - indicates the padding of the bottom tab bar
-   * Default value is { left:4.0vp, right:4.0vp, top:0.0vp, bottom:0.0vp }.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   padding(value: Padding | Dimension | LocalizedPadding): BottomTabBarStyle;
 
   /**
-   * Set the layout mode of the bottom tab bar
-   *
-   * @param { LayoutMode } value - indicates the layout mode of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the layout mode of the images and texts on the bottom tab.
    *
-   * @param { LayoutMode } value - layout mode of the images and text on the bottom tab.
-   * Default value is LayoutMode.VERTICAL.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { LayoutMode } value - Layout mode of the images and text on the bottom tab.<br>Default value:
+   *     **LayoutMode.VERTICAL**
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   layoutMode(value: LayoutMode): BottomTabBarStyle;
 
   /**
-   * Set the vertical alignment style of the bottom tab bar
-   *
-   * @param { VerticalAlign } value - indicates the vertical alignment of the bottom tab bar
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
    * Sets the vertical alignment mode of the images and text on the bottom tab.
    *
-   * @param { VerticalAlign } value - vertical alignment mode of the images and text on the bottom tab.
-   * Default value is VerticalAlign.Center.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { VerticalAlign } value - Vertical alignment mode of the images and text on the bottom tab.<br>Default
+   *     value: **VerticalAlign.Center**
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   verticalAlign(value: VerticalAlign): BottomTabBarStyle;
 
   /**
-   * Set the symmetric extensible of the bottom tab bar
+   * Sets whether the images and text on the bottom tab can be symmetrically extended by the minimum value of the
+   * available space on the left and right bottom tabs. This parameter is valid only between bottom tabs in fixed
+   * horizontal mode.
    *
-   * @param { boolean } value - indicates whether the bottom tab bar is extensible
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { boolean } value - Whether the images and text on the bottom tab can be symmetrically extended by the
+   *     minimum value of the available space on the left and right bottom tabs.<br>Default value: **false**, indicating
+   *     that the images and text on the bottom tab cannot be symmetrically extended by the minimum value of the
+   *     available space on the left and right bottom tabs.
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets whether the images and text on the bottom tab can be symmetrically extended by 
-   * the minimum value of the available space on the left and right bottom tabs.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>This parameter is valid only between bottom tabs in fixed horizontal mode.
-   * </p>
-   *
-   * @param { boolean } value - indicates whether the bottom tab bar is extensible. Default value is false.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   symmetricExtensible(value: boolean): BottomTabBarStyle;
 
   /**
-   * Set an id to the bottom tab bar to identify it
+   * Sets the ID of the bottom tab.
    *
-   * @param { string } value - id of the bottom tab bar to identify it
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { string } value - [ID]{@link CommonMethod#id} of the bottom tab.
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Set an id to the bottom tab bar to identify it
-   *
-   * @param { string } value - id of the bottom tab bar to identify it
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   id(value: string): BottomTabBarStyle;
 
   /**
    * Sets the style of the label icon on the bottom tab.
    *
-   * @param { TabBarIconStyle } style - style of the label icon on the bottom tab.
-   * @returns { BottomTabBarStyle } the style of the bottom tab bar
+   * @param { TabBarIconStyle } style - Style of the label icon on the bottom tab.
+   * @returns { BottomTabBarStyle } **BottomTabBarStyle** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1356,180 +933,112 @@ declare class BottomTabBarStyle {
 }
 
 /**
- * Provides an interface for switching the content view on a tab page.
+ * The **TabContent** component is used only in the **Tabs** component. It corresponds to the content view of a switched
+ * tab page.
  *
- * @interface TabContentInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Provides an interface for switching the content view on a tab page.
+ * > **NOTE**
  *
- * @interface TabContentInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Provides an interface for switching the content view on a tab page.
+ * > - By default, the [clip]{@link CommonMethod#clip(value: boolean)} attribute of this component is set to **true**.
+ * > If you want to extend the content area to the outside of the component, disable the **clip** attribute first.
  *
- * @interface TabContentInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface TabContentInterface {
+
   /**
-   * Called when the content view of the switch tab is set.
+   * Creates the **TabContent** component, which represents the content associated with a specific tab.
    *
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when the content view of the switch tab is set.
-   *
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when the content view of the switch tab is set.
-   *
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (): TabContentAttribute;
 }
 
 /**
- * Defines the attribute functions of TabContent.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<TabContentAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the attribute functions of TabContent.
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<TabContentAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the attribute functions of TabContent.
- *
- * @extends CommonMethod<TabContentAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { string | Resource | { icon?: string | Resource; text?: string | Resource } } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 8
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11
-   */
+
   /**
    * Sets the content displayed on the tab bar.
-   * Anonymous Object Rectification
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If the content set exceeds the space provided by the tab bar, it will be clipped.
-   * </p>
    *
-   * @param { string | Resource | CustomBuilder | TabBarOptions } options - Content displayed on the tab bar.
+   * If the icon uses an SVG image source, delete the width and height attribute values built in the SVG image source.
+   * Otherwise, the width and height attribute values built in the SVG image source are used.
+   *
+   * If the content exceeds the space provided by the tab bar, it will be clipped.
+   *
+   * @param { string | Resource | { icon?: string | Resource; text?: string | Resource } } value [since 7 - 7]
+   * @param { string | Resource | CustomBuilder | { icon?: string | Resource; text?: string | Resource } }
+   *     value [since 8 - 17]
+   * @param { string | Resource | CustomBuilder | TabBarOptions } options - Content displayed on the tab bar.<br>
+   *     **CustomBuilder**: builder, to which components can be passed (applicable to API version 8 and later versions
+   *     ). [since 18]
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   tabBar(options: string | Resource | CustomBuilder | TabBarOptions): TabContentAttribute;
 
   /**
-   * Called when tabbar is entered.
+   * Sets the content displayed on the tab bar. The bottom tab style does not include an indicator. When an icon display
+   * error occurs, a gray blank block is displayed.
    *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value
+   * > **NOTE**
+   * >
+   * > - [SubTabBarStyle]{@link SubTabBarStyle}: text + underline or text + board. The text style can be set. It is
+   * > recommended that the subtab be placed at the top or bottom. By default, the animation transition effect is
+   * > displayed when a tab is switched. This style is applicable to the top categories (such as Following, Video,
+   * > Digital) of information apps and level-2 navigation scenarios of functional modules.
+   * >
+   * > - [BottomTabBarStyle]{@link BottomTabBarStyle}: icon + text, without underline or board. By default, no animation
+   * > transition effect is displayed when a tab is switched. Bottom tabs are usually used for the main navigation of an
+   * > app (such as Home, Discover, and Recommended). Side tabs are applicable to wide-screen scenarios. You can set
+   * > **vertical(true)** to enable the vertical layout so that the tabs are displayed on the side. By default, the tabs
+   * > are displayed on the left.
+   *
+   * @param { SubTabBarStyle | BottomTabBarStyle } value - Content displayed on the tab bar.<br>**SubTabBarStyle**:
+   *     subtab style.<br>**BottomTabBarStyle**: bottom and side tab style
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 9
-   */
-  /**
-   * Called when tabbar is entered.
-   *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets the content displayed on the tab bar.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>The bottom tab style does not include an indicator.
-   * <br>When an icon display error occurs, a gray blank block is displayed.
-   * </p>
-   *
-   * @param { SubTabBarStyle | BottomTabBarStyle } value - Content displayed on the tab bar.
-   * @returns { TabContentAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 9 dynamic
    */
   tabBar(value: SubTabBarStyle | BottomTabBarStyle): TabContentAttribute;
 
   /**
    * Sets the content displayed on the tab bar.
-   * Anonymous Object Rectification
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>If BottomTabBarStyle or TabBarOptions is used and an icon is set, 
-   * a gray block will be displayed if the icon is invalid.
-   * <br>If the content exceeds the space provided by the tab bar, it will be clipped.
-   * </p>
    *
-   * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions } content
-   * Content displayed on the tab bar.
+   * If **BottomTabBarStyle** or **TabBarOptions** is used and an icon is set, a gray block will be displayed if the
+   * icon is invalid. If the icon uses an SVG image source, delete the width and height attribute values built in the
+   * SVG image source. Otherwise, the width and height attribute values built in the SVG image source are used.
+   *
+   * If the content exceeds the space provided by the tab bar, it will be clipped.
+   *
+   * @param { ComponentContent | SubTabBarStyle | BottomTabBarStyle | string | Resource | CustomBuilder | TabBarOptions
+   *     } content - Content displayed on the tab bar.<br>**ComponentContent**: encapsulation of the component content,
+   *     which can be customized.<br>**SubTabBarStyle**: subtab style.<br>**BottomTabBarStyle**: style of the bottom and
+   *     side tabs. The bottom style does not have the underline effect.<br>**string**: string type.<br>**Resource**:
+   *     resource reference for importing strings from system or application resources.<br>**CustomBuilder**: builder
+   *     that can take components as arguments.<br>**TabBarOptions**: options for configuring images and text content on
+   *     the tabs.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1541,10 +1050,14 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
     TabBarOptions): TabContentAttribute;
 
   /**
-   * Called when the tab content is about to be displayed. The scenarios include the first-time display,
-   * tab switching, page switching, and window switching between the foreground and background.
-   * 
-   * @param { VoidCallback  } event
+   * Called when the tab content is about to be displayed. The scenarios include the first-time display, tab switching,
+   * page switching, and window switching between the foreground and background.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { VoidCallback  } event - Callback for when the tab content is about to be displayed.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1555,10 +1068,14 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
   onWillShow(event: VoidCallback): TabContentAttribute;
 
   /**
-   * Called when the tab content is about to be hidden. The scenarios include the tab switching,
-   * page switching, and window switching between the foreground and background.
-   * 
-   * @param { VoidCallback  } event
+   * Called when the tab content is about to be hidden. The scenarios include the tab switching, page switching, and
+   * window switching between the foreground and background.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called in [attributeModifier]{@link CommonMethod#attributeModifier} since API version 20.
+   *
+   * @param { VoidCallback  } event - Callback for when the tab content is about to be hidden.
    * @returns { TabContentAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1570,25 +1087,30 @@ declare class TabContentAttribute extends CommonMethod<TabContentAttribute> {
 }
 
 /**
- * Defines TabContent Component.
+ * The **TabContent** component is used only in the **Tabs** component. It corresponds to the content view of a switched
+ * tab page.
+ *
+ * > **NOTE**
+ *
+ * > - By default, the [clip]{@link CommonMethod#clip(value: boolean)} attribute of this component is set to **true**.
+ * > If you want to extend the content area to the outside of the component, disable the **clip** attribute first.
+ *
+ * ###### Child Components
+ *
+ * This component supports only one child component.
+ *
+ * > **NOTE**
+ * >
+ * > Built-in system and custom components, and rendering control types (
+ * > [if/else](docroot://ui/rendering-control/arkts-rendering-control-ifelse.md),
+ * > [ForEach](docroot://ui/rendering-control/arkts-rendering-control-foreach.md), and
+ * > [LazyForEach](docroot://ui/rendering-control/arkts-rendering-control-lazyforeach.md)) are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines TabContent Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines TabContent Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const TabContent: TabContentInterface;
 
@@ -1596,21 +1118,9 @@ declare const TabContent: TabContentInterface;
  * Defines TabContent Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines TabContent Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines TabContent Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop [since 11]
  */
 declare const TabContentInstance: TabContentAttribute;

@@ -18,6 +18,8 @@
  * @kit AbilityKit
  */
 
+import { PluginBundleInfo as _PluginBundleInfo, PluginModuleInfo as _PluginModuleInfo} from './bundleManager/PluginBundleInfo';
+
 /**
  * This module is used to manage plugins for applications.
  *
@@ -39,12 +41,12 @@ declare namespace pluginBundleManager {
    * @throws { BusinessError } 17700015 - Failed to install the plugin because they have different configuration information.
    * @throws { BusinessError } 17700016 - Failed to install the plugin because of insufficient system disk space.
    * @throws { BusinessError } 17700017 - Failed to install the plugin since the version of the plugin to install is too early.
-   * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification is failed.
+   * @throws { BusinessError } 17700048 - Failed to install the plugin because the code signature verification failed.
    * @throws { BusinessError } 17700052 - Failed to install the plugin because debug bundle cannot be installed under non-developer mode.
    * @throws { BusinessError } 17700073 - Failed to install the plugin because a plugin with the same
    * <br>bundle name but different signature information exists on the device.
-   * @throws { BusinessError } 17700087 - Failed to install the plugin because the current device does not support plugin.
-   * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is same as host bundle name.
+   * @throws { BusinessError } 17700087 - Failed to install the plugin because the current device does not support plugins.
+   * @throws { BusinessError } 17700091 - Failed to install the plugin because the plugin name is the same as the host bundle name.
    * @syscap SystemCapability.BundleManager.BundleFramework.Core
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -64,6 +66,36 @@ declare namespace pluginBundleManager {
    * @since 26.0.0 dynamic&static
    */
   function uninstallLocalPlugin(pluginBundleName: string): Promise<void>;
+  
+  /**
+   * Obtains information about all local plugins installed on the current application.
+   *
+   * @permission ohos.permission.kernel.SUPPORT_LOCAL_PLUGIN
+   * @returns { Promise<Array<PluginBundleInfo>> } Promise used to return the list of PluginBundleInfos object.
+   * @throws { BusinessError } 201 - Calling interface without permission 'ohos.permission.kernel.SUPPORT_LOCAL_PLUGIN'.
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  function getAllLocalPluginInfoForSelf(): Promise<Array<PluginBundleInfo>>;
+
+  /**
+   * Indicates the information about a plugin.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type PluginBundleInfo = _PluginBundleInfo;
+
+  /**
+   * Indicates the plugin module info.
+   *
+   * @syscap SystemCapability.BundleManager.BundleFramework.Core
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  export type PluginModuleInfo = _PluginModuleInfo;
 }
 
 export default pluginBundleManager;

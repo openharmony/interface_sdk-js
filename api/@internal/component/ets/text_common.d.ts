@@ -21,91 +21,55 @@
 /**
  * Defines the text data detector type.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines the text data detector type.
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum TextDataDetectorType {
+
   /**
-   * Detector type phone number.
+   * Phone number.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */  
-  /**
-   * Detector type phone number.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
-   */   
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
   PHONE_NUMBER = 0,
 
   /**
-   * Detector type URL.
+   * URL.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */ 
-  /**
-   * Detector type URL.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   URL = 1,
 
   /**
-   * Detector type email.
+   * Email address.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */ 
-  /**
-   * Detector type email.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
-   */ 
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
   EMAIL = 2,
 
   /**
-   * Detector type address.
+   * Address.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Detector type address.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   ADDRESS = 3,
 
   /**
-   * Detector type datetime.
+   * Time.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -114,77 +78,67 @@ declare enum TextDataDetectorType {
    */
   DATE_TIME = 4,
 }
-  
+
 /**
- * Text data detector config.
+ * This configuration is only available for the [Text]{@link text} and [RichEditor]{@link rich_editor} components.
  *
- * @interface TextDataDetectorConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Text data detector config.
- *
- * @interface TextDataDetectorConfig
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface TextDataDetectorConfig {
-  /**
-   * Text data detector types.
-   *
-   * @type { TextDataDetectorType[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Text data detector types.
-   *
-   * @type { TextDataDetectorType[] }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  types: TextDataDetectorType[]
 
   /**
-   * Text data detect result callback.
+   * Entity types for text recognition. Values **null** and **[]** indicate that all types of entities can be
+   * recognized.
    *
-   * @type { ?function }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
-  /**
-   * Text data detect result callback.
-   *
-   * @type { ?Callback<string> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  onDetectResultUpdate?: Callback<string>
-  /**
-   * The color of AI entity.
-   *
-   * @type { ?ResourceColor }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 12 dynamic
-   */
-  color?: ResourceColor,
+  types: TextDataDetectorType[];
 
   /**
-   * The decoration of AI entity.
+   * Callback invoked when text recognition succeeds.
    *
-   * @type { ?DecorationStyleInterface }
+   * @type { ?function } [since 11 - 11]
+   * @type { ?Callback<string> } [since 12]
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice [since 12]
+   * @since 11 dynamic
+   */
+  onDetectResultUpdate?: Callback<string>;
+
+  /**
+   * Color of the entity after successful text detection.
+   *
+   * Default value: **'#ff0a59f7'**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  color?: ResourceColor;
+
+  /**
+   * Decoration style of the entity after successful text detection.
+   *
+   * Default value:
+   *
+   * {
+   *
+   *  type: TextDecorationType.Underline,
+   *
+   *  color: same as the entity
+   *
+   *  style: TextDecorationStyle.SOLID
+   *
+   * }
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -193,9 +147,17 @@ declare interface TextDataDetectorConfig {
   decoration?: DecorationStyleInterface;
 
   /**
-   * Used to set whether the preview window will be displayed when long-presses and selects a word.
+   * Whether to enable the preview menu displayed when long-pressing recognized text. The value **true** means to enable
+   * the preview menu, and **false** means the opposite.
    *
-   * @type { ?boolean }
+   * Default value: **false**
+   *
+   * When [copyOptions]{@link RichEditorAttribute#copyOptions} is set to **None**, even if **enablePreviewMenu** is set
+   * to **true**, long-pressing AI entities will not display the preview menu.
+   *
+   * This API can be properly called on phones and tablets, but has no effect on other devices such as PCs, 2-in-1
+   * devices, TVs, and wearables.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -205,9 +167,8 @@ declare interface TextDataDetectorConfig {
 }
 
 /**
- * Defines range of text type component.
+ * Defines the text range.
  *
- * @interface TextRange
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -215,10 +176,10 @@ declare interface TextDataDetectorConfig {
  * @since 12 dynamic
  */
 declare interface TextRange {
+
   /**
-   * Start offset.
+   * Start index.
    *
-   * @type { ?number }
    * @default 0
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -229,9 +190,8 @@ declare interface TextRange {
   start?: number;
 
   /**
-   * End offset.
+   * End index.
    *
-   * @type { ?number }
    * @default text length
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -245,7 +205,6 @@ declare interface TextRange {
 /**
  * Defines the inserted text value info.
  *
- * @interface InsertValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -253,10 +212,10 @@ declare interface TextRange {
  * @since 12 dynamic
  */
 declare interface InsertValue {
+
   /**
-   * The location info where the value will be inserted.
+   * Position of the inserted text.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -266,9 +225,8 @@ declare interface InsertValue {
   insertOffset: number;
 
   /**
-   * The inserted value.
+   * Content of the inserted text.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -279,9 +237,8 @@ declare interface InsertValue {
 }
 
 /**
- * Defines delete text direction.
+ * Defines the direction for deleting text.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -289,8 +246,9 @@ declare interface InsertValue {
  * @since 12 dynamic
  */
 declare enum TextDeleteDirection {
+
   /**
-   * Delete backward.
+   * Backward delete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -301,7 +259,7 @@ declare enum TextDeleteDirection {
   BACKWARD = 0,
 
   /**
-   * Delete forward.
+   * Forward delete.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -309,13 +267,12 @@ declare enum TextDeleteDirection {
    * @atomicservice
    * @since 12 dynamic
    */
-  FORWARD = 1,
+  FORWARD = 1
 }
 
 /**
- * Defines the superscript style.
+ * Enumerates the text superscript and subscript styles.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -323,8 +280,9 @@ declare enum TextDeleteDirection {
  * @since 20 dynamic
  */
 declare enum SuperscriptStyle {
+
   /**
-   * normal font style.
+   * Normal text style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -335,7 +293,7 @@ declare enum SuperscriptStyle {
   NORMAL = 0,
 
   /**
-   * Superscript font style.
+   * Superscript text style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -346,7 +304,7 @@ declare enum SuperscriptStyle {
   SUPERSCRIPT = 1,
 
   /**
-   * Subscript font style.
+   * Subscript text style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -354,13 +312,12 @@ declare enum SuperscriptStyle {
    * @atomicservice
    * @since 20 dynamic
    */
-  SUBSCRIPT = 2,
+  SUBSCRIPT = 2
 }
 
 /**
- * Defines menu type.
+ * Enumerates the menu types.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -368,8 +325,9 @@ declare enum SuperscriptStyle {
  * @since 13 dynamic
  */
 declare enum MenuType {
+
   /**
-   * Selection menu.
+   * Text selection menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -380,7 +338,7 @@ declare enum MenuType {
   SELECTION_MENU = 0,
 
   /**
-   * Preview menu, only for image.
+   * Preview menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -388,13 +346,13 @@ declare enum MenuType {
    * @atomicservice
    * @since 13 dynamic
    */
-  PREVIEW_MENU = 1,
+  PREVIEW_MENU = 1
 }
 
 /**
- * Declare the type of automatic case mode switching.
+ * Enumerates automatic capitalization modes. This only provides API capabilities; the specific implementation depends
+ * on the input method application.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -402,8 +360,9 @@ declare enum MenuType {
  * @since 20 dynamic
  */
 declare enum AutoCapitalizationMode {
+
   /**
-   * The default status is invalid.
+   * Default state; automatic capitalization is disabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -414,7 +373,8 @@ declare enum AutoCapitalizationMode {
   NONE = 0,
 
   /**
-   * Automatic case by words.
+   * Automatic capitalization is applied per word: The first character of each word is capitalized, others are
+   * lowercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -425,7 +385,8 @@ declare enum AutoCapitalizationMode {
   WORDS = 1,
 
   /**
-   * Automatic case by sentences.
+   * Automatic capitalization is applied per sentence: The first character of each sentence is capitalized, others are
+   * lowercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -436,7 +397,7 @@ declare enum AutoCapitalizationMode {
   SENTENCES = 2,
 
   /**
-   * Automatic case by full characters.
+   * Automatic capitalization applied to all characters.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -444,13 +405,12 @@ declare enum AutoCapitalizationMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  ALL_CHARACTERS = 3,
+  ALL_CHARACTERS = 3
 }
 
 /**
  * Provides an interface for deleting value from text.
  *
- * @interface DeleteValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -458,10 +418,10 @@ declare enum AutoCapitalizationMode {
  * @since 12 dynamic
  */
 declare interface DeleteValue {
+
   /**
-   * The location info where the value will be deleted.
+   * Position of the deleted text.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -471,9 +431,8 @@ declare interface DeleteValue {
   deleteOffset: number;
 
   /**
-   * The deleted direction.
+   * Direction for deleting the text.
    *
-   * @type { TextDeleteDirection }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -483,9 +442,8 @@ declare interface DeleteValue {
   direction: TextDeleteDirection;
 
   /**
-   * The deleted value.
+   * Content of the deleted text.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -496,11 +454,10 @@ declare interface DeleteValue {
 }
 
 /**
- * Callback after content changed.
- * 
- * @typedef { function } OnDidChangeCallback
- * @param { TextRange } rangeBefore - Range of content that had been replaced.
- * @param { TextRange } rangeAfter - Range of content that newly added.
+ * Represents the callback invoked after text changes.
+ *
+ * @param { TextRange } rangeBefore - Range of the text to be changed.
+ * @param { TextRange } rangeAfter - Range of the text added.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -510,36 +467,24 @@ declare interface DeleteValue {
 declare type OnDidChangeCallback = (rangeBefore: TextRange, rangeAfter: TextRange) => void;
 
 /**
- * Callback when input sometimes has info of previewText.
+ * Represents the callback triggered when the content in the text box changes.
  *
- * @typedef { function } EditableTextOnChangeCallback
- * @param { string } value - Value of body text, without previewText value.
- * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
+ * @param { string } value - Text displayed in the text box.
+ * @param { PreviewText } [previewText] - Information about the preview text, including its start position and text
+ *     content.
+ * @param { TextChangeOptions } [options] - Information about the text change, including the selection range, text
+ *     displayed in the text box, and preview text. [since 15]
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
- * @since 12
- */
-/**
- * Callback when input sometimes has info of previewText.
- *
- * @typedef { function } EditableTextOnChangeCallback
- * @param { string } value - Value of body text, without previewText value.
- * @param { PreviewText } [previewText] - info of previewText, contains previewText value and start index.
- * @param { TextChangeOptions } [options] - contains the selection range before and after the change, as well as the old content.
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 15 dynamic
+ * @since 12 dynamic
  */
 declare type EditableTextOnChangeCallback = (value: string, previewText?: PreviewText, options?: TextChangeOptions) => void;
 
 /**
- * Define the text selection controller.
+ * Defines a text selection controller.
  *
- * @interface TextBaseController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -547,12 +492,31 @@ declare type EditableTextOnChangeCallback = (value: string, previewText?: Previe
  * @since 12 dynamic
  */
 declare interface TextBaseController {
+
   /**
-   * Set selection to select a range of content.
+   * Sets the range of content selection. The selected content is highlighted.
    *
-   * @param { number } selectionStart - The start position of the selected text.
-   * @param { number } selectionEnd - The end position of the selected text.
-   * @param { SelectionOptions } [options] - Indicates the options of selection.
+   * If both **selectionStart** and **selectionEnd** are set to **-1**, the entire content is selected.
+   *
+   * The component must be focused for the API call to have effect.
+   *
+   * Since API version 12, on 2-in-1 devices, regardless of the value of **options**, calling the **setSelection** API
+   * will not display a menu; if a menu is already open, calling the API will close it.
+   *
+   * On non-2-in-1 devices, when **options** is set to **MenuPolicy.DEFAULT**, the following rules apply after the API
+   * is called:
+   *
+   * 1. If the component has a menu with a selection handle,
+   * the menu remains open and is relocated according to the selection.
+   * 2. If the component has a menu without a selection handle,
+   * the menu remains open and its position remains unchanged.
+   * 3. If there is no menu open, no menu will appear after the selection.
+   *
+   * @param { number } selectionStart - Start position of the selection.<br>Values less than 0 are treated as **0**.
+   * @param { number } selectionEnd - End position of the selection.<br>If the value exceeds the text length, the
+   *     current text length is used instead.
+   * @param { SelectionOptions } [options] - Configuration of options. The default value is inherited from
+   *     [SelectionOptions]{@link SelectionOptions}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -562,7 +526,7 @@ declare interface TextBaseController {
   setSelection(selectionStart: number, selectionEnd: number, options?: SelectionOptions): void;
 
   /**
-   * Close the select menu when menu is on.
+   * Closes the custom or default text selection menu.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -573,9 +537,9 @@ declare interface TextBaseController {
   closeSelectionMenu(): void;
 
   /**
-   * Get LayoutManager.
+   * Obtains a **LayoutManager** object.
    *
-   * @returns { LayoutManager } - Return the LayoutManager.
+   * @returns { LayoutManager } Layout manager object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -586,10 +550,10 @@ declare interface TextBaseController {
 }
 
 /**
- * Define the text extended editing controller.
+ * Implements an extended text editing controller.
  *
- * @extends TextBaseController
- * @interface TextEditControllerEx
+ * Inherits [TextBaseController]{@link TextBaseController}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -597,10 +561,12 @@ declare interface TextBaseController {
  * @since 12 dynamic
  */
 declare interface TextEditControllerEx extends TextBaseController {
+
   /**
-   * Judge whether is in editing state
-   * 
-   * @returns { boolean } - true means that the component is in editing state, false means is non in editing status
+   * Obtains the editing status of the rich text.
+   *
+   * @returns { boolean } Editing status of the rich text. **true** means that the text is in editable state, and
+   *     **false** means the opposite.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -610,7 +576,7 @@ declare interface TextEditControllerEx extends TextBaseController {
   isEditing(): boolean;
 
   /**
-   * Stop editing state.
+   * Stops editing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -621,10 +587,12 @@ declare interface TextEditControllerEx extends TextBaseController {
   stopEditing(): void;
 
   /**
-   * Set caret offset.
+   * Sets the offset of the caret.
    *
-   * @param { number } offset - caret offset.
-   * @returns { boolean } - Return true if the caret offset was successfully set, false otherwise.
+   * @param { number } offset - Offset of the caret. If the offset is outside the range of all content, the setting
+   *     fails.
+   * @returns { boolean } Whether the caret offset is set successfully.
+   *     <br>Returns **true** if it is set successfully; returns **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -634,9 +602,9 @@ declare interface TextEditControllerEx extends TextBaseController {
   setCaretOffset(offset: number): boolean;
 
   /**
-   * Get caret offset from controller.
+   * Obtains the current position of the caret.
    *
-   * @returns { number }
+   * @returns { number } Position of the caret.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -646,9 +614,9 @@ declare interface TextEditControllerEx extends TextBaseController {
   getCaretOffset(): number;
 
   /**
-   * Get PreviewText.
+   * Obtains the preview text.
    *
-   * @returns { PreviewText } - Return the PreviewText.
+   * @returns { PreviewText } Preview text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -659,8 +627,8 @@ declare interface TextEditControllerEx extends TextBaseController {
 }
 
 /**
- * The previewText.
- * @interface PreviewText
+ * Preview text.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -668,10 +636,10 @@ declare interface TextEditControllerEx extends TextBaseController {
  * @since 12 dynamic
  */
 declare interface PreviewText {
+
   /**
-   * Start offset of the previewText
+   * Start position of the preview text.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -681,9 +649,8 @@ declare interface PreviewText {
   offset: number;
 
   /**
-   * Value of the previewText.
+   * Content of the preview text.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -694,9 +661,8 @@ declare interface PreviewText {
 }
 
 /**
- * Define the StyledString controller.
+ * Defines a styled string controller.
  *
- * @interface StyledStringController
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -704,10 +670,12 @@ declare interface PreviewText {
  * @since 12 dynamic
  */
 declare interface StyledStringController {
+
   /**
-   * Set the StyledString of the component.
+   * Sets the styled string displayed in the rich text component.
    *
-   * @param { StyledString } styledString - StyledString.
+   * @param { StyledString } styledString - Styled string to set.<br>**NOTE**<br>The child class
+   *     [MutableStyledString]{@link MutableStyledString} of **StyledString** can also serve as the argument.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -717,9 +685,9 @@ declare interface StyledStringController {
   setStyledString(styledString: StyledString): void;
 
   /**
-   * Get the StyledString of the component.
+   * Obtains the styled string displayed in the rich text component.
    *
-   * @returns { MutableStyledString }
+   * @returns { MutableStyledString } Styled string displayed in the rich text component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -730,9 +698,8 @@ declare interface StyledStringController {
 }
 
 /**
- * Define the StyledString changed listener.
+ * Defines the listener for changes of the styled string text content.
  *
- * @interface StyledStringChangedListener
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -740,10 +707,10 @@ declare interface StyledStringController {
  * @since 12 dynamic
  */
 declare interface StyledStringChangedListener {
+
   /**
-   * Called before text changed.
+   * Callback invoked when text is about to change.
    *
-   * @type { ?Callback<StyledStringChangeValue, boolean> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -753,9 +720,8 @@ declare interface StyledStringChangedListener {
   onWillChange?: Callback<StyledStringChangeValue, boolean>;
 
   /**
-   * Called after text changed.
+   * Callback invoked when text is changed.
    *
-   * @type { ?OnDidChangeCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -766,9 +732,8 @@ declare interface StyledStringChangedListener {
 }
 
 /**
- * Define the StyledString changed value.
+ * Describes the text changes of the styled string.
  *
- * @interface StyledStringChangeValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -776,10 +741,10 @@ declare interface StyledStringChangedListener {
  * @since 12 dynamic
  */
 interface StyledStringChangeValue {
+
   /**
-   * Range of the content to be replaced.
+   * Range of the styled string to be replaced in the original string.
    *
-   * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -789,9 +754,8 @@ interface StyledStringChangeValue {
   range: TextRange;
 
   /**
-   * StyledString to replace.
+   * Styled string used for replacement.
    *
-   * @type { StyledString }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -801,9 +765,11 @@ interface StyledStringChangeValue {
   replacementString: StyledString;
 
   /**
-   * Preview StyledString
+   * Styled string for preview content.
    *
-   * @type { ?StyledString }
+   * Used to represent temporary uncommitted input content in scenarios such as voice input, camera input, and IME pre-
+   * composition.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -814,9 +780,13 @@ interface StyledStringChangeValue {
 }
 
 /**
- * Define the LayoutManager for querying layout information.
+ * Implements a layout manager object.
  *
- * @interface LayoutManager
+ * > **NOTE**
+ * >
+ * > After the text content is changed, you must wait for the layout to be completed before you can obtain the most up-
+ * > to-date layout information.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -824,10 +794,11 @@ interface StyledStringChangeValue {
  * @since 12 dynamic
  */
 declare interface LayoutManager {
+
   /**
-   * Get the line count.
-   * 
-   * @returns { number } The line count value returned to the caller.
+   * Obtains the total number of lines in the component.
+   *
+   * @returns { number } Total number of lines in the component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -837,11 +808,11 @@ declare interface LayoutManager {
   getLineCount(): number;
 
   /**
-   * Get the glyph position at coordinate.
-   * 
-   * @param { number } x - the positionX of typography.
-   * @param { number } y - the positionY of typography.
-   * @returns { PositionWithAffinity } TextBlob object.
+   * Obtains the position of a glyph close to a given coordinate.
+   *
+   * @param { number } x - X coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @param { number } y - Y coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @returns { PositionWithAffinity } Glyph position.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -851,12 +822,12 @@ declare interface LayoutManager {
   getGlyphPositionAtCoordinate(x: number, y: number): PositionWithAffinity;
 
   /**
-   * Get the character position at coordinate.
+   * Obtains the position of the character nearest to the specified coordinate.
    *
-   * @param { number } x - the positionX of typography.
-   * @param { number } y - the positionY of typography.
-   * @returns { PositionWithAffinity | undefined } Position and affinity.
-   *     Returning undefined indicates that the function call failed.
+   * @param { number } x - X coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @param { number } y - Y coordinate relative to the component.<br>Unit: [px]{@link common}
+   * @returns { PositionWithAffinity | undefined } Character position. Returns **undefined** when
+   *     [LayoutManager]{@link LayoutManager} is not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -866,13 +837,15 @@ declare interface LayoutManager {
   getCharacterPositionAtCoordinate(x: number, y: number): PositionWithAffinity | undefined;
 
   /**
-   * Get the glyph range produced by the specified range of characters.
+   * Obtains the glyph range and the actual character range based on the specified character range. If the first glyph
+   * is a Chinese character, the glyph index range of the character is [0, 1]. A Chinese character occupies three
+   * characters, so the corresponding character index range is [0, 3]. If the specified character index range is [0, 1],
+   * one third of a Chinese character cannot be parsed, so the actual character index range is [0, 3].
    *
-   * @param { TextRange } charRange - The character range.
-   * @returns { Array<TextRange> | undefined } The range infos, first item is the range of glyphs generated
-   *     by charRange. The second item, if present, specifies the actual character range that fully defines
-   *     the returned glyph range, which may match or slightly exceed the requested range.
-   *     Returning undefined indicates that the function call failed.
+   * @param { TextRange } charRange - Character range of the text.
+   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the glyph range, and the second is
+   *     the actual character range. When the returned range is invalid, the element in the range is **-1**. Returns
+   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -882,13 +855,15 @@ declare interface LayoutManager {
   getGlyphRangeForCharacterRange(charRange: TextRange): Array<TextRange> | undefined;
 
   /**
-   * Get the character range that maps to the glyphs in the given glyph range.
-   * 
-   * @param { TextRange } glyphRange - The glyph range.
-   * @returns { Array<TextRange> | undefined } The range infos, first item is the range of characters generated
-   *     by glyphRange. The second item, if present, specifies the full glyph range generated by the returned
-   *     character range, which may match or slightly exceed the requested glyph range.
-   *     Returning undefined indicates that the function call failed.
+   * Obtains the character range and the actual glyph range based on the specified glyph range. If a text contains two
+   * Chinese characters and five letters, the glyph index range of the text is [0, 7]. A Chinese character occupies
+   * three characters, so the corresponding character index range is [0, 11]. If the specified index range is [0, 11],
+   * but there are only seven glyphs, the actual glyph index range is [0, 7].
+   *
+   * @param { TextRange } glyphRange - Glyph range of the text.
+   * @returns { Array<TextRange> | undefined } Contains two elements: the first is the character range, and the second
+   *     is the actual glyph range. When the returned range is invalid, the element in the range is **-1**. Returns
+   *     **undefined** when [LayoutManager]{@link LayoutManager} is not bound to a component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -898,10 +873,13 @@ declare interface LayoutManager {
   getCharacterRangeForGlyphRange(glyphRange: TextRange): Array<TextRange> | undefined;
 
   /**
-   * Get LineMetrics.
-   * 
-   * @param { number } lineNumber - the number of line.
-   * @returns { LineMetrics } The line Metrics.
+   * Obtains the information about the specified line, including line metrics, text style information, and font
+   * properties.
+   *
+   * @param { number } lineNumber - Line number, which is zero-based.
+   * @returns { LineMetrics } Information about the specified line, including line metrics, text style information, and
+   *     font properties.
+   *     <br>Returns an invalid value if the line number is less than 0 or exceeds the actual number of lines.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -911,11 +889,13 @@ declare interface LayoutManager {
   getLineMetrics(lineNumber: number): LineMetrics;
 
   /**
-   * Get the rects for range.
-   * @param { TextRange } range - The range to set.
-   * @param { RectWidthStyle } widthStyle - Width style to set.
-   * @param { RectHeightStyle } heightStyle - Height style to set.
-   * @returns { Array<TextBox> } The rects for range.
+   * Obtains the drawing area information of the characters or placeholders within any range of the text, based on the
+   * specified rectangle width and height styles.
+   *
+   * @param { TextRange } range - Text range for which the drawing area is to be obtained.
+   * @param { RectWidthStyle } widthStyle - Width style of the rectangle.
+   * @param { RectHeightStyle } heightStyle - Height style of the rectangle.
+   * @returns { Array<TextBox> } Array of drawing rectangles.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -926,9 +906,8 @@ declare interface LayoutManager {
 }
 
 /**
- * Position and affinity.
- * 
- * @typedef PositionWithAffinity
+ * Describes the position and affinity of a glyph.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -936,10 +915,10 @@ declare interface LayoutManager {
  * @since 12 dynamic
  */
 interface PositionWithAffinity {
+
   /**
-   * Position of text.
-   * 
-   * @type { number }
+   * Index of the glyph or character to the component. The value is an integer.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -949,9 +928,8 @@ interface PositionWithAffinity {
   position: number;
 
   /**
-   * Affinity of text.
-   * 
-   * @type { Affinity }
+   * Affinity of the position.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -962,9 +940,8 @@ interface PositionWithAffinity {
 }
 
 /**
- * Define the Affinity type.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.Affinity } Affinity
+ * Enumerates the affinity modes.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -974,21 +951,19 @@ interface PositionWithAffinity {
 declare type Affinity = import('../api/@ohos.graphics.text').default.Affinity;
 
 /**
- * Define the LineMetrics type.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.LineMetrics } LineMetrics
+ * Describes the measurement information of a single line in the text layout.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
  */
-declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics; 
+declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetrics;
 
 /**
- * Define the RectWidthStyle type.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.RectWidthStyle } RectWidthStyle
+ * Enumerates the rectangle width styles.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -998,9 +973,8 @@ declare type LineMetrics = import('../api/@ohos.graphics.text').default.LineMetr
 declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectWidthStyle;
 
 /**
- * Define the RectHeightStyle type.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.RectHeightStyle } RectHeightStyle
+ * Enumerates the rectangle height styles.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1010,9 +984,8 @@ declare type RectWidthStyle = import('../api/@ohos.graphics.text').default.RectW
 declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.RectHeightStyle;
 
 /**
- * Define the TextBox type.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.TextBox } TextBox
+ * Describes the rectangle that contains the text.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1022,10 +995,8 @@ declare type RectHeightStyle = import('../api/@ohos.graphics.text').default.Rect
 declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 
 /**
- * The Paragraph type provide detailed information about a paragraph,
- * including properties such as line count, line height and other relevant metrics.
- * 
- * @typedef { import('../api/@ohos.graphics.text').default.Paragraph } Paragraph
+ * Implements a carrier that stores the text content and style. It supports operations such as layout and drawing.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1034,9 +1005,8 @@ declare type TextBox = import('../api/@ohos.graphics.text').default.TextBox;
 declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 
 /**
- * The type for input method extra config, see the detailed description in InputMethodExtraConfig.
+ * Represents the extension configuration of an input method.
  *
- * @typedef { import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig } InputMethodExtraConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -1045,8 +1015,8 @@ declare type Paragraph = import('../api/@ohos.graphics.text').default.Paragraph;
 declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConfig').InputMethodExtraConfig;
 
 /**
- * Define the FontVariation type
- * 
+ * Define the FontVariation type.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1056,70 +1026,46 @@ declare type InputMethodExtraConfig = import('../api/@ohos.inputMethod.ExtraConf
 declare type FontVariation = import('../api/@ohos.graphics.text').default.FontVariation;
 
 /**
- * Defines the cursor style
+ * Defines the cursor style.
  *
- * @interface CaretStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the cursor style
- *
- * @interface CaretStyle
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 interface CaretStyle {
-  /**
-   * Set the cursor width
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Set the cursor width
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  width?: Length,
 
   /**
-   * Set the cursor color
+   * Caret size. It cannot be set in percentage.
    *
-   * @type { ?ResourceColor }
+   * Default value: **'2vp'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
+  width?: Length;
+
   /**
-   * Set the cursor color
+   * Caret color.
    *
-   * @type { ?ResourceColor }
+   * Default value: **'#ff007dff'**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
-  color?: ResourceColor,
+  color?: ResourceColor;
 }
 
 /**
- * Defines the TextMenuItemId.
+ * Defines the unique identifier for a custom menu item. It is used to identify menu items. The IDs for built-in menu
+ * items are listed in the table below.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1128,12 +1074,12 @@ interface CaretStyle {
  * @since 12 dynamic
  */
 declare class TextMenuItemId {
+
   /**
-   * Init a TextMenuItemId with id.
+   * Creates a **TextMenuItemId** object based on **id**.
    *
-   * @param { ResourceStr } id - The id of the TextMenuItemId.
-   * @returns { TextMenuItemId } - Returns the TextMenuItemId object.
-   * @static
+   * @param { ResourceStr } id - Menu ID.
+   * @returns { TextMenuItemId } **TextMenuItemId** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1141,12 +1087,13 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   static of(id: ResourceStr): TextMenuItemId;
- 
+
   /**
-   * Judge if two TextMenuItemId are equal.
+   * Checks whether this **TextMenuItemId** object is the same as another **TextMenuItemId** object.
    *
-   * @param { TextMenuItemId } id - id TextMenuItemId.
-   * @returns { boolean }
+   * @param { TextMenuItemId } id - ID of the **TextMenuItemId** object to compare.
+   * @returns { boolean } Whether the two **TextMenuItemId** objects are the same.
+   *     <br>**true** if the objects are equal; **false** otherwise.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1154,13 +1101,10 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   equals(id: TextMenuItemId): boolean;
- 
+
   /**
-   * Indicates the TextMenuItemId to copy and delete the currently selected text.
+   * ID for the default cut menu item. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1168,13 +1112,10 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   static readonly CUT: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId to copy the currently selected text to the clipboard.
+   * ID for the default copy menu item. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1182,13 +1123,10 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   static readonly COPY: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId to copy the current contents of the clipboard into the text view.
+   * ID for the default paste menu item. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1196,13 +1134,10 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   static readonly PASTE: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId to select all text in a text view.
-   * 
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
+   * ID for the default select-all menu item. It is a level-1 menu item.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1210,26 +1145,20 @@ declare class TextMenuItemId {
    * @since 12 dynamic
    */
   static readonly SELECT_ALL: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId for collaboration service menu items.
+   * ID for the collaboration service menu item. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 12 dynamic
    */
   static readonly COLLABORATION_SERVICE: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId to recognize the text in the picture and input it into the text view.
+   * ID for the camera input menu item. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1238,11 +1167,11 @@ declare class TextMenuItemId {
   static readonly CAMERA_INPUT: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to help with text creation by invoking large models.
+   * <!--RP1--><!--RP1End-->ID for the menu item involving text enhancement features,
+   * such as polishing, summary extraction, and formatting, for selected text.
+   * It is a level-1 menu item. This menu item requires the large language model. If no large language model is available,
+   * this menu item does not take effect.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1251,11 +1180,9 @@ declare class TextMenuItemId {
   static readonly AI_WRITER: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to translate the selected content.
+   * ID for the translate menu item. It is a level-1 menu item. The translation service is provided for the selected
+   * text.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1264,11 +1191,9 @@ declare class TextMenuItemId {
   static readonly TRANSLATE: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to search the selected content.
+   * ID for the search menu item. It is a level-1 menu item. This menu item launches a browser to search for the
+   * selected text.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1277,11 +1202,9 @@ declare class TextMenuItemId {
   static readonly SEARCH: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to share the selected content.
+   * ID for the share menu item. It is a level-1 menu item. This menu item launches a window for sharing the selected
+   * text.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1290,11 +1213,9 @@ declare class TextMenuItemId {
   static readonly SHARE: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to open url.
+   * ID for the URL menu item. It is a level-1 menu item. This menu item provides the redirection service for the
+   * selected URL, launching a browser search or app page.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1303,11 +1224,9 @@ declare class TextMenuItemId {
   static readonly url: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to open email.
+   * ID for the email menu item. It is a level-1 menu item. This menu item provides the redirection service for the
+   * selected email address, launching the email app.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1316,11 +1235,9 @@ declare class TextMenuItemId {
   static readonly email: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to call the phone number.
+   * ID for the phone call menu item. It is a level-1 menu item. This menu item provides the redirection service for the
+   * selected phone number, launching the phone dialer page.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1329,11 +1246,9 @@ declare class TextMenuItemId {
   static readonly phoneNumber: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to open map.
+   * ID for the navigation menu item. It is a level-1 menu item. This menu item provides the redirection service for the
+   * selected address, launching the map app.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1342,11 +1257,9 @@ declare class TextMenuItemId {
   static readonly address: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to open calendar.
+   * ID for the event creation menu item. It is a level-1 menu item. This menu item provides the redirection service for
+   * the selected date and time, launching the page for creating a calendar event.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1354,13 +1267,10 @@ declare class TextMenuItemId {
    */
   static readonly dateTime: TextMenuItemId;
 
-
   /**
-   * Indicates the TextMenuItemId for asking AI.
+   * <!--RP2--><!--RP2End-->ID for the AI assistant menu item,
+   * which provides AI query capabilities for the selected text. It is a level-1 menu item.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1369,24 +1279,23 @@ declare class TextMenuItemId {
   static readonly askAI: TextMenuItemId;
 
   /**
-   * Indicates the TextMenuItemId to auto fill.
+   * ID for the autofill menu item. It is a level-1 menu item. When a menu item is tapped, the secondary menu item
+   * **Password Vault** is displayed. This menu item is supported exclusively for the [Search]{@link search},
+   * [TextInput]{@link text_input}, [TextArea]{@link text_area}, and [RichEditor]{@link rich_editor} components.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 23 dynamic
    */
   static readonly autoFill: TextMenuItemId;
- 
+
   /**
-   * Indicates the TextMenuItemId for password vault.
+   * ID for the password vault menu item. It is a level-2 menu item. Tapping this menu item launches the password vault
+   * app, which supports automatic username and password filling. The menu item is supported only for
+   * [Search]{@link search}, [TextInput]{@link text_input}, [TextArea]{@link text_area}, and
+   * [RichEditor]{@link rich_editor}.
    *
-   * @type { TextMenuItemId }
-   * @readonly
-   * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -1394,11 +1303,10 @@ declare class TextMenuItemId {
    */
   static readonly passwordVault: TextMenuItemId;
 }
- 
+
 /**
  * TextMenuItem
  *
- * @interface TextMenuItem
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1406,10 +1314,10 @@ declare class TextMenuItemId {
  * @since 12 dynamic
  */
 declare interface TextMenuItem {
+
   /**
-   * Customize what the menu displays.
+   * Menu name.
    *
-   * @type { ResourceStr }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1417,10 +1325,12 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   content: ResourceStr;
+
   /**
-   * Customize the icon before the menu displays content.
+   * Menu icon.
    *
-   * @type { ?ResourceStr }
+   * Online images are not supported.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1428,10 +1338,10 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   icon?: ResourceStr;
+
   /**
-   * Distinguish clicked menu content by Id.
+   * Menu ID.
    *
-   * @type { TextMenuItemId }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1439,10 +1349,12 @@ declare interface TextMenuItem {
    * @since 12 dynamic
    */
   id: TextMenuItemId;
+
   /**
-   * Customize what the menu item shortcut displays.
+   * Shortcut key hint.
    *
-   * @type { ?ResourceStr }
+   * This field is only supported on 2-in-1 devices.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1451,7 +1363,7 @@ declare interface TextMenuItem {
    */
   labelInfo?: ResourceStr;
 }
- 
+
 /**
  * Callback function when the selection menu create.
  *
@@ -1466,11 +1378,13 @@ declare interface TextMenuItem {
 type OnCreateMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuItem>;
 
 /**
- * Callback before displaying the menu when the selection range changes.
+ * Triggered before the menu is displayed after the text selection area changes. Menu data can be configured within this
+ * callback. Both the input parameter and return value contain only level-1 menu items; level-2 menu items are not
+ * included.
  *
- * @typedef { function } OnPrepareMenuCallback
- * @param { Array<TextMenuItem> } menuItems - currently displayed menu items.
- * @returns { Array<TextMenuItem> } Return the menu items will displayed after operations.
+ * @param { Array<TextMenuItem> } menuItems - Menu items to be displayed.<br>**NOTE**<br>Modifications to the name,
+ *     icon, or shortcut hint of default menu items do not take effect.
+ * @returns { Array<TextMenuItem> } Menu items after the processing.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1482,7 +1396,6 @@ type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuI
 /**
  * EditMenuOptions
  *
- * @interface EditMenuOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1490,11 +1403,14 @@ type OnPrepareMenuCallback = (menuItems: Array<TextMenuItem>) => Array<TextMenuI
  * @since 12 dynamic
  */
 declare interface EditMenuOptions {
+
   /**
-   * Passes the default menu, invokes before every display to generate a menu for triggering click events.
+   * Triggered when the menu is being created. Menu data can be configured within this callback. Both the input
+   * parameter and return value contain only level-1 menu items; level-2 menu items are not included.
    *
-   * @param { Array<TextMenuItem> } menuItems - current default menu array.
-   * @returns { Array<TextMenuItem> } - Return the menu after operations.
+   * @param { Array<TextMenuItem> } menuItems - Menu items to be displayed.<br>**NOTE**<br>Modifications to the name,
+   *     icon, or shortcut hint of default menu items do not take effect.
+   * @returns { Array<TextMenuItem> } Menu items after the processing.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1502,12 +1418,17 @@ declare interface EditMenuOptions {
    * @since 12 dynamic
    */
   onCreateMenu(menuItems: Array<TextMenuItem>): Array<TextMenuItem>;
+
   /**
-   * Invoke upon clicking an item, capable of intercepting the default system menu execution behavior.
+   * Triggered when the specified menu item is clicked.
    *
-   * @param { TextMenuItem } menuItem - current default menu.
-   * @param { TextRange } range - current selected range.
-   * @returns { boolean } - Return True, the event is consumed, false otherwise.
+   * @param { TextMenuItem } menuItem - Menu item.<br>**NOTE**<br>Since API version 23, for level-1 menu items that
+   *     support expandable level-2 menus (such as autofill), only the system default logic is executed and custom logic
+   *     is not executed.
+   * @param { TextRange } range - Selected text.
+   * @returns { boolean } Execution logic of the menu item.
+   *     <br>Returns **true** if the default system logic is intercepted and only the custom logic is executed.
+   *     <br>Returns **false** if the custom logic is executed before the default system logic.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1515,10 +1436,11 @@ declare interface EditMenuOptions {
    * @since 12 dynamic
    */
   onMenuItemClick(menuItem: TextMenuItem, range: TextRange): boolean;
+
   /**
-   * Callback before displaying the menu when the selection range changes.
+   * Callback invoked before the menu is displayed after the text selection area changes. Menu data can be configured
+   * within this callback.
    *
-   * @type { ?OnPrepareMenuCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1529,9 +1451,8 @@ declare interface EditMenuOptions {
 }
 
 /**
- * Defines the font decoration result.
+ * Provides the text decoration information returned by the backend.
  *
- * @interface DecorationStyleResult
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1539,10 +1460,10 @@ declare interface EditMenuOptions {
  * @since 12 dynamic
  */
 interface DecorationStyleResult {
+
   /**
-   * Font decoration type.
+   * Type of the text decoration.
    *
-   * @type { TextDecorationType }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1552,9 +1473,8 @@ interface DecorationStyleResult {
   type: TextDecorationType;
 
   /**
-   * Font decoration color.
+   * Color of the text decoration.
    *
-   * @type { ResourceColor }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1564,9 +1484,8 @@ interface DecorationStyleResult {
   color: ResourceColor;
 
   /**
-   * The style value of the decoration property object.
+   * Style of the text decoration.
    *
-   * @type { ?TextDecorationStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1576,9 +1495,14 @@ interface DecorationStyleResult {
   style?: TextDecorationStyle;
 
   /**
-   * The thicknessScale value of the decoration property object.
+   * Scale factor of the text decoration thickness.
    *
-   * @type { ?number }
+   * Default value: **1.0**
+   *
+   * Value range: [0, +∞)
+   *
+   * Note: Negative values are treated as the default value.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1589,9 +1513,8 @@ interface DecorationStyleResult {
 }
 
 /**
- * Defines the options of font.
+ * Defines font setting options.
  *
- * @interface FontSettingOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1600,23 +1523,34 @@ interface DecorationStyleResult {
  * @since 12 dynamic
  */
 declare interface FontSettingOptions {
-  /**
-    * Define whether VariableFontWeight is supported.
-    *
-    * @type { ?boolean }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @crossplatform
-    * @form
-    * @atomicservice
-    * @since 12 dynamic
-    */
-  enableVariableFontWeight?: boolean;
- }
 
- /**
- * The TextChangeOptions.
- * @interface TextChangeOptions
+  /**
+   * Whether to enable variable font weight adjustment. This parameter serves as the input for the
+   * [fontWeight]{@link TextAttribute#fontWeight(weight: number | FontWeight | ResourceStr, options?: FontSettingOptions)}
+   * API. When the **weight** value in **fontWeight** is a non-hundred value within the [100, 900] range,
+   * **enableVariableFontWeight** controls whether this **weight** value is applied.
+   *
+   * Default value: **false**
+   *
+   * **true**: Enable variable font weight adjustment. If the **weight** value is an integer within the [100, 900]
+   * range, it is applied as the font weight.
+   *
+   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
+   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  enableVariableFontWeight?: boolean;
+}
+
+/**
+ * Provides information about the text before and after a change, including the selection ranges.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1624,10 +1558,10 @@ declare interface FontSettingOptions {
  * @since 15 dynamic
  */
 declare interface TextChangeOptions {
+
   /**
-   * The selected area before the change.
+   * Selection range before the change.
    *
-   * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1637,9 +1571,8 @@ declare interface TextChangeOptions {
   rangeBefore: TextRange;
 
   /**
-   * The selected area after the change.
+   * Selection range after the change.
    *
-   * @type { TextRange }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1649,9 +1582,8 @@ declare interface TextChangeOptions {
   rangeAfter: TextRange;
 
   /**
-   * The content before the change.
+   * Text content before the change.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1661,9 +1593,8 @@ declare interface TextChangeOptions {
   oldContent: string;
 
   /**
-   * The info of PreviewText before the change.
+   * Preview text before the change.
    *
-   * @type { PreviewText }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1674,9 +1605,8 @@ declare interface TextChangeOptions {
 }
 
 /**
- * Define the editableText Component changed value.
+ * Provides detailed information of text changes, including preview text.
  *
- * @interface EditableTextChangeValue
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1684,10 +1614,10 @@ declare interface TextChangeOptions {
  * @since 15 dynamic
  */
 interface EditableTextChangeValue {
+
   /**
-   * Value of body text, without previewText value.
+   * Current text content.
    *
-   * @type { string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1697,9 +1627,8 @@ interface EditableTextChangeValue {
   content: string;
 
   /**
-   * Info of previewText, contains previewText value and start index.
+   * Preview text.
    *
-   * @type { ?PreviewText }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1709,9 +1638,8 @@ interface EditableTextChangeValue {
   previewText?: PreviewText;
 
   /**
-   * The TextChangeOptions.
+   * Information about the text change.
    *
-   * @type { TextChangeOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1721,19 +1649,19 @@ interface EditableTextChangeValue {
   options?: TextChangeOptions;
 }
 
- /**
-  * Defines text menu show mode.
-  *
-  * @enum { number }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 16 dynamic
-  */
+/**
+ * Enumerates the text menu display modes.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 16 dynamic
+ */
 declare enum TextMenuShowMode {
+
   /**
-   * Display the text selection menu in the current window.
+   * The menu is displayed in the current window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1744,33 +1672,51 @@ declare enum TextMenuShowMode {
   DEFAULT = 0,
 
   /**
-   * Prefer to display the text selection menu in a separate window
-   * and continue to display it within the current window if a separate window is not supported
-   * 
+   * The menu is preferentially displayed in a separate window. If a separate window is not supported, the menu is
+   * displayed in the current window.
+   *
+   * **NOTE**
+   *
+   * Displaying the text selection menu in a separate window is not supported for window types other than the app main
+   * window, app sub-window, system modal window, and system desktop window.
+   *
+   * Displaying the text selection menu in a separate window is not supported in the previewer.
+   *
+   * Displaying the text selection menu in a separate window is not supported in
+   * [UIExtension]{@link @ohos.arkui.uiExtension:uiExtension}.
+   *
+   * When a text component is displayed in a child window of [Popup]{@link @ohos.arkui.advanced.Popup},
+   * [Dialog]{@link @ohos.arkui.advanced.Dialog}, [Toast](docroot://ui/arkts-create-toast.md), or [Menu]{@link menu},
+   * the corresponding text selection menu cannot be displayed in a separate window.
+   *
+   * When **autoFill** is available for **TextInput** or **TextArea**, the corresponding text selection menu cannot be
+   * displayed in a separate window.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 16 dynamic
    */
-  PREFER_WINDOW = 1,
+  PREFER_WINDOW = 1
 }
 
- /**
-  * Defines text menu options.
-  *
-  * @interface TextMenuOptions
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 16 dynamic
-  */
+/**
+ * Provides the options for customizing the context menu on selection.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 16 dynamic
+ */
 declare interface TextMenuOptions {
+
   /**
-   * Text menu show mode.
+   * Menu display mode.
    *
-   * @type { ?TextMenuShowMode }
+   * Default value: **TextMenuShowMode.DEFAULT**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1779,18 +1725,19 @@ declare interface TextMenuOptions {
    */
   showMode?: TextMenuShowMode;
 }
+
 /**
- * Defines keyboard appearance.
+ * Enumerates the appearance modes of the keyboard.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 15 dynamic
  */
 declare enum KeyboardAppearance {
+
   /**
-   * Default appearance mode, don't adopt immersive styles
+   * Default appearance mode, not using immersive style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1800,7 +1747,7 @@ declare enum KeyboardAppearance {
   NONE_IMMERSIVE = 0,
 
   /**
-   * Immersive mode
+   * Immersive mode, following the system.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1810,7 +1757,7 @@ declare enum KeyboardAppearance {
   IMMERSIVE = 1,
 
   /**
-   * Light immersive style
+   * Immersive style in light mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1820,18 +1767,18 @@ declare enum KeyboardAppearance {
   LIGHT_IMMERSIVE = 2,
 
   /**
-   * Dark immersive style
+   * Immersive style in dark mode.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
    * @since 15 dynamic
    */
-  DARK_IMMERSIVE = 3,
+  DARK_IMMERSIVE = 3
 }
 
 /**
- * Defines shader style class.
+ * Defines the base class for text shader effects.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1839,13 +1786,11 @@ declare enum KeyboardAppearance {
  * @atomicservice
  * @since 20 dynamic
  */
-declare class ShaderStyle {
-}
+declare class ShaderStyle {}
 
 /**
- * Defines linear gradient class.
+ * Displays a linear gradient. **LinearGradientStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
  *
- * @extends ShaderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1853,10 +1798,11 @@ declare class ShaderStyle {
  * @since 20 dynamic
  */
 declare class LinearGradientStyle extends ShaderStyle {
+
   /**
-   * The constructor.
+   * A constructor used to create a **LinearGradientStyle** object.
    *
-   * @param { LinearGradientOptions } options - The options of the gradient.
+   * @param { LinearGradientOptions } options - Options for displaying a linear gradient.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1864,15 +1810,10 @@ declare class LinearGradientStyle extends ShaderStyle {
    * @since 20 dynamic
    */
   constructor(options: LinearGradientOptions);
-  
+
   /**
-   * The options of the gradient.
-   * angle: Angle of linear gradient.
-   * direction: Direction of Linear Gradient.
-   * colors: Color description for gradients.
-   * repeating: if the gradient colors with repeated coloring.
+   * Options for displaying a linear gradient.
    *
-   * @type { LinearGradientOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1883,9 +1824,8 @@ declare class LinearGradientStyle extends ShaderStyle {
 }
 
 /**
- * Defines radial gradient class.
+ * Displays a radial gradient. **RadialGradientStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
  *
- * @extends ShaderStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1893,10 +1833,11 @@ declare class LinearGradientStyle extends ShaderStyle {
  * @since 20 dynamic
  */
 declare class RadialGradientStyle extends ShaderStyle {
+
   /**
-   * The constructor.
+   * A constructor used to create a **RadialGradientOptions** object.
    *
-   * @param { RadialGradientOptions } options - The options of the gradient.
+   * @param { RadialGradientOptions } options - Options for displaying a radial gradient.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1904,15 +1845,10 @@ declare class RadialGradientStyle extends ShaderStyle {
    * @since 20 dynamic
    */
   constructor(options: RadialGradientOptions);
-  
+
   /**
-   * The options of the gradient.
-   * center: Center point of radial gradient
-   * radius: Radius of Radial Gradient. value range [0, +∞)
-   * colors: Color description for gradients
-   * repeating: Refill. The default value is false
+   * Options for displaying a radial gradient.
    *
-   * @type { RadialGradientOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1923,7 +1859,7 @@ declare class RadialGradientStyle extends ShaderStyle {
 }
 
 /**
- * Defines a shader with single color.
+ * Displays a solid color. **ColorShaderStyle** inherits from [ShaderStyle]{@link ShaderStyle}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1932,10 +1868,11 @@ declare class RadialGradientStyle extends ShaderStyle {
  * @since 20 dynamic
  */
 declare class ColorShaderStyle extends ShaderStyle {
+
   /**
-   * The constructor.
+   * A constructor used to create a **ResourceColor** object.
    *
-   * @param { ResourceColor } color - The color used by shader.
+   * @param { ResourceColor } color - Options for displaying a solid color.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1943,11 +1880,10 @@ declare class ColorShaderStyle extends ShaderStyle {
    * @since 20 dynamic
    */
   constructor(color: ResourceColor);
-  
+
   /**
-   * The color of the shader.
+   * Options for displaying a solid color.
    *
-   * @type { RadialGradientOptions }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1958,7 +1894,7 @@ declare class ColorShaderStyle extends ShaderStyle {
 }
 
 /**
- * Defines the text content transition class.
+ * Defines the base class for text transitions.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -1969,50 +1905,39 @@ declare class ColorShaderStyle extends ShaderStyle {
 declare class ContentTransition {}
 
 /**
- * Defines the numeric text content transition class.
+ * Implements a flip animation for numeric text. It applies only to positive integers (decimals and negative numbers are
+ * not supported). Gradient colors and text marquee mode are not supported. Text selection is not supported, and the
+ * [copyOption]{@link TextAttribute#copyOption} property is ineffective. The flip animation fails if the text contains
+ * child components or is set via a styled string.
  *
- * @extends ContentTransition
+ * **NumericTextTransition** inherits from [ContentTransition]{@link ContentTransition}.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 23]
  * @atomicservice
  * @since 20 dynamic
  */
-/**
- * Defines the numeric text content transition class.
- *
- * @extends ContentTransition
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 23 dynamic
- */
 declare class NumericTextTransition extends ContentTransition {
+
   /**
-   * constructor.
+   * A constructor used to create a **NumericTextTransition** object.
    *
-   * @param { NumericTextTransitionOptions } [options] -  The options of numeric text transition.
+   * @param { NumericTextTransitionOptions } [options] - Options of the numeric flip animation. The default value is
+   *     inherited from [NumericTextTransitionOptions]{@link NumericTextTransitionOptions}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 23]
    * @atomicservice
    * @since 20 dynamic
-   */
-  /**
-   * constructor.
-   *
-   * @param { NumericTextTransitionOptions } [options] -  The options of numeric text transition.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
    */
   constructor(options?: NumericTextTransitionOptions);
 
   /**
-   * The flip direction of numeric text transition.
+   * Direction of the flip animation.
    *
-   * @type { ?FlipDirection }
+   * Default value: **FlipDirection.DOWN**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2022,9 +1947,14 @@ declare class NumericTextTransition extends ContentTransition {
   flipDirection?: FlipDirection;
 
   /**
-   * Define whether enable blur effect.
+   * Whether to enable the blur effect for the flip animation.
    *
-   * @type { ?boolean }
+   * Default value: **false**
+   *
+   * **true**: Enable the blur effect.
+   *
+   * **false**: Disable the blur effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2035,9 +1965,8 @@ declare class NumericTextTransition extends ContentTransition {
 }
 
 /**
- * The options of numeric text transition.
+ * Defines the options of the numeric flip animation.
  *
- * @interface NumericTextTransitionOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2045,10 +1974,12 @@ declare class NumericTextTransition extends ContentTransition {
  * @since 20 dynamic
  */
 declare interface NumericTextTransitionOptions {
+
   /**
-   * Define the flip direction of numeric text transition.
+   * Direction of the flip animation.
    *
-   * @type { ?FlipDirection }
+   * Default value: **FlipDirection.DOWN**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2058,9 +1989,14 @@ declare interface NumericTextTransitionOptions {
   flipDirection?: FlipDirection;
 
   /**
-   * Define whether enable blur effect.
+   * Whether to enable the blur effect for the flip animation.
    *
-   * @type { ?boolean }
+   * Default value: **false**
+   *
+   * **true**: Enable the blur effect.
+   *
+   * **false**: Disable the blur effect.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2071,9 +2007,8 @@ declare interface NumericTextTransitionOptions {
 }
 
 /**
- * Defines the flip direction of numeric text transition.
+ * Enumerates the directions of the flip animation. The default value is **DOWN**.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2081,8 +2016,9 @@ declare interface NumericTextTransitionOptions {
  * @since 20 dynamic
  */
 declare enum FlipDirection {
+
   /**
-   * The flip direction is down.
+   * Content flips downward.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2093,7 +2029,7 @@ declare enum FlipDirection {
   DOWN = 0,
 
   /**
-   * The flip direction is up.
+   * Content flips upward.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2101,12 +2037,12 @@ declare enum FlipDirection {
    * @atomicservice
    * @since 20 dynamic
    */
-  UP = 1,
+  UP = 1
 }
 
 /**
- * Defines the line spacing options.
- * @interface LineSpacingOptions
+ * Configures the line spacing of text and whether it applies only between lines.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2114,10 +2050,15 @@ declare enum FlipDirection {
  * @since 20 dynamic
  */
 declare interface LineSpacingOptions {
+
   /**
-   * Used to set whether it will only take effect between lines. 
+   * Whether line spacing applies only between lines.
    *
-   * @type { ?boolean }
+   * **true**: Line spacing applies only between lines; no extra spacing is added above the first line or below the last
+   * line. **false**: Extra line spacing is added both above the first line and below the last line.
+   *
+   * Default value: **false**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2128,8 +2069,8 @@ declare interface LineSpacingOptions {
 }
 
 /**
- * Defines the options of max lines.
- * @interface MaxLinesOptions
+ * Configures the display effect of the **TextArea** component when the text exceeds the maximum number of lines.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2137,10 +2078,14 @@ declare interface LineSpacingOptions {
  * @since 20 dynamic
  */
 declare interface MaxLinesOptions {
+
   /**
-   * The mode of max lines.
+   * **overflowMode** can be used to set the non-inline mode for the [TextArea]{@link text_area} component. When the
+   * text exceeds the set value of **maxLines** (maximum number of lines), a scroll effect is enabled. This requires
+   * configuration of [textOverflow]{@link TextAreaAttribute#textOverflow}, and **MaxLinesMode** takes effect only when
+   * **textOverflow** is set to **None** or **Clip**. The default value of **MaxLinesMode** is **Clip**, indicating that
+   * text is truncated when it exceeds the value of **maxLines**.
    *
-   * @type { ?MaxLinesMode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2151,9 +2096,9 @@ declare interface MaxLinesOptions {
 }
 
 /**
- * Defines maxlines mode.
+ * Enumerates the display effects of the **TextArea** component when text exceeds the maximum number of lines. The
+ * default value is **CLIP** (truncating text at the maximum line count).
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2161,8 +2106,9 @@ declare interface MaxLinesOptions {
  * @since 20 dynamic
  */
 declare enum MaxLinesMode {
+
   /**
-   * Default maxlines mode
+   * Text is clipped when it exceeds the maximum number of lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2173,7 +2119,7 @@ declare enum MaxLinesMode {
   CLIP = 0,
 
   /**
-   * Scroll mode of max lines
+   * Text can be scrolled when it exceeds the maximum number of lines.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2181,21 +2127,21 @@ declare enum MaxLinesMode {
    * @atomicservice
    * @since 20 dynamic
    */
-  SCROLL = 1,
+  SCROLL = 1
 }
 
 /**
- * Defines the reason for text changes.
+ * Enumerates the reasons for component content changes.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
  */
 declare enum TextChangeReason {
+
   /**
-   * Default value.
+   * Unknown reason.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2205,7 +2151,7 @@ declare enum TextChangeReason {
   UNKNOWN = 0,
 
   /**
-   * Reason for input from input method.
+   * User input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2215,7 +2161,7 @@ declare enum TextChangeReason {
   INPUT = 1,
 
   /**
-   * Reason for paste.
+   * Paste operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2225,7 +2171,7 @@ declare enum TextChangeReason {
   PASTE = 2,
 
   /**
-   * Reason for cut.
+   * Cut operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2235,7 +2181,7 @@ declare enum TextChangeReason {
   CUT = 3,
 
   /**
-   * Reason for drag.
+   * Drag and drop operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2245,7 +2191,7 @@ declare enum TextChangeReason {
   DRAG = 4,
 
   /**
-   * Reason for auto fill.
+   * Auto-fill operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2255,7 +2201,7 @@ declare enum TextChangeReason {
   AUTO_FILL = 5,
 
   /**
-   * Reason for ai write.
+   * AI-assisted writing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2265,7 +2211,7 @@ declare enum TextChangeReason {
   AI_WRITE = 6,
 
   /**
-   * Reason for redo.
+   * Redo operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2275,7 +2221,7 @@ declare enum TextChangeReason {
   REDO = 7,
 
   /**
-   * Reason for undo.
+   * Undo operation.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2285,7 +2231,7 @@ declare enum TextChangeReason {
   UNDO = 8,
 
   /**
-   * Reason for controller methods.
+   * Component API call.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2295,7 +2241,7 @@ declare enum TextChangeReason {
   CONTROLLER = 9,
 
   /**
-   * Reason for accessibilty methods.
+   * Accessibility API.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2305,7 +2251,7 @@ declare enum TextChangeReason {
   ACCESSIBILITY = 10,
 
   /**
-   * Reason for collarboration input.
+   * Cross-device photographing.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2315,7 +2261,7 @@ declare enum TextChangeReason {
   COLLABORATION = 11,
 
   /**
-   * Reason for stylus input.
+   * Stylus input.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2326,17 +2272,17 @@ declare enum TextChangeReason {
 }
 
 /**
- * Keyboard Gradient mode.
+ * Enumerates keyboard gradient effects.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
  */
 declare enum KeyboardGradientMode {
+
   /**
-   * Disable gradient mode.
+   * No gradient effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2346,28 +2292,28 @@ declare enum KeyboardGradientMode {
   NONE = 0,
 
   /**
-   * Linear gradient mode.
+   * Linear gradient effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
    */
-  LINEAR_GRADIENT = 1,
+  LINEAR_GRADIENT = 1
 }
 
 /**
- * Keyboard fluid light mode.
+ * Enumerates keyboard fluid lighting effects.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
  */
 declare enum KeyboardFluidLightMode {
+
   /**
-   * Disable fluid light mode.
+   * No fluid lighting effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
@@ -2377,20 +2323,19 @@ declare enum KeyboardFluidLightMode {
   NONE = 0,
 
   /**
-   * Background fluid light mode.
+   * Background fluid lighting effect enabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
    * @since 20 dynamic
    */
-  BACKGROUND_FLUID_LIGHT = 1,
+  BACKGROUND_FLUID_LIGHT = 1
 }
 
 /**
- * Defines text direction.
+ * Enumerates the text layout directions.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2398,8 +2343,9 @@ declare enum KeyboardFluidLightMode {
  * @since 22 dynamic
  */
 declare enum TextDirection {
+
   /**
-   * Left to right.
+   * From left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2408,8 +2354,9 @@ declare enum TextDirection {
    * @since 22 dynamic
    */
   LTR = 0,
+
   /**
-   * Right to left.
+   * From right to left.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2418,8 +2365,9 @@ declare enum TextDirection {
    * @since 22 dynamic
    */
   RTL = 1,
+
   /**
-   * The text direction follows the component layout.
+   * Follows the component layout direction.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2428,8 +2376,11 @@ declare enum TextDirection {
    * @since 23 dynamic
    */
   DEFAULT = 2,
+
   /**
-   * The text direction follows the actual text.
+   * Follows the writing direction of the content. For example, for right-to-left (RTL) languages (such as Tibetan and
+   * Uyghur), the text is laid out from right to left. For left-to-right (LTR) languages (such as Chinese and English
+   * ), the text is laid out from left to right.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2441,19 +2392,20 @@ declare enum TextDirection {
 }
 
 /**
- * Defines the keyboard appearance config.
+ * Describes the keyboard visual style configuration.
  *
- * @interface KeyboardAppearanceConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
  * @since 20 dynamic
  */
 declare interface KeyboardAppearanceConfig {
+
   /**
-   * Used to set keyboard gradient mode.
+   * Keyboard gradient effect.
    *
-   * @type { ?KeyboardGradientMode }
+   * Default value: **KeyboardGradientMode.NONE**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -2462,9 +2414,10 @@ declare interface KeyboardAppearanceConfig {
   gradientMode?: KeyboardGradientMode;
 
   /**
-   * Used to set keyboard fluid light mode..
+   * Keyboard fluid lighting effect.
    *
-   * @type { ?KeyboardFluidLightMode }
+   * Default value: **KeyboardFluidLightMode.NONE**
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -2474,9 +2427,8 @@ declare interface KeyboardAppearanceConfig {
 }
 
 /**
- * Defines the input method client.
+ * Defines the input method client type bound to an input component.
  *
- * @interface IMEClient
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2484,10 +2436,10 @@ declare interface KeyboardAppearanceConfig {
  * @since 20 dynamic
  */
 declare interface IMEClient {
+
   /**
-   * The unique ID of this input component node.
+   * Unique ID of the current input component. The value must be greater than or equal to 0.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2497,9 +2449,9 @@ declare interface IMEClient {
   nodeId: number;
 
   /**
-   * Called when the extra config is set.
+   * Sets the extension configuration of an input method.
    *
-   * @param { InputMethodExtraConfig } config - The extra config object.
+   * @param { InputMethodExtraConfig } config - Extension configuration of an input method.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @atomicservice
@@ -2509,9 +2461,8 @@ declare interface IMEClient {
 }
 
 /**
- * Vertical Alignment of text.
+ * Defines the vertical alignment mode of text. The default value is **BASELINE** (aligning along the baseline).
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2519,8 +2470,9 @@ declare interface IMEClient {
  * @since 20 dynamic
  */
 declare enum TextVerticalAlign {
+
   /**
-   * Baseline alignment, the default value.
+   * Aligns text along the baseline.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2531,7 +2483,7 @@ declare enum TextVerticalAlign {
   BASELINE = 0,
 
   /**
-   * Bottom alignment.
+   * Aligns text to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2542,7 +2494,7 @@ declare enum TextVerticalAlign {
   BOTTOM = 1,
 
   /**
-   * Center alignment.
+   * Aligns text vertically to the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2553,7 +2505,7 @@ declare enum TextVerticalAlign {
   CENTER = 2,
 
   /**
-   * Top alignment.
+   * Aligns text to the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2561,13 +2513,12 @@ declare enum TextVerticalAlign {
    * @atomicservice
    * @since 20 dynamic
    */
-  TOP = 3,
+  TOP = 3
 }
 
 /**
- * Alignment of text.
+ * Enumerates the vertical alignment directions of the text content area.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2575,8 +2526,9 @@ declare enum TextVerticalAlign {
  * @since 21 dynamic
  */
 declare enum TextContentAlign {
+
   /**
-   * Top the text.
+   * Aligns the content area to the top.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2587,7 +2539,7 @@ declare enum TextContentAlign {
   TOP = 0,
 
   /**
-   * Center alignment.
+   * Aligns the content area to the center.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2598,7 +2550,7 @@ declare enum TextContentAlign {
   CENTER = 1,
 
   /**
-   * Bottom alignment.
+   * Aligns the content area to the bottom.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2620,7 +2572,7 @@ declare enum TextContentAlign {
  * @since 26.0.0 dynamic
  */
 declare enum StrokeJoinStyle {
- 
+
   /**
    * The corner type is an acute angle.
    *
@@ -2631,7 +2583,7 @@ declare enum StrokeJoinStyle {
    * @since 26.0.0 dynamic
    */
   MITER_JOIN = 0,
- 
+
   /**
    * The corner type is round.
    *
@@ -2642,7 +2594,7 @@ declare enum StrokeJoinStyle {
    * @since 26.0.0 dynamic
    */
   ROUND_JOIN = 1,
- 
+
   /**
    * The corner type is flat.
    *
@@ -2656,19 +2608,18 @@ declare enum StrokeJoinStyle {
 }
 
 /**
- * Defines text layout options. Use this to set constraints for measure text.
+ * Defines the text layout options.
  *
- * @interface TextLayoutOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @since 20 dynamic
  */
 declare interface TextLayoutOptions {
+
   /**
-   * Text display area of width.
+   * Layout width of the measured text. If not set, the width is the maximum width occupied by a single-line layout.
    *
-   * @type { ?LengthMetrics } constraintWidth
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2678,9 +2629,8 @@ declare interface TextLayoutOptions {
 }
 
 /**
- * Configuration for Accessibility .
+ * Defines accessibility options for the span.
  *
- * @interface AccessibilitySpanOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2688,10 +2638,16 @@ declare interface TextLayoutOptions {
  * @since 23 dynamic
  */
 declare interface AccessibilitySpanOptions {
+
   /**
-   * Indicates the accessibility text of component.
+   * Accessibility text, that is, accessible label name. If a component has no text property, it will not be announced
+   * when selected by a screen reader. Setting this property allows you to define accessibility text for such
+   * components, which will be announced by a screen reader to help users identify the selected component.
    *
-   * @type { ?ResourceStr } - accessibility text, Default value is "".
+   * Default value: **''**
+   *
+   * If the value is **undefined**, the default value is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2699,11 +2655,16 @@ declare interface AccessibilitySpanOptions {
    * @since 23 dynamic
    */
   accessibilityText?: ResourceStr;
+
   /**
-   * Indicates more detailed description text of component,
-   *     which is used to further describe the component.
+   * Accessibility description. This description provides users with a detailed explanation of the current component to
+   * help users understand the intended operation and its consequences, especially when these consequences cannot be
+   * directly obtained from the component's attributes and accessibility text alone.
    *
-   * @type { ?ResourceStr } - accessibility description, Default value is "".
+   * Default value: **''**
+   *
+   * If the value is **undefined**, the default value is used.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -2711,13 +2672,35 @@ declare interface AccessibilitySpanOptions {
    * @since 23 dynamic
    */
   accessibilityDescription?: ResourceStr;
+
   /**
-   * Set accessibility level.
+   * Accessibility level. It determines whether the component can be recognized by accessibility services.
    *
-   * @type { ?string } - The accessibility level for component. The options are as follows:<br/>
-   *     "auto":The value is converted to "yes" or "no" based on the component.
-   *     "yes": the current component is selectable for the accessibility service.
-   *     "no": The current component is not selectable for the accessibility service.
+   * The options are as follows:
+   *
+   * **"auto"**: The component's recognizability is determined jointly by accessibility services and ArkUI.
+   *
+   * **"yes"**: The component can be recognized by accessibility services.
+   *
+   * **"no"**: The component cannot be recognized by accessibility services.
+   *
+   * **"no-hide-descendants"**: Neither the component nor its child components can be recognized by accessibility
+   * services.
+   *
+   * The default value is **"auto"**.
+   *
+   * If the value is **undefined**, the default value is used.
+   *
+   * **NOTE**
+   *
+   * When accessibilityLevel is set to **"auto"**, the component's recognizability depends on the following factors:
+   *
+   * 1. The accessibility service internally determines whether the component can be recognized.
+   * 2. If the parent component's **accessibilityGroup** property has **isGroup** set to **true**,
+   * the accessibility service will not focus on its child components, making them unrecognizable.
+   * 3. If the parent component's **accessibilityLevel** is set to **"no-hide-descendants"**,
+   * the component will not be recognized by accessibility services.
+   *
    * @default "auto".
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2725,13 +2708,12 @@ declare interface AccessibilitySpanOptions {
    * @atomicservice
    * @since 23 dynamic
    */
-  accessibilityLevel?:string;
+  accessibilityLevel?: string;
 }
 
 /**
- * Selected drag preview style configuration.
+ * Defines the drag preview style for selected text.
  *
- * @interface SelectedDragPreviewStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2739,24 +2721,25 @@ declare interface AccessibilitySpanOptions {
  * @since 23 dynamic
  */
 declare interface SelectedDragPreviewStyle {
-    /**
-     * The color of background.
-     *
-     * @type { ?ResourceColor } - Default value is '#ffffff' (100% opacity).
-     *                            Default value in dark mode is '#202224' (95% opacity).
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 23 dynamic
-     */
-    color?: ResourceColor;
+
+  /**
+   * Drag preview color for selected text
+   *
+   * The default value follows the theme. When the default theme is applied, the drag preview is white in light mode
+   * and black in dark mode.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  color?: ResourceColor;
 }
 
 /**
- * Defines the voice button options.
+ * Sets the voice button options.
  *
- * @interface VoiceButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @systemapi
  * @stagemodelonly
@@ -2764,24 +2747,26 @@ declare interface SelectedDragPreviewStyle {
  * @since 23 dynamic
  */
 interface VoiceButtonOptions {
-    /**
-     * Enable or disable voice button.
-     * True means enable voice button, false means disable voice button.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @systemapi
-     * @stagemodelonly
-     * @atomicservice
-     * @since 23 dynamic
-     */
-    enabled?: boolean;
+
+  /**
+   * Whether to enable or disable the voice button for the input box.
+   *
+   * **true**: The voice button is enabled. **false**: The voice button is disabled.
+   *
+   * Default value: **false**
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @systemapi
+   * @stagemodelonly
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  enabled?: boolean;
 }
 
 /**
- * Defines the configuration of font.
+ * Defines font configurations.
  *
- * @interface FontConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2789,23 +2774,24 @@ interface VoiceButtonOptions {
  * @since 24 dynamic
  */
 declare interface FontConfigs {
-    /**
-     * Defines font weight configurations.
-     *
-     * @type { ?FontWeightConfigs }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    fontWeightConfigs?: FontWeightConfigs;
+
+  /**
+   * Font weight configuration. The default value is inherited from [FontWeightConfigs] (#fontweightconfigs24).
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  fontWeightConfigs?: FontWeightConfigs;
 }
 
 /**
- * Defines the configuration of font weight.
+ * Defines font weight configurations. When the configuration object (including an empty object **{}**) is passed, the
+ * default values are used for properties that are not explicitly set. When **null** or **undefined** is passed, default
+ * values are not applied, and the font weight behavior is consistent with that of the parent component text.
  *
- * @interface FontWeightConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2813,38 +2799,48 @@ declare interface FontConfigs {
  * @since 24 dynamic
  */
 declare interface FontWeightConfigs {
-    /**
-     * Defines whether VariableFontWeight is supported. The default value is false.
-     *     True means enable VariableFontWeight, false means disable VariableFontWeight.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    enableVariableFontWeight?: boolean;
-    /**
-     * Defines whether font weight will be automatically updated when the device's font weight category changes.
-     * The default value is true.
-     * True means font weight will be automatically updated when the device's font weight category changes.
-     * False means font weight will not be automatically updated when the device's font weight category changes.
-     *
-     * @type { ?boolean }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @crossplatform
-     * @atomicservice
-     * @since 24 dynamic
-     */
-    enableDeviceFontWeightCategory?: boolean;
+
+  /**
+   * Whether to enable variable font weight adjustment. When **weight** is set to a non-multiple of 100 within
+   * [100, 900], **enableVariableFontWeight** is used to set whether the **weight** value takes effect.
+   *
+   * Default value: **false**
+   *
+   * **true**: Enable variable font weight adjustment. If the value of **weight** is any integer within [100, 900],
+   * the value is used. Otherwise, the default value **400** is used.
+   *
+   * **false**: Disable variable font weight adjustment. If the value of **weight** is a multiple of 100 within
+   * [100, 900], the value is used. If **weight** is a non-multiple of 100, the default value **400** is used.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableVariableFontWeight?: boolean;
+
+  /**
+   * Whether to automatically synchronize the font weight with the device's font weight setting.
+   *
+   * Default value: **true**
+   *
+   * **true**: The font weight is automatically synchronized when the device's font weight setting changes.
+   *
+   * **false**: The font weight is not automatically synchronized when the device's font weight setting changes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 24 dynamic
+   */
+  enableDeviceFontWeightCategory?: boolean;
 }
 
 /**
  * Defines incremental update policies for text rendering.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2852,6 +2848,7 @@ declare interface FontWeightConfigs {
  * @since 26.0.0 dynamic
  */
 declare enum IncrementalUpdatePolicy {
+
   /**
    * Disable incremental updates. Full layout rendering is used.
    *

@@ -20,11 +20,14 @@
  */
 
 import { UIContext } from '@ohos.arkui.UIContext';
-import { FrameNode } from 'arkui.FrameNode';
-import { Size } from 'arkui.Graphics';
-import { Callback } from '@ohos.base';
-import { TouchEvent } from '@ohos.arkui.component';
 
+import { FrameNode } from 'arkui.FrameNode';
+
+import { Size } from 'arkui.Graphics';
+
+import { Callback } from '@ohos.base';
+
+import { TouchEvent } from '@ohos.arkui.component';
 
 /**
  * Defines the controller of the node container. Provides lifecycle callbacks for the associated NodeContainer
@@ -37,6 +40,7 @@ import { TouchEvent } from '@ohos.arkui.component';
  * @since 23 static
  */
 export declare abstract class NodeController {
+
   /**
    * MakeNode Method. Used to build a node tree and return a FrameNode or null, and
    * attach the return result to the associated NodeContainer.
@@ -65,7 +69,7 @@ export declare abstract class NodeController {
   aboutToResize(size: Size): void;
 
   /**
-   * AboutToAppear Method. Executed before the associated NodeContainer is destroyed.
+   * AboutToAppear Method. Executed when the associated NodeContainer is aboutToAppear.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -74,9 +78,9 @@ export declare abstract class NodeController {
    * @since 23 static
    */
   aboutToAppear(): void;
-  
+
   /**
-   * AboutToDisappear Method. Executed when the associated NodeContainer is aboutToDisappear.
+   * AboutToDisappear Method. Executed before the associated NodeContainer is destroyed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -96,7 +100,7 @@ export declare abstract class NodeController {
    * @since 23 static
    */
   rebuild(): void;
-  
+
   /**
    * OnTouchEvent Method. Executed when associated NodeContainer is touched.
    *

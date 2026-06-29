@@ -19,199 +19,114 @@
  */
 
 /**
- * Provides an interface for SymbolSpan.
+ * As a child component of the **Text** component, the **SymbolSpan** component is used to display small icons.
  *
- * @interface SymbolSpanInterface
+ * > **NOTE**
+ *
+ * > - This component can inherit attribute settings from its parent component **Text**. This means that, if an
+ * > attribute is not set in this component, it takes the value of the attribute (if set) from its parent component.
+ * >
+ * > - The **SymbolSpan** component is not dimmed when dragged.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Provides an interface for SymbolSpan.
- *
- * @interface SymbolSpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Provides an interface for SymbolSpan.
- *
- * @interface SymbolSpanInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 interface SymbolSpanInterface {
   /**
-   * Called when resource is entered in SymbolSpan.
-   * 
-   * @param { Resource } value
+   *
+   * Defines the constructor of SymbolSpan.
+   *
+   * @param { Resource } value - Resource of the **SymbolSpan** component, for example, **$r('sys.symbol.ohos_wifi')**.
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when resource is entered in SymbolSpan.
-   * 
-   * @param { Resource } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when resource is entered in SymbolSpan.
-   * 
-   * @param { Resource } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   (value: Resource): SymbolSpanAttribute;
 }
 
 /**
- * Provides attribute for SymbolSpan.
- * 
- * @extends CommonMethod<SymbolSpanAttribute>
+ * The [universal attributes]{@link common} are not supported. Only the following attributes are supported.
+ *
+ * The [universal events]{@link common} are not supported.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Provides attribute for SymbolSpan.
- * 
- * @extends CommonMethod<SymbolSpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Provides attribute for SymbolSpan.
- * 
- * @extends CommonMethod<SymbolSpanAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
+
   /**
-   * Called when the SymbolSpan size is set.
+   * Sets the size of the symbol span. When using the string type, numeric string values with optional units, for
+   * example, **"10"** or **"10fp"**, are supported.
    *
-   * @param { number | string | Resource } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { number | string | Resource } value - Size of the symbol span.<br>Default value: **16fp**<br>Unit:
+   *     [fp]{@link common}
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when the SymbolSpan size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolSpan size is set.
-   *
-   * @param { number | string | Resource } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontSize(value: number | string | Resource): SymbolSpanAttribute;
 
   /**
-   * Called when the SymbolSpan color is set.
+   * Sets the color of the symbol span.
    *
-   * @param { Array<ResourceColor> } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { Array<ResourceColor> } value - Color of the symbol span.<br> Default value: depending on the rendering
+   *     strategy
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when the SymbolSpan color is set.
-   *
-   * @param { Array<ResourceColor> } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolSpan color is set.
-   *
-   * @param { Array<ResourceColor> } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontColor(value: Array<ResourceColor>): SymbolSpanAttribute;
 
   /**
-   * Called when the font SymbolSpan weight is set.
+   * Sets the weight of the symbol span. For the number type, the value ranges from 100 to 900, at an interval of 100. A
+   * larger value indicates a heavier font weight. The default value is **400**. For the string type, only strings of
+   * the number type are supported, for example, **"400"**, **"bold"**, **"bolder"**, **"lighter"**, **"regular"**, and
+   * **"medium"**, which correspond to the enumerated values in **FontWeight**.
    *
-   * @param { number | FontWeight | string } value
+   * The **sys.symbol.ohos_lungs** icon does not support font weight setting.
+   *
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { number | FontWeight | string } value - Weight of the symbol span.<br>Default value: **FontWeight.Normal**
    * @returns { SymbolSpanAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when the font SymbolSpan weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the font SymbolSpan weight is set.
-   *
-   * @param { number | FontWeight | string } value
-   * @returns { SymbolSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   fontWeight(value: number | FontWeight | string): SymbolSpanAttribute;
 
@@ -231,122 +146,79 @@ declare class SymbolSpanAttribute extends CommonMethod<SymbolSpanAttribute> {
   fontWeight(value: number | FontWeight | ResourceStr, fontWeightConfigs?: FontWeightConfigs): SymbolSpanAttribute;
 
   /**
-   * Called when the SymbolSpan effect is set.
+   * Sets the symbol effect of the symbol span.
    *
-   * @param { SymbolEffectStrategy } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { SymbolEffectStrategy } value - Symbol effect of the symbol span.<br>Default value:
+   *     **SymbolEffectStrategy.NONE**
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when the SymbolSpan effect is set.
-   *
-   * @param { SymbolEffectStrategy } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolSpan effect is set.
-   *
-   * @param { SymbolEffectStrategy } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   effectStrategy(value: SymbolEffectStrategy): SymbolSpanAttribute;
 
   /**
-   * Called when the SymbolSpan rendering strategy is set.
+   * Sets the rendering strategy of the symbol span.
    *
-   * @param { SymbolRenderingStrategy } value
+   * > **NOTE**
+   * >
+   * > This API can be called within [attributeModifier]{@link CommonMethod#attributeModifier} since API version 12.
+   *
+   * @param { SymbolRenderingStrategy } value - Rendering strategy of the symbol span.<br>Default value:
+   *     **SymbolRenderingStrategy.SINGLE**
    * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Called when the SymbolSpan rendering strategy is set.
-   *
-   * @param { SymbolRenderingStrategy } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @form
-   * @atomicservice
-   * @since 12
-   */
-  /**
-   * Called when the SymbolSpan rendering strategy is set.
-   *
-   * @param { SymbolRenderingStrategy } value
-   * @returns { SymbolSpanAttribute } The attribute of the SymbolGlyph.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 20 dynamic
+   * @crossplatform [since 20]
+   * @form [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   renderingStrategy(value: SymbolRenderingStrategy): SymbolSpanAttribute;
 
   /**
-   * Sets the attribute modifier.
-   * 
-   * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
+   * Creates an attribute modifier.
+   *
+   * @param { AttributeModifier<SymbolSpanAttribute> } modifier - Modifier for dynamically setting attributes on the
+   *     current component.
    * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform [since 20]
    * @atomicservice
-   * @since 12
-   */
-  /**
-   * Sets the attribute modifier.
-   * 
-   * @param { AttributeModifier<SymbolSpanAttribute> } modifier - The instance of symbol span modifier.
-   * @returns { SymbolSpanAttribute } the attribute of the SymbolSpanAttribute.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 20 dynamic
+   * @since 12 dynamic
    */
   attributeModifier(modifier: AttributeModifier<SymbolSpanAttribute>): SymbolSpanAttribute;
 }
 
 /**
- * Defines SymbolSpan Component.
+ * As a child component of the **Text** component, the **SymbolSpan** component is used to display small icons.
+ *
+ * > **NOTE**
+ *
+ * > - This component can inherit attribute settings from its parent component **Text**. This means that, if an
+ * > attribute is not set in this component, it takes the value of the attribute (if set) from its parent component.
+ * >
+ * > - The **SymbolSpan** component is not dimmed when dragged.
+ *
+ * ###### Child Components
+ *
+ * Not supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines SymbolSpan Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Defines SymbolSpan Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const SymbolSpan: SymbolSpanInterface;
 
@@ -355,25 +227,10 @@ declare const SymbolSpan: SymbolSpanInterface;
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 11
- */
-/**
- * Defines SymbolSpan Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @form
- * @atomicservice
- * @since 12
- */
-/**
- * Defines SymbolSpan Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 20 dynamic
+ * @crossplatform [since 20]
+ * @form [since 12]
+ * @atomicservice [since 12]
+ * @since 11 dynamic
+ * @noninterop
  */
 declare const SymbolSpanInstance: SymbolSpanAttribute;

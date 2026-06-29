@@ -294,7 +294,7 @@ declare namespace window {
      */
     TYPE_FLOAT_CAMERA = 15,
     /**
-     * Dialog window.
+     * Modal window.
      *
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @StageModelOnly
@@ -4006,9 +4006,13 @@ declare namespace window {
 
   /**
    * Register the callback for application process focus state changes.
+   * This listener monitors the focus state changes between applications. 
+   * If the focus state changes between windows within the same application, the callback function will not be triggered.
    *
    * @param { Callback<boolean> } callback - Callback used to return the result whether application process
    *     focused or not.
+   *     The value true means that the application process becomes focused,
+   *     and false means that the application process becomes unfocused.
    * @syscap SystemCapability.Window.SessionManager
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -11434,7 +11438,7 @@ declare namespace window {
      * @returns { Promise<void> } - Promise that returns no value.
      * @throws { BusinessError } 801 - Capability not supported.
      *     Failed to call the API due to limited device capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
      *     1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
@@ -11499,7 +11503,8 @@ declare namespace window {
      *     2. Internal task error.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
-     *     Only main windows and subwindows are supported.
+     *     1. Only main windows and subwindows are supported.
+     *     2. Not supported when subwindows are set to follow the main window.
      * @throws { BusinessError } 1300016 - Parameter error. Possible cause:
      *     1. When called on a main window, the parameter should not only contain SPLIT.
      *     2. When called on a sub window, the parameter should not contain SPLIT.
@@ -11694,8 +11699,8 @@ declare namespace window {
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause: The window is not created or destroyed.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause: Only float windows, subwindows, dialog windows, or window type as system windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -11941,9 +11946,11 @@ declare namespace window {
      *     2. Incorrect parameter types.
      * @throws { BusinessError } 801 - Capability not supported. Failed to call the API due to limited device
      *     capabilities.
-     * @throws { BusinessError } 1300002 - This window state is abnormal.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally. [since 20]
-     * @throws { BusinessError } 1300004 - Unauthorized operation.
+     * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
+     *     Invalid window type. Only subwindows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
@@ -12141,8 +12148,10 @@ declare namespace window {
      * [abilities](docroot://quick-start/module-configuration-file.md#abilities) tag in the **module.json5** file.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -12294,8 +12303,10 @@ declare namespace window {
      * [abilities](docroot://quick-start/module-configuration-file.md#abilities) tag in the **module.json5** file.
      *
      * @returns { Promise<void> } Promise that returns no value.
-     * @throws {BusinessError} 1300002 - This window state is abnormal.
-     * @throws {BusinessError} 1300003 - This window manager service works abnormally.
+     * @throws { BusinessError } 1300002 - This window state is abnormal. Possible cause:
+     *     The window is not created or destroyed.
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally. Possible cause:
+     *     Internal task error.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 12 dynamic
@@ -12772,6 +12783,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error;
      *     3. The subWindow has been created and can not be created again.
+     *     4. It is not allowed to create non-secure window when secure extension exists.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @throws { BusinessError } 1300004 - Unauthorized operation. Possible cause:
      *     1. Invalid window type. Only main windows, subwindows, and floating windows are supported.

@@ -1,3 +1,4 @@
+'use static';
 /*
  * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,12 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 /**
  * @file
  * @kit ArkUI
  */
+
 import { Content } from '../../@ohos.arkui.node';
+
 import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './builder';
+
 import { AttributeModifier, CommonMethod } from './common';
 
 /**
@@ -27,36 +32,40 @@ import { AttributeModifier, CommonMethod } from './common';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface ContentSlotAttribute {
-    /**
-     * Set the component's source code redirection information. 
-     * @param { string } sourceLine - the source code line.
-     * @param { string } [moduleName] - module to which the component belongs.
-     * @returns { this }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default debugLine(sourceLine: string, moduleName?: string): this;
-    /**
-     * Sets content slot options.
-     *
-     * @param { Content } content - Content to display.
-     * @returns { this } ContentSlotAttribute instance
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    setContentSlotOptions(content: Content): this;
-    /**
-     * Notify ContentSlot has finished setting up its attributes.
-     *
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    applyAttributesFinish(): void;
+  /**
+   * Set the component's source code redirection information.
+   *
+   * @param { string } sourceLine - the source code line.
+   * @param { string } [moduleName] - module to which the component belongs.
+   * @returns { this }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  default debugLine(sourceLine: string, moduleName?: string): this;
+
+  /**
+   * Sets content slot options.
+   *
+   * @param { Content } content - Content to display.
+   * @returns { this } ContentSlotAttribute instance
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  setContentSlotOptions(content: Content): this;
+
+  /**
+   * Notify ContentSlot has finished setting up its attributes.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 26.0.0 staticonly
+   */
+  applyAttributesFinish(): void;
 }
 
 /**
@@ -72,7 +81,7 @@ export declare interface ContentSlotAttribute {
 @ComponentBuilder
 export declare function ContentSlot(
     content: Content
-): ContentSlotAttribute
+): ContentSlotAttribute;
 
 /**
  * Defines ContentSlot Component.It requires call setContentSlotOptions at start of the component attribute set-up,

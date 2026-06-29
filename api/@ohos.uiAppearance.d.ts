@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Copyright (c) 2025 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,56 +14,43 @@
  */
 
 /**
- * @file
+ * @file UI Appearance
  * @kit ArkUI
  */
 
 import type { AsyncCallback } from './@ohos.base';
 
 /**
- * Provide APIs to set system uiAppearance.
+ * This module provides basic capabilities for obtaining system appearance configurations, including color mode (dark/
+ * light) settings, font size scale factors, and font weight scale factors.
  *
- * @namespace uiAppearance
- * @syscap SystemCapability.ArkUI.UiAppearance
- * @systemapi hide this for inner system use
- * @since 10
- */
- /**
- * Provide APIs to set system uiAppearance.
+ * > **NOTE**
  *
- * @namespace uiAppearance
  * @syscap SystemCapability.ArkUI.UiAppearance
- * @since 20 dynamic
+ * @systemapi hide this for inner system use [since 10 - 19]
+ * @publicapi [since 20]
+ * @since 10 dynamic
  */
 declare namespace uiAppearance {
+
   /**
-   * Enumerates dark-mode.
+   * Enumerates the color modes.
    *
-   * @enum { number }
-   * @syscap SystemCapability.ArkUI.UiAppearance
-   * @systemapi hide this for inner system use
-   * @since 10
-   */
-  /**
-   * Enumerates dark-mode.
    *
-   * @enum { number }
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20 dynamic
+   * @systemapi hide this for inner system use [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
    */
   enum DarkMode {
+
     /**
      * Always display with dark mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 10
-     */
-    /**
-     * Always display with dark mode.
-     *
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20 dynamic
+     * @systemapi hide this for inner system use [since 10 - 19]
+     * @publicapi [since 20]
+     * @since 10 dynamic
      */
     ALWAYS_DARK = 0,
 
@@ -71,29 +58,26 @@ declare namespace uiAppearance {
      * Always display with light mode.
      *
      * @syscap SystemCapability.ArkUI.UiAppearance
-     * @systemapi hide this for inner system use
-     * @since 10
-     */
-    /**
-     * Always display with light mode.
-     *
-     * @syscap SystemCapability.ArkUI.UiAppearance
-     * @since 20 dynamic
+     * @systemapi hide this for inner system use [since 10 - 19]
+     * @publicapi [since 20]
+     * @since 10 dynamic
      */
     ALWAYS_LIGHT = 1
   }
 
   /**
-   * Set the system dark-mode.
+   * Sets the system color mode. This API uses an asynchronous callback to return the result.
+   *
+   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
    * @param { AsyncCallback<void> } callback - the callback of setDarkMode
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
@@ -102,16 +86,18 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode, callback: AsyncCallback<void>): void;
 
   /**
-   * Set the system dark-mode.
+   * Sets the system color mode. This API uses a promise to return the result.
+   *
+   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { DarkMode } mode - indicates the dark-mode to set
-   * @returns { Promise<void> } the promise returned by the function
+   * @returns { Promise<void> } Promise that returns no value.
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
@@ -120,32 +106,33 @@ declare namespace uiAppearance {
   function setDarkMode(mode: DarkMode): Promise<void>;
 
   /**
-   * Acquire the current dark-mode.
+   * Obtains the current system dark mode configuration.
    *
-   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * <!--Del-->
+   *
+   * > **NOTE**
+   *
+   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
+   * > permission.
+   *
+   * <!--DelEnd-->
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION [since 10 - 19]
    * @returns { DarkMode } current dark-mode.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission denied. [since 10 - 19]
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @systemapi hide this for inner system use
-   * @since 10
-   */
-  /**
-   * Acquire the current dark-mode.
-   *
-   * @returns { DarkMode } current dark-mode.
-   * @throws { BusinessError } 500001 - Internal error.
-   * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20 dynamic
+   * @systemapi hide this for inner system use [since 10 - 19]
+   * @publicapi [since 20]
+   * @since 10 dynamic
    */
   function getDarkMode(): DarkMode;
 
   /**
-   * Set the system font-scale.
+   * Sets the system font scale.
+   *
+   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { number } fontScale - indicates the font-scale to set
@@ -153,9 +140,9 @@ declare namespace uiAppearance {
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   *     <br> 1. Mandatory parameters are left unspecified.
+   *     <br> 2. Incorrect parameters types.
+   *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
@@ -164,43 +151,41 @@ declare namespace uiAppearance {
   function setFontScale(fontScale: number): Promise<void>;
 
   /**
-   * Acquire the current font-scale.
+   * Obtains the current font size scale factor.
    *
-   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * <!--Del-->
+   *
+   * > **NOTE**
+   *
+   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
+   * > permission.
+   *
+   * <!--DelEnd-->
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION [since 12 - 19]
    * @returns { number } current font-scale.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission denied. [since 12 - 19]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+   *     API. [since 12 - 19]
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @systemapi hide this for inner system use
-   * @since 12
-   */
-  /**
-   * Acquire the current font-scale.
-   *
-   * @returns { number } current font-scale.
-   * @throws { BusinessError } 500001 - Internal error.
-   * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20 dynamic
+   * @systemapi hide this for inner system use [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
    */
   function getFontScale(): number;
 
   /**
-   * Set the system font-weight-scale.
+   * Sets the system font weight scale.
+   *
+   * **Permission required**: ohos.permission.UPDATE_CONFIGURATION
    *
    * @permission ohos.permission.UPDATE_CONFIGURATION
    * @param { number } fontWeightScale - indicates the font-weight-scale to set
    * @returns { Promise<void> } the promise returned by the function
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
    * @systemapi hide this for inner system use
@@ -209,29 +194,30 @@ declare namespace uiAppearance {
   function setFontWeightScale(fontWeightScale: number): Promise<void>;
 
   /**
-   * Acquire the current font-weight-scale.
+   * Obtains the current font weight scale factor.
    *
-   * @permission ohos.permission.UPDATE_CONFIGURATION
+   * <!--Del-->
+   *
+   * > **NOTE**
+   *
+   * > This API is a system API in API version 19 and earlier. Using this API requires the
+   * > [ohos.permission.UPDATE_CONFIGURATION](docroot://security/AccessToken/permissions-for-system-apps.md#ohospermissionupdate_configuration)
+   * > permission.
+   *
+   * <!--DelEnd-->
+   *
+   * @permission ohos.permission.UPDATE_CONFIGURATION [since 12 - 19]
    * @returns { number } current font-weight-scale.
-   * @throws { BusinessError } 201 - Permission denied.
-   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system API.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   * <br> 1. Mandatory parameters are left unspecified.
-   * <br> 2. Incorrect parameters types.
-   * <br> 3. Parameter verification failed.
+   * @throws { BusinessError } 201 - Permission denied. [since 12 - 19]
+   * @throws { BusinessError } 202 - Permission verification failed. A non-system application calls a system
+   *     API. [since 12 - 19]
    * @throws { BusinessError } 500001 - Internal error.
    * @syscap SystemCapability.ArkUI.UiAppearance
-   * @systemapi hide this for inner system use
-   * @since 12
-   */
-  /**
-   * Acquire the current font-weight-scale.
-   *
-   * @returns { number } current font-weight-scale.
-   * @throws { BusinessError } 500001 - Internal error.
-   * @syscap SystemCapability.ArkUI.UiAppearance
-   * @since 20 dynamic
+   * @systemapi hide this for inner system use [since 12 - 19]
+   * @publicapi [since 20]
+   * @since 12 dynamic
    */
   function getFontWeightScale(): number;
 }
+
 export default uiAppearance;

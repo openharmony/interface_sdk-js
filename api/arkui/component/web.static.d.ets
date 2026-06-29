@@ -184,7 +184,7 @@ NONE_IMMERSIVE = 0,
 IMMERSIVE = 1,
 
 /**
-*Light immersive style.
+* Light immersive style.
 *
 * @syscap SystemCapability.Web.Webview.Core
 * @stagemodelonly
@@ -193,7 +193,7 @@ IMMERSIVE = 1,
 LIGHT_IMMERSIVE = 2,
 
 /**
-*Dark immersive style.
+* Dark immersive style.
 *
 * @syscap SystemCapability.Web.Webview.Core
 * @stagemodelonly
@@ -6672,6 +6672,19 @@ export declare interface WebAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default onInputmethodAttached(callback: OnInputmethodAttachedCallback | undefined): this;
+
+    /**
+     * Enables or disables fullscreen video overlay in the WebView component.
+     *
+     * @param { boolean | undefined } enabled - {@code true} to enable the fullscreen video overlay,
+     *    {@code false} to disable it.
+     *    The default value is false.
+     * @returns { WebAttribute }
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 static
+     */
+    default enableFullscreenVideoOverlay(enabled: boolean | undefined): this;
 }
 
 /**

@@ -81,7 +81,7 @@ declare namespace stream {
    * @since 12 dynamic
    * @since 23 static
    */
-  class Writable {
+  export class Writable {
     /**
      * A constructor used to create a **Writable** object.
      *
@@ -358,7 +358,7 @@ declare namespace stream {
    * @since 12 dynamic
    * @since 23 static
    */
-  class Readable {
+  export class Readable {
     /**
      * A constructor used to create a **Readable** object.
      *
@@ -679,7 +679,7 @@ declare namespace stream {
    * @since 12 dynamic
    * @since 23 static
    */
-  class Duplex extends Readable {
+  export class Duplex extends Readable {
     /**
      * A constructor used to create a **Duplex** object.
      *
@@ -898,7 +898,7 @@ declare namespace stream {
    * @since 12 dynamic
    * @since 23 static
    */
-  class Transform extends Duplex {
+  export class Transform extends Duplex {
     /**
      * A constructor used to create a **Transform** object.
      *

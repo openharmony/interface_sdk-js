@@ -19,259 +19,101 @@
  */
 
 /**
- * Counter component, which provides corresponding increment or decrement counting operations.
+ * The **Counter** component provides an operation to increase or decrease the number.
  *
- * @interface CounterInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Counter component, which provides corresponding increment or decrement counting operations.
+ * > **NOTE**
  *
- * @interface CounterInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Counter component, which provides corresponding increment or decrement counting operations.
+ * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
  *
- * @interface CounterInterface
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Counter component, which provides corresponding increment or decrement counting operations.
- *
- * @interface CounterInterface
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 interface CounterInterface {
+
   /**
-   * Return Counter.
+   * Create Counter component.
    *
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Return Counter.
-   *
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Return Counter.
-   *
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Return Counter.
-   *
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   (): CounterAttribute;
 }
 
 /**
- * Defines the Counter attribute functions.
+ * In addition to the [universal attributes]{@link common}, the following attributes are supported.
  *
- * @extends CommonMethod<CounterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the Counter attribute functions.
+ * In addition to the [universal events]{@link common}, the following events are supported.
  *
- * @extends CommonMethod<CounterAttribute>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines the Counter attribute functions.
- *
- * @extends CommonMethod<CounterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines the Counter attribute functions.
- *
- * @extends CommonMethod<CounterAttribute>
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare class CounterAttribute extends CommonMethod<CounterAttribute> {
+
   /**
-   * Listen to the event that the value increases.
+   * Invoked when the value increases.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the value increases. [since 7 - 17]
+   * @param { VoidCallback } event - Callback invoked when the value increases. [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Listen to the event that the value increases.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Listen to the event that the value increases.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Listen to the event that the value increases.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Listen to the event that the value increases.
-   * Anonymous Object Rectification.
-   *
-   * @param { VoidCallback } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onInc(event: VoidCallback): CounterAttribute;
 
   /**
-   * Listens to the number decrease event.
+   * Invoked when the value decreases.
    *
-   * @param { function } event
+   * @param { function } event - Callback invoked when the value decreases. [since 7 - 17]
+   * @param { VoidCallback } event - Callback invoked when the value decreases. [since 18]
    * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * Listens to the number decrease event.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @form
-   * @since 9
-   */
-  /**
-   * Listens to the number decrease event.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @since 10
-   */
-  /**
-   * Listens to the number decrease event.
-   *
-   * @param { function } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 11
-   */
-  /**
-   * Listens to the number decrease event.
-   * Anonymous Object Rectification.
-   *
-   * @param { VoidCallback } event
-   * @returns { CounterAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 18 dynamic
+   * @crossplatform [since 10]
+   * @form [since 9]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   onDec(event: VoidCallback): CounterAttribute;
 
   /**
-   * Indicates whether the decrease button of counter component is available or not.
+   * Sets whether to enable the decrement button.
    *
-   * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
-   * @returns { CounterAttribute } The attribute of the counter.
+   * @param { boolean } value - Whether to enable the decrement button.<br>Default value: **true**. The value **true**
+   *     means to enable the decrement button, and the value **false** means the opposite.
+   * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates whether the decrease button of counter component is available or not.
-   *
-   * @param { boolean } value - If true, the decrease button is available and can respond to operations such as clicking. If false, click operations are not responded.
-   * @returns { CounterAttribute } The attribute of the counter.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableDec(value: boolean): CounterAttribute;
 
   /**
-   * Indicates whether the increase button of counter component is available or not.
+   * Sets whether to enable the increment button.
    *
-   * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
-   * @returns { CounterAttribute } The attribute of the counter.
+   * @param { boolean } value - Whether to enable the increment button.<br>Default value: **true**. The value **true**
+   *     means to enable the increment button, and the value **false** means the opposite.
+   * @returns { CounterAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Indicates whether the increase button of counter component is available or not.
-   *
-   * @param { boolean } value - If true, the increase button is available and can respond to operations such as clicking. If false, click operations are not responded.
-   * @returns { CounterAttribute } The attribute of the counter.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   enableInc(value: boolean): CounterAttribute;
 }
@@ -280,62 +122,30 @@ declare class CounterAttribute extends CommonMethod<CounterAttribute> {
  * Defines Counter Component instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Counter Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Counter Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Counter Component instance.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const CounterInstance: CounterAttribute;
 
 /**
- * Defines Counter Component.
+ * The **Counter** component provides an operation to increase or decrease the number.
+ *
+ * > **NOTE**
+ *
+ * > - This component supports [WithTheme]{@link with_theme} since API version 26.0.0.
+ *
+ * ###### Child Components
+ *
+ * Supported
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines Counter Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @form
- * @since 9
- */
-/**
- * Defines Counter Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @since 10
- */
-/**
- * Defines Counter Component.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @form
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @form [since 9]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
+ * @noninterop
  */
 declare const Counter: CounterInterface;

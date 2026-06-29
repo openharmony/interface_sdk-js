@@ -24,8 +24,8 @@
  * > **NOTE**
  * >
  * > To standardize anonymous object definitions, the element definitions here have been revised in API version 18.
- * > While historical version information is preserved for anonymous objects, there may be cases where the outer element
- * > 's @since version number is higher than inner elements'. This does not affect interface usability.
+ * > While historical version information is preserved for anonymous objects, there may be cases where the outer
+ * > element's @since version number is higher than inner elements'. This does not affect interface usability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -53,7 +53,7 @@ declare interface PolylineOptions {
 
   /**
    * Height.
-   * Unit: vp, The value must be greater than or equal to 0, Default  The **undefined**, **null**, **NaN**, and
+   * Unit: vp, The value must be greater than or equal to 0, The **undefined**, **null**, **NaN**, and
    * **Infinity** values are invalid and treated as the default value. Default value: **0**.
    *
    * @type { ?(string | number) } [since 18 - 19]
@@ -99,7 +99,7 @@ interface PolylineInterface {
    * Defines the constructor of Polyline component.
    *
    * @param { object } value - [since 7 - 17]
-   * @param { PolylineOptions } [options] - - Options of the polyline.<br>The **undefined** and **null** values are
+   * @param { PolylineOptions } [options] - Options of the polyline.<br>The **undefined** and **null** values are
    *     treated as invalid and will not take effect. [since 18]
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -129,7 +129,7 @@ declare class PolylineAttribute extends CommonShapeMethod<PolylineAttribute> {
    * [attributeModifier]{@link CommonMethod#attributeModifier}.
    *
    * @param { Array<any> } value - List of coordinates that the polyline passes through. A two-dimensional array is
-   *     passed, and each subarray indicates the [x, y] coordinates of a vertex.<br>Default value: **[]** (empty array)
+   *     passed, and each subarray indicates the `[x, y]` coordinates of a vertex.<br>Default value: **[]** (empty array)
    *     <br>Default unit: vp<br>The **undefined** and **null** values are invalid and treated as the default value.
    * @returns { PolylineAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
