@@ -16304,6 +16304,127 @@ declare namespace photoAccessHelper {
   }
 
   /**
+   * Search Suggestion Type.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @stagemodelonly
+   * @atomicservice
+   * @since 26.0.0 dynamic&static
+   */
+  enum SearchSuggestionType {  
+    /**
+     * Searching for recommended words by time, location, and label.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_GEO_LABEL = 0,
+	
+    /**
+     * Searching for recommended words by time and location.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_GEO = 1,
+	
+    /**
+     * Searching for recommended words by time and label.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_LABEL = 2,
+	
+    /**
+     * Searching for recommended words by time, people, location and label.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_PEOPLE_GEO_LABEL = 3,
+	
+    /**
+     * Searching for recommended words by time, people and label.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_PEOPLE_GEO = 4,
+	
+    /**
+     * Searching for recommended words by time, people and label.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_PEOPLE_LABEL = 5,
+	
+    /**
+     * Searching for recommended words by time and people.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @stagemodelonly
+     * @atomicservice
+     * @since 26.0.0 dynamic&static
+     */
+    TIME_PEOPLE = 6
+  }  
+
+  /**
+   * Search suggestion result.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.0.0 dynamic&static
+   */
+  interface SearchSuggestionResult {  
+    /**
+     * Search Suggestion Type
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    type: SearchSuggestionType;
+	
+    /**
+     * Search suggestion
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    value: string;
+	
+    /**
+     * Number of photos in the scenario where a recommendation word is searched.
+     * The value range is all integers.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    count: int;
+  }
+
+  /**
    * Preferred compatible mode.
    *
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
@@ -16372,6 +16493,30 @@ declare namespace photoAccessHelper {
      * @since 23 dynamic&static
      */
     static getRelatedEntity (topic: string, context: ContextMap, option?: Options): Promise<Entity[]>;
+
+    /**
+     * Get Search Suggestion.
+     *
+     * @permission ohos.permission.READ_IMAGEVIDEO
+     * @param { Array<SearchSuggestionType> } searchSuggestionTypes - Array of search suggestion types
+     *     <br>The maximum length is 7 and cannot be empty.
+     * @returns { Promise<Array<SearchSuggestionResult>> } Result of searching for recommended words
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by nonsystem application
+     * @throws { BusinessError } 23800151 - Scenario parameters fail to pass the verification.Possible causes:
+     *     <br>1. The searchSuggestionTypes list is empty.
+     *     <br>2. The searchSuggestionTypes error.
+     * @throws { BusinessError } 23800301 - Internal system error. It is recommended to retry and check the logs.
+     *     <br>Possible causes:
+     *     <br>1. Database corrupted;
+     *     <br>2. The file system is abnormal;
+     *     <br>3. The IPC request timed out.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.0.0 dynamic&static
+     */
+    static getSearchSuggestion( searchSuggestionTypes: Array<SearchSuggestionType>): Promise<Array<SearchSuggestionResult>>;
   }
 
   /**
