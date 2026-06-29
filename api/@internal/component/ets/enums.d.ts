@@ -21,23 +21,12 @@
 /**
  * common enum of the checkbox shape
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
  * @form
- * @since 11
- */
-/**
- * common enum of the checkbox shape
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum CheckBoxShape {
   /**
@@ -47,17 +36,8 @@ declare enum CheckBoxShape {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Circle.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CIRCLE = 0,
 
@@ -68,17 +48,8 @@ declare enum CheckBoxShape {
    * @stagemodelonly
    * @crossplatform
    * @form
-   * @since 11
-   */
-  /**
-   * Rounded Square.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   ROUNDED_SQUARE = 1,
 }
@@ -3626,82 +3597,34 @@ declare enum TextHeightAdaptivePolicy {
 }
 
 /**
- * ResponseType for contextMenu
+ * How menu display is triggered.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @since 8
- */
-/**
- * ResponseType for contextMenu
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
- * ResponseType for contextMenu
- *
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare enum ResponseType {
   /**
-   * Right click.
+   * Shows the shortcut menu by right-clicking the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Right click.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Right click.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   RightClick,
 
   /**
-   * Long press.
+   * The menu is displayed when the component is long-pressed.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 8
-   */
-  /**
-   * Long press.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * Long press.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 8 dynamic
    */
   LongPress,
 }
@@ -3902,21 +3825,11 @@ declare enum Placement {
 /**
  * ArrowPointPosition enumeration description
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * ArrowPointPosition enumeration description
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum ArrowPointPosition {
   /**
@@ -3925,16 +3838,8 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Target start position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   START = 'Start',
 
@@ -3944,16 +3849,8 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Target center position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   CENTER = 'Center',
 
@@ -3963,16 +3860,8 @@ declare enum ArrowPointPosition {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Target end position
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   END = 'End',
 }
@@ -5057,53 +4946,33 @@ declare enum RenderFit {
 
 /**
  * The Button Style of dialog,
- * @enum { number }
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * The Button Style of dialog,
- * @enum { number }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare enum DialogButtonStyle {
   /**
    * Default Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Default Style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   DEFAULT = 0,
 
   /**
    * Highlight Style.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Highlight Style.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   HIGHLIGHT = 1
 }
@@ -5362,21 +5231,11 @@ declare type Nullable<T> = T | undefined;
 /**
  * Decide whether the width of select menu fit the trigger or content 
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Decide whether the width of select menu fit the trigger or content 
- *
- * @enum { string }
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare enum OptionWidthMode {
   /**
@@ -5385,16 +5244,8 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The menu width fit the content.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FIT_CONTENT = 'fit_content',
 
@@ -5404,16 +5255,8 @@ declare enum OptionWidthMode {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * The menu width fit the trigger.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   FIT_TRIGGER = 'fit_trigger',
 }
