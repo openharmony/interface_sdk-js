@@ -1215,6 +1215,7 @@ declare namespace osAccount {
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
+     * @throws { BusinessError } 12300003 - Domain account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
@@ -1234,6 +1235,7 @@ declare namespace osAccount {
      *     <br> 2. Incorrect parameter types.
      * @throws { BusinessError } 12300001 - The system service works abnormally.
      * @throws { BusinessError } 12300002 - Invalid domainInfo.
+     * @throws { BusinessError } 12300003 - Domain account not found.
      * @syscap SystemCapability.Account.OsAccount
      * @since 9 dynamic
      * @since 23 static
