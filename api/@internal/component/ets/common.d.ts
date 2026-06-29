@@ -179,7 +179,7 @@ declare interface ReusableOptions {
   /**
    * Memory optimization strategy for CustomComponent reuse
    *
-   * @type { ?ReusuableMemOptStrategy }
+   * @type { ?ReusableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
