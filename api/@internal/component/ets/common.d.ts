@@ -139,6 +139,7 @@ declare type ReusePoolOwnership = 'shared' | 'perInstance';
 /**
  * Defines a type for memory optimization strategy.
  *
+ * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -168,6 +169,7 @@ declare enum ReusableMemOptStrategy {
 /**
  * Defines the options for Reusable ClassDecorator.
  *
+ * @interface ReusableOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
@@ -177,6 +179,7 @@ declare interface ReusableOptions {
   /**
    * Memory optimization strategy for CustomComponent reuse
    *
+   * @type { ?ReusuableMemOptStrategy }
    * @default ReusableMemOptStrategy.DEFAULT
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -381,7 +384,6 @@ declare interface TextDecorationOptions {
  */
 /**
  * Defining Component ClassDecorator
- * 
  * Component is a ClassDecorator and it supports ComponentOptions as parameters.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -516,6 +518,7 @@ declare interface EntryOptions {
   /**
    * Determines whether to use the LocalStorage instance object returned by the LocalStorage.getShared() interface.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -701,88 +704,88 @@ declare const Require: PropertyDecorator;
  */
 declare const BuilderParam: PropertyDecorator;
 
- /**
-  * Defining Local PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
- /**
-  * Defining Local PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic
-  */
+/**
+ * Defining Local PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Local PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Local: PropertyDecorator;
 
- /**
-  * Defining Param PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
- /**
-  * Defining Param PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic
-  */
+/**
+ * Defining Param PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Param PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Param: PropertyDecorator;
 
- /**
-  * Defining Once PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
- /**
-  * Defining Once PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic
-  */
+/**
+ * Defining Once PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Once PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Once: PropertyDecorator;
 
- /**
-  * Defining Event PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
- /**
-  * Defining Event PropertyDecorator.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic
-  */
+/**
+ * Defining Event PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 12 dynamic
+ */
+/**
+ * Defining Event PropertyDecorator.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @form
+ * @atomicservice
+ * @since 23 dynamic
+ */
 declare const Event: PropertyDecorator;
 
 /**
@@ -965,6 +968,7 @@ declare const ObjectLink: PropertyDecorator;
 /**
  * Defines the options of Provide PropertyDecorator.
  *
+ * @interface ProvideOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -977,6 +981,7 @@ declare interface ProvideOptions {
    * Override the @Provide of any parent or parent of parent @Component.@Provide({allowOverride: "name"}) is
    * also allowed to be used even when there is no ancestor @Component whose @Provide would be overridden.
    *
+   * @type { ?string }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1019,7 +1024,7 @@ declare interface ProvideOptions {
  * @crossplatform
  * @form
  * @atomicservice
-  * @since 11 dynamic
+ * @since 11 dynamic
  */
 declare const Provide: PropertyDecorator & ((value: string | ProvideOptions) => PropertyDecorator);
 
@@ -1271,6 +1276,7 @@ declare function CustomEnv<T>(key: CustomEnvKey<T>): PropertyDecorator;
 /**
  * Define Env Decorator type
  *
+ * @typedef { function } EnvDecorator
  * @param { SystemProperties } value - key value input by the user
  * @returns { PropertyDecorator } Env decorator
  * @throws { BusinessError } 140000 - Invalid key for @Env
@@ -1298,13 +1304,14 @@ declare function Env<T>(key: SystemEnvKey<T> | SystemProperties): PropertyDecora
 /**
  * Defining Environment variable enumeration value.
  *
+ * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @atomicservice
  * @since 22 dynamic
  */
 declare enum SystemProperties {
- /**
+  /**
    * System environmental breakpoint key that is used to obtain the width and height breakpoint value of the window.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1717,6 +1724,7 @@ declare const Monitor: MonitorDecorator;
  * @crossplatform
  * @atomicservice
  * @since 12 dynamic
+ * @noninterop
  */
 /**
  * Define Monitor Decorator type
@@ -1731,6 +1739,7 @@ declare const Monitor: MonitorDecorator;
  * @form
  * @atomicservice
  * @since 23 dynamic
+ * @noninterop
  */
 /**
  * Defines Monitor Decorator type
@@ -1752,6 +1761,7 @@ declare type MonitorDecorator = (value: string | MonitorDecoratorOptions, ...arg
 /**
  * Defines MonitorDecoratorOptions interface
  *
+ * @interface MonitorDecoratorOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1765,6 +1775,7 @@ declare interface MonitorDecoratorOptions {
    * Set to true to enable wildcard feature, set to false to disable it.
    * The default value is true.
    *
+   * @type { ?boolean }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -1797,41 +1808,41 @@ declare interface MonitorDecoratorOptions {
  * @since 23 dynamic
  */
 declare interface IMonitor {
- /**
-  * Array of changed paths(keys)
-  *
-  * @type { Array<string> }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
- /**
-  * Array of changed paths(keys)
-  *
-  * @type { Array<string> }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @form
-  * @atomicservice
-  * @since 23 dynamic
-  */
+  /**
+   * Array of changed paths(keys)
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
+  /**
+   * Array of changed paths(keys)
+   *
+   * @type { Array<string> }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @form
+   * @atomicservice
+   * @since 23 dynamic
+   */
   dirty: Array<string>;
 
- /**
-  * Return the pair of the value before the most recent change and current value for given path.
-  * If path does not exist, return undefined; If path is not specified, return the value pair corresponding to the first path in dirty.
-  *
-  * @param { string } [path]
-  * @returns { IMonitorValue<T> | undefined }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 12 dynamic
-  */
+  /**
+   * Return the pair of the value before the most recent change and current value for given path.
+   * If path does not exist, return undefined; If path is not specified, return the value pair corresponding to the first path in dirty.
+   *
+   * @param { string } [path]
+   * @returns { IMonitorValue<T> | undefined }
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 12 dynamic
+   */
   /**
    * Return the pair of the value before the most recent change and current value for given path.
    * If path does not exist, return undefined; If path is not specified, return the value pair
@@ -1948,9 +1959,10 @@ declare interface IMonitorValue<T> {
  * Path items are either observed attribute names or array item indices.The path in SyncMonitor
  * supports wildcard at the end of a path item, but path items must never appear at the beginning or
  * in the middle of a path. All other paths using one or more wildcard are invalid.
- * 
+ *
  * Functions decorated with @SyncMonitor can be used in @ObservedV2 objects and @ComponentV2.
  *
+ * @type { MonitorDecorator }
  * @throws { BusinessError } 130001 - The path is invalid.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -2053,13 +2065,10 @@ declare const Concurrent: MethodDecorator;
 
 /**
  * Defining Sendable ClassDecorator
- * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class
- * object can be shared globally.
+ * The Sendable decorator can be used only for classes. A class with this decorator is marked as sendable, and the class object can be shared globally.
  * Since 12, the Sendable decorator can be used for function and typeAlias also.
- * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class
- * object.
- * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables
- * ,
+ * A function with this decorator is marked as sendable, and the function can be an shareable property of sendable-class object.
+ * A typeAlias with this decorator is marked as sendable, and the typeAlias can be used to declare properties, variables,
  * and arguments that need to be assigned with sendable-function.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2067,6 +2076,7 @@ declare const Concurrent: MethodDecorator;
  * @crossplatform
  * @atomicservice
  * @since 11 dynamic
+ * @noninterop
  */
 declare const Sendable: ClassDecorator;
 
@@ -2222,43 +2232,45 @@ declare function getContext(component?: Object): Context;
 declare const Reusable: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
 /**
-  * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
-  *
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  * @noninterop
-  */
- /**
-  * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
-  *
-  * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
-  * 
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 26.0.0 dynamic
+ * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 18 dynamic
+ * @noninterop
+ */
+/**
+ * Defining ReusableV2 ClassDecorator that is used to decorate @ComponentV2.
+ *
+ * ReusableV2 is a ClassDecorator and it supports ReusableOptions as a parameters.
+ * 
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.0.0 dynamic
  */
 declare const ReusableV2: ClassDecorator & ((options: ReusableOptions) => ClassDecorator);
 
- /**
-  * ReuseId callback type. It is used to compute reuseId.
-  *
-  * @returns { string }
-  * @syscap SystemCapability.ArkUI.ArkUI.Full
-  * @stagemodelonly
-  * @crossplatform
-  * @atomicservice
-  * @since 18 dynamic
-  */
- declare type ReuseIdCallback = () => string;
+/**
+ * ReuseId callback type. It is used to compute reuseId.
+ *
+ * @typedef { function } ReuseIdCallback
+ * @returns { string }
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 18 dynamic
+ */
+declare type ReuseIdCallback = () => string;
 
 /**
  * Defining the reusable configuration parameters.
  *
+ * @interface ReuseOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -2269,6 +2281,7 @@ declare interface ReuseOptions {
   /**
    * Defining reuseId function. The default reuseId is the custom component name.
    *
+   * @type { ?ReuseIdCallback }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

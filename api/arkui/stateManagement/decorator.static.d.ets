@@ -1779,25 +1779,6 @@ export declare interface IMonitorPathInfo {
 }
 
 /**
- * Defines Env options to create Env variables.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 24 static
- */
-export declare interface EnvOptions<T> {
-
-  /**
-   * Init value for user defined Env.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 24 static
-   */
-  initValue?: T;
-}
-
-/**
  * Defines makeMonitor options to create Monitor variables.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1826,6 +1807,24 @@ export declare interface MakeMonitorOptions {
 }
 
 /**
+ * Defines Env options to create Env variables.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 24 static
+ */
+export declare interface EnvOptions<T> {
+  /**
+   * Init value for user defined Env.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @since 24 static
+   */
+  initValue?: T;
+}
+
+/**
  * Defines IObservedAnyProp type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1843,15 +1842,6 @@ export declare interface IObservedAnyProp {
    */
   addRefAnyProp(): void;
 }
-
-/**
- * Global reuse pool handle.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export declare interface IGlobalReusePoolVariable {}
 
 /**
  * Defines the custom environment Key.
@@ -2027,6 +2017,15 @@ export declare class ReadonlyEnvKey {
    */
   static readonly WINDOW_IS_HIGHLIGHTED: ReadonlySystemEnvKey<boolean>;
 }
+
+/**
+ * Global reuse pool handle.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @since 26.0.0 static
+ */
+export declare interface IGlobalReusePoolVariable {}
 
 /**
  * Defining CustomEnv PropertyDecorator.

@@ -286,7 +286,6 @@ export @interface Reusable {
     /**
     * Memory optimization strategy for CustomComponent Reuse
     *
-    * @type { ?ReusableMemOptStrategy }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 26.0.0 static
@@ -306,7 +305,6 @@ export @interface ReusableV2 {
     /**
     * Memory optimization strategy for CustomComponent Reuse
     *
-    * @type { ?ReusableMemOptStrategy }
     * @syscap SystemCapability.ArkUI.ArkUI.Full
     * @stagemodelonly
     * @since 26.0.0 static
@@ -694,7 +692,7 @@ export interface CustomComponentInvokeOptions extends CustomComponentBaseOptions
  * @since 26.0.0 static
  */
 export interface CustomComponentV1InvokeOptions extends CustomComponentBaseOptions {}
- 
+
 /**
  * CustomComponent Lifecycle. It is used to monitor changes in the lifecycle of the custom component.
  *
