@@ -96,7 +96,6 @@ export declare interface TextDataDetectorConfig {
     /**
      * Text data detect result callback.
      *
-     * @type { ?Callback<string> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -505,7 +504,6 @@ export declare interface StyledStringChangedListener {
     /**
      * Called before text changed.
      *
-     * @type { ?Callback<StyledStringChangeValue, boolean> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -514,7 +512,6 @@ export declare interface StyledStringChangedListener {
     /**
      * Called after text changed.
      *
-     * @type { ?OnDidChangeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -663,8 +660,8 @@ export declare interface LayoutManager {
 export interface PositionWithAffinity {
     /**
      * Position of text.
+     * The value should be an integer.
      *
-     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -673,7 +670,7 @@ export interface PositionWithAffinity {
 
     /**
      * Affinity of the position.
-     * @type { Affinity }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -683,7 +680,6 @@ export interface PositionWithAffinity {
 /**
  * Define the Affinity type.
  *
- * @typedef { text.Affinity } Affinity
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1053,7 +1049,6 @@ export declare interface EditMenuOptions {
     /**
      * Callback before displaying the menu when the selection range changes.
      *
-     * @type { ?OnPrepareMenuCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -2136,19 +2131,17 @@ export interface VoiceButtonOptions {
 /**
  * Defines the configuration of font.
  *
- * @interface FontConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface FontConfigs {
     /**
      * Defines font weight configurations.
      *
-     * @type { ?FontWeightConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     fontWeightConfigs?: FontWeightConfigs;
 }
@@ -2156,20 +2149,18 @@ export declare interface FontConfigs {
 /**
  * Defines the configuration of font weight.
  *
- * @interface FontWeightConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
- * @since 24 static
+ * @since 26.0.0 static
  */
 export declare interface FontWeightConfigs {
     /**
      * Defines whether VariableFontWeight is supported. The default value is false.
      * True means enable VariableFontWeight, false means disable VariableFontWeight.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableVariableFontWeight?: boolean;
     /**
@@ -2178,10 +2169,9 @@ export declare interface FontWeightConfigs {
      * True means font weight will be automatically updated when the device's font weight category changes.
      * False means font weight will not be automatically updated when the device's font weight category changes.
      *
-     * @type { ?boolean }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     enableDeviceFontWeightCategory?: boolean;
 }

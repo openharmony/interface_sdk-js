@@ -55,13 +55,8 @@ import type dragController from './@ohos.arkui.dragController';
 import type common from './@ohos.app.ability.common';
 
 /**
- * class Font
- *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getFont() in UIContext to obtain a Font instance,
- * and then call the APIs using the obtained instance.
- * </p>
- *
+* class Font
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -69,6 +64,7 @@ import type common from './@ohos.app.ability.common';
  * @since 10 dynamic
  */
 export class Font {
+
   /**
    * Register a customized font in the FontManager.
    *
@@ -87,21 +83,9 @@ export class Font {
    * @returns { Array<string> } 字体名称列表
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * 获取系统支持的字体列表。
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>This API takes effect only on 2-in-1 devices.
-   * </p>
-   *
-   * @returns { Array<string> } 字体名称列表
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getSystemFontList(): Array<string>;
 
@@ -112,18 +96,9 @@ export class Font {
    * @returns { font.FontInfo } Returns the font info
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 10
-   */
-  /**
-   * 根据字体名称获取字体详细信息。
-   *
-   * @param { string } fontName - 字体名称
-   * @returns { font.FontInfo } Returns the font info
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 11]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getFontByName(fontName: string): font.FontInfo;
 }
@@ -4991,17 +4966,8 @@ export class UIContext {
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * get object font.
-   *
-   * @returns { Font } object Font.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getFont(): Font;
 
