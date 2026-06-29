@@ -47,32 +47,26 @@ export interface DynamicLayoutInterface {
     (algorithm: LayoutAlgorithm): DynamicLayoutAttribute;
 }
 /**
- * The [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md) are supported.
+ * The [universal attributes]{@link CommonMethod} are supported.
  *
  * > **NOTE**
  * >
- * > - When the layout algorithm is
- * > [RowLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#rowlayoutalgorithm) or
- * > [ColumnLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#columnlayoutalgorithm),
- * > the [Flex layout](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md) attributes set for
- * > child components take effect.
+ * > - When the layout algorithm is [RowLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:RowLayoutAlgorithm} or
+ * > [ColumnLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:ColumnLayoutAlgorithm},
+ * > the [Flex layout](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-flex-layout.md) attributes set
+ * > for child components take effect.
+ * >
+ * > - When the layout algorithm is [StackLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:StackLayoutAlgorithm},
+ * > the [layoutGravity]{@link CommonMethod#layoutGravity} attribute set for child components takes effect.
  * >
  * > - When the layout algorithm is
- * > [StackLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#stacklayoutalgorithm),
- * > the [layoutGravity](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-location.md#layoutgravity20)
- * > attribute set for child components takes effect.
- * >
- * > - When the layout algorithm is
- * > [CustomLayoutAlgorithm](docroot://reference/apis-arkui/js-apis-arkui-layoutAlgorithm.md#customlayoutalgorithm),
- * > the [setMeasuredSize](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#setmeasuredsize12) method of the
- * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) component of **DynamicLayout**
- * > has a higher priority than the [sizing](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-size.md) and
- * > [border styling](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-border.md) attributes. The
- * > [measure](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#measure12) and
- * > [layout](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#layout12) methods of the child component
- * > [FrameNode](docroot://reference/apis-arkui/js-apis-arkui-frameNode.md#framenode-1) have a higher priority than the
- * > [ignoreLayoutSafeArea](docroot://reference/apis-arkui/arkui-ts/ts-universal-attributes-expand-safe-area.md#ignorelayoutsafearea20)
- * > attribute.
+ * > [CustomLayoutAlgorithm]{@link ./arkui/LayoutAlgorithm:CustomLayoutAlgorithm},
+ * > the [setMeasuredSize]{@link ./arkui/FrameNode:FrameNode#setMeasuredSize} method of the
+ * > [FrameNode]{@link ./arkui/FrameNode:FrameNode} component of **DynamicLayout** has a higher priority than the
+ * > [sizing]{@link CommonMethod#size} and [border styling]{@link CommonMethod#border} attributes. The
+ * > [measure]{@link ./arkui/FrameNode:FrameNode#measure} and [layout]{@link ./arkui/FrameNode:FrameNode#layout} methods
+ * > of the child component [FrameNode]{@link ./arkui/FrameNode:FrameNode} have a higher priority than the
+ * > [ignoreLayoutSafeArea]{@link CommonMethod#ignoreLayoutSafeArea} attribute.
  *
  * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
