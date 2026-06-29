@@ -2291,7 +2291,7 @@ declare interface NavigationConfiguration {
    * @atomicservice
    * @since 26.0.0 dynamic
    */
-  stackSizeLimit?: number;
+  stackSizeLimit?: int;
 }
 
 /**

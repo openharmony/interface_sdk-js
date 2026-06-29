@@ -398,41 +398,33 @@ export declare class TextStyle {
     /**
      * Get the fontConfigs of the StyledString.
      *
-     * @type { ?FontConfigs } - the set fontConfigs of the StyledString or undefined
-     * @readonly
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     readonly fontConfigs?: FontConfigs;
     /**
  	 * Get the superscript style of the StyledString.
  	 *
- 	 * @type { ?SuperscriptStyle } - the set superscriptStyle of the StyledString
- 	 * @readonly
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	readonly superscript?: SuperscriptStyle;
  	/**
  	 * Get the stroke width of the StyledString with the unit 'vp'.
  	 *
- 	 * @readonly
- 	 * @type { ?double } - the stroke width of the StyledString or undefined
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	readonly strokeWidth?: double;
  	/**
  	 * Get the stroke color of the StyledString.
  	 *
- 	 * @type { ?ResourceColor } - the stroke color of the StyledString or undefined
- 	 * @readonly
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	readonly strokeColor?: ResourceColor;
 
@@ -509,39 +501,35 @@ export declare interface TextStyleInterface {
      */
     fontStyle?: FontStyle;
     /**
-     * The fontConfigs value of the font property object.
+     * The fontConfigs value of the text.
      *
-     * @type { ?FontConfigs }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     fontConfigs?: FontConfigs;
     /**
  	 * The superscript value of the font property object.
  	 *
- 	 * @type { ?SuperscriptStyle }
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	superscript?: SuperscriptStyle;
  	/**
  	 * The stroke width of the text.
  	 *
- 	 * @type { ?LengthMetrics }
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	strokeWidth?: LengthMetrics;
  	/**
  	 * The stroke color of the text.
  	 *
- 	 * @type { ?ResourceColor }
  	 * @syscap SystemCapability.ArkUI.ArkUI.Full
  	 * @stagemodelonly
- 	 * @since 24 static
+ 	 * @since 26.0.0 static
  	 */
  	strokeColor?: ResourceColor;
 
@@ -792,7 +780,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a click event when a click is clicked.
      *
-     * @type { ?Callback<ClickEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -801,7 +788,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a gesture event when long press event is complete.
      *
-     * @type { ?Callback<GestureEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -810,7 +796,6 @@ export declare interface GestureStyleInterface {
     /**
      * Trigger a touch event when touched.
      *
-     * @type { ?Callback<TouchEvent> }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 24 static
@@ -1192,15 +1177,6 @@ export declare class UrlStyle {
      */
     readonly url: string;
 }
-/**
- * Defines the Span Type.
- *
- * @typedef { TextStyle | DecorationStyle | BaselineOffsetStyle | LetterSpacingStyle | TextShadowStyle |
- * GestureStyle | ImageAttachment | ParagraphStyle | LineHeightStyle | UrlStyle | CustomSpan |
- * UserDataSpan | BackgroundColorStyle } StyledStringValue
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 23 static
- */
 /**
  * Defines the StyledString style type.
  *

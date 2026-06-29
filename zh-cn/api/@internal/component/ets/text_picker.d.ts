@@ -2014,28 +2014,13 @@ declare interface TextPickerDialogOptionsExt extends TextPickerOptions {
 }
 
 /**
- * Defines TextPickerDialog which uses show method to show TextPicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @since 8
- */
-/**
- * Defines TextPickerDialog which uses show method to show TextPicker dialog.
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @FaAndStageModel
- * @crossplatform
- * @since 10
- */
-/**
  * A text picker dialog box is a dialog box that allows users to select text from the given range.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 8 dynamic
  */
 declare class TextPickerDialog {
 

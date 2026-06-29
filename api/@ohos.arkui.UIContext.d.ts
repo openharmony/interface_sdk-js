@@ -36,6 +36,7 @@ import type { AnimatorOptions, AnimatorResult } from './@ohos.animator';
 
 import type observer from './@ohos.arkui.observer';
 
+import dialog from './@ohos.arkui.dialog';
 import { SimpleAnimatorOptions } from './@ohos.animator';
 
 import type { Callback, AsyncCallback } from './@ohos.base';
@@ -55,14 +56,6 @@ import type pointer from './@ohos.multimodalInput.pointer';
 /**
  * class Font
  *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @since 10
- */
-/**
- * class Font
- *
  * <p><strong>NOTE</strong>:
  * <br>You must first use getFont() in UIContext to obtain a Font instance,
  * and then call the APIs using the obtained instance.
@@ -71,8 +64,8 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class Font {
 
@@ -1014,6 +1007,7 @@ export class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @crossplatform
    * @since 10 dynamiconly
    * @deprecated since 11
@@ -1429,6 +1423,88 @@ export class PromptAction {
    * @since 18 dynamic
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
+}
+
+/**
+ * Provides unified dialog APIs.
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+export class DialogPresenter {
+  /**
+   * Presents a fixed-style dialog box.
+   *
+   * @param { dialog.DialogStyleOptions } [options] - Dialog options.
+   * @returns { Promise<DialogResult> } Promise used to return the dialog result.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
+
+  /**
+   * Presents a custom-style dialog box with the provided content.
+   *
+   * The content parameter accepts CustomBuilder or ComponentContent via union type:
+   * - CustomBuilder: Builder function for custom dialog content.
+   * - ComponentContent: ComponentContent supporting state-driven updates.
+   *
+   * isModal = true and showInSubWindow = true cannot be used at the same time.
+   *
+   * @param { CustomBuilder | CustomBuilderWithId | ComponentContent<Object> } content - Custom dialog content.
+   * @param { dialog.DialogCustomOptions } [options] - Custom dialog options.
+   * @returns { Promise<DialogResult> } Promise used to return the dialog result.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
+
+  /**
+   * Updates a presented custom dialog box.
+   *
+   * @param { ComponentContent<Object> } content - The content used to identify the dialog.
+   * @param { dialog.DialogBaseOptions } [options] - Options to update.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
+
+  /**
+   * Dismisses a dialog box.
+   * Accepts either the dialog ID (returned by present) or the ComponentContent reference.
+   *
+   * @param { int | ComponentContent<Object> } target - The dialog ID or ComponentContent to dismiss.
+   * @returns { Promise<void> } Promise that returns no value.
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
 
 /**
@@ -5015,6 +5091,18 @@ export class UIContext {
    * @since 10 dynamic
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * Get the Dialog object.
+   *
+   * @returns { DialogPresenter } Dialog object.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  getDialogPresenter(): DialogPresenter;
 
   /**
    * get object ComponentUtils.

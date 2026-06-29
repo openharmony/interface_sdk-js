@@ -738,7 +738,6 @@ declare interface SubmitEvent {
  * [deleteBackward]{@link TextContentControllerBase#deleteBackward}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full [since 10]
- * @stagemodelonly
  * @crossplatform [since 10]
  * @atomicservice [since 11]
  * @since 8 dynamic

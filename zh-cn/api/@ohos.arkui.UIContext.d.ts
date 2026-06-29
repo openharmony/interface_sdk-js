@@ -28,6 +28,8 @@ import promptAction, { LevelOrder, LevelMode } from './@ohos.promptAction';
 
 import router from './@ohos.router';
 
+import dialog from './@ohos.arkui.dialog';
+
 import type componentUtils from './@ohos.arkui.componentUtils';
 
 import { ComponentContent, FrameNode, Frame, LengthMetrics, Edges } from './@ohos.arkui.node';
@@ -58,21 +60,8 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
-* class Font
-*
- * <p><strong>NOTE</strong>:
- * <br>You must first use getFont() in UIContext to obtain a Font instance,
- * and then call the APIs using the obtained instance.
- * </p>
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 export class Font {
 
@@ -1307,6 +1296,89 @@ export class PromptAction {
    * @since 18 dynamic
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
+}
+
+/**
+ * 提供统一的Dialog API。
+ *
+ * @syscap SystemCapability.ArkUI.ArkUI.Full
+ * @stagemodelonly
+ * @crossplatform
+ * @atomicservice
+ * @since 26.1.0 dynamic
+ */
+export class DialogPresenter {
+  /**
+   * 提供一个固定样式的对话框。
+   *
+   * @param { dialog.DialogStyleOptions } [options] - 对话框选项。
+   * @returns { Promise<DialogResult> } 用于返回对话结果的Promise。
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(options?: dialog.DialogStyleOptions): Promise<DialogResult>;
+
+  /**
+   * 提供一个自定义样式的对话框，其中包含所提供的内容。
+   *
+   * content参数通过联合类型接受CustomBuilder或ComponentContent：
+   * -CustomBuilder：自定义对话框内容的生成器函数。
+   * - ComponentContent：支持状态驱动更新的ComponentContent。
+   *
+   * > **说明**
+   * > isModal = true和showInSubWindow = true不能同时使用。
+   *
+   * @param { CustomBuilder | CustomBuilderWithId | ComponentContent<Object> } content - 自定义对话框内容。
+   * @param { dialog.DialogCustomOptions } [options] - 自定义对话框选项。
+   * @returns { Promise<DialogResult> } 用于返回对话结果的Promise。
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103302 - Dialog content already exist. The ComponentContent has already been opened.
+   * @throws { BusinessError } 103306 - The dialog cannot be opened due to node mount failure.
+   * @throws { BusinessError } 103308 - The dialog cannot be opened due to subwindow create failure.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  present(content: CustomBuilder | CustomBuilderWithId | ComponentContent<Object>, options?: dialog.DialogCustomOptions): Promise<DialogResult>;
+
+  /**
+   * 更新已呈现的自定义对话框。
+   *
+   * @param { ComponentContent<Object> } content - 用于标识对话框的内容。
+   * @param { dialog.DialogBaseOptions } [options] - 要更新的选项。
+   * @returns { Promise<void> } 不会返回任何值的Promise。
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  update(content: ComponentContent<Object>, options?: dialog.DialogBaseOptions): Promise<void>;
+
+  /**
+   * 关闭对话框。
+   * 接受对话ID（由当前返回）或ComponentContent引用。
+   *
+   * @param { int | ComponentContent<Object> } target - 要取消的对话ID或组件内容。
+   * @returns { Promise<void> } 不会返回任何值的Promise。
+   * @throws { BusinessError } 103301 - Dialog content error. The ComponentContent is incorrect.
+   * @throws { BusinessError } 103303 - Dialog content not found. The ComponentContent cannot be found.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  dismiss(target: int | ComponentContent<Object>): Promise<void>;
 }
 
 /**
@@ -4642,6 +4714,18 @@ export class UIContext {
    * @since 10 dynamic
    */
   getPromptAction(): PromptAction;
+
+  /**
+   * 获取Dialog对象。
+   *
+   * @returns { DialogPresenter } Dialog对象。
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 26.1.0 dynamic
+   */
+  getDialogPresenter(): DialogPresenter;
 
   /**
    * get object ComponentUtils.

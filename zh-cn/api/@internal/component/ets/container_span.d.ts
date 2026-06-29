@@ -19,7 +19,7 @@
  */
 
 /**
- * Span container interface.
+ * 提供一个用于创建ContainerSpan组件的接口。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -31,9 +31,10 @@
 interface ContainerSpanInterface {
 
   /**
-   * Defines the constructor of ContainerSpan.
    *
-   * @returns { ContainerSpanAttribute } The attribute of the container span.
+   * 定义ContainerSpan组件构造函数。
+   *
+   * @returns { ContainerSpanAttribute }    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -44,9 +45,9 @@ interface ContainerSpanInterface {
 }
 
 /**
- * Only the following attributes are supported.
- *
- * The [universal events]{@link common} are not supported.
+ * 仅支持以下属性：
+ * 
+ * 不支持[通用事件]{@link common}。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -58,11 +59,11 @@ interface ContainerSpanInterface {
 declare class ContainerSpanAttribute {
 
   /**
-   * Span background style.
+   * Span的背景样式
    *
    * @param { TextBackgroundStyle } style - The background style of span.
    * @returns { ContainerSpanAttribute }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+      * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice [since 12]
@@ -71,10 +72,9 @@ declare class ContainerSpanAttribute {
   textBackgroundStyle(style: TextBackgroundStyle): ContainerSpanAttribute;
 
   /**
-   * Creates an attribute modifier.
+   * 设置组件的动态属性。
    *
-   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - Modifier for dynamically setting attributes on the
-   *     current component.
+   * @param { AttributeModifier<ContainerSpanAttribute> } modifier - 动态设置组件的属性。
    * @returns { ContainerSpanAttribute } the attribute of the ContainerSpanAttribute.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -86,9 +86,7 @@ declare class ContainerSpanAttribute {
 }
 
 /**
- * As a child of the [Text]{@link text} component, the **ContainerSpan** component is used to manage the background
- * colors and rounded corners of multiple [Span]{@link span} and [ImageSpan]{@link image_span} components in a unified
- * manner.
+ * [Text]{@link text}组件的子组件，用于统一管理多个[Span]{@link span}、[ImageSpan]{@link image_span}的背景色及圆角弧度。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -100,7 +98,7 @@ declare class ContainerSpanAttribute {
 declare const ContainerSpan: ContainerSpanInterface;
 
 /**
- * Defines ContainerSpan Component.
+ * 定义ContainerSpan组件实例。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly

@@ -155,35 +155,6 @@ declare namespace volumeManager {
   }
 
   /**
-  * Enumerates the verify type for burn data.
-  *
-  * @syscap SystemCapability.FileManagement.StorageService.Volume
-  * @systemapi
-  * @stagemodelonly
-  * @since 26.0.0 dynamic&static
-  */
-  export enum VerifyType {
-    /**
-      * Key data verification type.
-      *
-      * @syscap SystemCapability.FileManagement.StorageService.Volume
-      * @systemapi
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-      KEY_DATA = 0,
-    /**
-      * Full data verification type.
-      *
-      * @syscap SystemCapability.FileManagement.StorageService.Volume
-      * @systemapi
-      * @stagemodelonly
-      * @since 26.0.0 dynamic&static
-      */
-      FULL_DATA = 1
-  }
-
-  /**
    * Disk type.
    *
    * @syscap SystemCapability.FileManagement.StorageService.Volume
@@ -1038,26 +1009,6 @@ declare namespace volumeManager {
    * @since 26.0.0 dynamic&static
    */
   function getOpProcess(volumeId: string): Promise<int>;
-
-  /**
-   * Verifies burn data of a volume. This API uses a promise to return the result.
-   *
-   * @permission ohos.permission.MOUNT_UNMOUNT_MANAGER
-   * @param { string } volumeId - Volume ID.
-   * @param { VerifyType } verType - Verify type.
-   * @returns { Promise<void> } Promise that returns no value.
-   * @throws { BusinessError } 201 - Permission verification failed.
-   * @throws { BusinessError } 202 - The caller is not a system application.
-   * @throws { BusinessError } 13600001 - IPC error.
-   * @throws { BusinessError } 13600002 - Not supported filesystem.
-   * @throws { BusinessError } 13600010 - The input parameter is invalid.
-   * @throws { BusinessError } 13600030 - Verification failed.
-   * @syscap SystemCapability.FileManagement.StorageService.Volume
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 dynamic&static
-   */
-  function verifyBurnData(volumeId: string, verType: VerifyType): Promise<void>;
 
   /**
    * Querying Information About All Disks.

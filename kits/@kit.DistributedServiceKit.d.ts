@@ -28,10 +28,11 @@ import linkEnhance from '@ohos.distributedsched.linkEnhance';
 import DistributedExtensionAbility from '@ohos.application.DistributedExtensionAbility';
 import DistributedExtensionContext from '@ohos.application.DistributedExtensionContext';
 import proxyChannelManager from '@ohos.distributedsched.proxyChannelManager';
+import conversation from '@ohos.distributedSoftBus.conversation';
 
 export { 
   cooperate, deviceManager, distributedDeviceManager, hardwareManager, abilityConnectionManager, linkEnhance,
-  DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager
+  DistributedExtensionAbility, DistributedExtensionContext, proxyChannelManager, conversation
 };
 /*** endif */
 

@@ -109,7 +109,7 @@ declare namespace browser {
    * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
-   * @useinstead browser.getPolicySync
+   * @useinstead browser.getPoliciesSync
    */
   function getPolicies(admin: Want, appId: string, callback: AsyncCallback<string>): void;
 
@@ -129,7 +129,7 @@ declare namespace browser {
    * @StageModelOnly
    * @since 10
    * @deprecated since 26.0.0
-   * @useinstead browser.getPolicySync
+   * @useinstead browser.getPoliciesSync
    */
   function getPolicies(admin: Want, appId: string): Promise<string>;
 
