@@ -36,7 +36,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Sliding horizontally.
@@ -46,7 +46,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
    * Sliding left.
@@ -56,7 +56,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Left = 2,
+  Left,
 
   /**
    * Sliding right.
@@ -66,7 +66,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Right = 3,
+  Right,
 
   /**
    * 垂直滑动
@@ -76,7 +76,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Vertical = 4,
+  Vertical,
 
   /**
    * Sliding up.
@@ -86,7 +86,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Up = 5,
+  Up,
 
   /**
    * Sliding Down.
@@ -96,7 +96,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Down = 6,
+  Down,
 
   /**
    * Sliding in all directions.
@@ -106,7 +106,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  All = 7
+  All
 }
 
 /**
@@ -127,7 +127,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Sliding horizontally.
@@ -137,7 +137,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Horizontal = 1,
+  Horizontal,
 
   /**
    * 垂直滑动
@@ -147,7 +147,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  Vertical = 2,
+  Vertical,
 
   /**
    * Sliding in all directions.
@@ -157,7 +157,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  All = 3
+  All
 }
 
 /**
@@ -180,7 +180,7 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sequence = 0,
+  Sequence,
 
   /**
    * Simultaneous recognition. Registration gestures participate in recognition. Everything can be triggered.
@@ -190,7 +190,7 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Parallel = 1,
+  Parallel,
 
   /**
    * Mutually exclusive recognition. Only one gesture is successfully recognized.
@@ -200,7 +200,7 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Exclusive = 2
+  Exclusive
 }
 
 /**
@@ -221,7 +221,7 @@ declare enum GestureMask {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * Ignore internal gestures and recognize the current gesture first.
@@ -231,7 +231,7 @@ declare enum GestureMask {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  IgnoreInternal = 1
+  IgnoreInternal
 }
 
 /**
