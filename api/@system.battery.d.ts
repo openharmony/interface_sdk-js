@@ -24,10 +24,10 @@
  * > **NOTE**
  * >
  * > - Module maintenance policy:
- * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
- * > >
- * > >    \- For other device types, this module is no longer maintained since API version 6. You are advised to use 
+ * >
+ * >    - For lite wearables, this module is constantly maintained and available.
+ * >
+ * >    - For other device types, this module is no longer maintained since API version 6. You are advised to use 
  * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo} instead.
  *
  */

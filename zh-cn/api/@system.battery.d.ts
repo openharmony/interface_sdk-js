@@ -14,19 +14,22 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * 该模块提供充电状态及剩余电量的查询功能。
  * 
  * > **说明：**
  * >
  * > - 模块维护策略：
- * > >
- * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
- * > >
- * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，建议使用
+ * >
+ * >    - 对于Lite Wearable设备类型，该模块长期维护，正常使用。
+ * >
+ * >    - 对于支持该模块的其他设备类型，该模块从API Version 6开始不再维护，建议使用
  * > [@ohos.batteryInfo]{@link @ohos.batteryInfo:batteryInfo}替代。
  *
- * @file
- * @kit BasicServicesKit
  */
 
 

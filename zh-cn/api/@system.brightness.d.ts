@@ -14,19 +14,22 @@
  */
 
 /**
+ * @file
+ * @kit BasicServicesKit
+ */
+
+/**
  * 该模块提供屏幕亮度和模式的查询、调节接口。
  * 
  * > **说明：**
  * >
  * > - 模块维护策略：
- * > >
- * > >    \- 对于Lite Wearable设备类型，该模块长期维护，正常使用。
- * > >
- * > >    \- 对于支持该模块的其他设备类型，该模块从API Version 7开始不再维护。<!--Del-->建议使用
+ * >
+ * >    - 对于Lite Wearable设备类型，该模块长期维护，正常使用。
+ * >
+ * >    - 对于支持该模块的其他设备类型，该模块从API Version 7开始不再维护。<!--Del-->建议使用
  * > [@ohos.brightness]{@link @ohos.brightness:brightness}替代。<!--DelEnd-->替代接口能力仅对系统应用开放。
  *
- * @file
- * @kit BasicServicesKit
  */
 
 /**
