@@ -45,7 +45,6 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 /**
  * Defines chip item config.
  *
- * @interface ChipGroupV2ItemConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -291,7 +290,6 @@ export declare class ChipGroupV2Item {
 /**
  * Defines items of chip group.
  *
- * @extends Array<ChipGroupV2Item>
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -316,7 +314,6 @@ export declare class ChipGroupV2Items extends Array<ChipGroupV2Item> {
 /**
  * Defines ChipGroupV2 item style.
  *
- * @interface ChipGroupV2ItemStyleConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -517,7 +514,6 @@ export declare class ChipGroupV2ItemStyle {
 /**
  * Defines chip group space config.
  *
- * @interface ChipGroupV2SpaceConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -622,7 +618,6 @@ export declare class ChipGroupV2Space {
 /**
  * Defines ChipGroupV2 IconItemConfig.
  *
- * @interface ChipGroupV2IconItemConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -690,7 +685,6 @@ export interface ChipGroupV2IconItemConfig {
 /**
  * Defines symbol item config.
  *
- * @interface ChipGroupV2SymbolItemConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -758,7 +752,6 @@ export interface ChipGroupV2SymbolItemConfig {
 /**
  * Defines ChipGroupV2 padding config.
  *
- * @interface ChipGroupV2PaddingConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -840,7 +833,6 @@ export declare class ChipGroupV2Padding {
 /**
  * Defines IconGroupSuffix.
  *
- * @struct { ChipGroupV2IconGroupSuffix }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -893,7 +885,6 @@ export declare struct ChipGroupV2IconGroupSuffix {
 /**
  * Defines chipGroupV2.
  *
- * @struct { ChipGroupV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

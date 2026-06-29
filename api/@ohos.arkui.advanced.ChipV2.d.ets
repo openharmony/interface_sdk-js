@@ -13,11 +13,10 @@
  * limitations under the License.
  */
 
-
 /**
-* @file
-* @kit ArkUI
-*/
+ * @file
+ * @kit ArkUI
+ */
 
 import { ColorMetrics, LengthMetrics, SizeT } from './@ohos.arkui.node';
 import { ImageModifier, SymbolGlyphModifier, TextModifier } from './@ohos.arkui.modifier';
@@ -26,7 +25,6 @@ import uiMaterial from './@ohos.arkui.uiMaterial';
 /**
  * Enum for ChipV2 Size
  *
- * @enum { string }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -60,7 +58,6 @@ export declare enum ChipV2Size {
 /**
  * Enum for ChipV2AccessibilitySelectedType
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -105,7 +102,6 @@ export declare enum ChipV2AccessibilitySelectedType {
 /**
  * Defines icon common config.
  *
- * @interface ChipV2ImageIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -172,7 +168,6 @@ export interface ChipV2ImageIconConfig {
 /**
  * ChipV2 icon common option
  *
- * @extends ChipV2Icon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -257,8 +252,6 @@ export abstract class ChipV2ImageIcon extends ChipV2Icon {
 /**
  * Defines suffix icon option.
  *
- * @extends ChipV2ImageIconConfig,ChipV2AccessibilityConfig
- * @interface ChipV2SuffixImageIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -281,7 +274,6 @@ export interface ChipV2SuffixImageIconConfig extends ChipV2ImageIconConfig, Chip
 /**
  * Defines suffix icon.
  *
- * @extends ChipV2ImageIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -378,8 +370,6 @@ export abstract class ChipV2Icon {
 /**
  * Defines prefix icon option.
  *
- * @extends ChipV2ImageIconConfig
- * @interface ChipV2PrefixImageIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -391,7 +381,6 @@ export interface ChipV2PrefixImageIconConfig extends ChipV2ImageIconConfig {}
 /**
  * Defines prefix icon.
  *
- * @extends ChipV2ImageIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -416,7 +405,6 @@ export declare class ChipV2PrefixImageIcon extends ChipV2ImageIcon {
 /**
  * Defines accessibility config.
  *
- * @interface ChipV2AccessibilityConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -523,8 +511,6 @@ export declare class ChipV2Accessibility {
 /**
  * Defines config of default close icon.
  *
- * @extends ChipV2AccessibilityConfig
- * @interface ChipV2CloseConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -547,7 +533,6 @@ export interface ChipV2CloseConfig extends ChipV2AccessibilityConfig {
 /**
  * Defines default close icon.
  *
- * @extends ChipV2Accessibility
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -584,7 +569,6 @@ export declare class ChipV2CloseIcon extends ChipV2Accessibility {
 /**
  * Defines chip symbol icon config.
  *
- * @interface ChipV2SymbolIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -618,7 +602,6 @@ export interface ChipV2SymbolIconConfig {
 /**
  * Defines chip symbol icon.
  *
- * @extends ChipV2Icon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -667,8 +650,6 @@ export abstract class ChipV2SymbolIcon extends ChipV2Icon {
 /**
  * Defines chip prefix symbol icon config.
  *
- * @extends ChipV2SymbolIconConfig
- * @interface ChipV2PrefixSymbolIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -680,7 +661,6 @@ export interface ChipV2PrefixSymbolIconConfig extends ChipV2SymbolIconConfig {}
 /**
  * Defines chip prefix symbol icon.
  *
- * @extends ChipV2SymbolIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -705,8 +685,6 @@ export declare class ChipV2PrefixSymbolIcon extends ChipV2SymbolIcon {
 /**
  * Defines accessibility config of suffix symbol.
  *
- * @extends ChipV2SymbolIconConfig
- * @interface ChipV2SuffixSymbolIconConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -751,7 +729,6 @@ export interface ChipV2SuffixSymbolIconConfig extends ChipV2SymbolIconConfig {
 /**
  * Defines accessibility of suffix symbol.
  *
- * @extends ChipV2SymbolIcon
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -812,7 +789,6 @@ export declare class ChipV2SuffixSymbolIcon extends ChipV2SymbolIcon {
 /**
  * Defines label margin.
  *
- * @interface ChipV2LabelMarginConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -846,7 +822,6 @@ export interface ChipV2LabelMarginConfig {
 /**
  * Defines localized label margin.
  *
- * @interface ChipV2LocalizedLabelMarginConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -880,7 +855,6 @@ export interface ChipV2LocalizedLabelMarginConfig {
 /**
  * Defines label config.
  *
- * @interface ChipV2LabelConfig
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -1663,7 +1637,6 @@ export class ChipV2Options {
 /**
  * Defines chip component with V2 state management.
  *
- * @struct { ChipV2 }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform

@@ -31,7 +31,6 @@ import {
 /**
  * Enum for the counter type.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -40,6 +39,7 @@ import {
 declare enum CounterType {
     /**
      * List counter.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -49,6 +49,7 @@ declare enum CounterType {
 
     /**
      * Compact counter.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -58,6 +59,7 @@ declare enum CounterType {
 
     /**
      * Inline counter.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -67,6 +69,7 @@ declare enum CounterType {
 
     /**
      * Date inline counter.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -78,7 +81,6 @@ declare enum CounterType {
 /**
  * The hover callback of Counter.
  *
- * @typedef { function } OnCounterHoverCallback
  * @param { boolean } isHover - isHover
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -98,7 +100,7 @@ export type OnCounterHoverCallback = (isHover: boolean) => void;
 declare class CommonOptions {
     /**
      * Set the focusable of the counter component.
-     * @type { ?boolean }
+     *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -110,7 +112,6 @@ declare class CommonOptions {
     /**
      * Set the step of the couter component, ranges greater than or equal to 1
      *
-     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -122,7 +123,6 @@ declare class CommonOptions {
     /**
      * Trigger a mouse hover event at the increased button.
      *
-     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -133,7 +133,6 @@ declare class CommonOptions {
     /**
      * Trigger a mouse hover event at the decreased button.
      *
-     * @type { ?function }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -145,7 +144,6 @@ declare class CommonOptions {
 /**
  * Defines the inline style options.
  *
- * @extends CommonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -155,7 +153,6 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Set initial value of the counter component, ranges from min to max.
      *
-     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -167,7 +164,6 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Set minimum value of the counter component, ranges greater than equal to 0.
      *
-     * @type { ?int }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -179,7 +175,6 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Set maximum value of the counter component, ranges greater than equal to 0.
      *
-     * @type { ?int }
      * @default 999
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -191,7 +186,6 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Set text width  of the counter component,  ranges greater than or equal to 0
      *
-     * @type { ?double }
      * @default 0
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -203,7 +197,6 @@ declare class InlineStyleOptions extends CommonOptions {
     /**
      * Trigger a event when the value of the counter has been changed.
      *
-     * @type { ?OnInlineCounterChange }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -224,7 +217,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     /**
      * Set the label of the counter component.
      *
-     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -235,7 +227,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     /**
      * Trigger a event when the increased button got focus.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -246,7 +237,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     /**
      * Trigger a event when the decreased button got focus.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -257,7 +247,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     /**
      * Trigger a event when the increased button lose focus.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -268,7 +257,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
     /**
      * Trigger a event when the decreased button lose focus.
      *
-     * @type { ?VoidCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -280,7 +268,6 @@ declare class NumberStyleOptions extends InlineStyleOptions {
 /**
  * The change callback of the inline counter.
  *
- * @typedef { function } OnInlineCounterChange
  * @param { int } value - value
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -301,7 +288,6 @@ declare class DateData {
     /**
      * The year of the DateData, ranges from 1 to 5000.
      *
-     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -312,7 +298,6 @@ declare class DateData {
     /**
      * The month of the DateData.
      *
-     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -323,7 +308,6 @@ declare class DateData {
     /**
      * The day of the DateData.
      *
-     * @type { int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -359,7 +343,6 @@ declare class DateData {
 /**
  * The change callback of the date style counter.
  *
- * @typedef { function } OnDateCounterChangeCallback
  * @param { DateData } date - date
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -367,7 +350,6 @@ declare class DateData {
  * @noninterop
  */
 export type OnDateCounterChangeCallback = (date: DateData) => void;
-
 
 /**
  * Defines the date style options.
@@ -381,7 +363,6 @@ declare class DateStyleOptions extends CommonOptions {
     /**
      * Set the year of the counter component, ranges from 1 to 5000.
      *
-     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -393,7 +374,6 @@ declare class DateStyleOptions extends CommonOptions {
     /**
      * Set the month of the counter component.
      *
-     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -405,7 +385,6 @@ declare class DateStyleOptions extends CommonOptions {
     /**
      * Set the day of the counter component.
      *
-     * @type { ?int }
      * @default 1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -417,7 +396,6 @@ declare class DateStyleOptions extends CommonOptions {
     /**
      * Trigger a event when the date of the counter has been changed.
      *
-     * @type { ?OnDateCounterChangeCallback }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -425,7 +403,6 @@ declare class DateStyleOptions extends CommonOptions {
      */
     onDateChange?: OnDateCounterChangeCallback;
 }
-
 
 /**
  * Defines the counter options.
@@ -439,7 +416,6 @@ declare class CounterOptions {
     /**
      * Set the type of the counter component.
      *
-     * @type { CounterType }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -450,7 +426,6 @@ declare class CounterOptions {
     /**
      * Set the counter attribute of the LIST or COMPACT counter component.
      *
-     * @type { ?NumberStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -461,7 +436,6 @@ declare class CounterOptions {
     /**
      * Set the counter attribute of the INLINE counter component.
      *
-     * @type { ?InlineStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -472,7 +446,6 @@ declare class CounterOptions {
     /**
      * Set the counter attribute of the INLINE_DATE counter component.
      *
-     * @type { ?DateStyleOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -483,7 +456,6 @@ declare class CounterOptions {
     /**
      * Indicates the attribute of the current counter direction.
      *
-     * @type { ?Direction }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -495,7 +467,6 @@ declare class CounterOptions {
 /**
  * Defines Counter Component.
  *
- * @struct { CounterComponent }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -506,7 +477,6 @@ declare struct CounterComponent {
     /**
      * The options of a counter component.
      *
-     * @type { CounterOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -517,6 +487,7 @@ declare struct CounterComponent {
 
     /**
      * The method to build component.
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 staticonly
