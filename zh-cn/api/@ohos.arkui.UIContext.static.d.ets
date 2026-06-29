@@ -26,6 +26,8 @@ import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, Keyfram
   SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, MouseEvent, TouchEvent,
   ContentCoverOptions } from '@ohos.arkui.component';
 
+import { InputEventMonitor, InputEventListener } from '@ohos.arkui.component';
+
 import { CustomBuilder, CustomBuilderT } from '@ohos.arkui.component';
 
 import { GestureEvent, GestureRecognizer } from '@ohos.arkui.component';
@@ -40,6 +42,8 @@ import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogPa
 
 import { ActionSheetOptions } from '@ohos.arkui.component';
 
+import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
+
 import { LocalStorage } from '@ohos.arkui.stateManagement';
 
 import { DatePickerDialogOptions } from '@ohos.arkui.component';
@@ -52,15 +56,11 @@ import { KeyProcessingMode } from '@ohos.arkui.component';
 
 import { TextMenuOptions, TextLayoutOptions, StyledString, Paragraph } from '@ohos.arkui.component';
 
+import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
+
 import type { Callback } from './arkui/component/common';
 
 import type { AsyncCallback } from './@ohos.base';
-
-import { InputEventMonitor,  InputEventListener } from '@ohos.arkui.component';
-
-import { AnimatorOptions, AnimatorResult } from './@ohos.animator';
-
-import { SmartGestureAction, OperateIntention } from '@ohos.arkui.component';
 
 import mediaQuery from './@ohos.mediaquery';
 
@@ -92,45 +92,9 @@ import type common from './@ohos.app.ability.common';
 
 import type pointer from './@ohos.multimodalInput.pointer';
 
+import { ComponentContent, FrameNode, Frame } from '@ohos.arkui.node';
+
 import { ComponentContentBase } from 'arkui.ComponentContent';
-
-import { TextPickerDialogOptions } from './arkui/component/textPicker';
-
-import { TabsController } from './arkui/component/tabs';
-
-import { TimePickerDialogOptions } from './arkui/component/timePicker';
-
-import { LocalStorage } from './arkui/stateManagement/storage/localStorage';
-
-import { DatePickerDialogOptions } from './arkui/component/datePicker';
-
-import { GestureEvent, GestureRecognizer } from './arkui/component/gesture';
-
-import { AlertDialogParamWithConfirm, AlertDialogParamWithButtons, AlertDialogParamWithOptions } from './arkui/component/alertDialog';
-
-import { CustomBuilder, CustomBuilderT } from './arkui/component/builder';
-
-import { ActionSheetOptions } from './arkui/component/actionSheet';
-
-import { Scroller } from './arkui/component/scroll';
-
-import { ResourceStr, SizeOptions, VoidCallback } from './arkui/component/units';
-
-import { KeyProcessingMode } from './arkui/component/focus';
-
-import type { Callback, AsyncCallback } from './@ohos.base';
-
-import { TextMenuOptions, TextLayoutOptions, KeyboardAppearanceConfig } from './arkui/component/textCommon';
-
-import { ComponentContentBase } from '../ComponentContent';
-
-import { NodeEdges } from 'arkui.Graphics';
-
-import { ComponentContent, FrameNode, Frame, LengthMetrics } from '@ohos.arkui.node';
-
-import { ClickEvent, ExpectedFrameRateRange, DragItemInfo, AnimateParam, KeyframeAnimateParam, KeyframeState, SheetOptions, PopupCommonOptions, MenuOptions, KeyEvent, MouseEvent, TouchEvent } from './arkui/component/common';
-
-import { Nullable, Color, FontStyle, WidthBreakpoint, HeightBreakpoint, PixelRoundMode, RawInputEventType } from './arkui/component/enums';
 
 /**
  * class Font
@@ -193,7 +157,7 @@ export declare class MediaQuery {
 }
 
 /**
- * class UIInspector
+* class UIInspector
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -204,7 +168,8 @@ export declare class UIInspector {
    * 创建当前节点或者当前节点的子节点的布局和送显的事件监听句柄。
    *
    * @param { string } id - 当前节点的inspector key或者唯一id。
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
+   *     for completion of component layout or drawing display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -215,7 +180,8 @@ export declare class UIInspector {
    * 创建当前节点或者当前节点的子节点的布局和送显的事件监听句柄。
    *
    * @param { string | int } id - 当前节点的inspector key或者唯一id。
-   * @returns { inspector.ComponentObserver } create listener for observer component event.
+   * @returns { inspector.ComponentObserver } Component observer, which is used to register or unregister listeners
+   *     for completion of component layout or drawing display.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -662,8 +628,8 @@ export declare class Router {
 declare type CustomBuilderWithId = (id: int) => void;
 
 /**
- * 指定组件绑定的目标节点。
- *
+* 指定组件绑定的目标节点。
+*
  * @interface TargetInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -673,12 +639,13 @@ export interface TargetInfo {
 
   /**
    * 指定popup或menu绑定的目标节点。
-   * 
-   * **说明：** 
-   * 
+   *
+   * **说明：**
+   *
    * 1. 当id是number时，对应组件实例的UniqueID，此id由系统保证唯一性。
    * 2. 当id是string时，对应[通用属性id]{@link CommonMethod#id}所指定的组件，此id的唯一性需由开发者确保，但实际可能会有多个。
    *
+   * @type { string | int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -688,6 +655,7 @@ export interface TargetInfo {
   /**
    * 目标节点所在的自定义组件的UniqueID。当上述id指定为string类型时，可通过此属性圈定范围。方便开发者在一定范围内保证id: string的唯一性。
    *
+   * @type { ?int }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -696,17 +664,16 @@ export interface TargetInfo {
 }
 
 /**
- * 创建并显示即时反馈、对话框、操作菜单以及自定义弹窗。
- * 
- * > **说明：**
- * >
- * > - 本Class首批接口从API version 10开始支持。
- * >
- * > - 以下API需先使用UIContext中的[getPromptAction()]{@link @ohos.arkui.UIContext:UIContext#getPromptAction}方法获取到PromptAction对
- * > 象，再通过该对象调用对应方法。
- *
+* 创建并显示即时反馈、对话框、操作菜单以及自定义弹窗。
+*
+* > **说明：**
+* >
+* > - 本Class首批接口从API version 10开始支持。
+* >
+* > - 以下API需先使用UIContext中的[getPromptAction()]{@link @ohos.arkui.UIContext:UIContext#getPromptAction}方法获取到PromptAction对
+* > 象，再通过该对象调用对应方法。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
  * @since 23 static
  */
 export declare class PromptAction {
@@ -721,7 +688,6 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   showToast(options: promptAction.ShowToastOptions): void;
@@ -737,7 +703,6 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   openToast(options: promptAction.ShowToastOptions): Promise<int>;
@@ -753,7 +718,6 @@ export declare class PromptAction {
    * @throws { BusinessError } 100001 - Internal error.
    * @throws { BusinessError } 103401 - Cannot find the toast.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   closeToast(toastId: int): void;
@@ -761,207 +725,107 @@ export declare class PromptAction {
   /**
    * 弹出对话框。
    *
-   * @param { promptAction.ShowDialogOptions } options - 选项。
-   * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - showDialog的回调。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并显示对话框，对话框响应结果使用callback异步回调返回。
-   *
    * @param { promptAction.ShowDialogOptions } options - 页面显示对话框信息描述。
    * @param { AsyncCallback<promptAction.ShowDialogSuccessResponse> } callback - 回调函数。弹出对话框成功，err为undefined，data为获取到的对话框响应结果，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
-  showDialog(options: promptAction.ShowDialogOptions, callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
+  showDialog(options: promptAction.ShowDialogOptions,
+    callback: AsyncCallback<promptAction.ShowDialogSuccessResponse>): void;
 
   /**
    * 弹出对话框。
    *
-   * @param { promptAction.ShowDialogOptions } options - 选项。
+   * @param { promptAction.ShowDialogOptions } options - 对话框选项。
    * @returns { Promise<promptAction.ShowDialogSuccessResponse> } the promise returned by the function.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
-   */
-  /**
-   * 创建并显示对话框，使用Promise异步回调获取对话框的响应结果。
-   *
-   * @param { promptAction.ShowDialogOptions } options - 对话框选项。
-   * @returns { Promise<promptAction.ShowDialogSuccessResponse> } Promise对象，返回对话框的响应结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
 
   /**
    * 显示操作菜单。
    *
-   * @param { promptAction.ActionMenuOptions } options - 选项。
-   * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - showActionMenu的回调。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并显示操作菜单，菜单响应结果使用callback异步回调返回。
-   *
    * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
    * @param { AsyncCallback<promptAction.ActionMenuSuccessResponse> } callback - 回调函数。弹出操作菜单成功，err为undefined，data为获取到的操作菜单响应结果，否则为错误对象。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
-  showActionMenu(options: promptAction.ActionMenuOptions, callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
+  showActionMenu(options: promptAction.ActionMenuOptions,
+    callback: AsyncCallback<promptAction.ActionMenuSuccessResponse>): void;
 
   /**
    * 显示操作菜单。
    *
-   * @param { promptAction.ActionMenuOptions } options - 选项。
+   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
    * @returns { Promise<promptAction.ActionMenuSuccessResponse> } callback - the callback of showActionMenu.
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
-   */
-  /**
-   * 创建并显示操作菜单，通过Promise异步回调获取菜单的响应结果。
-   *
-   * @param { promptAction.ActionMenuOptions } options - 操作菜单选项。
-   * @returns { Promise<promptAction.ActionMenuSuccessResponse> } Promise对象，返回菜单的响应结果。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
 
   /**
    * 使用frameNode打开自定义对话框。
    *
-   * @param { ComponentContent<T> } dialogContent - 自定义对话框的内容。
-   * @param { promptAction.BaseDialogOptions } options - 选项。
-   * @returns { Promise<void> } 函数返回的promise。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的
-   * 显示效果。
-   *
    * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
    * @param { promptAction.BaseDialogOptions } options - 弹窗样式。
    *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
    *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
    *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
-  openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options?: promptAction.BaseDialogOptions): Promise<void>;
+  openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
+    options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * 打开带有frameNode和控制器的自定义对话框。
    *
-   * @param { ComponentContent<T> } dialogContent - 自定义对话框的内容。
-   * @param { promptAction.DialogController } controller - 对话框控制器。
-   * @param { promptAction.BaseDialogOptions } options - 选项。
-   * @returns { Promise<void> } 函数返回的promise。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
-   * @throws { BusinessError } 103302 - Dialog content already exists.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并弹出dialogContent对应的自定义弹窗，使用Promise异步回调。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
-   * 
-   * 通过该接口弹出的弹窗内容样式完全按照dialogContent中设置的样式显示，即相当于customDialog设置customStyle为true时的显示效果。
-   *
    * @param { ComponentContent<T> } dialogContent - 自定义弹窗中显示的组件内容。
    * @param { promptAction.DialogController } controller - 自定义弹窗的控制器。
-   * @param { promptAction.BaseDialogOptions } options - 自定义弹窗的样式。 
+   * @param { promptAction.BaseDialogOptions } options - 自定义弹窗的样式。
    *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
    *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
    *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
-  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>, controller: promptAction.DialogController,
+  openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
+    controller: promptAction.DialogController,
     options?: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
@@ -977,10 +841,10 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
-  updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>, options: promptAction.BaseDialogOptions): Promise<void>;
+  updateCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
+    options: promptAction.BaseDialogOptions): Promise<void>;
 
   /**
    * 关闭已弹出的dialogContent对应的自定义弹窗，使用Promise异步回调。
@@ -994,7 +858,6 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   closeCustomDialog<T extends Object>(dialogContent: ComponentContent<T>): Promise<void>;
@@ -1002,57 +865,23 @@ export declare class PromptAction {
   /**
    * 打开自定义对话框。
    *
-   * @param { promptAction.CustomDialogOptions } options - 选项。
-   * @returns { Promise<int> } 返回closeCustomDialog可以使用的对话框ID。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
-   *
    * @param { promptAction.CustomDialogOptions } options - 自定义弹窗的内容。
    *   <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
    *   与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
    *   则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
-   * @returns { Promise<int> } Promise对象。返回对话框id，可供closeCustomDialog使用。
+   * @returns { Promise<int> } 返回closeCustomDialog可以使用的对话框ID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
 
   /**
    * 使用控制器显示自定义对话框。
-   *
-   * @param { CustomBuilder | CustomBuilderT<int> } builder - 对话框生成器。
-   * @param { promptAction.DialogController } [controller] - 对话框控制器。
-   * @param { promptAction.DialogOptions } [options] - 选项。
-   * @returns { Promise<int> } 返回将由closeCustomDialog使用的对话框ID。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
-   * @throws { BusinessError } 100001 - Internal error.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 23 static
-   */
-  /**
-   * 创建并弹出自定义弹窗。使用Promise异步回调返回对话框的id，可供closeCustomDialog使用。
-   * 
-   * 支持在自定义弹窗内容中持有弹窗ID进行对应操作。支持传入弹窗控制器与自定义弹窗绑定，后续可以通过控制器控制自定义弹窗。
    *
    * @param { CustomBuilder | CustomBuilderT<int> } builder - 自定义弹窗的内容。
    * @param { promptAction.DialogController } [controller] - 自定义弹窗的控制器。
@@ -1060,18 +889,17 @@ export declare class PromptAction {
    *    <br>**说明：** 如果BaseDialogOptions中的[isModal](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)
    *    与[showInSubWindow](docroot://reference/apis-arkui/js-apis-promptAction.md#basedialogoptions11)同时设置为true，
    *    则只生效showInSubWindow = true，此时为非模态弹出框且不会显示蒙层，并在子窗口中显示。
-   * @returns { Promise<int> } Promise对象。返回自定义弹窗ID。
+   * @returns { Promise<int> } 返回将由closeCustomDialog使用的对话框ID。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
+   * @since 23 static
    */
-  presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController, options?: promptAction.DialogOptions): Promise<int>;
+  presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
+    options?: promptAction.DialogOptions): Promise<int>;
 
   /**
    * 关闭自定义弹窗。
@@ -1083,19 +911,17 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   closeCustomDialog(dialogId: int): void;
 
   /**
    * 返回最顶层显示的弹窗的顺序。
-   * 
+   *
    * 获取最顶层显示的弹窗的顺序，可以在下一个弹窗时指定期望的顺序。
    *
-   * @returns { LevelOrder | undefined } 返回弹窗层级信息。
+   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   getTopOrder(): LevelOrder | undefined;
@@ -1103,16 +929,15 @@ export declare class PromptAction {
   /**
    * 获取最底层显示的弹窗的顺序，可以在下一个弹窗时指定期望的顺序。
    *
-   * @returns { LevelOrder | undefined } 返回弹窗层级信息。
+   * @returns { LevelOrder | undefined } the display order, or undefined if there is no dialog.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   getBottomOrder(): LevelOrder | undefined;
 
   /**
    * 创建并弹出以content作为内容的Popup弹窗，使用Promise异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 使用该接口时，若未传入有效的target，则无法弹出popup弹窗。
@@ -1122,7 +947,7 @@ export declare class PromptAction {
    * > 指定的popup弹窗，开发者需自行维护传入的content。
    * >
    * > - 如果在wrapBuilder中包含其他组件（例如：[Popup]{@link @ohos.arkui.advanced.Popup}、[Chip]{@link @ohos.arkui.advanced.Chip}组件），则
-   * > [ComponentContent]{@link ComponentContent:ComponentContent}应采用带有四个参数的构造函数constructor，其中options参数应传递{ 
+   * > [ComponentContent]{@link ComponentContent:ComponentContent}应采用带有四个参数的构造函数constructor，其中options参数应传递{
    * > nestingBuilderSupported: true }。
    *
    * @param { ComponentContent<T> } content - popup弹窗中显示的组件内容。
@@ -1138,14 +963,14 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
-  openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: PopupCommonOptions): Promise<void>;
+  openPopup<T extends Object>(content: ComponentContent<T>, target: TargetInfo,
+    options?: PopupCommonOptions): Promise<void>;
 
   /**
    * 更新content对应的Popup弹窗的样式，使用Promise异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > 不支持更新showInSubWindow、focusable、onStateChange、onWillDismiss、transition。
@@ -1153,7 +978,7 @@ export declare class PromptAction {
    * @param { ComponentContent<T> } content - popup弹窗中显示的组件内容。
    * @param { PopupCommonOptions } options - popup弹窗样式。<br/>**说明：** <br/>不支持更新showInSubWindow、focusable、onStateChange、onWillDismiss、transition。
    * @param { boolean } partialUpdate - popup弹窗更新方式，默认值为false。
-   *    <br/>**说明：** <br/>true：增量更新，此时更新options中的指定属性，其它属性保留当前值。options中传入的属性为异常值或undefined时，不会对该属性进行更新。 
+   *    <br/>**说明：** <br/>true：增量更新，此时更新options中的指定属性，其它属性保留当前值。options中传入的属性为异常值或undefined时，不会对该属性进行更新。
    *    <br/>false：全量更新，此时更新options中的指定属性，并且其他属性恢复默认值。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1163,10 +988,10 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
-  updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions, partialUpdate?: boolean): Promise<void>;
+  updatePopup<T extends Object>(content: ComponentContent<T>, options: PopupCommonOptions,
+    partialUpdate?: boolean): Promise<void>;
 
   /**
    * 关闭content对应的Popup弹窗，使用Promise异步回调。
@@ -1180,14 +1005,13 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   closePopup<T extends Object>(content: ComponentContent<T>): Promise<void>;
 
   /**
    * 创建并弹出以content作为内容的Menu弹窗。使用Promise异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 使用该接口时，若未传入有效的target，则无法弹出menu弹窗。
@@ -1197,7 +1021,7 @@ export declare class PromptAction {
    * > 的menu弹窗，开发者需自行维护传入的content。
    * >
    * > - 如果在wrapBuilder中包含其他组件（例如：[Popup]{@link @ohos.arkui.advanced.Popup}、[Chip]{@link @ohos.arkui.advanced.Chip}组件），则
-   * > [ComponentContent]{@link ComponentContent:ComponentContent}应采用带有四个参数的构造函数constructor，其中options参数应传递{ 
+   * > [ComponentContent]{@link ComponentContent:ComponentContent}应采用带有四个参数的构造函数constructor，其中options参数应传递{
    * > nestingBuilderSupported: true }。
    * >
    * > - 子窗弹窗里不能再弹出子窗弹窗，例如[openMenu](docroot://reference/apis-arkui/arkts-apis-uicontext-promptaction copy.md#openmenu18)设
@@ -1216,14 +1040,13 @@ export declare class PromptAction {
    * @throws { BusinessError } 103304 - The target does not exist.
    * @throws { BusinessError } 103305 - The target node is not in the component tree.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   openMenu<T extends Object>(content: ComponentContent<T>, target: TargetInfo, options?: MenuOptions): Promise<void>;
 
   /**
    * 更新content对应的Menu弹窗的样式。使用Promise异步回调。
-   * 
+   *
    * > **说明：**
    * >
    * > - 不支持更新showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、
@@ -1232,12 +1055,12 @@ export declare class PromptAction {
    * > - 支持mask通过设置[MenuMaskType]{@link MenuMaskType}实现更新蒙层样式，不支持mask通过设置boolean实现蒙层从无到有或者从有到无的更新。
    *
    * @param { ComponentContent<T> } content - menu弹窗中显示的组件内容。
-   * @param { MenuOptions } options - menu弹窗样式。<br/>**说明：** 
+   * @param { MenuOptions } options - menu弹窗样式。<br/>**说明：**
    *  <br/>1. 不支持更新showInSubWindow、preview、previewAnimationOptions、transition、onAppear、aboutToAppear、onDisappear、
    *        aboutToDisappear、onWillAppear、onDidAppear、onWillDisappear和onDidDisappear。
    *  <br/>2. 支持mask通过设置[MenuMaskType]{@link MenuMaskType}实现更新蒙层样式，不支持mask通过设置boolean实现蒙层从无到有或者从有到无的更新。
-   * @param { boolean } partialUpdate - menu弹窗更新方式，默认值为false。<br/>**说明：** 
-   *    <br/>1. true为增量更新，保留当前值，更新options中的指定属性。 
+   * @param { boolean } partialUpdate - menu弹窗更新方式，默认值为false。<br/>**说明：**
+   *    <br/>1. true为增量更新，保留当前值，更新options中的指定属性。
    *    <br/>2. false为全量更新，除options中的指定属性，其他属性恢复默认值。
    * @returns { Promise<void> } Promise对象，无返回结果。
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
@@ -1247,10 +1070,10 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
-  updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions, partialUpdate?: boolean): Promise<void>;
+  updateMenu<T extends Object>(content: ComponentContent<T>, options: MenuOptions,
+    partialUpdate?: boolean): Promise<void>;
 
   /**
    * 关闭content对应的Menu弹窗。使用Promise异步回调。
@@ -1264,35 +1087,9 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103303 - The ComponentContent cannot be found.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
    * @since 23 static
    */
   closeMenu<T extends Object>(content: ComponentContent<T>): Promise<void>;
-
-  /**
-   * 显示告警对话框。
-   *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options -
-   告警对话框的选项。
-   * @returns { Promise<void> } 函数返回的promise。
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): Promise<void>;
-
-  /**
-   * 显示操作列表。
-   *
-   * @param { ActionSheetOptions } options - 操作列表的选项。
-   * @returns { Promise<void> } 函数返回的promise。
-   * @throws { BusinessError } 103306 - The dialog cannot be opened due to the system pop-up window.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  showActionSheet(options: ActionSheetOptions): Promise<void>;
 }
 
 /**
@@ -1339,8 +1136,9 @@ type PanListenerCallback = (event: GestureEvent, current: GestureRecognizer, nod
 type GestureEventListenerCallback = (event: GestureEvent, node?: FrameNode) => void;
 
 /**
- * Router和NavDestination等页面信息，若无对应的Router或NavDestination页面信息，则对应属性为undefined。
- *
+* Router和NavDestination等页面信息，若无对应的Router或NavDestination页面信息，则对应属性为undefined。
+*
+ * @interface PageInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1350,6 +1148,7 @@ export interface PageInfo {
   /**
    * Router信息。
    *
+   * @type { ?observer.RouterPageInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1359,6 +1158,7 @@ export interface PageInfo {
   /**
    * NavDestination信息。
    *
+   * @type { ?observer.NavDestinationInfo }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -1367,8 +1167,9 @@ export interface PageInfo {
 }
 
 /**
- * 初始化[OverlayManager]{@link @ohos.arkui.UIContext}时所用参数。
- *
+* 初始化[OverlayManager]{@link @ohos.arkui.UIContext}时所用参数。
+*
+ * @interface OverlayManagerOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -1378,6 +1179,7 @@ export interface OverlayManagerOptions {
   /**
    * 是否渲染overlay根节点，true表示渲染overlay根节点，false表示不渲染overlay根节点，默认值为true。
    *
+   * @type { ?boolean }
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1388,6 +1190,7 @@ export interface OverlayManagerOptions {
   /**
    * 是否支持通过侧滑手势关闭OverlayManager下的ComponentContent，true表示可以通过侧滑关闭，false表示不可以通过侧滑关闭，默认值为false。
    *
+   * @type { ?boolean }
    * @default false
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -1603,8 +1406,9 @@ export const enum GestureListenerType {
 }
 
 /**
- * 特定手势回调函数触发时的信息。
- *
+* 特定手势回调函数触发时的信息。
+*
+ * @interface GestureTriggerInfo
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -1614,6 +1418,7 @@ export interface GestureTriggerInfo {
   /**
    * 手势事件对象。
    *
+   * @type { GestureEvent }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1623,6 +1428,7 @@ export interface GestureTriggerInfo {
   /**
    * 手势识别器对象。可从中获取手势的详细信息，但请勿在本地保留此对象，因为当节点释放后该对象可能失效。
    *
+   * @type { GestureRecognizer }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1632,6 +1438,7 @@ export interface GestureTriggerInfo {
   /**
    * 手势动作回调阶段。
    *
+   * @type { GestureActionPhase }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1641,6 +1448,7 @@ export interface GestureTriggerInfo {
   /**
    * 触发手势的节点。默认值为null，表示没有触发手势的节点。
    *
+   * @type { ?FrameNode }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1649,8 +1457,9 @@ export interface GestureTriggerInfo {
 }
 
 /**
- * 该参数用于指定需要监听的手势回调阶段（传入空数组将无效），仅当手势触发指定阶段时才会发送通知。
- *
+* 该参数用于指定需要监听的手势回调阶段（传入空数组将无效），仅当手势触发指定阶段时才会发送通知。
+*
+ * @interface GestureObserverConfigs
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 26.0.0 static
@@ -1660,6 +1469,7 @@ export interface GestureObserverConfigs {
   /**
    * 手势事件对象。
    *
+   * @type { Array<GestureActionPhase> }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 26.0.0 static
@@ -1778,7 +1588,7 @@ export declare class UIObserver {
   /**
    * Removes a callback function that was previously registered with `onScrollEvent()`.
    *
-   * @param { observer.ObserverOptions } options - The options object.
+   * @param { 'scrollEvent'} type - The type of event to remove the listener for. Must be 'scrollEvent'.
    * @param { Callback<observer.ScrollEventInfo> } [callback] - The callback function to remove. If not provided, all
    *     callbacks for the given event type and scroll ID will be removed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2531,21 +2341,21 @@ export declare class ComponentUtils {
 }
 
 /**
- * 提供绘制浮层的能力。
- * 
- * > **说明：**
- * >
- * > - 本Class首批接口从API version 12开始支持。
- * 
- * > - 以下API需先使用UIContext中的[getOverlayManager()]{@link @ohos.arkui.UIContext:UIContext#getOverlayManager}方法获取到
- * > OverlayManager对象，再通过该对象调用对应方法。
- * >
- * > - OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等之下。
- * >
- * > - OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。
- * >
- * > - 与OverlayManager相关的属性推荐采用AppStorage来进行应用全局存储，以免切换页面后属性值发生变化从而导致业务错误。
- *
+* 提供绘制浮层的能力。
+*
+* > **说明：**
+* >
+* > - 本Class首批接口从API version 12开始支持。
+*
+* > - 以下API需先使用UIContext中的[getOverlayManager()]{@link @ohos.arkui.UIContext:UIContext#getOverlayManager}方法获取到
+* > OverlayManager对象，再通过该对象调用对应方法。
+* >
+* > - OverlayManager上节点的层级在Page页面层级之上，在Dialog、Popup、Menu、BindSheet、BindContentCover和Toast等之下。
+* >
+* > - OverlayManager上节点安全区域内外的绘制方式与Page一致，键盘避让方式与Page一致。
+* >
+* > - 与OverlayManager相关的属性推荐采用AppStorage来进行应用全局存储，以免切换页面后属性值发生变化从而导致业务错误。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -2568,7 +2378,7 @@ export declare class OverlayManager {
 
   /**
    * 创建浮层节点时，指定显示顺序。
-   * 
+   *
    * 支持在浮层节点创建时指定显示的顺序。
    *
    * @param { ComponentContent<T> } content - 在OverlayManager的指定节点上添加此content。 <br>**说明：** <br/> 新增的节点默认处于页面居中位置，按层级堆叠。
@@ -2631,7 +2441,7 @@ export declare class OverlayManager {
    * 打开具有指定ComponentContent和选项的浮层。
    *
    * @param { ComponentContent<Object> } content - 该内容将被添加到OverlayManager中。
-   * @param { OrderOverlayOptions } [options] - 浮层的选项。
+   * @param { OrderOverlayOptions } [ options ] - Options for the overlay.
    * @returns { Promise<void> } 函数返回的promise。
    * @throws { BusinessError } 103307 - The overlay cannot be opened due to the system pop-up window.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -2890,7 +2700,8 @@ export declare class DragController {
    * @stagemodelonly
    * @since 23 static
    */
-  createDragAction(customArray: Array<CustomBuilder | DragItemInfo> | undefined, dragInfo: dragController.DragInfo): dragController.DragAction;
+  createDragAction(customArray: Array<CustomBuilder | DragItemInfo> | undefined,
+    dragInfo: dragController.DragInfo): dragController.DragAction;
 
   /**
    * Get a drag preview object.
@@ -3129,15 +2940,15 @@ export declare class CursorController {
 }
 
 /**
- * 提供控制菜单关闭的能力。
- * 
- * > **说明：**
- * >
- * > - 本Class首批接口从API version 12开始支持。
- * 
- * > - 以下API需先使用UIContext中的[getContextMenuController()]{@link @ohos.arkui.UIContext:UIContext#getContextMenuController}方
- * > 法获取ContextMenuController实例，再通过此实例调用对应方法。
- *
+* 提供控制菜单关闭的能力。
+*
+* > **说明：**
+* >
+* > - 本Class首批接口从API version 12开始支持。
+*
+* > - 以下API需先使用UIContext中的[getContextMenuController()]{@link @ohos.arkui.UIContext:UIContext#getContextMenuController}方
+* > 法获取ContextMenuController实例，再通过此实例调用对应方法。
+*
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -3210,9 +3021,9 @@ export declare class ComponentSnapshot {
    * @param { AsyncCallback<image.PixelMap> } callback - 可返回截图位图结果的回调函数
    * @param { componentSnapshot.SnapshotOptions } [options] - 截图选项
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Invalid ID.
    * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3277,7 +3088,7 @@ export declare class ComponentSnapshot {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - The builder is not a valid build function.
    * @throws { BusinessError } 160001 - An image component in builder is not ready for taking a snapshot. The check for
-   *     the ready state is required when the checkImageStatus option is enabled.
+   * the ready state is required when the checkImageStatus option is enabled.
    * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
    * @throws { BusinessError } 160004 - isAuto(true) is not supported for offscreen node snapshots.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -3383,7 +3194,7 @@ export declare class ComponentSnapshot {
    * @param { boolean } isStartRect - indicating the snapshot rect to use, true for using the
    *     rect of the start component, false for using the rect of the end component.
    * @param { componentSnapshot.SnapshotOptions } [options] - Define the snapshot options.
-   * @returns { Promise<image.PixelMap> | null } A Promise with the snapshot in PixelMap format.
+   * @returns { Promise<image.PixelMap> } A Promise with the snapshot in PixelMap format.
    * @throws { BusinessError } 202 - The caller is not a system application.
    * @throws { BusinessError } 100001 - Invalid ID detected.
    * @throws { BusinessError } 160003 - Unsupported color space or dynamic range mode in snapshot options.
@@ -3396,8 +3207,8 @@ export declare class ComponentSnapshot {
     options?: componentSnapshot.SnapshotOptions): Promise<image.PixelMap> | null;
 
   /**
-    * 查询组件截图大小限制。
-    *
+   * 查询组件截图大小限制。
+   *
    * @returns { componentSnapshot.SnapshotSizeLimitation } The size limitation for taking a component snapshot.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3700,8 +3511,8 @@ export declare class SmartGestureController {
 }
 
 /**
- * UIContext解析策略枚举
- *
+* UIContext解析策略枚举
+*
  * @enum { number } strategy of resolved UIContext.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3821,7 +3632,7 @@ export declare class UIContext {
    *
    *
    *
-   * @returns { UIContext | undefined } -The UIContext of the last focused UI instance or undefined if no one exists.
+   * @returns { UIContext | undefined } - The UIContext of the last focused UI instance or undefined if no one exists.
    * @static
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3889,7 +3700,7 @@ export declare class UIContext {
 
   /**
    * 检查UIContext对象是否可用。
-   * @returns { boolean } - 如果UIContext可用，返回true，否则返回false。
+   * @returns { boolean } 如果UIContext可用，返回true，否则返回false。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -3908,7 +3719,8 @@ export declare class UIContext {
 
   /**
    * get object UIInspector.
-   * @returns { UIInspector } object UIInspector.
+   *
+   * @returns { UIInspector }    **UIInspector**对象。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -3917,8 +3729,22 @@ export declare class UIContext {
 
   /**
    * get the filtered attributes of the component tree.
-   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
-   * @returns { string } the specified attributes of the component tree in json string.
+   *
+   * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
+   *     filter fields are supported:
+   *     <br>**"id"**: unique ID of the component.
+   *     <br>**"src"**: source of the resource.
+   *     <br>**"content"**: information or data contained in the element, component, or object.
+   *     <br>**"editable"**: whether the component is editable.
+   *     <br>**"scrollable"**: whether the component is scrollable.
+   *     <br>**"selectable"**: whether the component is selectable.
+   *     <br>**"focusable"**: whether the component is focusable.
+   *     <br>**"focused"**: whether the component is currently focused.
+   *     <br>If **filters** includes one or more fields, unspecified fields will be filtered out from the results.
+   *     <br>If **filters** is not provided or is an empty array, none of the aforementioned fields will be filtered out.
+   *     <br>Other filter fields are used only in testing scenarios.
+   * @returns { string } JSON string of the component tree and component attributes. For details about each field in
+   *     the component, see the return value description of [getInspectorInfo]{@link FrameNode#getInspectorInfo}.
    * @throws { BusinessError } 100023 - Unable to obtain current ui context.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3928,10 +3754,25 @@ export declare class UIContext {
 
   /**
    * get the filtered attributes of the component tree with the specified id and depth
-   * @param { string } id - ID of the specified component tree to be obtained.
+   *
+   * @param { string } id - [ID]{@link CommonMethod#id} of the target component.
    * @param { int } depth - depth of the component tree to be obtained.
-   * @param { Array<string> } [filters] - the list of filters used to filter out component tree to be obtained.
-   * @returns { string } the specified attributes of the component tree in json string.
+   *     <br>取值限定为整数。
+   * @param { Array<string> } [filters] - List of component attributes used for filtering. Currently, only the following
+   *     filter fields are supported:
+   *     <br>**"id"**: unique ID of the component.
+   *     <br>**"src"**: source of the resource.
+   *     <br>**"content"**: information or data contained in the element, component, or object.
+   *     <br>**"editable"**: whether the component is editable.
+   *     <br>**"scrollable"**: whether the component is scrollable.
+   *     <br>**"selectable"**: whether the component is selectable.
+   *     <br>**"focusable"**: whether the component is focusable.
+   *     <br>**"focused"**: whether the component is currently focused.
+   *     <br>If **filters** includes one or more fields, unspecified fields will be filtered out from the results.
+   *     <br>If **filters** is not provided or is an empty array, none of the aforementioned fields will be filtered out.
+   *     <br>Other filter fields are used only in testing scenarios.
+   * @returns { string } JSON string of the attributes of the specified component and its child components. For details
+   *     about each field in the component, see the return value description of [getInspectorInfo]{@link FrameNode#getInspectorInfo}.
    * @throws { BusinessError } 100023 - Unable to obtain current ui context.
    * @throws { BusinessError } 100024 - The parameter depth must be greater than 0.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -4021,14 +3862,14 @@ export declare class UIContext {
   getOverlayManagerOptions(): OverlayManagerOptions;
 
   /**
-   * 创建animator动画结果对象（AnimatorResult）。
+   * Create an animator object for custom animation.
    *
-   * @param { AnimatorOptions | SimpleAnimatorOptions } options - 定义动画选项。
-   * @returns { AnimatorResult } Animator结果接口。
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     <br> 1. Mandatory parameters are left unspecified.
-   *     <br> 2. Incorrect parameters types.
-   *     <br> 3. Parameter verification failed.
+   * @param { AnimatorOptions | SimpleAnimatorOptions } options - Options.
+   * @returns { AnimatorResult }
+      * @throws { BusinessError } 401 - Parameter error. Possible causes:
+   * <br> 1. Mandatory parameters are left unspecified.
+   * <br> 2. Incorrect parameters types.
+   * <br> 3. Parameter verification failed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -4036,33 +3877,10 @@ export declare class UIContext {
   createAnimator(options: AnimatorOptions | SimpleAnimatorOptions): AnimatorResult;
 
   /**
-   * 提供animateTo接口，用于为闭包代码中的状态变化添加过渡动画效果。
-   * 
-   * > **说明：**
-   * >
-   * > - 不推荐在aboutToAppear、aboutToDisappear中调用动画。
-   * >
-   * > - 如果在[aboutToAppear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttoappear)中调用动
-   * > 画，自定义组件内的build还未执行，内部组件还未创建，动画时机过早，动画属性没有初值无法对组件产生动画。
-   * >
-   * > - 执行[aboutToDisappear](docroot://reference/apis-arkui/arkui-ts/ts-custom-component-lifecycle.md#abouttodisappear)
-   * > 时，组件即将销毁，不能在aboutToDisappear里面做动画。
-   * >
-   * > - 在组件出现和消失时，可以通过[组件内转场]{@link ./@internal/component/ets/common}添加动画效果。
-   * >
-   * > - 组件内转场不支持的属性，可以参考[显式动画]{@link ./@internal/component/ets/common}中的
-   * > [示例2](docroot://reference/apis-arkui/arkui-ts/ts-explicit-animation.md#示例2动画执行结束后组件消失)，使用animateTo实现动画执行结束后组件消失的效
-   * > 果。
-   * >
-   * > - 某些场景下，在[状态管理V2](docroot://ui/state-management/arkts-state-management-overview.md#状态管理v2)中使用animateTo动画，会产生异常效果，
-   * > 具体可参考：[在状态管理V2中使用animateTo动画效果异常](docroot://ui/state-management/arkts-new-local.md#在状态管理v2中使用animateto动画效果异常)。
-   * >
-   * > - UIAbility从前台切换至后台时会立即结束仍在步进中的有限循环动画，从而触发动画播放完成回调[onFinish]{@link AnimateParam}。
-   * >
-   * > - 在设置的开发者选项中关闭过渡动画，动画会当帧结束，onFinish动画播放完成回调会立即执行，请避免在回调中加入时序相关的功能逻辑。
+   * Defining animation function
    *
-   * @param { AnimateParam } value - 设置动画效果相关参数。
-   * @param { function } event - 指定显示动效的闭包函数，在闭包函数中导致的状态变化系统会自动插入过渡动画。
+   * @param { AnimateParam } value - parameters for animation.
+   * @param { function } event - the closure base on which, the system will create animation automatically
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -4072,12 +3890,14 @@ export declare class UIContext {
   /**
    * alertDialog display.
    *
-   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options - Options.
+   * @param { AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions } options -
+   Options.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
-  showAlertDialog(options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
+  showAlertDialog(
+    options: AlertDialogParamWithConfirm | AlertDialogParamWithButtons | AlertDialogParamWithOptions): void;
 
   /**
    * actionSheet display.
@@ -4194,7 +4014,6 @@ export declare class UIContext {
    * Dispach keyboard event to the frameNode with inspector key.
    *
    * @param { int | string } node - The uniqueId or inspector key of the target FrameNode.
-   * @param { KeyEvent } event - The keyboard event.
    * @returns { boolean } Returns whether the key event is consumed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4312,7 +4131,7 @@ export declare class UIContext {
    *
    * @param { int } id - The uniqueId of the target FrameNode.
    * @returns { observer.NavigationInfo | undefined } - The navigation information of the frameNode with the
-   *     target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
+   * target uniqueId, or undefined if the frameNode is not existed or does not have navigation information.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
@@ -4518,24 +4337,13 @@ export declare class UIContext {
   getWindowHeightBreakpoint(): HeightBreakpoint;
 
   /**
-   * 创建并弹出以bindSheetContent作为内容的半模态页面，使用Promise异步回调。通过该接口弹出的半模态页面样式完全按照bindSheetContent中设置的样式显示。
-   * 
-   * > **说明：**
-   * >
-   * > 1. 使用该接口时，若未传入有效的targetId，则不支持设置SheetOptions.preferType为POPUP模式、不支持设置SheetOptions.mode为EMBEDDED模式。
-   * >
-   * > 2. 由于[updateBindSheet]{@link UIContext#updateBindSheet}和[closeBindSheet]{@link UIContext#closeBindSheet}依赖
-   * > bindSheetContent去更新或者关闭指定的半模态页面，开发者需自行维护传入的bindSheetContent。
-   * >
-   * > 3. 不支持设置SheetOptions.UIContext。
+   * 打开BindSheet半模态.
    *
-   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
-   * @param { SheetOptions } [sheetOptions] - 半模态页面样式。<br/>**说明：** <br/>1. 不支持设置SheetOptions.uiContext，该属性的值固定为当前实例的
-   *     UIContext。<br/>2. 若不传递targetId，则不支持设置SheetOptions.preferType为POPUP样式，若设置了POPUP样式则使用CENTER样式替代。<br/>3. 若不传递
-   *     targetId，则不支持设置SheetOptions.mode为EMBEDDED模式，默认为OVERLAY模式。<br/>4. 其余属性的默认值参考[SheetOptions]{@link SheetOptions}文
-   *     档。
-   * @param { int } [targetId] - 需要绑定组件的ID，若不指定则不绑定任何组件。id不存在时返回错误码120004。在传入undefined时返回错误码401。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容.
+   * @param { SheetOptions } [sheetOptions] - 半模态的选项
+   * @param { int } [targetId] - BindSheet半模态所附着的FrameNode的唯一标识符
+   *     <br>取值范围:(0, +∞)
+   * @returns { Promise<void> } 函数返回的promise对象
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4549,21 +4357,18 @@ export declare class UIContext {
    * @stagemodelonly
    * @since 23 static
    */
-  openBindSheet(bindSheetContent: ComponentContentBase, sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
+  openBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions?: SheetOptions, targetId?: int): Promise<void>;
 
   /**
-   * 更新bindSheetContent对应的半模态页面的样式，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 不支持更新SheetOptions.UIContext、SheetOptions.mode、回调函数。
+   * 更新BindSheet半模态的参数选项
    *
-   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
-   * @param { SheetOptions } sheetOptions - 半模态页面样式。<br/>**说明：** <br/>不支持更新SheetOptions.uiContext、SheetOptions.mode、回调函
-   *     数。
-   * @param { boolean } [partialUpdate] - 半模态页面更新方式, 默认值为false。<br/>**说明：** <br/>1. true为增量更新，保留当前值，更新SheetOptions中的指定属
-   *     性。 <br/>2. false为全量更新，除SheetOptions中的指定属性，其他属性恢复默认值。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容.
+   * @param { SheetOptions } sheetOptions - 待更新的半模态的选项参数.
+   * @param { boolean } [partialUpdate] - 如果为真，则仅更新 sheetOptions 中指定的属性，
+   *     否则其余属性将被默认值覆盖。
+   *     默认值为 false。
+   * @returns { Promise<void> } 函数返回的promise对象
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4574,17 +4379,14 @@ export declare class UIContext {
    * @stagemodelonly
    * @since 23 static
    */
-  updateBindSheet(bindSheetContent: ComponentContentBase, sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
+  updateBindSheet(bindSheetContent: ComponentContentBase,
+    sheetOptions: SheetOptions, partialUpdate?: boolean): Promise<void>;
 
   /**
-   * 关闭bindSheetContent对应的半模态页面，使用Promise异步回调。
-   * 
-   * > **说明：**
-   * >
-   * > 使用此接口关闭半模态页面时，不会触发shouldDismiss回调。
+   * 关闭BindSheet半模态.
    *
-   * @param { ComponentContentBase } bindSheetContent - 半模态页面中显示的组件内容。
-   * @returns { Promise<void> } Promise对象，无返回结果。
+   * @param { ComponentContentBase } bindSheetContent - BindSheet半模态的内容
+   * @returns { Promise<void> } 函数返回的promise对象
    * @throws { BusinessError } 401 - Parameter error. Possible causes:
    *     <br> 1. Mandatory parameters are left unspecified.
    *     <br> 2. Incorrect parameters types.
@@ -4705,7 +4507,8 @@ export declare class UIContext {
    * @stagemodelonly
    * @since 23 static
    */
-  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller, childScroller: Scroller): void;
+  unbindTabsFromNestedScrollable(tabsController: TabsController, parentScroller: Scroller,
+    childScroller: Scroller): void;
 
   /**
    * 设置是否支持应用内横向滑动返回上一级。
@@ -4766,7 +4569,8 @@ export declare class UIContext {
    * @stagemodelonly
    * @since 23 static
    */
-  static createUIContextWithoutWindow(context: common.UIAbilityContext | common.ExtensionContext) : UIContext | undefined;
+  static createUIContextWithoutWindow(
+    context: common.UIAbilityContext | common.ExtensionContext): UIContext | undefined;
 
   /**
    * Destroy the UI instance singleton without window.
@@ -4878,47 +4682,6 @@ export declare class UIContext {
    * @since 26.0.0 static
    */
   getSmartGestureController(): SmartGestureController;
-
-  /**
-   * 获取指定节点的亮度采样器。如果找不到节点，则返回undefined。
-   *
-   * @param { TargetInfo } target - 目标节点ID。
-   * @returns { LuminanceSampler | undefined } the luminance sampler or undefined.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  getLuminanceSampler(target: TargetInfo): LuminanceSampler | undefined;
-
-  /**
-   * 在附加InputMethod之前，为此输入组件设置键盘外观配置。
-   *
-   * @param { int } uniqueId - 输入组件的唯一ID
-   *     <br>取值范围为全体整数。
-   * @param { KeyboardAppearanceConfig } config - 键盘的配置。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  setKeyboardAppearanceConfig(uniqueId: int, config: KeyboardAppearanceConfig): void;
-
-  /**
-   * 设置 HSP 资源管理对象的缓存数量上限。
-   *
-   * 如果缓存数量上限设置得过高，可能会导致内存开销过大，存在性能风险。建议根据实际需求进行配置。
-   *
-   * @param { int } count - The cache limit of resource manager for HSP, must be non-negative integers.
-   * @throws { BusinessError } 100101 - The parameter is less than 0.
-   * @throws { BusinessError } 100102 - The parameter value cannot be a floating-point number.
-   * @throws { BusinessError } 100103 - The function cannot be called from a non-main thread.
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  static setResourceManagerCacheMaxCountForHSP(count: int): void;
 }
 
 /**
@@ -4997,7 +4760,7 @@ export const enum TextSelectionClearPolicy {
    * @stagemodelonly
    * @since 26.0.0 static
    */
-  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1,
+  CLEAR_SELECTED_TEXT_ON_EXTERNAL_TOUCH = 1
 }
 
 /**
@@ -5079,22 +4842,11 @@ export declare class TextMenuController {
    * @since 23 static
    */
   static disableSystemServiceMenuItems(disable: boolean): void;
-
-  /**
-   * 通过操作ID禁用菜单操作。
-   *
-   * @param { Array<TextMenuItemId> } items - 要禁用的菜单项ID
-   * @static
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  static disableMenuItems(items: Array<TextMenuItemId>): void;
 }
 
 /**
- * 自定义键盘接续特性的枚举。
- *
+* 自定义键盘接续特性的枚举。
+*
  * @enum { int } CustomKeyboardContinueFeature
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -5105,7 +4857,7 @@ export const enum CustomKeyboardContinueFeature {
   /**
    * 使能自定义键盘接续。
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
@@ -5114,120 +4866,9 @@ export const enum CustomKeyboardContinueFeature {
   /**
    * 关闭自定义键盘接续。
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @syscap SystemCapability. ArkUI.ArkUI.Full
    * @stagemodelonly
    * @since 23 static
    */
   DISABLED = 1
-}
-
-/**
- * 类背景亮度采样器。
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export class LuminanceSampler {
-
-  /**
-   * 设置背景亮度采样配置。
-   *
-   * @param { BackgroundLuminanceSamplingConfigs } configs - 采样配置。
-   * @throws { BusinessError } 100001 - Internal error.
-   *     <br> 1. Incorrect parameter values.
-   *     <br> 2. Incorrect parameters types.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  setBackgroundLuminanceSamplingConfigs(configs: BackgroundLuminanceSamplingConfigs): void;
-
-  /**
-   * 注册背景亮度变化的回调。
-   *
-   * @param { Callback<int> } samplingCallback - 亮度采样回调。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  onBackgroundLuminanceChange(samplingCallback: Callback<int>): void;
-
-  /**
-   * 注销背景亮度变化的回调。
-   *
-   * @param { Callback<int> } [samplingCallback] - 亮度采样回调。
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  offBackgroundLuminanceChange(samplingCallback?: Callback<int>): void;
-}
-
-/**
- * 背景亮度采样配置参数。
- *
- * @interface BackgroundLuminanceSamplingConfigs
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @systemapi
- * @stagemodelonly
- * @since 26.0.0 static
- */
-export interface BackgroundLuminanceSamplingConfigs {
-
-  /**
-   * 采样间隔，单位为毫秒。最小间隔为180毫秒。
-   *
-   * @type { ?int }
-   * @default 500
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  samplingInterval?: int;
-
-  /**
-   * 亮度阈值。如果大于此阈值，则表示背景较亮。
-   * 取值范围为[0, 255]。brightThreshold的值必须大于等于DarkThreshold的值。
-   * 不在此范围内的值会导致参数设置异常。
-   *
-   * @type { ?int }
-   * @default 220
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  brightThreshold?: int;
-
-  /**
-   * 黑暗阈值。如果小于此阈值，则背景为暗色。
-   * 取值范围为[0, 255]。brightThreshold的值必须大于等于DarkThreshold的值。
-   * 不在此范围内的值会导致参数设置异常。
-   * 取值范围为全体整数。
-   *
-   * @type { ?int }
-   * @default 150
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  darkThreshold?: int;
-
-  /**
-   * 采样区域，如果不指定，则为节点区域。
-   *
-   * @type { ?NodeEdges<LengthMetrics> }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @systemapi
-   * @stagemodelonly
-   * @since 26.0.0 static
-   */
-  region?: NodeEdges<LengthMetrics>;
 }
