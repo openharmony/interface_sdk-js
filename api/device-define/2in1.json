@@ -221,6 +221,7 @@
     "SystemCapability.Global.I18n",
     "SystemCapability.Test.PerfTest",
     "SystemCapability.ArkUI.ArkUI.Lite",
+    "SystemCapability.Communication.SoftBus.Core",
 	"SystemCapability.Driver.ExternalDevice",
 	"SystemCapability.Driver.DDK.Extension",
 	"SystemCapability.Driver.HID.Extension",
