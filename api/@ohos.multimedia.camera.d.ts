@@ -760,7 +760,7 @@ declare namespace camera {
     /**
      * Mutes the camera device permanently.
      *
-     * @permission ohos.camera.CAMERA_CONTROL
+     * @permission ohos.permission.CAMERA_CONTROL
      * @param { boolean } mute - Mutes or unmutes the camera device. **true** to mute, **false** otherwise.
      * @param { PolicyType } type - Policy type. For details about the available options, see
      *     [PolicyType]{@link camera.PolicyType}.
