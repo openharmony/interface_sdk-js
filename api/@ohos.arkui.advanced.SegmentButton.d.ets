@@ -1739,7 +1739,7 @@ declare class SegmentButtonOptions {
  *
  * >**NOTE**
  * >
- * > - The **SegmentButton** component does not support [universal attributes](ts-component-general-attributes.md).
+ * > - The **SegmentButton** component does not support [universal attributes]{@link CommonMethod}.
  * The component occupies the maximum available width within its content area and distributes this width evenly among
  * its items. It adapts its height automatically to the content (text and images), the minimum height being 28 vp.
  * >
@@ -1851,4 +1851,4 @@ export {
   SegmentButtonItemOptionsConstructorOptions,
   SegmentButtonItemOptions,
   BorderRadiusMode
-};
+};
