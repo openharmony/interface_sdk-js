@@ -1546,6 +1546,7 @@ declare namespace photoAccessHelper {
      * @static
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @since 13 dynamic
+     * @since 26.0.0 static
      */
     static quickRequestImage(
       context: Context,
@@ -2703,7 +2704,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
-     * @since 23 static
+     * @since 26.0.0 static
      */
     createTemporaryCompatibleDuplicate(): Promise<void>;
     /**
@@ -3627,6 +3628,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_MODE = 'hdr_mode',
     /**
@@ -3635,6 +3637,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     CLOUD_ID = 'cloud_id',
     /**
@@ -3669,6 +3672,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     ASSET_SOURCE_TYPE = 'file_source_type',
     /**
@@ -3677,6 +3681,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     FUSION_ASSET_STORAGE_PATH = 'storage_path',
     /**
@@ -3850,6 +3855,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @crossplatform
    * @since 22 dynamic
+   * @since 26.0.0 static
    */
   enum FusionAssetType {
     /**
@@ -3858,6 +3864,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     COMPATIBLE_ASSET = 0,
   }
@@ -3868,6 +3875,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 22 dynamic
+   * @since 26.0.0 static
    */
   interface FusionAssetsInfo {
     /**
@@ -3877,6 +3885,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     assetsType: FusionAssetType;
     /**
@@ -3886,6 +3895,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     assetsCount: int;
     /**
@@ -3895,6 +3905,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     assetsPath: string;
   }
@@ -3992,6 +4003,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     UPLOAD_STATUS = 'upload_status',
     /**
@@ -5528,6 +5540,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     readonly uploadStatus: boolean;
     /**
@@ -6030,6 +6043,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     getSelectedAssets(optionCheck: FetchOptions, filter?: string): Promise<FetchResult<PhotoAsset>>;
     /**
@@ -6044,6 +6058,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     getFusionAssetsInfo(): Promise<FusionAssetsInfo[]>;
   }
@@ -8145,6 +8160,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     isCompatibleDuplicateSupported(bundleName: string): Promise<boolean>;
 
@@ -8240,6 +8256,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     getClonedAssetUris(oldUris: Array<string>): Promise<Map<string, string>>;
 
@@ -12211,6 +12228,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     static deleteLocalAssetsWithUri(context: Context, assetUris: string[]): Promise<void>;
 
@@ -12232,6 +12250,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     static deleteCloudAssetsWithUri(context: Context, assetUris: string[]): Promise<void>;
 
@@ -12589,6 +12608,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     static setUploadStatus(context: Context, albums: Album[], allowUpload: boolean): Promise<void>;
 
@@ -13532,6 +13552,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     ALBUM_INFO = 2
   }
@@ -13645,6 +13666,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 26.0.0 static
    */
   enum HighlightAlbumChangeAttribute {
     /**
@@ -13653,6 +13675,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     IS_VIEWED = 0,
 
@@ -13662,6 +13685,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     NOTIFICATION_TIME = 1,
 
@@ -13671,6 +13695,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     IS_FAVORITE = 2
   }
@@ -13762,6 +13787,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
      setRelationship(relationship: string): Promise<void>;
 
@@ -13838,20 +13864,22 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 21 dynamic
+   * @since 26.0.0 static
    */
   class MediaHighlightAlbumChangeRequest extends MediaAnalysisAlbumChangeRequest {
     /**
-     * The constructor to create a MediaHighlightAlbumChangeRequest instance.
+     * Constructor.
      *
-     * @param { Album } album - Album
+     * @param { Album } album - **Highlights** album.
      * @throws { BusinessError } 202 - Called by non-system application.
      * @throws { BusinessError } 23800151 - Parameter error. Possible causes:
-     *     1. Mandatory parameters are left unspecified;
-     *     2. Incorrect parameter types;
-     *     3. Parameter verification failed.
+     *     <br>1. Mandatory parameters are left unspecified;
+     *     <br>2. Incorrect parameter types;
+     *     <br>3. Parameter verification failed.
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     constructor(album: Album);
 
@@ -13872,6 +13900,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
     setHighlightAttribute(attribute: HighlightAlbumChangeAttribute, value: string): void;
   }
@@ -13928,6 +13957,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 21 dynamic
+     * @since 26.0.0 static
      */
      getRelationship(): Promise<string>;
   }
@@ -14678,6 +14708,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDC_RETAIN_FORCE = 1
   }
@@ -15381,6 +15412,7 @@ declare namespace photoAccessHelper {
    * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
    * @systemapi
    * @since 22 dynamic
+   * @since 26.0.0 static
    */
   enum HdrMode {
     /**
@@ -15389,6 +15421,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     DEFAULT = 0,
     /**
@@ -15397,6 +15430,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_ISO_SINGLE = 1,
     /**
@@ -15405,6 +15439,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_ISO_DUAL = 2,
     /**
@@ -15413,6 +15448,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_CUVA = 3,
     /**
@@ -15421,6 +15457,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_VIVID_SINGLE = 4,
     /**
@@ -15429,6 +15466,7 @@ declare namespace photoAccessHelper {
      * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
      * @systemapi
      * @since 22 dynamic
+     * @since 26.0.0 static
      */
     HDR_VIVID_DUAL = 5,
   }
