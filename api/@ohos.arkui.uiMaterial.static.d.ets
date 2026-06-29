@@ -630,7 +630,7 @@ declare namespace uiMaterial {
      * @since 26.0.0 static
      */
     constructor(options?: ImmersiveOptions);
-  }  
+  }
 }
 
 /**
