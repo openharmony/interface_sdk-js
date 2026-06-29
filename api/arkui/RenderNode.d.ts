@@ -507,7 +507,7 @@ export class RenderNode {
   set label(label: string);
 
   /**
-   * Get label of the RenderNode.
+   * Get label of the RenderNode. Default value: **""**.
    *
    * @returns { string } - Returns the label of the RenderNode.
    * @syscap SystemCapability.ArkUI.ArkUI.Full

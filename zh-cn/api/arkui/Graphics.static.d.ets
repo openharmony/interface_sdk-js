@@ -258,8 +258,17 @@ export interface Vector4 {
 }
 
 /**
-* 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`double[]`进行表示。
-*
+ * 设置四阶矩阵。
+ * 用于设置组件的变换信息，该类型为一个 4x4 矩阵，使用一个长度为16的`number[]`进行表示，各number取值范围：(-∞, +∞)。例如：
+ * ```
+ * const transform: Matrix4 = [
+ * 1, 0, 45, 0,
+ * 0, 1,  0, 0,
+ * 0, 0,  1, 0,
+ * 0, 0,  0, 1
+ * ]
+ * ```。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -284,8 +293,8 @@ export type Matrix4 = [
 ];
 
 /**
-* 用于设置组件或效果的偏移。
-*
+ * 用于设置组件或效果的偏移。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -293,8 +302,8 @@ export type Matrix4 = [
 export type NodeOffset = Vector2;
 
 /**
-* 用于设置或返回组件的位置。
-*
+ * 用于设置或返回组件的位置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -302,8 +311,8 @@ export type NodeOffset = Vector2;
 export type NodePosition = Vector2;
 
 /**
-* 用于设置或返回组件的位置。
-*
+ * 用于设置或返回组件的位置。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -311,8 +320,8 @@ export type NodePosition = Vector2;
 export type PositionT<T> = Vector2T<T>;
 
 /**
-* 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。
-*
+ * 用于设置组件的轴心坐标，轴心会作为组件的旋转/缩放中心点，影响旋转和缩放效果。轴心的x和y轴坐标为浮点数，默认值为0.5， 取值范围为[0.0, 1.0]。
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static

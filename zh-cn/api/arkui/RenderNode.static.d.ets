@@ -413,7 +413,7 @@ export declare class RenderNode {
   set label(label: string);
 
   /**
-   * 获取RenderNode的标签。
+   * 获取RenderNode的标签。默认值为""。
    *
    * @returns { string } - 返回RenderNode的标签。
    * @syscap SystemCapability.ArkUI.ArkUI.Full

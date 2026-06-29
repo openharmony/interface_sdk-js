@@ -302,7 +302,8 @@ interface Vector4 {
 
 /**
  * Sets a 4x4 matrix.
- * The **Matrix4** type is used to set transformation information for components. The following is an example:
+ * The **Matrix4** type is used to set transformation information for components.Value range of each number: (-∞, +∞).
+ * The following is an example:
  * ```
  * const transform: Matrix4 = [
  * 1, 0, 45, 0,
@@ -372,7 +373,8 @@ export type PositionT<T> = Vector2T<T>;
 
 /**
  * Sets the pivot of the component. As the rotation or scaling center of the component, the pivot affects the rotation
- * and scaling effects.
+ * and scaling effects. X and Y coordinates of the pivot is a floating point number in the range [0.0, 1.0], and the 
+ * default value is **0.5**.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
