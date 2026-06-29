@@ -76,7 +76,6 @@ declare namespace batteryInfo {
   /**
    * Battery state of charge (SoC) of the device, in unit of percentage, which ranges from 0 to 100.
    *
-   * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice [since 12]
    * @since 6 dynamic
@@ -86,7 +85,6 @@ declare namespace batteryInfo {
   /**
    * Battery charging state of the current device.
    *
-   * @constant [since 6 - 11]
    * @syscap SystemCapability.PowerManager.BatteryManager.Core
    * @atomicservice [since 12]
    * @since 6 dynamic
