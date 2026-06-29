@@ -24,10 +24,10 @@
  * > **NOTE**
  * >
  * > - Module maintenance policy:
- * > >
- * > >    \- For lite wearables, this module is constantly maintained and available.
- * > >
- * > >    \- For other device types, this module is no longer maintained since API version 7.<!--Del--> You are advised 
+ * >
+ * >    - For lite wearables, this module is constantly maintained and available.
+ * >
+ * >    - For other device types, this module is no longer maintained since API version 7.<!--Del--> You are advised 
  * > to use APIs of [@ohos.brightness]{@link @ohos.brightness:brightness}. <!--DelEnd-->The substitute APIs are 
  * > available only for system applications.
  *
