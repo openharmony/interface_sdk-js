@@ -2137,7 +2137,7 @@ declare class On {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    isBefore(com: Component): On;
+     beforeComponent(com: Component): On;
     /**
      * Specifies that the target component is located after the given attribute component.
      *
@@ -2167,7 +2167,7 @@ declare class On {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    isAfter(com: Component): On;
+     afterComponent(com: Component): On;
     /**
      * Specifies that the target component is located within the given attribute component.
      *
@@ -2197,7 +2197,7 @@ declare class On {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    within(com: Component): On;
+    withinComponent(com: Component): On;
 
     /**
      * Specifies that the target component is located within the given application window.
@@ -3290,6 +3290,8 @@ declare class Driver {
      *     <br>Throws error code 401 if negative.
      *     <br>Default value: 600
      * @returns { Promise<void> } - Promise that returns no value.
+     * @throws { BusinessError } 401 - Parameter error. Possible causes: 1.Mandatory parameters are left unspecified; 2. 
+     *     Incorrect parameter types; 3. Parameter verification failed.
      * @throws { BusinessError } 17000002 - The API does not support concurrent calls.
      * @syscap SystemCapability.Test.UiTest
      * @crossplatform [since 26.0.0]
@@ -3331,7 +3333,7 @@ declare class Driver {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    clickAt(point: Point, options?: TouchOptions): Promise<void>;
+    clickAtWithOptions(point: Point, options?: TouchOptions): Promise<void>;
     /**
      * Double-clicks the target coordinate point. This API uses a promise to return the result.
      *
@@ -3382,7 +3384,7 @@ declare class Driver {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    longClickAt(point: Point, options?: TouchOptions): Promise<void>;
+    longClickAtWithOptions(point: Point, options?: TouchOptions): Promise<void>;
     /**
      * Swipes from the start coordinate point to the target coordinate point. This API uses a promise to return the 
      * result.
@@ -3427,7 +3429,7 @@ declare class Driver {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    swipeBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
+    swipeBetweenWithOptions(from: Point, to: Point, options?: TouchOptions): Promise<void>;
     /**
      * Drags from the start point to the target point. You can specify the drag speed and the click duration before 
      * dragging. This API uses a promise to return the result.
@@ -3476,7 +3478,7 @@ declare class Driver {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    dragBetween(from: Point, to: Point, options?: TouchOptions): Promise<void>;
+    dragBetweenWithOptions(from: Point, to: Point, options?: TouchOptions): Promise<void>;
     /**
      * Captures the current screen and saves it as a PNG image to the given save path. This API uses a promise to return 
      * the result. This API can be used in scenarios where screenshots are supported.
@@ -4131,7 +4133,7 @@ declare class Driver {
      * @since 26.0.0 dynamic&static
      * @test
      */
-    mouseDrag(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise<void>;
+    mouseDragWithOptions(from: Point, to: Point, touchOptions?: TouchOptions, keyOptions?: KeyOptions): Promise<void>;
 
     /**
      * Inputs text at a specified coordinate without clearing the original text in the component. This API uses a promise
@@ -5013,7 +5015,7 @@ declare namespace ON {
      * @since 26.0.0 static
      * @test
      */
-    export function isBefore(com: Component): On;
+    export function beforeComponent(com: Component): On;
 
     /**
      * Requires that the target Component which is after another Component that specified by the given {@link On}
@@ -5039,7 +5041,7 @@ declare namespace ON {
      * @since 26.0.0 static
      * @test
      */
-    export function isAfter(com: Component): On;
+    export function afterComponent(com: Component): On;
     /**
      * Requires that the target Component which is inside of another Component that specified by the given {@link On}
      * object,used to locate Component relatively.
@@ -5064,7 +5066,7 @@ declare namespace ON {
      * @since 26.0.0 static
      * @test
      */
-    export function within(com: Component): On;
+    export function withinComponent(com: Component): On;
 
     /**
      * Specifies the bundleName of the application which the window that the target Component is located belongs.
