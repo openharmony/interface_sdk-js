@@ -31,7 +31,6 @@ import { ComponentContentBase } from '../ComponentContent';
 /**
  * Provides the method of switching the cursor position.
  *
- * @extends TextContentControllerBase
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -70,19 +69,21 @@ export declare class SearchController extends TextContentControllerBase {
      * <br>If selectionStart or selectionEnd is set to undefined, the value 0 will be used.
      * <br>If <em>selectionMenuHidden</em> is set to <em>true</em> or a 2-in-1 device is used,
      * calling setTextSelection does not display the context menu even when options is set to <em>MenuPolicy.SHOW</em>.
-     * <br>If the selected text contains an emoji, the emoji is selected when its start position is within the text selection range.
+     * <br>If the selected text contains an emoji,
+     *     the emoji is selected when its start position is within the text selection range.
      * <br>Sets the text selection range and highlights the selected text when the component is focused.
      * <br>This API works only when the value of selectionStart is less than that of selectionEnd.
      * </p>
      *
      * @param { int } selectionStart - The start position of the selected text.
-     * The start position of text in the text box is 0.
-     * A value less than 0 is handled as 0.
-     * A value greater than the maximum text length is handled as the maximum text length.
+     *     The start position of text in the text box is 0.
+     *     A value less than 0 is handled as 0.
+     *     A value greater than the maximum text length is handled as the maximum text length.
      * @param { int } selectionEnd - The end position of the selected text.
-     * A value less than 0 is handled as the value 0.
-     * A value greater than the maximum text length is handled as the maximum text length.
-     * @param { SelectionOptions } [options] - Indicates the options of the text selection.Default value is MenuPolicy.DEFAULT.
+     *     A value less than 0 is handled as the value 0.
+     *     A value greater than the maximum text length is handled as the maximum text length.
+     * @param { SelectionOptions } [options] - Indicates the options of the text selection.
+     *     Default value is MenuPolicy.DEFAULT.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -92,7 +93,6 @@ export declare class SearchController extends TextContentControllerBase {
 /**
  * Enum for the style of cancel button
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -126,7 +126,6 @@ export declare enum CancelButtonStyle {
 /**
  * Declare the type of search input box
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -195,7 +194,7 @@ export declare enum SearchType {
  * Options used to construct the search.
  *
  * Anonymous Object Rectification.
- * @typedef SearchOptions
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -204,7 +203,6 @@ export declare interface SearchOptions {
     /**
      * Text input in the search text box.
      *
-     * @type { ?(string | Bindable<string>)}
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -214,7 +212,7 @@ export declare interface SearchOptions {
      * Text displayed when there is no input.
      *
      * Anonymous Object Rectification.
-     * @type { ?ResourceStr }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -235,7 +233,6 @@ export declare interface SearchOptions {
      * <br>If this attribute and the searchIcon attribute are both set, the searchIcon attribute takes precedence.
      * </p>
      *
-     * @type { ?string }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -245,7 +242,7 @@ export declare interface SearchOptions {
      * Controller of the <Search> component.
      *
      * Anonymous Object Rectification.
-     * @type { ?SearchController }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -255,7 +252,6 @@ export declare interface SearchOptions {
 /**
  * Defines the icon options
  *
- * @interface IconOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -268,7 +264,6 @@ export interface IconOptions {
      * <br>It cannot be set in percentage.
      * </p>
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -277,7 +272,6 @@ export interface IconOptions {
     /**
      * Set the icon color
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -286,7 +280,6 @@ export interface IconOptions {
     /**
      * Set the icon resource
      *
-     * @type { ?ResourceStr }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -296,7 +289,6 @@ export interface IconOptions {
 /**
  * Defines the SearchButton options
  *
- * @interface SearchButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -309,7 +301,6 @@ export interface SearchButtonOptions {
      * <br>It cannot be set in percentage.
      * </p>
      *
-     * @type { ?Length }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -318,7 +309,6 @@ export interface SearchButtonOptions {
     /**
      * Set the SearchButton fontColor
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -332,7 +322,6 @@ export interface SearchButtonOptions {
      * <br><em>false</em>: The search button remains enabled regardless of the text input.
      * </p>
      *
-     * @type { ?boolean }
      * @default false
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -343,7 +332,6 @@ export interface SearchButtonOptions {
 /**
  * Defines the CancelButton options
  *
- * @interface CancelButtonOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -353,7 +341,6 @@ export interface CancelButtonOptions {
      * Set the CancelButton style
      * Display state of the Cancel button on the right.
      *
-     * @type { ?CancelButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -363,7 +350,6 @@ export interface CancelButtonOptions {
      * Set the CancelButton icon
      * Icon of the Cancel button on the right.
      *
-     * @type { ?IconOptions }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -373,7 +359,6 @@ export interface CancelButtonOptions {
 /**
  * Defines the CancelButton symbol options
  *
- * @interface CancelButtonSymbolOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -384,7 +369,6 @@ export interface CancelButtonSymbolOptions {
      * Set the CancelButton style.
      * Display state of the Cancel button on the right.
      *
-     * @type { ?CancelButtonStyle }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -394,7 +378,6 @@ export interface CancelButtonSymbolOptions {
      * Set the CancelButton symbol icon.
      * Symbol icon of the Cancel button on the right.
      *
-     * @type { ?SymbolGlyphModifier }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -404,7 +387,6 @@ export interface CancelButtonSymbolOptions {
 /**
  * Declare the event listener callback of the enter key.
  *
- * @typedef { function } SearchSubmitCallback
  * @param { string } searchContent - The submitted content of search.
  * @param { SubmitEvent } [event] - Provides the method of keeping Search editable state when submitted.
  * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -415,17 +397,17 @@ export type SearchSubmitCallback = (searchContent: string, event?: SubmitEvent) 
 /**
  * The attribute function of search
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 export declare interface SearchAttribute extends CommonMethod {
     /**
      * Set the search button text, fontSize and fontColor
      *
      * @param { string | undefined } value - indicates the text of the search button.
-     * @param { SearchButtonOptions | undefined } option - indicates the fontSize and fontColor of the search button.
+     * @param { SearchButtonOptions | undefined } [option] - indicates the fontSize and fontColor of the search button.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -524,7 +506,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * </p>
      *
      * @param { ResourceStr | undefined } value - Regular expression.
-     * @param { Callback<string> | undefined } error - Filtered-out content to return when regular expression matching fails.
+     * @param { Callback<string> | undefined } [error] - Filtered-out content to return when regular expression matching fails.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -595,7 +577,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>The default font size on wearable devices is 18 px.
      * </p>
      *
-     * @param { Font | undefined } value
+     * @param { Font | undefined } [value]
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -610,7 +592,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>The default font size on wearable devices is 18 fp.
      * </p>
      *
-     * @param { Font | undefined } value
+     * @param { Font | undefined } [value]
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -808,7 +790,8 @@ export declare interface SearchAttribute extends CommonMethod {
      *
      * <p><strong>NOTE</strong>:
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-     * <br>For the setting to take effect, this attribute must be used together with maxFontSize or layout constraint settings.
+     * <br>For the setting to take effect, this attribute must be used together with maxFontSize
+     *     or layout constraint settings.
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
@@ -824,7 +807,8 @@ export declare interface SearchAttribute extends CommonMethod {
      *
      * <p><strong>NOTE</strong>:
      * <br>For the string type, numeric string values with optional units, for example, "10" or "10fp", are supported.
-     * <br>For the setting to take effect, this attribute must be used together with minFontSize or layout constraint settings.
+     * <br>For the setting to take effect, this attribute must be used together with
+     *     minFontSize or layout constraint settings.
      * <br>When the adaptive font size is used, the fontSize settings do not take effect.
      * </p>
      *
@@ -885,7 +869,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * <br>You can also use the stopEditing API to close the keyboard.
      * <br>When a custom keyboard is set, the text box does not support camera input, even when the device supports.
      * <br>When setting a custom keyboard,
-     * you can bind the onKeyPreIme event to prevent input from the physical keyboard.
+     * you can bind the onKeyPrelme event to prevent input from the physical keyboard.
      * </p>
      *
      * @param { CustomBuilder | ComponentContentBase | undefined } value - Set up a custom keyboard of Search
@@ -897,6 +881,7 @@ export declare interface SearchAttribute extends CommonMethod {
      */
     default customKeyboard(
       value: CustomBuilder | ComponentContentBase | undefined, options?: KeyboardOptions): this;
+
     /**
      * Called when the text decoration of the text is set.
      *
@@ -1085,7 +1070,8 @@ export declare interface SearchAttribute extends CommonMethod {
     /**
      * Set the text with half leading.
      *
-     * @param { Optional<boolean> | undefined } halfLeading - Default value is false.The value true means that half leading is enabled, and false means the opposite.
+     * @param { boolean | undefined } halfLeading - Default value is false.The value true
+     *     means that half leading is enabled, and false means the opposite.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -1095,8 +1081,8 @@ export declare interface SearchAttribute extends CommonMethod {
     /**
      * Set whether stop backPressed callback event or not.
      *
-     * @param { Optional<boolean> | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
-     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @param { boolean | undefined } isStopped - Default value is true, set false to trigger the latest callback event.
+     * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1196,7 +1182,7 @@ export declare interface SearchAttribute extends CommonMethod {
     default compressLeadingPunctuation(enabled: boolean | undefined): this;
     /**
      * Set the divider color.
-     * 
+     *
      * @param { ColorMetrics | undefined } color - Color of the divider.
      * @returns { SearchAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -1209,7 +1195,7 @@ export declare interface SearchAttribute extends CommonMethod {
      *
      * @param { boolean | undefined } include - Whether enable the feature, the default value is false.
      *     Passing `undefined` resets it to the default value.
-     * @returns { SearchAttribute } returns the instance of the SearchAttribute.
+     * @returns { SearchAttribute } - returns the instance of the SearchAttribute.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -1238,17 +1224,6 @@ export declare interface SearchAttribute extends CommonMethod {
     default attributeModifier(modifier: AttributeModifier<SearchAttribute> | AttributeModifier<CommonMethod> | undefined): this;
 
     /**
-     * Set Search options.
-     *
-     * @param { SearchOptions } [options] - Search constructor options
-     * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 26.0.0 staticonly
-     */
-    default setSearchOptions(options?: SearchOptions): this;
-
-    /**
      * Used to set the selected drag preview style.
      *
      * @param { SelectedDragPreviewStyle | undefined } value - Selected drag preview style.
@@ -1271,7 +1246,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 23 static
      */
     default textDirection(direction: TextDirection | undefined): this;
- 
+
     /**
      * Set the join style of the stroke.
      *
@@ -1283,7 +1258,7 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default strokeJoinStyle(strokeJoinStyle: StrokeJoinStyle | undefined): this;
- 
+
     /**
      * Set the shader style of the text, such as lineargradient or radialgradient.
      *
@@ -1295,6 +1270,17 @@ export declare interface SearchAttribute extends CommonMethod {
      * @since 26.0.0 static
      */
     default shaderStyle(shader: ShaderStyle | undefined): this;
+
+    /**
+     * Set Search options.
+     *
+     * @param { SearchOptions } [options] - Search constructor options
+     * @returns { SearchAttribute } Returns the instance of the SearchAttribute.
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 26.0.0 staticonly
+     */
+    default setSearchOptions(options?: SearchOptions): this;
 }
 
 /**
@@ -1305,6 +1291,7 @@ export declare interface SearchAttribute extends CommonMethod {
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
+ * @noninterop
  */
 @ComponentBuilder
 export declare function Search(

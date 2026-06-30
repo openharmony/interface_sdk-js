@@ -530,8 +530,6 @@ declare interface CapsuleStyleOptions extends ScanEffectOptions, CommonProgressS
   /**
    * Text content, which can be customized.
    *
-   * The Resource type is supported since API version 20.
-   *
    * @type { ?string } [since 10 - 19]
    * @type { ?ResourceStr } [since 20]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
@@ -747,8 +745,6 @@ declare interface ProgressStyleMap {
 /**
  * The **Progress** component represents a progress indicator that displays the progress of content loading or an
  * operation.
- *
- * > **NOTE**
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]

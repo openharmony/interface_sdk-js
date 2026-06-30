@@ -648,10 +648,8 @@ declare class TextAttribute extends CommonMethod<TextAttribute> {
    *
    * A positive value moves the content upwards, while a negative value moves it downwards.
    *
-   * @param { number | string } value - Offset of the text baseline.<br>Default value: **0**<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 7 - 19]
-   * @param { number | ResourceStr } value - Offset of the text baseline.<br>Default value: **0**<br>The
-   *     [Resource]{@link Resource} type is supported since API version 20. [since 20]
+   * @param { number | string } value - Offset of the text baseline.<br>Unit: fp. Default value: 0. [since 7 - 19]
+   * @param { number | ResourceStr } value - Offset of the text baseline.<br>Unit: fp. Default value: 0. [since 20]
    * @returns { TextAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]

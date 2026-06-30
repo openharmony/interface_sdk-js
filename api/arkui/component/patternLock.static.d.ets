@@ -226,7 +226,7 @@ export declare interface PatternLockAttribute extends CommonMethod {
      * <br>If this attribute is set to **0** or a negative value, the path stroke is not displayed.
      * </p>
      *
-     * @param { double | string | undefined } value - Width of the path stroke, Default value is 12vp.
+     * @param { double | string | undefined } value - Width of the path stroke, The default value is 12. The unit is vp.
      * @returns { PatternLockAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

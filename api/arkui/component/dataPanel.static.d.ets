@@ -32,7 +32,7 @@ import { AttributeModifier } from "./common";
  */
 export declare enum DataPanelType {
     /**
-     * Line Type
+     * Line data panel.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -40,7 +40,7 @@ export declare enum DataPanelType {
      */
     Line,
     /**
-     * Line Rainbow
+     * Circle data panel.
      *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly

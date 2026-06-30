@@ -2812,7 +2812,7 @@ declare enum SharedTransitionEffectType {
 }
 
 /**
- * Text style
+ * Font style.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2821,9 +2821,8 @@ declare enum SharedTransitionEffectType {
  * @since 7 dynamic
  */
 declare enum FontStyle {
-
   /**
-   * Default style.
+   * Standard font style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2831,10 +2830,10 @@ declare enum FontStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
-   * Italic style.
+   * Italic font style.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2842,7 +2841,7 @@ declare enum FontStyle {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Italic = 1
+  Italic
 }
 
 /**
@@ -2855,9 +2854,8 @@ declare enum FontStyle {
  * @since 7 dynamic
  */
 declare enum FontWeight {
-
   /**
-   * Defines a lighter value than [Inherited Value]..
+   * 100 font weight (thin).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2865,10 +2863,10 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Lighter = 0,
+  Lighter,
 
   /**
-   * Normal font. Equivalent to a digital value of 400.
+   * 400 font weight (normal).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2876,10 +2874,10 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 1,
+  Normal,
 
   /**
-   * Defines a more general value than [Inherited Value].
+   * 400 font weight (normal), which is the same as the Normal effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2887,10 +2885,10 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Regular = 2,
+  Regular,
 
   /**
-   * Defines a value that is more centered than [Inherited Value].
+   * 500 font weight (medium).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2898,10 +2896,10 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Medium = 3,
+  Medium,
 
   /**
-   * Bold. Equivalent to a numeric value of 700.
+   * 700 font weight (bold).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2909,10 +2907,10 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bold = 4,
+  Bold,
 
   /**
-   * Defines a value that is heavier than [Inherited Value].
+   * 900 font weight (extra bold).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2920,11 +2918,11 @@ declare enum FontWeight {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Bolder = 5
+  Bolder
 }
 
 /**
- * Alignment of text.
+ * The horizontal alignment of the text paragraph.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -2933,9 +2931,8 @@ declare enum FontWeight {
  * @since 7 dynamic
  */
 declare enum TextAlign {
-
   /**
-   * Center the text.
+   * Horizontally centered.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2943,10 +2940,10 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Center = 0,
+  Center,
 
   /**
-   * The text is aligned in the same direction as the writing
+   * Aligned with the start.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2954,10 +2951,10 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Start = 1,
+  Start,
 
   /**
-   * The text is aligned in the opposite direction of writing
+   * Aligned with the end.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -2965,10 +2962,10 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  End = 2,
+  End,
 
   /**
-   * Justify the text.
+   * Aligned with both margins.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -2977,7 +2974,7 @@ declare enum TextAlign {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  JUSTIFY = 3,
+  JUSTIFY,
 
   /**
    * The text is aligned in the left direction.
@@ -3005,7 +3002,7 @@ declare enum TextAlign {
 }
 
 /**
- * Declare how text overflows.
+ * Display mode when the text is too long.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3014,9 +3011,8 @@ declare enum TextAlign {
  * @since 7 dynamic
  */
 declare enum TextOverflow {
-
   /**
-   * When the text overflows its dimensions, the text will not be cropped.
+   * Overflowing content is clipped at the limit of the maximum line width.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3024,10 +3020,10 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
-   * When the text overflows its dimensions, the text will be cropped and displayed.
+   * Overflowing content is clipped at the limit of the maximum line width. Same effect as **None**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3035,10 +3031,10 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Clip = 1,
+  Clip,
 
   /**
-   * If the text overflows its dimensions, the text that cannot be displayed shall be replaced by ellipsis.
+   * An ellipsis (...) is used to represent text overflow.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3046,10 +3042,10 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Ellipsis = 2,
+  Ellipsis,
 
   /**
-   * When the text overflows its dimensions, the text will scroll for displaying.
+   * Text continuously scrolls when text overflow occurs.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3057,11 +3053,11 @@ declare enum TextOverflow {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MARQUEE = 3
+  MARQUEE
 }
 
 /**
- * Type of text modifier.
+ * Text decoration type.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3070,9 +3066,8 @@ declare enum TextOverflow {
  * @since 7 dynamic
  */
 declare enum TextDecorationType {
-
   /**
-   * Do not use text decorative lines.
+   * No text decorations.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3080,10 +3075,10 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
-   * Underline the words.
+   * Line below the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3091,10 +3086,10 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Underline = 1,
+  Underline,
 
   /**
-   * Text is in all uppercase.
+   * Line above the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3102,10 +3097,10 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Overline = 2,
+  Overline,
 
   /**
-   * A modifier line that passes through the text.
+   * Line through the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3113,11 +3108,11 @@ declare enum TextDecorationType {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  LineThrough = 3
+  LineThrough
 }
 
 /**
- * Letter type in text
+ * The style of the text case.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -3126,9 +3121,8 @@ declare enum TextDecorationType {
  * @since 7 dynamic
  */
 declare enum TextCase {
-
   /**
-   * The default is normal.
+   * The original case of the text is retained.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3136,10 +3130,10 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
-   * The text is all lowercase.
+   * All letters in the text are in lowercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3147,10 +3141,10 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  LowerCase = 1,
+  LowerCase,
 
   /**
-   * The text is all uppercase.
+   * All letters in the text are in uppercase.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @crossplatform [since 10]
@@ -3158,11 +3152,11 @@ declare enum TextCase {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  UpperCase = 2
+  UpperCase
 }
 
 /**
- * Enum of text height adaptation
+ * The mode of adjusting the text font size to adapt to the layout.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3171,11 +3165,8 @@ declare enum TextCase {
  * @since 10 dynamic
  */
 declare enum TextHeightAdaptivePolicy {
-
   /**
-   * Priority is given to using the maxLines attribute to adapt the text height.
-   * If the layout size using the maxLines attribute exceeds the layout constraint, try reducing the font size to
-   * display more text.
+   * the text height adaptation mode to [maxLines]{@link TextAreaAttribute#maxLines(value: number)} first.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3183,12 +3174,10 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MAX_LINES_FIRST = 0,
+  MAX_LINES_FIRST,
 
   /**
-   * Priority is given to using the minFontSize attribute to adapt the text height.
-   * If the text can be layout in a single line using the minFontSize property, try increasing the font size and using
-   * the maximum possible font size.
+   * Prioritize the **minFontSize** settings.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3196,13 +3185,10 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  MIN_FONT_SIZE_FIRST = 1,
+  MIN_FONT_SIZE_FIRST,
 
   /**
-   * Priority is given to using the layout constraint to adapt the text height.
-   * If the layout size exceeds the layout constraint, try reducing the font size. If the layout size still exceeds
-   * the layout constraint after reducing the font size to minFontSize, remove the lines that exceed the layout
-   * constraint.
+   * Prioritize the layout constraint settings in terms of height.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3210,7 +3196,7 @@ declare enum TextHeightAdaptivePolicy {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  LAYOUT_CONSTRAINT_FIRST = 2
+  LAYOUT_CONSTRAINT_FIRST
 }
 
 /**
@@ -3484,7 +3470,7 @@ declare enum ArrowPointPosition {
 }
 
 /**
- * Indicates the share option.
+ * Copy options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @FaAndStageModel
@@ -3494,9 +3480,8 @@ declare enum ArrowPointPosition {
  * @since 9 dynamic
  */
 declare enum CopyOptions {
-
   /**
-   * Not allow share.
+   * Copy disabled.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3508,7 +3493,7 @@ declare enum CopyOptions {
   None = 0,
 
   /**
-   * Share in app.
+   * Copy and paste within the current application only.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3520,7 +3505,7 @@ declare enum CopyOptions {
   InApp = 1,
 
   /**
-   * Share in local device.
+   * Copy and paste across all applications on the device.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
@@ -3532,7 +3517,7 @@ declare enum CopyOptions {
   LocalDevice = 2,
 
   /**
-   * Share in cross Device
+   * Cross-device copy.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3923,7 +3908,7 @@ declare enum FunctionKey {
 }
 
 /**
- * The alignment of ImageSpan
+ * The alignment mode of the image relative to the line height.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3932,9 +3917,8 @@ declare enum FunctionKey {
  * @since 10 dynamic
  */
 declare enum ImageSpanAlignment {
-
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the baseline of the surrounding text.
+   * The image is bottom aligned with the text baseline.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3945,7 +3929,7 @@ declare enum ImageSpanAlignment {
   BASELINE = 0,
 
   /**
-   * Indicating that the bottom of the ImageSpan should be aligned with the bottom of the surrounding text.
+   * The image is bottom aligned with the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3956,7 +3940,7 @@ declare enum ImageSpanAlignment {
   BOTTOM = 1,
 
   /**
-   * Indicating that the center of the ImageSpan should be aligned with the center of the surrounding text.
+   * The image is centered aligned with the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3967,7 +3951,7 @@ declare enum ImageSpanAlignment {
   CENTER = 2,
 
   /**
-   * Indicating that the top of the ImageSpan should be aligned with the top of the surrounding text.
+   * The image is top aligned with the line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3978,7 +3962,7 @@ declare enum ImageSpanAlignment {
   TOP = 3,
 
   /**
-   * The ImageSpan's alignment is same with the text.
+   * The alignment mode follows the parent component of the **Text** component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3990,7 +3974,7 @@ declare enum ImageSpanAlignment {
 }
 
 /**
- * ObscuredReasons.
+ * Sets how the component content is obscured.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3999,9 +3983,8 @@ declare enum ImageSpanAlignment {
  * @since 10 dynamic
  */
 declare enum ObscuredReasons {
-
   /**
-   * Displayed data should appear as generic placeholders.
+   * The content is replaced by a placeholder.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4013,7 +3996,7 @@ declare enum ObscuredReasons {
 }
 
 /**
- * Text content style.
+ * The polymorphic style of the text box.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4022,9 +4005,9 @@ declare enum ObscuredReasons {
  * @since 10 dynamic
  */
 declare enum TextContentStyle {
-
   /**
-   * Text content default style.
+   * Default style. The caret width is fixed at 1.5 vp, and the caret height is subject to the background height and
+   * font size of the selected text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4032,10 +4015,17 @@ declare enum TextContentStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  DEFAULT = 0,
+  DEFAULT,
 
   /**
-   * Text content inline style.
+   * Inline input style. The background height of the selected text is the same as the height of the text box.
+   *
+   * This style is used in scenarios where editing and non-editing states are obvious, for example, renaming in the file
+   * list view.
+   *
+   * The **showError** attribute is not supported for this style.
+   *
+   * This style does not allow for text dragging and dropping.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4043,7 +4033,7 @@ declare enum TextContentStyle {
    * @atomicservice [since 11]
    * @since 10 dynamic
    */
-  INLINE = 1
+  INLINE
 }
 
 /**
@@ -4595,9 +4585,8 @@ declare enum DialogButtonStyle {
 }
 
 /**
- * Enum of word break
+ * The word break rule.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4606,7 +4595,8 @@ declare enum DialogButtonStyle {
  */
 declare enum WordBreak {
   /**
-   * By default, CJK text can be wrapped between any 2 characters, and non-CJK text can only be wrapped in spaces.
+   * Word breaks can occur between any two characters for Chinese, Japanese, and Korean (CJK) text, but can occur only
+   * at a space character for non-CJK text (such as English).
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4617,7 +4607,8 @@ declare enum WordBreak {
   NORMAL = 0,
 
   /**
-   * Non-CJK text be wrapped at any character
+   * Line breaks can occur between any two characters for non-CJK text. For CJK text, the effect is the same as that of
+   * **NORMAL**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4628,8 +4619,9 @@ declare enum WordBreak {
   BREAK_ALL = 1,
 
   /**
-   * Non-CJK text can be wrapped at any character
-   * and if a complete word can be preserved in space breaks, the word must be kept on the line.
+   * This option has the same effect as **BREAK_ALL** for non-CJK text, except that it preferentially wraps lines at
+   * appropriate characters (for example, spaces). If no breakpoints are found, it breaks between any two characters.
+   * For CJK text, the effect is the same as that of **NORMAL**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4640,7 +4632,9 @@ declare enum WordBreak {
   BREAK_WORD = 2,
 
   /**
-   * For supported languages, line breaks can be performed by syllables.
+   * This option has the same effect as **BREAK_ALL** for non-CJK text, except that it preferentially wraps lines at
+   * appropriate characters (for example, spaces). If no breakpoints are found, it breaks between any two characters.
+   * For CJK text, the effect is the same as that of **NORMAL**.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4648,13 +4642,12 @@ declare enum WordBreak {
    * @atomicservice
    * @since 18 dynamic
    */
-  HYPHENATION = 3,
+  HYPHENATION = 3
 }
 
 /**
- * Enum of line break strategy
+ * The line break rule.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -4663,8 +4656,8 @@ declare enum WordBreak {
  */
 declare enum LineBreakStrategy {
   /**
-   * By default. Display as many characters as possible on each line until no more characters
-   * can be displayed on that line, and do not automatically add hyphens under this strategy
+   * Places as many words on a line as possible and moves to the next line only if no more words can fit into the same
+   * line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4675,8 +4668,8 @@ declare enum LineBreakStrategy {
   GREEDY = 0,
 
   /**
-   * High quality folding. Optimize the layout of the entire text's line breaks and automatically
-   * add hyphens if necessary.
+   * Fills in lines as much as possible on the basis of **BALANCED**, which may results in a large blank area on the
+   * last line.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4687,8 +4680,7 @@ declare enum LineBreakStrategy {
   HIGH_QUALITY = 1,
 
   /**
-   * Balanced folding. We will try our best to ensure that the width of each line in a paragraph
-   * is the same, and if necessary, we will add conjunction
+   * Without splitting words, the width of each line in a paragraph is the same as much as possible.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4765,7 +4757,7 @@ declare enum IlluminatedType {
 }
 
 /**
- * Enum of ellipsisMode
+ * The position of ellipsis.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -4774,9 +4766,8 @@ declare enum IlluminatedType {
  * @since 11 dynamic
  */
 declare enum EllipsisMode {
-
   /**
-   * The ellipsis is in the head.
+   * An ellipsis is used at the start of the line of text. This applies to single-line text scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4787,7 +4778,7 @@ declare enum EllipsisMode {
   START = 0,
 
   /**
-   * The ellipsis is in the middle.
+   * An ellipsis is used at the center of the line of text. This applies to single-line text scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4798,7 +4789,7 @@ declare enum EllipsisMode {
   CENTER = 1,
 
   /**
-   * The ellipsis is at the end.
+   * An ellipsis is used at the end of the line of text. This applies to single-line and multi-line text scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4809,7 +4800,7 @@ declare enum EllipsisMode {
   END = 2,
 
   /**
-   * The ellipsis is in the head. It is valid for multiline and single line.
+   * An ellipsis is used at the start of the line of text. This applies to single-line and multi-line text scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -4820,7 +4811,7 @@ declare enum EllipsisMode {
   MULTILINE_START = 3,
 
   /**
-   * The ellipsis is in the middle. It is valid for multiline and single line.
+   * An ellipsis is used at the center of the line of text. This applies to single-line and multi-line text scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5004,9 +4995,8 @@ declare enum EmbeddedType {
 }
 
 /**
- * Marquee scrolling strategy after text update
+ * The scrolling strategy for the marquee after its attributes are updated.
  *
- * @enum { number }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5015,7 +5005,7 @@ declare enum EmbeddedType {
  */
 declare enum MarqueeUpdateStrategy {
   /**
-   * Reset scroll position and restart scroll.
+   * After the marquee attributes are updated, the marquee scrolls from the start position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5026,7 +5016,7 @@ declare enum MarqueeUpdateStrategy {
   DEFAULT = 0,
 
   /**
-   * Preserve scroll position, just change to new text
+   * After the marquee attributes are updated, the marquee scrolls from the current position.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5038,9 +5028,8 @@ declare enum MarqueeUpdateStrategy {
 }
 
 /**
- * Type of text decoration line style.
- * 
- * @enum {number}
+ * The style of the text decoration.
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5049,8 +5038,8 @@ declare enum MarqueeUpdateStrategy {
  */
 declare enum TextDecorationStyle {
   /**
-   * Solid line.
-   * 
+   * Single solid line (default value).
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5060,8 +5049,8 @@ declare enum TextDecorationStyle {
   SOLID = 0,
 
   /**
-   * Double lines.
-   * 
+   * Double solid line.
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5072,7 +5061,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dotted line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5083,7 +5072,7 @@ declare enum TextDecorationStyle {
 
   /**
    * Dashed line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5094,20 +5083,19 @@ declare enum TextDecorationStyle {
 
   /**
    * Wavy line.
-   * 
+   *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
    * @atomicservice
    * @since 12 dynamic
    */
-  WAVY = 4,
+  WAVY = 4
 }
 
 /**
- * Type of text selectable.
+ * Sets whether text can be selected and focused on.
  *
- * @enum {number}
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
@@ -5116,7 +5104,8 @@ declare enum TextDecorationStyle {
  */
 declare enum TextSelectableMode {
   /**
-   * set text selectable and unfocusable.
+   * The text is selectable, but not focusable. Setting the **selection**, **bindSelectionMenu**, or **copyOption**
+   * attribute does not affect the behavior.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5127,7 +5116,7 @@ declare enum TextSelectableMode {
   SELECTABLE_UNFOCUSABLE = 0,
 
   /**
-   * set text selectable and focusable.
+   * The text is selectable and focusable. It obtains focus when touched.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -5138,7 +5127,8 @@ declare enum TextSelectableMode {
   SELECTABLE_FOCUSABLE = 1,
 
   /**
-   * set text unselectable and unfocusable.
+   * The text is not selectable nor focusable. The **selection**, **bindSelectionMenu**, and **copyOption** attributes
+   * do not work in this case.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
