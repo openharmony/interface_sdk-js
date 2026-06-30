@@ -8685,6 +8685,49 @@ declare namespace photoAccessHelper {
     stopDeepOptimizeSpace(): Promise<void>;
     
     /**
+     * Triggers the execution of an analysis tool. This API uses an asynchronous callback to return the result.
+     *
+     * @permission ohos.permission.CONTROL_IMAGEVIDEO_ANALYSIS
+     * @param { ToolInvokeConfig } config - Configuration for the tool invocation.
+     * @param { Callback<AnalysisToolResult> } callback - Callback used to return AnalysisToolResult.
+     * @returns { Promise<string> } Promise used to return the task ID.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Unsupported tool type;
+     *     <br>2. The length of **param** in **ToolInvokeConfig** exceeds 16KB.
+     * @throws { BusinessError } 23800301 - Internal system error. Possible causes:
+     *     <br>1. IPC timeout;
+     *     <br>2. System exception.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    invokeAnalysisTool(config: ToolInvokeConfig, callback: Callback<AnalysisToolResult>): Promise<string>;
+
+    /**
+     * Cancels the execution of an intelligent analysis tool.
+     *
+     * @permission ohos.permission.CONTROL_IMAGEVIDEO_ANALYSIS
+     * @param { ToolCancelConfig } config - Configuration for canceling the tool.
+     * @returns { Promise<void> } Promise that returns no value.
+     * @throws { BusinessError } 201 - Permission denied
+     * @throws { BusinessError } 202 - Called by non-system application
+     * @throws { BusinessError } 23800151 - The scenario parameter verification fails. Possible causes:
+     *     <br>1. Invalid task id.
+     *     <br>2. The length of **param** in **ToolCancelConfig** exceeds 16KB.
+     * @throws { BusinessError } 23800301 - Internal system error. Possible causes:
+     *     <br>1. IPC timeout;
+     *     <br>2. System exception.
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    cancelAnalysisTool(config: ToolCancelConfig): Promise<void>;
+
+    /**
      * Convert Asset Attributes to Compatibility Attributes
      *
      * @param { Array<PhotoAsset> } assets - need to be converted.
@@ -16913,6 +16956,248 @@ declare namespace photoAccessHelper {
      */
     progress: int;
   }
-}
 
+  /**
+   * Enumerates the smart analysis tool types.
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  export enum AnalysisToolType {
+    /**
+     * Base analysis tool type for triggering all analysis algorithms.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    ANALYSIS_BASE_TOOL_TYPE = 0,
+    /**
+     * Image retrieval tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    IMAGE_RETRIEVAL_TOOL_TYPE = 1,
+    /**
+     * Negative filter tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    NEGATIVE_FILTER_TOOL_TYPE = 2,
+    /**
+     * Face recognition tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    FACE_RECOGNITION_TOOL_TYPE = 3,
+    /**
+     * Batch similarity selection tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BATCH_SIMILARITY_SELECTION_TOOL_TYPE = 4,
+    /**
+     * Balanced selection tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    BALANCED_SELECTION_TOOL_TYPE = 5,
+    /**
+     * Cover grid selection tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    COVER_GRID_SELECTION_TOOL_TYPE = 6,
+    /**
+     * Highlight tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    HIGHLIGHT_TOOL_TYPE = 7,
+    /**
+     * Search tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SEARCH_TOOL_TYPE = 8,
+    /**
+     * Selection tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SELECTION_TOOL_TYPE = 9,
+    /**
+     * Portrait album tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    PORTRAIT_ALBUM_TOOL_TYPE = 10,
+    /**
+     * Classify album tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    CLASSIFY_ALBUM_TOOL_TYPE = 11,
+    /**
+     * Similarity cleaning tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    SIMILARITY_CLEANING_TOOL_TYPE = 12,
+    /**
+     * Edit recommendation tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    EDIT_RECOMMENDATION_TOOL_TYPE = 13,
+    /**
+     * AI search tool type.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    AI_SEARCH_TOOL_TYPE = 14
+  }
+
+  /**
+   * Configuration for invoking an analysis tool.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface ToolInvokeConfig {
+    /**
+     * Type of the analysis tool to invoke.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    type: AnalysisToolType;
+    /**
+     * Parameters of the analysis tool to invoke, in JSON string format. The total length must not exceed 16KB.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    param?: string;
+  }
+
+  /**
+   * Result of an analysis tool execution.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface AnalysisToolResult {
+    /**
+     * Error code of the tool execution.
+     * Possible error codes:
+     * <br>0 - Success.
+     * <br>23800203 - Temperature is too high.
+     * <br>23800204 - Battery level is too low.
+     * <br>23800205 - Storage space is insufficient.
+     * <br>23800206 - Power saving mode is enabled.
+     * <br>23800207 - Intelligent analysis service is already running.
+     * <br>23800208 - Intelligent analysis switch is disabled.
+     * <br>23800209 - Analysis service error. Check the logs for details.
+     * <br>23800301 - Internal system error.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    errCode: int;
+    /**
+     * Result of the tool execution, in JSON string format.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    result?: string;
+  }
+
+  /**
+   * Configuration for canceling an analysis tool.
+   *
+   * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+   * @systemapi
+   * @stagemodelonly
+   * @since 26.1.0 dynamic&static
+   */
+  interface ToolCancelConfig {
+    /**
+     * Task ID to cancel. It is a valid ID returned by **invokeAnalysisTool**.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    taskId: string;
+    /**
+     * Parameters for canceling the analysis tool, in JSON string format. The total length must not exceed 16KB.
+     *
+     * @syscap SystemCapability.FileManagement.PhotoAccessHelper.Core
+     * @systemapi
+     * @stagemodelonly
+     * @since 26.1.0 dynamic&static
+     */
+    param?: string;
+  }
+
+}
 export default photoAccessHelper;
