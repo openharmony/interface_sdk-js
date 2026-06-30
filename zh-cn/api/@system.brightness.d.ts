@@ -36,6 +36,7 @@
  * 包含屏幕亮度的对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -56,6 +57,7 @@ export interface BrightnessResponse {
  * 获取屏幕亮度的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -65,6 +67,7 @@ export interface GetBrightnessOptions {
    * 接口调用成功的回调函数。data为[BrightnessResponse]{@link BrightnessResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -75,6 +78,7 @@ export interface GetBrightnessOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -85,6 +89,7 @@ export interface GetBrightnessOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -96,6 +101,7 @@ export interface GetBrightnessOptions {
  * 设置屏幕亮度的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -111,6 +117,7 @@ export interface SetBrightnessOptions {
    * - 如果值为小数，系统将处理为整数。例如设置为8.1，系统按8处理。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -121,6 +128,7 @@ export interface SetBrightnessOptions {
    * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -131,6 +139,7 @@ export interface SetBrightnessOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -141,6 +150,7 @@ export interface SetBrightnessOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -152,6 +162,7 @@ export interface SetBrightnessOptions {
  * 包含屏幕亮度模式的对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -161,6 +172,7 @@ export interface BrightnessModeResponse {
    * 0表示手动调节屏幕亮度模式，1表示自动调节屏幕亮度模式。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -172,6 +184,7 @@ export interface BrightnessModeResponse {
  * 获取屏幕亮度模式的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -181,6 +194,7 @@ export interface GetBrightnessModeOptions {
    * 接口调用成功的回调函数。data为[BrightnessModeResponse]{@link BrightnessModeResponse}类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -191,6 +205,7 @@ export interface GetBrightnessModeOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -201,6 +216,7 @@ export interface GetBrightnessModeOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -212,6 +228,7 @@ export interface GetBrightnessModeOptions {
  * 设置屏幕亮度模式的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -221,6 +238,7 @@ export interface SetBrightnessModeOptions {
    * 0表示手动调节屏幕亮度模式，1表示自动调节屏幕亮度模式。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -231,6 +249,7 @@ export interface SetBrightnessModeOptions {
    * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -241,6 +260,7 @@ export interface SetBrightnessModeOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -251,6 +271,7 @@ export interface SetBrightnessModeOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -262,6 +283,7 @@ export interface SetBrightnessModeOptions {
  * 设置屏幕常亮的参数对象。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -271,6 +293,7 @@ export interface SetKeepScreenOnOptions {
    * true表示保持屏幕常亮，false表示取消屏幕常亮。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -281,6 +304,7 @@ export interface SetKeepScreenOnOptions {
    * 接口调用成功的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -291,6 +315,7 @@ export interface SetKeepScreenOnOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -301,6 +326,7 @@ export interface SetKeepScreenOnOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -312,6 +338,7 @@ export interface SetKeepScreenOnOptions {
  * 该模块提供屏幕亮度和模式的查询、调节接口。
  *
  * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 7
  * @reserved ["liteWearable"]
@@ -322,6 +349,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessOptions } options 获取屏幕亮度的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -333,6 +361,7 @@ export default class Brightness {
    *
    * @param { SetBrightnessOptions } options 设置屏幕亮度的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -345,6 +374,7 @@ export default class Brightness {
    *
    * @param { GetBrightnessModeOptions } options 获取屏幕亮度模式的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -356,6 +386,7 @@ export default class Brightness {
    *
    * @param { SetBrightnessModeOptions } options 设置屏幕亮度模式的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
@@ -373,6 +404,7 @@ export default class Brightness {
    *
    * @param { SetKeepScreenOnOptions } options 设置屏幕常亮的参数对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]

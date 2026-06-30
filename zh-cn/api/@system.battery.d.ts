@@ -37,6 +37,7 @@
  * 包含充电状态及剩余电量的对象。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -49,6 +50,7 @@ export interface BatteryResponse {
    * [`batteryInfo.chargingStatus`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -63,6 +65,7 @@ export interface BatteryResponse {
    * [`batteryInfo.batterySOC`](docroot://reference/apis-basic-services-kit/js-apis-battery-info.md#常量)替代。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -75,6 +78,7 @@ export interface BatteryResponse {
  * 包含接口调用结果的对象。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -84,6 +88,7 @@ export interface GetStatusOptions {
    * 接口调用成功的回调函数，data为[BatteryResponse](#batteryresponsedeprecated)类型的返回值。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -94,6 +99,7 @@ export interface GetStatusOptions {
    * 接口调用失败的回调函数。data为错误信息，code为错误码。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -104,6 +110,7 @@ export interface GetStatusOptions {
    * 接口调用结束的回调函数。
    *
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
@@ -115,6 +122,7 @@ export interface GetStatusOptions {
  * 该模块提供充电状态及剩余电量的查询功能。
  *
  * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+ * @FaAndStageModel
  * @since 3 dynamiconly
  * @deprecated since 6
  * @reserved ["liteWearable"]
@@ -125,6 +133,7 @@ export default class Battery {
    *
    * @param { GetStatusOptions } options 包含接口调用结果的对象。可选，默认为空。
    * @syscap SystemCapability.PowerManager.BatteryManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 6
    * @reserved ["liteWearable"]
