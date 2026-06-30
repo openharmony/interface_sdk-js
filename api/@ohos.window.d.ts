@@ -6667,7 +6667,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Convert avoid area failed.
      * @throws { BusinessError } 1300003 - This window manager service works abnormally.
-     * @throws { BusinessError } 1300016 - Parameter error.
+     * @throws { BusinessError } 1300016 - Parameter error. Possible cause: Invalid parameter range.
      * @syscap SystemCapability.Window.SessionManager
      * @since 22 dynamic
      * @since 23 static
@@ -12887,6 +12887,7 @@ declare namespace window {
      *     Possible cause: 1. The window is not created or destroyed;
      *     2. Internal task error.
      * @throws { BusinessError } 1300004 - Unauthorized operation.
+     *     Possible cause: Invalid window type. Only main windows are supported.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice
      * @since 14 dynamic
