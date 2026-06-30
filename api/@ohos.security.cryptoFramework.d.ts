@@ -24,6 +24,8 @@ import type { AsyncCallback } from './@ohos.base';
  * algorithm library.
  *
  * @syscap SystemCapability.Security.CryptoFramework
+ * @stagemodelonly [since 9 - 11]
+ * @FaAndStageModel [since 12]
  * @crossplatform [since 11]
  * @atomicservice [since 11]
  * @since 9 dynamic
@@ -34,6 +36,8 @@ declare namespace cryptoFramework {
    * Enumerates the operation results.
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -44,6 +48,8 @@ declare namespace cryptoFramework {
      * Invalid parameter.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -55,6 +61,8 @@ declare namespace cryptoFramework {
      * Unsupported operation.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -66,6 +74,8 @@ declare namespace cryptoFramework {
      * The memory operation failed.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -77,6 +87,8 @@ declare namespace cryptoFramework {
      * Failed to obtain the native object or convert parameters.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -88,6 +100,7 @@ declare namespace cryptoFramework {
      * The parameter check failed.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly
      * @crossplatform
      * @atomicservice
      * @since 20 dynamic
@@ -109,6 +122,8 @@ declare namespace cryptoFramework {
      * Cryptographic operation error.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -125,6 +140,8 @@ declare namespace cryptoFramework {
    * > The Uint8Array typed array represents an array of 8-bit unsigned integers.
    *
    * @syscap SystemCapability.Security.CryptoFramework
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -135,6 +152,8 @@ declare namespace cryptoFramework {
      * Binary data array.
      *
      * @syscap SystemCapability.Security.CryptoFramework
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1076,6 +1095,8 @@ declare namespace cryptoFramework {
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -1096,6 +1117,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1116,6 +1139,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1141,6 +1165,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 10 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1155,6 +1181,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform
      * @atomicservice [since 11]
      * @since 9 dynamic
@@ -1170,6 +1198,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.Rand
+     * @stagemodelonly
      * @atomicservice
      * @since 21 dynamic
      * @since 23 static
@@ -1181,6 +1210,7 @@ declare namespace cryptoFramework {
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 10 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 11]
      * @since 10 dynamic
@@ -1199,6 +1229,8 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.Rand [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 11]
    * @since 9 dynamic
@@ -2202,6 +2234,8 @@ declare namespace cryptoFramework {
    *
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 12]
    * @since 9 dynamic
@@ -2229,6 +2263,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2256,6 +2292,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2286,6 +2323,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620001 - Memory operation failed.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -2302,6 +2340,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2317,6 +2357,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2341,6 +2382,7 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17620002 - Failed to obtain the native object or convert parameters.
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest
+     * @FaAndStageModel
      * @crossplatform
      * @atomicservice
      * @since 12 dynamic
@@ -2355,6 +2397,8 @@ declare namespace cryptoFramework {
      * @throws { BusinessError } 17630001 - Crypto operation error.
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly [since 9 - 11]
+     * @FaAndStageModel [since 12]
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2367,6 +2411,7 @@ declare namespace cryptoFramework {
      *
      * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
      * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+     * @stagemodelonly
      * @crossplatform [since 11]
      * @atomicservice [since 12]
      * @since 9 dynamic
@@ -2393,6 +2438,8 @@ declare namespace cryptoFramework {
    * @throws { BusinessError } 17620001 - Memory operation failed.
    * @syscap SystemCapability.Security.CryptoFramework [since 9 - 11]
    * @syscap SystemCapability.Security.CryptoFramework.MessageDigest [since 12]
+   * @stagemodelonly [since 9 - 11]
+   * @FaAndStageModel [since 12]
    * @crossplatform [since 11]
    * @atomicservice [since 12]
    * @since 9 dynamic
