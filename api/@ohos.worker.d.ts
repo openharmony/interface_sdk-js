@@ -386,8 +386,8 @@ export interface WorkerEventListener {
    *
    * @param { Event } event - Event class for the callback to invoke.
    * @returns { void | Promise<void> }
-   * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @throws { BusinessError } 10200004 - The Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -808,7 +808,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    *     <br>Unit:ms.
    * @param { Object[] } args - the method argument called on registered globalCallObject.
    * @returns { Object } Return the result of method if it has a return value, otherwise return void.
-   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200019 - The globalCallObject is not registered.
    * @throws { BusinessError } 10200020 - The method to be called is not callable or is an async method or a generator.
@@ -1024,8 +1024,8 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event to listen for.
      * @param { WorkerEventListener } listener - Callback to invoke when an event of the specified type occurs.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1037,8 +1037,8 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event to listen for
      * @param { WorkerEventListener } listener - listener Callback to invoke when an event of the specified type occurs
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1051,8 +1051,8 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event for which the event listener is removed.
      * @param { WorkerEventListener } [listener] - listener Callback of the event listener to remove.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1074,8 +1074,8 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event to listen for.
      * @param { WorkerEventListener } listener Callback to invoke when an event of the specified type occurs.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1087,7 +1087,7 @@ declare namespace worker {
      *
      * @param { Event } event - Event to dispatch.
      * @returns { boolean }
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1099,7 +1099,7 @@ declare namespace worker {
      *
      * @param { string } type - Type of the event for which the event listener is to be removed.
      * @param { WorkerEventListener } [callback] - Callback to invoke when the listener is removed.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1109,7 +1109,7 @@ declare namespace worker {
     /**
      * Removes all event listeners for the Worker thread.
      *
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1125,7 +1125,7 @@ declare namespace worker {
      *     during method calling.
      * @param { Object } globalCallObject - Object to register. The ThreadWorker instance holds a strong reference to
      *     the object.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
@@ -1139,7 +1139,7 @@ declare namespace worker {
      *
      * @param { string } [instanceName] - Key used for registration. If this parameter is left blank,
      *     all registered objects registered in the ThreadWorker instance are unregistered.
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
