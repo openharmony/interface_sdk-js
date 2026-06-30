@@ -211,17 +211,8 @@ export default class App {
    * @param { number } value - capacity of decoded image count.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of decoded image count.
-   * if not set, the application will not cache any decoded image.
-   *
-   * @param { number } value - capacity of decoded image count.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageCacheCount(value: number): void;
 
@@ -232,17 +223,8 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image cache capacity of raw image data size in bytes before decode.
-   * if not set, the application will not cache any raw image data.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 7 dynamic
    */
   static setImageRawDataCacheSize(value: number): void;
 
@@ -253,17 +235,8 @@ export default class App {
    * @param { number } value - capacity of raw image data size in bytes.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @FaAndStageModel
-   * @since 7
-   */
-  /**
-   * Set image file cache size in bytes on disk before decode.
-   * if not set, the application will cache 100MB image files on disk.
-   *
-   * @param { number } value - capacity of raw image data size in bytes.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @FaAndStageModel
-   * @atomicservice
-   * @since 12 dynamiconly
+   * @atomicservice [since 12]
+   * @since 7 dynamiconly
    */
   static setImageFileCacheSize(value: number): void;
 }
