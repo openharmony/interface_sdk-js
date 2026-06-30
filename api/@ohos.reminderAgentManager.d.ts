@@ -716,7 +716,7 @@ declare namespace reminderAgentManager {
      *         the notification mode is changed to LEVEL_MIN.
      * - false (default): A notification is sent based on the configured notification mode.
      *
-     * @syscap SystemCapability.Notification.Notification
+     * @syscap SystemCapability.Notification.ReminderAgent
      * @stagemodelonly
      * @since 26.0.0 dynamic&static
      */
