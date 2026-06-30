@@ -251,9 +251,6 @@ declare class TreeSet<T> {
    *     thisArg（可选）当callbackFn被调用时作为this值使用的对象。
    *     如果省略thisArg，则使用undefined作为this值。
    * @throws { BusinessError } 10200011 - The forEach method cannot be bound.
-   * @throws { BusinessError } 401 - Parameter error. Possible causes:
-   *     1.Mandatory parameters are left unspecified;
-   *     2.Incorrect parameter types.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]

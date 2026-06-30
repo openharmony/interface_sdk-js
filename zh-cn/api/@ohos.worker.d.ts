@@ -379,8 +379,8 @@ export interface WorkerEventListener {
    *
    * @param { Event } event - 回调的事件类。
    * @returns { void | Promise<void> }
-   * @throws { BusinessError } 10200004 - Worker instance is not running.
-   * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+   * @throws { BusinessError } 10200004 - The Worker instance is not running.
+   * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
    * @syscap SystemCapability.Utils.Lang
    * @crossplatform [since 10]
    * @atomicservice [since 12]
@@ -788,7 +788,7 @@ export interface ThreadWorkerGlobalScope extends GlobalScope {
    *     <br>单位：ms。
    * @param { Object[] } args - 注册对象上所调用方法的参数数组。
    * @returns { Object } 返回值为调用方法在宿主线程的返回值，无返回值时返回void。
-   * @throws { BusinessError } 10200004 - Worker instance is not running.
+   * @throws { BusinessError } 10200004 - The Worker instance is not running.
    * @throws { BusinessError } 10200006 - An exception occurred during serialization.
    * @throws { BusinessError } 10200019 - The globalCallObject is not registered.
    * @throws { BusinessError } 10200020 - The method to be called is not callable or is an async method or a generator.
@@ -992,8 +992,8 @@ declare namespace worker {
      *
      * @param { string } type - 监听的事件类型。
      * @param { WorkerEventListener } listener - 当指定类型的事件发生时调用的回调函数。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1005,8 +1005,8 @@ declare namespace worker {
      *
      * @param { string } type - 监听的事件类型。
      * @param { WorkerEventListener } listener - listener 当指定类型的事件发生时调用的回调函数。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1018,8 +1018,8 @@ declare namespace worker {
      *
      * @param { string } type - 需要移除的事件类型。
      * @param { WorkerEventListener } [listener] - listener 要移除的事件监听的回调函数。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1041,8 +1041,8 @@ declare namespace worker {
      *
      * @param { string } type - 监听的事件类型。
      * @param { WorkerEventListener } listener 当指定类型的事件发生时调用的回调函数。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
-     * @throws { BusinessError } 10200005 - The invoked API is not supported in workers.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
+     * @throws { BusinessError } 10200005 - The called API is not supported in the worker thread.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1054,7 +1054,7 @@ declare namespace worker {
      *
      * @param { Event } event - 需要分发的事件。
      * @returns { boolean }
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1066,7 +1066,7 @@ declare namespace worker {
      *
      * @param { string } type - 需要移除的事件类型。
      * @param { WorkerEventListener } [callback] - 移除监听事件后执行的回调函数。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1076,7 +1076,7 @@ declare namespace worker {
     /**
      * 移除宿主线程中Worker实例对象的所有事件监听。
      *
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform [since 10]
      * @atomicservice [since 12]
@@ -1090,7 +1090,7 @@ declare namespace worker {
      *
      * @param { string } instanceName - 注册对象时使用的键，调用时通过该键值找到被注册的对象。
      * @param { Object } globalCallObject - 被注册的对象，ThreadWorker实例会持有该对象的强引用。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
@@ -1104,7 +1104,7 @@ declare namespace worker {
      *
      * @param { string } [instanceName] - 注册对象时使用的键。此参数不填时，
      *     会释放ThreadWorker实例中所有已注册的对象。
-     * @throws { BusinessError } 10200004 - Worker instance is not running.
+     * @throws { BusinessError } 10200004 - The Worker instance is not running.
      * @syscap SystemCapability.Utils.Lang
      * @crossplatform
      * @atomicservice [since 12]
