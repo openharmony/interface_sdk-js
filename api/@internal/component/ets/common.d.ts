@@ -190,98 +190,53 @@ declare interface ReusableOptions {
 }
 
 /**
- * Define the ratio of characters entered by the percentage of InputCounterOptions.
+ * Provides configuration options for the character counter.
  *
- * @interface InputCounterOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * Define the ratio of characters entered by the percentage of InputCounterOptions.
- *
- * @interface InputCounterOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface InputCounterOptions {
   /**
-   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
-   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
-   * @type { ?number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * It is the numerator bit of the percentage and used as a threshold. If the number of characters input
-   * reaches the maximum number of characters multiplied by this threshold, the counter is displayed.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Threshold percentage for displaying the character counter.
-   * <br>The character counter is displayed when the number of characters that have been entered is greater than
-   * the maximum number of characters multiplied by the threshold percentage value.
-   * <br>When displayed, the character counter is in the following format:
-   * <br>Number of characters that have been entered/Maximum number of characters allowed.
-   * <br>It is visible when the number of characters entered is greater than
-   * the character limit multiplied by the threshold percentage value.
-   * <br>Value range: [1, 100]
-   * <br>If the value is not an integer, it is rounded down to the nearest integer.
-   * <br>If the value exceeds the valid value range, the character counter is not displayed.
-   * <br>If the value is <em>undefined</em>, the character counter is displayed, but this parameter has no effect.
-   * </p>
-   * 
-   * @type { ?number }
+   * Threshold percentage for displaying the character counter. The character counter is displayed when the number of
+   * characters that have been entered is greater than the maximum number of characters multiplied by the threshold
+   * percentage value. When displayed, the character counter is in the following format: Number of characters that have
+   * been entered/Maximum number of characters allowed. It is visible when the number of characters entered is greater
+   * than the character limit multiplied by the threshold percentage value. Value range: [1, 100]. If the value is not
+   * an integer, it is rounded down to the nearest integer. If the value exceeds the valid value range, the character
+   * counter is not displayed. If the value is **undefined**, the character counter is displayed, but this parameter has
+   * no effect.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   thresholdPercentage?: number;
 
   /**
-   * If the current input character count reaches the maximum character count and users want to exceed the
-   * normal input, the border will turn red. If this parameter is true, the red border displayed.
-   * @type { ?boolean }
-   * @default true
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @since 11
-   */
-  /**
-   * If the current input character count reaches the maximum character count and users want to exceed the
-   * normal input, the border will turn red. If this parameter is true, the red border displayed.
-   * 
-   * <p><strong>NOTE</strong>:
-   * <br>Whether to highlight the text box border and character counter subscript in red.
-   * <br>If options is not set, the text box border and character counter subscript turn red
-   * <br>when the number of characters entered reaches the limit.
-   * <br>If the character counter is displayed and thresholdPercentage is set to a valid value,
-   * the text box border and character counter subscript turn red when the number of entered characters exceeds the limit.
-   * <br>The value true (default) means to highlight the text box border and character counter subscript in red.
-   * </p>
-   * 
-   * @type { ?boolean }
+   * Whether to highlight the text box border and character counter subscript in red. If **InputCounterOptions** is not
+   * set, the text box border and character counter subscript turn red when the number of characters entered reaches the
+   *  limit. If the character counter is displayed and **thresholdPercentage** is set to a valid value, the text box
+   * border and character counter subscript turn red when the number of entered characters exceeds the limit. If this
+   * parameter is **true**, the red border is displayed; if **false**, it is not displayed.
    *
    * @default true
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   highlightBorder?: boolean;
 
   /**
-   * It is the color of counter when the text field has not exceeded the maximum character count.
+   * Text color of the character counter. When the input character count exceeds the maximum limit multiplied by the
+   * specified percentage, the counter displays the current count text using this color. If **counterTextColor** is not
+   * set, the default gray color is used.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -292,7 +247,14 @@ declare interface InputCounterOptions {
   counterTextColor?: ColorMetrics;
 
   /**
-   * It is the color of counter when the text field wants to exceed the maximum character count.
+   * Text color of the character counter when the maximum limit is exceeded. When the user input exceeds the maximum
+   * character count, both the counter text and border switch to this color to indicate overflow. If
+   * **counterTextOverflowColor** is not set, the default red color is used.
+   *
+   * **NOTE**
+   *
+   * The border color is changed only when the **highlightBorder** attribute of
+   * [InputCounterOptions]{@link InputCounterOptions} is set.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -304,7 +266,7 @@ declare interface InputCounterOptions {
 }
 
 /**
- * Defines the options of decoration.
+ * Provides text decoration options.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -314,7 +276,7 @@ declare interface InputCounterOptions {
  */
 declare interface TextDecorationOptions {
   /**
-   * The decoration type.
+   * Type of the text decoration.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -325,7 +287,8 @@ declare interface TextDecorationOptions {
   type: TextDecorationType;
 
   /**
-   * Sets the color of decoration.
+   * Color of the text decoration.
+   * Default value: Color.Black.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -336,7 +299,8 @@ declare interface TextDecorationOptions {
   color?: ResourceColor;
 
   /**
-   * The style value of decoration.
+   * Style of the text decoration.
+   * Default value: TextDecorationStyle.SOLID.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -348,6 +312,7 @@ declare interface TextDecorationOptions {
 
   /**
    * The scale value of decoration thickness.
+   * Value constraint: Negative values are handled as default values. Default value: 1.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -8965,156 +8930,65 @@ declare enum ShadowStyle {
 }
 
 /**
- * Defines the options of Shadow.
+ * Defines shadow style properties.
  *
- * @interface MultiShadowOptions
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * Defines the options of Shadow.
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
- */
-/**
- * Defines the options of Shadow.
- *
- * @interface MultiShadowOptions
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @form
- * @atomicservice
- * @since 23 dynamic
+ * @form [since 23]
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare interface MultiShadowOptions {
   /**
    * Shadow blur radius.
-   * Unit: vp.
-   * <p>**NOTE**:
-   * <br>A value less than or equal to 0 is handled as the default value.
-   * </p>
    *
-   * @type { ?(number | Resource) }
-   * @default 5
+   * The default value varies by API version.
+   *
+   * API version 10 and earlier versions: **5**
+   *
+   * Since API version 11: **20**
+   *
+   * Unit: vp.
+   *
+   * A value less than or equal to 0 is handled as the default value.
+   *
+   * @default 5 [since 10 - 10]
+   * @default 20 [since 11]
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Shadow blur radius.
-   * Unit: vp.
-   * <p>**NOTE**:
-   * <br>A value less than or equal to 0 is handled as the default value.
-   * </p>
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Shadow blur radius.
-   * Unit: vp.
-   * <p>**NOTE**:
-   * <br>A value less than or equal to 0 is handled as the default value.
-   * </p>
-   *
-   * @type { ?(number | Resource) }
-   * @default 20
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   radius?: number | Resource;
 
   /**
-   * Offset on the x-axis.
-   * Unit: vp.
+   * X-axis offset.
+   * Unit: vp. Default value: 5.
    *
-   * @type { ?(number | Resource) }
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Offset on the x-axis.
-   * Unit: vp.
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Offset on the x-axis.
-   * Unit: vp.
-   *
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetX?: number | Resource;
 
   /**
-   * Offset on the y-axis.
-   * Unit: vp.
-   * 
-   * @type { ?(number | Resource) }
+   * Y-axis offset.
+   * Unit: vp. Default value: 5.
+   *
    * @default 5
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Offset on the y-axis.
-   * Unit: vp.
-   * 
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
-   */
-  /**
-   * Offset on the y-axis.
-   * Unit: vp.
-   * 
-   * @type { ?(number | Resource) }
-   * @default 5
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @form
-   * @atomicservice
-   * @since 23 dynamic
+   * @form [since 23]
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   offsetY?: number | Resource;
 }
@@ -18957,7 +18831,7 @@ declare enum DraggingSizeChangeEffect {
 }
 
 /**
- * Define the menu pop-up policy
+ * Enumerates menu display policies.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -18967,7 +18841,7 @@ declare enum DraggingSizeChangeEffect {
  */
 declare enum MenuPolicy {
   /**
-   * Default value. The default logic of whether to pop up a menu depends on the scene.
+   * Whether the menu is displayed depends on the underlying default logic.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -19012,23 +18886,13 @@ declare enum MenuPolicy {
 declare type ImageModifier = import('../api/arkui/ImageModifier').ImageModifier;
 
 /**
- * SymbolGlyphModifier
+ * Defines custom icon symbol configurations.
  *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform [since 20]
  * @atomicservice
- * @since 12
- */
-/**
- * SymbolGlyphModifier
- *
- * @typedef {import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier} SymbolGlyphModifier
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 20 dynamic
+ * @since 12 dynamic
  */
 declare type SymbolGlyphModifier = import('../api/arkui/SymbolGlyphModifier').SymbolGlyphModifier;
 
@@ -25199,25 +25063,20 @@ declare class CommonMethod<T> {
   accessibilitySelected(isSelect: boolean): T;
 
   /**
-   * Sets obscured
+   * Sets how the component content is obscured.
    *
-   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
-   * @returns { T }
+   * @param { Array<ObscuredReasons> } reasons - How the component content is obscured.<br>This API is only available
+   *     for the [Image]{@link ./image}<!--Del-->, [FormComponent]{@link ./form_component}<sup>12+</sup>,<!--DelEnd--> and
+   *     [Text]{@link ./text} components.<br>**NOTE**<br>To obscure an image when it is being loaded, you must set the width
+   *     and height of the **Image** component.<br>Obscuring is not available for **Text** components that have child
+   *     components or have any [styled string]{@link ./styled_string} configured.
+   *     <br>Default value: [].
+   * @returns { T } Returns the current component.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Sets obscured
-   *
-   * @param { Array<ObscuredReasons> } reasons - reasons of obscuration
-   * @returns { T }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   obscured(reasons: Array<ObscuredReasons>): T;
 
@@ -28465,88 +28324,51 @@ declare interface RectResult {
 }
 
 /**
- * CaretOffset info.
+ * Describes the position of the caret relative to the text box.
  *
- * @interface CaretOffset
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 11
- */
-/**
- * CaretOffset info.
- *
- * @interface CaretOffset
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 12 dynamic
+ * @atomicservice [since 12]
+ * @since 11 dynamic
  */
 declare interface CaretOffset {
   /**
-   * Get the index of the CaretOffset
+   * Index of the caret position.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the index of the CaretOffset
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   index: number;
 
   /**
-   * Get the x of the relative position.
+   * X coordinate of the cursor relative to the text box, in px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the x of the relative position.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   x: number;
 
   /**
-   * Get the y of the relative position.
+   * Y coordinate of the cursor relative to the text box, in px.
    *
-   * @type { number }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
-   * @since 11
-   */
-  /**
-   * Get the y of the relative position.
-   *
-   * @type { number }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @crossplatform [since 12]
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   y: number;
 }
 
 /**
- * Defines the span options of TextContentController.
+ * Provides configuration options for text insertion operations in text input components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -28556,7 +28378,7 @@ declare interface CaretOffset {
  */
 declare interface TextContentControllerOptions {
   /**
-   * the offset that add a text at.
+   * Insertion position for the text.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28568,110 +28390,87 @@ declare interface TextContentControllerOptions {
 }
 
 /**
- * TextContentControllerBase
+ * Represents the base controller for **TextInput**, **TextArea**, and **Search** components.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @crossplatform
- * @since 10
- */
-/**
- * TextContentControllerBase
- *
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @stagemodelonly
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @atomicservice [since 11]
+ * @since 10 dynamic
  */
 declare abstract class TextContentControllerBase {
   /**
-   * Get the index and relative position of the CaretOffset.
+   * Obtains the position information of the caret.
    *
-   * @returns { CaretOffset } index and relative position of the CaretOffset.
+   * > **NOTE**
+   * >
+   * > - If this API is called when the caret position is updated in the current frame, it will not take effect.
+   * >
+   * > - For the **Search** component, the returned position information is the offset of the first character relative
+   * > to the search icon in the component.
+   * >
+   * > - If no text is entered in the **Search** component, the return value contains the position information relative
+   * > to the component.
+   * >
+   * > - The location information in the return value is the location of the caret relative to the editable component.
+   * >
+   * > - If the caret position cannot be obtained (for example, when the
+   * > [TextInputController]{@link TextInputController} is not bound to the [TextInput]{@link ./text_input} component),
+   * > **null** is returned.
+   *
+   * @returns { CaretOffset } Position of the caret relative to the text box.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
+   *     is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 11
-   */
-  /**
-   * Get the index and relative position of the CaretOffset.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If this API is called when the caret position is updated in the current frame, it will not take effect.
-   * <br>For the Search component, the returned position information is the offset of the first character
-   * relative to the search icon in the component.
-   * <br>If no text is entered in the Search component,
-   * the return value contains the position information relative to the component.
-   * <br>The location information in the return value is the location of the caret relative to the editable component.
-   * </p>
-   *
-   * @returns { CaretOffset } index and relative position of the CaretOffset.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 12 dynamic
+   * @atomicservice [since 12]
+   * @since 11 dynamic
    */
   getCaretOffset() : CaretOffset;
 
   /**
-   * Get the start and end positions of the text content.
+   * Obtains the position of the edited text area relative to the component and its size. The unit of the return value
+   * is pixel.
    *
-   * @returns { RectResult } Text content rect.
+   * @returns { RectResult } Position of the edited text area relative to the component and its size.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
+   *     is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the start and end positions of the text content.
-   *
-   * <p><strong>NOTE</strong>:
-   * <br>If no text is entered, the return value contains the position information, but the size is 0.
-   * <br>The position information is the offset of the first character relative to the editable area.
-   * <br>For the Search component, the returned position information is the offset of the first character
-   * relative to the search icon in the component.
-   * <br>If there is input, the width in the return value is the fixed width of the editable area.
-   * </p>
-   *
-   * @returns { RectResult } Text content rect.The unit of the return value is pixel.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getTextContentRect() : RectResult;
 
   /**
-   * Get the lines number of the text content.
+   * Obtains the number of lines of the edited text.
    *
-   * @returns { number } Text content line count
+   * @returns { number } Number of lines of the edited text.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
+   *     is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
-   * @since 10
-   */
-  /**
-   * Get the lines number of the text content.
-   * The getTextContentLineCount type is used to obtain the number of lines of the edited text.
-   *
-   * @returns { number } Text content line count
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @atomicservice [since 11]
+   * @since 10 dynamic
    */
   getTextContentLineCount() : number;
 
   /**
-   * Add a text.
+   * Inserts text at a specified position in the editable content. If no position is specified, the text is appended to
+   * the end of the existing content.
    *
-   * @param { string } text - text value.
-   * @param { TextContentControllerOptions } [textOperationOptions] - operation info.
-   * @returns { number } caret index
+   * This API does not work when the text is being dragged.
+   *
+   * **addText** only affects the UI performance within the application and has no effect on the internal logic of the
+   * input method application. Therefore, avoid calling this API for the preview text.
+   *
+   * @param { string } text - Text to insert.
+   * @param { TextContentControllerOptions } [textOperationOptions] - Configuration option for inserting text. If this
+   *     parameter is not provided, the text is appended to the end.
+   * @returns { number } New cursor position after insertion.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28681,22 +28480,18 @@ declare abstract class TextContentControllerBase {
   addText(text: string, textOperationOptions?: TextContentControllerOptions): number;
 
   /**
-   * Set the styled placeholder.
+   * Deletes text within a specified range in the editable content.
    *
-   * @param { StyledString } styledString - The styledString for placeholder.
-   *     If the parameter is invalid, this method will have no effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 22 dynamic
-   */
-  setStyledPlaceholder(styledString: StyledString): void;
-
-  /**
-   * Delete text in TextRange.
+   * > **NOTE**
+   * >
+   * > - This API does not work when the text is being dragged.
+   * >
+   * > - **deleteText** only affects the UI performance within the application and has no effect on the internal logic
+   * > of the input method application. Therefore, avoid calling this API for the preview text.
    *
-   * @param { TextRange } [range] - range for deleting.
+   * @param { TextRange } [range] - Range of the text to be deleted, including the start and end positions.<br>If the
+   *     range is not specified, the entire text is deleted. If the start position is not specified, deletion starts
+   *     from index 0. If the end position is not specified, deletion ends at the end of the text.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28706,9 +28501,11 @@ declare abstract class TextContentControllerBase {
   deleteText(range?: TextRange): void;
 
   /**
-   * Gets the selected range of text content.
+   * Obtains the current text selection range.
    *
-   * @returns { TextRange } range for selecting.
+   * @returns { TextRange } Current text selection range, or cursor position if no text is selected.
+   *     <br>If no component is bound to the controller or the component bound to the controller is released, **undefined**
+   *     is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -28718,29 +28515,12 @@ declare abstract class TextContentControllerBase {
   getSelection(): TextRange;
 
   /**
-   * Clear the content of preview.
+   * Obtains the text content within a specified range.
    *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @atomicservice
-   * @since 17 dynamic
-   */
-  /**
-   * Clear the content of preview.
-   *
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  clearPreviewText(): void;
-
-  /**
-   * Gets the text content of the selected range.
-   *
-   * @param { TextRange } [range] - selected range.
-   * @returns { string } text content of the selected range.
+   * @param { TextRange } [range] - Range of the text content to obtain, defined by start and end positions.<br>If the
+   *     range is not specified, the entire text is obtained by default. If the start position is not specified, it defaults
+   *     to index 0. If the end position is not specified, it defaults to the end of the text.
+   * @returns { string } Text content within the specified range.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @systemapi
    * @stagemodelonly
@@ -28750,7 +28530,53 @@ declare abstract class TextContentControllerBase {
   getText(range?: TextRange): string;
 
   /**
-   * Delete the last character of the input field component.
+   * Notifies the input method to clear the current preview text.
+   *
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform [since 23]
+   * @atomicservice
+   * @since 17 dynamic
+   */
+  clearPreviewText(): void;
+
+  /**
+   * Binds or updates the styled placeholder string.
+   *
+   * @param { StyledString } styledString - Styled string for the placeholder. This takes precedence over the plain text.
+   *     **placeholder** attribute.<br>The placeholder does not support gesture events or hyperlink navigation within
+   *     styled strings.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 22 dynamic
+   */
+  setStyledPlaceholder(styledString: StyledString): void;
+
+  /**
+   * Passes the start and end indexes to the bound text box components (**TextInput**, **TextArea**, and **Search**),
+   * and scrolls the text within the range to the visible area.
+   *
+   * @param { TextRange } [range] - Text range to be scrolled to the visible area, including the start and end positions.
+   *     of the text.<br>The start position must be less than or equal to the end position. Otherwise, the API call is
+   *     invalid. If the start position is less than 0, it is treated as the value **0**. If the end position is greater
+   *     than the length of the entire text, it is treated as the length of the entire text.<br>If no range is specified,
+   *     the entire text is used by default. If the start position is not specified, the default start position is 0. If the
+   *     end position is not specified, the default end position is the length of the entire text.
+   * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
+   * @crossplatform
+   * @atomicservice
+   * @since 23 dynamic
+   */
+  scrollToVisible(range?: TextRange): void;
+
+  /**
+   * Deletes the character before the text cursor in the text box bound to the basic controller. If some text has been
+   * selected using the mouse or keyboard before this function is called, the selected text will be deleted.
+   *
+   * This API is not supported in preview display scenarios.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -28759,19 +28585,6 @@ declare abstract class TextContentControllerBase {
    * @since 23 dynamic
    */
   deleteBackward(): void;
-
-  /**
-   * Scroll the input field component to make the specified content visible.
-   *
-   * @param { TextRange } [range] - The visible range.
-   *     If the parameter is invalid, this method will have no effect.
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @stagemodelonly
-   * @crossplatform
-   * @atomicservice
-   * @since 23 dynamic
-   */
-  scrollToVisible(range?: TextRange): void;
 }
 
 /**
@@ -30704,7 +30517,8 @@ declare interface GestureModifier {
  */
 declare interface SelectionOptions {
   /**
-   * Menu pop-up policy.
+   * Menu display policy.
+   * Default value: MenuPolicy.DEFAULT.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

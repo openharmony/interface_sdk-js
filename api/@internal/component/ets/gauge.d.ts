@@ -230,7 +230,11 @@ declare interface GaugeConfiguration extends CommonConfiguration<GaugeConfigurat
 }
 
 /**
- * In addition to the [universal attributes]{@link common}, the following attributes are supported.
+ * In addition to the 
+ * [universal attributes](docroot://reference/apis-arkui/arkui-ts/ts-component-general-attributes.md), the following
+ * attributes are supported.
+ *
+ * The [universal events](docroot://reference/apis-arkui/arkui-ts/ts-component-general-events.md) are supported.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @crossplatform [since 10]
@@ -409,8 +413,8 @@ declare class GaugeAttribute extends CommonMethod<GaugeAttribute> {
    *     indicator points to **0**, the maximum and minimum values are masked, and the scale range is displayed in gray
    *     or the background color. The value **true** means to enable privacy mode, and **false** means the opposite.<br>
    *     Default value: **false**.<!--Del--><br>For widgets, this property must be used with
-   *     [FormComponent]{@link form_component} and the [obscured]{@link common} attribute to display privacy masking
-   *     effects.<!--DelEnd-->
+   *     [FormComponent]{@link form_component} and the [obscured]{@link CommonMethod#obscured} attribute to display
+   *     privacy masking effects.<!--DelEnd-->.
    * @returns { GaugeAttribute }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly

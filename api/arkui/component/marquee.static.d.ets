@@ -27,7 +27,7 @@ import { Builder, ComponentBuilder, CustomBuilder, CustomBuilderT } from './buil
  * Defines Marquee constructor options.
  *
  * Anonymous Object Rectification.
- * @interface MarqueeOptions
+ *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -45,7 +45,6 @@ export interface MarqueeOptions {
      * <br>In Marquee component, the default value is false. Set to `undefined` will restore it to the default value.
      * </p>
      *
-     * @type { boolean | undefined }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -56,11 +55,12 @@ export interface MarqueeOptions {
      *
      * Anonymous Object Rectification.
      *
+     * Unit: vp. Default value: 6.
+     *
      * <p><strong>NOTE</strong>:
      * <br>If the value is greater than the text width of the marquee, the default value is used.
      * </p>
      *
-     * @type { ?double } - The unit is vp.
      * @default 6
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -77,7 +77,6 @@ export interface MarqueeOptions {
      * <br>Regardless of the value, the marquee scrolls only once on an ArkTS widget.
      * </p>
      *
-     * @type { ?int }
      * @default -1
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -88,7 +87,7 @@ export interface MarqueeOptions {
      * Set text to scroll from the beginning or backward.
      *
      * Anonymous Object Rectification.
-     * @type { ?boolean }
+     *
      * @default true
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
@@ -100,7 +99,7 @@ export interface MarqueeOptions {
      * Set to `undefined` will restore it to the default value.
      *
      * Anonymous Object Rectification.
-     * @type { string | undefined }
+     *
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -109,20 +108,19 @@ export interface MarqueeOptions {
 
     /**
      * The spacing between two rounds of marquee.
-     * 
+     *
      * Default value is marquee width.
      *
-     * @type { ?LengthMetrics }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     spacing?: LengthMetrics;
-
+  
     /**
      * The waiting time between each round of the marquee.
+     * Unit: ms. The value should be an integer. Default value: 0.
      *
-     * @type { ?int }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -133,7 +131,6 @@ export interface MarqueeOptions {
 /**
  * Declares marquee properties.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -270,7 +267,7 @@ export declare interface MarqueeAttribute extends CommonMethod {
      * <p><strong>NOTE</strong>:
      * <br>If event is set to undefined, the current event will be unbound.
      * </p>
-     * 
+     *
      * @param { VoidCallback | undefined } event
      * @returns { MarqueeAttribute }
      * @syscap SystemCapability.ArkUI.ArkUI.Full

@@ -54,12 +54,15 @@ import type common from './@ohos.app.ability.common';
 import type pointer from './@ohos.multimodalInput.pointer';
 
 /**
- * class Font
+ * Provides APIs for registering custom fonts.
  *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getFont() in UIContext to obtain a Font instance,
- * and then call the APIs using the obtained instance.
- * </p>
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getFont()]{@link UIContext.getFont} in **UIContext** to obtain
+ * > a **Font** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - You are advised to use the [loadFontSync]{@link @ohos.graphics.text:text.FontCollection#loadFontSync} API of the
+ * > font engine to register custom fonts.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -68,11 +71,15 @@ import type pointer from './@ohos.multimodalInput.pointer';
  * @since 10 dynamic
  */
 export class Font {
-
   /**
-   * Register a customized font in the FontManager.
+   * Registers a custom font with the font manager.
    *
-   * @param { font.FontOptions } options - FontOptions
+   * This API is asynchronous and does not support concurrent calls.
+   *
+   * @param { font.FontOptions } options - Information about the custom font to register.<br>**NOTE**<br>When setting
+   *     the path to the font file, you are advised to use a string with the **file://** path prefix for resources
+   *     within the system sandbox path. Ensure that the file exists in the sandbox directory path and has read
+   *     permissions.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -82,13 +89,15 @@ export class Font {
   registerFont(options: font.FontOptions): void;
 
   /**
-   * Gets a list of fonts supported by system.
+   * Obtains the list of supported fonts.
    *
-   * <p><strong>NOTE</strong>:
-   * <br>This API takes effect only on 2-in-1 devices.
-   * </p>
+   * This API only takes effect on PCs/2-in-1 devices and returns an empty array on other devices.
    *
-   * @returns { Array<string> } A list of font names
+   * You are advised to use the
+   * [getSystemFontFullNamesByType]{@link @ohos.graphics.text:text.getSystemFontFullNamesByType} API to obtain the
+   * latest system-supported font list data.
+   *
+   * @returns { Array<string> } List of supported fonts.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -98,10 +107,11 @@ export class Font {
   getSystemFontList(): Array<string>;
 
   /**
-   * Get font details according to the font name.
+   * Obtains information about a system font based on the font name.
    *
-   * @param { string } fontName - font name
-   * @returns { font.FontInfo } Returns the font info
+   * @param { string } fontName - System font name.
+   * @returns { font.FontInfo } Detailed information of the font.
+   *     <br>If no font is found, **undefined** is returned.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform [since 11]
@@ -3085,7 +3095,16 @@ export class OverlayManager {
 }
 
 /**
- * Provides the method for magnifier capabilities.
+ * Provides the capability of displaying and hiding of the magnifier. The magnifier enlarges the component content for
+ * you to view the component details.
+ *
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getMagnifier()]{@link UIContext.getMagnifier} in **UIContext**
+ * > to obtain a **Magnifier** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - The magnifier capability of this class does not affect that of text components. For text components, you are
+ * > advised to use the built-in magnifier capability.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3096,9 +3115,11 @@ export class OverlayManager {
 export class Magnifier {
 
   /**
-   * Bind magnifier to a component.
+   * Binds the magnifier to the component with the specified ID.
    *
-   * @param { string } id - component id.
+   * @param { string } id - Component ID, which can be set through the universal attribute [id]{@link CommonMethod#id}
+   *     or [key]{@link CommonMethod#key}. If the component ID is an empty string or no component is found based on the
+   *     specified ID, the magnifier is not displayed.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3108,12 +3129,22 @@ export class Magnifier {
   bind(id: string): void;
 
   /**
-   * Set the position of the magnified content.
+   * Sets the position of the component content displayed by the magnifier relative to the upper left corner of the
+   * component. After the setting is successful, the magnifier displays the content centered at the coordinate point.
    *
-   * @param { number } x - the x position of the magnified content relative to the component.
-   *     The unit of x is vp.
-   * @param { number } y - the y position of the magnified content relative to the component.
-   *     The unit of y is vp.
+   * > **NOTE**
+   * >
+   * > When the content of the component bound to the magnifier changes, the magnifier does not automatically update the
+   * > displayed content. You need to call the **show** API to update the displayed content of the magnifier.
+   *
+   * @param { number } x - Horizontal coordinate of the component content displayed by the magnifier, relative to the
+   *     component itself, in vp. If the coordinate value is greater than the component width or less than 0, the
+   *     magnifier is not displayed. If the value is **undefined**, the current display status of the magnifier is
+   *     retained.
+   * @param { number } y - Vertical coordinate of the component content displayed by the magnifier, relative to the
+   *     component itself, in vp. If the coordinate value is greater than the component height or less than 0, the
+   *     magnifier is not displayed. If the value is **undefined**, the current display status of the magnifier is
+   *     retained.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3123,7 +3154,7 @@ export class Magnifier {
   show(x: number, y: number): void;
 
   /**
-   * Unbind the magnifier from its associated component.
+   * Unbinds the magnifier from the current component.
    *
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
@@ -3583,12 +3614,25 @@ export class DragController {
 }
 
 /**
- * class MeasureUtils
+ * Provides APIs for measuring text metrics, such as text height and width.
  *
- * <p><strong>NOTE</strong>:
- * <br>You must first use getMeasureUtils() in UIContext to obtain a MeasureUtils instance,
- * and then call the APIs using the obtained instance.
- * </p>
+ * > **NOTE**
+ * >
+ * > - In the following API examples, you must first use [getMeasureUtils()]{@link UIContext.getMeasureUtils} in
+ * > **UIContext** to obtain a **MeasureUtils** instance, and then call the APIs using the obtained instance.
+ * >
+ * > - To perform more complex text measurements, use the [Paragraph]{@link @ohos.graphics.text:text.Paragraph} API.
+ * >
+ * > - Avoid using
+ * > [ApplicationContext.setFontSizeScale]{@link ./application/ApplicationContext:ApplicationContext.setFontSizeScale}
+ * > during text measurement API calls. To ensure timing correctness and the accuracy of measurement results, manually
+ * > listen for font scale changes.
+ * >
+ * > - For measuring text after truncation, direct use of the string length for truncation may lead to inaccuracies.
+ * > This is because certain Unicode characters (for example, emojis) have code points with a length greater than 1, and
+ * > truncating by string length can split these multi-code-point characters, resulting in incorrect text display or
+ * > measurement errors. As such, you are advised to perform iterative truncation processing based on Unicode code
+ * > points. For details, see [Example 2 in measureTextSize]{@link MeasureUtils.measureTextSize}.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -3597,12 +3641,21 @@ export class DragController {
  * @since 12 dynamic
  */
 export class MeasureUtils {
-
   /**
-   * Obtains the width of the specified text in a single line layout.
+   * Measures the single-line display width of the specified text. For multi-line text (separated by newline characters
+   * **\n**), this API returns the width of the longest line.
    *
-   * @param { MeasureOptions } options - Options.
-   * @returns { number } - The unit is px.
+   * > **NOTE**
+   * >
+   * > **measureText** always measures single-line text width. Layout constraints in **options** (**constraintWidth**,
+   * > **maxLines**, and more) do not affect results. For layout-constrained width measurement, use
+   * > [measureTextSize]{@link MeasureUtils.measureTextSize}.
+   *
+   * @param { MeasureOptions } options - Options of the target text.
+   * @returns { number } Text width.
+   *     <br>**NOTE**
+   *     <br>Floating-point results are rounded up.
+   *     <br>Unit: px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3612,11 +3665,13 @@ export class MeasureUtils {
   measureText(options: MeasureOptions): number;
 
   /**
-   * Obtains the width and height of the specified text in a single line layout.
+   * Measures the width and height of the given single-line text.
    *
-   * @param { MeasureOptions } options - Options of measure area occupied by text.
-   * @returns { SizeOptions } width and height for text to display.The return values for text width and height are both
-   *     in px.
+   * @param { MeasureOptions } options - Options of the target text.
+   * @returns { SizeOptions } Width and height of the text.
+   *     <br>**NOTE**
+   *     <br>If **constraintWidth** is not specified, the floating-point value of the text width will be rounded up.
+   *     <br>The return values for text width and height are both in px.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -3626,11 +3681,12 @@ export class MeasureUtils {
   measureTextSize(options: MeasureOptions): SizeOptions;
 
   /**
-   * Get layout info of the styled string.
+   * Converts a styled string into an array of corresponding [Paragraph]{@link @ohos.graphics.text:text.Paragraph}
+   * objects based on text layout options.
    *
-   * @param { StyledString } styledString - The styled string value.
-   * @param { TextLayoutOptions } [options] - The layout options.
-   * @returns { Array<Paragraph> } paragraph result
+   * @param { StyledString } styledString - Styled string to be converted.
+   * @param { TextLayoutOptions } [options] - Text layout options.
+   * @returns { Array<Paragraph> } Array of [Paragraph]{@link @ohos.graphics.text:text.Paragraph} objects.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -4948,9 +5004,9 @@ export class UIContext {
   isAvailable(): boolean;
 
   /**
-   * get object font.
+   * Obtains a **Font** object.
    *
-   * @returns { Font } object Font.
+   * @returns { Font } **Font** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5141,9 +5197,9 @@ export class UIContext {
   getOverlayManager(): OverlayManager;
 
   /**
-   * Obtains the Magnifier object.
+   * Obtains a [Magnifier]{@link Magnifier} object, which can be used to control the display and hiding of a magnifier.
    *
-   * @returns { Magnifier } Magnifier instance obtained.
+   * @returns { Magnifier } **Magnifier** object, which can be used to control the display and hiding of a magnifier.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -5480,9 +5536,9 @@ export class UIContext {
   getDragController(): DragController;
 
   /**
-   * Get MeasureUtils.
+   * Obtains a **MeasureUtils** object for text calculation.
    *
-   * @returns { MeasureUtils } the MeasureUtils
+   * @returns { MeasureUtils } Text metrics, such as text height and width.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6173,9 +6229,10 @@ export class UIContext {
   freezeUINode(uniqueId: number, isFrozen: boolean): void;
 
   /**
-   * Get object text menu controller.
+   * Obtains a [TextMenuController]{@link TextMenuController} object, which can be used to control the context menu on
+   * selection.
    *
-   * @returns { TextMenuController } object text menu controller.
+   * @returns { TextMenuController } Obtained **TextMenuController** object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6500,7 +6557,13 @@ export const enum MarqueeDynamicSyncSceneType {
 }
 
 /**
- * class TextMenuController
+ * Provides the capability to control text menus.
+ *
+ * > **NOTE**
+ * >
+ * > - In the following non-static API examples, you must first use
+ * > [getTextMenuController()]{@link UIContext.getTextMenuController} in **UIContext** to obtain a
+ * > **TextMenuController** instance, and then call the APIs using the obtained instance.
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
@@ -6511,9 +6574,10 @@ export const enum MarqueeDynamicSyncSceneType {
 export class TextMenuController {
 
   /**
-   * Set text menu options.
+   * Set menu options.
    *
-   * @param { TextMenuOptions } options - the options of the text menu.
+   * @param { TextMenuOptions } options - Menu options.
+   *     <br>Default value: {showMode: TextMenuShowMode.DEFAULT}.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6523,9 +6587,43 @@ export class TextMenuController {
   setMenuOptions(options: TextMenuOptions): void;
 
   /**
-   * Disable all system service menus, such as translation and ai writer.
-   * True means disable, false means enable.
+   * Disables all system service menu items in the text selection menu.
    *
+   * > **NOTE**
+   * >
+   * > - This API takes effect globally for the entire application process after being called.
+   * >
+   * > - This API can be used in [UIAbility]{@link @ohos.app.ability.UIAbility}.
+   * >
+   * > - After this API is called, the [editMenuOptions]{@link TextAttribute#editMenuOptions} API of text components
+   * > will be affected. The parameter list of its [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback will not
+   * > include the disabled menu options.
+   * >
+   * > - Components involving text selection menus include the following: [Text]{@link ./@internal/component/ets/text},
+   * > [TextArea]{@link ./@internal/component/ets/text_area}, [TextInput]{@link ./@internal/component/ets/text_input},
+   * > [Search]{@link ./@internal/component/ets/search}, [RichEditor]{@link ./@internal/component/ets/rich_editor}, and
+   * > [Web]{@link ./@internal/component/ets/web}.
+   * >
+   * > - System service menu items refer to menu items other than copy, cut, select all, and paste in
+   * > [TextMenuItemId]{@link TextMenuItemId}.
+   * >
+   * > - When both **disableSystemServiceMenuItems** and **disableMenuItems** are set, the earlier-set
+   * > **disableSystemServiceMenuItems** takes precedence.
+   * >
+   * > - This API takes effect globally, and multiple calls are subject to the last call.
+   * >
+   * > - Disabled menus can be restored in the following ways:
+   * >
+   * > - If only **disableSystemServiceMenuItems(true)** is used to disable menus, set it to **false** to restore.
+   * >
+   * > - If only **disableMenuItems** is used to disable menus, set it to an empty array to restore.
+   * >
+   * > - If both **disableSystemServiceMenuItems** and **disableMenuItems** are used, set the former to **false** and
+   * > the latter to an empty array to restore.
+   *
+   * @param { boolean } disable - Whether to disable system service menu items. The value **true** means to disable
+   *     system service menu items, and **false** means the opposite.
+   *     <br>Default value: false.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform
@@ -6535,8 +6633,50 @@ export class TextMenuController {
   static disableSystemServiceMenuItems(disable: boolean): void;
 
   /**
-   * Disable menu action by action id.
+   * Disables specified system service menu items in the text selection menu.
    *
+   * > **NOTE**
+   * >
+   * > - This API takes effect globally for the entire application process after being called.
+   * >
+   * > - This API can be used in [UIAbility]{@link @ohos.app.ability.UIAbility}.
+   * >
+   * > - After this API is called, the [editMenuOptions]{@link TextAttribute#editMenuOptions} API of text components
+   * > will be affected. The parameter list of its [onCreateMenu]{@link EditMenuOptions.onCreateMenu} callback will not
+   * > include the disabled menu options.
+   * >
+   * > - Components involving text selection menus include the following: [Text]{@link ./@internal/component/ets/text},
+   * > [TextArea]{@link ./@internal/component/ets/text_area}, [TextInput]{@link ./@internal/component/ets/text_input},
+   * > [Search]{@link ./@internal/component/ets/search}, [RichEditor]{@link ./@internal/component/ets/rich_editor}, and
+   * > [Web]{@link ./@internal/component/ets/web}.
+   * >
+   * > - System service menu items refer to menu items other than copy, cut, select all, and paste in
+   * > [TextMenuItemId]{@link TextMenuItemId}.
+   * >
+   * > - When both **disableSystemServiceMenuItems** and **disableMenuItems** are set, the earlier-set
+   * > **disableSystemServiceMenuItems** takes precedence.
+   * >
+   * > - This API takes effect globally, and multiple calls are subject to the last call.
+   * >
+   * > - Disabling a first-level menu item will also disable all its second-level menu items. For example, disabling the
+   * > first-level menu item **autoFill** (parent item) in [TextMenuItemId]{@link TextMenuItemId} will simultaneously
+   * > disable the second-level menu item **passwordVault** (child item) in **TextMenuItemId**.
+   * >
+   * > - Disabling individual second-level menu items is not supported. If required, this can be achieved by disabling
+   * > the corresponding first-level menu item.
+   * >
+   * > - Disabled menus can be restored in the following ways:
+   * >
+   * > - If only **disableSystemServiceMenuItems(true)** is used to disable menus, set it to **false** to restore.
+   * >
+   * > - If only **disableMenuItems** is used to disable menus, set it to an empty array to restore.
+   * >
+   * > - If both **disableSystemServiceMenuItems** and **disableMenuItems** are used, set the former to **false** and
+   * > the latter to an empty array to restore.
+   *
+   * @param { Array<TextMenuItemId> } items - List of menu items to disable.
+   *     <br>Default value: [].
+   *     <br>By default, no  menu item is disabled.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
    * @crossplatform

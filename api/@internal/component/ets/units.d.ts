@@ -2083,131 +2083,57 @@ declare type LengthMetrics = import('../api/arkui/Graphics').LengthMetrics;
 declare type ColorMetrics = import('../api/arkui/Graphics').ColorMetrics;
 
 /**
- * Defines the font used for text.
+ * Sets the text style.
  *
- * @interface Font
  * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @since 7
- */
-/**
- * Defines the font used for text.
- *
- * @interface Font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @since 10
- */
-/**
- * Defines the font used for text.
- *
- * @interface Font
- * @syscap SystemCapability.ArkUI.ArkUI.Full
- * @crossplatform
- * @atomicservice
- * @since 11 dynamic
+ * @crossplatform [since 10]
+ * @atomicservice [since 11]
+ * @since 7 dynamic
  */
 declare interface Font {
   /**
-   * font size.
+   * Font size. If the value is of the number type, the unit fp is used. Percentage strings are not supported.
+   * Default value: 16fp.
    *
-   * @type { ?Length }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font size.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font size.
-   *
-   * @type { ?Length }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   size?: Length;
 
   /**
-   * font weight.
+   * Font weight. For the number type, the value ranges from 100 to 900, at an interval of 100. A larger value indicates
+   * a thicker font.
+   * Default value: FontWeight.Normal.
    *
-   * @type { ?(FontWeight | number | string) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font weight.
-   *
-   * @type { ?(FontWeight | number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font weight.
-   *
-   * @type { ?(FontWeight | number | string) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   weight?: FontWeight | number | string;
 
   /**
-   * font family.
+   * Font family. <br>To specify multiple fonts, separate them with commas (,), and fonts are applied in priority order.
+   * Example: **'Arial, HarmonyOS Sans'**.
+   * Default value: 'HarmonyOS Sans'.
    *
-   * @type { ?(string | Resource) }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font family.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font family.
-   *
-   * @type { ?(string | Resource) }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   family?: string | Resource;
 
   /**
-   * font style.
+   * Font style.
+   * Default value: FontStyle.Normal.
    *
-   * @type { ?FontStyle }
    * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @since 7
-   */
-  /**
-   * font style.
-   *
-   * @type { ?FontStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @since 10
-   */
-  /**
-   * font style.
-   *
-   * @type { ?FontStyle }
-   * @syscap SystemCapability.ArkUI.ArkUI.Full
-   * @crossplatform
-   * @atomicservice
-   * @since 11 dynamic
+   * @crossplatform [since 10]
+   * @atomicservice [since 11]
+   * @since 7 dynamic
    */
   style?: FontStyle;
 }

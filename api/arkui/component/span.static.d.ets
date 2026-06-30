@@ -29,7 +29,6 @@ import { FontConfigs, FontWeightConfigs, FontVariation } from "./textCommon"
 /**
  * Define the background style of span.
  *
- * @interface TextBackgroundStyle
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -38,7 +37,6 @@ export declare interface TextBackgroundStyle {
     /**
      * Background color of span.
      *
-     * @type { ?ResourceColor }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
@@ -47,17 +45,16 @@ export declare interface TextBackgroundStyle {
     /**
      * Background radius of span.
      *
-     * @type { ?(Dimension | BorderRadiuses) }
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
      * @since 23 static
      */
     radius?: Dimension | BorderRadiuses;
 }
+
 /**
  * Define the BaseSpan interface, contains the common methods of span.
  *
- * @extends CommonMethod
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
  * @since 23 static
@@ -85,6 +82,7 @@ export declare interface BaseSpan extends CommonMethod {
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
 }
+
 /**
  * Define the Span attribute functions.
  *
@@ -95,14 +93,6 @@ export declare interface BaseSpan extends CommonMethod {
  */
 export declare interface SpanAttribute {
     /**
-     * Called when the font is set.
-     *
-     * @param { Font | undefined } value - the span font size and weight and family and style.
-     * @returns { SpanAttribute } The attribute of the span.
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @since 23 static
-     */
-    /**
      * Used to set the font of span.
      *
      * @param { Font | undefined } value - the span font size, font weight, font family and font style.
@@ -110,7 +100,7 @@ export declare interface SpanAttribute {
      * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default font(value: Font | undefined, fontConfigs?: FontConfigs): this;
     /**
@@ -143,26 +133,19 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default fontStyle(value: FontStyle | undefined): this;
-    /**
-     * Called when the font weight is set.
-     *
-     * @param { int | FontWeight | ResourceStr | undefined } value
-     * @returns { SpanAttribute }
-     * @syscap SystemCapability.ArkUI.ArkUI.Full
-     * @stagemodelonly
-     * @since 23 static
-     */
+  
     /**
      * Used to set the font weight of span.
      *
      * @param { int | FontWeight | ResourceStr | undefined } weight - the span font weight.
      * @param { FontWeightConfigs } [fontWeightConfigs] - the configuration of font weight.
-     * @returns { SpanAttribute }
+     * @returns { SpanAttribute } The attribute of the span.
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @stagemodelonly
-     * @since 24 static
+     * @since 26.0.0 static
      */
     default fontWeight(weight: int | FontWeight | ResourceStr | undefined, fontWeightConfigs?: FontWeightConfigs): this;
+  
     /**
      * Called when the font list of text is set.
      *
@@ -184,14 +167,14 @@ export declare interface SpanAttribute {
      */
     default decoration(value: DecorationStyleInterface | undefined): this;
     /**
-    * Called when the distance between text fonts is set.
-    *
-    * @param { double | string | undefined } value
-    * @returns { SpanAttribute }
-    * @syscap SystemCapability.ArkUI.ArkUI.Full
-    * @stagemodelonly
-    * @since 23 static
-    */
+     * Called when the distance between text fonts is set.
+     *
+     * @param { double | string | undefined } value
+     * @returns { SpanAttribute }
+     * @syscap SystemCapability.ArkUI.ArkUI.Full
+     * @stagemodelonly
+     * @since 23 static
+     */
     default letterSpacing(value: double | string | undefined): this;
     /**
      * Called when the type of letter in the text font is set.
@@ -245,6 +228,7 @@ export declare interface SpanAttribute {
      * @since 23 static
      */
     default baselineOffset(value: LengthMetrics | undefined): this;
+  
     /**
      * Key. User can set an key to the component to identify it.
      *
@@ -327,7 +311,8 @@ export declare interface SpanAttribute {
      */
     default attributeModifier(modifier: AttributeModifier<SpanAttribute> | undefined): this;
     /**
-     * Set the component's source code redirection information. 
+     * Set the component's source code redirection information.
+     *
      * @param { string } sourceLine - the source code line.
      * @param { string } [moduleName] - module to which the component belongs.
      * @returns { this }
