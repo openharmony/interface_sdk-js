@@ -320,8 +320,7 @@ declare namespace picker {
   /**
    * Enumerates the types of documents selected.
    *
-   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
-   * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+   * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
    * @crossplatform [since 12]
    * @atomicservice [since 12]
    * @since 11 dynamic
@@ -331,8 +330,7 @@ declare namespace picker {
     /**
      * File (default).
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
-     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -343,8 +341,7 @@ declare namespace picker {
     /**
      * Folder.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
-     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -355,8 +352,7 @@ declare namespace picker {
     /**
      * Mixed type of files and folders.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
-     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @atomicservice [since 12]
      * @since 11 dynamic
      * @since 23 static
@@ -523,8 +519,7 @@ declare namespace picker {
     /**
      * Type of the document selected by Picker. The default value is **FILE** (file type).
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 11 - 24]
-     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @crossplatform [since 12]
      * @atomicservice [since 12]
      * @since 11 dynamic
@@ -755,8 +750,7 @@ declare namespace picker {
     /**
      * Selection mode. Only 2-in-1 devices are supported. The default value is FILE.
      *
-     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection [since 23 - 24]
-     * @syscap SystemCapability.FileManagement.UserFileService [since 26.0.0]
+     * @syscap SystemCapability.FileManagement.UserFileService.FolderSelection
      * @stagemodelonly
      * @since 23 static
      */
