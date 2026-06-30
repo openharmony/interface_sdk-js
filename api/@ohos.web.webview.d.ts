@@ -1595,6 +1595,41 @@ declare namespace webview {
      * @since 23 dynamic
      */
     static fetchAllCookies(incognito: boolean): Promise<Array<WebHttpCookie>>;
+
+    /**
+     * Gets all cookies for the given URL Asynchronously.
+     *
+     * @param { string } url - The URL for which to fetch cookies.
+     * @param { boolean } incognito - Whether to fetch cookies in incognito mode.
+     * @param { boolean } includePartitionedCookies - If true, allows fetching first-party partitioned cookies.
+     * @returns { Promise<string> } A promise resolved with the cookie string.
+     * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static fetchCookie(url: string, incognito: boolean, includePartitionedCookies: boolean): Promise<string>;
+
+    /**
+     * Gets all cookies for the given URL.
+     *
+     * <strong>API Note</strong>:<br>
+     *
+     * **fetchCookieSync()** is used to obtain all cookie values. Cookie values are separated by semicolons. However,
+     * a specific cookie value cannot be obtained separately.
+     *
+     * @param { string } url - The URL for which the cookies are requested.
+     * @param { boolean } [incognito] - {@code true} gets all cookies for the given URL
+     *     in incognito mode; {@code false} otherwise. Default is false.
+     * @param { boolean } [includePartitionedCookies] - If true, allows fetching first-party partitioned cookies.
+     *     Default is false.
+     * @returns { string } - The cookie value for the given URL.
+     * @throws { BusinessError } 17100002 - URL error. No valid cookie found for the specified URL.
+     * @syscap SystemCapability.Web.Webview.Core
+     * @stagemodelonly
+     * @since 26.0.0 dynamic
+     */
+    static fetchCookieSync(url: string, incognito?: boolean, includePartitionedCookies?: boolean): string;
   }
 
   /**
