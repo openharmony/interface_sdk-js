@@ -4082,7 +4082,7 @@ declare namespace camera {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    getColorTintRange(): Array<number>;
+    getColorTintRange(): Array<int>;
   }
 
   /**
@@ -4176,7 +4176,7 @@ declare namespace camera {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    setColorTint(colorTint: number): void;
+    setColorTint(colorTint: int): void;
  
     /**
      * Gets current color tint.
@@ -4188,7 +4188,7 @@ declare namespace camera {
      * @atomicservice
      * @since 26.0.0 dynamic&static
      */
-    getColorTint(): number;
+    getColorTint(): int;
   }
 
   /**
