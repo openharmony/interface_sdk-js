@@ -1,4 +1,4 @@
-/*
+﻿/*
 * Copyright (c) 2022 Huawei Device Co., Ltd.
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -690,10 +690,7 @@ declare namespace effectKit {
    * to return the result.
    *
    * @param { image.PixelMap } source - PixelMap instance created by the image module. An instance can be obtained by
-   *     decoding an
-   *     image or directly created. For details, see Image Overview.PixelMap instance created by the image module. An
-   *     instance can be
-   *     obtained by decoding an image or directly created. For details, see Image Overview.
+   *     decoding an image or directly created. For details, see Image Overview.
    * @param { Array<double> } region - Region of the image from which the color is picked.
    *     The array consists of four elements, representing the left, top, right, and bottom positions of the image,
    *     respectively.

@@ -550,8 +550,8 @@ declare namespace uiEffect {
      *    it will cause the background of the system material to be distorted.
      * 4. When calling distortionCollapse, an offscreen canvas equal in size to the deformed area will be created.
      *    The content of the current component (including child components) is then drawn onto this offscreen canvas,
-     *    and the existing content on the canvas is drawn with deformation. When using this implementation in
-     *    combination with the EffectComponent, interfaces that require screen capture, such as systemMaterial,
+     *    and the existing content on the canvas is drawn with deformation. When using this implementation without
+     *    combining with the EffectComponent, interfaces that require screen capture, such as systemMaterial,
      *    backgroundEffect, brightness, and blur, will not be able to capture the correct screen.
      *
      * @param { DistortionParam } distortionParam - the distortion params of distortion effect.
