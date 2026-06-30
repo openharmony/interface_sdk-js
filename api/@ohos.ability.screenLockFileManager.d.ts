@@ -153,7 +153,7 @@ declare namespace screenLockFileManager {
    *
    * @returns { AccessStatus } Returns acquire the access result.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
    * @throws { BusinessError } 29300004 - File access is denied.
    * @syscap SystemCapability.Security.ScreenLockFileManager
@@ -173,7 +173,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300001 - Invalid DataType.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
    * @throws { BusinessError } 29300004 - File access is denied.
    * @syscap SystemCapability.Security.ScreenLockFileManager
@@ -188,7 +188,7 @@ declare namespace screenLockFileManager {
    *
    * @returns { ReleaseStatus } Returns release the access result.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
    * @throws { BusinessError } 29300005 - File access was not acquired.
    * @syscap SystemCapability.Security.ScreenLockFileManager
@@ -208,7 +208,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300001 - Invalid DataType.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @throws { BusinessError } 29300003 - The application is not enabled the data protection under lock screen.
    * @throws { BusinessError } 29300005 - File access was not acquired.
    * @syscap SystemCapability.Security.ScreenLockFileManager
@@ -223,7 +223,7 @@ declare namespace screenLockFileManager {
    *
    * @returns { KeyStatus } Returns the AppKey status.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @since 18 dynamic
    * @since 23 static
@@ -241,7 +241,7 @@ declare namespace screenLockFileManager {
    * @throws { BusinessError } 401 - Parameter error. Possible causes: 1. Mandatory parameter is left unspecified. 2. Incorrect parameter types.
    * @throws { BusinessError } 801 - The specified SystemCapability name was not found.
    * @throws { BusinessError } 29300001 - Invalid DataType.
-   * @throws { BusinessError } 29300002 - The system ability work abnormally.
+   * @throws { BusinessError } 29300002 - The system ability works abnormally.
    * @syscap SystemCapability.Security.ScreenLockFileManager
    * @systemapi
    * @since 18 dynamic
