@@ -35,7 +35,7 @@ declare enum PanDirection {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Horizontal direction.
@@ -125,7 +125,7 @@ declare enum SwipeDirection {
    * @atomicservice [since 11]
    * @since 8 dynamic
    */
-  None = 0,
+  None,
 
   /**
    * Horizontal direction. The gesture is triggered when the angle between the finger moving direction and the x-axis is
@@ -180,7 +180,7 @@ declare enum GestureMode {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Sequence = 0,
+  Sequence,
 
   /**
    * Parallel recognition. Registered gestures are recognized concurrently until all gestures are recognized. The 
@@ -222,7 +222,7 @@ declare enum GestureMask {
    * @atomicservice [since 11]
    * @since 7 dynamic
    */
-  Normal = 0,
+  Normal,
 
   /**
    * The gestures of child components are disabled, including the built-in gestures, such as the built-in swipe gesture 
