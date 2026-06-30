@@ -1013,17 +1013,18 @@ declare namespace PiPWindow {
     stopPiP(): Promise<void>;
 
     /**
-     * Sets whether to automatically start a PiP window when the user returns to the home screen. By default, no PiP
-     * window is started.
+     * Sets whether to automatically start the PiP window when the application's main window which can start the
+     * PiP window transitions to the background. By default, the PiP window is not automatically started.
      *
      * If the XComponent approach is used to implement PiP and the **Navigation** component is used for route management
      * , the system caches the top stack information with the specified navigation ID upon the first call of
      * **setAutoStartEnabled(true)**.
      *
-     * @param { boolean } enable - Whether to automatically start a PiP window when the user returns to the home screen.
-     *     **true** to start, **false** otherwise. If the PiP feature under **Settings** > **System** > **Multi-window**
-     *     is disabled, the PiP window will not be automatically started when the user returns to the home screen even
-     *     if this parameter is set to **true**.
+     * @param { boolean } enable - If the PiP window needs to be automatically started when the application's
+     *     main window transitions to the background, set this parameter to **true**. Otherwise,
+     *     set this parameter to **false**. If the PiP feature under **Settings** > **System** > **Multi-window**
+     *     is disabled, the PiP window will not be automatically started when the application's main window transitions
+     *     to the background even if this parameter is set to **true**.
      * @syscap SystemCapability.Window.SessionManager
      * @atomicservice [since 12]
      * @since 11 dynamic
