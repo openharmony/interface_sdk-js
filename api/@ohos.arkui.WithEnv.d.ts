@@ -23,19 +23,20 @@
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
 export declare class WithEnvAttribute {
-
-/**
+  /**
    * Defining System Environment Variables
    *
-   * @param { WritableSystemEnvKey<T> } key - Keys for system environment variables.
-   * @param { T } value - Values of system environment variables.
+   * @param { WritableSystemEnvKey<T> } key - Key for system environment variables.
+   * @param { T } value - Value of system environment variables.
    * @returns { WithEnvAttribute } WithEnvAttribute object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
@@ -43,17 +44,17 @@ export declare class WithEnvAttribute {
   /**
    * Defining Custom Environment Variables
    *
-   * @param { CustomEnvKey<T> } key - Keys for custom environment variables.
-   * @param { T } value - Values of custom environment variables.
+   * @param { CustomEnvKey<T> } key - Key for custom environment variables.
+   * @param { T } value - Value of custom environment variables.
    * @returns { WithEnvAttribute } WithEnvAttribute object.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @stagemodelonly
+   * @crossplatform
    * @atomicservice
    * @since 26.0.0 dynamic
    */
   customEnv<T>(key: CustomEnvKey<T>,  value: T): WithEnvAttribute;
 }
-
 
 /**
  * Define the WithEnv component's type.
@@ -62,6 +63,7 @@ export declare class WithEnvAttribute {
  * @returns { WithEnvAttribute } WithEnvAttribute object
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @since 26.0.0 dynamic
  */
@@ -72,6 +74,7 @@ export declare type WithEnvInterface = () => WithEnvAttribute;
  * @type { WithEnvInterface }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @uicomponent
  * @since 26.0.0 dynamic
@@ -83,6 +86,7 @@ export declare const WithEnv: WithEnvInterface;
  * @type { WithEnvAttribute }
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @stagemodelonly
+ * @crossplatform
  * @atomicservice
  * @uicomponent
  * @since 26.0.0 dynamic
