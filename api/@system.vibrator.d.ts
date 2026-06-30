@@ -40,6 +40,7 @@
  *
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -52,6 +53,7 @@ export interface VibrateOptions {
    *
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -64,6 +66,7 @@ export interface VibrateOptions {
    *
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -76,6 +79,7 @@ export interface VibrateOptions {
    *
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -88,6 +92,7 @@ export interface VibrateOptions {
    *
    * @permission ohos.permission.VIBRATE
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
@@ -100,6 +105,7 @@ export interface VibrateOptions {
  *
  * @permission ohos.permission.VIBRATE
  * @syscap SystemCapability.Sensors.MiscDevice.Lite
+ * @famodelonly
  * @since 3 dynamiconly
  * @deprecated since 8
  * @reserved ["liteWearable"]
@@ -117,6 +123,7 @@ export default class Vibrator {
    * @permission ohos.permission.VIBRATE
    * @param { VibrateOptions } options - Vibration options.
    * @syscap SystemCapability.Sensors.MiscDevice.Lite
+   * @famodelonly
    * @since 3 dynamiconly
    * @deprecated since 8
    * @reserved ["liteWearable"]
