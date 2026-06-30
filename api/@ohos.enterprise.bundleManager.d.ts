@@ -2000,7 +2000,7 @@ declare namespace bundleManager {
    * @throws { BusinessError } 9201029 - Failed to install the HAP since the version of the HAP to install is too early.
    * @throws { BusinessError } 9201030 - Failed to install the HAP because the VersionCode to be updated is not greater
    *     than the current VersionCode.
-   * @throws { BusinessError } 9201031 - Installation failed because the dependant module does not exist.
+   * @throws { BusinessError } 9201031 - Installation failed because the dependent module does not exist.
    * @throws { BusinessError } 9201032 - The specified user ID is not found.
    * @throws { BusinessError } 9201033 - Failed to install the HAP because the overlay check failed.
    * @throws { BusinessError } 9201034 - Failed to install the HSP due to missing required permissions.
@@ -2034,7 +2034,7 @@ declare namespace bundleManager {
    *     certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed. The application does not have the permission
    *     required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -2059,7 +2059,7 @@ declare namespace bundleManager {
    *     certificate.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

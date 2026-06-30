@@ -1016,7 +1016,7 @@ declare namespace deviceSettings {
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
@@ -1039,7 +1039,7 @@ declare namespace deviceSettings {
    *     fails to be set.
    * @throws { BusinessError } 9200001 - The application is not an administrator application of the device.
    * @throws { BusinessError } 9200002 - The administrator application does not have permission to manage the device.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager

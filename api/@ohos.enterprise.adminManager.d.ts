@@ -533,7 +533,7 @@ declare namespace adminManager {
    *     **EnterpriseAdminExtensionAbility** component of the current application can be passed.
    * @returns { boolean } The value **true** indicates the application is activated as a BYOD device administrator
    *     application, and the value **false** indicates the opposite.
-   * @throws { BusinessError } 9200012 - The parameter validation failed.
+   * @throws { BusinessError } 9200012 - Parameter verification failed.
    * @throws { BusinessError } 201 - Permission verification failed.
    *     The application does not have the permission required to call the API.
    * @syscap SystemCapability.Customization.EnterpriseDeviceManager
