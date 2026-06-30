@@ -46,6 +46,7 @@ export interface BrightnessResponse {
    * 屏幕亮度，范围：1到255。
    *
    * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+   * @FaAndStageModel
    * @since 3 dynamiconly
    * @deprecated since 7
    * @reserved ["liteWearable"]
