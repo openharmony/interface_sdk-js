@@ -42,7 +42,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack#pushPath
    */
-  Push = 0,
+  Push,
 
   /**
    *
@@ -54,7 +54,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack#pop
    */
-  Back = 1,
+  Back,
 
   /**
    *
@@ -66,7 +66,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack.replacePath
    */
-  Replace = 2
+  Replace
 }
 
 /**
