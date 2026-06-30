@@ -45,7 +45,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack#pushPath
    */
-  Push = 0,
+  Push,
 
   /**
    * Returns to the specified page. If the specified page does not exist in the stack, no response is returned. If no
@@ -63,7 +63,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack#pop
    */
-  Back = 1,
+  Back,
 
   /**
    * Replaces the current page with another one in the application and destroys the current page.
@@ -80,7 +80,7 @@ declare enum NavigationType {
    * @deprecated since 13
    * @useinstead NavPathStack.replacePath
    */
-  Replace = 2
+  Replace
 }
 
 /**
