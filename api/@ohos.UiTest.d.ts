@@ -3735,7 +3735,7 @@ declare class Driver {
      * @param { Point } from - Coordinates of the point where the finger touches the screen.
      * @param { Point } to - Coordinates of the point where the finger leaves the screen.
      * @param { int } stepLen - Step length, in pixels. The value is an integer greater than or equal to 0.
-     *     <br>Unit: ms
+     *     <br>Unit: px
      * @param { int } speed - Fling speed, in px/s. The value ranges from 200 to 40000. If the set value is not in the range
      *     , the default value **600** is used.
      *     <br>Value range:[200, 40000]
@@ -5107,7 +5107,7 @@ declare namespace ON {
      * Specifies the id of the target Component.
      *
      * @param { string } id - the id value.
-     * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
+     * @param { MatchPattern } pattern - the {@link MatchPattern} of the id value.
      *     <br>Default value: {@link MatchPattern.EQUALS}
      * @returns { On } this {@link On} object.
      * @syscap SystemCapability.Test.UiTest
@@ -5119,7 +5119,7 @@ declare namespace ON {
      * Specifies the type of the target Component.
      *
      * @param { string } tp - The type value.
-     * @param { MatchPattern } pattern - the {@link MatchPattern} of the text value.
+     * @param { MatchPattern } pattern - the {@link MatchPattern} of the type value.
      *     <br>Default value: {@link MatchPattern.EQUALS}
      * @returns { On } this {@link On} object.
      * @syscap SystemCapability.Test.UiTest
@@ -5131,7 +5131,7 @@ declare namespace ON {
      * Specifies the hint for the target Component.
      *
      * @param { string } val - the hint value.
-     * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the text value.
+     * @param { MatchPattern } [pattern] - the {@link MatchPattern} of the hint value.
      *     <br>Default value: {@link MatchPattern.EQUALS}
      * @returns { On } this {@link On} object.
      * @syscap SystemCapability.Test.UiTest
