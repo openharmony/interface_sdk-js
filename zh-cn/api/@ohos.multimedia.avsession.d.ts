@@ -38,7 +38,7 @@ import type hdrCapability from './@ohos.graphics.hdrCapability';
  */
 declare namespace avSession {
   /**
-   * Create an AVSession instance. An ability can only create one AVSession
+   *
    * @param { Context } context - The context of application
    * @param { string } tag - A user-defined name for this session
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
@@ -53,7 +53,7 @@ declare namespace avSession {
   function createAVSession(context: Context, tag: string, type: AVSessionType, callback: AsyncCallback<AVSession>): void;
 
   /**
-   * Create an AVSession instance. An ability can only create one AVSession
+   *
    * @param { Context } context - The context of application
    * @param { string } tag - A user-defined name for this session
    * @param { AVSessionType } type - The type of session {@link AVSessionType}
@@ -70,6 +70,7 @@ declare namespace avSession {
 
   /**
    * Get an AVSession instance if already created.
+   *
    * @param { Context } context - The context of application
    * @returns { Promise<AVSession> } Promise for AVSession
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -82,7 +83,7 @@ declare namespace avSession {
   function getAVSession(context: Context): Promise<AVSession>;
 
   /**
-   * Get all avsession descriptors of the system
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AsyncCallback<Array<Readonly<AVSessionDescriptor>>> } callback - async callback for an array of AVSessionDescriptors.
    * @throws { BusinessError } 201 - permission denied
@@ -96,7 +97,7 @@ declare namespace avSession {
   function getAllSessionDescriptors(callback: AsyncCallback<Array<Readonly<AVSessionDescriptor>>>): void;
 
   /**
-   * Get all avsession descriptors which can be shown on system entrance.
+   * Get all avsession descriptors of the system
    *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES [since 9 - 22]
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES or ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC [since 23]
@@ -113,10 +114,11 @@ declare namespace avSession {
   function getAllSessionDescriptors(): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
-   * Get session descriptors of the system based on different session category.
+   * 获取所有会话描述符
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { SessionCategory } category - Specifies the category of AVSession.
-   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } 返回对应的会话描述符
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -128,11 +130,11 @@ declare namespace avSession {
   function getSessionDescriptors(category: SessionCategory): Promise<Array<Readonly<AVSessionDescriptor>>>;
 
   /**
-   * Get session descriptors for a unique audio zone across different session category.
+   * 获取根据userid查询对应音区的会话
    *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { int } userId - Specifies the user id that belongs to an audio zone.
-   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } Promise for an array of AVSessionDescriptors
+   * @param { int } userId - 用户userid
+   * @returns { Promise<Array<Readonly<AVSessionDescriptor>>> } 返回对应音区的会话列表
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
@@ -215,7 +217,7 @@ declare namespace avSession {
   function getHistoricalAVQueueInfos(maxSize: int, maxAppSize: int): Promise<Array<Readonly<AVQueueInfo>>>;
 
   /**
-   * Create an avsession controller
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { string } sessionId - Specifies the sessionId to create the controller.
    * @param { AsyncCallback<AVSessionController> } callback - async callback for AVSessionController.
@@ -344,11 +346,11 @@ declare namespace avSession {
   function castAudioSessionAll(audioDevices: Array<audio.AudioDeviceDescriptor>): Promise<void>;
 
   /**
-   * Start an application for media playback.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { string } bundleName - Specifies the bundleName which to be started.
    * @param { string } assetId - Specifies the assetId to be started.
-   * @returns { Promise<void> } void promise when executed successfully
+   * @returns { Promise<void> }    * @throws { BusinessError } 201
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App. Interface caller is not a system app.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -362,7 +364,8 @@ declare namespace avSession {
   function startAVPlayback(bundleName: string, assetId: string): Promise<void>;
 
   /**
-   * Start an application for media playback with command info.
+   * 携带启动参数的冷启动应用播放接口
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { string } bundleName - Specifies the bundleName which to be started.
    * @param { string } assetId - Specifies the assetId to be started.
@@ -395,8 +398,10 @@ declare namespace avSession {
   function getDistributedSessionController(distributedSessionType: DistributedSessionType): Promise<Array<AVSessionController>>;
 
   /**
-   * Whether desktop lyric is supported.
-   * @returns { Promise<boolean> } - result returned to indicate desktop lyric is supported.
+   * 是否支持桌面歌词
+   *
+   *
+   * @returns { Promise<boolean> } - 返回是否支持桌面歌词
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @stagemodelonly
@@ -405,7 +410,7 @@ declare namespace avSession {
   function isDesktopLyricSupported(): Promise<boolean>;
 
   /**
-   * Desktop lyric state definition.
+   * 桌面歌词状态
    * @typedef DesktopLyricState
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @stagemodelonly
@@ -413,7 +418,7 @@ declare namespace avSession {
    */
   interface DesktopLyricState {
     /**
-     * Desktop lyric lock state.
+     * 桌面歌词组件状态
      * @type { boolean } Boolean type. The value true means that desktop lyric is locked.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -423,7 +428,7 @@ declare namespace avSession {
   }
 
   /**
-   * Session category for different scenes.
+   * 会话类型
    * @enum { int }
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -432,7 +437,7 @@ declare namespace avSession {
    */
   enum SessionCategory {
     /**
-     * The active session category which can be shown on system control entrance.
+     * 活动的会话，可以在系统控制入口看到的会话
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
@@ -441,7 +446,7 @@ declare namespace avSession {
     CATEGORY_ACTIVE = 1,
 
     /**
-     * The session category which is partially integrated with AVSession function.
+     * 低质量接入会话类型
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
@@ -450,7 +455,7 @@ declare namespace avSession {
     CATEGORY_NOT_ACTIVE = 2,
 
     /**
-     * The all session category including all the applications using AVSession.
+     * 所有会话类型
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
      * @since 22 dynamic
@@ -459,7 +464,7 @@ declare namespace avSession {
     CATEGORY_ALL = 3,
 
     /**
-     * The session category for HiPlay casting AVSession.
+     * 会话类别是HiPlay
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
@@ -470,7 +475,7 @@ declare namespace avSession {
   }
 
   /**
-   * Session token. Used to judge the legitimacy of the session.
+   *
    * @typedef SessionToken
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi
@@ -479,7 +484,7 @@ declare namespace avSession {
    */
   interface SessionToken {
     /**
-     * The unique session id of the avsession object
+     *
      * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
      * @type { string }
      * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -529,7 +534,7 @@ declare namespace avSession {
   /**
    * Register session create callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('sessionCreate' command)
+   * @param { Callback<AVSessionDescriptor> } callback - 会话创建回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -554,7 +559,7 @@ declare namespace avSession {
   /**
    * Register session destroy callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('sessionDestroy' command)
+   * @param { Callback<AVSessionDescriptor> } callback - 会话销毁回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -579,7 +584,7 @@ declare namespace avSession {
   /**
    * Register top session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } callback - Used to handle ('topSessionChange' command)
+   * @param { Callback<AVSessionDescriptor> } callback - Top会话变化回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -604,7 +609,7 @@ declare namespace avSession {
   /**
    * Unregister session create callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('sessionCreate') command
+   * @param { Callback<AVSessionDescriptor> } [callback] - 会话创建回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -655,7 +660,7 @@ declare namespace avSession {
   /**
    * Unregister session destroy callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('sessionDestroy') command
+   * @param { Callback<AVSessionDescriptor> } [callback] - 会话销毁回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -680,7 +685,7 @@ declare namespace avSession {
   /**
    * Unregister top session changed callback
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC
-   * @param { Callback<AVSessionDescriptor> } [callback] - Used to unregister listener for ('topSessionChange') command
+   * @param { Callback<AVSessionDescriptor> } [callback] - Top会话变化回调函数
    * @throws { BusinessError } 201 - permission denied.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -791,10 +796,10 @@ declare namespace avSession {
   function offDistributedSessionChange(distributedSessionType: DistributedSessionType, callback?: Callback<Array<AVSessionController>>): void;
 
   /**
-   * Register a callback for changes to the session of a unique audio zone.
+   * 注册音区会话变化回调
    *
-   * @param { int } userId - the userId that belongs to an audio zone
-   * @param { Callback<AVSessionDescriptor> } callback - Used to handle 'audioZoneSessionChange' command
+   * @param { int } userId - 当前userId最终归属的音区
+   * @param { Callback<AVSessionDescriptor> } callback - 返回的会话列表
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -805,10 +810,11 @@ declare namespace avSession {
   function onAudioZoneSessionChange(userId: int, callback: Callback<AVSessionDescriptor>): void;
 
   /**
-   * Unregister a callback for changes to the session of a unique audio zone.
+   * 取消注册音区对应的会话变化监听
    *
-   * @param { int } userId - the userId that belongs to an audio zone
-   * @param { Callback<AVSessionDescriptor> } [callback] - Used to handle 'audioZoneSessionChange' command
+   * @param { int } userId - 用户id，归属某个音区
+   *     <br>用户userId 所归属的音区
+   * @param { Callback<AVSessionDescriptor> } [callback] - 返回对应音区的会话列表
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Manager
@@ -819,7 +825,7 @@ declare namespace avSession {
   function offAudioZoneSessionChange(userId: int, callback?: Callback<AVSessionDescriptor>): void;
 
   /**
-   * Send system media key event.The system automatically selects the recipient.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { KeyEvent } event - The key event to be sent
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
@@ -855,7 +861,7 @@ declare namespace avSession {
   function sendSystemAVKeyEvent(event: KeyEvent): Promise<void>;
 
   /**
-   * Send system control command.The system automatically selects the recipient.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
    * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
@@ -874,9 +880,9 @@ declare namespace avSession {
   function sendSystemControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
 
   /**
-   * Register system common event callback
+   * 监听系统通用事件命令回调
    *
-   * @param { EventProcess } callback - Used to handle event when the common command is received
+   * @param { EventProcess } callback - 监听通用事件命令回调
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -887,9 +893,9 @@ declare namespace avSession {
   function onSystemCommonEvent(callback: EventProcess): void;
 
   /**
-   * Unregister system common event callback
+   * 取消注册通用事件回调监听
    *
-   * @param { EventProcess } [callback] - Used to handle event when the common command is received
+   * @param { EventProcess } [callback] - 处理事件回调
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 6600101 - Session service exception.
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -900,11 +906,11 @@ declare namespace avSession {
   function offSystemCommonEvent(callback?: EventProcess): void;
 
   /**
-   * Send system control command.The system automatically selects the recipient.
+   * 发送通用事件命令
    *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
-   * @param { string } command - The command name to be sent.
-   * @param { ExtraInfo } args - The parameters of command info
+   * @param { string } command - 通用的控制命令
+   * @param { ExtraInfo } args - 事件参数
    * @returns { Promise<string> } callback info for sync command
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
@@ -919,10 +925,10 @@ declare namespace avSession {
   function sendSystemCommonCommand(command: string, args: ExtraInfo): Promise<string>;
 
   /**
-   * Send system control command.The system automatically selects the recipient.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
-   * @returns { Promise<void> } void promise when executed successfully
+   * @returns { Promise<void> }    * @throws { BusinessError } 201
    * @throws { BusinessError } 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -968,8 +974,6 @@ declare namespace avSession {
    */
   enum ProtocolType {
     /**
-     * The default cast type "local", media can be routed on the same device,
-     * including internal speakers or audio jack on the device itself, A2DP devices.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -979,7 +983,7 @@ declare namespace avSession {
     TYPE_LOCAL = 0,
 
     /**
-     * Cast+ mirror capability
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
      * @since 10 dynamic
@@ -988,8 +992,6 @@ declare namespace avSession {
     TYPE_CAST_PLUS_MIRROR = 1,
 
     /**
-     * The Cast+ Stream indicating the media is presenting on a different device
-     * the application need get an AVCastController to control remote playback.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -999,8 +1001,7 @@ declare namespace avSession {
     TYPE_CAST_PLUS_STREAM = 2,
 
     /**
-     * The DLNA type indicates the device supports DLNA protocol,
-     * the application needs to get an AVCastController to control remote playback.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 12 dynamic
@@ -1056,7 +1057,7 @@ declare namespace avSession {
   }
 
   /**
-   * Start device discovery.
+   *
    * @param { AsyncCallback<void> } callback a callback function
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -1099,7 +1100,7 @@ declare namespace avSession {
   function startCastDeviceDiscovery(filter?: int, drmSchemes?: Array<string>): Promise<void>;
 
   /**
-   * Stop device discovery.
+   *
    * @param { AsyncCallback<void> } callback a callback function
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -1110,8 +1111,8 @@ declare namespace avSession {
   function stopCastDeviceDiscovery(callback: AsyncCallback<void>): void;
 
   /**
-   * Stop device discovery.
-   * @returns { Promise<void> } Promise for the result
+   *
+   * @returns { Promise<void> }    * @throws { BusinessError } 202
    * @throws { BusinessError } 202 - Not System App.
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -1121,7 +1122,7 @@ declare namespace avSession {
   function stopCastDeviceDiscovery(): Promise<void>;
 
   /**
-   * Enable or disable device to be discoverable, used at sink side.
+   *
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
    * @param { AsyncCallback<void> } callback a callback function
    * @throws { BusinessError } 202 - Not System App.
@@ -1135,9 +1136,9 @@ declare namespace avSession {
   function setDiscoverable(enable: boolean, callback: AsyncCallback<void>): void;
 
   /**
-   * Enable or disable device to be discoverable, used at sink side.
+   *
    * @param { boolean } enable true: can be discoverable, false: cannot be discoverable.
-   * @returns { Promise<void> } Promise for the result
+   * @returns { Promise<void> }    * @throws { BusinessError } 202
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Parameter verification failed.
@@ -1309,7 +1310,7 @@ declare namespace avSession {
   function getAVCastController(sessionId: string): Promise<AVCastController | undefined>;
 
   /**
-   * Cast resource to remote device.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { SessionToken } session Specifies the sessionId which is to be casted.
    * @param { OutputDeviceInfo } device Specifies the device to cast.
@@ -1328,11 +1329,11 @@ declare namespace avSession {
   function startCasting(session: SessionToken, device: OutputDeviceInfo, callback: AsyncCallback<void>): void;
 
   /**
-   * Cast resource to remote device.
+   *
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { SessionToken } session Specifies the sessionId which is to be casted.
    * @param { OutputDeviceInfo } device Specifies the device to cast.
-   * @returns { Promise<void> } Promise for the result
+   * @returns { Promise<void> }    * @throws { BusinessError } 201
    * @throws {BusinessError} 201 - permission denied
    * @throws { BusinessError } 202 - Not System App.
    * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1347,7 +1348,7 @@ declare namespace avSession {
   function startCasting(session: SessionToken, device: OutputDeviceInfo): Promise<void>;
 
   /**
-   * Stop current cast and disconnect device connection.
+   *
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
    * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
    * @throws { BusinessError } 202 - Not System App.
@@ -1362,9 +1363,9 @@ declare namespace avSession {
   function stopCasting(session: SessionToken, callback: AsyncCallback<void>): void;
 
   /**
-   * Stop current cast and disconnect device connection.
+   *
    * @param { SessionToken } session Specifies the sessionId which is to be stopped.
-   * @returns { Promise<void> } Promise for the result
+   * @returns { Promise<void> }    * @throws { BusinessError } 202
    * @throws { BusinessError } 202 - Not System App.
    * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
    * 2.Incorrect parameter types. 3.Parameter verification failed.
@@ -1500,7 +1501,7 @@ declare namespace avSession {
    */
   interface DeviceState {
     /**
-     * Unique device descriptor.
+     * 设备唯一描述符
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1510,7 +1511,7 @@ declare namespace avSession {
     readonly deviceId: string;
 
     /**
-     * Device connection state.
+     * Device connection status.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1530,7 +1531,7 @@ declare namespace avSession {
     readonly reasonCode: int;
 
     /**
-     * System radar error code returned by cast+services.
+     * System radar error code returned by cast+ services.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -1541,8 +1542,7 @@ declare namespace avSession {
   }
 
   /**
-   * Registers a system callback for the device connection phase.
-   * The callback includes information such as error codes, connection status, radar errors, and user behavior codes.
+   * 注册设备连接阶段的系统回调，包含错误码、连接状态、雷达错误以及用户行为码。
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'deviceStateChanged' } type - Event type.
    * @param { Callback<DeviceState> } callback - Callback used to return the device information.
@@ -1568,7 +1568,7 @@ declare namespace avSession {
   function onDeviceStateChanged(callback: Callback<DeviceState>): void;
 
   /**
-   * Unregisters a system callback for the device connection phase.
+   * 取消注册设备连接阶段的系统回调
    * @permission ohos.permission.MANAGE_MEDIA_RESOURCES
    * @param { 'deviceStateChanged' } type - Event type.
    * @param { Callback<DeviceState> } [callback] - Callback used to return the device information.
@@ -1593,7 +1593,7 @@ declare namespace avSession {
   function offDeviceStateChanged(callback?: Callback<DeviceState>): void;
 
   /**
-   * Session type supports audio & video, voice_call, video_call, photo
+   * Session type, support audio & video
    *
    * @unionmember { 'audio' } audio type [since 10]
    * @unionmember { 'video' } video type [since 10]
@@ -1610,7 +1610,7 @@ declare namespace avSession {
   /**
    * The general process funcation with an event and arguments.
    *
-   * @param { string } event - request event
+   * @param { string } event - 请求事件。
    * @param { Record<string, Object> } args - arguments associated with event
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
@@ -1620,7 +1620,7 @@ declare namespace avSession {
   /**
    * The connection event supplied by system to indicate device state and information.
    *
-   * @param { ConnectionState } state - device connection state
+   * @param { ConnectionState } state - 设备连接状态。
    * @param { OutputDeviceInfo } device - device information
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @since 23 static
@@ -1630,19 +1630,18 @@ declare namespace avSession {
   /**
    * The video size event.
    *
-   * @param { int } width - video width
-   *     The value range is all integers
-   *     The value should be an integer.
-   * @param { int } height - video height
-   *     The value range is all integers
-   *     The value should be an integer.
+   * @param { int } width - 视频宽度。
+   *     取值范围为全体整数
+   *     取值限定为整数。
+   * @param { int } height - video width
+   *     取值范围为全体整数
+   *     取值限定为整数。
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 23 static
    */
   type VideoSizeEvent = (width: int, height: int) => void;
 
   /**
-   * AVSession object.
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -1651,7 +1650,6 @@ declare namespace avSession {
    */
   interface AVSession {
     /**
-     * unique session Id
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -1661,7 +1659,6 @@ declare namespace avSession {
     readonly sessionId: string;
 
     /**
-     * Get current session type
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -1696,8 +1693,6 @@ declare namespace avSession {
     setAVMetadata(data: AVMetadata, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the metadata of this session.
-     * In addition to the required properties, users can fill in partially supported properties
      *
      * @param { AVMetadata } data {@link AVMetadata}
      * @returns { Promise<void> } void promise when executed successfully
@@ -1713,7 +1708,7 @@ declare namespace avSession {
     setAVMetadata(data: AVMetadata): Promise<void>;
 
     /**
-     * Set the metadata related with current call.
+     *
      * @param { CallMetadata } data - {@link CallMetadata}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1741,7 +1736,7 @@ declare namespace avSession {
     setCallMetadata(data: CallMetadata): Promise<void>;
 
     /**
-     * Set the playback state of this session.
+     *
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1755,7 +1750,6 @@ declare namespace avSession {
     setAVPlaybackState(state: AVPlaybackState, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the playback state of this session.
      *
      * @param { AVPlaybackState } state {@link AVPlaybackState}
      * @returns { Promise<void> } void promise when executed successfully
@@ -1771,7 +1765,7 @@ declare namespace avSession {
     setAVPlaybackState(state: AVPlaybackState): Promise<void>;
 
     /**
-     * Set the call state of this session.
+     *
      * @param { AVCallState } state - {@link AVCallState}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1813,7 +1807,6 @@ declare namespace avSession {
     setLaunchAbility(ability: WantAgent, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the ability to start the session corresponding to
      *
      * @param { WantAgent } ability - The WantAgent for launch the ability
      * @returns { Promise<void> } void promise when executed successfully
@@ -1829,7 +1822,7 @@ declare namespace avSession {
     setLaunchAbility(ability: WantAgent): Promise<void>;
 
     /**
-     * Dispatch the session event of this session.
+     *
      * @param { string } event - Session event name to dispatch
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void>} callback - The asyncCallback triggered when the command is executed successfully
@@ -1845,6 +1838,7 @@ declare namespace avSession {
 
     /**
      * Dispatch the session event of this session.
+     *
      * @param { string } event - Session event name to dispatch
      * @param { Record<string, Object> } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
@@ -1857,7 +1851,6 @@ declare namespace avSession {
     dispatchSessionEvent(event: string, args: Record<string, Object>, callback: AsyncCallback<void>): void;
 
     /**
-     * Dispatch the session event of this session.
      *
      * @param { string } event - Session event name to dispatch
      * @param { object } args - The parameters of session event
@@ -1887,7 +1880,7 @@ declare namespace avSession {
     dispatchSessionEvent(event: string, args: Record<string, Object>): Promise<void>;
 
     /**
-     * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
+     *
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1901,7 +1894,6 @@ declare namespace avSession {
     setAVQueueItems(items: Array<AVQueueItem>, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the playlist of queueItem. Identifies the content of the playlist presented by this session.
      *
      * @param { Array<AVQueueItem> } items - An array of the AVQueueItem
      * @returns { Promise<void> } void promise when executed successfully
@@ -1917,7 +1909,7 @@ declare namespace avSession {
     setAVQueueItems(items: Array<AVQueueItem>): Promise<void>;
 
     /**
-     * Set the name of the playlist presented by this session.
+     *
      * @param { string } title - The name of the playlist
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1931,7 +1923,6 @@ declare namespace avSession {
     setAVQueueTitle(title: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the name of the playlist presented by this session.
      *
      * @param { string } title - The name of the playlist
      * @returns { Promise<void> } void promise when executed successfully
@@ -1947,7 +1938,7 @@ declare namespace avSession {
     setAVQueueTitle(title: string): Promise<void>;
 
     /**
-     * Set the custom media packets for this session.
+     *
      * @param { object } extras - The custom media packets
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -1964,7 +1955,9 @@ declare namespace avSession {
      * Set the custom media packets for this session.
      *
      * @param { Record<string, Object> } extras - The custom media packets
+     *     <br>设置的应用自定义扩展参数
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
+     *     <br>回调返回
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -1974,7 +1967,6 @@ declare namespace avSession {
     setExtras(extras: Record<string, Object>, callback: AsyncCallback<void>): void;
 
     /**
-     * Set the custom media packets for this session.
      *
      * @param { object } extras - The custom media packets
      * @returns { Promise<void> } void promise when executed successfully
@@ -2002,10 +1994,10 @@ declare namespace avSession {
     setExtras(extras: Record<string, Object>): Promise<void>;
 
     /**
-     * Set supported speeds supplied by application.
+     * 设置应用程序提供的支持播放倍速范围。
      *
-     * @param { Array<double> } speeds - supported speeds
-     * @returns { Promise<void> } Promise that returns no value.
+     * @param { Array<double> } speeds - 支持的速度
+     * @returns { Promise<void> } promise 返回
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2016,9 +2008,9 @@ declare namespace avSession {
     setSupportedPlaySpeeds(speeds: Array<double>): Promise<void>;
 
     /**
-     * Set supported loop modes supplied by application.
+     * 设置应用程序提供的支持的循环模式。
      *
-     * @param { Array<LoopMode> } loopModes - supported loop modes.
+     * @param { Array<LoopMode> } loopModes - 支持的环路模式。
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2030,9 +2022,9 @@ declare namespace avSession {
     setSupportedLoopModes(loopModes: Array<LoopMode>): Promise<void>;
 
     /**
-     * Enable desktop lyric for this session.
-     * @param { boolean } enable - The enable status indicating to using system desktop lyric feature or not
-     * @returns { Promise<void> } void promise when executed successfully
+     * 打开或者关闭桌面歌词
+     * @param { boolean } enable - 打开或者关闭
+     * @returns { Promise<void> } 无返回值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600111 - The desktop lyrics feature is not supported.
@@ -2043,8 +2035,8 @@ declare namespace avSession {
     enableDesktopLyric(enable: boolean): Promise<void>;
 
     /**
-     * Set desktop lyric visible state for this session.
-     * @param { boolean } visible - make desktop lyric window visible or not
+     * 设置桌面歌词是否显示/隐藏
+     * @param { boolean } visible - 显示或者隐藏状态
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2057,8 +2049,8 @@ declare namespace avSession {
     setDesktopLyricVisible(visible: boolean): Promise<void>;
 
     /**
-     * Query desktop lyric visible state for this session.
-     * @returns { Promise<boolean> } return desktop lyric visible state
+     * 查询桌面歌词是否显示或者隐藏
+     * @returns { Promise<boolean> } 返回显示或者隐藏的状态
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
@@ -2070,7 +2062,7 @@ declare namespace avSession {
     isDesktopLyricVisible(): Promise<boolean>;
 
     /**
-     * Register desktop lyric visible state change callback.
+     * 监听桌面歌词显示状态变化
      * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2081,7 +2073,7 @@ declare namespace avSession {
     onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
 
     /**
-     * Unregister desktop lyric visible state change callback.
+     * 取消监听桌面歌词显示状态变化
      * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2092,9 +2084,9 @@ declare namespace avSession {
     offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
 
     /**
-     * Set desktop lyric state such as lock state for this session.
-     * @param { DesktopLyricState } state - The desktop lyric state
-     * @returns { Promise<void> } void promise when executed successfully
+     * 设置桌面歌词状态
+     * @param { DesktopLyricState } state - 桌面歌词状态
+     * @returns { Promise<void> } 无返回值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
@@ -2106,8 +2098,8 @@ declare namespace avSession {
     setDesktopLyricState(state: DesktopLyricState): Promise<void>;
 
     /**
-     * Get desktop lyric state such as lock state for this session.
-     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * 查询返回桌面歌词状态
+     * @returns { Promise<DesktopLyricState> } 桌面歌词状态值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600110 - The desktop lyrics feature of this application is not enabled.
@@ -2119,8 +2111,8 @@ declare namespace avSession {
     getDesktopLyricState(): Promise<DesktopLyricState>;
 
     /**
-     * Register desktop lyric state changed callback.
-     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * 注册桌面歌词状态回调
+     * @param { Callback<DesktopLyricState> } callback - 桌面歌词状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2130,8 +2122,8 @@ declare namespace avSession {
     onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
 
     /**
-     * Unregister desktop lyric state changed callback.
-     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * 取消桌面歌词锁定等状态回调
+     * @param { Callback<DesktopLyricState> } [callback] - 桌面歌词锁定等状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2141,14 +2133,12 @@ declare namespace avSession {
     offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
 
     /**
-     * Set the background playback mode.
-     * It is recommended that you associate it with the background playback switch in the app.
-     * If not set, the default value for 'audio' session is {@link ENABLE_BACKGROUND_PLAY} and
-     * the default value for 'video' session is {@link DISABLE_BACKGROUND_PLAY}.
+     * 设置后台播放模式
      *
-     * @param { BackgroundPlayMode } mode - Background Playback Mode.
+     * @param { BackgroundPlayMode } mode - 后台播放模式
+     *     <br>后台播放模式
      * @returns { Promise<void> }
-     * @throws { BusinessError } 6600101 - Session service exception.
+     通过promise方式返回
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -2157,12 +2147,9 @@ declare namespace avSession {
     setBackgroundPlayMode(mode: BackgroundPlayMode): Promise<void>;
 
     /**
-     * Set media control types that can be displayed on the media center.
+     * 设置媒体播放器上可显示的媒体控制类型。
      *
-     * @param { Array<AVMediaCenterControlType> } type - The control type that can be displayed on the media center.
-     *     If the priority of control type is not set, the media center will display based on {@link AVSessionType}.
-     *     The control type set must be registered by {@link on}, the media center prioritizes displaying
-     *     the set control types.
+     * @param { Array<AVMediaCenterControlType> } type - 可在媒体播放器上显示的控件类型。
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2173,7 +2160,7 @@ declare namespace avSession {
     setMediaCenterControlType(type: Array<AVMediaCenterControlType>): Promise<void>;
 
     /**
-     * Get the current session's own controller
+     *
      * @param { AsyncCallback<AVSessionController> } callback - async callback for the AVSessionController.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -2184,7 +2171,6 @@ declare namespace avSession {
     getController(callback: AsyncCallback<AVSessionController>): void;
 
     /**
-     * Get the current session's own controller
      *
      * @returns { Promise<AVSessionController> } Promise for the AVSessionController
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2255,7 +2241,6 @@ declare namespace avSession {
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
 
     /**
-     * Get output device information
      *
      * @returns { Promise<OutputDeviceInfo> } Promise for the OutputDeviceInfo
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2268,7 +2253,6 @@ declare namespace avSession {
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
     /**
-     * Get output device information
      *
      * @returns { OutputDeviceInfo } the OutputDeviceInfo
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2313,9 +2297,8 @@ declare namespace avSession {
     on(type: 'play', callback: () => void): void;
 
     /**
-     * Register play command callback.
-     * The application will receive {@link CommandInfo} from a controller.
-     * @param { Callback<CommandInfo> } callback - Used to handle ('play') command
+     * 注册play的回调监听
+     * @param { Callback<CommandInfo> } callback - play的回调监听
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2415,9 +2398,8 @@ declare namespace avSession {
     on(type: 'playNext', callback: () => void): void;
 
     /**
-     * Register playNext command callback.
-     * The application will receive {@link CommandInfo} from a controller.
-     * @param { Callback<CommandInfo> } callback - Used to handle ('playNext') command
+     * 注册playNext的回调监听
+     * @param { Callback<CommandInfo> } callback - playNext的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2447,9 +2429,8 @@ declare namespace avSession {
     on(type: 'playPrevious', callback: () => void): void;
 
     /**
-     * Register playPrevious command callback.
-     * The application will receive {@link CommandInfo} from a controller.
-     * @param { Callback<CommandInfo> } callback - Used to handle ('playPrevious') command
+     * 注册playPrevious的回调监听
+     * @param { Callback<CommandInfo> } callback - playPrevious的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2480,10 +2461,8 @@ declare namespace avSession {
     on(type: 'fastForward', callback: (time ?: long) => void): void;
 
     /**
-     * Register fastForward command callback.
-     * The application will receive forward time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('fastForward') command,
-     *     described by milliseconds.
+     * 注册fastForward的回调监听
+     * @param { TwoParamCallback<long, CommandInfo> } callback - fastForward的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2513,9 +2492,8 @@ declare namespace avSession {
     on(type: 'rewind', callback: (time ?: long) => void): void;
 
     /**
-     * Register rewind command callback.
-     * The application will receive rewind time and {@link CommandInfo} from a controller.
-     * @param { TwoParamCallback<long, CommandInfo> } callback - Used to handle ('rewind') command
+     * 注册rewind 的回调监听
+     * @param { TwoParamCallback<long, CommandInfo> } callback - rewind 的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2541,9 +2519,8 @@ declare namespace avSession {
     off(type: 'play', callback?: () => void): void;
 
     /**
-     * Unregister play command callback.
-     * When canceling the callback, need to update the supported commands list.
-     * @param { Callback<CommandInfo> } [callback] - Used to handle ('play') command
+     * 取消play的回调监听
+     * @param { Callback<CommandInfo> } [callback] - 消play的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2623,9 +2600,8 @@ declare namespace avSession {
     off(type: 'playNext', callback?: () => void): void;
 
     /**
-     * Unregister playNext command callback.
-     * When canceling the callback, need to update the supported commands list.
-     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playNext') command
+     * 取消playNext 的回调监听
+     * @param { Callback<CommandInfo> } [callback] - playNext 的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2651,9 +2627,8 @@ declare namespace avSession {
     off(type: 'playPrevious', callback?: () => void): void;
 
     /**
-     * Unregister playPrevious command callback.
-     * When canceling the callback, need to update the supported commands list.
-     * @param { Callback<CommandInfo> } [callback] - Used to handle ('playPrevious') command
+     * 取消playPrevious的回调监听
+     * @param { Callback<CommandInfo> } [callback] - playPrevious的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2679,9 +2654,8 @@ declare namespace avSession {
     off(type: 'fastForward', callback?: () => void): void;
 
     /**
-     * Unregister fastForward command callback.
-     * When canceling the callback, need to update the supported commands list.
-     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('fastForward') command
+     * 取消fastForward的回调监听
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - fastForward的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2707,9 +2681,8 @@ declare namespace avSession {
     off(type: 'rewind', callback?: () => void): void;
 
     /**
-     * Unregister rewind command callback.
-     * When canceling the callback, need to update the supported commands list.
-     * @param { TwoParamCallback<long, CommandInfo> } [callback] - Used to handle ('rewind') command
+     * 取消rewind的回调监听
+     * @param { TwoParamCallback<long, CommandInfo> } [callback] - rewind的回调监听函数
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -2758,7 +2731,7 @@ declare namespace avSession {
     off(type: 'playFromAssetId', callback?: (assetId: number) => void): void;
 
     /**
-     * Subscribes to playWithAssetId events.
+     * 订阅playWithAssetId回调
      * @param { 'playWithAssetId' } type - Event type.
      * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -2780,7 +2753,7 @@ declare namespace avSession {
     onPlayWithAssetId(callback: Callback<string>): void;
 
     /**
-     * Unsubscribes from playWithAssetId events.
+     * 取消订阅playWithAssetId事件
      * @param { 'playWithAssetId' } type - Event type.
      * @param { Callback<string> } callback - Callback used to handle the 'playWithAssetId' command.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3164,7 +3137,6 @@ declare namespace avSession {
     offOutputDeviceChange(callback?: ConnectionEvent): void;
 
     /**
-     * Register session custom command change callback
      *
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to handle event when the common command is received
@@ -3192,7 +3164,6 @@ declare namespace avSession {
     onCommonCommand(callback: EventProcess): void;
 
     /**
-     * Unregister session custom command change callback
      *
      * @param { 'commonCommand' } type - Registration Type 'commonCommand'
      * @param { function } callback - Used to cancel a specific listener
@@ -3541,7 +3512,7 @@ declare namespace avSession {
     sendCustomData(data: Record<string, Object>): Promise<void>;
 
     /**
-     * Stop current cast and disconnect device connection.
+     *
      * @param { AsyncCallback<void> } callback A callback instance used to return when cast stopped completed.
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3551,7 +3522,6 @@ declare namespace avSession {
     stopCasting(callback: AsyncCallback<void>): void;
 
     /**
-     * Stop current cast and disconnect device connection.
      *
      * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600109 - The remote connection is not established
@@ -3563,7 +3533,7 @@ declare namespace avSession {
     stopCasting(): Promise<void>;
 
     /**
-     * Activate the session, indicating that the session can accept control commands
+     *
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the session is activated.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -3574,7 +3544,6 @@ declare namespace avSession {
     activate(callback: AsyncCallback<void>): void;
 
     /**
-     * Activate the session, indicating that the session can accept control commands
      *
      * @returns { Promise<void> } void result promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3587,7 +3556,7 @@ declare namespace avSession {
     activate(): Promise<void>;
 
     /**
-     * Deactivate the session, indicating that the session not ready to accept control commands
+     *
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the session is deactivated.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -3598,7 +3567,6 @@ declare namespace avSession {
     deactivate(callback: AsyncCallback<void>): void;
 
     /**
-     * Deactivate the session, indicating that the session not ready to accept control commands
      *
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3611,7 +3579,7 @@ declare namespace avSession {
     deactivate(): Promise<void>;
 
     /**
-     * Destroy this session, the server will clean up the session resources
+     *
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -3622,7 +3590,6 @@ declare namespace avSession {
     destroy(callback: AsyncCallback<void>): void;
 
     /**
-     * Destroy this session, the server will clean up the session resources
      *
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -3636,7 +3603,6 @@ declare namespace avSession {
   }
 
   /**
-   * The type of control command
    *
    * @unionmember { 'play' } Play the current media. [since 10]
    * @unionmember { 'pause' } Pause the current media. [since 10]
@@ -3660,7 +3626,6 @@ declare namespace avSession {
   'seek' | 'setVolume' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'toggleMute';
 
   /**
-   * The definition of cast command to be sent to the session
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice [since 12]
@@ -3669,7 +3634,7 @@ declare namespace avSession {
    */
   interface AVCastControlCommand {
     /**
-     * The command value {@link AVCastControlCommandType}
+     *
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -3696,7 +3661,6 @@ declare namespace avSession {
   }
 
   /**
-   * AVCastController definition used to implement a remote control when a cast is connected
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @atomicservice [since 12]
@@ -3705,7 +3669,7 @@ declare namespace avSession {
    */
   interface AVCastController {
     /**
-     * Set a surface instance to display playing view, used at sink side.
+     *
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
      * @param { AsyncCallback<void> } callback - A callback instance used to return when set surface completed.
      * @throws { BusinessError } 202 - Not System App.
@@ -3720,9 +3684,9 @@ declare namespace avSession {
     setDisplaySurface(surfaceId: string, callback: AsyncCallback<void>): void;
 
     /**
-     * Set a surface instance to display playing view, used at sink side.
+     *
      * @param { string } surfaceId - surface id, video player will use this id get a surface instance.
-     * @returns { Promise<void> } Promise used to return the result.
+     * @returns { Promise<void> }      * @throws { BusinessError } 202
      * @throws { BusinessError } 202 - Not System App.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      * 2.Parameter verification failed.
@@ -3735,7 +3699,7 @@ declare namespace avSession {
     setDisplaySurface(surfaceId: string): Promise<void>;
 
     /**
-     * Get the playback status of the current player
+     *
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3745,7 +3709,6 @@ declare namespace avSession {
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
 
     /**
-     * Get the playback status of the current player
      *
      * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception
@@ -3802,7 +3765,7 @@ declare namespace avSession {
     getSupportedPlaySpeeds(): Promise<Array<double>>;
 
     /**
-     * Send control commands to remote player
+     *
      * @param { AVCastControlCommand } command The command to be send.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -3817,7 +3780,6 @@ declare namespace avSession {
     sendControlCommand(command: AVCastControlCommand, callback: AsyncCallback<void>): void;
 
     /**
-     * Send control commands to remote player
      *
      * @param { AVCastControlCommand } command The command to be send.
      * @returns { Promise<void> } Promise used to return the result.
@@ -3834,7 +3796,7 @@ declare namespace avSession {
     sendControlCommand(command: AVCastControlCommand): Promise<void>;
 
     /**
-     * Play the current item, should contain mediaUri otherwise the playback will fail.
+     *
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -3848,7 +3810,6 @@ declare namespace avSession {
     start(item: AVQueueItem, callback: AsyncCallback<void>): void;
 
     /**
-     * Play the current item, should contain mediaUri otherwise the playback will fail.
      *
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
@@ -3864,7 +3825,7 @@ declare namespace avSession {
     start(item: AVQueueItem): Promise<void>;
 
     /**
-     * Load the current item and mediaUri can be null, this is needed for sink media information displaying
+     *
      * @param { AVQueueItem } item media item info.
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully
      * @throws {BusinessError} 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -3878,7 +3839,6 @@ declare namespace avSession {
     prepare(item: AVQueueItem, callback: AsyncCallback<void>): void;
 
     /**
-     * Load the current item and mediaUri can be null, this is needed for sink media information displaying
      *
      * @param { AVQueueItem } item media item info.
      * @returns { Promise<void> } Promise used to return the result.
@@ -3894,11 +3854,10 @@ declare namespace avSession {
     prepare(item: AVQueueItem): Promise<void>;
 
     /**
-     * Update media info for current item.
-     * It is used to update title or media image for sink player or media center, if you need to refresh media url,
-     * use { @link prepare } and { @link start } instead.
-     * @param { AVQueueItem } item - media item info.
-     * @returns { Promise<void> } Promise used to return the result.
+     * 更新投播媒体信息
+     *
+     * @param { AVQueueItem } item - 媒体信息item
+     * @returns { Promise<void> } 通过promise回调成功
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600109 - The remote connection is not established
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3908,7 +3867,7 @@ declare namespace avSession {
     update(item: AVQueueItem): Promise<void>;
 
     /**
-     * Get the current playing item
+     *
      * @param { AsyncCallback<AVQueueItem> } callback - The triggered asyncCallback.
      * @throws { BusinessError } 6600101 - Session service exception
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3918,7 +3877,6 @@ declare namespace avSession {
     getCurrentItem(callback: AsyncCallback<AVQueueItem>): void;
 
     /**
-     * Get the current playing item
      *
      * @returns { Promise<AVQueueItem> } (AVQueueItem) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception
@@ -3930,7 +3888,7 @@ declare namespace avSession {
     getCurrentItem(): Promise<AVQueueItem>;
 
     /**
-     * Get commands supported by the current cast controller
+     *
      * @param { AsyncCallback<Array<AVCastControlCommandType>> } callback - The triggered asyncCallback when (getValidCommands).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3940,8 +3898,8 @@ declare namespace avSession {
     getValidCommands(callback: AsyncCallback<Array<AVCastControlCommandType>>): void;
 
     /**
-     * Get commands supported by the current cast controller
-     * @returns { Promise<Array<AVCastControlCommandType>> } array of AVCastControlCommandType promise
+     *
+     * @returns { Promise<Array<AVCastControlCommandType>> }      * @throws { BusinessError } 6600101
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 11 dynamic
@@ -3977,7 +3935,7 @@ declare namespace avSession {
     sendCustomData(data: Record<string, Object>): Promise<void>;
 
     /**
-     * Destroy the controller
+     *
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -3987,7 +3945,6 @@ declare namespace avSession {
     release(callback: AsyncCallback<void>): void;
 
     /**
-     * Destroy the controller
      *
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -4335,7 +4292,7 @@ declare namespace avSession {
     offSeekDone(): void;
 
     /**
-     * Register the valid commands of the casted session changed callback
+     *
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
      * The callback function provides an array of AVCastControlCommandType.
@@ -4361,7 +4318,7 @@ declare namespace avSession {
     onValidCommandChange(callback: Callback<Array<AVCastControlCommandType>>): void;
 
     /**
-     * Unregister the valid commands of the casted session changed callback
+     *
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { Callback<Array<AVCastControlCommandType>> } callback - The callback used to handle the changes.
      * The callback function provides an array of AVCastControlCommandType.
@@ -4980,6 +4937,7 @@ declare namespace avSession {
      * For example, the audio output device will be switched to earpiece for voice call and
      * to speaker for video call on phone.
      *
+     *
      * @returns { Promise<void> } void promise when executed successfully
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5034,7 +4992,7 @@ declare namespace avSession {
   }
 
   /**
-   * Position definition of one component on which the menu will bind and popup.
+   * Menu组件弹出绑定的控件位置。
    *
    * @typedef MenuPosition
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -5044,7 +5002,7 @@ declare namespace avSession {
    */
   interface MenuPosition {
     /**
-     * Coordinate x of the position of the component.
+     * 组件位置描述，水平方向坐标值。
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5054,7 +5012,7 @@ declare namespace avSession {
     x: int;
 
     /**
-     * Coordinate y of the position of the component.
+     * Menu绑定的组件位置定义
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5064,7 +5022,7 @@ declare namespace avSession {
     y: int;
 
     /**
-     * Component width.
+     * 组件宽度
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5074,7 +5032,7 @@ declare namespace avSession {
     width: int;
 
     /**
-     * Component height.
+     * 组件高度
      * @type { int }
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -5107,7 +5065,7 @@ declare namespace avSession {
     sessionType?: AVSessionType;
 
     /**
-     * Set the picker style.
+     * picker样式
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 dynamic
@@ -5116,7 +5074,7 @@ declare namespace avSession {
     pickerStyle?: AVCastPickerStyle;
 
     /**
-     * Set the popup menu position if pickerStyle is set to STYLE_MENU.
+     * 设置Menu样式弹出绑定的组件位置参数，设置样式为STYLE_MENU时有效。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @since 22 dynamic
@@ -5126,7 +5084,7 @@ declare namespace avSession {
   }
 
   /**
-   * The callback of key request.
+   *
    *
    * @param { string } assetId - request key for current assetId
    * @param { Uint8Array } requestData - media key request data sent to media key server
@@ -5168,7 +5126,6 @@ declare namespace avSession {
   }
 
   /**
-   * Define the information for extended display screen.
    *
    * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
    * @atomicservice
@@ -5188,7 +5145,6 @@ declare namespace avSession {
     id: long;
 
     /**
-     * Display name.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
@@ -5198,7 +5154,6 @@ declare namespace avSession {
     name: string;
 
     /**
-     * The state of display.
      *
      * @syscap SystemCapability.Multimedia.AVSession.ExtendedDisplayCast
      * @atomicservice
@@ -5229,7 +5184,7 @@ declare namespace avSession {
   }
 
   /**
-   * Audio capabilities.
+   * 音频设备的能力定义
    *
    * @typedef AudioCapabilities
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -5239,7 +5194,7 @@ declare namespace avSession {
    */
   interface AudioCapabilities {
     /**
-     * Audio stream information.
+     * 音频设备的能力描述
      * @type { Array<audio.AudioStreamInfo> }
      * @readonly
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
@@ -5260,7 +5215,6 @@ declare namespace avSession {
    */
   enum ConnectionState {
     /**
-     * A connection state indicating the device is in the process of connecting.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5270,7 +5224,6 @@ declare namespace avSession {
     STATE_CONNECTING = 0,
 
     /**
-     * A connection state indicating the device is connected.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5280,7 +5233,6 @@ declare namespace avSession {
     STATE_CONNECTED = 1,
 
     /**
-     * The default connection state indicating the device is disconnected.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5290,7 +5242,7 @@ declare namespace avSession {
     STATE_DISCONNECTED = 6,
 
     /**
-     * Authenticating with a remote device.
+     * 设备鉴权状态
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5301,7 +5253,7 @@ declare namespace avSession {
     STATE_AUTHENTICATING = 10,
 
     /**
-     * Mirroring to the stream.
+     * 镜像转资源投播状态
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5312,7 +5264,7 @@ declare namespace avSession {
     STATE_MIRROR_TO_STREAM = 11,
 
     /**
-     * Streaming to the mirror.
+     * 资源投播转镜像状态
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5332,7 +5284,7 @@ declare namespace avSession {
    */
   enum DisplayTag {
     /**
-     * Indicate the AUDIO VIVID property of current media resource.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
      * @since 23 static
@@ -5433,7 +5385,7 @@ declare namespace avSession {
   }
 
   /**
-   * The play list information definition.
+   *
    * @interface AVQueueInfo
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @systemapi
@@ -5442,7 +5394,6 @@ declare namespace avSession {
    */
   interface AVQueueInfo {
     /**
-     * The bundle name of application which current play list belongs to.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5452,7 +5403,6 @@ declare namespace avSession {
     bundleName: string;
 
     /**
-     * The name of play list
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5462,7 +5412,6 @@ declare namespace avSession {
     avQueueName: string;
 
     /**
-     * The id of play list
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5472,7 +5421,6 @@ declare namespace avSession {
     avQueueId: string;
 
     /**
-     * The artwork of play list, can be a {@link PixelMap} or a URI formatted string,
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5494,7 +5442,7 @@ declare namespace avSession {
   }
 
   /**
-   * Define some common extra keys used in different scenarios.
+   * 扩展参数枚举定义
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @stagemodelonly
@@ -5503,7 +5451,7 @@ declare namespace avSession {
    */
   enum ExtraKey {
     /**
-     * Set required abilities to the system.
+     * 应用支持的能力集合设置
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -5513,7 +5461,7 @@ declare namespace avSession {
     REQUIRE_ABILITY_LIST = 'requireAbilityList',
 
     /**
-     * Informs the system that the app supports URL casting.
+     * 支持资源投播
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -5523,7 +5471,7 @@ declare namespace avSession {
     SUPPORT_URL_CASTING = 'url-cast',
 
     /**
-     * Inform the system that the live view card should be hidden on the keyguard.
+     * 支持在锁屏上显示实况窗
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @systemapi
@@ -5534,7 +5482,7 @@ declare namespace avSession {
     LIVE_VIEW_HIDDEN_WHEN_KEYGUARD = 'hw_live_view_hidden_when_keyguard',
 
     /**
-     * Key for DLNA CurrentURIMetadata extra parameter.
+     * DLNA 扩展参数 CurrentURIMetadata
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -5544,7 +5492,7 @@ declare namespace avSession {
     DLNA_CURRENT_URI_METADATA = 'CurrentURIMetadata',
 
     /**
-     * Key for DLNA DIDL-Lite extra parameter.
+     * DLNA 扩展参数 DIDL-Lite
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -5555,7 +5503,6 @@ declare namespace avSession {
   }
 
   /**
-   * The metadata of the current media.Used to set the properties of the current media file
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -5564,7 +5511,6 @@ declare namespace avSession {
    */
   interface AVMetadata {
     /**
-     * Unique ID used to represent this media.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5574,7 +5520,6 @@ declare namespace avSession {
     assetId: string;
 
     /**
-     * The title of this media, for display in media center.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5584,7 +5529,6 @@ declare namespace avSession {
     title?: string;
 
     /**
-     * The artist of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5594,7 +5538,6 @@ declare namespace avSession {
     artist?: string;
 
     /**
-     * The author of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5604,7 +5547,6 @@ declare namespace avSession {
     author?: string;
 
     /**
-     * The name of play list which current media belongs to
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 12 dynamic
@@ -5613,7 +5555,6 @@ declare namespace avSession {
     avQueueName?: string;
 
     /**
-     * The id of play list which current media belongs to, it should be an unique identifier in the application.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -5622,7 +5563,6 @@ declare namespace avSession {
     avQueueId?: string;
 
     /**
-     * The artwork of play list as a {@link PixelMap} or an uri formatted String,
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -5631,7 +5571,6 @@ declare namespace avSession {
     avQueueImage?: image.PixelMap | string;
 
     /**
-     * The album of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5641,7 +5580,6 @@ declare namespace avSession {
     album?: string;
 
     /**
-     * The writer of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5651,7 +5589,6 @@ declare namespace avSession {
     writer?: string;
 
     /**
-     * The composer of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10 dynamic
@@ -5660,7 +5597,7 @@ declare namespace avSession {
     composer?: string;
 
     /**
-     * The duration of this media, used to automatically calculate playback position, described by milliseconds.
+     * The duration of this media, used to automatically calculate playback position
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5670,8 +5607,6 @@ declare namespace avSession {
     duration?: long;
 
     /**
-     * The image of the media as a {@link PixelMap} or an uri formatted String,
-     * used to display in media center.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5681,7 +5616,6 @@ declare namespace avSession {
     mediaImage?: image.PixelMap | string;
 
     /**
-     * The image of the bundle icon as a {@link PixelMap}, no need to be set by application.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 18 dynamic
@@ -5690,7 +5624,6 @@ declare namespace avSession {
     readonly bundleIcon?: image.PixelMap;
 
     /**
-     * The publishDate of the media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10 dynamic
@@ -5699,7 +5632,6 @@ declare namespace avSession {
     publishDate?: Date;
 
     /**
-     * The subtitle of the media, used for display
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5709,7 +5641,6 @@ declare namespace avSession {
     subtitle?: string;
 
     /**
-     * The description of the media, used for display
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5719,7 +5650,6 @@ declare namespace avSession {
     description?: string;
 
     /**
-     * The lyric of the media, it should be in standard lyric format
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 10 dynamic
@@ -5738,8 +5668,6 @@ declare namespace avSession {
     singleLyricText?: string;
 
     /**
-     * The previous playable media id.
-     * Used to tell the controller if there is a previous playable media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5749,8 +5677,6 @@ declare namespace avSession {
     previousAssetId?: string;
 
     /**
-     * The next playable media id.
-     * Used to tell the controller if there is a next playable media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5771,7 +5697,6 @@ declare namespace avSession {
     filter?: int;
 
     /**
-     * The drm schemes supported by this session which are represented by uuid.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 12 dynamic
@@ -5780,8 +5705,6 @@ declare namespace avSession {
     drmSchemes?: Array<string>;
 
     /**
-     * The supported skipIntervals when doing fast forward and rewind operation, the default is {@link SECONDS_15}.
-     * See {@link SkipIntervals}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -5802,10 +5725,10 @@ declare namespace avSession {
     rewindSkipIntervals?: SkipIntervals;
 
     /**
-     * The supported skipIntervals when doing fast forward operation, the default is {@link SECONDS_15}.
-     * The system will use this value for fastforward skip intervals instead of {@link skipIntervals}.
-     * If not set, the fast forward skip intervals still use {@link skipIntervals}.
-     * See {@link SkipIntervals}
+     * 执行快进操作时支持的skipIntervals，默认为{@link}。
+     * 系统将为快进跳过间隔使用此值，而不是{@link SkipIntervals}。
+     * 如果未设置，则快进跳过间隔仍然使用{@link SkipIntervals}。
+     * 请参阅{@link SkipIntervals}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -5824,7 +5747,6 @@ declare namespace avSession {
   }
 
   /**
-   * The description of the media for an item in the playlist of the session
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -5833,7 +5755,6 @@ declare namespace avSession {
    */
   interface AVMediaDescription {
     /**
-     * Unique ID used to represent this media.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5842,7 +5763,6 @@ declare namespace avSession {
      */
     assetId: string;
     /**
-     * The title of this media, for display in media center.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5852,7 +5772,6 @@ declare namespace avSession {
     title?: string;
 
     /**
-     * The subtitle of the media, used for display
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5862,7 +5781,6 @@ declare namespace avSession {
     subtitle?: string;
 
     /**
-     * The description of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5872,8 +5790,6 @@ declare namespace avSession {
     description?: string;
 
     /**
-     * The image of this media asset displayed in the media center.
-     * It can be a {@link PixelMap} or a URI formatted string,
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5882,7 +5798,6 @@ declare namespace avSession {
      */
     mediaImage?: image.PixelMap | string;
     /**
-     * Any additional attributes that can be represented as key-value pairs
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @FaAndStageModel
@@ -5899,7 +5814,6 @@ declare namespace avSession {
     extras?: Record<string, Object>;
 
     /**
-     * The type of this media, such as video, audio and so on.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5919,7 +5833,6 @@ declare namespace avSession {
     mediaSize?: int;
 
     /**
-     * The album title of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5929,7 +5842,6 @@ declare namespace avSession {
     albumTitle?: string;
 
     /**
-     * The album cover uri of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5939,7 +5851,6 @@ declare namespace avSession {
     albumCoverUri?: string;
 
     /**
-     * The lyric content of the media, it should be in standard lyric format
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5949,7 +5860,6 @@ declare namespace avSession {
     lyricContent?: string;
 
     /**
-     * The lyric uri of the media.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5959,7 +5869,6 @@ declare namespace avSession {
     lyricUri?: string;
 
     /**
-     * The artist of this media.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5969,7 +5878,6 @@ declare namespace avSession {
     artist?: string;
 
     /**
-     * The uri of the media, used to locate the media in some special cases
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5979,7 +5887,6 @@ declare namespace avSession {
     mediaUri?: string;
 
     /**
-     * Media file descriptor.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -5989,7 +5896,6 @@ declare namespace avSession {
     fdSrc?: media.AVFileDescriptor;
 
     /**
-     * DataSource descriptor. The caller ensures the fileSize and callback are valid.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 12 dynamic
@@ -5998,8 +5904,7 @@ declare namespace avSession {
     dataSrc?: media.AVDataSrcDescriptor;
 
     /**
-     * Source type that supports PCM casting.
-     * The application can send PCM data directly to the system through audio APIs, without using AVSession to set data.
+     * 支持PCM投播的source类型，应用通过音频等接口直接播放，不需要通过AVSession设置数据。
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice
@@ -6009,7 +5914,6 @@ declare namespace avSession {
     pcmSrc?: boolean;
 
     /**
-     * The drm scheme supported by this resource which is represented by uuid.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 12 dynamic
@@ -6018,7 +5922,7 @@ declare namespace avSession {
     drmScheme?: string;
 
     /**
-     * The duration of this media, described by milliseconds.
+     * The duration of this media
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6048,7 +5952,6 @@ declare namespace avSession {
     creditsPosition?: int;
 
     /**
-     * Application name.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6068,7 +5971,7 @@ declare namespace avSession {
     displayTags?: int;
 
     /**
-     * Custom data sent by the application to the receiver during casting.
+     * 应用自定义的数据，投播时发送到接收端
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6079,7 +5982,6 @@ declare namespace avSession {
   }
 
   /**
-   * The item in the playlist of the session
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -6098,7 +6000,6 @@ declare namespace avSession {
     itemId: int;
 
     /**
-     * The media description of the item in the playlist.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6109,8 +6010,6 @@ declare namespace avSession {
   }
 
   /**
-   * Used to indicate the playback state of the current media.
-   * If the playback state of the media changes, it needs to be updated synchronously
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -6119,7 +6018,6 @@ declare namespace avSession {
    */
   interface AVPlaybackState {
     /**
-     * Current playback state. See {@link PlaybackState}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6139,7 +6037,6 @@ declare namespace avSession {
     speed?: double;
 
     /**
-     * Current playback position of this media. See {@link PlaybackPosition}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6149,7 +6046,7 @@ declare namespace avSession {
     position?: PlaybackPosition;
 
     /**
-     * The current buffered time, the maximum playable position, described by milliseconds.
+     * The current buffered time, the maximum playable position
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6159,7 +6056,6 @@ declare namespace avSession {
     bufferedTime?: long;
 
     /**
-     * Current playback loop mode. See {@link LoopMode}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6169,7 +6065,6 @@ declare namespace avSession {
     loopMode?: LoopMode;
 
     /**
-     * Current Favorite Status
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6209,7 +6104,6 @@ declare namespace avSession {
     maxVolume?: int;
 
     /**
-     * Current muted status
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6219,7 +6113,7 @@ declare namespace avSession {
     muted?: boolean;
 
     /**
-     * The duration of this media asset, described by milliseconds.
+     * The duration of this media asset.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
@@ -6268,7 +6162,6 @@ declare namespace avSession {
   }
 
   /**
-   * Playback position definition
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -6277,7 +6170,7 @@ declare namespace avSession {
    */
   interface PlaybackPosition {
     /**
-     * Elapsed time(position) of this media set by the app, described by milliseconds.
+     * Elapsed time(position) of this media set by the app.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6287,7 +6180,7 @@ declare namespace avSession {
     elapsedTime: long;
 
     /**
-     * Record the system time when elapsedTime is set, described by milliseconds.
+     * Record the system time when elapsedTime is set.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6298,7 +6191,6 @@ declare namespace avSession {
   }
 
   /**
-   * The metadata of the current call.
    *
    * @interface CallMetadata [since 11 - 11]
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6308,7 +6200,6 @@ declare namespace avSession {
    */
   interface CallMetadata {
     /**
-     * The displayed user name of current call.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6318,7 +6209,6 @@ declare namespace avSession {
     name?: string;
 
     /**
-     * The phone number of current call.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6328,7 +6218,6 @@ declare namespace avSession {
     phoneNumber?: string;
 
     /**
-     * The displayed picture that represents a particular user.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6339,7 +6228,6 @@ declare namespace avSession {
   }
 
   /**
-   * Used to indicate the call state of the current call.
    *
    * @interface AVCallState [since 11 - 11]
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -6349,7 +6237,6 @@ declare namespace avSession {
    */
   interface AVCallState {
     /**
-     * Current call state. See {@link CallState}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6359,7 +6246,6 @@ declare namespace avSession {
     state: CallState;
 
     /**
-     * Current muted status.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6379,7 +6265,6 @@ declare namespace avSession {
    */
   enum CallState {
     /**
-     * Idle state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6389,7 +6274,6 @@ declare namespace avSession {
     CALL_STATE_IDLE = 0,
 
     /**
-     * Incoming state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6399,7 +6283,6 @@ declare namespace avSession {
     CALL_STATE_INCOMING = 1,
 
     /**
-     * Active state in calling.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6409,7 +6292,6 @@ declare namespace avSession {
     CALL_STATE_ACTIVE = 2,
 
     /**
-     * Dialing state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6419,7 +6301,6 @@ declare namespace avSession {
     CALL_STATE_DIALING = 3,
 
     /**
-     * Waiting state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6429,7 +6310,6 @@ declare namespace avSession {
     CALL_STATE_WAITING = 4,
 
     /**
-     * Holding state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6439,7 +6319,6 @@ declare namespace avSession {
     CALL_STATE_HOLDING = 5,
 
     /**
-     * Disconnecting state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6459,8 +6338,6 @@ declare namespace avSession {
    */
   enum AVCastCategory {
     /**
-     * The default cast type "local", media can be routed on the same device,
-     * including internal speakers or audio jack on the device itself, A2DP devices.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -6470,8 +6347,6 @@ declare namespace avSession {
     CATEGORY_LOCAL = 0,
 
     /**
-     * The remote category indicating the media is presenting on a remote device,
-     * the application needs to get an AVCastController to control remote playback.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -6490,7 +6365,6 @@ declare namespace avSession {
    */
   enum DeviceType {
     /**
-     * A device type indicating the route is on internal speakers or audio jack on the device itself.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6500,7 +6374,6 @@ declare namespace avSession {
     DEVICE_TYPE_LOCAL = 0,
 
     /**
-     * A device type indicating the route is on a TV.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -6510,7 +6383,6 @@ declare namespace avSession {
     DEVICE_TYPE_TV = 2,
 
     /**
-     * A device type indicating the route is on a smart speaker.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice [since 12]
@@ -6520,7 +6392,7 @@ declare namespace avSession {
     DEVICE_TYPE_SMART_SPEAKER = 3,
 
     /**
-     * A device type indicating the route is on a bluetooth device.
+     *
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6530,7 +6402,7 @@ declare namespace avSession {
     DEVICE_TYPE_BLUETOOTH = 10,
 
     /**
-     * The device type is a car.
+     * 设备类型为汽车。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -6540,7 +6412,7 @@ declare namespace avSession {
     DEVICE_TYPE_CAR = 4,
 
     /**
-     * The device type is a pad.
+     * 设备类型为pad。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -6550,7 +6422,7 @@ declare namespace avSession {
     DEVICE_TYPE_PAD = 6,
 
     /**
-     * A default device which supports Cast+ Stream protocol.
+     * 支持Cast+ Stream协议的默认设备。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -6560,7 +6432,7 @@ declare namespace avSession {
     DEVICE_TYPE_DEFAULT_CAST_PLUS_STREAM = 7,
 
     /**
-     * The device type is a 2in1.
+     * 设备类型为2in1。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -6570,7 +6442,7 @@ declare namespace avSession {
     DEVICE_TYPE_2IN1 = 8,
 
     /**
-     * The device which supports HiPlay protocol.
+     * 支持HiPlay协议的设备。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @stagemodelonly
@@ -6581,7 +6453,7 @@ declare namespace avSession {
   }
 
   /**
-   * HiPlay Device Information Definition
+   * HiPlay 设备类型定义
    *
    * @syscap SystemCapability.Multimedia.AVSession.AVCast
    * @systemapi
@@ -6591,10 +6463,7 @@ declare namespace avSession {
    */
   interface HiPlayDeviceInfo {
     /**
-     * HiPlay device supports cast mode.
-     * when device both support device level cast and app level cast, support cast mode is DEVICE_LEVEL_CAST|APP_LEVEL_CAST
-     * 1: DEVICE_LEVEL_CAST
-     * 2: APP_LEVEL_CAST
+     * 支持的Cast Mode，包含设备级和应用级投播
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6605,9 +6474,7 @@ declare namespace avSession {
     supportCastMode?: int;
 
     /**
-     * HiPlay device cast mode.
-     * 1: DEVICE_LEVEL_CAST
-     * 2: APP_LEVEL_CAST
+     * HiPlay 投播模式，设备级和应用级
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6618,7 +6485,7 @@ declare namespace avSession {
     castMode?: int;
 
     /**
-     * HiPlay device current cast uid.
+     * HiPlay 当前投播uid
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6629,10 +6496,8 @@ declare namespace avSession {
     castUid?: int;
 
     /**
-     * HiPlay device support multi device mode.
-     * When device both support all multi cast mode, support multi device mode is MULTI_ROOM_CAST|MULTI_CHANNEL_CAST
-     * 1: MULTI_ROOM_CAST
-     * 2: MULTI_CHANNEL_CAST
+     * 是否支持多设备连接能力。
+     * 取值限定为整数。
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6644,7 +6509,6 @@ declare namespace avSession {
   }
 
   /**
-   * Device Information Definition
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -6653,7 +6517,6 @@ declare namespace avSession {
    */
   interface DeviceInfo {
     /**
-     * The playback type supported by the device. See {@link AVCastCategory}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6662,8 +6525,6 @@ declare namespace avSession {
      */
     castCategory: AVCastCategory;
     /**
-     * Audio device id.The length of the audioDeviceId array is greater than 1
-     * if output to multiple devices at the same time.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6673,8 +6534,6 @@ declare namespace avSession {
     deviceId: string;
 
     /**
-     * Device name. The length of the deviceName array is greater than 1
-     * if output to multiple devices at the same time.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6694,7 +6553,7 @@ declare namespace avSession {
     deviceType: DeviceType;
 
     /**
-     * Device manufacturer.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -6703,7 +6562,6 @@ declare namespace avSession {
     manufacturer?: string;
 
     /**
-     * Device model name.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6713,7 +6571,6 @@ declare namespace avSession {
     modelName?: string;
 
     /**
-     * Network id.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6723,7 +6580,6 @@ declare namespace avSession {
     networkId?: string;
 
     /**
-     * device ip address if available.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6753,7 +6609,6 @@ declare namespace avSession {
     supportedProtocols?: int;
 
     /**
-     * The drm capability supported by current device, each drm is represented by uuid.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6763,7 +6618,11 @@ declare namespace avSession {
     supportedDrmCapabilities?: Array<string>;
 
     /**
-     * Whether the device supports pull-end playback, including a collection of pull-end client IDs.
+     * 设备是否支持拉端播放，包含拉端的id信息集合
+     *
+     *
+     *
+     *
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6785,7 +6644,6 @@ declare namespace avSession {
     authenticationStatus?: int;
 
     /**
-     * Indicates the current device is legacy or not.
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6807,7 +6665,7 @@ declare namespace avSession {
     mediumTypes?: int;
 
     /**
-     * Audio capabilities supported by the device.
+     * 返回设备支持的音频属性相关的能力
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
@@ -6817,8 +6675,7 @@ declare namespace avSession {
     audioCapabilities?: AudioCapabilities;
 
     /**
-     * HiPlayDeviceInfo is used to obtain device-specific information for HiPlay.
-     * transmit info during casting.
+     * HiPlay设备类型定义
      *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @systemapi
@@ -6829,7 +6686,6 @@ declare namespace avSession {
   }
 
   /**
-   * Target Device Information Definition
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
@@ -6838,7 +6694,6 @@ declare namespace avSession {
    */
   interface OutputDeviceInfo {
     /**
-     * Arrays of device information
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6858,7 +6713,6 @@ declare namespace avSession {
    */
   enum LoopMode {
     /**
-     * The default mode is sequential playback
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6868,7 +6722,6 @@ declare namespace avSession {
     LOOP_MODE_SEQUENCE = 0,
 
     /**
-     * Single loop mode
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6878,7 +6731,6 @@ declare namespace avSession {
     LOOP_MODE_SINGLE = 1,
 
     /**
-     * List loop mode
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6888,7 +6740,6 @@ declare namespace avSession {
     LOOP_MODE_LIST = 2,
 
     /**
-     * Shuffle playback mode
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6898,7 +6749,6 @@ declare namespace avSession {
     LOOP_MODE_SHUFFLE = 3,
 
     /**
-     * Custom playback mode supported by application
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6917,21 +6767,21 @@ declare namespace avSession {
    */
   enum SkipIntervals {
     /**
-     * 10 seconds
+     *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
      * @since 23 static
      */
     SECONDS_10 = 10,
     /**
-     * 15 seconds
+     *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
      * @since 23 static
      */
     SECONDS_15 = 15,
     /**
-     * 30 seconds
+     *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 11 dynamic
      * @since 23 static
@@ -6940,7 +6790,7 @@ declare namespace avSession {
   }
 
   /**
-   * Supported background play mode definitions.
+   * 后台播放模式定义
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @stagemodelonly
@@ -6948,7 +6798,7 @@ declare namespace avSession {
    */
   enum BackgroundPlayMode {
     /**
-     * Enable background playback
+     * 支持后台播放模式
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -6956,7 +6806,7 @@ declare namespace avSession {
      */
     ENABLE_BACKGROUND_PLAY = 0,
     /**
-     * Disable background playback
+     * 不支持后台播放模式
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
@@ -6975,7 +6825,6 @@ declare namespace avSession {
    */
   enum PlaybackState {
     /**
-     * Initial state. The initial state of media file
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6985,8 +6834,6 @@ declare namespace avSession {
     PLAYBACK_STATE_INITIAL = 0,
 
     /**
-     * Preparing state. Indicates that the media file is not ready to play,
-     * the media is loading or buffering
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -6996,7 +6843,6 @@ declare namespace avSession {
     PLAYBACK_STATE_PREPARE = 1,
 
     /**
-     * Playing state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7006,7 +6852,6 @@ declare namespace avSession {
     PLAYBACK_STATE_PLAY = 2,
 
     /**
-     * Paused state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7016,7 +6861,6 @@ declare namespace avSession {
     PLAYBACK_STATE_PAUSE = 3,
 
     /**
-     * Fast forwarding state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7026,7 +6870,6 @@ declare namespace avSession {
     PLAYBACK_STATE_FAST_FORWARD = 4,
 
     /**
-     * Rewinding state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7036,7 +6879,6 @@ declare namespace avSession {
     PLAYBACK_STATE_REWIND = 5,
 
     /**
-     * Stopped state.The server will clear the media playback position and other information.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7046,7 +6888,6 @@ declare namespace avSession {
     PLAYBACK_STATE_STOP = 6,
 
     /**
-     * Completed state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7056,7 +6897,6 @@ declare namespace avSession {
     PLAYBACK_STATE_COMPLETED = 7,
 
     /**
-     * Released state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7066,7 +6906,6 @@ declare namespace avSession {
     PLAYBACK_STATE_RELEASED = 8,
 
     /**
-     * error state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7076,7 +6915,6 @@ declare namespace avSession {
     PLAYBACK_STATE_ERROR = 9,
 
     /**
-     * Idle state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7086,7 +6924,6 @@ declare namespace avSession {
     PLAYBACK_STATE_IDLE = 10,
 
     /**
-     * Buffering state.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7097,7 +6934,6 @@ declare namespace avSession {
   }
 
   /**
-   * The description of the session
    *
    * @syscap SystemCapability.Multimedia.AVSession.Manager
    * @systemapi [since 9 - 22]
@@ -7107,7 +6943,6 @@ declare namespace avSession {
    */
   interface AVSessionDescriptor {
     /**
-     * Unique ID of the session
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7118,7 +6953,6 @@ declare namespace avSession {
     sessionId: string;
 
     /**
-     * Session type, currently supports audio or video
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7129,7 +6963,6 @@ declare namespace avSession {
     type: AVSessionType;
 
     /**
-     * The session tag set by the application
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7140,7 +6973,6 @@ declare namespace avSession {
     sessionTag: string;
 
     /**
-     * The elementName of the ability that created this session. See {@link ElementName} in bundle/elementName.d.ts
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7151,7 +6983,6 @@ declare namespace avSession {
     elementName: ElementName;
 
     /**
-     * Session active state
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7162,7 +6993,6 @@ declare namespace avSession {
     isActive: boolean;
 
     /**
-     * Is it the top priority session
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi [since 9 - 22]
@@ -7173,8 +7003,6 @@ declare namespace avSession {
     isTopSession: boolean;
 
     /**
-     * The current output device information.
-     * It will be undefined if this is a local session.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
@@ -7184,7 +7012,7 @@ declare namespace avSession {
     outputDevice: OutputDeviceInfo;
 
     /**
-     * The userId to which this session belongs.
+     * 当前会话所属的userId
      *
      * @syscap SystemCapability.Multimedia.AVSession.Manager
      * @systemapi
@@ -7195,7 +7023,6 @@ declare namespace avSession {
   }
 
   /**
-   * The extra info object.
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 18 dynamic
@@ -7211,7 +7038,6 @@ declare namespace avSession {
   type ExtraInfo = Record<string, Object>;
 
   /**
-   * Session controller,used to control media playback and get media information
    *
    * @interface AVSessionController [since 10 - 11]
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7221,7 +7047,6 @@ declare namespace avSession {
    */
   interface AVSessionController {
     /**
-     * Unique session Id
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -7231,7 +7056,6 @@ declare namespace avSession {
     readonly sessionId: string;
 
     /**
-     * Get the playback status of the current session
      *
      * @param { AsyncCallback<AVPlaybackState> } callback - The triggered asyncCallback when (getAVPlaybackState).
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7244,7 +7068,6 @@ declare namespace avSession {
     getAVPlaybackState(callback: AsyncCallback<AVPlaybackState>): void;
 
     /**
-     * Get the playback status of the current session
      *
      * @returns { Promise<AVPlaybackState> } (AVPlaybackState) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7258,7 +7081,6 @@ declare namespace avSession {
     getAVPlaybackState(): Promise<AVPlaybackState>;
 
     /**
-     * Get the playback status of the current session
      *
      * @returns { AVPlaybackState } (AVPlaybackState) returned
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7272,7 +7094,6 @@ declare namespace avSession {
     getAVPlaybackStateSync(): AVPlaybackState;
 
     /**
-     * Get the metadata of the current session
      *
      * @param { AsyncCallback<AVMetadata> } callback - The triggered asyncCallback when (getAVMetadata).
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7285,7 +7106,6 @@ declare namespace avSession {
     getAVMetadata(callback: AsyncCallback<AVMetadata>): void;
 
     /**
-     * Get the metadata of the current session
      *
      * @returns { Promise<AVMetadata> } (AVMetadata) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7299,7 +7119,6 @@ declare namespace avSession {
     getAVMetadata(): Promise<AVMetadata>;
 
     /**
-     * Get the metadata of the current session
      *
      * @returns { AVMetadata } (AVMetadata) returned
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7313,7 +7132,7 @@ declare namespace avSession {
     getAVMetadataSync(): AVMetadata;
 
     /**
-     * Get the call status of the current session
+     *
      * @param { AsyncCallback<AVCallState> } callback - The triggered asyncCallback when (getAVCallState).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7325,8 +7144,8 @@ declare namespace avSession {
     getAVCallState(callback: AsyncCallback<AVCallState>): void;
 
     /**
-     * Get the call status of the current session
-     * @returns { Promise<AVCallState> } (AVCallState) returned through promise
+     *
+     * @returns { Promise<AVCallState> }      * @throws { BusinessError } 6600101
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7337,7 +7156,7 @@ declare namespace avSession {
     getAVCallState(): Promise<AVCallState>;
 
     /**
-     * Get the call metadata of the current session
+     *
      * @param { AsyncCallback<CallMetadata> } callback - The triggered asyncCallback when (getCallMetadata).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7349,8 +7168,8 @@ declare namespace avSession {
     getCallMetadata(callback: AsyncCallback<CallMetadata>): void;
 
     /**
-     * Get the call metadata of the current session
-     * @returns { Promise<CallMetadata> } (CallMetadata) returned through promise
+     *
+     * @returns { Promise<CallMetadata> }      * @throws { BusinessError } 6600101
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7361,7 +7180,7 @@ declare namespace avSession {
     getCallMetadata(): Promise<CallMetadata>;
 
     /**
-     * Get the name of the playlist of the current session
+     *
      * @param { AsyncCallback<string> } callback - The triggered asyncCallback when (getAVQueueTitle).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7373,7 +7192,6 @@ declare namespace avSession {
     getAVQueueTitle(callback: AsyncCallback<string>): void;
 
     /**
-     * Get the name of the playlist of the current session
      *
      * @returns { Promise<string> } (string) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7387,7 +7205,6 @@ declare namespace avSession {
     getAVQueueTitle(): Promise<string>;
 
     /**
-     * Get the name of the playlist of the current session
      *
      * @returns { string } (string) returned
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7401,7 +7218,7 @@ declare namespace avSession {
     getAVQueueTitleSync(): string;
 
     /**
-     * Get the playlist of the current session
+     *
      * @param { AsyncCallback<Array<AVQueueItem>> } callback - The triggered asyncCallback when (getAVQueueItems).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7413,7 +7230,6 @@ declare namespace avSession {
     getAVQueueItems(callback: AsyncCallback<Array<AVQueueItem>>): void;
 
     /**
-     * Get the playlist of the current session
      *
      * @returns { Promise<Array<AVQueueItem>> } (Array<AVQueueItem>) returned through promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7427,7 +7243,6 @@ declare namespace avSession {
     getAVQueueItems(): Promise<Array<AVQueueItem>>;
 
     /**
-     * Get the playlist of the current session
      *
      * @returns { Array<AVQueueItem> } (Array<AVQueueItem>) returned
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7484,7 +7299,6 @@ declare namespace avSession {
     getOutputDevice(callback: AsyncCallback<OutputDeviceInfo>): void;
 
     /**
-     * Get output device information
      *
      * @returns { Promise<OutputDeviceInfo> } (OutputDeviceInfo) returned through promise
      * @throws { BusinessError } 600101 - Session service exception.
@@ -7497,7 +7311,6 @@ declare namespace avSession {
     getOutputDevice(): Promise<OutputDeviceInfo>;
 
     /**
-     * Get output device information
      *
      * @returns { OutputDeviceInfo } (OutputDeviceInfo) returned
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7510,7 +7323,7 @@ declare namespace avSession {
     getOutputDeviceSync(): OutputDeviceInfo;
 
     /**
-     * Get supported speeds supplied by application.This API uses a promise to return the result.
+     * 获取应用程序提供的支持速度。
      *
      * @returns { Promise<Array<double>> } Promise used to return Array<double>.
      * @throws { BusinessError } 6600101 - Session service exception
@@ -7523,9 +7336,9 @@ declare namespace avSession {
     getSupportedPlaySpeeds(): Promise<Array<double>>;
 
     /**
-     * Get supported loop modes supplied by application.
+     * 获取应用程序提供的支持的循环模式。
      *
-     * @returns { Promise<Array<LoopMode>> } supported loop mode returned through promise
+     * @returns { Promise<Array<LoopMode>> } 支持通过promise返回的循环模式
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7536,7 +7349,7 @@ declare namespace avSession {
     getSupportedLoopModes(): Promise<Array<LoopMode>>;
 
     /**
-     * Send media key event to this session
+     *
      * @param { KeyEvent } event - The KeyEvent
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7553,7 +7366,7 @@ declare namespace avSession {
     sendAVKeyEvent(event: KeyEvent, callback: AsyncCallback<void>): void;
 
     /**
-     * Send media key event to this session
+     *
      * @param { KeyEvent } event - The KeyEvent
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7571,7 +7384,7 @@ declare namespace avSession {
     sendAVKeyEvent(event: KeyEvent): Promise<void>;
 
     /**
-     * Get the {@link WantAgent} of this session that can launch the session ability
+     *
      * @param { AsyncCallback<WantAgent> } callback - The asyncCallback triggered when getting the WantAgent.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7583,7 +7396,6 @@ declare namespace avSession {
     getLaunchAbility(callback: AsyncCallback<WantAgent>): void;
 
     /**
-     * Get the {@link WantAgent} of this session that can launch the session ability
      *
      * @returns { Promise<WantAgent> } WantAgent promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7611,7 +7423,7 @@ declare namespace avSession {
     getRealPlaybackPositionSync(): long;
 
     /**
-     * Check if the current session is active
+     *
      * @param { AsyncCallback<boolean> } callback - The triggered asyncCallback when (isActive).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7623,7 +7435,6 @@ declare namespace avSession {
     isActive(callback: AsyncCallback<boolean>): void;
 
     /**
-     * Check if the current session is active
      *
      * @returns { Promise<boolean> } boolean promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7637,7 +7448,6 @@ declare namespace avSession {
     isActive(): Promise<boolean>;
 
     /**
-     * Check if the current session is active
      *
      * @returns { boolean } boolean
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7651,7 +7461,7 @@ declare namespace avSession {
     isActiveSync(): boolean;
 
     /**
-     * Destroy the server controller
+     *
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7662,7 +7472,6 @@ declare namespace avSession {
     destroy(callback: AsyncCallback<void>): void;
 
     /**
-     * Destroy the server controller
      *
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7675,7 +7484,7 @@ declare namespace avSession {
     destroy(): Promise<void>;
 
     /**
-     * Get commands supported by the current session
+     *
      * @param { AsyncCallback<Array<AVControlCommandType>> } callback - The triggered asyncCallback when (getValidCommands).
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
@@ -7687,7 +7496,6 @@ declare namespace avSession {
     getValidCommands(callback: AsyncCallback<Array<AVControlCommandType>>): void;
 
     /**
-     * Get commands supported by the current session
      *
      * @returns { Promise<Array<AVControlCommandType>> } array of AVControlCommandType promise
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7701,7 +7509,6 @@ declare namespace avSession {
     getValidCommands(): Promise<Array<AVControlCommandType>>;
 
     /**
-     * Get commands supported by the current session
      *
      * @returns {Array<AVControlCommandType> } array of AVControlCommandType
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7715,7 +7522,7 @@ declare namespace avSession {
     getValidCommandsSync(): Array<AVControlCommandType>;
 
     /**
-     * Send control commands to this session
+     *
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7733,7 +7540,7 @@ declare namespace avSession {
     sendControlCommand(command: AVControlCommand, callback: AsyncCallback<void>): void;
 
     /**
-     * Send control commands to this session
+     *
      * @param { AVControlCommand } command - The command to be sent. See {@link AVControlCommand}
      * @returns { Promise<void> } void promise when executed successfully
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7752,7 +7559,7 @@ declare namespace avSession {
     sendControlCommand(command: AVControlCommand): Promise<void>;
 
     /**
-     * Send common commands to this session
+     *
      * @param { string } command - The command name to be sent.
      * @param { object } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
@@ -7772,7 +7579,9 @@ declare namespace avSession {
 
     /**
      * Send common commands to this session
+     *
      * @param { string } command - The command name to be sent.
+     *     <br>通用控制命令
      * @param { Record<string, Object> } args - The parameters of session event
      * @param { AsyncCallback<void> } callback - The asyncCallback triggered when the command is executed successfully.
      * @throws { BusinessError } 6600101 - Session service exception.
@@ -7840,7 +7649,7 @@ declare namespace avSession {
     sendCustomData(data: Record<string, Object>): Promise<void>;
 
     /**
-     * Get custom media packets provided by the corresponding session
+     *
      * @param { AsyncCallback<{[key: string]: Object}> } callback - The triggered asyncCallback when (getExtras).
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
      *     2.Incorrect parameter types. 3.Parameter verification failed.
@@ -7869,7 +7678,9 @@ declare namespace avSession {
     getExtras(callback: AsyncCallback<Record<string, Object>>): void;
 
     /**
-     * Get custom media packets provided by the corresponding session
+     *
+     *
+     *
      *
      * @returns { Promise<{[key: string]: Object}> } the parameters of extras
      * @throws { BusinessError } 401 - parameter check failed. 1.Mandatory parameters are left unspecified.
@@ -7888,7 +7699,8 @@ declare namespace avSession {
 
     /**
      * Get custom media packets provided by the corresponding session
-     * @returns { Promise<Record<string, Object>> } the parameters of extras
+     *
+     * @returns { Promise<Record<string, Object>> } 返回自定义的扩展数据
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7915,8 +7727,8 @@ declare namespace avSession {
     getExtrasWithEvent(extraEvent: string): Promise<ExtraInfo>;
 
     /**
-     * Query desktop lyric enabled state for this session.
-     * @returns { Promise<boolean> } return the enabled status
+     * 查询桌面歌词使能状态
+     * @returns { Promise<boolean> } 返回桌面歌词使能状态
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7928,8 +7740,8 @@ declare namespace avSession {
     isDesktopLyricEnabled(): Promise<boolean>;
 
     /**
-     * Register desktop lyric enable state change callback.
-     * @param { Callback<boolean> } callback - a callback to receive desktop lyric enable state.
+     * 监听桌面歌词使能状态
+     * @param { Callback<boolean> } callback - 桌面歌词使能状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7939,8 +7751,8 @@ declare namespace avSession {
     onDesktopLyricEnabled(callback: Callback<boolean>): void;
 
     /**
-     * Unregister desktop lyric enable state change callback.
-     * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric enable state.
+     * 取消监听桌面歌词使能状态
+     * @param { Callback<boolean> } [callback] - 桌面歌词使能状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -7950,9 +7762,9 @@ declare namespace avSession {
     offDesktopLyricEnabled(callback?: Callback<boolean>): void;
 
     /**
-     * Set desktop lyric visible state for this session.
-     * @param { boolean } visible - make desktop lyric window visible or not
-     * @returns { Promise<void> } void promise when executed successfully
+     * 设置桌面歌词显示和隐藏状态
+     * @param { boolean } visible - 显示和隐藏状态
+     * @returns { Promise<void> } 无返回值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7965,8 +7777,8 @@ declare namespace avSession {
     setDesktopLyricVisible(visible: boolean): Promise<void>;
 
     /**
-     * Query desktop lyric visible state for this session.
-     * @returns { Promise<boolean> } return desktop lyric visible state
+     * 查询桌面歌词显示或者隐藏状态
+     * @returns { Promise<boolean> } 返回显示或者隐藏状态
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7979,7 +7791,7 @@ declare namespace avSession {
     isDesktopLyricVisible(): Promise<boolean>;
 
     /**
-     * Register desktop lyric visible state change callback.
+     * 注册桌面歌词显示或者隐藏状态
      * @param { Callback<boolean> } callback - a callback to receive desktop lyric window visible state.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -7990,7 +7802,7 @@ declare namespace avSession {
     onDesktopLyricVisibilityChanged(callback: Callback<boolean>): void;
 
     /**
-     * Unregister desktop lyric visible state change callback.
+     * 取消注册桌面歌词显示或者隐藏状态
      * @param { Callback<boolean> } [callback] - a callback to receive desktop lyric window visible state.
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -8001,9 +7813,9 @@ declare namespace avSession {
     offDesktopLyricVisibilityChanged(callback?: Callback<boolean>): void;
 
     /**
-     * Set desktop lyric state such as lock state for this session.
-     * @param { DesktopLyricState } state - The desktop lyric state
-     * @returns { Promise<void> } void promise when executed successfully
+     * 设置桌面歌词锁定等状态
+     * @param { DesktopLyricState } state - 桌面歌词锁定等状态
+     * @returns { Promise<void> } 无返回值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -8016,8 +7828,8 @@ declare namespace avSession {
     setDesktopLyricState(state: DesktopLyricState): Promise<void>;
 
     /**
-     * Get desktop lyric state such as lock state for this session.
-     * @returns { Promise<DesktopLyricState> } void promise when executed successfully
+     * 返回桌面歌词锁定等状态
+     * @returns { Promise<DesktopLyricState> } 无返回值
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600102 - The session does not exist.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
@@ -8030,8 +7842,8 @@ declare namespace avSession {
     getDesktopLyricState(): Promise<DesktopLyricState>;
 
     /**
-     * Register desktop lyric state changed callback.
-     * @param { Callback<DesktopLyricState> } callback - a callback to receive desktop lyric state.
+     * 注册桌面歌词锁定等状态回调
+     * @param { Callback<DesktopLyricState> } callback - 桌面歌词锁定等状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8041,8 +7853,8 @@ declare namespace avSession {
     onDesktopLyricStateChanged(callback: Callback<DesktopLyricState>): void;
 
     /**
-     * Unregister desktop lyric state changed callback.
-     * @param { Callback<DesktopLyricState> } [callback] - a callback to receive desktop lyric state.
+     * 取消注册桌面歌词锁定等状态回调
+     * @param { Callback<DesktopLyricState> } [callback] - 桌面歌词锁定等状态回调
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8052,11 +7864,9 @@ declare namespace avSession {
     offDesktopLyricStateChanged(callback?: Callback<DesktopLyricState>): void;
 
     /**
-     * Get media control type that can be displayed on the media center.
+     * 获取媒体播放器上可显示的媒体控制类型。
      *
-     * @returns { Promise<Array<AVMediaCenterControlType>> } The control types that the app sets to be displayed
-     *     on the media center.The default value is empty, indicating that the types of the customized
-     *     display control is not set.
+     * @returns { Promise<Array<AVMediaCenterControlType>> } 应用设置要显示的控件类型
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8066,9 +7876,9 @@ declare namespace avSession {
     getMediaCenterControlType(): Promise<Array<AVMediaCenterControlType>>;
 
     /**
-     * Register media center control type changed callback.
+     * 注册媒体中心控制类型改变回调。
      *
-     * @param { Callback<Array<AVMediaCenterControlType>> } callback - Callback to receive the changed control types.
+     * @param { Callback<Array<AVMediaCenterControlType>> } callback - 接收控件类型变化的回调。
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8078,9 +7888,9 @@ declare namespace avSession {
     onMediaCenterControlTypeChanged(callback: Callback<Array<AVMediaCenterControlType>>): void;
 
     /**
-     * Unregister media center control type changed callback.
+     * 注销媒体中心控制类型已更改回调。
      *
-     * @param { Callback<Array<AVMediaCenterControlType>> } [callback] - Callback to receive changed control types.
+     * @param { Callback<Array<AVMediaCenterControlType>> } [callback] - 用于接收更改的控件类型的回调。
      * @throws { BusinessError } 6600101 - Session service exception.
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8090,7 +7900,6 @@ declare namespace avSession {
     offMediaCenterControlTypeChanged(callback?: Callback<Array<AVMediaCenterControlType>>): void;
 
     /**
-     * Register metadata changed callback
      *
      * @param { 'metadataChange' } type
      * @param { Array<keyof AVMetadata> | 'all' } filter - The properties of {@link AVMetadata} that you cared about
@@ -8134,7 +7943,6 @@ declare namespace avSession {
     onMetadataChangeAll(callback: Callback<AVMetadata>): void;
 
     /**
-     * Unregister metadata changed callback
      *
      * @param { 'metadataChange' } type
      * @param { function } callback - The callback used to handle metadata changed event.
@@ -8164,7 +7972,6 @@ declare namespace avSession {
     offMetadataChange(callback?: Callback<AVMetadata>): void;
 
     /**
-     * Register playback state changed callback
      *
      * @param { 'playbackStateChange' } type
      * @param { Array<keyof AVPlaybackState> | 'all' } filter - The properties of {@link AVPlaybackState}
@@ -8207,7 +8014,6 @@ declare namespace avSession {
     onPlaybackStateChangeAll(callback: Callback<AVPlaybackState>): void;
 
     /**
-     * Unregister playback state changed callback
      *
      * @param { 'playbackStateChange' } type
      * @param { function } callback - The callback used to handle playback state changed event.
@@ -8402,7 +8208,6 @@ declare namespace avSession {
     onSessionDestroy(callback: NoParamCallback): void;
 
     /**
-     * Unregister current session destroyed callback
      *
      * @param { 'sessionDestroy' } type - 'sessionDestroy'
      * @param { function } callback - The callback used to handle current session destroyed event.
@@ -8428,7 +8233,6 @@ declare namespace avSession {
     offSessionDestroy(callback?: NoParamCallback): void;
 
     /**
-     * Register the active state of this session changed callback
      *
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
@@ -8456,7 +8260,6 @@ declare namespace avSession {
     onActiveStateChange(callback: Callback<boolean>): void;
 
     /**
-     * Unregister the active state of this session changed callback
      *
      * @param { 'activeStateChange' } type - 'activeStateChange'
      * @param { function } callback - The callback used to handle the active state of this session changed event.
@@ -8484,7 +8287,6 @@ declare namespace avSession {
     offActiveStateChange(callback?: Callback<boolean>): void;
 
     /**
-     * Register the valid commands of the session changed callback
      *
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
@@ -8512,7 +8314,6 @@ declare namespace avSession {
     onValidCommandChange(callback: Callback<Array<AVControlCommandType>>): void;
 
     /**
-     * Unregister the valid commands of the session changed callback
      *
      * @param { 'validCommandChange' } type - 'validCommandChange'
      * @param { function } callback - The callback used to handle the changes.
@@ -8598,7 +8399,6 @@ declare namespace avSession {
     offOutputDeviceChange(callback?: ConnectionEvent): void;
 
     /**
-     * Register session event callback
      *
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - The callback used to handle session event changed event.
@@ -8626,7 +8426,6 @@ declare namespace avSession {
     onSessionEvent(callback: EventProcess): void;
 
     /**
-     * Unregister session event callback
      *
      * @param { 'sessionEvent' } type - 'sessionEvent'
      * @param { function } callback - Used to cancel a specific listener
@@ -8763,7 +8562,6 @@ declare namespace avSession {
     offQueueTitleChange(callback?: Callback<string>): void;
 
     /**
-     * Register the custom media packets change callback
      *
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
@@ -8791,7 +8589,6 @@ declare namespace avSession {
     onExtrasChange(callback: Callback<Record<string, Object>>): void;
 
     /**
-     * Unregister the custom media packets change callback
      *
      * @param { 'extrasChange' } type - Registration Type 'extrasChange'
      * @param { function } callback - Used to handle custom media packets changed.
@@ -8863,9 +8660,9 @@ declare namespace avSession {
     offCustomDataChange(callback?: Callback<Record<string, Object>>): void;
 
     /**
-     * Register listener for supported play speeds.
+     * 为支持的播放速度注册监听器。
      *
-     * @param { Callback<Array<double>> } callback - Callback used to retrieve supported play speeds.
+     * @param { Callback<Array<double>> } callback - 用于检索支持的播放速度的回调
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8876,9 +8673,9 @@ declare namespace avSession {
     onSupportedPlaySpeedsChange(callback: Callback<Array<double>>): void;
 
     /**
-     * Unregister listener for supported play speeds.
+     * 为支持的播放速度取消注册侦听器。
      *
-     * @param { Callback<Array<double>> } [callback] - Callback used to retrieve supported play speeds.
+     * @param { Callback<Array<double>> } [callback] - 用于检索支持的播放速度的回调
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8889,9 +8686,9 @@ declare namespace avSession {
     offSupportedPlaySpeedsChange(callback?: Callback<Array<double>>): void;
 
     /**
-     * Register listener for supported loop modes.
+     * 为支持的循环模式注册监听器。
      *
-     * @param { Callback<Array<LoopMode>> } callback - Callback used to retrieve supported loop modes.
+     * @param { Callback<Array<LoopMode>> } callback - 用于检索支持的循环模式的回调。
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8902,9 +8699,9 @@ declare namespace avSession {
     onSupportedLoopModesChange(callback: Callback<Array<LoopMode>>): void;
 
     /**
-     * Unregister listener for supported loop modes.
+     * 为支持的循环模式注销侦听器。
      *
-     * @param { Callback<Array<LoopMode>> } [callback] - Callback used to retrieve supported loop modes.
+     * @param { Callback<Array<LoopMode>> } [callback] - 用于检索支持的循环模式的回调。
      * @throws { BusinessError } 6600101 - Session service exception
      * @throws { BusinessError } 6600103 - The session controller does not exist.
      * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8916,7 +8713,7 @@ declare namespace avSession {
   }
 
   /**
-   * The type of control command.
+   * The type of control command
    *
    * @unionmember { 'play' } Play the current media. [since 10]
    * @unionmember { 'pause' } Pause the current media. [since 10]
@@ -8935,7 +8732,6 @@ declare namespace avSession {
    * @unionmember { 'hangUp' } Hang up the current call. [since 11]
    * @unionmember { 'toggleCallMute' } Toggle the mute status of the call. [since 11]
    * @unionmember { 'setTargetLoopMode' } Set the target loop mode. [since 18]
-   *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @atomicservice [since 12]
    * @since 10 dynamic
@@ -8945,7 +8741,7 @@ declare namespace avSession {
   'seek' | 'setSpeed' | 'setLoopMode' | 'toggleFavorite' | 'playFromAssetId' | 'playWithAssetId' | 'answer' | 'hangUp' | 'toggleCallMute' | 'setTargetLoopMode';
 
   /**
-   * The type of media center control command, which can be used to determine the button displayed on the media center.
+   * 应用可选择设置优先级的播控组件类型
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @stagemodelonly
@@ -8955,7 +8751,6 @@ declare namespace avSession {
     'toggleFavorite';
 
   /**
-   * The definition of command to be sent to the session
    *
    * @interface AVControlCommand [since 10 - 11]
    * @syscap SystemCapability.Multimedia.AVSession.Core
@@ -8965,7 +8760,6 @@ declare namespace avSession {
    */
   interface AVControlCommand {
     /**
-     * The command value {@link AVControlCommandType}
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -8992,7 +8786,7 @@ declare namespace avSession {
     parameter?: LoopMode | string | double;
 
     /**
-     * The command value {@link CommandInfo}
+     * 控制命令的来源信息参数
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
@@ -9002,7 +8796,7 @@ declare namespace avSession {
   }
 
   /**
-   * The definition of command information to be sent to the session
+   * 控制方发送的额外命令信息
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 22 dynamic
@@ -9010,7 +8804,7 @@ declare namespace avSession {
    */
   interface CommandInfo {
     /**
-     * Caller bundle name.
+     * 调用者类型
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
@@ -9019,7 +8813,7 @@ declare namespace avSession {
     callerBundleName?: string;
 
     /**
-     * Caller module name.
+     * 调用者模块名
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
@@ -9028,7 +8822,7 @@ declare namespace avSession {
     callerModuleName?: string;
 
     /**
-     * Caller device id.
+     * 调用方设备id信息
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
@@ -9037,7 +8831,7 @@ declare namespace avSession {
     callerDeviceId?: string;
 
     /**
-     * Caller type.
+     * 发送控制命令的来源
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
@@ -9047,7 +8841,7 @@ declare namespace avSession {
   }
 
   /**
-   * Enumerates CallerType indicating caller source type.
+   * 播控控制者的来源类型。
    *
    * @syscap SystemCapability.Multimedia.AVSession.Core
    * @since 22 dynamic
@@ -9055,7 +8849,7 @@ declare namespace avSession {
    */
   enum CallerType {
     /**
-     * The control command comes from cast service.
+     * 来自cast+服务的控制
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
      * @since 23 static
@@ -9063,7 +8857,7 @@ declare namespace avSession {
     TYPE_CAST = 'cast',
 
     /**
-     * The control command comes from bluetooth.
+     * 控制命令来自蓝牙设备
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
      * @since 23 static
@@ -9071,7 +8865,7 @@ declare namespace avSession {
     TYPE_BLUETOOTH = 'bluetooth',
 
     /**
-     * The control command comes from nearlink device.
+     * 控制命令来自星闪设备
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
      * @since 22 dynamic
@@ -9080,7 +8874,7 @@ declare namespace avSession {
     TYPE_NEARLINK = 'nearlink',
 
     /**
-     * The control command comes from an application.
+     * 控制命令来自应用
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @since 22 dynamic
      * @since 23 static
@@ -9098,7 +8892,6 @@ declare namespace avSession {
    */
   enum AVSessionErrorCode {
     /**
-     * Session service exception.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9108,7 +8901,6 @@ declare namespace avSession {
     ERR_CODE_SERVICE_EXCEPTION = 6600101,
 
     /**
-     * The session does not exist
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9118,7 +8910,6 @@ declare namespace avSession {
     ERR_CODE_SESSION_NOT_EXIST = 6600102,
 
     /**
-     * The session controller does not exist.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9128,7 +8919,6 @@ declare namespace avSession {
     ERR_CODE_CONTROLLER_NOT_EXIST = 6600103,
 
     /**
-     * The remote session connection failed.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9138,7 +8928,6 @@ declare namespace avSession {
     ERR_CODE_REMOTE_CONNECTION_ERR = 6600104,
 
     /**
-     * Invalid session command.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9148,7 +8937,6 @@ declare namespace avSession {
     ERR_CODE_COMMAND_INVALID = 6600105,
 
     /**
-     * The session is not activated.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9158,7 +8946,6 @@ declare namespace avSession {
     ERR_CODE_SESSION_INACTIVE = 6600106,
 
     /**
-     * Too many commands or events.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9168,7 +8955,6 @@ declare namespace avSession {
     ERR_CODE_MESSAGE_OVERLOAD = 6600107,
 
     /**
-     * Device connecting failed.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9178,7 +8964,6 @@ declare namespace avSession {
     ERR_CODE_DEVICE_CONNECTION_FAILED = 6600108,
 
     /**
-     * The remote connection is not established.
      *
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @atomicservice [since 12]
@@ -9188,7 +8973,7 @@ declare namespace avSession {
     ERR_CODE_REMOTE_CONNECTION_NOT_EXIST = 6600109,
 
     /**
-     * The desktop lyrics feature of this application is not enabled.
+     * 应用未使能桌面歌词特性
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
      * @atomicservice
@@ -9197,7 +8982,7 @@ declare namespace avSession {
     ERR_CODE_DESKTOP_LYRIC_NOT_ENABLED = 6600110,
 
     /**
-     * The desktop lyrics feature is not supported.
+     * 系统桌面歌词特性不支持
      * @syscap SystemCapability.Multimedia.AVSession.Core
      * @stagemodelonly
      * @atomicservice
@@ -9206,7 +8991,7 @@ declare namespace avSession {
     ERR_CODE_DESKTOP_LYRIC_NOT_SUPPORTED = 6600111,
 
     /**
-     * The error code for cast control is unspecified.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9215,7 +9000,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_UNSPECIFIED = 6611000,
 
     /**
-     * An unspecified error occurs in the remote player.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9224,7 +9009,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_REMOTE_ERROR = 6611001,
 
     /**
-     * The playback position falls behind the live window.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9233,7 +9018,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_BEHIND_LIVE_WINDOW = 6611002,
 
     /**
-     * The process of cast control times out.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9242,7 +9027,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_TIMEOUT = 6611003,
 
     /**
-     * The runtime check failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9251,7 +9036,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_RUNTIME_CHECK_FAILED = 6611004,
 
     /**
-     * Cross-device data transmission is locked.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9260,7 +9045,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PLAYER_NOT_WORKING = 6611100,
 
     /**
-     * The specified seek mode is not supported.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9269,7 +9054,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_SEEK_MODE_UNSUPPORTED = 6611101,
 
     /**
-     * The position to seek to is out of the range of the media asset or the specified seek mode is not supported.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9278,7 +9063,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_ILLEGAL_SEEK_TARGET = 6611102,
 
     /**
-     * The specified playback mode is not supported.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9287,7 +9072,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PLAY_MODE_UNSUPPORTED = 6611103,
 
     /**
-     * The specified playback speed is not supported.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9296,7 +9081,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PLAY_SPEED_UNSUPPORTED = 6611104,
 
     /**
-     * The action failed because either the media source device or the media sink device has been revoked.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9305,7 +9090,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DEVICE_MISSING = 6611105,
 
     /**
-     * The parameter is invalid, for example, the url is illegal to play.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9314,7 +9099,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_INVALID_PARAM = 6611106,
 
     /**
-     * Allocation of memory failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9323,7 +9108,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_NO_MEMORY = 6611107,
 
     /**
-     * Operation is not allowed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9332,7 +9117,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_OPERATION_NOT_ALLOWED = 6611108,
 
     /**
-     * An unspecified input/output error occurs.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9341,7 +9126,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_UNSPECIFIED = 6612000,
 
     /**
-     * Network connection failure.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9350,7 +9135,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_FAILED = 6612001,
 
     /**
-     * Network timeout.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9359,7 +9144,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NETWORK_CONNECTION_TIMEOUT = 6612002,
 
     /**
-     * Invalid "Content-Type" HTTP header.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9368,7 +9153,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_INVALID_HTTP_CONTENT_TYPE = 6612003,
 
     /**
-     * The HTTP server returns an unexpected HTTP response status code.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9377,7 +9162,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_BAD_HTTP_STATUS = 6612004,
 
     /**
-     * The file does not exist.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9386,7 +9171,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_FILE_NOT_FOUND = 6612005,
 
     /**
-     * No permission is granted to perform the IO operation.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9395,7 +9180,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NO_PERMISSION = 6612006,
 
     /**
-     * Access to cleartext HTTP traffic is not allowed by the app's network security configuration.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9404,7 +9189,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_CLEARTEXT_NOT_PERMITTED = 6612007,
 
     /**
-     * Reading data out of the data bound.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9413,7 +9198,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_READ_POSITION_OUT_OF_RANGE = 6612008,
 
     /**
-     * The media does not contain any contents that can be played.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9422,7 +9207,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NO_CONTENTS = 6612100,
 
     /**
-     * The media cannot be read, for example, because of dust or scratches.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9431,7 +9216,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_READ_ERROR = 6612101,
 
     /**
-     * This resource is already in use.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9440,7 +9225,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_CONTENT_BUSY = 6612102,
 
     /**
-     * The content using the validity interval has expired.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9449,7 +9234,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_CONTENT_EXPIRED = 6612103,
 
     /**
-     * Using the requested content to play is not allowed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9458,7 +9243,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_USE_FORBIDDEN = 6612104,
 
     /**
-     * The use of the allowed content cannot be verified.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9467,7 +9252,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NOT_VERIFIED = 6612105,
 
     /**
-     * The number of times this content has been used as requested has reached the maximum allowed number of uses.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9476,7 +9261,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_EXHAUSTED_ALLOWED_USES = 6612106,
 
     /**
-     * An error occurs when sending packet from source device to sink device.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9485,7 +9270,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_IO_NETWORK_PACKET_SENDING_FAILED = 6612107,
 
     /**
-     * Unspecified error related to content parsing.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9494,7 +9279,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_UNSPECIFIED = 6613000,
 
     /**
-     * Parsing error associated with media container format bit streams.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9503,7 +9288,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_MALFORMED = 6613001,
 
     /**
-     * Parsing error associated with the media manifest.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9512,8 +9297,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_MALFORMED = 6613002,
 
     /**
-     * An error occurs when attempting to extract a file with an unsupported media container format
-     * or an unsupported media container feature.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9522,7 +9306,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_CONTAINER_UNSUPPORTED = 6613003,
 
     /**
-     * Unsupported feature in the media manifest.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9531,7 +9315,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_PARSING_MANIFEST_UNSUPPORTED = 6613004,
 
     /**
-     * Unspecified decoding error.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9540,7 +9324,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_UNSPECIFIED = 6614000,
 
     /**
-     * Decoder initialization failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9549,7 +9333,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_INIT_FAILED = 6614001,
 
     /**
-     * Decoder query failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9558,7 +9342,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_QUERY_FAILED = 6614002,
 
     /**
-     * Decoding the media samples failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9567,7 +9351,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_FAILED = 6614003,
 
     /**
-     * The format of the content to decode exceeds the capabilities of the device.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9576,7 +9360,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_FORMAT_EXCEEDS_CAPABILITIES = 6614004,
 
     /**
-     * The format of the content to decode is not supported.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9585,7 +9369,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DECODING_FORMAT_UNSUPPORTED = 6614005,
 
     /**
-     * Unspecified errors related to the audio renderer.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9594,7 +9378,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_UNSPECIFIED = 6615000,
 
     /**
-     * Initializing the audio renderer failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9603,7 +9387,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_INIT_FAILED = 6615001,
 
     /**
-     * The audio renderer fails to write data.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9612,7 +9396,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_AUDIO_RENDERER_WRITE_FAILED = 6615002,
 
     /**
-     * Unspecified error related to DRM.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9621,7 +9405,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_UNSPECIFIED = 6616000,
 
     /**
-     * The chosen DRM protection scheme is not supported by the device.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9630,7 +9414,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_SCHEME_UNSUPPORTED = 6616001,
 
     /**
-     * Device provisioning failed.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9639,7 +9423,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_PROVISIONING_FAILED = 6616002,
 
     /**
-     * The DRM-protected content to play is incompatible.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9648,7 +9432,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_CONTENT_ERROR = 6616003,
 
     /**
-     * Failed to obtain a license.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9657,7 +9441,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_LICENSE_ACQUISITION_FAILED = 6616004,
 
     /**
-     * The operation is disallowed by the license policy.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9666,7 +9450,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_DISALLOWED_OPERATION = 6616005,
 
     /**
-     * An error occurs in the DRM system.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9675,7 +9459,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_SYSTEM_ERROR = 6616006,
 
     /**
-     * The device has revoked DRM privileges.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9684,7 +9468,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_DEVICE_REVOKED = 6616007,
 
     /**
-     * The DRM license being loaded into the open DRM session has expired.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
@@ -9693,7 +9477,7 @@ declare namespace avSession {
     ERR_CODE_CAST_CONTROL_DRM_LICENSE_EXPIRED = 6616008,
 
     /**
-     * An error occurs when the DRM processes the key response.
+     *
      * @syscap SystemCapability.Multimedia.AVSession.AVCast
      * @atomicservice
      * @since 13 dynamic
