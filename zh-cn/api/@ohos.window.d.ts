@@ -12353,7 +12353,7 @@ declare namespace window {
      * @param { Callback<boolean> } callback - 回调函数。返回当前窗口是否在自由窗口模式，true表示是自由窗口模式，false表示非自由窗口模式。
      * @throws { BusinessError } 1300002 - This window state is abnormal.
      *     Possible cause: The window is not created or destroyed.
-     * @throws { BusinessError } 1300003 - This window manager service works abnormally.onFreeWindowModeChange
+     * @throws { BusinessError } 1300003 - This window manager service works abnormally.
      * @syscap SystemCapability.WindowManager.WindowManager.Core
      * @atomicservice
      * @since 22 dynamic
