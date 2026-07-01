@@ -24,7 +24,7 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
 /*** endif */
 
 /**
- * The displaySync module allows your application to draw its custom UI content at a specified frame rate.
+ * 可变帧率支持让开发者以指定帧率来运行UI业务，一般用于开发者自绘制UI，并且对于帧率有特定诉求的场景。
  *
  * @syscap SystemCapability.ArkUI.ArkUI.Full
  * @since 11 dynamic
@@ -32,8 +32,7 @@ import { ExpectedFrameRateRange } from './arkui/component/common';
  */
 declare namespace displaySync {
   /**
-   * You can obtain the timestamp information from the event callback, including the timestamp when the current frame 
-   * arrives and the timestamp when the next frame is expected to arrive.
+   * 开发者可以从订阅函数中获取帧绘制的时间戳信息，包含当前帧到达的时间timestamp和下一帧预期到达的时间targetTimestamp。
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
@@ -41,7 +40,7 @@ declare namespace displaySync {
    */
   interface IntervalInfo {
     /**
-     * Time when the current frame arrives, in nanoseconds.
+     * 当前帧到达的时间（单位：纳秒）。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
@@ -50,7 +49,7 @@ declare namespace displaySync {
     timestamp: long;
 
     /**
-     * Expected arrival time of the next frame, in nanoseconds.
+     * 下一帧预期到达的时间（单位：纳秒）。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
@@ -60,10 +59,8 @@ declare namespace displaySync {
   }
 
   /**
-   * An object that implements the setting of the frame rate and callback. It provides APIs for you to set the frame 
-   * rate, register a callback, and start/stop the callback.
-   * Before calling any of the following APIs, you must use [displaySync.create()]{@link displaySync.create} to create
-   * a **DisplaySync** instance.
+   * 帧率和回调函数设置实例。用于帧率设置和回调函数的注册，以及启动和停止回调函数的调用。
+   * 下列API示例中都需先使用displaySync.create()方法获取到DisplaySync实例，再通过此实例调用对应方法。
    * 
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
@@ -71,9 +68,9 @@ declare namespace displaySync {
    */
   interface DisplaySync {
     /**
-     * Sets the expected frame rate range.
+     * 设置期望的帧率范围。
      * 
-     * @param { ExpectedFrameRateRange } rateRange - Expected frame rate range.
+     * @param { ExpectedFrameRateRange } rateRange - 设置DisplaySync期望的帧率。
      * @throws { BusinessError } 401 - Parameter error. Possible causes: 
      *     <br> 1. Mandatory parameters are left unspecified.
      *     <br> 2. Incorrect parameters types.
@@ -86,47 +83,45 @@ declare namespace displaySync {
     setExpectedFrameRateRange(rateRange: ExpectedFrameRateRange) : void;
 
     /**
-     * Subscribes to change events of each frame.
+     * 订阅每一帧的变化。
      * 
-     * @param { 'frame' } type - Event type. The value is fixed at **'frame'**.
-     * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
+     * @param { 'frame' } type - 设置注册回调的类型（只能是'frame'类型）。
+     * @param { Callback<IntervalInfo> } callback - 订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      */
     on(type: 'frame', callback: Callback<IntervalInfo>): void;
 
     /**
-     * Subscribes to change events of each frame.
+     * 订阅每一帧的变化。
      * 
-     * @param { Callback<IntervalInfo> } callback - Callback used for subscription.
+     * @param { Callback<IntervalInfo> } callback - 订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     onFrame(callback: Callback<IntervalInfo>): void;
 
     /**
-     * Unsubscribes from change events of each frame.
+     * 取消订阅每一帧的变化。
      * 
-     * @param { 'frame' } type - Event type. The value is fixed at **'frame'**.
-     * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
-     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { 'frame' } type - 设置注册回调的类型（只能是'frame'类型）。
+     * @param { Callback<IntervalInfo> } [callback] - 订阅函数，参数不填时，默认取消全部订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
      */
     off(type: 'frame', callback?: Callback<IntervalInfo>): void;
 
     /**
-     * Unsubscribes from change events of each frame.
+     * 取消订阅每一帧的变化。
      * 
-     * @param { Callback<IntervalInfo> } [callback] - Callback used for unsubscription.
-     *     If no value is passed in, all subscriptions to the specified event are canceled.
+     * @param { Callback<IntervalInfo> } [callback] - 订阅函数，参数不填时，默认取消全部订阅函数。
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 23 static
      */
     offFrame(callback?: Callback<IntervalInfo>): void;
 
     /**
-     * Starts callback for each frame.
+     * 开始每帧回调。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
@@ -135,7 +130,7 @@ declare namespace displaySync {
     start(): void;
 
     /**
-     * Stops callback for each frame.
+     * 停止每帧回调。
      * 
      * @syscap SystemCapability.ArkUI.ArkUI.Full
      * @since 11 dynamic
@@ -145,9 +140,9 @@ declare namespace displaySync {
   }
 
   /**
-   * Creates a **DisplaySync** object, through which you can set the frame rate of the custom UI content.
+   * 创建DisplaySync对象，通过此对象设置UI自绘制内容帧率。
    * 
-   * @returns { DisplaySync } **DisplaySync** object created.
+   * @returns { DisplaySync } 返回当前创建的DisplaySync对象实例。
    * @syscap SystemCapability.ArkUI.ArkUI.Full
    * @since 11 dynamic
    * @since 23 static
