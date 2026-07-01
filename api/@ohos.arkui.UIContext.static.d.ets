@@ -716,6 +716,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions,
@@ -732,6 +733,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showDialog(options: promptAction.ShowDialogOptions): Promise<promptAction.ShowDialogSuccessResponse>;
@@ -747,6 +749,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions,
@@ -763,6 +766,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   showActionMenu(options: promptAction.ActionMenuOptions): Promise<promptAction.ActionMenuSuccessResponse>;
@@ -780,6 +784,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog<T extends Object>(dialogContent: ComponentContent<T>,
@@ -799,6 +804,7 @@ export declare class PromptAction {
    * @throws { BusinessError } 103301 - The ComponentContent is incorrect.
    * @throws { BusinessError } 103302 - Dialog content already exists.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialogWithController<T extends Object>(dialogContent: ComponentContent<T>,
@@ -852,6 +858,7 @@ export declare class PromptAction {
    * <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   openCustomDialog(options: promptAction.CustomDialogOptions): Promise<int>;
@@ -869,6 +876,7 @@ export declare class PromptAction {
    *     <br> 3. Parameter verification failed.
    * @throws { BusinessError } 100001 - Internal error.
    * @syscap SystemCapability.ArkUI.ArkUI.Full
+   * @stagemodelonly
    * @since 23 static
    */
   presentCustomDialog(builder: CustomBuilder | CustomBuilderT<int>, controller?: promptAction.DialogController,
