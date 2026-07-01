@@ -21,7 +21,7 @@
 import type { Callback } from '@ohos.base';
 
 /**
- * Provides methods to manage NearLink devices.
+ * 提供管理星闪设备的方法。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
@@ -30,9 +30,9 @@ import type { Callback } from '@ohos.base';
 declare namespace manager {
 
   /**
-   * Check whether the current device supports NearLink.
+   * 检查当前设备是否支持星闪。
    *
-   * @returns { boolean } Return whether the NearLink is supported.
+   * @returns { boolean } 返回是否支持星闪。
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
    * @since 26.0.0 dynamic&static
@@ -40,7 +40,7 @@ declare namespace manager {
   function isNearLinkSupported(): boolean;
 
   /**
-   * Turns on NearLink.
+   * 开启星闪。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
    * @throws { BusinessError } 201 - Permission denied.
@@ -56,7 +56,7 @@ declare namespace manager {
   function enable(): void;
 
   /**
-   * Turns off NearLink.
+   * 关闭星闪。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
    * @throws { BusinessError } 201 - Permission denied.
@@ -71,9 +71,9 @@ declare namespace manager {
   function disable(): void;
 
   /**
-   * Gets the NearLink state.
+   * 获取星闪状态。
    *
-   * @returns { NearlinkState } Returns the NearLink state.
+   * @returns { NearlinkState } 返回NearLink状态。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -83,10 +83,10 @@ declare namespace manager {
   function getState(): NearlinkState;
 
   /**
-   * Gets the MAC address of the local device.
+   * 获取本端设备的MAC地址。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.GET_NEARLINK_LOCAL_MAC
-   * @returns { string } The local MAC address. For example, "11:22:33:AA:BB:FF".
+   * @returns { string } 本地MAC地址。例如，“11:22:33:AA:BB:FF”。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -100,10 +100,10 @@ declare namespace manager {
   function getLocalAddress(): string;
 
   /**
-   * Gets the local device's name.
+   * 获取本地设备的名称。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @returns { string } Returns the device's name.
+   * @returns { string } 返回设备的名称。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -115,9 +115,8 @@ declare namespace manager {
   function getLocalName(): string;
 
   /**
-   * Gets the list of devices that have been paired with the current device.
-   * If the user has the ohos.permission.GET_NEARLINK_PEER_MAC permission, the real device address is returned.
-   * Otherwise, a random device address is returned.
+   * 获取已与当前设备配对的设备列表。
+   * 如果用户有ohos.permission.GET_NEARLINK_PEER_MAC权限，则返回真实设备地址。否则，返回随机的设备地址
    *
    * @permission ohos.permission.ACCESS_NEARLINK
    * @returns { string[] } Returns a list of paired devices' address in MAC format (e.g., "11:22:33:AA:BB:FF").
@@ -132,13 +131,13 @@ declare namespace manager {
   function getPairedDevices(): string[];
 
   /**
-   * Sets the NearLink connection mode for a device.
+   * 设置设备的NearLink连接模式。
    *
    * @permission ohos.permission.ACCESS_NEARLINK and ohos.permission.MANAGE_NEARLINK
-   * @param { ConnectionMode } mode - Indicates the NearLink connection mode to be set.
-   * @param { int } duration - Indicates the duration in seconds for the setting mode. A value of 0 means unlimited.
-   *     <br>Unit: Seconds, The value must be an integer greater than or equal to 0.
-   * @returns { Promise<void> } Returns the promise object.
+   * @param { ConnectionMode } mode - 需要设置的NearLink连接模式
+   * @param { int } duration - 表示设置连接模式的持续时间（以秒为单位）。值为0表示无限制
+   *     <br>单位为： 秒，取值应为≥0的整数。
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -153,10 +152,10 @@ declare namespace manager {
   function setConnectionMode(mode: ConnectionMode, duration: int): Promise<void>;
 
   /**
-   * Restores NearLink settings.
+   * 恢复星闪设置。
    *
    * @permission ohos.permission.MANAGE_NEARLINK
-   * @returns { Promise<void> } Returns the promise object.
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 202 - Non-system applications are not allowed to use system APIs.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
@@ -169,9 +168,9 @@ declare namespace manager {
   function factoryReset(): Promise<void>;
 
   /**
-   * Subscribes to state change events.
+   * 订阅状态变更事件。
    *
-   * @param { Callback<NearlinkState> } callback - Callback used to listen for the state change event.
+   * @param { Callback<NearlinkState> } callback - 用于监听状态改变事件的回调
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -181,9 +180,9 @@ declare namespace manager {
   function onStateChange(callback: Callback<NearlinkState>): void;
 
   /**
-   * Unsubscribes from state change events.
+   * 取消订阅状态变更事件。
    *
-   * @param { Callback<NearlinkState> } [callback] - Callback used to listen for the state change event.
+   * @param { Callback<NearlinkState> } [callback] - 用于监听状态改变事件的回调
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100099 - Operation failed.
    * @syscap SystemCapability.Communication.NearLink.Base
@@ -193,7 +192,7 @@ declare namespace manager {
   function offStateChange(callback?: Callback<NearlinkState>): void;
 
   /**
-   * The enum of NearLink state.
+   * 星闪状态的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -201,7 +200,7 @@ declare namespace manager {
    */
   enum NearlinkState {
     /**
-     * Indicates that NearLink is turning on.
+     * 表示星闪正在开启。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -209,7 +208,7 @@ declare namespace manager {
      */
     STATE_TURNING_ON = 0,
     /**
-     * Indicates that NearLink is on and ready for use.
+     * 表示星闪已开启，可供使用。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -217,7 +216,7 @@ declare namespace manager {
      */
     STATE_ON = 1,
     /**
-     * Indicates that NearLink is turning off.
+     * 表示星闪正在关闭。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -225,7 +224,7 @@ declare namespace manager {
      */
     STATE_TURNING_OFF = 2,
     /**
-     * Indicates that NearLink has turned off.
+     * 表示星闪已关闭。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -235,7 +234,7 @@ declare namespace manager {
   }
 
   /**
-   * The enum of connection mode.
+   * 连接模式的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @systemapi
@@ -244,7 +243,7 @@ declare namespace manager {
    */
   enum ConnectionMode {
     /**
-     * Indicates that the device is not connectable.
+     * 表示设备不可连接。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
@@ -253,7 +252,7 @@ declare namespace manager {
      */
     SLE_MODE_UNCONNECTABLE = 0,
     /**
-     * Indicates that the device is connectable.
+     * 表示设备是可连接的。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi

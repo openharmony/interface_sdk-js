@@ -23,7 +23,7 @@ import type { Callback } from '@ohos.base';
 import nearlinkConstant from '@ohos.nearlink.constant';
 
 /**
- * Provides methods for scanning and discovering nearby devices.
+ * 提供扫描和发现附近设备的方法。
  *
  * @syscap SystemCapability.Communication.NearLink.Base
  * @stagemodelonly
@@ -31,15 +31,16 @@ import nearlinkConstant from '@ohos.nearlink.constant';
  */
 declare namespace scan {
   /**
-   * Starts scanning for specified NearLink devices with filters.
-   * It is allowed to set filter parameter to {@code null} if you do not want to use filter.
+   * 开始使用过滤器扫描指定的NearLink设备。
+   * 如果不想使用过滤器，可以将过滤器参数设置为{@code null}。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
-   * @param { ScanFilters[] | null } filters - The list of filters and this parameter is mandatory.
-   *     If you do not want to use filter, set this parameter to {@code null}.
-   *     If you want to use filter, at least one filter should be set.
-   * @param { ScanOptions } [options] - The parameters for scanning, and the low power mode is used by default.
-   * @returns { Promise<void> } The promise object is returned.
+   * @param { ScanFilters[] | null } filters - 过滤器列表，必选。
+   *     如果不需要使用filter，可以设置为{@code null}。
+   *     如果要使用过滤器，至少要设置一个过滤器。
+   * @param { ScanOptions } [options] - 扫描的参数。
+   *     默认为低功率模式。
+   * @returns { Promise<void> } 返回promise对象。
    * @throws { BusinessError } 201 - Permission denied.
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
@@ -54,11 +55,11 @@ declare namespace scan {
   function startScan(filters: ScanFilters[] | null, options?: ScanOptions): Promise<void>;
 
   /**
-   * Stops scanning.
+   * 停止扫描。
    *
    * @permission ohos.permission.ACCESS_NEARLINK
    * @returns { Promise<void> }
-   * @throws { BusinessError } 201 - Permission denied.
+      * @throws { BusinessError } 201  - 权限被拒绝。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @throws { BusinessError } 36100003 - NearLink disabled.
    * @throws { BusinessError } 36100099 - Operation failed.
@@ -69,13 +70,13 @@ declare namespace scan {
   function stopScan(): Promise<void>;
 
   /**
-   * Subscribes to NearLink scan results.
+   * 订阅NearLink扫描结果。
    *
-   * This event is accessible only to applications that granted the ohos.permission.NEARLINK_ACCESS permission.
-   * If the application is granted the ohos.permission.GET_NEARLINK_PEER_MAC permission,
-   * the callback returns the real device address; otherwise, a random device address is returned.
+   * 只有授予了ohos.permission.NEARLINK_ACCESS权限的应用程序才能访问此事件。
+   * 如果应用被赋予了ohos.permission.GET_NEARLINK_PEER_MAC权限。
+   * 回调返回真实设备地址，否则返回随机设备地址。
    *
-   * @param { Callback<ScanResults[]> } callback - Callback used to listen for the scan result event.
+   * @param { Callback<ScanResults[]> } callback - 监听扫描结果事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -84,9 +85,9 @@ declare namespace scan {
   function onDeviceFound(callback: Callback<ScanResults[]>): void;
 
   /**
-   * Unsubscribes from NearLink scan results.
+   * 取消订阅星闪扫描结果。
    *
-   * @param { Callback<ScanResults[]> } [callback] - Callback used to listen for the scan result event.
+   * @param { Callback<ScanResults[]> } [callback] - 监听扫描结果事件的回调。
    * @throws { BusinessError } 801 - Capability not supported because the chip does not support it.
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -95,7 +96,7 @@ declare namespace scan {
   function offDeviceFound(callback?: Callback<ScanResults[]>): void;
 
   /**
-   * Describes the contents of the scan results.
+   * 扫描结果的内容。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -103,8 +104,8 @@ declare namespace scan {
    */
   interface ScanResults {
     /**
-     * Address of the remote device.
-     * The length is 17, and the value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 远端设备的地址。
+     * 长度为17，由十六进制数字和冒号组成，例如：11:22:33:AA:BB:FF。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -112,8 +113,8 @@ declare namespace scan {
      */
     address: string;
     /**
-     * RSSI of the remote device.
-     * Unit: dBm. The value is an integer within [-128,127], and the value 127 indicates an invalid RSSI.
+     * 外围设备的RSSI。
+     * 单位为： 分贝毫瓦，取值范围为全体整数，取值为127时表示无效值。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -121,7 +122,7 @@ declare namespace scan {
      */
     rssi: int;
     /**
-     * The raw data.
+     * 原始数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -129,7 +130,8 @@ declare namespace scan {
      */
     data: ArrayBuffer;
     /**
-     * Device name of the remote device.
+     * 外围设备的设备名称。
+     * 最大长度为26。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -137,7 +139,7 @@ declare namespace scan {
      */
     deviceName: string;
     /**
-     * Indicates whether the remote device is connectable.
+     * 广播是否可连接。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -145,7 +147,7 @@ declare namespace scan {
      */
     isConnectable: boolean;
     /**
-     * Indicates the device class.
+     * 设备类型。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -155,7 +157,7 @@ declare namespace scan {
   }
 
   /**
-   * Describes the scan filters.
+   * 扫描过滤器。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -163,8 +165,8 @@ declare namespace scan {
    */
   interface ScanFilters {
     /**
-     * Indicates the device address.
-     * The length must be 17, The value consists of hexadecimal digits and colons (:), for example, 11:22:33:AA:BB:FF.
+     * 设备地址。
+     * 长度必须为17，由16进制数字和冒号组成，形如 "11:22:33:AA:BB:FF"。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -173,7 +175,7 @@ declare namespace scan {
     address?: string;
 
     /**
-     * Indicates the device name.
+     * 设备名称。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -182,7 +184,8 @@ declare namespace scan {
     deviceName?: string;
 
     /**
-     * Indicates the manufacturer ID.
+     * 厂商ID。
+     * 取值范围为全体整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -191,7 +194,7 @@ declare namespace scan {
     manufacturerId?: int;
 
     /**
-     * Indicates the manufacturer data.
+     * 制造商数据。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -200,8 +203,7 @@ declare namespace scan {
     manufacturerData?: ArrayBuffer;
 
     /**
-     * Indicates the manufacturer data mask.
-     * If a manufacturer data mask is set in the scan filter, its length must match the manufacturer data length.
+     * 制造商数据掩码。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -210,8 +212,8 @@ declare namespace scan {
     manufacturerDataMask?: ArrayBuffer;
 
     /**
-     * Indicates the RSSI.
-     * Unit: dBm, The value must be an integer within [-128,127].
+     * 接收信号强度指示。
+     * 单位为： 分贝毫瓦，取值应为[-128,127]内的整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -221,7 +223,7 @@ declare namespace scan {
   }
 
   /**
-   * Describes the parameters for scan.
+   * 扫描参数。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -229,9 +231,9 @@ declare namespace scan {
    */
   interface ScanOptions {
     /**
-     * Indicates the scan mode.
-     * If the "scanMode" is not set, the default value is "SCAN_MODE_LOW_POWER".
-     * Default value: SCAN_MODE_LOW_POWER.
+     * 扫描模式。
+     * 如果未设置“scanMode”，则默认值为“SCAN_MODE_LOW_POWER”。
+     * 默认值： SCAN_MODE_LOW_POWER。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -240,9 +242,9 @@ declare namespace scan {
     scanMode?: ScanMode;
 
     /**
-     * Indicates the scan duration.
-     * If the "duration" is not set, the scanning is performed all the time.
-     * Unit: Seconds, The value must be an integer within [10,60].
+     * 扫描时长。
+     * “持续时间”，单位为秒，有效范围为10s~60s。如果不设置“持续时间”，则会一直扫描。
+     * 单位为： 秒，取值应为[10,60]内的整数。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -252,7 +254,7 @@ declare namespace scan {
   }
 
   /**
-   * The enum of scan mode.
+   * 扫描模式的枚举。
    *
    * @syscap SystemCapability.Communication.NearLink.Base
    * @stagemodelonly
@@ -260,7 +262,7 @@ declare namespace scan {
    */
   enum ScanMode {
     /**
-     * Low-power mode with a lower scan frequency (default).
+     * 低功率模式，扫描频率低（默认配置）。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -268,7 +270,7 @@ declare namespace scan {
      */
     SCAN_MODE_LOW_POWER = 0,
     /**
-     * Medium-power mode with a medium scan frequency.
+     * 中等功率模式，扫描频率中等。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @stagemodelonly
@@ -276,7 +278,7 @@ declare namespace scan {
      */
     SCAN_MODE_BALANCED = 1,
     /**
-     * High-power mode with a higher scan frequency.
+     * 高功率模式，扫描频率高。
      *
      * @syscap SystemCapability.Communication.NearLink.Base
      * @systemapi
